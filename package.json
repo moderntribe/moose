@@ -1,0 +1,44 @@
+{
+  "name": "blocks-starter",
+  "version": "1.0.0",
+  "description": "A WordPress starter framework for Modern Tribe Projects",
+  "author": "Modern Tribe <admin@tri.be>",
+  "license": "GPL-2.0-or-later",
+  "keywords": [],
+  "homepage": "https://github.com/moderntribe/blocks-starter#readme",
+  "repository": "https://github.com/moderntribe/blocks-starter",
+  "bugs": {
+    "email": "admin@tri.be"
+  },
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
+  "directories": {
+    "theme": "./wp-content/themes/core/"
+  },
+  "devDependencies": {
+    "@wordpress/create-block": "^4.2.0",
+    "@wordpress/scripts": "^24.2.0",
+    "browser-sync": "^2.27.10",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "lefthook": "^1.1.1"
+  },
+  "scripts": {
+    "dist": "wp-scripts build --webpack-src-dir=./wp-content/themes/core/blocks/",
+    "dev": "wp-scripts start --webpack-src-dir=./wp-content/themes/core/blocks/",
+    "create-block": "cd ./wp-content/themes/core/blocks/ && npx @wordpress/create-block --no-plugin --namespace tribe",
+    "format": "wp-scripts format ./wp-content/themes/core",
+    "lint": "npm run format && npm run lint:js && npm run lint:style",
+    "lint:style": "wp-scripts lint-style ./wp-content/themes/core/**/*.scss --fix",
+    "lint:js": "wp-scripts lint-js ./wp-content/themes/core/ ./*.js --fix",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "server_dist": "npm run dist",
+    "packages-update": "wp-scripts packages-update",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.1"
+  }
+}

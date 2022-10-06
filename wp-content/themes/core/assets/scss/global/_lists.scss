@@ -1,0 +1,13 @@
+.rte {
+  ol {
+    padding: 0 0 0 1em;
+  }
+
+  ul {
+    @include custom-bullet-list;
+  }
+
+  li {
+    line-height: 1.8;
+  }
+}

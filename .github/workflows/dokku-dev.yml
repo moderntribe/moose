@@ -1,0 +1,21 @@
+
+name: Dokku Deploy Dev
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy_app:
+    uses: ./.github/workflows/pipeline-dokku.yml
+    with:
+      app_name: app_name
+      branch: ${{ github.ref }}
+      server: d1.moderntribe.qa
+      is_review_app: false
+    secrets:
+      github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
+      ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}

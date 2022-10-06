@@ -1,0 +1,106 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches:
+      - server/staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_FOLDER: ./build
+      DEPLOY_FOLDER: ./deploy
+      ENVIRONMENT: staging
+      DEPLOY_REPO: ${{ secrets.STAGE_DEPLOY_REPO }}
+
+    steps:
+
+      ##########
+      ### BUILD: General SquareOne build steps
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        with:
+          php-version: '8.0'
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Get Build Repository
+      - name: Check out build branch
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.BUILD_FOLDER }}
+          ref: ${{github.ref}}
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      # Install composer: Add env for plugin keys, composer install, and cleanup
+      - name: Install composer dependencies
+        working-directory: ${{ env.BUILD_FOLDER }}
+        run: |
+          echo "${{ secrets.COMPOSER_ENV }}" > .env
+          composer install --optimize-autoloader --ignore-platform-reqs --no-dev
+          rm .env
+
+      # Set up node version
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: "${{ env.BUILD_FOLDER }}/.nvmrc"
+
+      # Yarn Install and Build
+      - name: Yarn install and build
+        working-directory: ${{ env.BUILD_FOLDER }}
+        run: |
+          yarn install --prefer-offline
+          npm run build
+
+      # Create local config for environment based settings
+      - name: Create local config
+        working-directory: ${{ env.BUILD_FOLDER }}
+        run: |
+          php -r "file_exists( 'local-config.php' ) || copy( 'local-config-sample.php', 'local-config.php' );"
+          echo "define( 'WP_ENVIRONMENT_TYPE', ${{env.ENVIRONMENT}} );" >> local-config.php
+
+      ##########
+      ### DEPLOY: Use the WPE git deploy hook method. TLDR; rsync our repo on their repo and push.
+
+      # Setup SSH key for deploy environment
+      - name: HOST SCM SSH KEY
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{secrets.DEPLOY_PRIVATE_SSH_KEY}}
+
+      # Get Build Repository and add wpengine to allowed hosts
+      - name: HOST SCM
+        run: |
+          ssh-keyscan git.wpengine.com >> ~/.ssh/known_hosts
+          git clone ${{env.DEPLOY_REPO}} ${{env.DEPLOY_FOLDER}}
+          cd ${{env.DEPLOY_FOLDER}}
+          git checkout master
+          git config user.email "devops@tri.be"
+          git config user.name "devops"
+
+      # Rsync wordpress
+      - name: Sync Build WP folder to Deploy directory
+        run: |
+          rsync -rpv --delete --exclude-from="${{env.BUILD_FOLDER}}/.deploy/deploy-exclude.txt" ${{env.BUILD_FOLDER}}/ ${{env.DEPLOY_FOLDER}}
+
+      # Git push to WPE to trigger deploy
+      - name: Git Push to Host SCM
+        working-directory: ${{ env.DEPLOY_FOLDER }}
+        run: |
+          echo 'Deploying ${{ github.ref }} to ${{env.ENVIRONMENT}}'
+          git add -Av
+          git commit --allow-empty -m 'Deploying ${{ github.ref }} to ${{env.ENVIRONMENT}}'
+          git push origin master

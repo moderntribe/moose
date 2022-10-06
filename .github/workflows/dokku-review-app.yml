@@ -1,0 +1,45 @@
+name: Dokku Deploy Review App
+
+on:
+  pull_request:
+    types: [ opened, closed, synchronize ]
+
+
+# workflows don't support env
+# so values are duplicated
+
+jobs:
+  create_review_app:
+    if: (github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
+    uses: moderntribe/actions/.github/workflows/create-review-app.yml@v1
+    with:
+      app_name: app_name
+      pr_number: ${{ github.event.number }}
+    secrets:
+      github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
+      server: d1.moderntribe.qa
+      ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+
+  deploy_review_app:
+    if: (github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
+    uses: ./.github/workflows/pipeline-dokku.yml
+    with:
+      app_name: app_name
+      branch: ${{ github.event.pull_request.head.ref }}
+      pr_number: ${{ github.event.number }}
+      is_review_app: true
+      server: d1.moderntribe.qa
+    secrets:
+      github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
+      ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+
+  destroy_review_app:
+    if: (github.event_name == 'pull_request' && github.event.action == 'closed') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
+    uses: moderntribe/actions/.github/workflows/delete-review-app.yml@v1
+    with:
+      app_name: app_name
+      pr_number: ${{ github.event.number }}
+    secrets:
+      github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
+      server: d1.moderntribe.qa

@@ -1,0 +1,114 @@
+{
+    "name": "moderntribe/block-starter",
+    "type": "project",
+    "license": "GPLv2",
+    "config": {
+        "vendor-dir": "vendor",
+        "sort-packages": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "ffraenz/private-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "phpcs": "./vendor/bin/phpcs --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
+        "phpcbf": "./vendor/bin/phpcbf -s --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
+        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1-beta2 --quiet --skip-content --force"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/moderntribe/tribe-glomar.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "gravityforms/gravityforms",
+                "version": "2.6.6",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://composer.utility.mtribe.site/gravityforms/?key={%WP_PLUGIN_GF_KEY}&token={%WP_PLUGIN_GF_TOKEN}&t={%VERSION}"
+                },
+                "require": {
+                    "ffraenz/private-composer-installer": "^5.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "advanced-custom-fields/advanced-custom-fields-pro",
+                "version": "6.0.2",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%WP_PLUGIN_ACF_KEY}&t={%VERSION}"
+                },
+                "require": {
+                    "ffraenz/private-composer-installer": "^5.0"
+                }
+            }
+        }
+    ],
+    "require-dev": {
+        "moderntribe/coding-standards": "3.x-dev",
+        "php-stubs/acf-pro-stubs": "dev-master",
+        "php-stubs/wordpress-tests-stubs": "dev-master",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "1.8.x-dev",
+        "szepeviktor/phpstan-wordpress": "dev-master"
+    },
+    "require": {
+        "php": "~8.0.0",
+        "advanced-custom-fields/advanced-custom-fields-pro": "^6.0",
+        "composer/installers": "2.x-dev",
+        "humanmade/s3-uploads": "3.0.4",
+        "johnbillion/extended-cpts": "^5.0",
+        "moderntribe/square1-post-type": "dev-feature/monorepo",
+        "moderntribe/square1-settings": "dev-master",
+        "moderntribe/square1-taxonomy": "dev-master",
+        "moderntribe/square1-utils": "dev-master",
+        "moderntribe/tribe-glomar": "dev-main",
+        "php-di/php-di": "^6.0",
+        "vinkla/extended-acf": "^13.1",
+        "vlucas/phpdotenv": "^5.3",
+        "wp-cli/wp-cli-bundle": "^2.6",
+        "wpackagist-plugin/disable-emojis": "^1.7",
+        "wpackagist-plugin/gutenberg": "14.1.1",
+        "wpackagist-plugin/limit-login-attempts-reloaded": "^2.25",
+        "wpackagist-plugin/redirection": "^5.3",
+        "wpackagist-plugin/safe-svg": "^2.0.3",
+        "wpackagist-plugin/user-switching": "^1.7",
+        "wpackagist-plugin/wordpress-seo": "^19.6",
+        "wpackagist-plugin/wp-tota11y": "^1.2"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Tribe\\Plugin\\": "wp-content/plugins/core/src",
+            "Tribe\\Theme\\": "wp-content/themes/core/src"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@import './transition';
+
+@mixin transition-fade-up {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    transform: translate3d(0, 4rem, 0);
+    transition: transition(transform, 1s), transition(opacity, 1s);
+
+    .scrolling-up & {
+      transform: translate3d(0, -4rem, 0);
+    }
+
+    &.lazyloaded {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

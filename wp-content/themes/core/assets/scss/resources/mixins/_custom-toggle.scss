@@ -1,0 +1,49 @@
+@mixin custom-toggle($width: 62px, $height: 35px, $color-active: $color-green) {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  font-size: $height;
+  line-height: 0;
+
+  > input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + label::before {
+      color: $color-active;
+      transform: translateX(0.75em);
+    }
+  }
+
+  > label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    border: 1px solid;
+    margin: 0;
+    background-color: white;
+    border-radius: $height;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 0.125em;
+      left: 0.125em;
+      width: 0.75em;
+      height: 0.75em;
+      background-color: currentColor;
+      border-radius: 100%;
+      content: ' ';
+      font-size: $height;
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        transition: transition(transform);
+      }
+    }
+  }
+}
