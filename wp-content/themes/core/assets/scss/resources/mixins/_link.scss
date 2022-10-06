@@ -1,0 +1,18 @@
+@import './hover-state';
+
+@mixin link {
+  color: currentColor;
+  font-weight: $link-font-weight;
+
+  // Override bs default hover state
+  // This avoids double tap click triggers on iOS devices
+  &:hover,
+  &:focus {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  @include hover-state {
+    text-decoration: underline;
+  }
+}

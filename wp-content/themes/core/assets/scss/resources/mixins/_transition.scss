@@ -1,0 +1,3 @@
+@function transition($prop: all, $speed: 0.3s, $ease: ease) {
+  @return $prop $speed $ease;
+}

@@ -1,0 +1,12 @@
+.container {
+  @include container;
+}
+
+.row {
+  @include row;
+}
+
+.col,
+[class*='col-'] {
+  @include col;
+}

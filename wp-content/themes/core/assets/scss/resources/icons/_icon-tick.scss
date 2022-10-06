@@ -1,0 +1,9 @@
+@import '../functions/str-replace';
+
+@function icon-tick($color) {
+  @return str-replace(
+    'data:image/svg+xml,%0A%3Csvg width="21px" height="15px" viewBox="0 0 21 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"%3E%3Cg id="2.0-Why-damira" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"%3E%3Cg id="2.0-Why-choose-Damira%3F" transform="translate(-150.000000, -1001.000000)" fill="#{$color}"%3E%3Cpath d="M170.843099,1003.02834 L158.048817,1015.84243 C157.83906,1016.05252 157.511653,1016.05252 157.301906,1015.84243 L150.157318,1008.68719 C149.947561,1008.4771 149.947561,1008.14916 150.157318,1007.93907 L151.27815,1006.81642 C151.487907,1006.60633 151.815313,1006.60633 152.025061,1006.81642 L157.674754,1012.47527 L168.974141,1001.15757 C169.183898,1000.94748 169.511304,1000.94748 169.721052,1001.15757 L170.841885,1002.28022 C171.052553,1002.49032 171.052553,1002.81734 170.842798,1003.02834 L170.843099,1003.02834 Z" id="Fill-1"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E',
+    '#',
+    '%23'
+  );
+}

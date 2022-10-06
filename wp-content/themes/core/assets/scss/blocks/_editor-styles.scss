@@ -1,0 +1,10 @@
+/******************************************
+ * Core Block Styles
+ *******************************************/
+
+.body.block-editor-page,
+html.wp-toolbar {
+	font-size: $base-rem; // Base font size reset for block editor.
+}
+
+.wp-block {}

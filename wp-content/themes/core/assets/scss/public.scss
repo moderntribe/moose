@@ -1,0 +1,32 @@
+/**************************************************************
+* Public CSS
+************************************************************/
+
+// Bootstrap Features
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/reboot';
+
+// Custom SCSS functions
+@import './resources/functions/str-replace';
+
+// Variables
+@import './resources/variables/all';
+
+// Icons
+@import './resources/icons/all';
+
+// Mixins
+@import './resources/mixins/all';
+
+// Global Styles
+@import './global/all';
+@import './global/atoms/all';
+
+// Utilities
+@import './utils/all';
+
+// Theme Styles
+@import "blocks/core-blocks";
+

@@ -1,0 +1,6 @@
+{
+  "_instructions": "Duplicate this file to local-config.json. Set `host` below to your local dev URL and `certsPath` to the path to the directory containing any SSL certs for this local dev URL.",
+  "certsPath": "",
+  "host": "localhost",
+  "protocol": "https"
+}

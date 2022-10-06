@@ -1,0 +1,118 @@
+.layout {
+  $block: &;
+  --layout-padding-top: 15rem;
+  --layout-padding-bottom: 10rem;
+
+  padding: var(--layout-padding-top) 0 var(--layout-padding-bottom);
+
+  @include media-breakpoint-up(md) {
+    --layout-padding-top: 12.5rem;
+    --layout-padding-bottom: 12.5rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --layout-padding-top: 15rem;
+    --layout-padding-bottom: 15rem;
+  }
+
+  // Background colour modifiers
+  &--background-black {
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  // Padding-top modifiers
+  &--padding-top-none {
+    --layout-padding-top: 0;
+  }
+
+  &--padding-top-xs {
+    @include media-breakpoint-up(md) {
+      --layout-padding-top: 5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --layout-padding-top: 7.5rem;
+    }
+  }
+
+  &--padding-top-sm {
+    @include media-breakpoint-up(md) {
+      --layout-padding-top: 10rem;
+    }
+  }
+
+  &--padding-top-lg {
+    @include media-breakpoint-up(md) {
+      --layout-padding-top: 15rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --layout-padding-top: 24rem;
+    }
+  }
+
+  // Padding-bottom modifiers
+  &--padding-bottom-none {
+    --layout-padding-bottom: 0;
+  }
+
+  &--padding-bottom-xs {
+    @include media-breakpoint-up(md) {
+      --layout-padding-bottom: 5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --layout-padding-bottom: 7.5rem;
+    }
+  }
+
+  &--padding-bottom-sm {
+    @include media-breakpoint-up(md) {
+      --layout-padding-bottom: 7.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --layout-padding-bottom: 10rem;
+    }
+  }
+
+  &--padding-bottom-lg {
+    @include media-breakpoint-up(md) {
+      --layout-padding-bottom: 12.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      --layout-padding-bottom: 24rem;
+    }
+  }
+
+  &__container {
+    @include container;
+
+    @include media-breakpoint-up(md) {
+      display: grid;
+      gap: var(--gutter);
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+    }
+
+    // Column split modifiers Desktop
+    #{$block}--column-split-40-60 & {
+      grid-template-columns: 2fr 3fr;
+    }
+
+    #{$block}--column-split-30-70 & {
+      grid-template-columns: 3fr 7fr;
+    }
+
+    // Column split modifiers Mobile
+    #{$block}--column-split-mobile-50-50 & {
+      @include media-breakpoint-down(sm) {
+        display: grid;
+        gap: var(--gutter);
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}

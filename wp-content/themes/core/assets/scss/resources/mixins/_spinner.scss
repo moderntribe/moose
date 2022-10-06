@@ -1,0 +1,11 @@
+@mixin spinner($size: 1em, $color: $color-primary, $duration: 1.3s) {
+  display: block;
+  width: $size;
+  height: $size;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $color rgba($color, 0.1) rgba($color, 0.1);
+  animation: rotate $duration cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+  border-image: initial;
+  border-radius: 50%;
+}

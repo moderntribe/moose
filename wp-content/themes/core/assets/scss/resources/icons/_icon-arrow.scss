@@ -1,0 +1,9 @@
+@import '../functions/str-replace';
+
+@function icon-arrow($color) {
+  @return str-replace(
+    'data:image/svg+xml,%3Csvg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12.4818 13.3937L17.0007 6.69678H13.8068L9.27344 13.3937H12.4818Z" fill="#{$color}"/%3E%3Cpath d="M12.4818 -0.000193119L17.0007 6.69678H13.8068L9.27344 -0.000193119H12.4818Z" fill="#{$color}"/%3E%3Cpath d="M0 5.15137H14.4242V7.72712H0V5.15137Z" fill="#{$color}"/%3E%3C/svg%3E%0A',
+    '#',
+    '%23'
+  );
+}

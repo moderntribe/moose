@@ -1,0 +1,9 @@
+@import '../functions/str-replace';
+
+@function icon-period($color) {
+  @return str-replace(
+    'data:image/svg+xml,%3Csvg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8.98246 11L16 0H7.04L0 11H8.98246Z" fill="#{$color}" /%3E%3C/svg%3E',
+    '#',
+    '%23'
+  );
+}

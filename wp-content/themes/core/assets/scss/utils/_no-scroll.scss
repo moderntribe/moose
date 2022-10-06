@@ -1,0 +1,13 @@
+html.no-scroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+
+  body {
+    overflow: hidden;
+    -webkit-overflow-scrolling: auto;
+
+    > * {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
