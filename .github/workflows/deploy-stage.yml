@@ -1,9 +1,10 @@
 name: Deploy Staging
 
 on:
-  push:
-    branches:
-      - server/staging
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - server/staging
 
 jobs:
   deploy:
