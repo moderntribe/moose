@@ -18,8 +18,8 @@
     "theme": "./wp-content/themes/core/"
   },
   "devDependencies": {
-    "@wordpress/create-block": "^4.2.0",
-    "@wordpress/scripts": "^24.2.0",
+    "@wordpress/create-block": "^4.4.0",
+    "@wordpress/scripts": "^24.4.0",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "lefthook": "^1.1.1"
