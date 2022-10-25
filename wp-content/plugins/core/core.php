@@ -5,10 +5,12 @@ Plugin Name: Modern Tribe Core Functionality
 Description: Core functionality for this site.
 Author:      Modern Tribe
 Version:     1.0
-Author URI:  http://www.tri.be
+Author URI:  http://tri.be
 */
 
 // Some hosts do not allow sub-folder WP installs, this check will cover multiple conditions.
+use Tribe\Plugin\Core;
+
 $tribe_autoloaders = [
 	// WP sub folder
 	trailingslashit( ABSPATH ) . '../vendor/autoload.php',
@@ -33,6 +35,6 @@ add_action( 'plugins_loaded', static function (): void {
 /**
  * Shorthand to get the instance of our main core plugin class
  */
-function tribe_project(): \Tribe\Plugin\Core {
-	return \Tribe\Plugin\Core::instance();
+function tribe_project(): Core {
+	return Core::instance();
 }
