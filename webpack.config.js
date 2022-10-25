@@ -19,20 +19,20 @@ module.exports = {
 		...getWebpackEntryPoints(),
 		admin: resolve(
 			process.cwd(),
-			pkg.directories.theme,
+			pkg.directories.coreTheme,
 			'assets',
 			'admin.js'
 		), // Add theme admin scripts & styles entry
 		public: resolve(
 			process.cwd(),
-			pkg.directories.theme,
+			pkg.directories.coreTheme,
 			'assets',
 			'public.js'
 		), // Add theme public scripts & styles entry
 	},
 	output: {
 		...defaultConfig.output,
-		path: resolve( process.cwd(), pkg.directories.theme, 'dist' ), // Change the output path to `dist` instead of `build`
+		path: resolve( process.cwd(), pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	plugins: [
 		...defaultConfig.plugins,
