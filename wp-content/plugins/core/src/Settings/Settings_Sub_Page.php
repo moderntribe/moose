@@ -62,6 +62,7 @@ abstract class Settings_Sub_Page extends Base_Settings {
 		register_extended_field_group( [
 			'key'      => 'group_' . $this->get_slug(),
 			'title'    => $this->get_title(),
+			'style'    => 'default',
 			'fields'   => $this->get_fields(),
 			'location' => [
 				Location::where( 'options_page', static::PAGE_SLUG ),

@@ -3,7 +3,8 @@
 namespace Tribe\Plugin;
 
 use DI\ContainerBuilder;
-use Tribe\Plugin\Settings\Settings_Definer;
+use Tribe\Libs\Settings\Settings_Definer;
+use Tribe\Libs\Settings\Settings_Subscriber;
 
 class Core {
 
@@ -18,6 +19,9 @@ class Core {
 	 * @var string[] Names of classes implementing Definer_Interface.
 	 */
 	private array $definers = [
+		Blocks\Blocks_Definer::class,
+		Object_Meta\Meta_Definer::class,
+		Settings\Settings_Definer::class,
 		Settings_Definer::class,
 	];
 
@@ -25,26 +29,11 @@ class Core {
 	 * @var string[] Names of classes extending Abstract_Subscriber.
 	 */
 	private array $subscribers = [
-		Post_Types\Case_Study\Subscriber::class,
-		Post_Types\Portfolio\Subscriber::class,
-		Post_Types\Team\Subscriber::class,
-		Taxonomies\Stage\Subscriber::class,
-		Taxonomies\Sector\Subscriber::class,
-		Taxonomies\Team_Function\Subscriber::class,
-	];
-
-	/**
-	 * @var string[] Names of classes from Tribe Libs implementing Definer_Interface.
-	 */
-	private array $lib_definers = [
-		'\Tribe\Libs\Settings\Settings_Definer',
-	];
-
-	/**
-	 * @var string[] Names of classes from Tribe Libs extending Abstract_Subscriber.
-	 */
-	private array $lib_subscribers = [
-		'\Tribe\Libs\Settings\Settings_Subscriber',
+		Assets\Assets_Subscriber::class,
+		Blocks\Blocks_Subscriber::class,
+		Object_Meta\Meta_Subscriber::class,
+		Settings_Subscriber::class,
+		Theme_Config\Theme_Config_Subscriber::class,
 	];
 
 	private static self $instance;
@@ -76,23 +65,19 @@ class Core {
 	 */
 	private function init_container( string $plugin_path ): void {
 
-		// combine definers/subscribers from the Plugin and libs
-		$definers    = array_merge( array_filter( $this->lib_definers, 'class_exists' ), $this->definers );
-		$subscribers = array_merge( array_filter( $this->lib_subscribers, 'class_exists' ), $this->subscribers );
-
 		/**
 		 * Filter the list of definers that power the plugin
 		 *
 		 * @param string[] $definers The class names of definers that will be instantiated
 		 */
-		$definers = apply_filters( 'tribe/Plugin/definers', $definers );
+		$definers = apply_filters( 'tribe/plugin/definers', $this->definers );
 
 		/**
 		 * Filter the list subscribers that power the plugin
 		 *
 		 * @param string[] $subscribers The class names of subscribers that will be instantiated
 		 */
-		$subscribers = apply_filters( 'tribe/Plugin/subscribers', $subscribers );
+		$subscribers = apply_filters( 'tribe/plugin/subscribers', $this->subscribers );
 
 		$builder = new ContainerBuilder();
 		$builder->useAutowiring( true );
