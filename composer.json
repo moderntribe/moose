@@ -21,7 +21,7 @@
     "scripts": {
         "phpcs": "./vendor/bin/phpcs --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
         "phpcbf": "./vendor/bin/phpcbf -s --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
-        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1-beta2 --quiet --skip-content --force"
+        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1-RC2 --quiet --skip-content --force"
     },
     "repositories": [
         {
@@ -51,7 +51,7 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "6.0.2",
+                "version": "6.0.3",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -87,7 +87,6 @@
         "vlucas/phpdotenv": "^5.3",
         "wp-cli/wp-cli-bundle": "^2.6",
         "wpackagist-plugin/disable-emojis": "^1.7",
-        "wpackagist-plugin/gutenberg": "14.1.1",
         "wpackagist-plugin/limit-login-attempts-reloaded": "^2.25",
         "wpackagist-plugin/redirection": "^5.3",
         "wpackagist-plugin/safe-svg": "^2.0.3",
