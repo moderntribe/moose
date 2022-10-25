@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "tribe/accordion",
+	"name": "tribe/example",
 	"version": "0.1.0",
-	"title": "Accordion",
-	"category": "design",
+	"title": "Example Block",
+	"category": "widgets",
 	"icon": "smiley",
-	"description": "An example static block.",
+	"description": "Example block scaffolded with Create Block tool.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "accordion",
+	"textdomain": "example",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
