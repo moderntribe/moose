@@ -4,137 +4,8 @@
   "settings": {
     "typography": {
       "fluid": true,
-      "fontFamilies": [
-        {
-          "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-          "slug": "system-fonts",
-          "name": "System fonts"
-        },
-        {
-          "fontFace": [
-            {
-              "fontFamily": "\"Segoe UI\"",
-              "fontDisplay": "swap",
-              "fontWeight": "400",
-              "src": [
-                "file:./assets/fonts/SegoeUI/SegoeUI-normal.woff2",
-                "file:./assets/fonts/SegoeUI/SegoeUI-normal.woff"
-              ]
-            },
-            {
-              "fontFamily": "Segoe UI SemiBold, Helvetica Neue, Helvetica, Arial, sans-serif",
-              "fontDisplay": "swap",
-              "fontWeight": "600",
-              "src": [
-                "file:./assets/fonts/SegoeUI/SegoeUI-semibold.woff2",
-                "file:./assets/fonts/SegoeUI/SegoeUI-semibold.woff"
-              ]
-            }
-          ],
-          "fontFamily": "\"Segoe UI\", sans-serif",
-          "name": "Segoe UI",
-          "slug": "segoe-ui"
-        },
-        {
-          "fontFace": [
-            {
-              "fontFamily": "\"Cambria\"",
-              "fontDisplay": "swap",
-              "fontWeight": "400",
-              "src": [
-                "file:./assets/fonts/Cambria/Cambria.woff2",
-                "file:./assets/fonts/Cambria/Cambria.woff"
-              ]
-            }
-          ],
-          "fontFamily": "\"Cambria\", serif",
-          "name": "Cambria",
-          "slug": "cambria"
-        }
-      ],
-      "fontSizes": [
-        {
-          "fluid": {
-            "min": "1.6rem",
-            "max": "2.2rem"
-          },
-          "slug": "base",
-          "name": "Base",
-          "size": "1.6rem"
-        },
-        {
-          "fluid": {
-            "min": "2rem",
-            "max": "2.4rem"
-          },
-          "slug": "base-large",
-          "name": "Base Large",
-          "size": "2rem"
-        },
-        {
-          "fluid": {
-            "min": "1.2rem",
-            "max": "1.8rem"
-          },
-          "slug": "base-small",
-          "name": "Base Small",
-          "size": "1.2rem"
-        },
-        {
-          "fluid": {
-            "min": "6rem",
-            "max": "9rem"
-          },
-          "size": "6rem",
-          "slug": "display-x-large",
-          "name": "Display X-Large"
-        },
-        {
-          "fluid": {
-            "min": "4.6rem",
-            "max": "6rem"
-          },
-          "size": "4.6rem",
-          "slug": "display-large",
-          "name": "Display Large"
-        },
-        {
-          "fluid": {
-            "min": "4.2rem",
-            "max": "6rem"
-          },
-          "size": "4.2rem",
-          "slug": "display",
-          "name": "Display"
-        },
-        {
-          "fluid": {
-            "min": "3rem",
-            "max": "4.2rem"
-          },
-          "size": "3rem",
-          "slug": "display-small",
-          "name": "Display Small"
-        },
-        {
-          "fluid": {
-            "min": "2.6rem",
-            "max": "3.2rem"
-          },
-          "size": "2.6rem",
-          "slug": "display-x-small",
-          "name": "Display X-Small"
-        },
-        {
-          "fluid": {
-            "min": "2rem",
-            "max": "2.6rem"
-          },
-          "size": "2rem",
-          "slug": "display-xx-small",
-          "name": "Display XX-Small"
-        }
-      ]
+      "fontFamilies": [],
+      "fontSizes": []
     },
     "color": {
       "defaultGradients": false,
@@ -146,27 +17,17 @@
       "gradients": [],
       "palette": [
         {
-          "color": "#e4002b",
+          "color": "#0074E0",
           "name": "Primary",
           "slug": "primary"
         },
         {
-          "color": "#fae4e5",
-          "name": "Primary Light",
-          "slug": "primary-light"
-        },
-        {
-          "color": "#dbf0f3",
+          "color": "#18814E",
           "name": "Secondary",
           "slug": "secondary"
         },
         {
-          "color": "#30ba9d",
-          "name": "Green",
-          "slug": "green"
-        },
-        {
-          "color": "#fdfdfa",
+          "color": "#fff",
           "name": "White",
           "slug": "white"
         },
@@ -176,78 +37,21 @@
           "slug": "grey"
         },
         {
-          "color": "#f8f8f8",
-          "name": "Light Grey",
-          "slug": "light-grey"
+          "color": "#000",
+          "name": "Black",
+          "slug": "black"
         }
       ]
     },
     "layout": {
-      "contentSize": "var(--container-max-width)"
+      "contentSize": "var(--content-max-width)",
+      "wideSize": "var(--wide-max-width)"
     }
   },
   "styles": {
-    "typography": {
-      "fontFamily": "var(--wp--preset--font-family--segoe-ui)",
-      "fontSize": "var(--wp--preset--font-size--base)",
-      "fontWeight": "normal",
-      "lineHeight": "1.4"
-    },
-    "spacing": {
-      "blockGap": "1.6rem"
-    },
-    "elements": {
-      "h1": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display-x-large)",
-          "lineHeight": "1.2"
-        }
-      },
-      "h2": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display-large)",
-          "lineHeight": "1.2"
-        }
-      },
-      "h3": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display)",
-          "lineHeight": "1.2"
-        }
-      },
-      "h4": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display-small)",
-          "lineHeight": "1.2"
-        }
-      },
-      "h5": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display-x-small)",
-          "lineHeight": "1.2"
-        }
-      },
-      "h6": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--cambria)",
-          "fontWeight": "400",
-          "fontSize": "var(--wp--preset--font-size--display-xx-small)",
-          "lineHeight": "1.2"
-        }
-      }
-    },
-    "blocks": {
-      "core/paragraph": {}
-    }
+    "typography": {},
+    "spacing": {},
+    "elements": {},
+    "blocks": {}
   }
 }

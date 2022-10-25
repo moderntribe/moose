@@ -1,8 +1,0 @@
-@import './container-padding';
-
-@mixin container {
-  @include container-padding;
-  max-width: var(--container-max-width);
-  margin-right: auto;
-  margin-left: auto;
-}

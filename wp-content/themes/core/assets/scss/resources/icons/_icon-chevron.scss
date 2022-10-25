@@ -1,9 +1,0 @@
-@import '../functions/str-replace';
-
-@function icon-chevron($color) {
-  @return str-replace(
-    'data:image/svg+xml,%3Csvg width="10" height="16" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="#{$color}" stroke-width="2" d="M1.071 1l7.071 7.071-7.07 7.071" fill="none" fill-rule="evenodd"/%3E%3C/svg%3E',
-    '#',
-    '%23'
-  );
-}

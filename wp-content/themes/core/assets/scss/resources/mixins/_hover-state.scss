@@ -1,8 +1,0 @@
-@mixin hover-state {
-  &:hover,
-  &:focus-visible {
-    .no-touchevents & {
-      @content;
-    }
-  }
-}

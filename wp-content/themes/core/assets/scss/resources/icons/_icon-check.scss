@@ -1,9 +1,0 @@
-@import '../functions/str-replace';
-
-@function icon-check($color) {
-  @return str-replace(
-    'data:image/svg+xml,%0A%3Csvg width="13px" height="10px" viewBox="0 0 13 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"%3E%3Cg id="Style-guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"%3E%3Cg id="Styleguide" transform="translate(-820.000000, -1557.000000)" fill="#{$color}" fill-rule="nonzero"%3E%3Cpolygon id="Tick-Copy" points="824.400705 1564.67096 821.11495 1561.23914 820 1562.40365 824.400705 1567 833 1558.16452 831.88505 1557"%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E',
-    '#',
-    '%23'
-  );
-}

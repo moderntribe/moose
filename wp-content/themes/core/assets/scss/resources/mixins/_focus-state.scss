@@ -1,7 +1,0 @@
-// Adds a outline focus state only when necessary
-@mixin focus-state {
-  &:focus-visible {
-    outline: 1px solid currentColor;
-    @content;
-  }
-}
