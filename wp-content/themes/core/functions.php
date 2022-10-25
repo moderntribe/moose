@@ -16,13 +16,11 @@ foreach ( $tribe_autoloaders as $autoloader ) {
 	}
 }
 
+/**
+ * @TODO: Decide on an approach for this.
+ */
 if ( ! function_exists( 'get_component_part' ) ) {
 	function get_component_part( string $slug, array $args = [] ): void {
-		get_template_part( 'src/Components/' . $slug, '', $args );
+		get_template_part( 'components/' . $slug, '', $args );
 	}
 }
-
-new Tribe\Theme\Assets\Register;
-new Tribe\Theme\Blocks\Register;
-new Tribe\Theme\Config\Register;
-new Tribe\Theme\Menus\Register;
