@@ -30,6 +30,8 @@
 
 	<?php do_action( 'wp_body_open' ) ?>
 
-	<div class="l-wrapper" data-js="site-wrap">
+	<div class="l-wrapper" data-js="l-wrapper">
 
-		<?php get_component_part( 'header/navigation/main_navigation' ); ?>
+		<header>
+			<p>Site Header</p>
+		</header>

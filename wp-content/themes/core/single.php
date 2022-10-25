@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 get_header(); ?>
-	<main id="main-content">
+	<main>
 		<?php the_title( '<h1>', '</h1>', true ); ?>
 		<?php the_content(); ?>
 	</main>

@@ -2,15 +2,13 @@
 
 get_header();
 ?>
-	<main id="main-content">
+	<main>
 	<?php if ( have_posts() ) { ?>
-		<div class="l-container">
-			<p><?php echo wp_count_posts()->publish . ' ' . __( 'posts in', 'tribe' ) . ' "' . get_the_archive_title() . '"';  ?></p>
-		</div>
+		<h1><?php echo wp_count_posts()->publish . ' ' . __( 'posts in', 'tribe' ) . ' "' . get_the_archive_title() . '"';  ?></h1>
 		<?php
 		while ( have_posts() ) {
 			the_post();
-			the_title( '<h1>', '</h1>', true );
+			the_title( '<h2>', '</h2>', true );
 			the_excerpt();
 		}
 	} else {

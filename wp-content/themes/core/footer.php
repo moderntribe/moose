@@ -1,7 +1,10 @@
 <?php declare(strict_types=1);
 
 ?>
-		<?php get_component_part( 'footer/footer' ); ?>
+		<footer>
+			<p>Site Footer</p>
+		</footer>
+
 	</div><!-- .l-wrapper -->
 
 	<?php do_action( 'wp_footer' ); ?>
