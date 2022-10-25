@@ -4,7 +4,7 @@ namespace Tribe\Plugin\Assets;
 
 class Public_Assets_Enqueuer extends Assets_Enqueuer {
 
-	public const PUBLIC      = 'public';
+	public const PUBLIC      = 'theme';
 	public const ASSETS_FILE = self::PUBLIC . '.asset.php';
 
 	public function register(): void {

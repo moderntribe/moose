@@ -17,12 +17,12 @@
       "gradients": [],
       "palette": [
         {
-          "color": "#0074E0",
+          "color": "var(--color-primary)",
           "name": "Primary",
           "slug": "primary"
         },
         {
-          "color": "#18814E",
+          "color": "var(--color-secondary)",
           "name": "Secondary",
           "slug": "secondary"
         },
