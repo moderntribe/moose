@@ -4,7 +4,7 @@
 	"name": "tribe/example",
 	"version": "0.1.0",
 	"title": "Example Block",
-	"category": "widgets",
+	"category": "tribe-custom",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"supports": {
