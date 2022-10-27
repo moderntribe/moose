@@ -12,57 +12,16 @@ const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const { getWebpackEntryPoints } = require( '@wordpress/scripts/utils/config' );
-const { hasPostCSSConfig, hasCssnanoConfig } = require("@wordpress/scripts/utils");
-const MiniCSSExtractPlugin = require( 'mini-css-extract-plugin' );
-const postcssPlugins = require( '@wordpress/postcss-plugins-preset' );
-const isProduction = process.env.NODE_ENV === 'production';
 
-const defaultCssLoaders = [
-	{
-		loader: MiniCSSExtractPlugin.loader,
-	},
-	{
-		loader: require.resolve( 'css-loader' ),
-		options: {
-			sourceMap: ! isProduction,
-			modules: {
-				auto: true,
-			},
-		},
-	},
-	{
-		loader: require.resolve( 'postcss-loader' ),
-		options: {
-			// Provide a fallback configuration if there's not
-			// one explicitly available in the project.
-			...( ! hasPostCSSConfig() && {
-				postcssOptions: {
-					ident: 'postcss',
-					sourceMap: ! isProduction,
-					plugins: isProduction
-						? [
-							...postcssPlugins,
-							require( 'cssnano' )( {
-								// Provide a fallback configuration if there's not
-								// one explicitly available in the project.
-								...( ! hasCssnanoConfig() && {
-									preset: [
-										'default',
-										{
-											discardComments: {
-												removeAll: false,
-											},
-										},
-									],
-								} ),
-							} ),
-						]
-						: postcssPlugins,
-				},
-			} ),
-		},
-	},
-];
+/**
+ * Update the css module.rules test to add .pcss as an option.
+ */
+const moduleRules = defaultConfig.module.rules.map( ( rule ) => {
+	const cssExp = /\.css$/; // Default rule.test as defined in the wp-scripts webpack config.
+	return rule.test.toString() === cssExp.toString()
+		? { ...rule, test: /\.(pc|c)ss$/ }
+		: rule;
+} );
 
 const config = {
 	...defaultConfig,
@@ -86,13 +45,7 @@ const config = {
 		path: resolve( process.cwd(), pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	module: {
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.pcss$/,
-				use: defaultCssLoaders,
-			},
-		],
+		rules: moduleRules, // Modified module.rules supporting .pcss extension in addition to .css files.
 	},
 	plugins: [
 		...defaultConfig.plugins,
@@ -100,6 +53,7 @@ const config = {
 	],
 };
 
+// Add .pcss extension to the splitChunks cache groups for block style chunks.
 config.optimization.splitChunks.cacheGroups.style.test =
 	/[\\/]style(\.module)?\.(sc|sa|c|pc)ss$/;
 
