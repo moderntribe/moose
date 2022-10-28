@@ -15,15 +15,16 @@
     "npm": "8.1.2"
   },
   "directories": {
-    "coreTheme": "./wp-content/themes/core/",
-    "corePlugin": "./wp-content/plugins/core/"
+    "coreTheme": "wp-content/themes/core/",
+    "corePlugin": "wp-content/plugins/core/"
   },
   "devDependencies": {
     "@wordpress/create-block": "^4.4.0",
     "@wordpress/scripts": "^24.4.0",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "lefthook": "^1.1.1"
+    "lefthook": "^1.1.1",
+    "webpack-remove-empty-scripts": "^1.0.1"
   },
   "scripts": {
     "dist": "wp-scripts build --webpack-src-dir=./wp-content/themes/core/blocks/",

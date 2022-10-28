@@ -1,2 +1,2 @@
-import './pcss/theme/main.pcss';
-import './js/theme/main.js';
+import './pcss/theme.pcss';
+import './js/theme.js';

@@ -1,2 +1,2 @@
-import './pcss/admin/main.pcss';
-import './js/admin/main.js';
+import './pcss/admin.pcss';
+import './js/admin.js';

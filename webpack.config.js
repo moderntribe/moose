@@ -12,6 +12,7 @@ const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const { getWebpackEntryPoints } = require( '@wordpress/scripts/utils/config' );
+const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 
 /**
  * Update the css module.rules test to add .pcss as an option.
@@ -23,32 +24,38 @@ const moduleRules = defaultConfig.module.rules.map( ( rule ) => {
 		: rule;
 } );
 
+const assetFileNames = ( plugin ) => {
+	console.info( plugin );
+	plugin.options.filename = 'assets/[name].css';
+	return plugin;
+};
+
 const config = {
 	...defaultConfig,
 	entry: {
 		...getWebpackEntryPoints(),
-		admin: resolve(
-			process.cwd(),
-			pkg.directories.coreTheme,
-			'assets',
-			'admin.js'
-		), // Add theme admin scripts & styles entry
-		theme: resolve(
-			process.cwd(),
-			pkg.directories.coreTheme,
-			'assets',
-			'theme.js'
-		), // Add theme public scripts & styles entry
+		admin: resolve( pkg.directories.coreTheme, 'assets', 'admin.js' ), // Add theme admin scripts & styles entry
+		theme: resolve( pkg.directories.coreTheme, 'assets', 'theme.js' ), // Add theme public scripts & styles entry
+		print: resolve( pkg.directories.coreTheme, 'assets', 'print.pcss' ),
 	},
 	output: {
 		...defaultConfig.output,
-		path: resolve( process.cwd(), pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
+		path: resolve( pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	module: {
 		rules: moduleRules, // Modified module.rules supporting .pcss extension in addition to .css files.
 	},
 	plugins: [
 		...defaultConfig.plugins,
+		/*...defaultConfig.plugins.map( ( plugin ) => {
+			if ( plugin.constructor.name === 'MiniCssExtractPlugin' ) {
+				return assetFileNames( plugin );
+			}
+			return plugin;
+		} ),*/
+		new RemoveEmptyScriptsPlugin( {
+			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS
+		} ),
 		new BrowserSyncPlugin( browserSyncOpts ), // Add browsersync for dev reloads
 	],
 };
