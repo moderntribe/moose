@@ -36,14 +36,11 @@
     "lint:js": "wp-scripts lint-js \"./wp-content/@(plugins|themes)/core/**/*.js\"",
     "lint:js:fix": "wp-scripts lint-js \"./wp-content/@(plugins|themes)/core/**/*.js\" --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "create-block": "cd \"./wp-content/themes/core/blocks/\" && npx @wordpress/create-block --no-plugin --namespace tribe",
+    "create-block": "cd \"./wp-content/themes/core/blocks/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
     "packages-update": "wp-scripts packages-update",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "server-lint": "npm run lint:js && npm run lint:css",
     "server-dist": "npm run dist"
-  },
-  "dependencies": {
-    "bootstrap": "^5.2.1"
   }
 }
