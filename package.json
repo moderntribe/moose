@@ -19,8 +19,8 @@
     "corePlugin": "./wp-content/plugins/core/"
   },
   "devDependencies": {
-    "@wordpress/create-block": "^4.4.0",
-    "@wordpress/scripts": "^24.4.0",
+    "@wordpress/create-block": "^4.6.0",
+    "@wordpress/scripts": "^24.6.0",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "lefthook": "^1.1.1"
@@ -41,8 +41,5 @@
     "check-licenses": "wp-scripts check-licenses",
     "server-lint": "npm run lint:js && npm run lint:css",
     "server-dist": "npm run dist"
-  },
-  "dependencies": {
-    "bootstrap": "^5.2.1"
   }
 }
