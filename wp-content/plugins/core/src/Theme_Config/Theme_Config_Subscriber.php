@@ -15,6 +15,9 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 
 			$this->container->get( Image_Sizes::class )->register_sizes();
 		}, 10, 0 );
+
+		// To do: decide ona  better location for this filter.
+		add_filter( 'wp_img_tag_add_loading_attr', '__return_false' );
 	}
 
 }
