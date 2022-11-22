@@ -16,7 +16,6 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'example',
 			] ),
 
 			self::STYLES          => DI\add( [
