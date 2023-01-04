@@ -19,9 +19,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "./vendor/bin/phpcs --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
-        "phpcbf": "./vendor/bin/phpcbf -s --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
-        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1.1 --quiet --skip-content --force"
+        "phpcs": "./vendor/bin/phpcs",
+        "phpcbf": "./vendor/bin/phpcbf -s",
+        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1.1 --quiet --skip-content --force",
+        "post-root-package-install": [
+            "php -r \"copy('.env.sample', '.env');\"",
+            "php -r \"copy('local-config-sample.php', 'local-config.php');\"",
+            "php -r \"copy('local-config-sample.json', 'local-config.json');\""
+        ]
     },
     "repositories": [
         {

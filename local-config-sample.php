@@ -6,10 +6,25 @@
  * You may include settings here that you only want
  * enabled on your local development checkouts
  *
- * The default WordPress databases defines are automatically populated in
- * dev/docker/docker-compose.yml which you can override here with custom
- * defines e.g. define( 'DB_NAME', 'tribe_square1' );
 */
+
+/**
+ * Lando local development
+ * uncomment below to use the lando settings for local development.
+ */
+/** This will ensure these are only loaded on Lando */
+if ( getenv( 'LANDO_INFO' ) ) {
+	$lando_info      = json_decode( getenv( 'LANDO_INFO' ) );
+	$database_config = $lando_info->database;
+	define( 'DB_NAME', $database_config->creds->database );
+	define( 'DB_USER', $database_config->creds->user );
+	define( 'DB_PASSWORD', $database_config->creds->password );
+	define( 'DB_HOST', $database_config->internal_connection->host );
+
+	/** URL routing (Optional, may not be necessary) */
+	// define('WP_HOME','http://mysite.lndo.site');
+	// define('WP_SITEURL','http://mysite.lndo.site');
+}
 
 /**
  * Set the current environment type. Accepted values:
@@ -22,7 +37,9 @@
  *
  * @link https://make.wordpress.org/core/2020/07/24/new-wp_get_environment_type-function-in-wordpress-5-5/
  */
-define( 'WP_ENVIRONMENT_TYPE', 'development' );
+if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+	define( 'WP_ENVIRONMENT_TYPE', 'local' );
+}
 
 /*
  * Glomar
