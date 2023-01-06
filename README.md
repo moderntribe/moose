@@ -15,6 +15,27 @@
 
 ## Getting Started
 
+### Lando
+
+You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the project is running, you can follow the BE Setup instructions for getting the project running.
+
+### Local by Flywheel
+
+It is recommeneded to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started.
+
+### BE Setup
+
+Run `composer run setup-project` to copy the `.env`, and `local-config` files over. Once that has completed, update the `.evn` file to include the required licenses for ACF Pro, and Gravity Forms. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php`.
+
+``` bash
+composer setup-project
+# ... update .env file if you need ACF Pro and Gravity Forms
+composer install
+composer setup-wordpress
+```
+
+For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
+
 ### Front End Dev
 
 1. Duplicate the `local-config-sample.json` file into a git-ignored `local-config.json` and update the certsPath and host entries to match your local dev set up.
@@ -34,12 +55,11 @@
 These scripts are based on WordPress's [WP-Scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) package. See the documentation there for additional information.
 
 There are also several additional scripts aliased directly from wp-scripts that may be useful:
+
 * `packages-check`
 * `check-engines`
 * `check-licenses`
 
 ## Modern Tribe
 
-<p align="center">
-<a href="https://tri.be/contact/"><img src="https://moderntribe-common.s3.us-west-2.amazonaws.com/marketing/ModernTribe-Banner.png"></a>
-</p>
+[![Modern Tribe](https://moderntribe-common.s3.us-west-2.amazonaws.com/marketing/ModernTribe-Banner.png)](https://tri.be/contact/)
