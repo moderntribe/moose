@@ -13,10 +13,11 @@
 
 ### Local Development
 
-One of the goals of this starter is to allow developers to use whatever local development platform that works best for them. There are some details below for Lando and Local by Flywheel. If you are using a different environment, feel free to add it. 
+One of the goals of this starter is to allow developers to use whatever local development platform that works best for them. There are some details below for Lando and Local by Flywheel. If you are using a different environment, feel free to add it.
+
 #### Lando
 
-You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the project is running, you can follow the BE Setup instructions for getting the project running.
+You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the lando is running, you can follow the BE Setup instructions for the composer commands to finish the setup.
 
 #### Local by Flywheel
 
@@ -24,7 +25,7 @@ It is recommeneded to create a blank blueprint in Local by Flywheel in order to 
 
 ### BE Setup
 
-Run `composer run setup-project` to copy the `.env`, and `local-config` files over. Once that has completed, update the `.evn` file to include the required licenses for ACF Pro, and Gravity Forms. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php`.
+Run `composer run setup-project` to copy the `.env`, and `local-config` files over. Once that has completed, update the `.evn` file to include the required licenses for ACF Pro, and Gravity Forms. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php` for the local environment you are working in.
 
 ``` bash
 composer setup-project
