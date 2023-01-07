@@ -2,15 +2,6 @@
 
 ## Requirements
 
-### Development
-
-* Git
-* Composer
-* Node v16.13.1 or higher & NPM v8.1.2 or higher
-* NVM is recommended for managing multiple versions of node on the same workstation.
-
-## Getting Started
-
 ### Local Development
 
 One of the goals of this starter is to allow developers to use whatever local development platform that works best for them. There are some details below for Lando and Local by Flywheel. If you are using a different environment, feel free to add it.
@@ -22,6 +13,15 @@ You can use [Lando](https://lando.dev/download/) to for your local development. 
 #### Local by Flywheel
 
 It is recommeneded to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started.
+
+### Development
+
+* Git
+* Composer
+* Node v16.13.1 or higher & NPM v8.1.2 or higher
+* NVM is recommended for managing multiple versions of node on the same workstation.
+
+## Getting Started
 
 ### BE Setup
 
