@@ -54,7 +54,7 @@ const config = {
 			return plugin;
 		} ),*/
 		new RemoveEmptyScriptsPlugin( {
-			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS
+			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS,
 		} ),
 		new BrowserSyncPlugin( browserSyncOpts ), // Add browsersync for dev reloads
 	],
