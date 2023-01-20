@@ -26,7 +26,7 @@ function addLazyloadAttribute( settings ) {
 	settings.attributes = Object.assign( settings.attributes, {
 		lazyload: {
 			type: 'boolean',
-			default: true,
+			default: false,
 		},
 	} );
 
