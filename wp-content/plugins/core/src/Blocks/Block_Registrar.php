@@ -4,7 +4,7 @@ namespace Tribe\Plugin\Blocks;
 
 class Block_Registrar {
 
-	public const BLOCKS_DIR = 'dist/';
+	public const BLOCKS_DIR = 'dist/tribe/';
 
 	public function register( string $block_name, string $blocks_dir = self::BLOCKS_DIR ): void {
 		register_block_type(
