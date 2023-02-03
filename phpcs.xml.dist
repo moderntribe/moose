@@ -8,7 +8,7 @@
 	<arg name="colors" />
 
 	<!--  Update to the PHP version your production/local docker container runs on -->
-	<config name="testVersion" value="7.4" />
+	<config name="testVersion" value="8.0" />
 	<!-- php -r 'echo PHP_VERSION_ID;' -->
 	<config name="php_version" value="70407" />
 
