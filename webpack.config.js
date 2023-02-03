@@ -6,16 +6,70 @@
  * WP-Scripts webpack config documentation:
  * https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#default-webpack-config
  */
-const { resolve } = require( 'path' );
+
+const { resolve, extname } = require( 'path' );
+const { sync: glob } = require( 'fast-glob' );
 const pkg = require( './package.json' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-const { getWebpackEntryPoints } = require( '@wordpress/scripts/utils/config' );
+/*const {
+	getWebpackEntryPoints: blockJsonEntryPoints,
+} = require( '@wordpress/scripts/utils/config' );*/
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 
 /**
- * Update the css module.rules test to add .pcss as an option.
+ * General theme scripts & styles entry points
+ *
+ * The entry point names are prefixed with `../assets` to direct their output into
+ * an assets subdirectory in the root dist folder.
+ */
+const assetEntryPoints = () => {
+	return {
+		'assets/admin': resolve(
+			pkg.directories.coreTheme,
+			'assets',
+			'admin.js'
+		),
+		'assets/theme': resolve(
+			pkg.directories.coreTheme,
+			'assets',
+			'theme.js'
+		),
+		'assets/print': resolve(
+			pkg.directories.coreTheme,
+			'assets',
+			'print.pcss'
+		),
+	};
+};
+
+const blockEntryPoints = () => {
+	const coreBlockFiles = glob(
+		`${ pkg.directories.coreTheme }blocks/**/index.js`,
+		{
+			absolute: true,
+		}
+	);
+
+	if ( ! coreBlockFiles.length ) {
+		return;
+	}
+
+	const entryPoints = {};
+
+	coreBlockFiles.forEach( ( entryFilePath ) => {
+		const entryName = entryFilePath
+			.replace( extname( entryFilePath ), '' )
+			.replace( `${ resolve( pkg.directories.coreTheme ) }/`, '' );
+		entryPoints[ entryName ] = entryFilePath;
+	} );
+
+	return entryPoints;
+};
+
+/**
+ * Update the css module rules test to add .pcss as an option.
  */
 const moduleRules = defaultConfig.module.rules.map( ( rule ) => {
 	const cssExp = /\.css$/; // Default rule.test as defined in the wp-scripts webpack config.
@@ -24,19 +78,11 @@ const moduleRules = defaultConfig.module.rules.map( ( rule ) => {
 		: rule;
 } );
 
-const assetFileNames = ( plugin ) => {
-	console.info( plugin );
-	plugin.options.filename = 'assets/[name].css';
-	return plugin;
-};
-
 const config = {
 	...defaultConfig,
 	entry: {
-		...getWebpackEntryPoints(),
-		admin: resolve( pkg.directories.coreTheme, 'assets', 'admin.js' ), // Add theme admin scripts & styles entry
-		theme: resolve( pkg.directories.coreTheme, 'assets', 'theme.js' ), // Add theme public scripts & styles entry
-		print: resolve( pkg.directories.coreTheme, 'assets', 'print.pcss' ),
+		...assetEntryPoints(),
+		...blockEntryPoints(),
 	},
 	output: {
 		...defaultConfig.output,
@@ -47,21 +93,38 @@ const config = {
 	},
 	plugins: [
 		...defaultConfig.plugins,
-		/*...defaultConfig.plugins.map( ( plugin ) => {
-			if ( plugin.constructor.name === 'MiniCssExtractPlugin' ) {
-				return assetFileNames( plugin );
-			}
-			return plugin;
-		} ),*/
 		new RemoveEmptyScriptsPlugin( {
 			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS,
 		} ),
-		new BrowserSyncPlugin( browserSyncOpts ), // Add browsersync for dev reloads
+		new BrowserSyncPlugin( browserSyncOpts ), // Add browser-sync for dev reloads
 	],
 };
 
 // Add .pcss extension to the splitChunks cache groups for block style chunks.
 config.optimization.splitChunks.cacheGroups.style.test =
 	/[\\/]style(\.module)?\.(sc|sa|c|pc)ss$/;
+
+/**
+ * The configuration for copying block.json files from the source to dist folders
+ * is too greedy and ends up duplicating files already inside the dist directory.
+ *
+ * Thus, we have to find the plugin's config in the greater config object
+ * and explicitly ignore that directory.
+ */
+const copyPluginIndex = defaultConfig.plugins.findIndex(
+	( plugin ) => plugin.patterns
+);
+
+if ( copyPluginIndex > -1 ) {
+	const blockJsonPatternIndex = defaultConfig.plugins[
+		copyPluginIndex
+	].patterns.findIndex( ( pattern ) => pattern.from === '**/block.json' );
+
+	if ( blockJsonPatternIndex > -1 ) {
+		defaultConfig.plugins[ copyPluginIndex ].patterns[
+			blockJsonPatternIndex
+		].globOptions.ignore = '**/dist/**';
+	}
+}
 
 module.exports = config;
