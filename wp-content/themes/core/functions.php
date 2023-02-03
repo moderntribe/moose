@@ -14,8 +14,8 @@ function tribe_theme_init(): void {
 	$block_name = 'core/button';
 	$args       = [
 		'handle' => 'theme-core-button',
-		'src'    => get_theme_file_uri( 'dist/core/button/style-index.css' ),
-		'path'   => get_theme_file_path( 'dist/core/button/style-index.css' ),
+		'src'    => get_theme_file_uri( 'dist/blocks/core/button/style-index.css' ),
+		'path'   => get_theme_file_path( 'dist/blocks/core/button/style-index.css' ),
 	];
 
 	wp_enqueue_block_style( $block_name, $args );
