@@ -12,7 +12,7 @@
  * Check if a module exists before requiring it.
  *
  * @param {string} name
- * @return {string}	Returns the original file name if found or an empty string if not.
+ * @return {string|void}	Returns the original file name if found.
  */
 function moduleExists( name ) {
 	try {
