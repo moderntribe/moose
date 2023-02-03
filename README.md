@@ -1,4 +1,4 @@
-# Blocks Starer
+# Moose
 
 ## Requirements
 
@@ -13,11 +13,11 @@ One of the goals of this starter is to allow developers to use whatever local de
 
 ### Lando
 
-You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the lando is running, you can follow the BE Setup instructions for the composer commands to finish the setup.
+You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the lando is running, you can follow the BE Setup instructions for the composer commands to finish the setup. When running composer commands make sure to run `lando composer [command]` in order to run composer in the container.
 
 ### Local by Flywheel
 
-It is recommeneded to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started.
+It is recommeneded to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started. Make sure to use the Open Site Shell option to run composer commands allowing you to have the right PHP version in your shell path.
 
 ## Getting Started
 

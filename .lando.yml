@@ -1,4 +1,4 @@
-name: blocks-starter
+name: moose
 recipe: wordpress
 config:
   php: '8.0'
@@ -8,8 +8,6 @@ config:
   xdebug: true
   memcached: true
 services:
-  database:
-    portforward: 3306
   mailhog:
     type: mailhog
     portforward: true
