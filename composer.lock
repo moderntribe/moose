@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2de722041f0ae719bb133f7a008b7ac",
+    "content-hash": "2261a1cc9ac7a0bbbe5af2fd9e59f178",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -20,23 +20,23 @@
         },
         {
             "name": "aws/aws-crt-php",
-            "version": "v1.0.2",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awslabs/aws-crt-php.git",
-                "reference": "3942776a8c99209908ee0b287746263725685732"
+                "reference": "f5c64ee7c5fce196e2519b3d9b7138649efe032d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awslabs/aws-crt-php/zipball/3942776a8c99209908ee0b287746263725685732",
-                "reference": "3942776a8c99209908ee0b287746263725685732",
+                "url": "https://api.github.com/repos/awslabs/aws-crt-php/zipball/f5c64ee7c5fce196e2519b3d9b7138649efe032d",
+                "reference": "f5c64ee7c5fce196e2519b3d9b7138649efe032d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35|^5.4.3"
+                "phpunit/phpunit": "^4.8.35|^5.6.3"
             },
             "type": "library",
             "autoload": {
@@ -64,26 +64,26 @@
             ],
             "support": {
                 "issues": "https://github.com/awslabs/aws-crt-php/issues",
-                "source": "https://github.com/awslabs/aws-crt-php/tree/v1.0.2"
+                "source": "https://github.com/awslabs/aws-crt-php/tree/v1.0.4"
             },
-            "time": "2021-09-03T22:57:30+00:00"
+            "time": "2023-01-31T23:08:25+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.258.0",
+            "version": "3.258.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "96ed88ca45e54f74a158002411966a92891e8ead"
+                "reference": "c29a1db83373f8a5c4735acfdd3470e1bc594fee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/96ed88ca45e54f74a158002411966a92891e8ead",
-                "reference": "96ed88ca45e54f74a158002411966a92891e8ead",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c29a1db83373f8a5c4735acfdd3470e1bc594fee",
+                "reference": "c29a1db83373f8a5c4735acfdd3470e1bc594fee",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-crt-php": "^1.0.2",
+                "aws/aws-crt-php": "^1.0.4",
                 "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
@@ -158,9 +158,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.5"
             },
-            "time": "2023-01-31T19:33:16+00:00"
+            "time": "2023-02-07T19:22:14+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -240,16 +240,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.18",
+            "version": "2.2.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "84175907664ca8b73f73f4883e67e886dfefb9f5"
+                "reference": "30ff21a9af9a10845436abaeeb0bb7276e996d24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/84175907664ca8b73f73f4883e67e886dfefb9f5",
-                "reference": "84175907664ca8b73f73f4883e67e886dfefb9f5",
+                "url": "https://api.github.com/repos/composer/composer/zipball/30ff21a9af9a10845436abaeeb0bb7276e996d24",
+                "reference": "30ff21a9af9a10845436abaeeb0bb7276e996d24",
                 "shasum": ""
             },
             "require": {
@@ -319,7 +319,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.18"
+                "source": "https://github.com/composer/composer/tree/2.2.19"
             },
             "funding": [
                 {
@@ -335,20 +335,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-20T09:33:38+00:00"
+            "time": "2023-02-04T13:54:48+00:00"
         },
         {
             "name": "composer/installers",
-            "version": "dev-main",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "2a9170263fcd9cc4fd0b50917293c21d6c1a5bfe"
+                "reference": "c29dc4b93137acb82734f672c37e029dfbd95b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/2a9170263fcd9cc4fd0b50917293c21d6c1a5bfe",
-                "reference": "2a9170263fcd9cc4fd0b50917293c21d6c1a5bfe",
+                "url": "https://api.github.com/repos/composer/installers/zipball/c29dc4b93137acb82734f672c37e029dfbd95b35",
+                "reference": "c29dc4b93137acb82734f672c37e029dfbd95b35",
                 "shasum": ""
             },
             "require": {
@@ -363,7 +363,6 @@
                 "symfony/phpunit-bridge": "^5.3",
                 "symfony/process": "^5"
             },
-            "default-branch": true,
             "type": "composer-plugin",
             "extra": {
                 "class": "Composer\\Installers\\Plugin",
@@ -465,7 +464,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/main"
+                "source": "https://github.com/composer/installers/tree/v2.2.0"
             },
             "funding": [
                 {
@@ -481,7 +480,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-12T12:07:30+00:00"
+            "time": "2022-08-20T06:45:11+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -1537,16 +1536,16 @@
         },
         {
             "name": "humanmade/s3-uploads",
-            "version": "3.0.4",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/humanmade/S3-Uploads.git",
-                "reference": "8ad534d49c0307dd7ee56f0ab6d18c478f83a34a"
+                "reference": "1f3a7a29ef93370ae0400cad748fb0877707d225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/humanmade/S3-Uploads/zipball/8ad534d49c0307dd7ee56f0ab6d18c478f83a34a",
-                "reference": "8ad534d49c0307dd7ee56f0ab6d18c478f83a34a",
+                "url": "https://api.github.com/repos/humanmade/S3-Uploads/zipball/1f3a7a29ef93370ae0400cad748fb0877707d225",
+                "reference": "1f3a7a29ef93370ae0400cad748fb0877707d225",
                 "shasum": ""
             },
             "require": {
@@ -1584,7 +1583,7 @@
                 "issues": "https://github.com/humanmade/s3-uploads/issues",
                 "source": "https://github.com/humanmade/s3-uploads"
             },
-            "time": "2022-03-02T11:59:49+00:00"
+            "time": "2022-11-29T09:34:07+00:00"
         },
         {
             "name": "johnbillion/args",
@@ -6464,15 +6463,15 @@
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts-reloaded",
-            "version": "2.25.11",
+            "version": "2.25.12",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/limit-login-attempts-reloaded/",
-                "reference": "tags/2.25.11"
+                "reference": "tags/2.25.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.11.zip"
+                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.12.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6536,15 +6535,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "20.0",
+            "version": "20.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/20.0"
+                "reference": "tags/20.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.20.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.20.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6851,20 +6850,17 @@
         },
         {
             "name": "php-stubs/wordpress-stubs",
-            "version": "v6.1.0",
+            "version": "v6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "19e7966c8e70a99a4824b3e5d1526680a151f13b"
+                "reference": "f47dd299d9a5d588087ec20e50786fad8709a88d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/19e7966c8e70a99a4824b3e5d1526680a151f13b",
-                "reference": "19e7966c8e70a99a4824b3e5d1526680a151f13b",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/f47dd299d9a5d588087ec20e50786fad8709a88d",
+                "reference": "f47dd299d9a5d588087ec20e50786fad8709a88d",
                 "shasum": ""
-            },
-            "replace": {
-                "giacocorsiglia/wordpress-stubs": "*"
             },
             "require-dev": {
                 "nikic/php-parser": "< 4.12.0",
@@ -6892,9 +6888,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wordpress-stubs/issues",
-                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.1.0"
+                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.1.1"
             },
-            "time": "2022-11-09T05:33:25+00:00"
+            "time": "2023-02-04T19:31:19+00:00"
         },
         {
             "name": "php-stubs/wordpress-tests-stubs",
@@ -7444,12 +7440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/szepeviktor/phpstan-wordpress.git",
-                "reference": "4195696c051d0bfbc3ec3b5ff1ee70f226766e96"
+                "reference": "ece7213931a43b59c87737927504e38d9b04939f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/szepeviktor/phpstan-wordpress/zipball/4195696c051d0bfbc3ec3b5ff1ee70f226766e96",
-                "reference": "4195696c051d0bfbc3ec3b5ff1ee70f226766e96",
+                "url": "https://api.github.com/repos/szepeviktor/phpstan-wordpress/zipball/ece7213931a43b59c87737927504e38d9b04939f",
+                "reference": "ece7213931a43b59c87737927504e38d9b04939f",
                 "shasum": ""
             },
             "require": {
@@ -7460,11 +7456,11 @@
             },
             "require-dev": {
                 "composer/composer": "^2.1.14",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.1",
                 "phpstan/phpstan-strict-rules": "^1.2",
                 "phpunit/phpunit": "^8.0 || ^9.0",
-                "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.6.1"
+                "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8"
             },
             "default-branch": true,
             "type": "phpstan-extension",
@@ -7506,7 +7502,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-21T13:51:17+00:00"
+            "time": "2023-02-08T16:14:31+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -7563,7 +7559,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "composer/installers": 20,
         "moderntribe/square1-post-type": 20,
         "moderntribe/square1-settings": 20,
         "moderntribe/square1-taxonomy": 20,
@@ -7578,7 +7573,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.0.0"
+        "php": "^7.4|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
