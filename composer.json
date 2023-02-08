@@ -1,13 +1,11 @@
 {
-    "name": "moderntribe/block-starter",
+    "name": "moderntribe/moose",
+    "description": "Modern Tribe's Starter Framework.",
     "type": "project",
-    "license": "GPLv2",
+    "license": "GPL-3.0-or-later",
     "config": {
-        "vendor-dir": "vendor",
         "sort-packages": true,
-        "preferred-install": {
-            "*": "dist"
-        },
+        "preferred-install": "dist",
         "allow-plugins": {
             "ffraenz/private-composer-installer": true,
             "composer/installers": true,
@@ -19,9 +17,23 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "./vendor/bin/phpcs --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
-        "phpcbf": "./vendor/bin/phpcbf -s --standard=./phpcs.xml.dist ./wp-content/themes/core ./wp-content/plugins/core",
-        "post-autoload-dump": "./vendor/bin/wp core download --version=6.1.1 --quiet --skip-content --force"
+        "phpcs": "./vendor/bin/phpcs",
+        "phpcbf": "./vendor/bin/phpcbf -s",
+        "setup-project": [
+            "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
+            "@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
+            "@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
+        ],
+        "setup-wordpress": "./vendor/bin/wp core download --version=6.1.1 --quiet --skip-content --force",
+        "post-root-package-install": [
+            "@setup-repo"
+        ]
+    },
+    "scripts-descriptions": {
+        "phpcs": "Run PHPCS on the project.",
+        "phpcbf": "Run PHPCBF on the project.",
+        "setup-project": "Moves the .env, local-config.php, and local-config.json files for setting up the project.",
+        "setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value."
     },
     "repositories": [
         {
@@ -72,11 +84,11 @@
         "szepeviktor/phpstan-wordpress": "dev-master"
     },
     "require": {
-        "php": "~8.0.0",
+        "php": "^7.4|^8.0",
         "advanced-custom-fields/advanced-custom-fields-pro": "^6.0",
-        "composer/installers": "2.x-dev",
+        "composer/installers": "^2.2",
+        "humanmade/s3-uploads": "^3.0.4",
         "gravityforms/gravityforms": "*",
-        "humanmade/s3-uploads": "3.0.4",
         "johnbillion/extended-cpts": "^5.0",
         "moderntribe/square1-post-type": "dev-feature/monorepo",
         "moderntribe/square1-settings": "dev-master",
