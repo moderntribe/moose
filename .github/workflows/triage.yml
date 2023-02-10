@@ -1,0 +1,20 @@
+name: 'Triage'
+
+on: [push, pull_request]
+
+jobs:
+  coding-standards:
+    name: 'Coding Standards'
+    uses: ./.github/workflows/phpcs.yml
+  phpstan:
+    name: 'Static Analysis'
+    needs: [coding-standards]
+    uses: ./.github/workflows/phpstan.yml
+  compatibility:
+    name: 'PHP Compatibility'
+    needs: [coding-standards, phpstan]
+    uses: ./.github/workflows/compatibility.yml
+  slic:
+    name: 'PHP Tests'
+    needs: [coding-standards, phpstan, compatibility]
+    uses: ./.github/workflows/slic.yml
