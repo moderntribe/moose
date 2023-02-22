@@ -17,8 +17,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "./vendor/bin/phpcs",
         "phpcbf": "./vendor/bin/phpcbf -s",
+        "phpcs": "./vendor/bin/phpcs",
         "phpstan": "./vendor/bin/phpstan analyse",
         "setup-project": [
             "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
