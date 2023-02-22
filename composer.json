@@ -2,7 +2,7 @@
     "name": "moderntribe/moose",
     "description": "Modern Tribe's Starter Framework.",
     "type": "project",
-    "license": "GPL-3.0-or-later",
+    "license": "GPL-2.0-or-later",
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
