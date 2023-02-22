@@ -87,11 +87,6 @@ class Force_Plugin_Activation {
 			$this->force_active[]     = 'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php';
 		}
 
-		// Specific config when unit tests are running
-		if ( defined( 'DIR_TESTDATA' ) && DIR_TESTDATA ) {
-			//$this->force_deactivate[] = 'term-sorter/term-sorter.php';
-		}
-
 		add_filter( 'option_active_plugins', [ $this, 'force_plugins' ], 10, 1 );
 		add_filter( 'site_option_active_sitewide_plugins', [ $this, 'force_plugins' ], 10, 1 );
 		add_filter( 'plugin_action_links', [ $this, 'plugin_action_links' ], 99, 2 );
