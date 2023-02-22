@@ -63,7 +63,7 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "6.0.5",
+                "version": "6.0.6",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -76,19 +76,19 @@
         }
     ],
     "require-dev": {
-        "moderntribe/coding-standards": "3.x-dev",
-        "php-stubs/acf-pro-stubs": "dev-master",
-        "php-stubs/wordpress-tests-stubs": "dev-master",
+        "moderntribe/coding-standards": "^3.2",
+        "php-stubs/acf-pro-stubs": "6.0.6",
+        "php-stubs/wordpress-tests-stubs": "6.1.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "1.8.x-dev",
-        "szepeviktor/phpstan-wordpress": "dev-master"
+        "phpstan/phpstan": "^1.10",
+        "szepeviktor/phpstan-wordpress": "^1.1.7"
     },
     "require": {
         "php": "^7.4|^8.0",
-        "advanced-custom-fields/advanced-custom-fields-pro": "^6.0",
+        "advanced-custom-fields/advanced-custom-fields-pro": "6.0.6",
         "composer/installers": "^2.2",
-        "humanmade/s3-uploads": "^3.0.4",
         "gravityforms/gravityforms": "*",
+        "humanmade/s3-uploads": "^3.0.4",
         "johnbillion/extended-cpts": "^5.0",
         "moderntribe/square1-post-type": "dev-feature/monorepo",
         "moderntribe/square1-settings": "dev-master",
@@ -115,7 +115,8 @@
             "wp-content/mu-plugins/{$name}": [
                 "type:wordpress-muplugin"
             ]
-        }
+        },
+        "enable-patching": true
     },
     "autoload": {
         "psr-4": {
