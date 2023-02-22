@@ -19,6 +19,7 @@
     "scripts": {
         "phpcs": "./vendor/bin/phpcs",
         "phpcbf": "./vendor/bin/phpcbf -s",
+        "phpstan": "./vendor/bin/phpstan analyse",
         "setup-project": [
             "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
             "@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
@@ -32,6 +33,7 @@
     "scripts-descriptions": {
         "phpcs": "Run PHPCS on the project.",
         "phpcbf": "Run PHPCBF on the project.",
+        "phpstan": "Run PHPStan on the project.",
         "setup-project": "Moves the .env, local-config.php, and local-config.json files for setting up the project.",
         "setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value."
     },
