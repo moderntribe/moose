@@ -1,7 +1,7 @@
 /**
  * PostCSS Config
  *
- * Overrides wp-scripts defaults config for postcss processing.
+ * Overrides WP-Scripts default config for postcss processing.
  *
  * Customizations:
  * - postcss-import: Add support for concatenating pcss partials via `@import` statements.
@@ -16,7 +16,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 /**
- * Config mimics the WP-Scripts config for cssnano.
+ * Replicates WP-Scripts config for CSS Nano.
  */
 const cssNanoConfig = {
 	preset: [
@@ -30,7 +30,7 @@ const cssNanoConfig = {
 };
 
 const plugins = [
-	'postcss-import', // Add support for concatenating pcss partials via `@import` statements.
+	'postcss-import',
 	[
 		'postcss-preset-env',
 		{
