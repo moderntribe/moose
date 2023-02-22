@@ -18,6 +18,7 @@ function moduleExists( name ) {
 	try {
 		return require.resolve( name );
 	} catch ( e ) {
+		/* eslint-disable-next-line no-console */
 		console.warn(
 			'Warning: local-config.json is missing. Did you create one?\n'
 		);

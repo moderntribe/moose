@@ -1,7 +1,7 @@
-root = true
-
 # Base styles from WordPress Coding Standards
 # https://github.com/WordPress/wordpress-develop/blob/master/.editorconfig
+
+root = true
 
 [*]
 charset = utf-8
@@ -13,16 +13,20 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[*.md]
-trim_trailing_whitespace = false
-
-# Indentation override for all JS under theme directory
-[wp-content/themes/core/**/*.js]
+[*.js]
 indent_style = tab
 spaces_within_imports = true
 
-# Indentation override for all CSS under theme directory
-[wp-content/themes/core/**/*.pcss]
+[*.md]
+trim_trailing_whitespace = false
+
+# Indentation override for all js in the core plugin & theme
+[wp-content/{plugins,themes}/core/**/*.js]
+indent_style = tab
+spaces_within_imports = true
+
+# Indentation override for all pcss in the core plugin & theme
+[wp-content/{plugins,themes}/core/**/*.pcss]
 indent_style = tab
 
 [wp-content/{plugins,themes}/core/**.php]

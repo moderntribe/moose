@@ -1,2 +1,3 @@
 # Ignore built assets
-wp-content/themes/core/dist/
+/wp-content/themes/core/dist/
+/wp-content/plugins/core/dist/

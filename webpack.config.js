@@ -13,15 +13,12 @@ const pkg = require( './package.json' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-/*const {
-	getWebpackEntryPoints: blockJsonEntryPoints,
-} = require( '@wordpress/scripts/utils/config' );*/
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 
 /**
  * General theme scripts & styles entry points
  *
- * The entry point names are prefixed with `../assets` to direct their output into
+ * The entry point names are prefixed with `assets` to direct their output into
  * an assets subdirectory in the root dist folder.
  */
 const assetEntryPoints = () => {
@@ -44,12 +41,19 @@ const assetEntryPoints = () => {
 	};
 };
 
+/**
+ * Auto-find and load any block-based entry points.
+ *
+ * This is a simplified version of WP-Scripts' blocks.json entry point loader.
+ * We want to support block.json entry points within subdirectories of the theme blocks directory
+ * and we can safely ignore other legacy entry point formats.
+ *
+ * @return {{}|undefined}	An object of block entry points or undefined of there are none.
+ */
 const blockEntryPoints = () => {
 	const coreBlockFiles = glob(
 		`${ pkg.directories.coreTheme }blocks/**/index.js`,
-		{
-			absolute: true,
-		}
+		{ absolute: true }
 	);
 
 	if ( ! coreBlockFiles.length ) {
@@ -67,42 +71,6 @@ const blockEntryPoints = () => {
 
 	return entryPoints;
 };
-
-/**
- * Update the css module rules test to add .pcss as an option.
- */
-const moduleRules = defaultConfig.module.rules.map( ( rule ) => {
-	const cssExp = /\.css$/; // Default rule.test as defined in the wp-scripts webpack config.
-	return rule.test.toString() === cssExp.toString()
-		? { ...rule, test: /\.(pc|c)ss$/ }
-		: rule;
-} );
-
-const config = {
-	...defaultConfig,
-	entry: {
-		...assetEntryPoints(),
-		...blockEntryPoints(),
-	},
-	output: {
-		...defaultConfig.output,
-		path: resolve( pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
-	},
-	module: {
-		rules: moduleRules, // Modified module.rules supporting .pcss extension in addition to .css files.
-	},
-	plugins: [
-		...defaultConfig.plugins,
-		new RemoveEmptyScriptsPlugin( {
-			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS,
-		} ),
-		new BrowserSyncPlugin( browserSyncOpts ), // Add browser-sync for dev reloads
-	],
-};
-
-// Add .pcss extension to the splitChunks cache groups for block style chunks.
-config.optimization.splitChunks.cacheGroups.style.test =
-	/[\\/]style(\.module)?\.(sc|sa|c|pc)ss$/;
 
 /**
  * The configuration for copying block.json files from the source to dist folders
@@ -123,8 +91,46 @@ if ( copyPluginIndex > -1 ) {
 	if ( blockJsonPatternIndex > -1 ) {
 		defaultConfig.plugins[ copyPluginIndex ].patterns[
 			blockJsonPatternIndex
-		].globOptions.ignore = '**/dist/**';
+		] = {
+			...defaultConfig.plugins[ copyPluginIndex ].patterns[
+				blockJsonPatternIndex
+			],
+			globOptions: { ignore: '**/dist/**' },
+		};
 	}
 }
 
-module.exports = config;
+module.exports = {
+	...defaultConfig,
+	entry: {
+		...assetEntryPoints(),
+		...blockEntryPoints(),
+	},
+	output: {
+		...defaultConfig.output,
+		path: resolve( pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
+	},
+	plugins: [
+		...defaultConfig.plugins,
+
+		/**
+		 * Remove empty auto-generated index.js files
+		 *
+		 * Webpack auto-generates an empty index.js file for every entry point.
+		 * When we create a styles-only entry point such as print.pcss
+		 * this plugin deletes that empty index.js file after it is built.
+		 */
+		new RemoveEmptyScriptsPlugin( {
+			stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS,
+		} ),
+
+		/**
+		 * Add browsersync so any file changes auto-reload the browser.
+		 *
+		 * WP-Scripts does make use of Webpack hot module reloading,
+		 * but it doesn't support non-JS entry points at this time.
+		 * For our purposes, broswersync is more helpful.
+		 */
+		new BrowserSyncPlugin( browserSyncOpts ), // Add browser-sync for dev reloads
+	],
+};

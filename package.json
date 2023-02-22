@@ -19,17 +19,20 @@
     "corePlugin": "wp-content/plugins/core/"
   },
   "devDependencies": {
-    "@wordpress/create-block": "^4.10",
-    "@wordpress/scripts": "^25.3",
+    "@wordpress/create-block": "^4.11.0",
+    "@wordpress/scripts": "^25.4.0",
     "browser-sync": "^2.27",
     "browser-sync-webpack-plugin": "^2.3",
+    "cssnano": "^5.1.15",
     "fast-glob": "^3.2.12",
     "lefthook": "^1.1",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^8.0.1",
     "webpack-remove-empty-scripts": "^1.0"
   },
   "scripts": {
-    "dist": "wp-scripts build --webpack-src-dir=./wp-content/themes/core/",
-    "dev": "wp-scripts start --webpack-src-dir=./wp-content/themes/core/",
+    "dist": "wp-scripts build",
+    "dev": "wp-scripts start",
     "format": "wp-scripts format ./wp-content/themes/core",
     "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix",
     "lint:css": "wp-scripts lint-style \"./wp-content/@(plugins|themes)/core/**/*.pcss\"",
