@@ -10,6 +10,14 @@
   "bugs": {
     "email": "admin@tri.be"
   },
+  "browserslist": [
+    "last 2 versions",
+    "safari >= 15",
+    "ios >= 15",
+    "android >= 8.0",
+    "not op_mini all",
+    "not dead"
+  ],
   "engines": {
     "node": "16.13.1",
     "npm": "8.1.2"
