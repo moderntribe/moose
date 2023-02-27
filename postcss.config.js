@@ -37,9 +37,11 @@ const plugins = [
 			stage: 0,
 			autoprefixer: { grid: true },
 			features: {
+				'clamp': false, // eslint-disable-line
 				'custom-properties': false,
 				'focus-visible-pseudo-class': false,
 				'focus-within-pseudo-class': false,
+				'logical-properties-and-values': false,
 			},
 		},
 	],
