@@ -2,7 +2,7 @@
     "name": "moderntribe/moose",
     "description": "Modern Tribe's Starter Framework.",
     "type": "project",
-    "license": "GPL-3.0-or-later",
+    "license": "GPL-2.0-or-later",
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
@@ -17,8 +17,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "./vendor/bin/phpcs",
         "phpcbf": "./vendor/bin/phpcbf -s",
+        "phpcs": "./vendor/bin/phpcs",
+        "phpstan": "./vendor/bin/phpstan analyse",
         "setup-project": [
             "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
             "@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
@@ -32,6 +33,7 @@
     "scripts-descriptions": {
         "phpcs": "Run PHPCS on the project.",
         "phpcbf": "Run PHPCBF on the project.",
+        "phpstan": "Run PHPStan on the project.",
         "setup-project": "Moves the .env, local-config.php, and local-config.json files for setting up the project.",
         "setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value."
     },
@@ -63,7 +65,7 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "6.0.5",
+                "version": "6.0.6",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -76,24 +78,24 @@
         }
     ],
     "require-dev": {
-        "moderntribe/coding-standards": "3.x-dev",
-        "php-stubs/acf-pro-stubs": "dev-master",
-        "php-stubs/wordpress-tests-stubs": "dev-master",
+        "moderntribe/coding-standards": "^3.2",
+        "php-stubs/acf-pro-stubs": "6.0.6",
+        "php-stubs/wordpress-tests-stubs": "6.1.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "1.8.x-dev",
-        "szepeviktor/phpstan-wordpress": "dev-master"
+        "phpstan/phpstan": "^1.10",
+        "szepeviktor/phpstan-wordpress": "^1.1.7"
     },
     "require": {
         "php": "^7.4|^8.0",
-        "advanced-custom-fields/advanced-custom-fields-pro": "^6.0",
+        "advanced-custom-fields/advanced-custom-fields-pro": "6.0.6",
         "composer/installers": "^2.2",
-        "humanmade/s3-uploads": "^3.0.4",
         "gravityforms/gravityforms": "*",
+        "humanmade/s3-uploads": "^3.0.4",
         "johnbillion/extended-cpts": "^5.0",
-        "moderntribe/square1-post-type": "dev-feature/monorepo",
-        "moderntribe/square1-settings": "dev-master",
-        "moderntribe/square1-taxonomy": "dev-master",
-        "moderntribe/square1-utils": "dev-master",
+        "moderntribe/square1-post-type": "^4.2",
+        "moderntribe/square1-settings": "^4.2",
+        "moderntribe/square1-taxonomy": "^4.2",
+        "moderntribe/square1-utils": "^4.2",
         "moderntribe/tribe-glomar": "dev-main",
         "php-di/php-di": "^6.0",
         "vinkla/extended-acf": "^13.1",
@@ -115,7 +117,8 @@
             "wp-content/mu-plugins/{$name}": [
                 "type:wordpress-muplugin"
             ]
-        }
+        },
+        "enable-patching": true
     },
     "autoload": {
         "psr-4": {
