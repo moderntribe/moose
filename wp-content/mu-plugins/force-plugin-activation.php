@@ -4,11 +4,9 @@ namespace Tribe\Mu;
 
 /*
 Plugin Name: Force Plugin Activation
-Plugin URI: https://stellarwp.com
 Description: Make sure the required plugins are always active.
 Version: 2.0.0
-Author: StellarWP
-Author URI: https://stellarwp.com
+Update URI: false
 */
 
 // Exit if accessed directly.
@@ -47,17 +45,10 @@ final class ForcePluginActivation {
 	private array $plugins = [
 		'advanced-custom-fields-pro/acf.php'                              => [ 'all' ],
 		'core/core.php'                                                   => [ 'all' ],
-		'debug-bar-action-hooks/debug-bar-action-hooks.php'               => [ 'local', 'development' ],
-		'debug-bar-console/debug-bar-console.php'                         => [ 'local', 'development' ],
-		'debug-bar-cron/debug-bar-cron.php'                               => [ 'local', 'development' ],
-		'debug-bar-extender/debug-bar-extender.php'                       => [ 'local', 'development' ],
 		'debug-bar/debug-bar.php'                                         => [ 'local', 'development' ],
-		'disable-emails/disable-emails.php'                               => [ 'local', 'development', 'staging' ],
 		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' => [ 'development', 'staging', 'production' ],
-		'tribe-glomar/tribe-glomar.php'                                   => [ 'local', 'development', 'staging' ],
-		'wp-log-in-browser/wp-log-in-browser.php'                         => [ 'local', 'development' ],
+		'tribe-glomar/tribe-glomar.php'                                   => [ 'development', 'staging' ],
 		'wp-tota11y/wp-tota11y.php'                                       => [ 'local', 'development', 'staging' ],
-		'wp-xhprof-profiler/xhprof-profiler.php'                          => [ 'local', 'development' ],
 	];
 
 	/**
@@ -70,15 +61,9 @@ final class ForcePluginActivation {
 	 * @var string[] directory/file.php
 	 */
 	private array $networkOnlyPlugins = [
-		'advanced-custom-fields-pro/acf.php'                  => [ 'all' ],
-		'debug-bar/debug-bar.php'                             => [ 'local', 'development' ],
-		'debug-bar-action-hooks/debug-bar-action-hooks.php'   => [ 'local', 'development' ],
-		'debug-bar-console/debug-bar-console.php'             => [ 'local', 'development' ],
-		'debug-bar-cron/debug-bar-cron.php'                   => [ 'local', 'development' ],
-		'debug-bar-extender/debug-bar-extender.php'           => [ 'local', 'development' ],
-		'wp-log-in-browser/wp-log-in-browser.php'             => [ 'local', 'development', 'staging' ],
-		'wp-xhprof-profiler/xhprof-profiler.php'              => [ 'local', 'development' ],
-		'wp-tota11y/wp-tota11y.php'                           => [ 'local', 'development', 'staging' ],
+		'advanced-custom-fields-pro/acf.php' => [ 'all' ],
+		'debug-bar/debug-bar.php'            => [ 'local', 'development' ],
+		'wp-tota11y/wp-tota11y.php'          => [ 'local', 'development', 'staging' ],
 	];
 
 	/**
