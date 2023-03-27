@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class ForcePluginActivation {
 
 	/**
-	 * Give Instance
+	 * The Instance
 	 *
 	 * @since 2.0.0
 	 */
