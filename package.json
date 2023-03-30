@@ -1,12 +1,12 @@
 {
-  "name": "blocks-starter",
+  "name": "moose",
   "version": "1.0.0",
   "description": "A WordPress starter framework for Modern Tribe Projects",
   "author": "Modern Tribe <admin@tri.be>",
   "license": "GPL-2.0-or-later",
   "keywords": [],
-  "homepage": "https://github.com/moderntribe/blocks-starter#readme",
-  "repository": "https://github.com/moderntribe/blocks-starter",
+  "homepage": "https://github.com/moderntribe/moose#readme",
+  "repository": "https://github.com/moderntribe/moose",
   "bugs": {
     "email": "admin@tri.be"
   },
@@ -27,8 +27,8 @@
     "corePlugin": "wp-content/plugins/core/"
   },
   "devDependencies": {
-    "@wordpress/create-block": "^4.11.0",
-    "@wordpress/scripts": "^25.4.0",
+    "@wordpress/create-block": "^4.14.0",
+    "@wordpress/scripts": "^26.1.0",
     "browser-sync": "^2.27",
     "browser-sync-webpack-plugin": "^2.3",
     "cssnano": "^5.1.15",
