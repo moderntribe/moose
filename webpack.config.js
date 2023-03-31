@@ -24,17 +24,17 @@ const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const assetEntryPoints = () => {
 	return {
 		'assets/admin': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'admin.js'
 		),
 		'assets/theme': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'theme.js'
 		),
 		'assets/print': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'print.pcss'
 		),
@@ -57,7 +57,7 @@ const blockEntryPoints = () => {
 	 * still may contain scripts or styles which should be processed.
 	 */
 	const coreBlockFiles = glob(
-		`${ pkg.directories.coreTheme }blocks/**/index.js`,
+		`${ pkg.config.webpackBlocksSrcDir }**/index.js`,
 		{ absolute: true }
 	);
 
@@ -70,7 +70,7 @@ const blockEntryPoints = () => {
 	coreBlockFiles.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
-			.replace( `${ resolve( pkg.directories.coreTheme ) }/`, '' );
+			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
 		entryPoints[ entryName ] = entryFilePath;
 	} );
 
@@ -112,7 +112,7 @@ module.exports = {
 	},
 	output: {
 		...defaultConfig.output,
-		path: resolve( pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
+		path: resolve( pkg.config.coreThemeDir, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	plugins: [
 		...defaultConfig.plugins,

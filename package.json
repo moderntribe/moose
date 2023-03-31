@@ -22,9 +22,9 @@
     "node": "16.13.1",
     "npm": "8.1.2"
   },
-  "directories": {
-    "coreTheme": "wp-content/themes/core/",
-    "corePlugin": "wp-content/plugins/core/"
+  "config": {
+    "coreThemeDir": "wp-content/themes/core/",
+    "webpackBlocksSrcDir": "wp-content/themes/core/blocks/"
   },
   "devDependencies": {
     "@wordpress/create-block": "^4.14.0",
@@ -39,9 +39,9 @@
     "webpack-remove-empty-scripts": "^1.0"
   },
   "scripts": {
-    "dist": "wp-scripts build --webpack-src-dir=\"./wp-content/themes/core/blocks\"",
-    "dev": "wp-scripts start --webpack-src-dir=\"./wp-content/themes/core/blocks\"",
-    "format": "wp-scripts format ./wp-content/themes/core",
+    "dist": "wp-scripts build --webpack-src-dir=$npm_package_config_webpackBlocksSrcDir",
+    "dev": "wp-scripts start --webpack-src-dir=$npm_package_config_webpackBlocksSrcDir",
+    "format": "wp-scripts format $npm_package_config_coreThemeDir",
     "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix",
     "lint:css": "wp-scripts lint-style \"./wp-content/@(plugins|themes)/core/**/*.pcss\"",
     "lint:css:fix": "wp-scripts lint-style \"./wp-content/@(plugins|themes)/core/**/*.pcss\" --fix",
@@ -50,7 +50,7 @@
     "lint:configs": "wp-scripts lint-js \"./*.js\"",
     "lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "create-block": "cd \"./wp-content/themes/core/blocks/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
+    "create-block": "cd $npm_package_config_webpackBlocksSrcDir/tribe && npx @wordpress/create-block --no-plugin --namespace tribe",
     "packages-update": "wp-scripts packages-update",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
