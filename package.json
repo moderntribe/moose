@@ -23,8 +23,8 @@
     "npm": "8.1.2"
   },
   "config": {
-    "coreThemeDir": "wp-content/themes/core/",
-    "webpackBlocksSrcDir": "wp-content/themes/core/blocks/"
+    "coreThemeDir": "./wp-content/themes/core",
+    "coreThemeBlocksDir": "./wp-content/themes/core/blocks"
   },
   "devDependencies": {
     "@wordpress/create-block": "^4.14.0",
@@ -39,18 +39,18 @@
     "webpack-remove-empty-scripts": "^1.0"
   },
   "scripts": {
-    "dist": "wp-scripts build --webpack-src-dir=$npm_package_config_webpackBlocksSrcDir",
-    "dev": "wp-scripts start --webpack-src-dir=$npm_package_config_webpackBlocksSrcDir",
+    "dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
+    "dev": "wp-scripts start --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
     "format": "wp-scripts format $npm_package_config_coreThemeDir",
     "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix",
-    "lint:css": "wp-scripts lint-style \"./wp-content/@(plugins|themes)/core/**/*.pcss\"",
-    "lint:css:fix": "wp-scripts lint-style \"./wp-content/@(plugins|themes)/core/**/*.pcss\" --fix",
-    "lint:js": "wp-scripts lint-js \"./wp-content/@(plugins|themes)/core/**/*.js\"",
-    "lint:js:fix": "wp-scripts lint-js \"./wp-content/@(plugins|themes)/core/**/*.js\" --fix",
+    "lint:css": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\"",
+    "lint:css:fix": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\" --fix",
+    "lint:js": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\"",
+    "lint:js:fix": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\" --fix",
     "lint:configs": "wp-scripts lint-js \"./*.js\"",
     "lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "create-block": "cd $npm_package_config_webpackBlocksSrcDir/tribe && npx @wordpress/create-block --no-plugin --namespace tribe",
+    "create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
     "packages-update": "wp-scripts packages-update",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",

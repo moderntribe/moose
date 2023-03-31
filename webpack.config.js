@@ -57,7 +57,7 @@ const blockEntryPoints = () => {
 	 * still may contain scripts or styles which should be processed.
 	 */
 	const coreBlockFiles = glob(
-		`${ pkg.config.webpackBlocksSrcDir }**/index.js`,
+		`${ pkg.config.coreThemeBlocksDir }/**/index.js`,
 		{ absolute: true }
 	);
 
@@ -80,8 +80,8 @@ const blockEntryPoints = () => {
 /**
  * The configuration for copying block.json files from the src to dist folder
  * doesn't work with our namespaced nested blocks structure. Thus, we have to
- * find the plugin's config in the greater config object and explicitly the
- * destination location for the coped file(s).
+ * find the plugin's config in the greater config object and explicitly set
+ * the destination location (`to:`) for the coped file(s).
  */
 const copyPluginIndex = defaultConfig.plugins.findIndex(
 	( plugin ) => plugin.patterns
