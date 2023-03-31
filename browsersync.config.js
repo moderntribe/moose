@@ -30,7 +30,8 @@ function moduleExists( name ) {
 const localConfig = moduleExists( './local-config.json' )
 	? require( './local-config.json' )
 	: {
-			certsPath: '',
+			certPath: '',
+			certName: '',
 			host: 'localhost',
 			protocol: 'http',
 	  };
@@ -45,10 +46,10 @@ module.exports = {
 	open: 'external',
 	host: localConfig.host,
 	proxy: `${ localConfig.protocol }://${ localConfig.host }`,
-	...( localConfig.certsPath.length && {
+	...( localConfig.certPath.length && {
 		https: {
-			key: `${ localConfig.certsPath }/${ localConfig.host }.key`,
-			cert: `${ localConfig.certsPath }/${ localConfig.host }.crt`,
+			key: `${ localConfig.certPath }/${ localConfig.certName }.key`,
+			cert: `${ localConfig.certPath }/${ localConfig.certName }.crt`,
 		},
 	} ),
 };
