@@ -18,7 +18,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const pkg = require( './package.json' );
 const { sync: glob } = require( 'fast-glob' );
-const postcssGlobalData = require('@csstools/postcss-global-data');
+const postcssGlobalData = require( '@csstools/postcss-global-data' );
 
 /**
  * Replicates WP-Scripts config for CSS Nano.
@@ -41,14 +41,14 @@ const plugins = [
 			`${ pkg.config.coreThemeDir }/assets/pcss/global/_*.pcss`,
 			{ absolute: true }
 		),
-	}),
+	} ),
 	[
 		'postcss-preset-env',
 		{
 			stage: 0,
 			autoprefixer: { grid: true },
 			features: {
-				'clamp': false,
+				clamp: false,
 				'custom-properties': false,
 				'focus-visible-pseudo-class': false,
 				'focus-within-pseudo-class': false,
