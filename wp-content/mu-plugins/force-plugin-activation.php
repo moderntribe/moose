@@ -3,133 +3,180 @@
 namespace Tribe\Mu;
 
 /*
-Plugin Name:	Force Plugin Activation/Deactivation
-Plugin URI: 	http://danieldvork.in
-Description:	Make sure the required plugins are always active.
-Version:    	1.0
-Author:     	Daniel Dvorkin
-Author URI: 	http://danieldvork.in
+Plugin Name: Force Plugin Activation
+Description: Make sure the required plugins are always active.
+Version: 2.0.0
+Update URI: false
 */
 
-class Force_Plugin_Activation {
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * The ForcePluginActivation plugin class.
+ *
+ * @since 2.0.0
+ */
+final class ForcePluginActivation {
 
 	/**
-	 * These plugins will always be forced active.
+	 * The Instance
 	 *
-	 * Add elements as plugin path: directory/file.php
-	 *
-	 * @var string[]
+	 * @since 2.0.0
 	 */
-	private array $force_active = [
-		'advanced-custom-fields-pro/acf.php',
-		'core/core.php',
-		'disable-emojis/disable-emojis.php',
+	protected static self $instance;
+
+	/**
+	 * The registry of plugins to activate by environment and otherwise will be deactivated.
+	 *
+	 * Add your plugins here.
+	 *
+	 * Example:
+	 *
+	 * `'wp-force-login/wp-force-login.php' => ['development', 'staging'],`
+	 * `'kadence-blocks/kadence-blocks.php' => ['all'],`
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var array<string, string[]> 'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
+	 */
+	private array $plugins = [
+		'advanced-custom-fields-pro/acf.php'                              => [ 'all' ],
+		'core/core.php'                                                   => [ 'all' ],
+		'debug-bar/debug-bar.php'                                         => [ 'local', 'development' ],
+		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' => [ 'development', 'staging', 'production' ],
+		'tribe-glomar/tribe-glomar.php'                                   => [ 'development', 'staging' ],
+		'wp-tota11y/wp-tota11y.php'                                       => [ 'local', 'development', 'staging' ],
 	];
 
 	/**
-	 * These plugins will be deactivated and can't
-	 * be activated unless WP_DEBUG is true.
+	 * The registry of plugins to only show in the network admin.
 	 *
-	 * Add elements as plugin path: directory/file.php
+	 * Add your plugins here.
 	 *
-	 * @var string[]
+	 * @since 2.0.0
+	 *
+	 * @var string[] directory/file.php
 	 */
-	private array $force_deactivate = [
-		'debug-bar/debug-bar.php',
-		'debug-bar-action-hooks/debug-bar-action-hooks.php',
-		'debug-bar-console/debug-bar-console.php',
-		'debug-bar-cron/debug-bar-cron.php',
-		'debug-bar-extender/debug-bar-extender.php',
-		'rewrite-rules-inspector/rewrite-rules-inspector.php',
-		'wp-log-in-browser/wp-log-in-browser.php',
-		'wp-xhprof-profiler/xhprof-profiler.php',
-		'wp-tota11y/wp-tota11y.php',
+	private array $networkOnlyPlugins = [
+		'advanced-custom-fields-pro/acf.php' => [ 'all' ],
+		'debug-bar/debug-bar.php'            => [ 'local', 'development' ],
+		'wp-tota11y/wp-tota11y.php'          => [ 'local', 'development', 'staging' ],
 	];
 
 	/**
-	 * These plugins will not show in the site plugins list.
-	 * They will only show in the network admin.
+	 * The list of plugins to activate.
 	 *
-	 * Add elements as plugin path: directory/file.php
+	 * Don't add anything here, this gets updated automatically.
 	 *
-	 * @var string[]
+	 * @since 2.0.0
+	 *
+	 * @var string[] directory/file.php
 	 */
-	private array $force_network_only = [
-		'advanced-custom-fields-pro/acf.php',
-		'debug-bar/debug-bar.php',
-		'debug-bar-action-hooks/debug-bar-action-hooks.php',
-		'debug-bar-console/debug-bar-console.php',
-		'debug-bar-cron/debug-bar-cron.php',
-		'debug-bar-extender/debug-bar-extender.php',
-		'rewrite-rules-inspector/rewrite-rules-inspector.php',
-		'wp-log-in-browser/wp-log-in-browser.php',
-		'wp-xhprof-profiler/xhprof-profiler.php',
-		'wp-tota11y/wp-tota11y.php',
-	];
+	private array $pluginsToActivate = [];
 
-	public function __construct() {
+	/**
+	 * The list of plugins to deactivate.
+	 *
+	 * Don't add anything here, this gets updated automatically.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var array<string, string[]> 'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
+	 */
+	private array $pluginsToDeactivate = [];
 
-		// Always block non-production sites from search engines and random visitors.
-		if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) || WP_ENVIRONMENT_TYPE !== 'production' ) {
-			$this->force_active[] = 'tribe-glomar/tribe-glomar.php';
+	/**
+	 * Main plugin instance.
+	 *
+	 * @since 2.0.0
+	 */
+	public static function getInstance(): self {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
 		}
 
-		/**
-		 * If you are about to refactor this, pay attention.
-		 * The next *if* is not the same as an *else* on the previous one.
-		 *
-		 * Also, wp_get_environment_type defaults to 'production' if the constant is
-		 * not set, so we should always look for the explicit definition before doing
-		 * anything here.
-		 */
-		if ( defined( 'WP_ENVIRONMENT_TYPE' ) && WP_ENVIRONMENT_TYPE === 'production' ) {
-			$this->force_deactivate[] = 'tribe-glomar/tribe-glomar.php';
-			$this->force_active[]     = 'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php';
-		}
-
-		add_filter( 'option_active_plugins', [ $this, 'force_plugins' ], 10, 1 );
-		add_filter( 'site_option_active_sitewide_plugins', [ $this, 'force_plugins' ], 10, 1 );
-		add_filter( 'plugin_action_links', [ $this, 'plugin_action_links' ], 99, 2 );
-		add_filter( 'network_admin_plugin_action_links', [ $this, 'plugin_action_links' ], 99, 2 );
-		add_filter( 'all_plugins', [ $this, 'hide_from_blog' ], 99, 1 );
+		return self::$instance;
 	}
 
 	/**
-	 * Enforce the activate/deactivate plugin rules
+	 * Bootstraps the plugin.
 	 *
-	 * @param array|bool $plugins
-	 *
-	 * @return array|bool
+	 * @since 2.0.0
 	 */
-	public function force_plugins( $plugins ) {
+	public function boot(): void {
+		add_filter( 'option_active_plugins', [ $this, 'forcePlugins' ] );
+		add_filter( 'site_option_active_sitewide_plugins', [ $this, 'forcePlugins' ] );
+		add_filter( 'plugin_action_links', [ $this, 'pluginActionLinks' ], 99, 2 );
+		add_filter( 'network_admin_plugin_action_links', [ $this, 'pluginActionLinks' ], 99, 2 );
+		add_filter( 'all_plugins', [ $this, 'hideFromBlog' ], 99 );
+	}
+
+	/**
+	 * Enforce the activate/deactivate plugin rules.
+	 *
+	 * @since 2.0.0
+	 */
+	public function forcePlugins( array $plugins ): array {
+		$env = wp_get_environment_type();
+
 		/*
-		 * Occasionally it seems a boolean can be passed in here.
-		 */
-		if ( ! is_array( $plugins ) ) {
-			return $plugins;
-		}
-		/*
-		 * WordPress works in mysterious ways
-		 * active_plugins has the plugin paths as array key and a number as value
-		 * active_sitewide_plugins has the number as key and the plugin path as value
-		 * I'm standardizing so we can run the array operations below, then flipping back if needed.
+		 * WordPress works in mysterious ways active_plugins has the plugin paths
+		 * as the key and a number as the value active_sitewide_plugins has the
+		 * number as the key and the plugin path as the value I'm standardizing so
+		 * that we can run the array operations below, then flipping back if needed.
 		 */
 		if ( current_filter() === 'site_option_active_sitewide_plugins' ) {
 			$plugins = array_flip( $plugins );
 		}
 
-		// Add our force-activated plugins
-		$plugins = array_merge( (array) $plugins, $this->force_active );
+		// First, deactivate all the forced plugins, this is an additive solution.
+		$plugins                   = array_diff( $plugins, array_keys( $this->plugins ) );
+		$this->pluginsToDeactivate = $this->plugins;
 
-		// Remove our force-deactivated plugins unless WP_DEBUG is on. Forced removal when unit tests are running
-		if ( ( defined( 'DIR_TESTDATA' ) && DIR_TESTDATA ) || ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
-			$plugins = array_diff( (array) $plugins, $this->force_deactivate );
+		// Get the forced plugins by environment.
+		foreach ( $this->plugins as $plugin => $environments ) {
+			if ( in_array( 'all', $environments ) ) {
+				$this->pluginsToActivate[] = $plugin;
+				unset( $this->pluginsToDeactivate[ $plugin ] );
+				continue;
+			}
+
+			if ( $env === 'local' && in_array( 'local', $environments ) ) {
+				$this->pluginsToActivate[] = $plugin;
+				unset( $this->pluginsToDeactivate[ $plugin ] );
+				continue;
+			}
+
+			if ( $env === 'development' && in_array( 'development', $environments ) ) {
+				$this->pluginsToActivate[] = $plugin;
+				unset( $this->pluginsToDeactivate[ $plugin ] );
+				continue;
+			}
+
+			if ( $env === 'staging' && in_array( 'staging', $environments ) ) {
+				$this->pluginsToActivate[] = $plugin;
+				unset( $this->pluginsToDeactivate[ $plugin ] );
+				continue;
+			}
+
+			if ( $env !== 'production' || ! in_array( 'production', $environments ) ) {
+				continue;
+			}
+
+			$this->pluginsToActivate[] = $plugin;
+			unset( $this->pluginsToDeactivate[ $plugin ] );
 		}
+
+		// Add the forced plugins by environment.
+		$plugins = array_merge( $plugins, $this->pluginsToActivate );
 
 		// Deduplicate
 		$plugins = array_unique( $plugins );
 
-		// Flip back if needed (see comment above)
+		// Flip back if needed (see comment above).
 		if ( current_filter() === 'site_option_active_sitewide_plugins' ) {
 			$plugins = array_flip( $plugins );
 		}
@@ -141,21 +188,15 @@ class Force_Plugin_Activation {
 	 * Removes the activate/deactivate links from the plugins list
 	 * if they are in the force active or force deactivate lists.
 	 *
-	 * @param array  $actions
-	 * @param string $plugin_file
-	 *
-	 * @return array
+	 * @since 2.0.0
 	 */
-	public function plugin_action_links( array $actions, string $plugin_file ): array {
-
-		if ( in_array( $plugin_file, $this->force_active ) ) {
+	public function pluginActionLinks( array $actions, string $pluginFile ): array {
+		if ( in_array( $pluginFile, $this->pluginsToActivate, true ) ) {
 			unset( $actions['deactivate'] );
 		}
 
-		if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
-			if ( in_array( $plugin_file, $this->force_deactivate ) ) {
-				unset( $actions['activate'] );
-			}
+		if ( array_key_exists( $pluginFile, $this->pluginsToDeactivate ) ) {
+			unset( $actions['activate'] );
 		}
 
 		return $actions;
@@ -167,18 +208,10 @@ class Force_Plugin_Activation {
 	 *
 	 * Only on multisite.
 	 *
-	 * @param array $plugins
-	 *
-	 * @return array mixed
+	 * @since 2.0.0
 	 */
-	public function hide_from_blog( array $plugins ): array {
-
+	public function hideFromBlog( array $plugins ): array {
 		if ( ! is_multisite() ) {
-			return $plugins;
-		}
-
-		// Plugins like Jetpack sync may run this outside of the current screen scope.
-		if ( ! function_exists( 'get_current_screen' ) ) {
 			return $plugins;
 		}
 
@@ -187,7 +220,7 @@ class Force_Plugin_Activation {
 			return $plugins;
 		}
 
-		foreach ( $this->force_network_only as $slug ) {
+		foreach ( $this->networkOnlyPlugins as $slug ) {
 			if ( ! isset( $plugins[ $slug ] ) ) {
 				continue;
 			}
@@ -200,4 +233,5 @@ class Force_Plugin_Activation {
 
 }
 
-new Force_Plugin_Activation();
+$instance = ForcePluginActivation::getInstance();
+$instance->boot();
