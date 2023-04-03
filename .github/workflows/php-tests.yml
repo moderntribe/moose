@@ -50,7 +50,7 @@ jobs:
 
       - name: Install Composer
         run: |
-          echo "${{ secrets.COMPOSER_ENV }}" >> .env
+          echo "${{ secrets.COMPOSER_ENV }}" >> ${GITHUB_WORKSPACE}/${{ env.build_folder }}/.env
 
       - name: Set up slic env vars
         run: |
