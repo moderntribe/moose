@@ -3,9 +3,9 @@ name: Static Analysis
 on:
   workflow_call:
     secrets:
-    COMPOSER_ENV:
-      required: true
-      description: COMPOSER_ENV Secret
+      COMPOSER_ENV:
+        required: true
+        description: COMPOSER_ENV Secret
 
 jobs:
   phpstsan:
