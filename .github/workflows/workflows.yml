@@ -21,3 +21,5 @@ jobs:
     name: 'PHP Tests'
     # needs: [coding-standards, phpstan]
     uses: ./.github/workflows/php-tests.yml
+    secrets:
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}

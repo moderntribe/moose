@@ -2,6 +2,10 @@ name: 'PHP Tests'
 
 on:
   workflow_call:
+    secrets:
+      COMPOSER_ENV:
+        required: true
+        description: COMPOSER_ENV Secret
 
 jobs:
   test:
@@ -21,7 +25,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
         with:
-          path: ${{ env.build_floder }}
+          path: ${{ env.build_folder }}
 
 
       - name: Checkout slic
@@ -44,6 +48,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
+      - name: Install Composer
+        run: |
+          echo "${{ secrets.COMPOSER_ENV }}" >> .env
+
       - name: Set up slic env vars
         run: |
           echo "SLIC_BIN=${GITHUB_WORKSPACE}/slic/slic" >> $GITHUB_ENV
@@ -64,7 +72,7 @@ jobs:
       - name: Set up slic for CI
         run: |
           pwd
-          cd ${GITHUB_WORKSPACE}/${{ env.build_floder }}
+          cd ${GITHUB_WORKSPACE}/${{ env.build_folder }}
           pwd
           ${SLIC_BIN} here
           ${SLIC_BIN} interactive off
