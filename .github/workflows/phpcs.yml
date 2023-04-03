@@ -42,3 +42,11 @@ jobs:
       - name: Run PHPCS
         run: |
           composer phpcs
+
+      - name: Run NPM Install
+        run: |
+          nvm use && npm install
+
+      - name: Check Linting
+        run: |
+          npm run server-lint
