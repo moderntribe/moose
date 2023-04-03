@@ -101,3 +101,6 @@ debug.log
 *.sublime-workspace
 # PhpStorm
 .idea/
+
+# Make sure to include the .sql file for tests
+!tests/_data/dump.sql
