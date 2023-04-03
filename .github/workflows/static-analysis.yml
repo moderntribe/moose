@@ -25,7 +25,20 @@ jobs:
           coverage: none
           tools: composer:2
 
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: Install Composer
+        if: steps.cache-composer.outputs.cache-hit != 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress

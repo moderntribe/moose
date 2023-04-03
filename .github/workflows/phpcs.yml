@@ -21,7 +21,15 @@ jobs:
           tools: composer:2
           php-version: '8.0'
 
+      - name: Check Composer Cache
+        id: cache-composer
+        uses: actions/cache@v3
+        with:
+          path: prime-numbers
+          key: ${{ runner.os }}-primes
+
       - name: Install Composer
+        if: steps.cache-composer.outputs.cache-hit != 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
