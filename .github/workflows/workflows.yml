@@ -8,7 +8,7 @@ jobs:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
     secrets:
-      composer_env: ${{ secrets.COMPOSER_ENV }}
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
 
   phpstan:
     name: 'Static Analysis'

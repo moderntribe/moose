@@ -2,10 +2,9 @@ name: Coding Standards
 
 on:
   workflow_call:
-    inputs:
-      composer_env:
+    secrets:
+      COMPOSER_ENV:
         required: true
-        type: string
         description: COMPOSER_ENV Secret
 
 jobs:
