@@ -80,7 +80,7 @@ jobs:
           ${SLIC_BIN} build-subdir off
           ${SLIC_BIN} xdebug off
           ${SLIC_BIN} debug on
-          ${SLIC_BIN} set php-version 8.0
+          ${SLIC_BIN} php-version set 8.0
           ${SLIC_BIN} info
           ${SLIC_BIN} config
 
