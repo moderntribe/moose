@@ -62,6 +62,7 @@ wp-content/plugins/*
 !wp-config.php
 !wp-config-environment.php
 
+local-xdebuginfo.php
 /vendor/
 .env
 /wp/

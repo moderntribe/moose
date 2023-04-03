@@ -24,17 +24,17 @@ const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const assetEntryPoints = () => {
 	return {
 		'assets/admin': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'admin.js'
 		),
 		'assets/theme': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'theme.js'
 		),
 		'assets/print': resolve(
-			pkg.directories.coreTheme,
+			pkg.config.coreThemeDir,
 			'assets',
 			'print.pcss'
 		),
@@ -45,14 +45,19 @@ const assetEntryPoints = () => {
  * Auto-find and load any block-based entry points.
  *
  * This is a simplified version of WP-Scripts' blocks.json entry point loader.
- * We want to support block.json entry points within subdirectories of the theme blocks directory
- * and we can safely ignore other legacy entry point formats.
+ * We want to support block.json entry points within subdirectories of the theme
+ * blocks directory, and we can safely ignore other legacy entry point formats.
  *
  * @return {{}|undefined}	An object of block entry points or undefined of there are none.
  */
 const blockEntryPoints = () => {
+	/**
+	 * Use `index.js` instead of `block.json` for glob b/c core blocks won't
+	 * contain a `block.json` file (they are already registered), but they
+	 * still may contain scripts or styles which should be processed.
+	 */
 	const coreBlockFiles = glob(
-		`${ pkg.directories.coreTheme }blocks/**/index.js`,
+		`${ pkg.config.coreThemeBlocksDir }/**/index.js`,
 		{ absolute: true }
 	);
 
@@ -65,7 +70,7 @@ const blockEntryPoints = () => {
 	coreBlockFiles.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
-			.replace( `${ resolve( pkg.directories.coreTheme ) }/`, '' );
+			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
 		entryPoints[ entryName ] = entryFilePath;
 	} );
 
@@ -73,11 +78,10 @@ const blockEntryPoints = () => {
 };
 
 /**
- * The configuration for copying block.json files from the source to dist folders
- * is too greedy and ends up duplicating files already inside the dist directory.
- *
- * Thus, we have to find the plugin's config in the greater config object
- * and explicitly ignore that directory.
+ * The configuration for copying block.json files from the src to dist folder
+ * doesn't work with our namespaced nested blocks structure. Thus, we have to
+ * find the plugin's config in the greater config object and explicitly set
+ * the destination location (`to:`) for the coped file(s).
  */
 const copyPluginIndex = defaultConfig.plugins.findIndex(
 	( plugin ) => plugin.patterns
@@ -95,7 +99,7 @@ if ( copyPluginIndex > -1 ) {
 			...defaultConfig.plugins[ copyPluginIndex ].patterns[
 				blockJsonPatternIndex
 			],
-			globOptions: { ignore: '**/dist/**' },
+			to: `blocks/`,
 		};
 	}
 }
@@ -108,7 +112,7 @@ module.exports = {
 	},
 	output: {
 		...defaultConfig.output,
-		path: resolve( pkg.directories.coreTheme, 'dist' ), // Change the output path to `dist` instead of `build`
+		path: resolve( pkg.config.coreThemeDir, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	plugins: [
 		...defaultConfig.plugins,
