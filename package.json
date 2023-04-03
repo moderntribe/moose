@@ -43,7 +43,7 @@
     "dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
     "dev": "wp-scripts start --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
     "format": "wp-scripts format $npm_package_config_coreThemeDir",
-    "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix",
+    "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix && npm run lint:configs && npm run lint:pkg-json",
     "lint:css": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\"",
     "lint:css:fix": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\" --fix",
     "lint:js": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\"",
@@ -55,7 +55,7 @@
     "packages-update": "wp-scripts packages-update",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
-    "server-lint": "npm run lint:js && npm run lint:css",
+    "server-lint": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json",
     "server-dist": "npm run dist"
   }
 }
