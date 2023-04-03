@@ -31,6 +31,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
+        id: compser-get-cache
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -38,7 +39,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install Composer
-        if: steps.composer-cache.outputs.cache-hit != 'true'
+        if: steps.compser-get-cache.outputs.cache-hit != 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress

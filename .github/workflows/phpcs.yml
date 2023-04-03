@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install Composer
-        if: steps.composer-cache.outputs.cache-hit != 'true'
+        if: steps.compser-get-cache.outputs.cache-hit != 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
