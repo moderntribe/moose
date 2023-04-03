@@ -14,6 +14,8 @@ jobs:
     name: 'Static Analysis'
     needs: [coding-standards]
     uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
 
   slic:
     name: 'PHP Tests'

@@ -24,7 +24,7 @@ jobs:
       - name: Install Composer
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
-          composer install
+          composer install --ignore-platform-reqs --optimize-autoloader --no-progress
           rm .env
 
       - name: Run PHPCS
