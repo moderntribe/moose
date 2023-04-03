@@ -12,14 +12,18 @@ jobs:
           - unit
           - functional
           - acceptance
+
     runs-on: ubuntu-latest
+    env:
+      build_folder: build
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+        with:
+          path: ${{ env.build_floder }}
 
-      # ------------------------------------------------------------------------------
-      # Checkout slic
-      # ------------------------------------------------------------------------------
+
       - name: Checkout slic
         uses: actions/checkout@v3
         with:
@@ -28,40 +32,38 @@ jobs:
           path: slic
           fetch-depth: 1
 
-      # ------------------------------------------------------------------------------
-      # Prepare our composer cache directory
-      # ------------------------------------------------------------------------------
       - name: Get Composer Cache Directory
-        id: get-composer-cache-dir
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
         id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
         with:
-          path: ${{ steps.get-composer-cache-dir.outputs.dir }}
+          path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      # ------------------------------------------------------------------------------
-      # Initialize slic
-      # ------------------------------------------------------------------------------
       - name: Set up slic env vars
         run: |
           echo "SLIC_BIN=${GITHUB_WORKSPACE}/slic/slic" >> $GITHUB_ENV
           echo "SLIC_WP_DIR=${GITHUB_WORKSPACE}/slic/_wordpress" >> $GITHUB_ENV
           echo "SLIC_WORDPRESS_DOCKERFILE=Dockerfile.base" >> $GITHUB_ENV
+
       - name: Set run context for slic
         run: echo "SLIC=1" >> $GITHUB_ENV && echo "CI=1" >> $GITHUB_ENV
+
       - name: Start ssh-agent
         run: |
           mkdir -p "${HOME}/.ssh";
           ssh-agent -a /tmp/ssh_agent.sock;
+
       - name: Export SSH_AUTH_SOCK env var
         run: echo "SSH_AUTH_SOCK=/tmp/ssh_agent.sock" >> $GITHUB_ENV
+
       - name: Set up slic for CI
         run: |
-          cd ${GITHUB_WORKSPACE}/..
+          cd ${{ env.build_floder }}
           ${SLIC_BIN} here
           ${SLIC_BIN} interactive off
           ${SLIC_BIN} build-prompt off
@@ -70,9 +72,11 @@ jobs:
           ${SLIC_BIN} debug on
           ${SLIC_BIN} info
           ${SLIC_BIN} config
+
       - name: Set up site for CI
         run: |
           ${SLIC_BIN} use site
           ${SLIC_BIN} composer install --ignore-platform-reqs
+
       - name: Run suite tests
         run: ${SLIC_BIN} run ${{ matrix.suite }} --ext DotReporter
