@@ -63,7 +63,9 @@ jobs:
 
       - name: Set up slic for CI
         run: |
-          cd ${{ env.build_floder }}
+          pwd
+          cd ${GITHUB_WORKSPACE}/${{ env.build_floder }}
+          pwd
           ${SLIC_BIN} here
           ${SLIC_BIN} interactive off
           ${SLIC_BIN} build-prompt off
