@@ -58,7 +58,7 @@ final class ForcePluginActivation {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @var string[] directory/file.php
+	 *  @var array<string, string[]>  'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
 	 */
 	private array $networkOnlyPlugins = [
 		'advanced-custom-fields-pro/acf.php' => [ 'all' ],
@@ -220,7 +220,7 @@ final class ForcePluginActivation {
 			return $plugins;
 		}
 
-		foreach ( $this->networkOnlyPlugins as $slug ) {
+		foreach ( $this->networkOnlyPlugins as $slug => $environments ) {
 			if ( ! isset( $plugins[ $slug ] ) ) {
 				continue;
 			}

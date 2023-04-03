@@ -19,7 +19,7 @@
     "scripts": {
         "phpcbf": "./vendor/bin/phpcbf -s",
         "phpcs": "./vendor/bin/phpcs",
-        "phpstan": "./vendor/bin/phpstan analyse",
+        "phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
         "setup-project": [
             "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
             "@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
