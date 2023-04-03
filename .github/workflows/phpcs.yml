@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Composer
         run: |
-          echo "${{ secret.COMPOSER_ENV }}" >> .env
+          echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install
           rm .env
 
