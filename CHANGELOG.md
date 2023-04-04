@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2023.04]
+
+- Added: GitHub actions for Coding Standards, Static Analysis and Testing.
+- Added: Default testing suite utilizing Slic.
 - Updated: local-config.json & browsersync.config.js keys to work for both Lando and LocalWP.
 - Updated: package.json config so npm scripts run using the config keys rather than repeated strings.
 - Updated: webpack.config.js to make use of package.json config keys and fix an issue with the block.json file not being copied correctly on build.
@@ -12,4 +15,5 @@ All notable changes to this project will be documented in this file. The format 
 - Changed: Moved CHANGELOG.md from `/.github` to project root. 
 
 ## [2022.10]
+
 - Added: Initial Repo Setup.
