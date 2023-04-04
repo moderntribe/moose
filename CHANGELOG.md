@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file. The format 
 - Added: PostCSS custom selectors, custom media queries, and globalCSS configs and examples.
 - Chore: Updated WordPress Core to v6.2, Advanced Custom Fields Pro to v6.0.7, and `composer update` for all misc dependencies and plugins.
 - Chore: Updated package.json dependencies and related scripts.
-- Changed: Moved CHANGELOG.md from `/.github` to project root. 
+- Changed: Moved CHANGELOG.md from `/.github` to project root.
 
 ## [2022.10]
 
