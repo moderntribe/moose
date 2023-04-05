@@ -1,0 +1,53 @@
+name: Coding Standards
+
+on:
+  workflow_call:
+    secrets:
+      COMPOSER_ENV:
+        required: true
+        description: COMPOSER_ENV Secret
+
+jobs:
+  phpcs:
+    name: phpcs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure PHP environment
+        uses: shivammathur/setup-php@v2
+        with:
+          tools: composer:2
+          php-version: '8.0'
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer
+        run: |
+          echo "${{ secrets.COMPOSER_ENV }}" >> .env
+          composer install --ignore-platform-reqs --optimize-autoloader --no-progress
+          rm .env
+
+      - name: Run PHPCS
+        run: |
+          composer phpcs
+
+      # - name: Set up node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version-file: '.nvmrc'
+
+      # - name: Check Linting
+      #   run: |
+      #     npm run server-lint

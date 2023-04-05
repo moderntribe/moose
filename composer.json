@@ -19,7 +19,7 @@
     "scripts": {
         "phpcbf": "./vendor/bin/phpcbf -s",
         "phpcs": "./vendor/bin/phpcs",
-        "phpstan": "./vendor/bin/phpstan analyse",
+        "phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
         "setup-project": [
             "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
             "@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
@@ -78,6 +78,14 @@
         }
     ],
     "require-dev": {
+        "codeception/module-asserts": "^1.0",
+        "codeception/module-cli": "^1.0",
+        "codeception/module-db": "^1.0",
+        "codeception/module-filesystem": "^1.0",
+        "codeception/module-phpbrowser": "^1.0",
+        "codeception/module-webdriver": "^1.0",
+        "codeception/util-universalframework": "^1.0",
+        "lucatume/wp-browser": "^3.0",
         "moderntribe/coding-standards": "^3.2",
         "php-stubs/acf-pro-stubs": "6.0.6",
         "php-stubs/wordpress-tests-stubs": "6.1.1",

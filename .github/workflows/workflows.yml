@@ -1,0 +1,33 @@
+name: 'Workflows'
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  coding-standards:
+    name: 'Coding Standards'
+    uses: ./.github/workflows/phpcs.yml
+    secrets:
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
+
+  phpstan:
+    name: 'Static Analysis'
+    needs: [coding-standards]
+    uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
+
+  slic:
+    name: 'PHP Tests'
+    needs: [coding-standards, phpstan]
+    uses: ./.github/workflows/php-tests.yml
+    secrets:
+      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}

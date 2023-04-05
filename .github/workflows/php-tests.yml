@@ -1,0 +1,93 @@
+name: 'PHP Tests'
+
+on:
+  workflow_call:
+    secrets:
+      COMPOSER_ENV:
+        required: true
+        description: COMPOSER_ENV Secret
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        suite:
+          - wpunit
+          - unit
+          - functional
+          - acceptance
+
+    runs-on: ubuntu-latest
+    env:
+      build_folder: build
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          path: ${{ env.build_folder }}
+
+
+      - name: Checkout slic
+        uses: actions/checkout@v3
+        with:
+          repository: stellarwp/slic
+          ref: main
+          path: slic
+          fetch-depth: 1
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer
+        run: |
+          echo "${{ secrets.COMPOSER_ENV }}" >> ${GITHUB_WORKSPACE}/${{ env.build_folder }}/.env
+
+      - name: Set up slic env vars
+        run: |
+          echo "SLIC_BIN=${GITHUB_WORKSPACE}/slic/slic" >> $GITHUB_ENV
+          echo "SLIC_WP_DIR=${GITHUB_WORKSPACE}/slic/_wordpress" >> $GITHUB_ENV
+          echo "SLIC_WORDPRESS_DOCKERFILE=Dockerfile.base" >> $GITHUB_ENV
+
+      - name: Set run context for slic
+        run: echo "SLIC=1" >> $GITHUB_ENV && echo "CI=1" >> $GITHUB_ENV
+
+      - name: Start ssh-agent
+        run: |
+          mkdir -p "${HOME}/.ssh";
+          ssh-agent -a /tmp/ssh_agent.sock;
+
+      - name: Export SSH_AUTH_SOCK env var
+        run: echo "SSH_AUTH_SOCK=/tmp/ssh_agent.sock" >> $GITHUB_ENV
+
+      - name: Set up slic for CI
+        run: |
+          pwd
+          cd ${GITHUB_WORKSPACE}/${{ env.build_folder }}
+          pwd
+          ${SLIC_BIN} here
+          ${SLIC_BIN} interactive off
+          ${SLIC_BIN} build-prompt off
+          ${SLIC_BIN} build-subdir off
+          ${SLIC_BIN} xdebug off
+          ${SLIC_BIN} debug on
+          ${SLIC_BIN} php-version set 8.0
+          ${SLIC_BIN} info
+          ${SLIC_BIN} config
+
+      - name: Set up site for CI
+        run: |
+          ${SLIC_BIN} use site
+          ${SLIC_BIN} composer install --ignore-platform-reqs
+
+      - name: Run suite tests
+        run: ${SLIC_BIN} run ${{ matrix.suite }} --ext DotReporter
