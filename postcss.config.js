@@ -33,6 +33,7 @@ const cssNanoConfig = {
 
 const plugins = [
 	'postcss-import',
+	'postcss-mixins',
 	[
 		'postcss-preset-env',
 		{
