@@ -30,7 +30,7 @@
         {
           "color": "#f5f5f5",
           "name": "Background - Subtle Light",
-          "slug": "background-sublte-light"
+          "slug": "background-subtle-light"
         },
         {
           "color": "#000000",
@@ -70,8 +70,8 @@
   },
   "styles": {
     "color": {
-      "text": "var(--wp--preset--color--foregrounds-default-light)",
-      "background": "var(--wp--preset--color--backgrounds-default-light)"
+      "text": "var(--wp--preset--color--foreground-contrast-light)",
+      "background": "var(--wp--preset--color--background-light)"
     }
   }
 }
