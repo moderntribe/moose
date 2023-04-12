@@ -49,9 +49,99 @@
         }
       ]
     },
+    "custom": {
+      "fontWeight": {
+        "regular": 400,
+        "bold": 700
+      }
+    },
     "layout": {
       "contentSize": "80ch",
       "wideSize": "1200px"
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fluid": false,
+      "fontStyle": true,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Inter\"",
+          "name": "Inter",
+          "slug": "inter",
+          "fontFace": [
+            {
+              "fontFamily": "\"Inter-Regular\"",
+              "fontDisplay": "swap",
+              "fontWeight": "400",
+              "src": [
+                "file:./assets/fonts/Inter-Regular.woff2",
+                "file:./assets/fonts/Inter-Regular.woff"
+              ]
+            },
+            {
+              "fontFamily": "\"Inter-Bold\"",
+              "fontDisplay": "swap",
+              "fontWeight": "700",
+              "src": [
+                "file:./assets/fonts/Inter-Bold.woff2",
+                "file:./assets/fonts/Inter-Bold.woff"
+              ]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "type-90",
+          "size": "clamp(3rem, 2.272rem + 3.107vw, 6rem)",
+          "name": "Type Size 90"
+        },
+        {
+          "slug": "type-80",
+          "size": "clamp(2.5rem, 1.954rem + 2.33vw, 4.75rem)",
+          "name": "Type Size 80"
+        },
+        {
+          "slug": "type-70",
+          "size": "clamp(2rem, 1.515rem + 2.071vw, 4rem)",
+          "name": "Type Size 70"
+        },
+        {
+          "slug": "60",
+          "size": "clamp(1.5rem, 1.136rem + 1.553vw, 3rem)",
+          "name": "Type Size 60"
+        },
+        {
+          "slug": "50",
+          "size": "clamp(1.375rem, 1.102rem + 1.165vw, 2.5rem)",
+          "name": "Type Size 50"
+        },
+        {
+          "slug": "40",
+          "size": "clamp(1.25rem, 1.068rem + 0.777vw, 2rem)",
+          "name": "Type Size 40"
+        },
+        {
+          "slug": "30",
+          "size": "clamp(1.125rem, 1.034rem + 0.388vw, 1.5rem)",
+          "name": "Type Size 30"
+        },
+        {
+          "slug": "20",
+          "size": "clamp(1rem, 0.939rem + 0.259vw, 1.25rem)",
+          "name": "Type Size 20"
+        },
+        {
+          "slug": "10",
+          "size": "clamp(0.875rem, 0.845rem + 0.129vw, 1rem)",
+          "name": "Type Size 10"
+        }
+      ]
     },
     "shadow": {
       "presets": [
