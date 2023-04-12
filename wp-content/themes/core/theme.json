@@ -63,11 +63,11 @@
       "customFontSize": false,
       "dropCap": false,
       "fluid": false,
-      "fontStyle": true,
+      "fontStyle": false,
       "fontWeight": false,
       "letterSpacing": false,
       "lineHeight": false,
-      "textDecoration": true,
+      "textDecoration": false,
       "fontFamilies": [
         {
           "fontFamily": "\"Inter\"",
@@ -156,6 +156,40 @@
           "shadow": "12px 12px 50px rgba(0, 0, 0, 0.4)"
         }
       ]
+    },
+    "blocks": {
+      "core/heading": {
+        "color": {
+          "palette": [
+            {
+              "color": "#000000",
+              "name": "Foreground - Contrast Light",
+              "slug": "foreground-contrast-light"
+            },
+            {
+              "color": "#ffffff",
+              "name": "Foreground - Contrast Dark",
+              "slug": "foreground-contrast-dark"
+            }
+          ]
+        }
+      },
+      "core/paragraph": {
+        "color": {
+          "palette": [
+            {
+              "color": "#000000",
+              "name": "Foreground - Contrast Light",
+              "slug": "foreground-contrast-light"
+            },
+            {
+              "color": "#ffffff",
+              "name": "Foreground - Contrast Dark",
+              "slug": "foreground-contrast-dark"
+            }
+          ]
+        }
+      }
     }
   },
   "styles": {
