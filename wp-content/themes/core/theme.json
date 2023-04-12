@@ -1,10 +1,63 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
-	"settings": {
-		"layout": {
-			"contentSize": "80ch",
-			"wideSize": "1200px"
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
+      "gradients": [],
+      "link": false,
+      "palette": [
+        {
+          "color": "#3050E5",
+          "name": "Brand Primary",
+          "slug": "brand-primary"
+        },
+        {
+          "color": "#2238a0",
+          "name": "Brand Secondary",
+          "slug": "brand-secondary"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Background - Light",
+          "slug": "background-light"
+        },
+        {
+          "color": "#f5f5f5",
+          "name": "Background - Subtle Light",
+          "slug": "background-sublte-light"
+        },
+        {
+          "color": "#000000",
+          "name": "Background - Dark",
+          "slug": "background-dark"
+        },
+        {
+          "color": "#000000",
+          "name": "Foreground - Contrast Light",
+          "slug": "foreground-contrast-light"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Foreground - Contrast Dark",
+          "slug": "foreground-contrast-dark"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "80ch",
+      "wideSize": "1200px"
+    }
+  },
+  "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--foregrounds-default-light)",
+      "background": "var(--wp--preset--color--backgrounds-default-light)"
+    }
+  }
 }
