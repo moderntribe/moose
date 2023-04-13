@@ -6,6 +6,8 @@
  * Customizations:
  * - postcss-import: Add support for concatenating pcss partials via `@import` statements.
  *  	- Reference: https://www.npmjs.com/package/postcss-import
+ * - postcssGlobalData: Add support for the referenced set of css partials to be used globally,
+ *  	without individually importing the partials in every file where they are used.
  * - postcss-preset-env: Sets config to process all features (stage 0 and above)
  *  	- Adds autoprefixer support for css grid
  *  	- Removes any transformations on (don't modify) css custom properties, :focus-visible, and :focus-within
@@ -16,6 +18,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const pkg = require( './package.json' );
 const { sync: glob } = require( 'fast-glob' );
+const postcssGlobalData = require( '@csstools/postcss-global-data' );
 
 /**
  * Replicates WP-Scripts config for CSS Nano.
@@ -33,6 +36,13 @@ const cssNanoConfig = {
 
 const plugins = [
 	'postcss-import',
+	postcssGlobalData( {
+		files: glob(
+			`${ pkg.config.coreThemeDir }/assets/pcss/**/_variables.pcss`,
+			`${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+			{ absolute: true }
+		),
+	} ),
 	'postcss-mixins',
 	[
 		'postcss-preset-env',

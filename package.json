@@ -27,6 +27,7 @@
     "coreThemeBlocksDir": "./wp-content/themes/core/blocks"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^1.0.3",
     "@wordpress/create-block": "^4.14.0",
     "@wordpress/scripts": "^26.1.0",
     "browser-sync": "^2.27",
