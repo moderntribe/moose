@@ -13,6 +13,16 @@
       "link": false,
       "palette": [
         {
+          "color": "#ffffff",
+          "name": "Base White",
+          "slug": "base-white"
+        },
+        {
+          "color": "#000000",
+          "name": "Base Black",
+          "slug": "base-black"
+        },
+        {
           "color": "#3050E5",
           "name": "Brand Primary",
           "slug": "brand-primary"
@@ -23,29 +33,64 @@
           "slug": "brand-secondary"
         },
         {
-          "color": "#ffffff",
-          "name": "Background - Light",
-          "slug": "background-light"
-        },
-        {
           "color": "#f5f5f5",
-          "name": "Background - Subtle Light",
-          "slug": "background-subtle-light"
+          "name": "Neutral Gray 10",
+          "slug": "neutral-10"
         },
         {
-          "color": "#000000",
-          "name": "Background - Dark",
-          "slug": "background-dark"
+          "color": "#e8e8e8",
+          "name": "Neutral Gray 20",
+          "slug": "neutral-20"
         },
         {
-          "color": "#000000",
-          "name": "Foreground - Contrast Light",
-          "slug": "foreground-contrast-light"
+          "color": "#d1d1d1",
+          "name": "Neutral Gray 30",
+          "slug": "neutral-30"
         },
         {
-          "color": "#ffffff",
-          "name": "Foreground - Contrast Dark",
-          "slug": "foreground-contrast-dark"
+          "color": "#a3a3a3",
+          "name": "Neutral Gray 40",
+          "slug": "neutral-40"
+        },
+        {
+          "color": "#8c8c8c",
+          "name": "Neutral Gray 50",
+          "slug": "neutral-50"
+        },
+        {
+          "color": "#747474",
+          "name": "Neutral Gray 60",
+          "slug": "neutral-60"
+        },
+        {
+          "color": "#5d5d5d",
+          "name": "Neutral Gray 70",
+          "slug": "neutral-70"
+        },
+        {
+          "color": "#464646",
+          "name": "Neutral Gray 80",
+          "slug": "neutral-80"
+        },
+        {
+          "color": "#2f2f2f",
+          "name": "Neutral Gray 90",
+          "slug": "neutral-90"
+        },
+        {
+          "color": "#f1c400",
+          "name": "Warning",
+          "slug": "warning"
+        },
+        {
+          "color": "#df3a3a",
+          "name": "Error",
+          "slug": "error"
+        },
+        {
+          "color": "#84bd00",
+          "name": "Success",
+          "slug": "success"
         }
       ]
     },
@@ -70,8 +115,8 @@
   },
   "styles": {
     "color": {
-      "text": "var(--wp--preset--color--foreground-contrast-light)",
-      "background": "var(--wp--preset--color--background-light)"
+      "text": "var(--wp--preset--color--base-black)",
+      "background": "var(--wp--preset--color--base-white)"
     }
   }
 }
