@@ -208,14 +208,14 @@
         "color": {
           "palette": [
             {
-              "color": "#000000",
-              "name": "Foreground - Contrast Light",
-              "slug": "foreground-contrast-light"
+              "color": "var(--wp--preset--color--base-black)",
+              "name": "Base Black",
+              "slug": "base-black"
             },
             {
-              "color": "#ffffff",
-              "name": "Foreground - Contrast Dark",
-              "slug": "foreground-contrast-dark"
+              "color": "var(--wp--preset--color--base-white)",
+              "name": "Base White",
+              "slug": "base-white"
             }
           ]
         }
@@ -224,14 +224,14 @@
         "color": {
           "palette": [
             {
-              "color": "#000000",
-              "name": "Foreground - Contrast Light",
-              "slug": "foreground-contrast-light"
+              "color": "var(--wp--preset--color--base-black)",
+              "name": "Base Black",
+              "slug": "base-black"
             },
             {
-              "color": "#ffffff",
-              "name": "Foreground - Contrast Dark",
-              "slug": "foreground-contrast-dark"
+              "color": "var(--wp--preset--color--base-white)",
+              "name": "Base White",
+              "slug": "base-white"
             }
           ]
         }
