@@ -1,0 +1,38 @@
+/* -----------------------------------------------------------------------------
+ *
+ * SVG Icons: Icons
+ *
+ * Implemented via `postcss-inline-svg`
+ * https://github.com/TrySound/postcss-inline-svg
+ *
+ * EXAMPLE USAGE:
+ * .chevron-right-primary {
+ *    background-image: svg-inline(chevron-right-primary);
+ * }
+ * .chevron-right-red {
+ *    background-image: svg-load('chevron-right.svg', fill=#f00);
+ * }
+ *
+ * ----------------------------------------------------------------------------- */
+
+@svg-load chevron-right-primary url(chevron-right.svg) {
+	/* Fills w/ CSS properties as the value do not work */
+	/* fill: var(--wp--preset--color--brand-primary); */
+	fill: blue;
+}
+
+@svg-load chevron-right-white url(chevron-right.svg) {
+	fill: white;
+}
+
+.chevron-right-primary {
+	background-image: svg-inline(chevron-right-primary);
+	width: 10px;
+	height: 16px;
+}
+
+.chevron-right-red {
+	background-image: svg-load('chevron-right.svg', fill=#f00);
+	width: 10px;
+	height: 16px;
+}

@@ -36,6 +36,7 @@
     "fast-glob": "^3.2.12",
     "lefthook": "^1.1",
     "postcss-import": "^15.1.0",
+    "postcss-inline-svg": "^6.0.0",
     "postcss-mixins": "^9.0.4",
     "postcss-preset-env": "^8.0.1",
     "webpack-remove-empty-scripts": "^1.0"
