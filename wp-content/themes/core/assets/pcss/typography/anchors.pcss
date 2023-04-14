@@ -1,0 +1,47 @@
+/* -----------------------------------------------------------------------------
+ *
+ * Typography: Anchors
+ *
+ * ----------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+ * Anchor: Defaults
+ * ------------------------------------------------------------------------- */
+
+a {
+
+	&:active,
+	&:focus {
+		outline: 1px dotted;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Anchor: Inline Links
+ *
+ * Not in theme.json as the selector needs to be more specific
+ * ------------------------------------------------------------------------- */
+
+:where(p, li) a {
+	transition: var(--transition);
+	color: currentColor;
+	font-weight: var(--font-weight-bold);
+	outline: 0;
+	cursor: pointer;
+	text-decoration: underline 0.0938rem;
+	text-underline-offset: 4px;
+
+	&:visited {
+		color: inherit;
+	}
+
+	&:hover {
+		color: var(--color-neutral-70);
+		text-decoration-color: currentColor;
+	}
+
+	&:active,
+	&:focus {
+		color: inherit;
+	}
+}
