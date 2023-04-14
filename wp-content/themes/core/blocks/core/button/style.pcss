@@ -2,5 +2,23 @@
  * Styles specific to this block
  */
 .wp-block-button {
-	outline: 1px solid #f00;
+
+}
+
+:where(.wp-block-button) .wp-block-button__link {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+
+	position: relative;
+
+	&:after {
+		content: '';
+		background: svg-inline(chevron-right-white) center center no-repeat;
+		display: block;
+		height: 16px;
+		width: 10px;
+		transition: var(--transition);
+	}
 }
