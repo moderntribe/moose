@@ -1,123 +1,123 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 2,
-  "settings": {
-    "color": {
-      "custom": false,
-      "customDuotone": false,
-      "customGradient": false,
-      "defaultGradients": false,
-      "defaultPalette": false,
-      "duotone": [],
-      "gradients": [],
-      "background": false,
-      "link": false,
-      "palette": [
-        {
-          "color": "#ffffff",
-          "name": "Base White",
-          "slug": "base-white"
-        },
-        {
-          "color": "#000000",
-          "name": "Base Black",
-          "slug": "base-black"
-        },
-        {
-          "color": "#3050E5",
-          "name": "Brand Primary",
-          "slug": "brand-primary"
-        },
-        {
-          "color": "#2238a0",
-          "name": "Brand Secondary",
-          "slug": "brand-secondary"
-        },
-        {
-          "color": "#f5f5f5",
-          "name": "Neutral Gray 10",
-          "slug": "neutral-10"
-        },
-        {
-          "color": "#e8e8e8",
-          "name": "Neutral Gray 20",
-          "slug": "neutral-20"
-        },
-        {
-          "color": "#d1d1d1",
-          "name": "Neutral Gray 30",
-          "slug": "neutral-30"
-        },
-        {
-          "color": "#a3a3a3",
-          "name": "Neutral Gray 40",
-          "slug": "neutral-40"
-        },
-        {
-          "color": "#8c8c8c",
-          "name": "Neutral Gray 50",
-          "slug": "neutral-50"
-        },
-        {
-          "color": "#747474",
-          "name": "Neutral Gray 60",
-          "slug": "neutral-60"
-        },
-        {
-          "color": "#5d5d5d",
-          "name": "Neutral Gray 70",
-          "slug": "neutral-70"
-        },
-        {
-          "color": "#464646",
-          "name": "Neutral Gray 80",
-          "slug": "neutral-80"
-        },
-        {
-          "color": "#2f2f2f",
-          "name": "Neutral Gray 90",
-          "slug": "neutral-90"
-        },
-        {
-          "color": "#f1c400",
-          "name": "Warning",
-          "slug": "warning"
-        },
-        {
-          "color": "#df3a3a",
-          "name": "Error",
-          "slug": "error"
-        },
-        {
-          "color": "#84bd00",
-          "name": "Success",
-          "slug": "success"
-        }
-      ]
-    },
-    "layout": {
-      "contentSize": "80ch",
-      "wideSize": "1200px"
-    },
-    "shadow": {
-      "presets": [
-        {
-          "name": "Natural",
-          "slug": "natural",
-          "shadow": "6px 6px 9px rgba(0, 0, 0, 0.2)"
-        },
-        {
-          "name": "Deep",
-          "slug": "deep",
-          "shadow": "12px 12px 50px rgba(0, 0, 0, 0.4)"
-        }
-      ]
-    }
-  },
-  "styles": {
-    "color": {
-      "text": "var(--wp--preset--color--base-black)",
-      "background": "var(--wp--preset--color--base-white)"
-    }
-  }
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"duotone": [],
+			"gradients": [],
+			"background": false,
+			"link": false,
+			"palette": [
+				{
+					"color": "#ffffff",
+					"name": "Base White",
+					"slug": "base-white"
+				},
+				{
+					"color": "#000000",
+					"name": "Base Black",
+					"slug": "base-black"
+				},
+				{
+					"color": "#3050E5",
+					"name": "Brand Primary",
+					"slug": "brand-primary"
+				},
+				{
+					"color": "#2238a0",
+					"name": "Brand Secondary",
+					"slug": "brand-secondary"
+				},
+				{
+					"color": "#f5f5f5",
+					"name": "Neutral Gray 10",
+					"slug": "neutral-10"
+				},
+				{
+					"color": "#e8e8e8",
+					"name": "Neutral Gray 20",
+					"slug": "neutral-20"
+				},
+				{
+					"color": "#d1d1d1",
+					"name": "Neutral Gray 30",
+					"slug": "neutral-30"
+				},
+				{
+					"color": "#a3a3a3",
+					"name": "Neutral Gray 40",
+					"slug": "neutral-40"
+				},
+				{
+					"color": "#8c8c8c",
+					"name": "Neutral Gray 50",
+					"slug": "neutral-50"
+				},
+				{
+					"color": "#747474",
+					"name": "Neutral Gray 60",
+					"slug": "neutral-60"
+				},
+				{
+					"color": "#5d5d5d",
+					"name": "Neutral Gray 70",
+					"slug": "neutral-70"
+				},
+				{
+					"color": "#464646",
+					"name": "Neutral Gray 80",
+					"slug": "neutral-80"
+				},
+				{
+					"color": "#2f2f2f",
+					"name": "Neutral Gray 90",
+					"slug": "neutral-90"
+				},
+				{
+					"color": "#f1c400",
+					"name": "Warning",
+					"slug": "warning"
+				},
+				{
+					"color": "#df3a3a",
+					"name": "Error",
+					"slug": "error"
+				},
+				{
+					"color": "#84bd00",
+					"name": "Success",
+					"slug": "success"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "80ch",
+			"wideSize": "1200px"
+		},
+		"shadow": {
+			"presets": [
+				{
+					"name": "Natural",
+					"slug": "natural",
+					"shadow": "6px 6px 9px rgba(0, 0, 0, 0.2)"
+				},
+				{
+					"name": "Deep",
+					"slug": "deep",
+					"shadow": "12px 12px 50px rgba(0, 0, 0, 0.4)"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--base-black)",
+			"background": "var(--wp--preset--color--base-white)"
+		}
+	}
 }
