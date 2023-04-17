@@ -17,7 +17,19 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Detect File Changes
+        uses: dorny/paths-filter@v2
+        id: changed
+        with:
+          list-files: shell
+          filters: |
+            wpcontent:
+              - added|modified: 'wp-content/plugins/core/**/*.php'
+              - added|modified: 'wp-content/themes/core/**/*.php'
+              - added|modified: 'wp-content/mu-plugins/**/*.php'
+
       - name: Configure PHP environment
+        if: steps.changed.outputs.wpcontent == 'true'
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
@@ -26,11 +38,13 @@ jobs:
           tools: composer:2
 
       - name: Get Composer Cache Directory
+        if: steps.changed.outputs.wpcontent == 'true'
         id: composer-cache
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
+        if: steps.changed.outputs.wpcontent == 'true'
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -38,10 +52,12 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install Composer
+        if: steps.changed.outputs.wpcontent == 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
           rm .env
 
       - name: Run PHPStan static analysis
+        if: steps.changed.outputs.wpcontent == 'true'
         run: composer phpstan
