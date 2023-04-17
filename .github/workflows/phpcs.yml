@@ -51,4 +51,5 @@ jobs:
 
       - name: Check Linting
         run: |
+         npm ci
          npm run server-lint
