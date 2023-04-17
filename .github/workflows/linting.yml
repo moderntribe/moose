@@ -4,8 +4,8 @@ on:
   workflow_call:
 
 jobs:
-  phpcs:
-    name: phpcs
+  linting:
+    name: Linting
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
