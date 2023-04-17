@@ -8,19 +8,6 @@ on:
         description: COMPOSER_ENV Secret
 
 jobs:
-  linting:
-    name: linting
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up node
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint theme
-        run: npm run server-lint
   phpcs:
     name: phpcs
     runs-on: ubuntu-latest
@@ -55,3 +42,14 @@ jobs:
       - name: Run PHPCS
         run: |
           composer phpcs
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Check Linting
+        run: |
+          npm ci
+          npm run server-lint
