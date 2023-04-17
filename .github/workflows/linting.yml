@@ -1,0 +1,38 @@
+name: Linting
+
+on:
+  workflow_call:
+
+jobs:
+  phpcs:
+    name: phpcs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Detect File Changes
+        uses: dorny/paths-filter@v2
+        id: changed
+        with:
+          list-files: shell
+          filters: |
+            wpcontent:
+              - added|modified: 'wp-content/plugins/core/**/*.{pcss,json,js}'
+              - added|modified: 'wp-content/themes/core/**/*.{pcss,json,js}'
+              - added|modified: 'wp-content/mu-plugins/**/*.{pcss,json,js}'
+
+      - name: Set up node
+        if: steps.changed.outputs.wpcontent == 'true'
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        if: steps.changed.outputs.wpcontent == 'true'
+        run: npm ci
+
+      - name: Check linting
+        if: steps.changed.outputs.wpcontent == 'true'
+        run: npm run server-lint

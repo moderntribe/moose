@@ -18,16 +18,20 @@ jobs:
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
 
+  linting:
+    name: 'Linting'
+    uses: ./.github/workflows/linting.yml
+
   phpstan:
     name: 'Static Analysis'
-    needs: [coding-standards]
+    needs: [coding-standards, linting]
     uses: ./.github/workflows/static-analysis.yml
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
 
   slic:
     name: 'PHP Tests'
-    needs: [coding-standards, phpstan]
+    needs: [coding-standards, phpstan, linting]
     uses: ./.github/workflows/php-tests.yml
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
