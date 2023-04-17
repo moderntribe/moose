@@ -58,15 +58,3 @@ jobs:
         if: steps.changed.outputs.wpcontent == 'true'
         run: |
           composer phpcs
-
-      - name: Set up node
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Check linting
-        run: npm run server-lint
