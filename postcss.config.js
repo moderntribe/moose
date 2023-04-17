@@ -13,7 +13,7 @@
  *  	data which will be "replaced" by the pcss parser such as custom media queries and custom selectors.
  *  	- Reference: https://www.npmjs.com/package/@csstools/postcss-global-data
  * - postcss-mixins: Add support for mixins.
- * 		- Will glob mixins from any files named `_mixins.pcss` within the theme pcss assets directory.
+ *  	- Will glob mixins from any files named `_mixins.pcss` within the theme pcss assets directory.
  *  	- Reference: https://github.com/postcss/postcss-mixins
  * - postcss-preset-env: Sets config to process all features (stage 0 and above)
  *  	- Adds autoprefixer support for css grid
