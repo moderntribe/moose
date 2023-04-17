@@ -38,8 +38,8 @@ jobs:
           tools: composer:2
 
       - name: Get Composer Cache Directory
-        if: steps.changed.outputs.wpcontent == 'true'
         id: composer-cache
+        if: steps.changed.outputs.wpcontent == 'true'
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
