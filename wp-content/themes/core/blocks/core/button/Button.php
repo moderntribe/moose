@@ -26,6 +26,10 @@ class Button {
 
 	public function enqueue_block_scripts(): void {
 		// Enqueue block-specific scripts for this block via ????
+		if ( true === false ) {
+			return;
+		}
+		echo 'what?';
 	}
 
 }
