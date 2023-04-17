@@ -41,26 +41,35 @@ const cssNanoConfig = {
 
 const plugins = [
 	'postcss-import',
-	[ '@csstools/postcss-global-data', {
-		files: [
-			`${ pkg.config.coreThemeDir }/assets/pcss/custom-selectors/_variables.pcss`,
-			`${ pkg.config.coreThemeDir }/assets/pcss/media-queries/_variables.pcss`,
-		],
-	} ],
-	[ 'postcss-mixins', {
-		mixinsFiles: `${pkg.config.coreThemeDir}/assets/pcss/**/_mixins.pcss`,
-	} ],
-	[ 'postcss-preset-env', {
-		stage: 0,
-		autoprefixer: { grid: true },
-		features: {
-			clamp: false,
-			'custom-properties': false,
-			'focus-visible-pseudo-class': false,
-			'focus-within-pseudo-class': false,
-			'logical-properties-and-values': false,
+	[
+		'@csstools/postcss-global-data',
+		{
+			files: [
+				`${ pkg.config.coreThemeDir }/assets/pcss/custom-selectors/_variables.pcss`,
+				`${ pkg.config.coreThemeDir }/assets/pcss/media-queries/_variables.pcss`,
+			],
 		},
-	} ],
+	],
+	[
+		'postcss-mixins',
+		{
+			mixinsFiles: `${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+		},
+	],
+	[
+		'postcss-preset-env',
+		{
+			stage: 0,
+			autoprefixer: { grid: true },
+			features: {
+				clamp: false,
+				'custom-properties': false,
+				'focus-visible-pseudo-class': false,
+				'focus-within-pseudo-class': false,
+				'logical-properties-and-values': false,
+			},
+		},
+	],
 ];
 
 module.exports = {
