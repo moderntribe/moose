@@ -4,3 +4,5 @@
 
 import './style.pcss';
 import './editor.pcss';
+
+alert( 'testing' );
