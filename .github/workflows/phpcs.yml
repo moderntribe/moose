@@ -55,6 +55,7 @@ jobs:
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
 
       - name: Cache npm dependencies
+        id: cache-npm-deps
         uses: actions/cache@v3
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
