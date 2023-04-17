@@ -43,11 +43,12 @@ jobs:
         run: |
           composer phpcs
 
-      # - name: Set up node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version-file: '.nvmrc'
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
-      # - name: Check Linting
-      #   run: |
-      #     npm run server-lint
+      - name: Check Linting
+        run: |
+         npm run server-lint
