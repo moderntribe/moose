@@ -1,62 +1,64 @@
 {
-  "name": "moose",
-  "version": "1.0.0",
-  "description": "A WordPress starter framework for Modern Tribe Projects",
-  "author": "Modern Tribe <admin@tri.be>",
-  "license": "GPL-2.0-or-later",
-  "keywords": [],
-  "homepage": "https://github.com/moderntribe/moose#readme",
-  "repository": "https://github.com/moderntribe/moose",
-  "bugs": {
-    "email": "admin@tri.be"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "safari >= 15",
-    "ios >= 15",
-    "android >= 8.0",
-    "not op_mini all",
-    "not dead"
-  ],
-  "engines": {
-    "node": "16.13.1",
-    "npm": "8.1.2"
-  },
-  "config": {
-    "coreThemeDir": "./wp-content/themes/core",
-    "coreThemeBlocksDir": "./wp-content/themes/core/blocks"
-  },
-  "devDependencies": {
-    "@csstools/postcss-global-data": "^1.0.3",
-    "@wordpress/create-block": "^4.14.0",
-    "@wordpress/scripts": "^26.1.0",
-    "browser-sync": "^2.27",
-    "browser-sync-webpack-plugin": "^2.3",
-    "cssnano": "^5.1.15",
-    "fast-glob": "^3.2.12",
-    "lefthook": "^1.1",
-    "postcss-import": "^15.1.0",
-    "postcss-mixins": "^9.0.4",
-    "postcss-preset-env": "^8.0.1",
-    "webpack-remove-empty-scripts": "^1.0"
-  },
-  "scripts": {
-    "dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
-    "dev": "wp-scripts start --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
-    "format": "wp-scripts format $npm_package_config_coreThemeDir",
-    "lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix && npm run lint:configs && npm run lint:pkg-json",
-    "lint:css": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\"",
-    "lint:css:fix": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\" --fix",
-    "lint:js": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\"",
-    "lint:js:fix": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\" --fix",
-    "lint:configs": "wp-scripts lint-js \"./*.js\"",
-    "lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
-    "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
-    "packages-update": "wp-scripts packages-update",
-    "check-engines": "wp-scripts check-engines",
-    "check-licenses": "wp-scripts check-licenses",
-    "server-lint": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json",
-    "server-dist": "npm run dist"
-  }
+	"name": "moose",
+	"version": "1.0.0",
+	"description": "A WordPress starter framework for Modern Tribe Projects",
+	"author": "Modern Tribe <admin@tri.be>",
+	"license": "GPL-2.0-or-later",
+	"keywords": [],
+	"homepage": "https://github.com/moderntribe/moose#readme",
+	"repository": "https://github.com/moderntribe/moose",
+	"bugs": {
+		"email": "admin@tri.be"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"safari >= 15",
+		"ios >= 15",
+		"android >= 8.0",
+		"not op_mini all",
+		"not dead"
+	],
+	"engines": {
+		"node": "16.13.1",
+		"npm": "8.1.2"
+	},
+	"config": {
+		"coreThemeDir": "./wp-content/themes/core",
+		"coreThemeBlocksDir": "./wp-content/themes/core/blocks"
+	},
+	"devDependencies": {
+		"@csstools/postcss-global-data": "^1.0.3",
+		"@wordpress/create-block": "^4.14.0",
+		"@wordpress/scripts": "^26.1.0",
+		"browser-sync": "^2.27",
+		"browser-sync-webpack-plugin": "^2.3",
+		"cssnano": "^5.1.15",
+		"fast-glob": "^3.2.12",
+		"lefthook": "^1.1",
+		"postcss-import": "^15.1.0",
+		"postcss-mixins": "^9.0.4",
+		"postcss-preset-env": "^8.0.1",
+		"webpack-remove-empty-scripts": "^1.0"
+	},
+	"scripts": {
+		"dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
+		"dev": "wp-scripts start --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
+		"format": "npm run format:theme && npm run format:configs",
+		"format:theme": "wp-scripts format $npm_package_config_coreThemeDir",
+		"format:configs": "wp-scripts format \"./*.{js,json}\"",
+		"lint": "npm run format && npm run lint:js:fix && npm run lint:css:fix && npm run lint:configs && npm run lint:pkg-json",
+		"lint:css": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\"",
+		"lint:css:fix": "wp-scripts lint-style \"$npm_package_config_coreThemeDir/**/*.pcss\" --fix",
+		"lint:js": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\"",
+		"lint:js:fix": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\" --fix",
+		"lint:configs": "wp-scripts lint-js \"./*.js\"",
+		"lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
+		"packages-update": "wp-scripts packages-update",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"server-lint": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json",
+		"server-dist": "npm run dist"
+	}
 }

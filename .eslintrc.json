@@ -1,11 +1,7 @@
 {
-  "extends": [
-    "plugin:@wordpress/eslint-plugin/recommended"
-  ],
-  "rules": {
-    "no-console": 0
-  },
-  "ignorePatterns": [
-      "wp-content/themes/core/dist/"
-  ]
+	"extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+	"rules": {
+		"no-console": 0
+	},
+	"ignorePatterns": [ "wp-content/themes/core/dist/" ]
 }
