@@ -6,8 +6,15 @@
  * Customizations:
  * - postcss-import: Add support for concatenating pcss partials via `@import` statements.
  *  	- Reference: https://www.npmjs.com/package/postcss-import
- * - postcssGlobalData: Add support for the referenced set of css partials to be used globally,
+ * - postcss-global-data: Add support for the referenced set of css partials to be used globally,
  *  	without individually importing the partials in every file where they are used.
+ *  	This plugin only makes css available for the pcss processor to "use" it does not inject
+ *  	any css into the compiled css files. As such, it's only useful for partials that contain
+ *  	data which will be "replaced" by the pcss parser such as custom media queries and custom selectors.
+ *  	- Reference: https://www.npmjs.com/package/@csstools/postcss-global-data
+ * - postcss-mixins: Add support for mixins.
+ *  	- Will glob mixins from any files named `_mixins.pcss` within the theme pcss assets directory.
+ *  	- Reference: https://github.com/postcss/postcss-mixins
  * - postcss-inline-svg: Add support for inline SVG icons.
  * - postcss-preset-env: Sets config to process all features (stage 0 and above)
  *  	- Adds autoprefixer support for css grid
@@ -18,9 +25,6 @@
 
 const isProduction = process.env.NODE_ENV === 'production';
 const pkg = require( './package.json' );
-const { sync: glob } = require( 'fast-glob' );
-const postcssGlobalData = require( '@csstools/postcss-global-data' );
-const postcssInlineSvg = require( 'postcss-inline-svg' );
 
 /**
  * Replicates WP-Scripts config for CSS Nano.
@@ -38,17 +42,27 @@ const cssNanoConfig = {
 
 const plugins = [
 	'postcss-import',
-	postcssGlobalData( {
-		files: glob(
-			`${ pkg.config.coreThemeDir }/assets/pcss/**/_variables.pcss`,
-			`${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
-			{ absolute: true }
-		),
-	} ),
-	'postcss-mixins',
-	postcssInlineSvg( {
-		paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
-	} ),
+	[
+		'@csstools/postcss-global-data',
+		{
+			files: [
+				`${ pkg.config.coreThemeDir }/assets/pcss/custom-selectors/_variables.pcss`,
+				`${ pkg.config.coreThemeDir }/assets/pcss/media-queries/_variables.pcss`,
+			],
+		},
+	],
+	[
+		'postcss-mixins',
+		{
+			mixinsFiles: `${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+		},
+	],
+	[
+		'postcss-inline-svg',
+		{
+			paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
+		}
+	],
 	[
 		'postcss-preset-env',
 		{
@@ -60,7 +74,6 @@ const plugins = [
 				'focus-visible-pseudo-class': false,
 				'focus-within-pseudo-class': false,
 				'logical-properties-and-values': false,
-				'has-pseudo-class': true,
 			},
 		},
 	],
