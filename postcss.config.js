@@ -61,7 +61,7 @@ const plugins = [
 		'postcss-inline-svg',
 		{
 			paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
-		}
+		},
 	],
 	[
 		'postcss-preset-env',
