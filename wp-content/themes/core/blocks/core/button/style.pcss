@@ -1,9 +1,6 @@
 /**
  * Styles specific to this block
  */
-.wp-block-button {
-
-}
 
 :where(.wp-block-button) .wp-block-button__link {
 	display: inline-flex;
@@ -13,8 +10,8 @@
 
 	position: relative;
 
-	&:after {
-		content: '';
+	&::after {
+		content: "";
 		background: svg-inline(chevron-right-white) center center no-repeat;
 		display: block;
 		height: 16px;

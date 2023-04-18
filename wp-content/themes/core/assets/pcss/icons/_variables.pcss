@@ -1,4 +1,4 @@
-/* -----------------------------------------------------------------------------
+/* -------------------------------------------------------------------------
  *
  * SVG Icons: Icons
  *
@@ -13,16 +13,18 @@
  *    background-image: svg-load('chevron-right.svg', fill=#f00);
  * }
  *
- * ----------------------------------------------------------------------------- */
+ * ------------------------------------------------------------------------- */
 
 @svg-load chevron-right-primary url(chevron-right.svg) {
-	/* Fills w/ CSS properties as the value do not work */
+
+	/* TODO: Fix fills w/ CSS properties as the value do not work */
+
 	/* fill: var(--wp--preset--color--brand-primary); */
-	fill: blue;
+	fill: #00f;
 }
 
 @svg-load chevron-right-white url(chevron-right.svg) {
-	fill: white;
+	fill: #fff;
 }
 
 .chevron-right-primary {
@@ -32,7 +34,7 @@
 }
 
 .chevron-right-red {
-	background-image: svg-load('chevron-right.svg', fill=#f00);
+	background-image: svg-load("chevron-right.svg", fill=#f00);
 	width: 10px;
 	height: 16px;
 }
