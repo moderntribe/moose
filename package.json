@@ -11,7 +11,7 @@
 		"email": "admin@tri.be"
 	},
 	"browserslist": [
-		"last 2 versions",
+		"last 1 versions",
 		"safari >= 15",
 		"ios >= 15",
 		"android >= 8.0",
@@ -19,8 +19,8 @@
 		"not dead"
 	],
 	"engines": {
-		"node": "16.13.1",
-		"npm": "8.1.2"
+		"node": "18.15.0",
+		"npm": "9.6.4"
 	},
 	"config": {
 		"coreThemeDir": "./wp-content/themes/core",
@@ -28,18 +28,18 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^1.0.3",
-		"@wordpress/create-block": "^4.14.0",
-		"@wordpress/scripts": "^26.1.0",
+		"@wordpress/create-block": "^4.15.0",
+		"@wordpress/scripts": "^26.2.0",
 		"browser-sync": "^2.27",
 		"browser-sync-webpack-plugin": "^2.3",
-		"cssnano": "^5.1.15",
+		"cssnano": "^6.0.0",
 		"fast-glob": "^3.2.12",
-		"lefthook": "^1.1",
+		"lefthook": "^1.3.10",
 		"postcss-import": "^15.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^9.0.4",
-		"postcss-preset-env": "^8.0.1",
-		"webpack-remove-empty-scripts": "^1.0"
+		"postcss-preset-env": "^8.3.2",
+		"webpack-remove-empty-scripts": "^1.0.3"
 	},
 	"scripts": {
 		"dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
