@@ -54,6 +54,7 @@ wp-content/wp-cache-config.php
 wp-content/tests/
 wp-content/logs/
 wp-content/mu-plugins/mu.local.php
+wp-content/mu-plugins/local-by-flywheel-live-link-helper.php
 
 wp-content/themes/*
 wp-content/plugins/*
