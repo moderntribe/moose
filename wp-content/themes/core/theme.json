@@ -322,6 +322,12 @@
 						"background": "var(--wp--preset--color--black)",
 						"text": "var(--wp--preset--color--white)"
 					}
+				},
+				":focus": {
+					"color": {
+						"background": "var(--wp--preset--color--black)",
+						"text": "var(--wp--preset--color--white)"
+					}
 				}
 			}
 		}
