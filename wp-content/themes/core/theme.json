@@ -315,7 +315,7 @@
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
-				  	"lineHeight": "1.3"
+					"lineHeight": "1.3"
 				},
 				":hover": {
 					"color": {
