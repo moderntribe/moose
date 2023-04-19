@@ -216,6 +216,11 @@
 					"fontSizes": [],
 					"textTransform": false
 				}
+			},
+			"core/group": {
+				"color": {
+					"background": true
+				}
 			}
 		}
 	},
