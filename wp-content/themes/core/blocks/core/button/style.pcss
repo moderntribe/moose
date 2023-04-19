@@ -30,7 +30,8 @@
 	 * Button: Secondary
 	 * ------------------------------------------------------------------------- */
 
-	:is(.is-style-secondary, .editor-styles-wrapper .is-style-secondary) & {
+	:is(.is-style-secondary) &,
+	:is(.editor-styles-wrapper) :is(.is-style-secondary) & {
 		border: 1px solid var(--color-black);
 		background-color: var(--color-white);
 		color: var(--color-black);
@@ -55,7 +56,8 @@
 	 * Button: Ghost
 	 * ------------------------------------------------------------------------- */
 
-	:is(.is-style-ghost, .editor-styles-wrapper .is-style-ghost) & {
+	:is(.is-style-ghost) &,
+	:is(.editor-styles-wrapper) :is(.is-style-ghost) & {
 		background: transparent;
 		color: var(--color-black);
 		display: inline-flex;
