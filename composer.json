@@ -132,7 +132,7 @@
 	"autoload": {
 		"psr-4": {
 			"Tribe\\Plugin\\": "wp-content/plugins/core/src",
-			"Tribe\\Theme\\": "wp-content/themes/core/src"
+			"Tribe\\Theme\\": "wp-content/themes/core"
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Theme\Blocks\Core\button;
+namespace Tribe\Theme\blocks\core\button;
 
 use Tribe\Plugin\Blocks\Styles\Block_Styles_Base;
 
