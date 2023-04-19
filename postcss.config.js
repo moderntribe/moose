@@ -47,6 +47,7 @@ const plugins = [
 		{
 			files: [
 				`${ pkg.config.coreThemeDir }/assets/pcss/custom-selectors/_variables.pcss`,
+				`${ pkg.config.coreThemeDir }/assets/pcss/icons/_variables.pcss`,
 				`${ pkg.config.coreThemeDir }/assets/pcss/media-queries/_variables.pcss`,
 			],
 		},
