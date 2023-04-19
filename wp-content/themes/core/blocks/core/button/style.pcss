@@ -19,7 +19,7 @@
 
 	&::after {
 		content: "";
-		background: svg-inline(chevron-right-white) center center no-repeat;
+		background: var(--icon-chevron-right-white) center center no-repeat;
 		display: block;
 		height: 16px;
 		width: 10px;
@@ -50,7 +50,7 @@
 	padding: 0.7188rem 1.5rem;
 
 	&::after {
-		background-image: svg-load("chevron-right.svg", fill=#000);
+		background-image: var(--icon-chevron-right-black);
 	}
 
 	&:hover,
@@ -59,7 +59,7 @@
 		color: var(--color-white);
 
 		&::after {
-			background-image: svg-load("chevron-right.svg", fill=#fff);
+			background-image: var(--icon-chevron-right-white);
 		}
 	}
 }
@@ -79,7 +79,7 @@
 
 	&::after {
 		background-color: var(--color-brand-primary);
-		background-image: svg-inline(chevron-right-white);
+		background-image: var(--icon-chevron-right-white);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 10px 16px;

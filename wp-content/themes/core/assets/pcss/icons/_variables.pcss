@@ -6,35 +6,19 @@
  * https://github.com/TrySound/postcss-inline-svg
  *
  * EXAMPLE USAGE:
- * .chevron-right-primary {
- *    background-image: svg-inline(chevron-right-primary);
- * }
- * .chevron-right-red {
- *    background-image: svg-load('chevron-right.svg', fill=#f00);
- * }
+ * background-image: var(--icon-chevron-right-white);
  *
  * ------------------------------------------------------------------------- */
-
-@svg-load chevron-right-primary url(chevron-right.svg) {
-
-	/* TODO: Fix fills w/ CSS properties as the value do not work */
-
-	/* fill: var(--wp--preset--color--brand-primary); */
-	fill: #00f;
-}
 
 @svg-load chevron-right-white url(chevron-right.svg) {
 	fill: #fff;
 }
 
-.chevron-right-primary {
-	background-image: svg-inline(chevron-right-primary);
-	width: 10px;
-	height: 16px;
+@svg-load chevron-right-black url(chevron-right.svg) {
+	fill: #000;
 }
 
-.chevron-right-red {
-	background-image: svg-load("chevron-right.svg", fill=#f00);
-	width: 10px;
-	height: 16px;
+:root {
+	--icon-chevron-right-white: svg-inline(chevron-right-white);
+	--icon-chevron-right-black: svg-inline(chevron-right-black);
 }
