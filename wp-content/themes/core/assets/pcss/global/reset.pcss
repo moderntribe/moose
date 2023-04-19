@@ -1,0 +1,76 @@
+/* -------------------------------------------------------------------------
+ *
+ * Global "Resets" & Light Normalize
+ *
+ * ------------------------------------------------------------------------- */
+
+/**
+ * Use a more-intuitive box-sizing model.
+ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/**
+ * Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+	text-size-adjust: 100%;
+}
+
+/**
+ * 1. Improve text rendering.
+ * 2. Prevent horizontal scroll.
+ */
+body {
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+/**
+ * Avoid text overflows.
+ */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+	font-size: 80%;
+}
+
+img,
+picture {
+	height: auto;
+	max-width: 100%;
+}
+
+iframe,
+video,
+embed {
+	max-width: 100%;
+}
+
+/**
+ * 1. Remove built-in form typography styles and prevent zoom on mobile devices.
+ * 2. Remove margin in Firefox & Safari.
+ */
+input,
+button,
+optgroup,
+textarea,
+select {
+	font: inherit;
+	margin: 0;
+}
