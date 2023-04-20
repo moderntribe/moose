@@ -15,6 +15,7 @@
  * - postcss-mixins: Add support for mixins.
  *  	- Will glob mixins from any files named `_mixins.pcss` within the theme pcss assets directory.
  *  	- Reference: https://github.com/postcss/postcss-mixins
+ * - postcss-inline-svg: Add support for inline SVG icons.
  * - postcss-preset-env: Sets config to process all features (stage 0 and above)
  *  	- Adds autoprefixer support for css grid
  *  	- Removes any transformations on (don't modify) css custom properties, :focus-visible, and :focus-within
@@ -46,6 +47,7 @@ const plugins = [
 		{
 			files: [
 				`${ pkg.config.coreThemeDir }/assets/pcss/custom-selectors/_variables.pcss`,
+				`${ pkg.config.coreThemeDir }/assets/pcss/icons/_variables.pcss`,
 				`${ pkg.config.coreThemeDir }/assets/pcss/media-queries/_variables.pcss`,
 			],
 		},
@@ -54,6 +56,12 @@ const plugins = [
 		'postcss-mixins',
 		{
 			mixinsFiles: `${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+		},
+	],
+	[
+		'postcss-inline-svg',
+		{
+			paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
 		},
 	],
 	[

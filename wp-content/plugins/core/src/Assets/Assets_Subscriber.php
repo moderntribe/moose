@@ -11,6 +11,10 @@ class Assets_Subscriber extends Abstract_Subscriber {
 			$this->container->get( Public_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
 
+		add_action( 'wp_enqueue_scripts', function (): void {
+			$this->container->get( Print_Assets_Enqueuer::class )->register();
+		}, 10, 0 );
+
 		add_action( 'admin_enqueue_scripts', function (): void {
 			$this->container->get( Admin_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
