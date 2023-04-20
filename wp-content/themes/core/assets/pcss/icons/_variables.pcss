@@ -1,0 +1,24 @@
+/* -------------------------------------------------------------------------
+ *
+ * SVG Icons: Icons
+ *
+ * Implemented via `postcss-inline-svg`
+ * https://github.com/TrySound/postcss-inline-svg
+ *
+ * EXAMPLE USAGE:
+ * background-image: var(--icon-chevron-right-white);
+ *
+ * ------------------------------------------------------------------------- */
+
+@svg-load chevron-right-white url(chevron-right.svg) {
+	fill: #fff;
+}
+
+@svg-load chevron-right-black url(chevron-right.svg) {
+	fill: #000;
+}
+
+:root {
+	--icon-chevron-right-white: svg-inline(chevron-right-white);
+	--icon-chevron-right-black: svg-inline(chevron-right-black);
+}

@@ -1,6 +1,92 @@
 /**
  * Styles specific to this block
  */
-.wp-block-button {
-	outline: 1px solid #f00;
+
+.wp-block-button__link {
+	transition: var(--transition);
+
+	/* -------------------------------------------------------------------------
+	 * Button: Arrow After Label
+	 * ------------------------------------------------------------------------- */
+
+	:is(.is-style-primary, .is-style-secondary) & {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		position: relative;
+
+		&::after {
+			content: "";
+			background: var(--icon-chevron-right-white) center center no-repeat;
+			display: block;
+			height: 16px;
+			width: 10px;
+			transition: var(--transition);
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Button: Secondary
+	 * ------------------------------------------------------------------------- */
+
+	:is(.is-style-secondary, .editor-styles-wrapper .is-style-secondary) & {
+		border: 1px solid var(--color-black);
+		background-color: var(--color-white);
+		color: var(--color-black);
+		padding: 0.7188rem 1.5rem;
+
+		&::after {
+			background-image: var(--icon-chevron-right-black);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: var(--color-black);
+			color: var(--color-white);
+
+			&::after {
+				background-image: var(--icon-chevron-right-white);
+			}
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Button: Ghost
+	 * ------------------------------------------------------------------------- */
+
+	:is(.is-style-ghost, .editor-styles-wrapper .is-style-ghost) & {
+		background: transparent;
+		color: var(--color-black);
+		display: inline-flex;
+		align-items: center;
+		gap: 16px;
+		padding: 0;
+		position: relative;
+
+		&::after {
+			background-color: var(--color-brand-primary);
+			background-image: var(--icon-chevron-right-white);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 10px 16px;
+			border-radius: 50%;
+			content: "";
+			display: inline-block;
+			width: 48px;
+			height: 48px;
+			transition: var(--transition);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			color: var(--color-black);
+
+			&::after {
+				transform: none;
+				background-color: var(--color-black);
+			}
+		}
+	}
 }

@@ -116,26 +116,48 @@
 			"textDecoration": false,
 			"fontFamilies": [
 				{
-					"fontFamily": "\"Inter\", sans-serif",
-					"name": "Inter",
-					"slug": "inter",
+					"fontFamily": "\"Roboto\", sans-serif",
+					"name": "Roboto",
+					"slug": "roboto",
 					"fontFace": [
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "Roboto",
 							"fontDisplay": "swap",
+							"fontStyle": "normal",
 							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/Inter-Regular.woff2",
-								"file:./assets/fonts/Inter-Regular.woff"
+								"file:./assets/fonts/Roboto-Regular.woff2",
+								"file:./assets/fonts/Roboto-Regular.woff"
 							]
 						},
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "Roboto",
 							"fontDisplay": "swap",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/Roboto-Italic.woff2",
+								"file:./assets/fonts/Roboto-Italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontDisplay": "swap",
+							"fontStyle": "normal",
 							"fontWeight": "700",
 							"src": [
-								"file:./assets/fonts/Inter-Bold.woff2",
-								"file:./assets/fonts/Inter-Bold.woff"
+								"file:./assets/fonts/Roboto-Bold.woff2",
+								"file:./assets/fonts/Roboto-Bold.woff"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontDisplay": "swap",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/Roboto-BoldItalic.woff2",
+								"file:./assets/fonts/Roboto-BoldItalic.woff"
 							]
 						}
 					]
@@ -144,47 +166,47 @@
 			"fontSizes": [
 				{
 					"slug": "90",
-					"size": "clamp(3rem, 2.272rem + 3.107vw, 6rem)",
+					"size": "clamp(3rem, 2.4rem + 3vw, 6rem)",
 					"name": "Font Size 90"
 				},
 				{
 					"slug": "80",
-					"size": "clamp(2.5rem, 1.954rem + 2.33vw, 4.75rem)",
+					"size": "clamp(2.5rem, 2.05rem + 2.25vw, 4.75rem)",
 					"name": "Font Size 80"
 				},
 				{
 					"slug": "70",
-					"size": "clamp(2rem, 1.515rem + 2.071vw, 4rem)",
+					"size": "clamp(2rem, 1.6rem + 2vw, 4rem)",
 					"name": "Font Size 70"
 				},
 				{
 					"slug": "60",
-					"size": "clamp(1.5rem, 1.136rem + 1.553vw, 3rem)",
+					"size": "clamp(1.5rem, 1.2rem + 1.5vw, 3rem)",
 					"name": "Font Size 60"
 				},
 				{
 					"slug": "50",
-					"size": "clamp(1.375rem, 1.102rem + 1.165vw, 2.5rem)",
+					"size": "clamp(1.375rem, 1.15rem + 1.125vw, 2.5rem)",
 					"name": "Font Size 50"
 				},
 				{
 					"slug": "40",
-					"size": "clamp(1.25rem, 1.068rem + 0.777vw, 2rem)",
+					"size": "clamp(1.25rem, 1.1rem + 0.75vw, 2rem)",
 					"name": "Font Size 40"
 				},
 				{
 					"slug": "30",
-					"size": "clamp(1.125rem, 1.034rem + 0.388vw, 1.5rem)",
+					"size": "clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem)",
 					"name": "Font Size 30"
 				},
 				{
 					"slug": "20",
-					"size": "clamp(1rem, 0.939rem + 0.259vw, 1.25rem)",
+					"size": "clamp(1rem, 0.95rem + 0.25vw, 1.25rem)",
 					"name": "Font Size 20"
 				},
 				{
 					"slug": "10",
-					"size": "clamp(0.875rem, 0.845rem + 0.129vw, 1rem)",
+					"size": "clamp(0.875rem, 0.85rem + 0.125vw, 1rem)",
 					"name": "Font Size 10"
 				}
 			]
@@ -202,6 +224,26 @@
 					"shadow": "0px 0px 1px rgba(48, 49, 51, 0.05), 0px 8px 50px rgba(48, 49, 51, 0.1)"
 				}
 			]
+		},
+		"blocks": {
+			"core/button": {
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": [],
+					"textTransform": false
+				}
+			},
+			"core/group": {
+				"color": {
+					"background": true
+				}
+			}
 		}
 	},
 	"styles": {
@@ -210,7 +252,7 @@
 			"background": "var(--wp--preset--color--base-white)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"fontFamily": "var(--wp--preset--font-family--roboto)",
 			"fontSize": "var(--wp--preset--font-size--20)",
 			"fontStyle": "normal",
 			"fontWeight": "var(--wp--custom--font-weight--regular)",
@@ -228,7 +270,7 @@
 		"elements": {
 			"heading": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontFamily": "var(--wp--preset--font-family--roboto)",
 					"fontWeight": "var(--wp--custom--font-weight--bold)"
 				}
 			},
@@ -280,6 +322,39 @@
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
 					"lineHeight": "1.5"
+				}
+			},
+			"button": {
+				"border": {
+					"radius": "100px"
+				},
+				"color": {
+					"background": "var(--wp--preset--color--brand-primary)",
+					"text": "var(--wp--preset--color--white)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "0.7813rem",
+						"right": "1.5625rem",
+						"bottom": "0.7813rem",
+						"left": "1.5625rem"
+					}
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--20)",
+					"lineHeight": "1.3"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--black)",
+						"text": "var(--wp--preset--color--white)"
+					}
+				},
+				":focus": {
+					"color": {
+						"background": "var(--wp--preset--color--black)",
+						"text": "var(--wp--preset--color--white)"
+					}
 				}
 			}
 		}

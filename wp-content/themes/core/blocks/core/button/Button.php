@@ -1,8 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Theme\Blocks\Core;
+namespace Tribe\Theme\blocks\core\button;
 
-class Button {
+use Tribe\Plugin\Blocks\Styles\Block_Styles_Base;
+
+class Button implements Block_Styles_Base {
 
 	public function get_block_name(): string {
 		return 'core/button';
@@ -10,9 +12,9 @@ class Button {
 
 	public function get_block_styles(): array {
 		return [
-			'arrow-right' => esc_html__( 'Arrow Right', 'tribe' ),
-			'arrow-left'  => esc_html__( 'Arrow Left', 'tribe' ),
-			'transparent' => esc_html__( 'Transparent', 'tribe' ),
+			'primary'   => esc_html__( 'Primary', 'tribe' ),
+			'secondary' => esc_html__( 'Secondary', 'tribe' ),
+			'ghost'     => esc_html__( 'Ghost', 'tribe' ),
 		];
 	}
 
