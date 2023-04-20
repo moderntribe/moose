@@ -1,20 +1,21 @@
-/* -----------------------------------------------------------------------------
+/* -------------------------------------------------------------------------
  *
  * Layouts
  *
- * ----------------------------------------------------------------------------- */
+ * ------------------------------------------------------------------------- */
 
-/* -----------------------------------------------------------------------------
+/* -------------------------------------------------------------------------
  *
  * Layout: Align Wide
  *
  * Adjustments for fluid value in theme.json settings.layout.wideSize
  *
- * ----------------------------------------------------------------------------- */
+ * ------------------------------------------------------------------------- */
 
 /*
- * Max-width of blocks aligned wide should not account for grid margin when nested
- * in .has-global-padding because the container applies grid margin as padding.
+ * Max-width of blocks aligned wide should not account for grid margin
+ * when nested in .has-global-padding because the container applies
+ * grid margin as padding.
  */
 .has-global-padding.is-layout-constrained > .alignwide,
 :is(.editor-styles-wrapper) .is-root-container.has-global-padding.is-layout-constrained > .alignwide {
@@ -22,8 +23,8 @@
 }
 
 /*
- * Max-width of blocks aligned wide nested inside two .has-global-padding containers
- * need to re-account for grid-margin.
+ * Max-width of blocks aligned wide nested inside two .has-global-padding
+ * containers need to re-account for grid-margin.
  * Example: Columns block aligned wide inside group block aligned full.
  */
 .has-global-padding :is(.has-global-padding) > .alignwide,
