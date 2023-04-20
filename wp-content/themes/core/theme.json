@@ -101,13 +101,13 @@
 				"bold": 700
 			},
 			"spacing": {
-				"grid-gutter": "clamp(1.5rem, calc(1.5rem + ((1vw - 3.2rem) * 0.0938)), 3rem)",
-				"grid-margin": "clamp(1rem, calc(1rem + ((1vw - 3.2rem) * 0.3125)), 6rem)"
+				"grid-gutter": "clamp(1.5rem, 1.2rem + 1.5vw, 3rem)",
+				"grid-margin": "clamp(1rem, 0rem + 5vw, 6rem)"
 			}
 		},
 		"layout": {
 			"contentSize": "640px",
-			"wideSize": "1920px"
+			"wideSize": "calc(100% - var(--wp--custom--spacing--grid-margin) * 2)"
 		},
 		"useRootPaddingAwareAlignments": true,
 		"spacing": {
