@@ -106,8 +106,8 @@
 			}
 		},
 		"layout": {
-			"contentSize": "680px",
-			"wideSize": "1200px"
+			"contentSize": "640px",
+			"wideSize": "1920px"
 		},
 		"useRootPaddingAwareAlignments": true,
 		"spacing": {
@@ -405,6 +405,7 @@
 			}
 		},
 		"spacing": {
+			"blockGap": "var(--wp--custom--spacing--grid-gutter)",
 			"padding": {
 				"top": "0em",
 				"right": "var(--wp--custom--spacing--grid-margin)",
