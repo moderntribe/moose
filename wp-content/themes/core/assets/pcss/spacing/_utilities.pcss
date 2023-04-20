@@ -1,0 +1,30 @@
+/* -------------------------------------------------------------------------
+ *
+ * Aspect Ratio Helpers
+ *
+ * Useful for fixing the height of an element based on it's width.
+ *
+ * Example:
+ * <figure class="wp-block-image s-aspect-ratio-1-1 s-aspect-ratio-cover">
+ *     <img class="wp-post-image" src="..."></img>
+ * </figure>
+ *
+ * ------------------------------------------------------------------------- */
+
+.s-aspect-ratio-cover {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.s-aspect-ratio-1-1 {
+	aspect-ratio: 1 / 1;
+}
+
+.s-aspect-ratio-4-3 {
+	aspect-ratio: 4 / 3;
+}
+
+.s-aspect-ratio-16-9 {
+	aspect-ratio: 16 / 9;
+}
