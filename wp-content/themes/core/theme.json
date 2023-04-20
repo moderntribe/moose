@@ -105,6 +105,45 @@
 			"contentSize": "680px",
 			"wideSize": "1200px"
 		},
+		"spacing": {
+			"spacingSizes": [
+				{
+					"size": "clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem)",
+					"slug": "10",
+					"name": "XX Small"
+				},
+				{
+					"size": "clamp(0.5rem, 0.4rem + 0.5vw, 1rem)",
+					"slug": "20",
+					"name": "X Small"
+				},
+				{
+					"size": "clamp(1rem, 0.8rem + 1vw, 2rem)",
+					"slug": "30",
+					"name": "Small"
+				},
+				{
+					"size": "clamp(1.5rem, 1.2rem + 1.5vw, 3rem)",
+					"slug": "40",
+					"name": "Medium"
+				},
+				{
+					"size": "clamp(2rem, 1.6rem + 2vw, 4rem)",
+					"slug": "50",
+					"name": "Large"
+				},
+				{
+					"size": "clamp(3rem, 2.4rem + 3vw, 6rem)",
+					"slug": "60",
+					"name": "X Large"
+				},
+				{
+					"size": "clamp(3.75rem, 3rem + 3.75vw, 7.5rem)",
+					"slug": "70",
+					"name": "XX Large"
+				}
+			]
+		},
 		"typography": {
 			"customFontSize": false,
 			"dropCap": false,
