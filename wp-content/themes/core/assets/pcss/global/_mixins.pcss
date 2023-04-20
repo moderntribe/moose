@@ -6,6 +6,14 @@
  *
  * ------------------------------------------------------------------------- */
 
+/* Box-shadow is required to display double border in all browsers */
 @define-mixin focus-visible {
-	outline: var(--color-focus-contrast-light) auto 3px;
+	box-shadow: 0 0 0 3px var(--color-focus-contrast-light), 0 0 0 5px var(--color-focus-contrast-dark);
+	outline: 0;
+}
+
+/* Inline text links that wrap multiple lines look better w/ outline vs box-shadow */
+@define-mixin focus-visible-inline-text {
+	box-shadow: none;
+	outline: var(--color-focus-contrast-light) solid 3px;
 }
