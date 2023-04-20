@@ -6,12 +6,6 @@
 
 a {
 
-	&:focus-visible {
-		outline: Highlight auto 1px;
-		outline: -webkit-focus-ring-color auto 1px;
-		outline-offset: 3px;
-	}
-
 	/* -------------------------------------------------------------------------
 	 * Anchor: Inline Links
 	 *
@@ -22,7 +16,6 @@ a {
 		transition: var(--transition);
 		color: currentcolor;
 		font-weight: var(--font-weight-bold);
-		outline: 0;
 		cursor: pointer;
 		text-decoration: underline 0.0938rem;
 		text-underline-offset: 4px;
@@ -31,14 +24,11 @@ a {
 			color: inherit;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:active {
 			color: var(--color-neutral-70);
 			text-decoration-color: currentcolor;
-		}
-
-		&:active,
-		&:focus {
-			color: inherit;
 		}
 	}
 }
