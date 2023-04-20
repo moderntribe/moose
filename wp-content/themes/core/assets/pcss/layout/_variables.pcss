@@ -1,0 +1,15 @@
+/* -------------------------------------------------------------------------
+ *
+ * Variables: Layout
+ *
+ * NOTE: WordPress outputs their generated CSS properties on the body element.
+ * To associate color properties w/ WP presets, and to allow style overrides
+ * in the FSE Site Editor, CSS properties must be set on the body element.
+ *
+ * ------------------------------------------------------------------------- */
+
+body {
+	--grid-margin: var(--wp--custom--spacing--grid-margin);
+	--grid-gutter: var(--wp--custom--spacing--grid-gutter);
+	--grid-max-width: calc(100% - var(--grid-margin) * 2);
+}

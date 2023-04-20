@@ -99,13 +99,20 @@
 			"fontWeight": {
 				"regular": 400,
 				"bold": 700
+			},
+			"spacing": {
+				"grid-gutter": "clamp(1.5rem, calc(1.5rem + ((1vw - 3.2rem) * 0.0938)), 3rem)",
+				"grid-margin": "clamp(1rem, calc(1rem + ((1vw - 3.2rem) * 0.3125)), 6rem)"
 			}
 		},
 		"layout": {
 			"contentSize": "680px",
 			"wideSize": "1200px"
 		},
+		"useRootPaddingAwareAlignments": true,
 		"spacing": {
+			"margin": true,
+			"padding": true,
 			"spacingSizes": [
 				{
 					"size": "clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem)",
@@ -395,6 +402,14 @@
 						"text": "var(--wp--preset--color--white)"
 					}
 				}
+			}
+		},
+		"spacing": {
+			"padding": {
+				"top": "0em",
+				"right": "var(--wp--custom--spacing--grid-margin)",
+				"bottom": "0em",
+				"left": "var(--wp--custom--spacing--grid-margin)"
 			}
 		}
 	}
