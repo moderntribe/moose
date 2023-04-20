@@ -16,7 +16,8 @@
  * Max-width of blocks aligned wide should not account for grid margin when nested
  * in .has-global-padding because the container applies grid margin as padding.
  */
-.has-global-padding.is-layout-constrained > .alignwide {
+.has-global-padding.is-layout-constrained > .alignwide,
+:is(.editor-styles-wrapper) .is-root-container.has-global-padding.is-layout-constrained > .alignwide {
 	max-width: 100%;
 }
 
@@ -25,6 +26,7 @@
  * need to re-account for grid-margin.
  * Example: Columns block aligned wide inside group block aligned full.
  */
-.has-global-padding :is(.has-global-padding) > .alignwide {
+.has-global-padding :is(.has-global-padding) > .alignwide,
+:is(.editor-styles-wrapper) .has-global-padding :is(.has-global-padding) > .alignwide {
 	max-width: var(--wp--style--global--wide-size);
 }
