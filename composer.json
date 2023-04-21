@@ -31,6 +31,9 @@
 		],
 		"post-install-cmd": [
 			"@setup-wordpress"
+		],
+		"post-update-cmd": [
+			"@setup-wordpress"
 		]
 	},
 	"scripts-descriptions": {
