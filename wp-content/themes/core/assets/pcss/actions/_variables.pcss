@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------------
+ *
+ * Variables: Actions
+ *
+ * NOTE: WordPress outputs their generated CSS properties on the body element.
+ * To associate color properties w/ WP presets, and to allow style overrides
+ * in the FSE Site Editor, CSS properties must be set on the body element.
+ *
+ * ------------------------------------------------------------------------- */
+
+/* @TODO: Add documentation on setting up theming to properly utilize */
+
+body {
+
+	/* -----------------------------------------------------------------------
+	 * Themed Color Properties
+	 * ----------------------------------------------------------------------- */
+
+	--themed-link-text-color: var(--color-black);
+	--themed-link-hover-text-color: var(--color-neutral-70);
+}
+
+/* -------------------------------------------------------------------------
+ *
+ * Color Theme: Dark
+ *
+ * ------------------------------------------------------------------------- */
+
+.has-brand-secondary-background-color {
+	--themed-link-text-color: var(--color-white);
+	--themed-link-hover-text-color: var(--wp--preset--color--neutral-40);
+}

@@ -10,7 +10,7 @@
 
 @define-mixin inline-text-link {
 	transition: var(--transition);
-	color: currentcolor;
+	color: var(--themed-link-text-color);
 	font-weight: var(--font-weight-bold);
 	outline: 0;
 	cursor: pointer;
@@ -22,7 +22,7 @@
 	}
 
 	&:hover {
-		color: var(--color-neutral-70);
+		color: var(--themed-link-hover-text-color);
 		text-decoration-color: currentcolor;
 	}
 
