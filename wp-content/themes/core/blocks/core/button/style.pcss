@@ -2,6 +2,8 @@
  * Styles specific to this block
  */
 
+@import "_variables.pcss";
+
 .wp-block-button__link {
 	transition: var(--transition);
 
@@ -18,11 +20,19 @@
 
 		&::after {
 			content: "";
-			background: var(--icon-chevron-right-white) center center no-repeat;
+			background: var(--themed-button-icon) center center no-repeat;
 			display: block;
 			height: 16px;
 			width: 10px;
 			transition: var(--transition);
+		}
+
+		&:hover,
+		&:focus {
+
+			&::after {
+				background-image: var(--themed-button-hover-icon);
+			}
 		}
 	}
 
@@ -31,24 +41,8 @@
 	 * ------------------------------------------------------------------------- */
 
 	:is(.is-style-secondary, .editor-styles-wrapper .is-style-secondary) & {
-		border: 1px solid var(--color-black);
-		background-color: var(--color-white);
-		color: var(--color-black);
+		border: 1px solid var(--themed-button-border-color);
 		padding: 0.7188rem 1.5rem;
-
-		&::after {
-			background-image: var(--icon-chevron-right-black);
-		}
-
-		&:hover,
-		&:focus {
-			background-color: var(--color-black);
-			color: var(--color-white);
-
-			&::after {
-				background-image: var(--icon-chevron-right-white);
-			}
-		}
 	}
 
 	/* -------------------------------------------------------------------------
@@ -56,8 +50,6 @@
 	 * ------------------------------------------------------------------------- */
 
 	:is(.is-style-ghost, .editor-styles-wrapper .is-style-ghost) & {
-		background: transparent;
-		color: var(--color-black);
 		display: inline-flex;
 		align-items: center;
 		gap: 16px;
@@ -65,8 +57,8 @@
 		position: relative;
 
 		&::after {
-			background-color: var(--color-brand-primary);
-			background-image: var(--icon-chevron-right-white);
+			background-color: var(--themed-button-icon-color);
+			background-image: var(--themed-button-icon);
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 10px 16px;
@@ -80,12 +72,13 @@
 
 		&:hover,
 		&:focus {
-			background-color: transparent;
-			color: var(--color-black);
+			background-color: var(--themed-button-background-color);
+			color: var(--themed-button-text-color);
 
 			&::after {
 				transform: none;
-				background-color: var(--color-black);
+				background-color: var(--themed-button-hover-icon-color);
+				background-image: var(--themed-button-hover-icon);
 			}
 		}
 	}
