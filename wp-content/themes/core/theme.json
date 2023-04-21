@@ -329,8 +329,8 @@
 					"radius": "100px"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--brand-primary)",
-					"text": "var(--wp--preset--color--white)"
+					"background": "var(--themed-button-background-color)",
+					"text": "var(--themed-button-text-color)"
 				},
 				"spacing": {
 					"padding": {
@@ -346,14 +346,14 @@
 				},
 				":hover": {
 					"color": {
-						"background": "var(--wp--preset--color--black)",
-						"text": "var(--wp--preset--color--white)"
+						"background": "var(--themed-button-hover-background-color)",
+						"text": "var(--themed-button-hover-text-color)"
 					}
 				},
 				":focus": {
 					"color": {
-						"background": "var(--wp--preset--color--black)",
-						"text": "var(--wp--preset--color--white)"
+						"background": "var(--themed-button-hover-background-color)",
+						"text": "var(--themed-button-hover-text-color)"
 					}
 				}
 			}
