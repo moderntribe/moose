@@ -12,22 +12,18 @@
 	transition: var(--transition);
 	color: var(--themed-link-text-color);
 	font-weight: var(--font-weight-bold);
-	outline: 0;
 	cursor: pointer;
-	text-decoration: underline 0.0938rem;
-	text-underline-offset: 4px;
+	text-decoration: underline 1px;
+	text-underline-offset: 2px;
 
 	&:visited {
 		color: inherit;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus:not(:focus-visible),
+	&:active {
 		color: var(--themed-link-hover-text-color);
 		text-decoration-color: currentcolor;
-	}
-
-	&:active,
-	&:focus {
-		color: inherit;
 	}
 }
