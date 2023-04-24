@@ -6,6 +6,7 @@ use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
+use Tribe\Theme\blocks\core\heading\Heading;
 
 class Blocks_Definer implements Definer_Interface {
 
@@ -22,6 +23,7 @@ class Blocks_Definer implements Definer_Interface {
 
 			self::STYLES          => DI\add( [
 				DI\get( Button::class ),
+				DI\get( Heading::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

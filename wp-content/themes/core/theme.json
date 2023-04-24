@@ -243,6 +243,12 @@
 				"color": {
 					"background": true
 				}
+			},
+			"core/heading": {
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": []
+				}
 			}
 		}
 	},
