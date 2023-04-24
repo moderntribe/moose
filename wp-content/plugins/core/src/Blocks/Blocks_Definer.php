@@ -7,6 +7,7 @@ use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\heading\Heading;
+use Tribe\Theme\blocks\core\paragraph\Paragraph;
 
 class Blocks_Definer implements Definer_Interface {
 
@@ -24,6 +25,7 @@ class Blocks_Definer implements Definer_Interface {
 			self::STYLES          => DI\add( [
 				DI\get( Button::class ),
 				DI\get( Heading::class ),
+				DI\get( Paragraph::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

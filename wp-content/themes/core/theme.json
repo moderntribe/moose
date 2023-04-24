@@ -249,6 +249,12 @@
 					"fontFamilies": [],
 					"fontSizes": []
 				}
+			},
+			"core/paragraph": {
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": []
+				}
 			}
 		}
 	},
