@@ -2,27 +2,34 @@
  * Styles specific to this block
  */
 
-ul {
-	padding-inline-start: 0;
-}
+/* ----------------------------------------------------------------------
+ * Ordered List
+ * ---------------------------------------------------------------------- */
 
-ol {
+:where(.wp-site-blocks) ol,
+.editor-styles-wrapper ol {
 	padding-inline-start: 1.2rem;
-}
 
-li {
-	position: relative;
-
-	:where(ol) & {
+	& li {
 		padding-inline-start: 10px;
 
 		&::marker {
 			font-weight: var(--font-weight-bold);
 		}
 	}
+}
 
-	:where(ul, ol ul) & {
+/* ----------------------------------------------------------------------
+ * Unordered List
+ * ---------------------------------------------------------------------- */
+
+:where(.wp-site-blocks) ul,
+.editor-styles-wrapper ul {
+	padding-inline-start: 0;
+
+	& li {
 		padding-inline-start: 1.75rem;
+		position: relative;
 
 		&::marker {
 			content: "";
