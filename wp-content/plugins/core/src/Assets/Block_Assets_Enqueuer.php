@@ -54,25 +54,15 @@ class Block_Assets_Enqueuer extends Assets_Enqueuer {
 			$args                 = $this->get_asset_file_args( $this->assets_path . trailingslashit( $block ) . self::BLOCKS_FILE );
 			$args['dependencies'] = [];
 
-			if ( in_array( $block, self::GLOBAL_BLOCKS, true ) ) {
-				wp_enqueue_style(
-					"{$prefix}-{$handle}-styles",
-					$this->assets_path_uri . "{$file_path}/{$filename}.css",
-					$args['dependencies'] ?? [ 'theme-css' ],
-					$args['version'] ?? false,
-					'all',
-				);
-			} else {
-				wp_enqueue_block_style(
-					( ! empty( $block_name ) ) ? $block_name : $block,
-					[
-						'handle' => "{$prefix}-{$handle}-styles",
-						'src'    => $this->assets_path_uri . "{$file_path}/{$filename}.css",
-						'deps'   => $args['dependencies'] ?? [],
-						'ver'    => $args['version'] ?? false,
-					]
-				);
-			}
+			wp_enqueue_block_style(
+				( ! empty( $block_name ) ) ? $block_name : $block,
+				[
+					'handle' => "{$prefix}-{$handle}-styles",
+					'src'    => $this->assets_path_uri . "{$file_path}/{$filename}.css",
+					'deps'   => $args['dependencies'],
+					'ver'    => $args['version'] ?? false,
+				]
+			);
 		}
 	}
 
