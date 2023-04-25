@@ -1,0 +1,40 @@
+/**
+ * Styles specific to this block
+ */
+
+ul {
+	padding-inline-start: 0;
+}
+
+ol {
+	padding-inline-start: 1.2rem;
+}
+
+li {
+	position: relative;
+
+	:where(ol) & {
+		padding-inline-start: 10px;
+
+		&::marker {
+			font-weight: var(--font-weight-bold);
+		}
+	}
+
+	:where(ul, ol ul) & {
+		padding-inline-start: 1.75rem;
+
+		&::marker {
+			content: '';
+		}
+
+		&::before {
+			content: var(--icon-list-bullet);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 10px;
+			height: 10px;
+		}
+	}
+}

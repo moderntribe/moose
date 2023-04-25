@@ -250,6 +250,18 @@
 					"fontSizes": []
 				}
 			},
+			"core/list": {
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": []
+				}
+			},
+			"core/list-item": {
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": []
+				}
+			},
 			"core/paragraph": {
 				"typography": {
 					"fontFamilies": [],
@@ -272,6 +284,13 @@
 		},
 		"blocks": {
 			"core/paragraph": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--20)",
+					"fontWeight": "var(--wp--custom--font-weight--regular)",
+					"lineHeight": "1.5"
+				}
+			},
+			"core/list": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
