@@ -20,7 +20,7 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'tribe/example',
+				// 'tribe/example',
 			] ),
 
 			self::CORE            => DI\add( [

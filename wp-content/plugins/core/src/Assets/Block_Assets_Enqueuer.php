@@ -7,9 +7,7 @@ use Tribe\Plugin\Blocks\Blocks_Definer;
 class Block_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public const BLOCKS_FILE   = 'index.asset.php';
-	public const GLOBAL_BLOCKS = [
-		'core/button',
-	];
+	public const GLOBAL_BLOCKS = [];
 
 	public function __construct( string $assets_folder = 'dist/blocks/' ) {
 		parent::__construct( $assets_folder );
