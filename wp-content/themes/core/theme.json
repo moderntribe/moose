@@ -444,6 +444,7 @@
 				}
 			},
 			"caption": {
+				"color": "var(--wp--preset--color--neutral-50)",
 				"spacing": {
 					"margin": {
 						"top": "1rem"
