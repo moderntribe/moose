@@ -12,6 +12,7 @@ use Tribe\Theme\blocks\core\paragraph\Paragraph;
 class Blocks_Definer implements Definer_Interface {
 
 	public const TYPES    = 'blocks.types';
+	public const CORE     = 'blocks.core';
 	public const STYLES   = 'blocks.styles';
 	public const PATTERNS = 'blocks.patterns';
 	public const FILTERS  = 'blocks.filters';
@@ -20,6 +21,14 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/example',
+			] ),
+
+			self::CORE            => DI\add( [
+				'core/button',
+				'core/heading',
+				'core/lists',
+				'core/paragraph',
+				'core/table',
 			] ),
 
 			self::STYLES          => DI\add( [
