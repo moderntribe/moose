@@ -4,39 +4,10 @@
 
 .wp-block-video {
 
+	@mixin media-block-shared-alignment;
+
 	.wp-element-caption {
 		text-align: left;
-	}
-
-	&.alignleft,
-	&.alignright {
-
-		@media (--mq-wp-medium) {
-			max-width: 220px;
-		}
-
-		/* Fill available space left/right of contentSize block */
-		@media (--viewport-large) {
-			max-width: calc(((100% - var(--wp--style--global--content-size)) / 2) - 2em);
-		}
-	}
-
-	/* Stack videos aligned left on small screens */
-	:is(body .is-layout-constrained) &.alignleft {
-
-		@media (--mq-wp-small-max) {
-			float: none;
-			margin-inline-end: 0;
-		}
-	}
-
-	/* Stack videos aligned right on small screens */
-	:is(body .is-layout-constrained) &.alignright {
-
-		@media (--mq-wp-small-max) {
-			float: none;
-			margin-inline-start: 0;
-		}
 	}
 
 	/* Ensure video poster image matches the size of the video frame */
