@@ -4,6 +4,10 @@
 
 .wp-block-video {
 
+	.wp-element-caption {
+		text-align: left;
+	}
+
 	&.alignleft,
 	&.alignright {
 
@@ -14,10 +18,6 @@
 		/* Fill available space left/right of contentSize block */
 		@media (--viewport-large) {
 			max-width: calc(((100% - var(--wp--style--global--content-size)) / 2) - 2em);
-		}
-
-		.wp-element-caption {
-			text-align: left;
 		}
 	}
 
