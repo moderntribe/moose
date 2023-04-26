@@ -16,6 +16,11 @@
 			max-width: calc(((100% - var(--wp--style--global--content-size)) / 2) - 2em);
 		}
 
+		/* Prevent embeds from overlapping content */
+		.wp-block-embed__wrapper {
+			min-width: auto;
+		}
+
 		.wp-element-caption {
 			text-align: left;
 		}
