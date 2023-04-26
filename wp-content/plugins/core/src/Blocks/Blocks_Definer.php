@@ -30,6 +30,7 @@ class Blocks_Definer implements Definer_Interface {
 				'core/lists',
 				'core/paragraph',
 				'core/table',
+				'core/video',
 			] ),
 
 			self::STYLES          => DI\add( [
