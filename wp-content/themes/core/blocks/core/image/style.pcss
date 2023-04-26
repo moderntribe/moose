@@ -1,0 +1,39 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-image {
+
+	&.alignleft,
+	&.alignright {
+
+		@media (--mq-wp-medium) {
+			max-width: 220px;
+		}
+
+		/* Image width fluid to fill available space left/right of contentSize block */
+		@media (--viewport-large) {
+			max-width: calc(((100% - var(--wp--style--global--content-size)) / 2) - 2em);
+		}
+
+		.wp-element-caption {
+			text-align: left;
+		}
+	}
+
+	/* Stack images aligned left on small screens */
+	:is(body .is-layout-constrained) &.alignleft {
+		@media (--mq-wp-small-max) {
+			float: none;
+			margin-inline-end: 0;
+		}
+	}
+
+	/* Stack images aligned right on small screens */
+	:is(body .is-layout-constrained) &.alignright {
+		@media (--mq-wp-small-max) {
+			float: none;
+			margin-inline-start: 0;
+		}
+	}
+}

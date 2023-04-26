@@ -26,6 +26,7 @@ class Blocks_Definer implements Definer_Interface {
 			self::CORE            => DI\add( [
 				'core/button',
 				'core/heading',
+				'core/image',
 				'core/lists',
 				'core/paragraph',
 				'core/table',
