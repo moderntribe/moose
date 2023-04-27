@@ -265,6 +265,19 @@
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
 					"lineHeight": "1.5"
 				}
+			},
+			"core/separator": {
+				"border": {
+					"bottom": {
+						"width": "1px"
+					}
+				},
+				"spacing": {
+					"margin": {
+						"top": "48px",
+						"bottom": "48px"
+					}
+				}
 			}
 		},
 		"elements": {
