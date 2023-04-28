@@ -8,6 +8,8 @@
  * https://browsersync.io/docs/options/
  */
 
+const pkg = require( './package.json' );
+
 /**
  * Check if a module exists before requiring it.
  *
@@ -42,10 +44,10 @@ const localConfig = moduleExists( './local-config.json' )
 module.exports = {
 	debugInfo: true,
 	files: [
-		'./wp-content/themes/core/dist/**/*.js',
-		'./wp-content/themes/core/dist/**/*.css',
-		'./wp-content/themes/core/**/*.php',
-		'./wp-content/plugins/core/**/*.php',
+		`${ pkg.config.coreThemeDir }/dist/**/*.{js,css}`,
+		`${ pkg.config.coreThemeDir }/**/*.{html,php}`,
+		`!${ pkg.config.coreThemeDir }/dist/**/*.php`,
+		`${ pkg.config.corePluginDir }/**/*.php`,
 	],
 	host: localConfig.host,
 	injectChanges: true,
