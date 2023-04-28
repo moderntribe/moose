@@ -6,10 +6,13 @@ use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
+use Tribe\Theme\blocks\core\heading\Heading;
+use Tribe\Theme\blocks\core\paragraph\Paragraph;
 
 class Blocks_Definer implements Definer_Interface {
 
 	public const TYPES    = 'blocks.types';
+	public const CORE     = 'blocks.core';
 	public const STYLES   = 'blocks.styles';
 	public const PATTERNS = 'blocks.patterns';
 	public const FILTERS  = 'blocks.filters';
@@ -17,11 +20,21 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'tribe/example',
+				// 'tribe/example',
+			] ),
+
+			self::CORE            => DI\add( [
+				'core/button',
+				'core/heading',
+				'core/lists',
+				'core/paragraph',
+				'core/table',
 			] ),
 
 			self::STYLES          => DI\add( [
 				DI\get( Button::class ),
+				DI\get( Heading::class ),
+				DI\get( Paragraph::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

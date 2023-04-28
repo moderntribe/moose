@@ -1,0 +1,47 @@
+/**
+ * Styles specific to this block
+ */
+
+/* ----------------------------------------------------------------------
+ * Ordered List
+ * ---------------------------------------------------------------------- */
+
+:where(.wp-block-post-content) ol,
+.editor-styles-wrapper ol {
+	padding-inline-start: 1.2rem;
+
+	& li {
+		padding-inline-start: 10px;
+
+		&::marker {
+			font-weight: var(--font-weight-bold);
+		}
+	}
+}
+
+/* ----------------------------------------------------------------------
+ * Unordered List
+ * ---------------------------------------------------------------------- */
+
+:where(.wp-block-post-content) ul,
+.editor-styles-wrapper ul {
+	padding-inline-start: 0;
+
+	& li {
+		padding-inline-start: 1.75rem;
+		position: relative;
+
+		&::marker {
+			content: "";
+		}
+
+		&::before {
+			content: var(--icon-list-bullet);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 10px;
+			height: 10px;
+		}
+	}
+}
