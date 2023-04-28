@@ -332,6 +332,19 @@
 					"lineHeight": "1.5"
 				}
 			},
+			"core/separator": {
+				"border": {
+					"bottom": {
+						"width": "1px"
+					}
+				},
+				"spacing": {
+					"margin": {
+						"top": "48px",
+						"bottom": "48px"
+					}
+				}
+			},
 			"core/list": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
