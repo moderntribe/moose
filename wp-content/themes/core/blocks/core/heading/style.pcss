@@ -1,0 +1,43 @@
+/**
+ * Styles specific to this block
+ */
+
+:--heading:where(.wp-block-heading),
+.editor-styles-wrapper :--heading {
+
+	/* CASE: Style X-Large */
+	&.is-style-x-large {
+
+		@mixin t-display-x-large;
+	}
+
+	/* CASE: Style Large */
+	&.is-style-large {
+
+		@mixin t-display-large;
+	}
+
+	/* CASE: Style Medium */
+	&.is-style-medium {
+
+		@mixin t-display-medium;
+	}
+
+	/* CASE: Style Small */
+	&.is-style-small {
+
+		@mixin t-display-small;
+	}
+
+	/* CASE: Style X-Small */
+	&.is-style-x-small {
+
+		@mixin t-display-x-small;
+	}
+
+	/* CASE: Style XX-Small */
+	&.is-style-xx-small {
+
+		@mixin t-display-xx-small;
+	}
+}
