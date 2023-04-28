@@ -10,7 +10,7 @@ use Tribe\Theme\blocks\core\button\Button;
 class Blocks_Definer implements Definer_Interface {
 
 	public const TYPES    = 'blocks.types';
-	public const STYLES   = 'blocks.styles';
+	public const EXTENDED = 'blocks.extended';
 	public const PATTERNS = 'blocks.patterns';
 	public const FILTERS  = 'blocks.filters';
 
@@ -20,7 +20,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/example',
 			] ),
 
-			self::STYLES          => DI\add( [
+			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
 			] ),
 
