@@ -135,6 +135,6 @@ module.exports = {
 		 * but it doesn't support non-JS entry points at this time.
 		 * For our purposes, broswersync is more helpful.
 		 */
-		new BrowserSyncPlugin( browserSyncOpts ), // Add browser-sync for dev reloads
+		new BrowserSyncPlugin( browserSyncOpts, { reload: false } ), // Add browser-sync for dev reloads
 	],
 };
