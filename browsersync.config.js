@@ -41,10 +41,17 @@ const localConfig = moduleExists( './local-config.json' )
  */
 module.exports = {
 	debugInfo: true,
+	files: [
+		'./wp-content/themes/core/dist/**/*.js',
+		'./wp-content/themes/core/dist/**/*.css',
+		'./wp-content/themes/core/**/*.php',
+		'./wp-content/plugins/core/**/*.php',
+	],
+	host: localConfig.host,
+	injectChanges: true,
 	logConnections: true,
 	notify: true,
 	open: 'external',
-	host: localConfig.host,
 	proxy: `${ localConfig.protocol }://${ localConfig.host }`,
 	...( localConfig.certPath.length && {
 		https: {
