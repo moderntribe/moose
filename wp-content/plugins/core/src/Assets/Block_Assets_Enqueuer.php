@@ -44,6 +44,10 @@ class Block_Assets_Enqueuer extends Assets_Enqueuer {
 					// we have to override core/lists because "list" is a reserved word in PHP
 					$block_name = 'core/list';
 					break;
+				case 'core/querypagination':
+					// handle dash in block name
+					$block_name = 'core/query-pagination';
+					break;
 				default:
 					$block_name = '';
 					break;

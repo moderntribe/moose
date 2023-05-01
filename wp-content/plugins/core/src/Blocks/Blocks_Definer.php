@@ -32,6 +32,7 @@ class Blocks_Definer implements Definer_Interface {
 				'core/paragraph',
 				'core/table',
 				'core/video',
+				'core/querypagination',
 			] ),
 
 			self::STYLES          => DI\add( [
