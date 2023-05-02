@@ -15,6 +15,32 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 
 			$this->container->get( Image_Sizes::class )->register_sizes();
 		}, 10, 0 );
+
+		// Handle admin functions for disabling comments
+		add_action( 'admin_init', function (): void {
+			$this->container->get( Comment_Support::class )->admin_comment_page_redirect();
+
+			$this->container->get( Comment_Support::class )->remove_recent_comments_metabox();
+
+			$this->container->get( Comment_Support::class )->disable_post_type_comment_support();
+		});
+
+		// Close comments on the front-end
+		add_filter( 'comments_open', '__return_false', 20, 2 );
+		add_filter( 'pings_open', '__return_false', 20, 2 );
+
+		// Hide existing comments
+		add_filter( 'comments_array', '__return_empty_array', 10, 2 );
+
+		// Remove comments page in menu
+		add_action( 'admin_menu', function (): void {
+			$this->container->get( Comment_Support::class )->remove_comments_menu_item();
+		});
+
+		// Remove comments links from admin bar
+		add_action( 'init', function (): void {
+			$this->container->get( Comment_Support::class )->remove_admin_bar_comments();
+		});
 	}
 
 }
