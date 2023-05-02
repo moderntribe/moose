@@ -26,11 +26,11 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 		});
 
 		// Close comments on the front-end
-		add_filter( 'comments_open', '__return_false', 20, 2 );
-		add_filter( 'pings_open', '__return_false', 20, 2 );
+		add_filter( 'comments_open', '__return_false', 20 );
+		add_filter( 'pings_open', '__return_false', 20 );
 
 		// Hide existing comments
-		add_filter( 'comments_array', '__return_empty_array', 10, 2 );
+		add_filter( 'comments_array', '__return_empty_array', 10 );
 
 		// Remove comments page in menu
 		add_action( 'admin_menu', function (): void {
