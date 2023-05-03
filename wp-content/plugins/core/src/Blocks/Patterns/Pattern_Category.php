@@ -4,20 +4,37 @@ namespace Tribe\Plugin\Blocks\Patterns;
 
 class Pattern_Category {
 
-	public const CUSTOM_PATTERN_CATEGORIES = [
-		[ 'slug' => 'cta', 'name' => 'Calls to Action' ],
-		[ 'slug' => 'cards', 'name' => 'Cards' ],
-		[ 'slug' => 'headers', 'name' => 'Headers' ],
-		[ 'slug' => 'media', 'name' => 'Media' ],
-		[ 'slug' => 'templates', 'name' => 'Templates' ],
-	];
+	public function get_pattern_categories(): array {
+		return [
+			[
+				'slug' => 'cta',
+				'name' => __( 'Calls to Action', 'tribe' ),
+			],
+			[
+				'slug' => 'cards',
+				'name' => __( 'Cards', 'tribe' ),
+			],
+			[
+				'slug' => 'headers',
+				'name' => __( 'Headers', 'tribe' ),
+			],
+			[
+				'slug' => 'media',
+				'name' => __( 'Media', 'tribe' ),
+			],
+			[
+				'slug' => 'templates',
+				'name' => __( 'Templates', 'tribe' ),
+			],
+		];
+	}
 
 	public function register_pattern_category(): void {
-		foreach ( self::CUSTOM_PATTERN_CATEGORIES as $category ) {
+		foreach ( $this->get_pattern_categories() as $category ) {
 			register_block_pattern_category(
 				$category['slug'],
 				[
-					'label' => esc_html__( $category['name'], 'tribe' ),
+					'label' => esc_html( $category['name'] ),
 				]
 			);
 		}
