@@ -7,7 +7,7 @@ use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
 use Tribe\Plugin\Blocks\Styles\Block_Styles_Registrar;
-use Tribe\Plugin\Config\Theme_Support;
+use Tribe\Plugin\Theme_Config\Theme_Support;
 
 class Blocks_Subscriber extends Abstract_Subscriber {
 
@@ -24,6 +24,13 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		 * Disable the WordPress patterns directory.
 		 */
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
+
+		/**
+		 * Disable openverse media category.
+		 */
+		add_filter( 'block_editor_settings_all', function ( array $settings ): array {
+			return $this->container->get( Theme_Support::class )->disable_openverse_media_category( $settings );
+		} );
 
 		/**
 		 * Render blocks content.
