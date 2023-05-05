@@ -1,0 +1,45 @@
+/* -------------------------------------------------------------------------
+ *
+ * Layouts
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+ *
+ * Layout: Align Wide
+ *
+ * Adjustments for fluid value in theme.json settings.layout.wideSize
+ *
+ * ------------------------------------------------------------------------- */
+
+/*
+ * Max-width of blocks aligned wide should not account for grid margin
+ * when nested in .has-global-padding because the container applies
+ * grid margin as padding.
+ *
+ * Example: Top level Group block set to align wide should get a default
+ * max-width of 100% because the top level already has global padding and
+ * if we kept it, it would double the left/right spacing.
+ *
+ * Screenshot: http://p.tri.be/i/pV2gSJ
+ */
+.has-global-padding.is-layout-constrained > .alignwide,
+:is(.editor-styles-wrapper) .is-root-container.has-global-padding.is-layout-constrained > .alignwide {
+	max-width: 100%;
+}
+
+/*
+ * Max-width of blocks aligned wide nested inside two .has-global-padding
+ * containers need to re-account for grid-margin.
+ *
+ * Example: Top level Columns block aligned wide inside Group block aligned full
+ * should get our default wide size again because the Group block no longer has
+ * padding.
+ *
+ * Screenshot (padding removed from alignfull element): http://p.tri.be/i/hfP3Fj
+ * Screenshot (alignwide element reset): http://p.tri.be/i/Z86h5E
+ */
+.has-global-padding :is(.has-global-padding) > .alignwide,
+:is(.editor-styles-wrapper) .has-global-padding :is(.has-global-padding) > .alignwide {
+	max-width: var(--wp--style--global--wide-size);
+}

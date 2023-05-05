@@ -1,0 +1,31 @@
+/* -------------------------------------------------------------------------
+ *
+ * Variables: Spacing
+ *
+ * NOTE: WordPress outputs their generated CSS properties on the body element.
+ * To associate color properties w/ WP presets, and to allow style overrides
+ * in the FSE Site Editor, CSS properties must be set on the body element.
+ *
+ * ------------------------------------------------------------------------- */
+
+body {
+
+	/* -------------------------------------------------------------
+	 * Spacing Scale
+	 * ------------------------------------------------------------- */
+
+	--spacer-10: var(--wp--preset--spacing--10);
+	--spacer-20: var(--wp--preset--spacing--20);
+	--spacer-30: var(--wp--preset--spacing--30);
+	--spacer-40: var(--wp--preset--spacing--40);
+	--spacer-50: var(--wp--preset--spacing--50);
+	--spacer-60: var(--wp--preset--spacing--60);
+	--spacer-70: var(--wp--preset--spacing--70);
+
+	/* -------------------------------------------------------------
+	 * Spacers (WP Admin Bar)
+	 * WP's CSS custom property handles mobile/desktop height change
+	 * ------------------------------------------------------------- */
+
+	--spacer-wpadmin: var(--wp-admin--admin-bar--height);
+}
