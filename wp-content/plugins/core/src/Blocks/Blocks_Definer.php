@@ -8,6 +8,7 @@ use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\paragraph\Paragraph;
+use Tribe\Theme\blocks\core\spacer\Spacer;
 
 class Blocks_Definer implements Definer_Interface {
 
@@ -30,6 +31,7 @@ class Blocks_Definer implements Definer_Interface {
 				'core/image',
 				'core/lists',
 				'core/paragraph',
+				'core/spacer',
 				'core/table',
 				'core/video',
 				'core/querypagination',
@@ -39,6 +41,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Button::class ),
 				DI\get( Heading::class ),
 				DI\get( Paragraph::class ),
+				DI\get( Spacer::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

@@ -11,10 +11,15 @@
 	padding-inline-start: 1.2rem;
 
 	& li {
+		margin-bottom: var(--spacer-30);
 		padding-inline-start: 10px;
 
 		&::marker {
 			font-weight: var(--font-weight-bold);
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -28,6 +33,7 @@
 	padding-inline-start: 0;
 
 	& li {
+		margin-bottom: var(--spacer-30);
 		padding-inline-start: 1.75rem;
 		position: relative;
 
@@ -42,6 +48,10 @@
 			left: 0;
 			width: 10px;
 			height: 10px;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
