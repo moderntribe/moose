@@ -4,7 +4,7 @@
  * Title: Example
  * Slug: patterns/example
  * Categories: cta
- * Description: Example pattern as a placeholdder
+ * Description: Example pattern as a placeholder
  * Keywords: example, text
  */
 ?>
