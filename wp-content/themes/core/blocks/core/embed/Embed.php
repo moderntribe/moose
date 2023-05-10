@@ -2,22 +2,12 @@
 
 namespace Tribe\Theme\blocks\core\embed;
 
-class Embed {
+use Tribe\Plugin\Blocks\Block_Base;
+
+class Embed extends Block_Base {
 
 	public function get_block_name(): string {
 		return 'core/embed';
-	}
-
-	public function get_block_variations(): array {
-		return [];
-	}
-
-	public function enqueue_block_styles(): void {
-		// Enqueue block-specific styles for this block via `wp_enqueue_block_style()`
-	}
-
-	public function enqueue_block_scripts(): void {
-		// Enqueue block-specific scripts for this block via ????
 	}
 
 }
