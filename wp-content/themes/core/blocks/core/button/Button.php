@@ -24,5 +24,5 @@ class Button extends Block_Base {
 	public function get_block_dependencies(): array {
 		return [];
 	}
-	
+
 }

@@ -8,6 +8,8 @@
  * https://browsersync.io/docs/options/
  */
 
+const pkg = require( './package.json' );
+
 /**
  * Check if a module exists before requiring it.
  *
@@ -41,10 +43,17 @@ const localConfig = moduleExists( './local-config.json' )
  */
 module.exports = {
 	debugInfo: true,
+	files: [
+		`${ pkg.config.coreThemeDir }/dist/**/*.{js,css}`,
+		`${ pkg.config.coreThemeDir }/**/*.{html,php}`,
+		`!${ pkg.config.coreThemeDir }/dist/**/*.php`,
+		`${ pkg.config.corePluginDir }/**/*.php`,
+	],
+	host: localConfig.host,
+	injectChanges: true,
 	logConnections: true,
 	notify: true,
 	open: 'external',
-	host: localConfig.host,
 	proxy: `${ localConfig.protocol }://${ localConfig.host }`,
 	...( localConfig.certPath.length && {
 		https: {

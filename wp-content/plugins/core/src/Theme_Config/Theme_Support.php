@@ -23,6 +23,12 @@ class Theme_Support {
 		remove_theme_support( 'core-block-patterns' );
 	}
 
+	public function disable_openverse_media_category( array $settings ): array {
+		$settings['enableOpenverseMediaCategory'] = false;
+
+		return $settings;
+	}
+
 	/**
 	 * Supports: enable Featured Images
 	 */
