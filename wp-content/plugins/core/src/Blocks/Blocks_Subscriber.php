@@ -38,6 +38,7 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			// Enqueue block styles.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->register_style();
 				$block->enqueue_block_style();
 			}
 		}, 10, 0 );

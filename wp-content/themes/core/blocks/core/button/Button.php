@@ -18,4 +18,11 @@ class Button extends Block_Base {
 		];
 	}
 
+	/**
+	 * @return array
+	 */
+	public function get_block_dependencies(): array {
+		return [];
+	}
+	
 }
