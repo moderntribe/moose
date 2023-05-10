@@ -17,12 +17,5 @@ class Button extends Block_Base {
 			'ghost'     => esc_html__( 'Ghost', 'tribe' ),
 		];
 	}
-
-	/**
-	 * @return array
-	 */
-	public function get_block_dependencies(): array {
-		return [];
-	}
-
+	
 }

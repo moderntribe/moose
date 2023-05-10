@@ -18,12 +18,12 @@ abstract class Block_Base {
 		$this->assets_path_uri = trailingslashit( get_stylesheet_directory_uri() ) . $assets_folder;
 	}
 
-	public function get_block_path(): string {
-		return $this->get_block_name();
+	public function get_block_handle(): string {
+		return sanitize_title( $this->get_block_name() );
 	}
 
-	public function register_assets(): void {
-		return;
+	public function get_block_path(): string {
+		return $this->get_block_name();
 	}
 
 	/**
@@ -64,7 +64,7 @@ abstract class Block_Base {
 	 * Register block styles prior to enqueueing to allow other blocks to define these as dependencies
 	 */
 	public function register_style(): void {
-		$block = $this->get_block_name();
+		$block = $this->get_block_handle();
 		$path  = $this->get_block_path();
 		$args  = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
 		$src   = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
@@ -85,9 +85,9 @@ abstract class Block_Base {
 	 * Enqueue our registered stylesheet for this specific block
 	 */
 	public function enqueue_block_style(): void {
-		$block = $this->get_block_name();
+		$block = $this->get_block_handle();
 
-		wp_enqueue_block_style( $block, [
+		wp_enqueue_block_style( $this->get_block_name(), [
 			'handle' => "$block-styles",
 		] );
 	}

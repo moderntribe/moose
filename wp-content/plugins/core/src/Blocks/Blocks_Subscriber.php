@@ -41,12 +41,16 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		}, 10, 2 );
 
 		add_action( 'after_setup_theme', function (): void {
-			$this->container->get( Theme_Support::class )->disable_block_patterns();
+			// Enqueue block styles.
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->enqueue_block_style();
+			}
+		}, 10, 0 );
 
+		add_action( 'wp_enqueue_scripts', function (): void {
 			// Enqueue block styles.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
 				$block->register_style();
-				$block->enqueue_block_style();
 			}
 		}, 10, 0 );
 
@@ -59,7 +63,6 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 			// Register block styles.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
 				$block->register_block_style();
-				$block->register_assets();
 			}
 
 			// Register patterns category.
