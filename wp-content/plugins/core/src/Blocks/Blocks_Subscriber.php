@@ -43,14 +43,14 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		add_action( 'after_setup_theme', function (): void {
 			$this->container->get( Theme_Support::class )->disable_block_patterns();
 
-			// Enqueue block styles.
+			// Enqueue block specific CSS stylesheets.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
 				$block->enqueue_block_style();
 			}
 		}, 10, 0 );
 
 		add_action( 'wp_enqueue_scripts', function (): void {
-			// Enqueue block styles.
+			// Register block CSS stylesheets.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
 				$block->register_style();
 			}
