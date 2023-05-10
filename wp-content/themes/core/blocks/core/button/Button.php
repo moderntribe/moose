@@ -17,5 +17,5 @@ class Button extends Block_Base {
 			'ghost'     => esc_html__( 'Ghost', 'tribe' ),
 		];
 	}
-	
+
 }
