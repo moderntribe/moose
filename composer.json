@@ -112,7 +112,7 @@
 	"require": {
 		"php": "^7.4|^8.0",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",
-		"block-editor-custom-alignments/block-editor-custom-alignments": "^1.0",
+		"block-editor-custom-alignments/block-editor-custom-alignments": "*",
 		"composer/installers": "^2.2",
 		"gravityforms/gravityforms": "*",
 		"humanmade/s3-uploads": "^3.0.4",
