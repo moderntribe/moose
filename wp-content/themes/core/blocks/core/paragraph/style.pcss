@@ -1,0 +1,19 @@
+/**
+ * Styles specific to this block
+ */
+
+:where(.wp-site-blocks) p,
+.editor-styles-wrapper p {
+
+	/* CASE: Style Large */
+	&.is-style-large {
+
+		@mixin t-body-large;
+	}
+
+	/* CASE: Style Small */
+	&.is-style-small {
+
+		@mixin t-body-small;
+	}
+}

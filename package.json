@@ -24,6 +24,7 @@
 	},
 	"config": {
 		"coreThemeDir": "./wp-content/themes/core",
+		"corePluginDir": "./wp-content/plugins/core",
 		"coreThemeBlocksDir": "./wp-content/themes/core/blocks"
 	},
 	"devDependencies": {

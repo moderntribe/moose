@@ -1,0 +1,29 @@
+/* -------------------------------------------------------------------------
+ *
+ * Mixins: Actions
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+ * Inline Text Links
+ * ------------------------------------------------------------------------- */
+
+@define-mixin inline-text-link {
+	transition: var(--transition);
+	color: var(--themed-link-text-color);
+	font-weight: var(--font-weight-bold);
+	cursor: pointer;
+	text-decoration: underline 1px;
+	text-underline-offset: 2px;
+
+	&:visited {
+		color: inherit;
+	}
+
+	&:hover,
+	&:focus:not(:focus-visible),
+	&:active {
+		color: var(--themed-link-hover-text-color);
+		text-decoration-color: currentcolor;
+	}
+}

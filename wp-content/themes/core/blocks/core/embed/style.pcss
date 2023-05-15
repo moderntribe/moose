@@ -1,0 +1,19 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-embed {
+
+	@mixin media-block-shared-alignment;
+
+	.wp-element-caption {
+		margin-bottom: 0;
+		text-align: left;
+	}
+
+	/* Prevent embeds from overlapping content */
+	&.alignleft .wp-block-embed__wrapper,
+	&.alignright .wp-block-embed__wrapper {
+		min-width: auto;
+	}
+}

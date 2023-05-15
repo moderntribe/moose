@@ -6,10 +6,9 @@
 
 a {
 
-	&:focus-visible {
-		outline: Highlight auto 1px;
-		outline: -webkit-focus-ring-color auto 1px;
-		outline-offset: 3px;
+	:where(.wp-site-blocks) &:not(.wp-element-button):focus-visible {
+
+		@mixin focus-visible-inline-text;
 	}
 
 	/* -------------------------------------------------------------------------
@@ -18,27 +17,9 @@ a {
 	 * Note: Not in theme.json as the selector needs to be more specific
 	 * ------------------------------------------------------------------------- */
 
-	:where(p, li) & {
-		transition: var(--transition);
-		color: currentcolor;
-		font-weight: var(--font-weight-bold);
-		outline: 0;
-		cursor: pointer;
-		text-decoration: underline 0.0938rem;
-		text-underline-offset: 4px;
+	:where(.wp-site-blocks) :where(p, li) &,
+	.editor-styles-wrapper :where(p, li) & {
 
-		&:visited {
-			color: inherit;
-		}
-
-		&:hover {
-			color: var(--color-neutral-70);
-			text-decoration-color: currentcolor;
-		}
-
-		&:active,
-		&:focus {
-			color: inherit;
-		}
+		@mixin inline-text-link;
 	}
 }

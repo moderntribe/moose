@@ -1,0 +1,65 @@
+/* -------------------------------------------------------------------------
+ *
+ * Variables: Button Block
+ *
+ * NOTE: WordPress outputs their generated CSS properties on the body element.
+ * To associate color properties w/ WP presets, and to allow style overrides
+ * in the FSE Site Editor, CSS properties must be set on the body element.
+ *
+ * ------------------------------------------------------------------------- */
+
+/* @TODO: Add documentation on setting up theming to properly utilize */
+
+body {
+	--themed-button-background-color: var(--color-brand-primary);
+	--themed-button-border-color: transparent;
+	--themed-button-text-color: var(--color-white);
+	--themed-button-icon: var(--icon-chevron-right-white);
+	--themed-button-icon-color: var(--color-brand-primary);
+	--themed-button-hover-background-color: var(--color-black);
+	--themed-button-hover-border-color: transparent;
+	--themed-button-hover-text-color: var(--color-white);
+	--themed-button-hover-icon: var(--icon-chevron-right-white);
+	--themed-button-hover-icon-color: var(--color-brand-primary);
+}
+
+/* CASE: Secondary Button Properties */
+.is-style-secondary {
+	--themed-button-background-color: var(--color-white);
+	--themed-button-border-color: var(--color-black);
+	--themed-button-text-color: var(--color-black);
+	--themed-button-icon: var(--icon-chevron-right-black);
+	--themed-button-hover-icon: var(--icon-chevron-right-white);
+}
+
+/* CASE: Ghost Button Properties */
+.is-style-ghost {
+	--themed-button-background-color: transparent;
+	--themed-button-text-color: var(--color-black);
+	--themed-button-hover-icon-color: var(--color-black);
+}
+
+/* -------------------------------------------------------------------------
+ *
+ * Color Theme: Dark
+ *
+ * ------------------------------------------------------------------------- */
+
+.has-brand-secondary-background-color {
+
+	/* CASE: Secondary Button Properties */
+	.is-style-secondary {
+		--themed-button-background-color: transparent;
+		--themed-button-border-color: var(--color-white);
+		--themed-button-text-color: var(--color-white);
+		--themed-button-icon: var(--icon-chevron-right-white);
+		--themed-button-hover-border-color: var(--color-black);
+		--themed-button-hover-icon: var(--icon-chevron-right-white);
+	}
+
+	/* CASE: Ghost Button Properties */
+	.is-style-ghost {
+		--themed-button-text-color: var(--color-white);
+		--themed-button-hover-text-color: var(--color-white);
+	}
+}
