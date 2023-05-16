@@ -28,6 +28,12 @@
 		"setup-wordpress": "./vendor/bin/wp core download --version=6.2 --quiet --skip-content --force",
 		"post-root-package-install": [
 			"@setup-repo"
+		],
+		"post-install-cmd": [
+			"@setup-wordpress"
+		],
+		"post-update-cmd": [
+			"@setup-wordpress"
 		]
 	},
 	"scripts-descriptions": {
