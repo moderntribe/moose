@@ -6,15 +6,21 @@ use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
+use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\heading\Heading;
+use Tribe\Theme\blocks\core\image\Image;
+use Tribe\Theme\blocks\core\lists\Lists;
 use Tribe\Theme\blocks\core\paragraph\Paragraph;
+use Tribe\Theme\blocks\core\querypagination\Query_Pagination;
 use Tribe\Theme\blocks\core\spacer\Spacer;
+use Tribe\Theme\blocks\core\table\Table;
+use Tribe\Theme\blocks\core\video\Video;
 
 class Blocks_Definer implements Definer_Interface {
 
 	public const TYPES    = 'blocks.types';
+	public const EXTENDED = 'blocks.extended';
 	public const CORE     = 'blocks.core';
-	public const STYLES   = 'blocks.styles';
 	public const PATTERNS = 'blocks.patterns';
 	public const FILTERS  = 'blocks.filters';
 
@@ -24,24 +30,17 @@ class Blocks_Definer implements Definer_Interface {
 				// 'tribe/example',
 			] ),
 
-			self::CORE            => DI\add( [
-				'core/button',
-				'core/embed',
-				'core/heading',
-				'core/image',
-				'core/lists',
-				'core/paragraph',
-				'core/spacer',
-				'core/table',
-				'core/video',
-				'core/querypagination',
-			] ),
-
-			self::STYLES          => DI\add( [
+			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
+				DI\get( Embed::class ),
 				DI\get( Heading::class ),
+				DI\get( Image::class ),
+				DI\get( Lists::class ),
 				DI\get( Paragraph::class ),
 				DI\get( Spacer::class ),
+				DI\get( Table::class ),
+				DI\get( Video::class ),
+				DI\get( Query_Pagination::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

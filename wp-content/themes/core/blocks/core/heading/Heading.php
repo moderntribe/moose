@@ -2,9 +2,9 @@
 
 namespace Tribe\Theme\blocks\core\heading;
 
-use Tribe\Plugin\Blocks\Styles\Block_Styles_Base;
+use Tribe\Plugin\Blocks\Block_Base;
 
-class Heading implements Block_Styles_Base {
+class Heading extends Block_Base {
 
 	public function get_block_name(): string {
 		return 'core/heading';
@@ -19,18 +19,6 @@ class Heading implements Block_Styles_Base {
 			'x-small'  => esc_html__( 'X-Small', 'tribe' ),
 			'xx-small' => esc_html__( 'XX-Small', 'tribe' ),
 		];
-	}
-
-	public function get_block_variations(): array {
-		return [];
-	}
-
-	public function enqueue_block_styles(): void {
-		// Enqueue block-specific styles for this block via `wp_enqueue_block_style()`
-	}
-
-	public function enqueue_block_scripts(): void {
-		// Enqueue block-specific scripts for this block via ????
 	}
 
 }
