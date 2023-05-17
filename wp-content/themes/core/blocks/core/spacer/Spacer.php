@@ -2,9 +2,9 @@
 
 namespace Tribe\Theme\blocks\core\spacer;
 
-use Tribe\Plugin\Blocks\Styles\Block_Styles_Base;
+use Tribe\Plugin\Blocks\Block_Base;
 
-class Spacer implements Block_Styles_Base {
+class Spacer extends Block_Base {
 
 	public function get_block_name(): string {
 		return 'core/spacer';
@@ -20,18 +20,6 @@ class Spacer implements Block_Styles_Base {
 			'x-large'  => esc_html__( 'X Large', 'tribe' ),
 			'xx-large' => esc_html__( 'XX Large', 'tribe' ),
 		];
-	}
-
-	public function get_block_variations(): array {
-		return [];
-	}
-
-	public function enqueue_block_styles(): void {
-		// Enqueue block-specific styles for this block via `wp_enqueue_block_style()`
-	}
-
-	public function enqueue_block_scripts(): void {
-		// Enqueue block-specific scripts for this block via ????
 	}
 
 }

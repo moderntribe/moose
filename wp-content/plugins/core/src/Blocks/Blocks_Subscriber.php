@@ -6,7 +6,6 @@ use Tribe\Libs\Container\Abstract_Subscriber;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
-use Tribe\Plugin\Blocks\Styles\Block_Styles_Registrar;
 use Tribe\Plugin\Theme_Config\Theme_Support;
 
 class Blocks_Subscriber extends Abstract_Subscriber {
@@ -43,6 +42,18 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 		add_action( 'after_setup_theme', function (): void {
 			$this->container->get( Theme_Support::class )->disable_block_patterns();
+
+			// Enqueue block specific CSS stylesheets.
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->enqueue_block_style();
+			}
+		}, 10, 0 );
+
+		add_action( 'wp_enqueue_scripts', function (): void {
+			// Register block CSS stylesheets.
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->register_style();
+			}
 		}, 10, 0 );
 
 		add_action( 'init', function (): void {
@@ -51,9 +62,9 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$this->container->get( Block_Registrar::class )->register( $type );
 			}
 
-			// Register styles.
-			foreach ( $this->container->get( Blocks_Definer::STYLES ) as $style ) {
-				$this->container->get( Block_Styles_Registrar::class )->register( $style );
+			// Register block styles.
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->register_block_style();
 			}
 
 			// Register patterns category.
