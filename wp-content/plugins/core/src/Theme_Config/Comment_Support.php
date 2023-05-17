@@ -10,7 +10,7 @@ class Comment_Support {
 	public function admin_comment_page_redirect(): void {
 		global $pagenow;
 
-		if ( $pagenow === 'edit-comments.php' ) {
+		if ( $pagenow === 'edit-comments.php' || $pagenow === 'comment.php' ) {
 			wp_safe_redirect( admin_url() );
 			exit;
 		}
