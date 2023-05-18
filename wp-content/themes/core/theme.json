@@ -535,7 +535,7 @@
 			},
 			"caption": {
 				"color": {
-					"text": "var(--wp--preset--color--neutral-50)"
+					"text": "var(--wp--preset--color--neutral-70)"
 				},
 				"spacing": {
 					"margin": {
