@@ -69,7 +69,7 @@ abstract class Block_Base {
 		$args  = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
 		$src   = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
 
-		if ( ! file_get_contents( $src ) ) {
+		if ( ! wp_remote_get( $src ) ) {
 			return;
 		}
 
