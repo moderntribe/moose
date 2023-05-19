@@ -41,6 +41,13 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 		add_action( 'init', function (): void {
 			$this->container->get( Comment_Support::class )->remove_admin_bar_comments();
 		});
+
+		/**
+		 * Disable XML-RPC authentication support.
+		 *
+		 * @see wp-includes/class-wp-xmlrpc-server.php:219
+		 */
+		add_filter( 'xmlrpc_enabled', '__return_false' );
 	}
 
 }
