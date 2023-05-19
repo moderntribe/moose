@@ -4,7 +4,7 @@
  * @description Kicks in any third party plugins that operate on a sitewide basis.
  */
 
-import { trigger } from '../../utils/events';
+import { triggerCustomEvent } from '../../utils/events';
 import viewportDims from './viewport-dims';
 
 const resize = () => {
@@ -12,7 +12,7 @@ const resize = () => {
 
 	viewportDims();
 
-	trigger( { event: 'modern_tribe/resize_executed', native: false } );
+	triggerCustomEvent( 'modern_tribe/resize_executed' );
 };
 
 export default resize;

@@ -3,58 +3,27 @@
  * @description Some event functions for use in other modules
  */
 
-import _ from 'lodash'; // eslint-disable-line import/no-extraneous-dependencies
+/**
+ * @function triggerCustomEvent
+ * @description Trigger a custom event
+ * @param {string} type   The event type
+ * @param {Node}   el     The element on which to emit the event
+ * @param {*}      detail Any details to pass along with the event
+ */
+const triggerCustomEvent = ( type, el = document, detail = {} ) => {
+	// Event type is required
+	if ( ! type ) return;
 
-const on = ( el, name, handler ) => {
-	if ( el.addEventListener ) {
-		el.addEventListener( name, handler );
-	} else {
-		el.attachEvent( `on${ name }`, () => {
-			handler.call( el );
-		} );
-	}
+	// Create new event
+	// eslint-disable-next-line no-undef
+	const event = new CustomEvent( type, {
+		bubbles: true,
+		cancelable: true,
+		detail,
+	} );
+
+	// Dispatch event
+	return el.dispatchEvent( event );
 };
 
-const ready = ( fn ) => {
-	if ( document.readyState !== 'loading' ) {
-		fn();
-	} else if ( document.addEventListener ) {
-		document.addEventListener( 'DOMContentLoaded', fn );
-	} else {
-		document.attachEvent( 'onreadystatechange', () => {
-			if ( document.readyState !== 'loading' ) {
-				fn();
-			}
-		} );
-	}
-};
-
-const trigger = ( opts ) => {
-	let event;
-	const options = _.assign(
-		{
-			data: {},
-			el: document,
-			event: '',
-			native: true,
-		},
-		opts
-	);
-
-	if ( options.native ) {
-		event = document.createEvent( 'HTMLEvents' );
-		event.initEvent( options.event, true, false );
-	} else {
-		try {
-			// eslint-disable-next-line no-undef
-			event = new CustomEvent( options.event, { detail: options.data } );
-		} catch ( e ) {
-			event = document.createEvent( 'CustomEvent' );
-			event.initCustomEvent( options.event, true, true, options.data );
-		}
-	}
-
-	options.el.dispatchEvent( event );
-};
-
-export { on, ready, trigger };
+export { triggerCustomEvent };
