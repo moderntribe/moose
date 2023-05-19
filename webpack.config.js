@@ -112,6 +112,7 @@ module.exports = {
 			...defaultConfig.resolve.alias,
 			utils: resolve( './wp-content/themes/core/assets/js/utils' ),
 			common: resolve( './wp-content/themes/core/assets/js/common' ),
+			config: resolve( './wp-content/themes/core/assets/js/config' ),
 		},
 	},
 	entry: {
