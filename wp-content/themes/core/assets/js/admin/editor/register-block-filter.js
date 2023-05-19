@@ -15,7 +15,9 @@ const setAlignmentSupports = ( settings, name ) => {
 		return settings;
 	}
 	return Object.assign( {}, settings, {
-		supports: Object.assign( {}, settings.supports, { align: blockAlignments[ name ] } ),
+		supports: Object.assign( {}, settings.supports, {
+			align: blockAlignments[ name ],
+		} ),
 	} );
 };
 
@@ -25,7 +27,11 @@ const setAlignmentSupports = ( settings, name ) => {
  */
 
 const init = () => {
-	addFilter( 'blocks.registerBlockType', 'tribe/filter-alignment', setAlignmentSupports );
+	addFilter(
+		'blocks.registerBlockType',
+		'tribe/filter-alignment',
+		setAlignmentSupports
+	);
 };
 
 export default init;
