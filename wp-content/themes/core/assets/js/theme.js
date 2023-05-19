@@ -1,3 +1,3 @@
-import ready from './theme/core/ready';
+import ready from './theme/ready';
 
 ready();

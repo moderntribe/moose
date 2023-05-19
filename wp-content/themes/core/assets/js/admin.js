@@ -1,3 +1,3 @@
-import ready from './admin/core/ready';
+import ready from './admin/ready';
 
 ready();

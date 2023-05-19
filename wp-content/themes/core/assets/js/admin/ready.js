@@ -4,12 +4,12 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
-import { debounce } from 'utils/tools';
+import { debounce } from 'utils/tools.js';
 
-import resize from 'common/resize';
-import viewportDims from 'common/viewport-dims';
-import blockStyles from '../editor/block-styles';
-import registerBlockFilter from '../editor/register-block-filter';
+import resize from 'common/resize.js';
+import viewportDims from 'common/viewport-dims.js';
+import blockStyles from './editor/block-styles';
+import registerBlockFilter from './editor/register-block-filter';
 
 /**
  * @function bindEvents

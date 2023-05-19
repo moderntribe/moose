@@ -4,8 +4,8 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
-import { ready } from 'utils/events';
-import { debounce } from 'utils/tools';
+import { ready } from 'utils/events.js';
+import { debounce } from 'utils/tools.js';
 import applyBrowserClasses from 'utils/dom/apply-browser-classes.js';
 
 import resize from 'common/resize.js';
