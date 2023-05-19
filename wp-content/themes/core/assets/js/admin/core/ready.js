@@ -4,13 +4,11 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
-import _ from 'lodash'; // eslint-disable-line import/no-extraneous-dependencies
+import { debounce } from '../../utils/tools';
 
 import resize from './resize';
 import viewportDims from './viewport-dims';
 import blockStyles from './block-styles';
-
-import { on, ready } from '../../utils/events';
 
 /**
  * @function bindEvents
@@ -18,7 +16,7 @@ import { on, ready } from '../../utils/events';
  */
 
 const bindEvents = () => {
-	on( window, 'resize', _.debounce( resize, 200, false ) );
+	window.addEventListener( 'resize', debounce( resize, 200 ) );
 };
 
 /**
@@ -49,7 +47,7 @@ const init = () => {
  */
 
 const domReady = () => {
-	ready( init );
+	wp.domReady( init );
 };
 
 export default domReady;
