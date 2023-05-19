@@ -1,3 +1,7 @@
+import ready from './admin/core/ready';
+
+ready();
+
 /**
  * unregister some block styles we don't need
  */
