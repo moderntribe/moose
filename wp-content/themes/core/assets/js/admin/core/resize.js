@@ -4,7 +4,7 @@
  * @description Kicks in any third party plugins that operate on a sitewide basis.
  */
 
-import { triggerCustomEvent } from '../../utils/events';
+import { triggerCustomEvent } from 'utils/events';
 import viewportDims from './viewport-dims';
 
 const resize = () => {
@@ -13,6 +13,8 @@ const resize = () => {
 	viewportDims();
 
 	triggerCustomEvent( 'modern_tribe/resize_executed' );
+
+	console.log( 'Moose Admin: Resized' );
 };
 
 export default resize;

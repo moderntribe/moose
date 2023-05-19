@@ -4,7 +4,7 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
-import { debounce } from '../../utils/tools';
+import { debounce } from 'utils/tools';
 
 import resize from './resize';
 import viewportDims from './viewport-dims';
