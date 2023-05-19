@@ -10,4 +10,8 @@ class Query_Pagination extends Block_Base {
 		return 'core/query-pagination';
 	}
 
+	public function get_block_path(): string {
+		return 'core/querypagination';
+	}
+
 }
