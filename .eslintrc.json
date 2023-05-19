@@ -4,12 +4,5 @@
 		"no-console": 0,
 		"import/no-unresolved": 0
 	},
-	"ignorePatterns": [ "wp-content/themes/core/dist/" ],
-	"settings": {
-		"import/resolver": {
-			"webpack": {
-				"config": "webpack.config.js"
-			}
-		}
-	}
+	"ignorePatterns": [ "wp-content/themes/core/dist/" ]
 }
