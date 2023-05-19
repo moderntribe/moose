@@ -8,6 +8,7 @@ import _ from 'lodash'; // eslint-disable-line import/no-extraneous-dependencies
 
 import resize from './resize';
 import viewportDims from './viewport-dims';
+import blockStyles from './block-styles';
 
 import { on, ready } from '../../utils/events';
 
@@ -33,6 +34,9 @@ const init = () => {
 	// initialize global events
 
 	bindEvents();
+
+	// removes core block styles as needed
+	blockStyles();
 
 	console.info(
 		'Moose Admin: Initialized all javascript that targeted document ready.'
