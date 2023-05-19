@@ -34,6 +34,7 @@
 		"browser-sync": "^2.27",
 		"browser-sync-webpack-plugin": "^2.3",
 		"cssnano": "^6.0.0",
+		"eslint-import-resolver-webpack": "^0.13.2",
 		"fast-glob": "^3.2.12",
 		"lefthook": "^1.3.10",
 		"postcss-import": "^15.1.0",
