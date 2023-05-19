@@ -8,7 +8,8 @@ import { debounce } from '../../utils/tools';
 
 import resize from './resize';
 import viewportDims from './viewport-dims';
-import blockStyles from './block-styles';
+import blockStyles from '../editor/block-styles';
+import registerBlockFilter from '../editor/register-block-filter';
 
 /**
  * @function bindEvents
@@ -47,6 +48,8 @@ const init = () => {
  */
 
 const domReady = () => {
+	// Should run before ready.
+	registerBlockFilter();
 	wp.domReady( init );
 };
 
