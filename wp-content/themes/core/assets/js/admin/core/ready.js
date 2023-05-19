@@ -6,8 +6,8 @@
 
 import { debounce } from 'utils/tools';
 
-import resize from './resize';
-import viewportDims from './viewport-dims';
+import resize from 'common/resize';
+import viewportDims from 'common/viewport-dims';
 import blockStyles from '../editor/block-styles';
 import registerBlockFilter from '../editor/register-block-filter';
 

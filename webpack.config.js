@@ -110,8 +110,8 @@ module.exports = {
 		...defaultConfig.resolve,
 		alias: {
 			...defaultConfig.resolve.alias,
-			// add as many aliases as you like!
 			utils: resolve( './wp-content/themes/core/assets/js/utils' ),
+			common: resolve( './wp-content/themes/core/assets/js/common' ),
 		},
 	},
 	entry: {
