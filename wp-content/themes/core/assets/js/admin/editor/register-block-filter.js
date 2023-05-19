@@ -25,11 +25,7 @@ const setAlignmentSupports = ( settings, name ) => {
  */
 
 const init = () => {
-	addFilter(
-		'blocks.registerBlockType',
-		'tribe/filter-alignment',
-		setAlignmentSupports
-	);
+	addFilter( 'blocks.registerBlockType', 'tribe/filter-alignment', setAlignmentSupports );
 };
 
 export default init;
