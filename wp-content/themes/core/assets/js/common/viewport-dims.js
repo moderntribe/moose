@@ -1,7 +1,7 @@
 /**
  * @module
  * @exports viewportDims
- * @description Sets viewport dimensions using verge on shared state
+ * @description Sets viewport dimensions on shared state
  * and detects mobile or desktop state.
  */
 

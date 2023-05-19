@@ -3,6 +3,20 @@
  * @description Some event functions for use in other modules
  */
 
+const ready = ( fn ) => {
+	if ( document.readyState !== 'loading' ) {
+		fn();
+	} else if ( document.addEventListener ) {
+		document.addEventListener( 'DOMContentLoaded', fn );
+	} else {
+		document.attachEvent( 'onreadystatechange', () => {
+			if ( document.readyState !== 'loading' ) {
+				fn();
+			}
+		} );
+	}
+};
+
 /**
  * @function triggerCustomEvent
  * @description Trigger a custom event
@@ -26,4 +40,4 @@ const triggerCustomEvent = ( type, el = document, detail = {} ) => {
 	return el.dispatchEvent( event );
 };
 
-export { triggerCustomEvent };
+export { ready, triggerCustomEvent };

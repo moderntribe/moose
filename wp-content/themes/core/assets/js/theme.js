@@ -1,1 +1,3 @@
-console.info( 'tribe-public loaded' );
+import ready from './theme/core/ready';
+
+ready();
