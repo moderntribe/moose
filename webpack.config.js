@@ -113,6 +113,7 @@ module.exports = {
 			utils: resolve( './wp-content/themes/core/assets/js/utils' ),
 			common: resolve( './wp-content/themes/core/assets/js/common' ),
 			config: resolve( './wp-content/themes/core/assets/js/config' ),
+			blocks: resolve( './wp-content/themes/core/blocks' ),
 		},
 	},
 	entry: {
