@@ -18,6 +18,10 @@ class Assets_Subscriber extends Abstract_Subscriber {
 		add_action( 'admin_enqueue_scripts', function (): void {
 			$this->container->get( Admin_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
+
+		add_action( 'login_enqueue_scripts', function (): void {
+			$this->container->get( Admin_Assets_Enqueuer::class )->enqueue_login_styles();
+		}, 10, 0 );
 	}
 
 }
