@@ -8,8 +8,6 @@ import { debounce } from 'utils/tools.js';
 
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
-import blockStyles from './editor/block-styles';
-import registerBlockFilter from './editor/register-block-filter';
 
 /**
  * @function bindEvents
@@ -34,9 +32,6 @@ const init = () => {
 
 	bindEvents();
 
-	// removes core block styles as needed
-	blockStyles();
-
 	console.info(
 		'Moose Admin: Initialized all javascript that targeted document ready.'
 	);
@@ -48,8 +43,6 @@ const init = () => {
  */
 
 const domReady = () => {
-	// Should run before ready.
-	registerBlockFilter();
 	wp.domReady( init );
 };
 

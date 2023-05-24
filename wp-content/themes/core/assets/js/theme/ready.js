@@ -6,7 +6,6 @@
 
 import { ready } from 'utils/events.js';
 import { debounce } from 'utils/tools.js';
-import applyBrowserClasses from 'utils/dom/apply-browser-classes.js';
 
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
@@ -26,10 +25,6 @@ const bindEvents = () => {
  */
 
 const init = () => {
-	// apply browser classes
-
-	applyBrowserClasses();
-
 	// set initial states
 
 	viewportDims();

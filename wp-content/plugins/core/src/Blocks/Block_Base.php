@@ -92,4 +92,30 @@ abstract class Block_Base {
 		] );
 	}
 
+	public function register_admin_scripts(): void {
+		$block = $this->get_block_handle();
+		$path  = $this->get_block_path();
+		$args  = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/admin.asset.php" ) );
+		$src   = get_theme_file_uri( "dist/blocks/$path/admin.js" );
+		$file  = wp_remote_get( $src );
+
+		if ( ! is_array( $file ) || is_wp_error( $file ) || 200 !== wp_remote_retrieve_response_code( $file ) ) {
+			return;
+		}
+
+		wp_register_script(
+			"admin-$block-scripts",
+			$src,
+			$args['dependencies'] ?? [],
+			$args['version'] ?? false,
+			true
+		);
+	}
+
+	public function enqueue_admin_scripts(): void {
+		$block = $this->get_block_handle();
+
+		wp_enqueue_script( "admin-$block-scripts" );
+	}
+
 }

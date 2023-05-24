@@ -61,13 +61,25 @@ const blockEntryPoints = () => {
 		{ absolute: true }
 	);
 
-	if ( ! coreBlockFiles.length ) {
+	const coreBlockAdminFiles = glob(
+		`${ pkg.config.coreThemeBlocksDir }/**/admin.js`,
+		{ absolute: true }
+	);
+
+	if ( ! coreBlockFiles.length && ! coreBlockAdminFiles.length ) {
 		return;
 	}
 
 	const entryPoints = {};
 
 	coreBlockFiles.forEach( ( entryFilePath ) => {
+		const entryName = entryFilePath
+			.replace( extname( entryFilePath ), '' )
+			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
+		entryPoints[ entryName ] = entryFilePath;
+	} );
+
+	coreBlockAdminFiles.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
 			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );

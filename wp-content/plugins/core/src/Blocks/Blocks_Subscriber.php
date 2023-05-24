@@ -56,6 +56,14 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 			}
 		}, 10, 0 );
 
+		add_action( 'admin_enqueue_scripts', function (): void {
+			// Register block admin scripts
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->register_admin_scripts();
+				$block->enqueue_admin_scripts();
+			}
+		}, 10, 0 );
+
 		add_action( 'init', function (): void {
 			// Register blocks.
 			foreach ( $this->container->get( Blocks_Definer::TYPES ) as $type ) {
