@@ -34,6 +34,7 @@ class Core {
 		Object_Meta\Meta_Subscriber::class,
 		Settings_Subscriber::class,
 		Theme_Config\Theme_Config_Subscriber::class,
+		Menus\Menu_Subscriber::class,
 	];
 
 	private static self $instance;
