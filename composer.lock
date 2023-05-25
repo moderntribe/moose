@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4747f7667737667cee81d0e4fd5c4f9",
+    "content-hash": "47667dbc750360b6a12cb463a944e622",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -6468,6 +6468,24 @@
             "homepage": "https://wordpress.org/plugins/disable-emojis/"
         },
         {
+            "name": "wpackagist-plugin/kadence-blocks",
+            "version": "3.0.38",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/kadence-blocks/",
+                "reference": "tags/3.0.38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/kadence-blocks.3.0.38.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/kadence-blocks/"
+        },
+        {
             "name": "wpackagist-plugin/limit-login-attempts-reloaded",
             "version": "2.25.16",
             "source": {
@@ -11837,5 +11855,5 @@
         "php": "^7.4|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
