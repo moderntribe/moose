@@ -6,8 +6,9 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public const ADMIN             = 'admin';
 	public const ASSETS_FILE       = self::ADMIN . '.asset.php';
-	public const LOGIN             = 'custom-login';
-	public const LOGIN_ASSETS_FILE = self::LOGIN . '.asset.php';
+	public const LOGIN             = 'tribe-login';
+	public const LOGIN_FILE_NAME   = 'login';
+	public const LOGIN_ASSETS_FILE = self::LOGIN_FILE_NAME . '.asset.php';
 
 	public function register(): void {
 		$args = $this->get_asset_file_args( $this->assets_path . self::ASSETS_FILE );
@@ -32,7 +33,7 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
 		wp_enqueue_style(
 			self::LOGIN,
-			$this->assets_path_uri . self::LOGIN . '.css',
+			$this->assets_path_uri . self::LOGIN_FILE_NAME . '.css',
 			[],
 			$args['version'] ?? false,
 			'all',

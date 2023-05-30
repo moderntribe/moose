@@ -33,10 +33,10 @@ const assetEntryPoints = () => {
 			'assets',
 			'theme.js'
 		),
-		'assets/custom-login': resolve(
+		'assets/login': resolve(
 			pkg.config.coreThemeDir,
 			'assets',
-			'custom-login.pcss'
+			'login.pcss'
 		),
 		'assets/print': resolve(
 			pkg.config.coreThemeDir,
