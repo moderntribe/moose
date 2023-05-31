@@ -13,8 +13,6 @@ const resize = () => {
 	viewportDims();
 
 	triggerCustomEvent( 'modern_tribe/resize_executed' );
-
-	console.log( 'Moose Admin: Resized' );
 };
 
 export default resize;
