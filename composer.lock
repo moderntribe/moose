@@ -169,10 +169,10 @@
         },
         {
             "name": "block-editor-custom-alignments/block-editor-custom-alignments",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.3/block-editor-custom-alignments.1.0.3.zip"
+                "url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.4/block-editor-custom-alignments.1.0.4.zip"
             },
             "require": {
                 "ffraenz/private-composer-installer": "^5.0"
