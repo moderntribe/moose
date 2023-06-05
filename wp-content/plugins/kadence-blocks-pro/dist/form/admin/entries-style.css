@@ -1,0 +1,95 @@
+.kadence-blocks_page_kadence-blocks-entries #wpcontent {
+    padding: 0;
+}
+.kadence-blocks_page_kadence-blocks-entries #wpcontent #screen-meta {
+    margin-left: 20px;
+}
+.kadence-blocks_page_kadence-blocks-entries .kb-form-entries {
+    padding-left: 20px;
+}
+.kt_plugin_welcome_title_head {
+    background: white;
+    padding: 0px 20px;
+    height: 60px;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 0 6px -2px rgba(0,0,0,0.1);
+    /* top: 32px;
+    left: 160px; */
+    z-index: 100;
+    /* right: 0; */
+}
+/* .folded .kt_plugin_welcome_title_head {
+    left: 36px;
+} */
+.kt_plugin_welcome_title_head .kadence_blocks_dash_version span {
+    padding: 5px;
+    background: #4A5568;
+    color: white;
+}
+.kt_plugin_welcome_head_container {
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.kt_plugin_welcome_logo {
+    width: 50px;
+    height: 50px;
+    padding-right: 10px;
+}
+
+.kt_plugin_welcome_logo_area {
+    display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+.kt_plugin_welcome_logo_area:focus {
+    outline:0;
+}
+.kt_plugin_welcome_logo img {
+    max-width: 100%;
+    height: auto;
+}
+.kt_plugin_welcome_logo_title h1 {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.kt_plugin_welcome_logo_title h4 {
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+}
+#kb-form-entries-form .column-form_id {
+    width: 100px;
+}
+#kb-form-entries-form .column-id {
+    width:80px;
+}
+#kb-form-entries-single .kb-form-entries-single-table {
+	border:0;
+}
+#kb-form-entries-single #kadence-blocks-entry-details #delete-action .button-secondary {
+	color: #a00;
+    border-color: #a00;
+}
+#kb-form-entries-single #kadence-blocks-entry-details #delete-action .button-secondary .dashicons {
+    margin-top: 4px;
+}
+#kb-form-entries-single #kadence-blocks-entry-fields {
+    float: left;
+    width: 65%;
+    box-sizing:border-box;
+}
+#kb-form-entries-single .kadence-blocks-entry-details {
+    float:left;
+    width:33%;
+    margin-left:2%;
+    box-sizing:border-box;
+}

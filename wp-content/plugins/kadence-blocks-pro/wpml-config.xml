@@ -1,0 +1,11 @@
+<wpml-config>
+	<gutenberg-blocks>
+		<gutenberg-block type="kadence/postgrid" translate="1">
+			<xpath>//a[@class="kt-blocks-post-readmore"]</xpath>
+		</gutenberg-block>
+		<gutenberg-block type="kadence/videopopup" translate="1">
+			<key name="url" />
+			<key name="ariaLabel" />
+		</gutenberg-block>
+	</gutenberg-blocks>
+</wpml-config>

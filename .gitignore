@@ -58,6 +58,8 @@ wp-content/mu-plugins/mu.local.php
 
 wp-content/themes/*
 wp-content/plugins/*
+!wp-content/plugins/kadence-blocks-pro
+!wp-content/plugins/kadence-cloud
 !wp-content/themes/core
 !wp-content/plugins/core
 !wp-config.php

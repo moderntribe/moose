@@ -1,0 +1,26 @@
+.wrap .kt-blocks-pro-notice-wrapper {
+    position: relative;
+    border:10px solid #fff;
+    padding:10px 30px;
+    background:#f2fcff;
+}
+.wrap .kt-blocks-pro-notice-wrapper p {
+    font-size: 15px;
+}
+.wrap .kt-blocks-pro-notice-wrapper .kt-install-blocks-btn {
+    padding: 0 22px;
+    line-height: 34px;
+    height: 36px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.wrap .kt-blocks-pro-notice-wrapper .kt-notice-description {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.wrap .kt-blocks-pro-notice-wrapper  a.kt-close-notice {
+    text-decoration: none;
+}
+.wrap .kt-blocks-pro-notice-wrapper .kt-install-blocks-btn.updating-message:before {
+    line-height: 28px;
+}

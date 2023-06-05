@@ -1,0 +1,294 @@
+# Copyright (C) 2021 Kadence WP
+# This file is distributed under the same license as the Kadence Cloud plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kadence Cloud 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/kadence-cloud\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-04-29T19:40:01+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: kadence-cloud\n"
+
+#. Plugin Name of the plugin
+msgid "Kadence Cloud"
+msgstr ""
+
+#. Description of the plugin
+msgid "Create your own cloud prebuilt sections or pages"
+msgstr ""
+
+#. Author of the plugin
+msgid "Kadence WP"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://kadencewp.com/"
+msgstr ""
+
+#: class-kadence-cloud.php:59
+msgid "Error: please reload your page and try again."
+msgstr ""
+
+#: class-kadence-cloud.php:67
+msgid "Error: API Flash key needed"
+msgstr ""
+
+#: class-kadence-cloud.php:72
+msgid "Image could not be generated"
+msgstr ""
+
+#: class-kadence-cloud.php:92
+msgid "Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:93
+msgid "Library Items"
+msgstr ""
+
+#: class-kadence-cloud.php:94
+msgctxt "Admin Menu text"
+msgid "Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:95
+msgctxt "Cloud Library"
+msgid "Add New"
+msgstr ""
+
+#: class-kadence-cloud.php:96
+msgid "Add New Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:97
+msgid "New Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:98
+msgid "Edit Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:99
+msgid "View Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:100
+msgid "All Cloud Libraries"
+msgstr ""
+
+#: class-kadence-cloud.php:101
+msgid "Search Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:102
+msgid "Parent Cloud Library:"
+msgstr ""
+
+#: class-kadence-cloud.php:103
+msgid "No Cloud Libraries found."
+msgstr ""
+
+#: class-kadence-cloud.php:104
+msgid "No Cloud Libraries found in Trash."
+msgstr ""
+
+#: class-kadence-cloud.php:105
+msgid "Cloud Library archives"
+msgstr ""
+
+#: class-kadence-cloud.php:106
+msgid "Insert into Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:107
+msgid "Uploaded to this Cloud Library"
+msgstr ""
+
+#: class-kadence-cloud.php:108
+msgid "Filter Cloud Libraries list"
+msgstr ""
+
+#: class-kadence-cloud.php:109
+msgid "Cloud Libraries list navigation"
+msgstr ""
+
+#: class-kadence-cloud.php:110
+msgid "Cloud Libraries list"
+msgstr ""
+
+#: class-kadence-cloud.php:116
+msgid "Library items to include in your cloud library."
+msgstr ""
+
+#: class-kadence-cloud.php:156
+msgid "Categories"
+msgstr ""
+
+#: class-kadence-cloud.php:157
+msgid "Category"
+msgstr ""
+
+#: class-kadence-cloud.php:176
+msgid "Keywords"
+msgstr ""
+
+#: class-kadence-cloud.php:177
+msgid "Keyword"
+msgstr ""
+
+#: class-kadence-cloud.php:338
+msgid "Image"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:36
+#: inc/class-kadence-cloud-settings.php:37
+msgid "Cloud Settings"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:56
+msgid "Settings"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:60
+msgid "Getting Started"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:64
+msgid "Changelog"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:68
+msgid "Welcome to Kadence Cloud"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:69
+msgid "We are working on a getting started video to be added below here, it's coming soon."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:72
+msgid "View Knowledge Base"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:76
+msgid "Web Creators Community"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:77
+msgid "Join our community of fellow kadence users creating effective websites! Share your site, ask a question and help others."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:79
+msgid "Join our Facebook Group"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:82
+msgid "Documentation"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:83
+msgid "Need help? We have a knowledge base full of articles to get you started."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:85
+msgid "Browse Docs"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:88
+msgid "Support"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:89
+msgid "Have a question, we are happy to help! Get in touch with our support team."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:91
+msgid "Submit a Ticket"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:99
+msgid "General"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:100
+msgid "General Settings"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:106
+msgid "Set Cloud Name"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:107
+msgid "If unset the site title will be used."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:112
+msgid "Force sites to resync after"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:114
+msgid "One Day"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:115
+msgid "One Week"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:116
+msgid "One Month"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:123
+msgid "Enable API Flash for screenshots."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:124
+msgid "This allows you to regenerate thumbnails with a click."
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:130
+msgid "Add API Flash Key"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:131
+msgid "Get your API Key here"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:142
+#: inc/class-kadence-cloud-settings.php:143
+#: inc/class-kadence-cloud-settings.php:155
+msgid "Access Keys"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:149
+msgid "Connection URL"
+msgstr ""
+
+#: inc/class-kadence-cloud-settings.php:156
+msgid "Generate Key"
+msgstr ""
+
+#: inc/settings/class-kadence-settings.php:66
+#: inc/settings/class-kadence-settings.php:73
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: kadence-cloud-rest-controller.php:99
+#: kadence-cloud-rest-controller.php:129
+msgid "Invalid Request, Incorrect Access Key"
+msgstr ""
+
+#: kadence-cloud-rest-controller.php:251
+msgid "The request key."
+msgstr ""
+
+#: kadence-cloud-rest-controller.php:256
+msgid "Items to return."
+msgstr ""
+
+#: kadence-cloud-rest-controller.php:261
+msgid "The Page to return."
+msgstr ""
