@@ -2,6 +2,8 @@
 
 namespace Tribe\Plugin\Assets;
 
+use Tribe\Plugin\Settings\Login_Settings;
+
 class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public const ADMIN             = 'admin';
@@ -37,6 +39,24 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 			[],
 			$args['version'] ?? false,
 			'all',
+		);
+	}
+
+	public function update_login_header_url(): string {
+		return get_bloginfo( 'url' );
+	}
+
+	public function update_login_header(): void {
+		$login_logo_id = get_field( Login_Settings::LOGIN_LOGO, 'option' );
+		$login_logo    = $login_logo_id ? wp_get_attachment_image_src( $login_logo_id ) : false;
+
+		if ( $login_logo === false ) {
+			return;
+		}
+
+		echo sprintf(
+			'<style>body.login #login h1 a {background: url(%s) no-repeat center top transparent;background-size: 200px 44px;height: 44px;width: 200px; margin: 0 auto 45px auto;} body.login #login {padding-top: 86px;}</style>',
+			$login_logo
 		);
 	}
 

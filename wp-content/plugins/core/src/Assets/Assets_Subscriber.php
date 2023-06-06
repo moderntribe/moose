@@ -23,6 +23,14 @@ class Assets_Subscriber extends Abstract_Subscriber {
 		// add_action( 'login_enqueue_scripts', function (): void {
 		// 	$this->container->get( Admin_Assets_Enqueuer::class )->enqueue_login_styles();
 		// }, 10, 0 );
+
+		add_action( 'login_headerurl', function (): void {
+			$this->container->get( Admin_Assets_Enqueuer::class )->update_login_header_url();
+		}, 10, 0 );
+
+		add_action( 'login_head', function (): void {
+			$this->container->get( Admin_Assets_Enqueuer::class )->update_login_header();
+		}, 10, 0 );
 	}
 
 }
