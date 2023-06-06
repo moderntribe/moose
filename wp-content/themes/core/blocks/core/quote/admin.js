@@ -1,7 +1,7 @@
-import domReady from '@wordpress/dom-ready';
+import { ready } from 'utils/events.js';
 import { unregisterBlockStyle } from '@wordpress/blocks';
 
-domReady( () => {
+ready( () => {
 	unregisterBlockStyle( 'core/quote', 'default' );
 	unregisterBlockStyle( 'core/quote', 'plain' );
 } );
