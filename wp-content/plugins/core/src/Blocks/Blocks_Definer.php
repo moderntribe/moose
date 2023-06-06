@@ -12,6 +12,8 @@ use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
 use Tribe\Theme\blocks\core\paragraph\Paragraph;
 use Tribe\Theme\blocks\core\querypagination\Query_Pagination;
+use Tribe\Theme\blocks\core\quote\Quote;
+use Tribe\Theme\blocks\core\separator\Separator;
 use Tribe\Theme\blocks\core\spacer\Spacer;
 use Tribe\Theme\blocks\core\table\Table;
 use Tribe\Theme\blocks\core\video\Video;
@@ -37,10 +39,12 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Image::class ),
 				DI\get( Lists::class ),
 				DI\get( Paragraph::class ),
+				DI\get( Query_Pagination::class ),
+				DI\get( Quote::class ),
+				DI\get( Separator::class ),
 				DI\get( Spacer::class ),
 				DI\get( Table::class ),
 				DI\get( Video::class ),
-				DI\get( Query_Pagination::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [

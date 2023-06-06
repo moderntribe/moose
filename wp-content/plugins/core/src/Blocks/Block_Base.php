@@ -64,12 +64,13 @@ abstract class Block_Base {
 	 * Register block styles prior to enqueueing to allow other blocks to define these as dependencies
 	 */
 	public function register_style(): void {
-		$block = $this->get_block_handle();
-		$path  = $this->get_block_path();
-		$args  = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
-		$src   = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
+		$block    = $this->get_block_handle();
+		$path     = $this->get_block_path();
+		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
+		$src_path = get_theme_file_path( "dist/blocks/$path/style-index.css" );
+		$src      = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
 
-		if ( ! wp_remote_get( $src ) ) {
+		if ( ! file_exists( $src_path ) ) {
 			return;
 		}
 
@@ -90,6 +91,32 @@ abstract class Block_Base {
 		wp_enqueue_block_style( $this->get_block_name(), [
 			'handle' => "$block-styles",
 		] );
+	}
+
+	public function register_admin_scripts(): void {
+		$block    = $this->get_block_handle();
+		$path     = $this->get_block_path();
+		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/admin.asset.php" ) );
+		$src_path = get_theme_file_path( "dist/blocks/$path/admin.js" );
+		$src      = get_theme_file_uri( "dist/blocks/$path/admin.js" );
+
+		if ( ! file_exists( $src_path ) ) {
+			return;
+		}
+
+		wp_register_script(
+			"admin-$block-scripts",
+			$src,
+			$args['dependencies'] ?? [],
+			$args['version'] ?? false,
+			true
+		);
+	}
+
+	public function enqueue_admin_scripts(): void {
+		$block = $this->get_block_handle();
+
+		wp_enqueue_script( "admin-$block-scripts" );
 	}
 
 }

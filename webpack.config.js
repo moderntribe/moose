@@ -66,13 +66,25 @@ const blockEntryPoints = () => {
 		{ absolute: true }
 	);
 
-	if ( ! coreBlockFiles.length ) {
+	const coreBlockAdminFiles = glob(
+		`${ pkg.config.coreThemeBlocksDir }/**/admin.js`,
+		{ absolute: true }
+	);
+
+	if ( ! coreBlockFiles.length && ! coreBlockAdminFiles.length ) {
 		return;
 	}
 
 	const entryPoints = {};
 
 	coreBlockFiles.forEach( ( entryFilePath ) => {
+		const entryName = entryFilePath
+			.replace( extname( entryFilePath ), '' )
+			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
+		entryPoints[ entryName ] = entryFilePath;
+	} );
+
+	coreBlockAdminFiles.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
 			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
@@ -111,6 +123,16 @@ if ( copyPluginIndex > -1 ) {
 
 module.exports = {
 	...defaultConfig,
+	resolve: {
+		...defaultConfig.resolve,
+		alias: {
+			...defaultConfig.resolve.alias,
+			utils: resolve( './wp-content/themes/core/assets/js/utils' ),
+			common: resolve( './wp-content/themes/core/assets/js/common' ),
+			config: resolve( './wp-content/themes/core/assets/js/config' ),
+			blocks: resolve( './wp-content/themes/core/blocks' ),
+		},
+	},
 	entry: {
 		...assetEntryPoints(),
 		...blockEntryPoints(),
