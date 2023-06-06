@@ -11,7 +11,7 @@ class Login_Settings extends Settings_Sub_Page {
 	public const LOGIN_LOGO = 'login_logo';
 
 	public function get_title(): string {
-		return esc_html__( 'Login Settings', 'tribe' );
+		return esc_html__( 'Login', 'tribe' );
 	}
 
 	public function get_fields(): array {
