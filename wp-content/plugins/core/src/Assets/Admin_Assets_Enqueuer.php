@@ -48,7 +48,7 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public function update_login_header(): void {
 		$login_logo_id = get_field( Login_Settings::LOGIN_LOGO, 'option' );
-		$login_logo    = $login_logo_id ? wp_get_attachment_image_src( $login_logo_id ) : false;
+		$login_logo    = $login_logo_id ? wp_get_attachment_image_src( $login_logo_id )[0] : false;
 
 		if ( $login_logo === false ) {
 			return;
