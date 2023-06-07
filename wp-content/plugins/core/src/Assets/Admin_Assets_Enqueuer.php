@@ -42,10 +42,16 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 		);
 	}
 
+	/**
+	 * updates the login image URL to be the base URL for the website
+	 */
 	public function update_login_header_url(): string {
 		return get_bloginfo( 'url' );
 	}
 
+	/**
+	 * if set in ACF settings page, updates the login logo to a user set image
+	 */
 	public function update_login_header(): void {
 		$login_logo_id = get_field( Login_Settings::LOGIN_LOGO, 'option' );
 		$login_logo    = $login_logo_id ? wp_get_attachment_image_src( $login_logo_id )[0] : false;
@@ -55,7 +61,19 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 		}
 
 		echo sprintf(
-			'<style>body.login #login h1 a {background: url(%s) no-repeat center top transparent;background-size: 200px 44px;height: 44px;width: 200px; margin: 0 auto 45px auto;} body.login #login {padding-top: 86px;}</style>',
+			'<style>
+				body.login #login h1 a {
+					width: 200px;
+					height: 44px;
+					margin: 0 auto 45px auto;
+					background: url(%s) no-repeat center top transparent;
+					background-size: contain;
+				}
+
+				body.login #login {
+					padding-top: 86px;
+				}
+			</style>',
 			$login_logo
 		);
 	}
