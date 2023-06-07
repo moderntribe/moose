@@ -1,0 +1,170 @@
+/* -------------------------------------------------------------------------
+ *
+ * Admin Styles: Login
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+ * Login: Body Element
+ * ----------------------------------------------------------------------- */
+
+.login {
+	height: 100%;
+	position: relative;
+	width: 100%;
+	display: table;
+	background: var(--login-background-color);
+}
+
+.login::after {
+	content: "";
+	display: none;
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: var(--login-background-image);
+
+	@media (min-width: 960px) {
+		display: block;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Button Focus Styling
+ * ----------------------------------------------------------------------- */
+
+.login a,
+.login button,
+.login input[type="submit"] {
+
+	&:focus,
+	&:active {
+		box-shadow: none;
+		outline: 1px dotted;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Login Form Wrapper
+ * ----------------------------------------------------------------------- */
+
+.login #login {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	padding: 80px 25px 100px;
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+
+	& > * {
+		max-width: 425px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (min-width: 960px) {
+		width: 50%;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Primary Log In Button
+ * ----------------------------------------------------------------------- */
+
+.login.wp-core-ui .button-primary {
+	background: var(--login-primary-color);
+	color: var(--login-white-color);
+	border: 0;
+	box-shadow: none;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 15px auto 0;
+	font-size: 16px;
+	height: auto;
+	float: none;
+	text-shadow: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: var(--login-secondary-color);
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Login Form
+ * ----------------------------------------------------------------------- */
+
+.login form {
+	margin: 8px auto 10px;
+	padding: 20px 24px 24px;
+	backface-visibility: hidden;
+	position: relative !important;
+	background-color: var(--login-form-background-color);
+
+	.forgetmenot {
+		float: none;
+	}
+
+	.submit {
+		float: none;
+		clear: both;
+		display: block;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Logo
+ * ----------------------------------------------------------------------- */
+
+.login h1 {
+	padding: 8px;
+	margin: 0 auto 16px;
+}
+
+.login h1 a {
+	width: var(--login-logo-width);
+	height: var(--login-logo-height);
+	line-height: 1;
+	margin: 0 auto;
+	background: var(--login-logo-image) center no-repeat;
+	background-size: contain;
+}
+
+/* -----------------------------------------------------------------------
+ * Login: Utility Links
+ * ----------------------------------------------------------------------- */
+
+.login #nav,
+.login #backtoblog {
+	padding: 3px 2px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 15px;
+}
+
+.login #nav a,
+.login #backtoblock a {
+	padding: 3px 0;
+	margin: 0 auto;
+	text-align: center;
+	color: var(--login-primary-color);
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--login-secondary-color);
+	}
+}
+
+.login #nav {
+	margin-top: 15px;
+}
+
+.login #backtoblog {
+	margin-top: 8px;
+}
