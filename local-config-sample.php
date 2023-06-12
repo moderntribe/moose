@@ -48,3 +48,12 @@ if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
  * If you would like to disable the plugin locally, add the following to your local-config.php.
  */
 define( 'TRIBE_GLOMAR', false );
+
+/*
+ * ACF Integration
+ *
+ * If the constant is set to true, this will hide the ACF menu item.  The ACF
+ * menu item is also hidden when wp_get_environment_type() function returns
+ * 'production'.
+ */
+define( 'HIDE_ACF_MENU', false );
