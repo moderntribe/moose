@@ -5,8 +5,8 @@ namespace Tribe\Plugin\Integrations;
 class ACF {
 
 	/**
-	 * Hides the ACF "Custom Fields" Menu item if the HIDE_ACF_MENU constant is
-	 * set to true or if we are in a production environment based on the
+	 * Hides the ACF Menu item if the HIDE_ACF_MENU constant isset to true or
+	 * if we are in a production environment based on the
 	 * wp_get_environment_type() function.
 	 *
 	 * @param bool $show_menu_item
