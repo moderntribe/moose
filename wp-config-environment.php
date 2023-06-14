@@ -163,7 +163,7 @@ $config_defaults = [
 	'S3_UPLOADS_REGION'              => tribe_getenv( 'S3_UPLOADS_REGION', '' ),
 
 	// Glomar
-	'TRIBE_GLOMAR'                   => tribe_getenv( 'TRIBE_GLOMAR', '' ),
+	'TRIBE_GLOMAR'                   => tribe_getenv( 'TRIBE_GLOMAR', 'false' ),
 ];
 
 // ==============================================================
