@@ -112,15 +112,15 @@ if ( copyPluginIndex > -1 ) {
 					...defaultConfig.plugins[ copyPluginIndex ].patterns[
 						index
 					],
-					context: resolve( pkg.directories.coreTheme, 'blocks/' ),
-					to: resolve( pkg.directories.coreTheme, 'dist/blocks/' ),
+					context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
+					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
 				};
 			} else if ( pattern.from === '**/*.php' ) {
 				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
 					from: '**/*.php',
 					noErrorOnMissing: true,
-					context: resolve( pkg.directories.coreTheme, 'blocks/acf' ),
-					to: resolve( pkg.directories.coreTheme, 'dist/blocks/acf' ),
+					context: resolve( pkg.config.coreThemeDir, 'blocks/acf' ),
+					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/acf' ),
 				};
 			}
 		}
