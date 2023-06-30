@@ -105,20 +105,26 @@ const copyPluginIndex = defaultConfig.plugins.findIndex(
 );
 
 if ( copyPluginIndex > -1 ) {
-	const blockJsonPatternIndex = defaultConfig.plugins[
-		copyPluginIndex
-	].patterns.findIndex( ( pattern ) => pattern.from === '**/block.json' );
-
-	if ( blockJsonPatternIndex > -1 ) {
-		defaultConfig.plugins[ copyPluginIndex ].patterns[
-			blockJsonPatternIndex
-		] = {
-			...defaultConfig.plugins[ copyPluginIndex ].patterns[
-				blockJsonPatternIndex
-			],
-			to: `blocks/`,
-		};
-	}
+	defaultConfig.plugins[ copyPluginIndex ].patterns.forEach(
+		( pattern, index ) => {
+			if ( pattern.from === '**/block.json' ) {
+				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
+					...defaultConfig.plugins[ copyPluginIndex ].patterns[
+						index
+					],
+					context: resolve( pkg.directories.coreTheme, 'blocks/' ),
+					to: resolve( pkg.directories.coreTheme, 'dist/blocks/' ),
+				};
+			} else if ( pattern.from === '**/*.php' ) {
+				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
+					from: '**/*.php',
+					noErrorOnMissing: true,
+					context: resolve( pkg.directories.coreTheme, 'blocks/acf' ),
+					to: resolve( pkg.directories.coreTheme, 'dist/blocks/acf' ),
+				};
+			}
+		}
+	);
 }
 
 module.exports = {
