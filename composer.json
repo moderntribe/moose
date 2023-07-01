@@ -136,6 +136,7 @@
 		"wpackagist-plugin/kadence-blocks": "3.0.38",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "^2.25",
 		"wpackagist-plugin/redirection": "^5.3",
+		"wpackagist-plugin/restricted-site-access": "7.4.0",
 		"wpackagist-plugin/safe-svg": "^2.0.3",
 		"wpackagist-plugin/user-switching": "^1.7",
 		"wpackagist-plugin/wordpress-seo": "^20.0",
