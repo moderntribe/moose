@@ -6,8 +6,9 @@ use Tribe\Plugin\Settings\Login_Settings;
 
 class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
-	public const ADMIN             = 'admin';
-	public const ASSETS_FILE       = self::ADMIN . '.asset.php';
+	public const ADMIN             = 'tribe-admin';
+	public const ADMIN_FILE_NAME   = 'admin';
+	public const ASSETS_FILE       = self::ADMIN_FILE_NAME . '.asset.php';
 	public const LOGIN             = 'tribe-login';
 	public const LOGIN_FILE_NAME   = 'login';
 	public const LOGIN_ASSETS_FILE = self::LOGIN_FILE_NAME . '.asset.php';
