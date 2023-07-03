@@ -17,14 +17,14 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 		$args = $this->get_asset_file_args( $this->assets_path . self::ASSETS_FILE );
 		wp_enqueue_style(
 			self::ADMIN,
-			$this->assets_path_uri . self::ADMIN . '.css',
+			$this->assets_path_uri . self::ADMIN_FILE_NAME . '.css',
 			[],
 			$args['version'] ?? false,
 			'all',
 		);
 		wp_enqueue_script(
 			self::ADMIN,
-			$this->assets_path_uri . self::ADMIN . '.js',
+			$this->assets_path_uri . self::ADMIN_FILE_NAME . '.js',
 			$args['dependencies'] ?? [],
 			$args['version'] ?? false,
 			true,
