@@ -1,0 +1,31 @@
+/* -------------------------------------------------------------------------
+ *
+ * Search Result Post Card
+ *
+ * Minimal styles related to the search result post cards
+ *
+ * ------------------------------------------------------------------------- */
+
+.p-card-search-result {
+	position: relative;
+
+	.wp-block-post-featured-image {
+		overflow: hidden;
+
+		> img {
+			transition: var(--transition);
+		}
+	}
+
+	&:hover,
+	&:focus-within {
+
+		.wp-block-post-featured-image > img {
+			transform: scale(1.05);
+		}
+
+		.wp-block-post-title {
+			text-decoration: underline;
+		}
+	}
+}
