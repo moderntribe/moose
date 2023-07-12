@@ -33,6 +33,9 @@ class Core {
 		Integrations\Integrations_Subscriber::class,
 		Object_Meta\Meta_Subscriber::class,
 		Theme_Config\Theme_Config_Subscriber::class,
+
+		// Post Types
+		Post_Types\Page\Page_Subscriber::class,
 	];
 
 	private static self $instance;
