@@ -15,7 +15,7 @@ class Config {
 			[
 				'core/pattern',
 				[
-					'slug' => 'patterns/page-placeholder',
+					'slug' => 'patterns/page',
 				],
 			],
 		];

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
 /**
- * Title: Page Placeholder
- * Slug: patterns/page-placeholder
+ * Title: Page
+ * Slug: patterns/page
  * Categories: templates
  * Description: A simple pattern for a default page - added automatically to new pages
  * Keywords: page, placeholder
