@@ -1,0 +1,41 @@
+/* -------------------------------------------------------------------------
+ *
+ * Search Result Post Card
+ *
+ * Minimal styles related to the search result post cards
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+ * Search Result Post Card - Wrapper
+ * Handles hover / focus states
+ * Relatively positioned so that our link overlay can be contained
+ * ----------------------------------------------------------------------- */
+
+.p-card-search-result {
+	position: relative;
+
+	&:hover,
+	&:focus-within {
+
+		.p-card-search-result__image img {
+			transform: scale(1.05);
+		}
+
+		.p-card-search-result__title {
+			text-decoration: underline;
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Search Result Post Card - Image
+ * ----------------------------------------------------------------------- */
+
+.p-card-search-result__image {
+	overflow: hidden;
+
+	& img {
+		transition: var(--transition);
+	}
+}
