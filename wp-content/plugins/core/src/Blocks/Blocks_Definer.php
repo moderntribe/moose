@@ -30,7 +30,7 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				// 'tribe/example',
+				'acf/post-type-name',
 			] ),
 
 			self::EXTENDED        => DI\add( [
