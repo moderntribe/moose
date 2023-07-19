@@ -116,7 +116,8 @@ if ( copyPluginIndex > -1 ) {
 			...defaultConfig.plugins[ copyPluginIndex ].patterns[
 				blockJsonPatternIndex
 			],
-			to: `blocks/`,
+			context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
+			to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
 		};
 	}
 }
