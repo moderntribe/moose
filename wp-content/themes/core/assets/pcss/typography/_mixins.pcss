@@ -118,3 +118,15 @@
 	text-transform: uppercase;
 	text-decoration: none;
 }
+
+/* -------------------------------------------------------------------------
+ * Caption
+ * Defined in theme.json but used in other places (post permalink block)
+ * ------------------------------------------------------------------------- */
+
+@define-mixin t-caption {
+	font-family: var(--wp--preset--font-family--roboto);
+	font-size: var(--wp--preset--font-size--10);
+	line-height: 1.6;
+	font-weight: 400;
+}

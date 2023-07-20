@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "tribe/post-type-name",
+	"name": "tribe/post-permalink",
 	"version": "0.1.0",
-	"title": "Post Type Name",
+	"title": "Post Permalink",
 	"category": "text",
-	"icon": "edit-large",
-	"description": "Returns the post type name for a post object.",
+	"icon": "admin-links",
+	"description": "Returns the post permalink as link text.",
 	"supports": {
 		"html": false,
 		"spacing": {
