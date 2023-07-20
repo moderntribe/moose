@@ -1,16 +1,21 @@
 <?php declare(strict_types=1);
 
 global $wp_query;
-$output     = '';
-$is_search  = is_search();
-$post_count = (int) $wp_query->post_count;
+$is_search = is_search();
+$count     = (int) $wp_query->post_count;
+$output    = sprintf( _n( '%d result', '%d results', $count, 'tribe' ), number_format_i18n( $count ) );
 
 if ( $is_search ) {
-	$output = $post_count !== 1
-				? $post_count . ' results for <span class="search-term">"'. get_search_query() .'"</span>'
-				: '1 result for <span class="search-term">"'. get_search_query() .'"</span>';
-} else {
-	$output = "$wp_query->post_count results";
+	$output = sprintf(
+		_x(
+			'%s %s for <span class="search-term">&ldquo;%s&rdquo;</span>',
+			'First value is the number of results, second is word "result" (pluralized if necessary), third is the search term',
+			'tribe'
+		),
+		number_format_i18n( $count ),
+		_n( 'result', 'results', $count, 'tribe' ),
+		get_search_query()
+	);
 }
 ?>
 
