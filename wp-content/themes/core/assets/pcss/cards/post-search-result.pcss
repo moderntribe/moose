@@ -14,18 +14,6 @@
 
 .p-card-search-result {
 	position: relative;
-
-	&:hover,
-	&:focus-within {
-
-		.p-card-search-result__image img {
-			transform: scale(1.05);
-		}
-
-		.p-card-search-result__title {
-			text-decoration: underline;
-		}
-	}
 }
 
 /* -----------------------------------------------------------------------
@@ -37,5 +25,22 @@
 
 	& img {
 		transition: var(--transition);
+
+		.p-card-search-result:hover &,
+		.p-card-search-result:focus-within & {
+			transform: scale(1.05);
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Search Result Post Card - Title
+ * ----------------------------------------------------------------------- */
+
+.p-card-search-result__title {
+
+	.p-card-search-result:hover &,
+	.p-card-search-result:focus-within & {
+		text-decoration: underline;
 	}
 }
