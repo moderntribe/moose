@@ -5,6 +5,7 @@ namespace Tribe\Plugin\Blocks;
 use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
+use Tribe\Plugin\Blocks\Filters\Post_Terms_Filter;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\heading\Heading;
@@ -53,6 +54,7 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::FILTERS         => DI\add( [
+				DI\get( Post_Terms_Filter::class ),
 			] ),
 
 			Filter_Factory::class => DI\autowire()->constructorParameter( 'filters', DI\get( self::FILTERS ) ),
