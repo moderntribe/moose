@@ -104,3 +104,17 @@
 	line-height: 1.6;
 	font-weight: 400;
 }
+
+/* -------------------------------------------------------------------------
+ * Category
+ * Categories normally link, so also remove text decoration
+ * ------------------------------------------------------------------------- */
+
+@define-mixin t-category {
+	font-family: var(--wp--preset--font-family--roboto);
+	font-size: var(--wp--preset--font-size--10);
+	line-height: 1.6;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-decoration: none;
+}

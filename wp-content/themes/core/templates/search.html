@@ -1,49 +1,43 @@
 <!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group">
-	<!-- wp:heading -->
-	<h2>Search</h2>
-	<!-- /wp:heading -->
-	<!-- wp:query -->
-	<div class="wp-block-query">
-	<!-- wp:post-template -->
-		<!-- wp:post-featured-image /-->
-		<!-- wp:post-title {"isLink":true} /-->
-		<!-- wp:post-author {"showAvatar":false} /-->
-		<!-- wp:post-date /-->
-		<!-- wp:post-terms {"term":"category"} /-->
-		<!-- wp:post-excerpt /-->
-	<!-- /wp:post-template -->
-	<!-- wp:template-part {"slug":"pagination"} /-->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"0"}}}} -->
+<h1 class="wp-block-heading has-text-align-center" style="margin-top:0">Search</h1>
+<!-- /wp:heading -->
 
-	<!-- wp:query-no-results -->
-	<!-- wp:heading {"textAlign":"left","level":3} -->
-	<h3 class="has-text-align-left">No results found</h3>
-	<!-- /wp:heading -->
+<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
+<!-- /wp:group -->
 
-	<!-- wp:paragraph {"align":"left"} -->
-	<p class="has-text-align-left">Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
-	<!-- /wp:paragraph -->
+<!-- wp:query {"queryId":0,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[]},"displayLayout":{"type":"list"},"align":"wide"} -->
+<div class="wp-block-query alignwide"><!-- wp:post-template -->
+<!-- wp:columns {"verticalAlignment":"top","className":"p-search-card"} -->
+<div class="wp-block-columns are-vertically-aligned-top p-search-card"><!-- wp:column {"verticalAlignment":"top","width":"%"} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:post-title {"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}}}} /-->
 
-	<!-- wp:spacer {"height":"50px"} -->
-	<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-	<!-- /wp:spacer -->
+<!-- wp:post-excerpt /--></div>
+<!-- /wp:column -->
 
-	<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search"} /-->
+<!-- wp:column {"verticalAlignment":"top","width":"248px"} -->
+<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:248px"><!-- wp:post-featured-image /--></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+<!-- /wp:post-template -->
 
-	<!-- wp:spacer {"height":"50px"} -->
-	<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-	<!-- /wp:spacer -->
+<!-- wp:query-no-results -->
+<!-- wp:heading {"textAlign":"left"} -->
+<h2 class="wp-block-heading has-text-align-left">No results found</h2>
+<!-- /wp:heading -->
 
-	<!-- wp:heading {"level":3} -->
-	<h3>Looking for a specific topic?</h3>
-	<!-- /wp:heading -->
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+<!-- /wp:paragraph -->
 
-	<!-- wp:categories /-->
-	<!-- /wp:query-no-results -->
+<!-- wp:spacer {"height":"50px"} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+<!-- /wp:query-no-results -->
 
-	</div>
-	<!-- /wp:query -->
-</main>
+<!-- wp:template-part {"slug":"pagination","theme":"core"} /--></div>
+<!-- /wp:query --></main>
 <!-- /wp:group -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->

@@ -1,0 +1,66 @@
+/* -------------------------------------------------------------------------
+ *
+ * Post Card
+ *
+ * Minimal styles related to post cards
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+ * Post Card - Wrapper
+ * Handles hover / focus states
+ * Relatively positioned so that our link overlay can be contained
+ * ----------------------------------------------------------------------- */
+
+.p-card-post {
+	position: relative;
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Image
+ * Floated right in mobile widths (at this width, it matches the
+ * search result post card)
+ * ----------------------------------------------------------------------- */
+
+.p-card-post__image {
+	overflow: hidden;
+
+	& img {
+		transition: var(--transition);
+
+		.p-card-post:hover &,
+		.p-card-post:focus-within & {
+			transform: scale(1.05);
+		}
+	}
+
+	@media (--mq-wp-mobile-max) {
+		width: 22% !important;
+		float: right;
+		margin-inline-start: 2em;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Categories
+ * Relatively positioned & indexed higher than the link wrapper so that
+ * we can click on the categories separately.
+ * ----------------------------------------------------------------------- */
+
+.p-card-post__categories a {
+	position: relative;
+	z-index: 2;
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Title
+ * Handles hover/focus state of the title element
+ * ----------------------------------------------------------------------- */
+
+.p-card-post__title {
+
+	.p-card-post:hover &,
+	.p-card-post:focus-within & {
+		text-decoration: underline;
+	}
+}
