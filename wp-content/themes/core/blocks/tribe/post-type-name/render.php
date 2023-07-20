@@ -14,6 +14,6 @@ if ( ! $post_object ) {
 }
 ?>
 
-<div class="wp-block-tribe-post-type-name">
+<div <?php echo get_block_wrapper_attributes(); ?>>
 	<span class="wp-block-tribe-post-type-name__label"><?php esc_html_e( $post_object->labels->singular_name, 'tribe' ); ?></span>
 </div>
