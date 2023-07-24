@@ -4,6 +4,7 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
+import { ready } from 'utils/events.js';
 import { debounce } from 'utils/tools.js';
 
 import resize from 'common/resize.js';
@@ -43,7 +44,7 @@ const init = () => {
  */
 
 const domReady = () => {
-	wp.domReady( init );
+	ready( init );
 };
 
 export default domReady;

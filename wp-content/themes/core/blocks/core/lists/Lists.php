@@ -7,6 +7,10 @@ use Tribe\Plugin\Blocks\Block_Base;
 class Lists extends Block_Base {
 
 	public function get_block_name(): string {
+		return 'core/list';
+	}
+
+	public function get_block_path(): string {
 		return 'core/lists';
 	}
 

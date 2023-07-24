@@ -33,6 +33,11 @@ const assetEntryPoints = () => {
 			'assets',
 			'theme.js'
 		),
+		'assets/login': resolve(
+			pkg.config.coreThemeDir,
+			'assets',
+			'login.pcss'
+		),
 		'assets/print': resolve(
 			pkg.config.coreThemeDir,
 			'assets',
@@ -111,7 +116,8 @@ if ( copyPluginIndex > -1 ) {
 			...defaultConfig.plugins[ copyPluginIndex ].patterns[
 				blockJsonPatternIndex
 			],
-			to: `blocks/`,
+			context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
+			to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
 		};
 	}
 }

@@ -59,6 +59,7 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		add_action( 'admin_enqueue_scripts', function (): void {
 			// Register block admin scripts
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->register_style();
 				$block->register_admin_scripts();
 				$block->enqueue_admin_scripts();
 			}

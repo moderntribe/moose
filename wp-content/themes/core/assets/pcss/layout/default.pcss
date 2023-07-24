@@ -13,6 +13,8 @@
  * ------------------------------------------------------------------------- */
 
 /*
+ * CASE: settings.layout.wideSize = fluid value
+ *
  * Max-width of blocks aligned wide should not account for grid margin
  * when nested in .has-global-padding because the container applies
  * grid margin as padding.
@@ -29,6 +31,8 @@
 }
 
 /*
+ * CASE: settings.layout.wideSize = fluid value
+ *
  * Max-width of blocks aligned wide nested inside two .has-global-padding
  * containers need to re-account for grid-margin.
  *
@@ -42,4 +46,15 @@
 .has-global-padding :is(.has-global-padding) > .alignwide,
 :is(.editor-styles-wrapper) .has-global-padding :is(.has-global-padding) > .alignwide {
 	max-width: var(--wp--style--global--wide-size);
+}
+
+/*
+ * Previously to this change, adding a full width pattern to the bottom
+ * of a page would force the user to have to use "Insert After" functions
+ * to add a block below.
+ * This adds space for clicking at the bottom of the
+ * .editor-styles-wrapper element and only appears in the admin editor.
+ */
+:is(.editor-styles-wrapper) {
+	padding-bottom: 40vh;
 }
