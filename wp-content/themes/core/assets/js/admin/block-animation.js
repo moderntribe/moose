@@ -107,13 +107,16 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 					{ isSelected && (
 						<InspectorControls>
 							<PanelBody
-								title="Tribe Animations"
+								title={ __( 'Tribe Animations', 'tribe' ) }
 								initialOpen={ false }
 							>
 								<SelectControl
-									label="Animation Style"
+									label={ __( 'Animation Style', 'tribe' ) }
 									value={ animationStyle ?? 'none' }
-									help="Animation style is the type of animation you want to display."
+									help={ __(
+										'Animation style is the type of animation you want to display.',
+										'tribe'
+									) }
 									onChange={ ( newValue ) => {
 										setAttributes( {
 											animationStyle: newValue,
@@ -156,9 +159,11 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 									] }
 								/>
 								<SelectControl
-									label="Animation Speed"
+									label={ __( 'Animation Speed', 'tribe' ) }
 									value={ animationSpeed ?? '0.3s' }
-									help="Animation speed is the speed at which the animation should run."
+									help={ __(
+										'Animation speed is the speed at which the animation should run.'
+									) }
 									onChange={ ( newValue ) =>
 										setAttributes( {
 											animationSpeed: newValue,
@@ -188,9 +193,12 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 									] }
 								/>
 								<SelectControl
-									label="Animation Delay"
+									label={ __( 'Animation Delay', 'tribe' ) }
 									value={ animationDelay ?? '0s' }
-									help="Animation delay adds extra time before the animation starts."
+									help={ __(
+										'Animation delay adds extra time before the animation starts.',
+										'tribe'
+									) }
 									onChange={ ( newValue ) =>
 										setAttributes( {
 											animationDelay: newValue,
