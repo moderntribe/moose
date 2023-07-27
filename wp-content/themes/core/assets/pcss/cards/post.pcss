@@ -14,18 +14,6 @@
 
 .p-card-post {
 	position: relative;
-
-	&:hover,
-	&:focus-within {
-
-		.p-card-post__image img {
-			transform: scale(1.05);
-		}
-
-		.wp-block-post-title {
-			text-decoration: underline;
-		}
-	}
 }
 
 /* -----------------------------------------------------------------------
@@ -39,6 +27,11 @@
 
 	& img {
 		transition: var(--transition);
+
+		.p-card-post:hover &,
+		.p-card-post:focus-within & {
+			transform: scale(1.05);
+		}
 	}
 
 	@media (--mq-wp-mobile-max) {
@@ -57,4 +50,17 @@
 .p-card-post__categories a {
 	position: relative;
 	z-index: 2;
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Title
+ * Handles hover/focus state of the title element
+ * ----------------------------------------------------------------------- */
+
+.p-card-post__title {
+
+	.p-card-post:hover &,
+	.p-card-post:focus-within & {
+		text-decoration: underline;
+	}
 }
