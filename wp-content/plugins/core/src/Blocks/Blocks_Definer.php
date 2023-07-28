@@ -31,6 +31,7 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/post-type-name',
+				'tribe/post-permalink',
 			] ),
 
 			self::EXTENDED        => DI\add( [
