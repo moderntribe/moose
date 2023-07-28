@@ -21,10 +21,7 @@ class Block_Registrar {
 			];
 		}
 
-		register_block_type(
-			trailingslashit( get_stylesheet_directory() ) . $blocks_dir . $block_name . '/block.json',
-			$args
-		);
+		register_block_type_from_metadata( trailingslashit( get_stylesheet_directory() ) . $blocks_dir . $block_name . '/block.json', $args );
 	}
 
 	/**
