@@ -1,3 +1,35 @@
+/**
+ * @module block-animation
+ *
+ * @description handles setting up animation settings for blocks
+ *
+ * theme.json settings:
+ * "animation": [
+ * 		{ "label": "Test", "value": "test" },
+ * 		{ "label": "Test 2", "value": "test-2" }
+ * ],
+ * "animationSpeeds": [
+ * 		{ "label": "Fast", "value": "0.2s" },
+ * 		{ "label": "Slow", "value": "0.8s" }
+ * ],
+ * "animationDelays": [
+ * 		{ "label": "Short", "value": "0.2s" },
+ * 		{ "label": "Long", "value": "0.8s" }
+ * ],
+ * "animationEasings": [
+ * 		{ "label": "Ease In", "value": "ease-in" },
+ * 		{ "label": "Ease Out", "value": "ease-out" }
+ * ],
+ * "animationIncludes": [
+ * 		"core/group",
+ * 		"core/heading"
+ * ],
+ * "animationExcludes": [
+ * 		"core/group",
+ * 		"core/heading"
+ * ],
+ */
+
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
@@ -14,12 +46,25 @@ const state = {};
  * @description updates props on the block with new animation settings
  *
  * @param {Object} props
- * @param {string} blockType
+ * @param {Object} block
  * @param {Object} attributes
  *
  * @return {Object} updated props object
  */
-const applyAnimationProps = ( props, blockType, attributes ) => {
+const applyAnimationProps = ( props, block, attributes ) => {
+	// return default props if block isn't in the includes array
+	if (
+		state.includes.length > 0 &&
+		! state.includes.includes( block.name )
+	) {
+		return props;
+	}
+
+	// return default props if block is in the excludes array
+	if ( state.excludes.length > 0 && state.excludes.includes( block.name ) ) {
+		return props;
+	}
+
 	const {
 		animationStyle,
 		animationSpeed,
@@ -73,7 +118,18 @@ const applyAnimationProps = ( props, blockType, attributes ) => {
  */
 const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
-		const { attributes, setAttributes, isSelected } = props;
+		const { attributes, setAttributes, isSelected, name } = props;
+
+		// return default Edit function if block isn't in the includes array
+		if ( state.includes.length > 0 && ! state.includes.includes( name ) ) {
+			return <BlockEdit { ...props } />;
+		}
+
+		// return default Edit function if block is in the excludes array
+		if ( state.excludes.length > 0 && state.excludes.includes( name ) ) {
+			return <BlockEdit { ...props } />;
+		}
+
 		const {
 			animationStyle,
 			animationSpeed,
@@ -231,10 +287,21 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
  * @description add new attributes to blocks for animation settings
  *
  * @param {Object} settings
+ * @param {string} name
  *
  * @return {Object} returns updates settings object
  */
-const addAnimationAttributes = ( settings ) => {
+const addAnimationAttributes = ( settings, name ) => {
+	// return default settings if block isn't in the includes array
+	if ( state.includes.length > 0 && ! state.includes.includes( name ) ) {
+		return settings;
+	}
+
+	// return default settings if block is in the excludes array
+	if ( state.excludes.length > 0 && state.excludes.includes( name ) ) {
+		return settings;
+	}
+
 	if ( settings?.attributes !== undefined ) {
 		settings.attributes = {
 			...settings.attributes,
@@ -323,6 +390,8 @@ const initializeSettings = () => {
 		{ label: __( 'Ease In Out', 'tribe' ), value: 'ease-in-out' },
 		{ label: __( 'Linear', 'tribe' ), value: 'linear' },
 	];
+	state.includes = themeJson.settings.animationIncludes ?? [];
+	state.excludes = themeJson.settings.animationExcludes ?? [];
 };
 
 /**
