@@ -4,7 +4,21 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment } from '@wordpress/element';
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
+import themeJson from '../../../theme.json';
 
+const state = {};
+
+/**
+ * @function applyAnimationProps
+ *
+ * @description updates props on the block with new animation settings
+ *
+ * @param {Object} props
+ * @param {string} blockType
+ * @param {Object} attributes
+ *
+ * @return {Object} updated props object
+ */
 const applyAnimationProps = ( props, blockType, attributes ) => {
 	const {
 		animationStyle,
@@ -52,6 +66,11 @@ const applyAnimationProps = ( props, blockType, attributes ) => {
 	return props;
 };
 
+/**
+ * @function animationControls
+ *
+ * @description creates component that overrides the edit functionality of the block with new animation controls
+ */
 const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
 		const { attributes, setAttributes, isSelected } = props;
@@ -122,41 +141,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 											animationStyle: newValue,
 										} );
 									} }
-									options={ [
-										{
-											label: __( 'None', 'tribe' ),
-											value: 'none',
-										},
-										{
-											label: __( 'Fade In', 'tribe' ),
-											value: 'fade-in',
-										},
-										{
-											label: __( 'Fade In Up', 'tribe' ),
-											value: 'fade-in-up',
-										},
-										{
-											label: __(
-												'Fade In Down',
-												'tribe'
-											),
-											value: 'fade-in-down',
-										},
-										{
-											label: __(
-												'Fade In Right',
-												'tribe'
-											),
-											value: 'fade-in-right',
-										},
-										{
-											label: __(
-												'Fade In Left',
-												'tribe'
-											),
-											value: 'fade-in-left',
-										},
-									] }
+									options={ state.animations }
 								/>
 								<SelectControl
 									label={ __( 'Animation Speed', 'tribe' ) }
@@ -169,28 +154,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 											animationSpeed: newValue,
 										} )
 									}
-									options={ [
-										{
-											label: __( 'Extra Slow', 'tribe' ),
-											value: '0.7s',
-										},
-										{
-											label: __( 'Slow', 'tribe' ),
-											value: '0.5s',
-										},
-										{
-											label: __( 'Normal', 'tribe' ),
-											value: '0.3s',
-										},
-										{
-											label: __( 'Fast', 'tribe' ),
-											value: '0.2s',
-										},
-										{
-											label: __( 'Extra Fast', 'tribe' ),
-											value: '0.1s',
-										},
-									] }
+									options={ state.speed }
 								/>
 								<SelectControl
 									label={ __( 'Animation Delay', 'tribe' ) }
@@ -204,32 +168,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 											animationDelay: newValue,
 										} )
 									}
-									options={ [
-										{
-											label: __( 'None', 'tribe' ),
-											value: '0s',
-										},
-										{
-											label: __( 'Extra Short', 'tribe' ),
-											value: '0.1s',
-										},
-										{
-											label: __( 'Short', 'tribe' ),
-											value: '0.2s',
-										},
-										{
-											label: __( 'Medium', 'tribe' ),
-											value: '0.3s',
-										},
-										{
-											label: __( 'Long', 'tribe' ),
-											value: '0.5s',
-										},
-										{
-											label: __( 'Extra Long', 'tribe' ),
-											value: '0.7s',
-										},
-									] }
+									options={ state.delays }
 								/>
 								<SelectControl
 									label={ __( 'Animation Easing', 'tribe' ) }
@@ -243,28 +182,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 											animationEasing: newValue,
 										} )
 									}
-									options={ [
-										{
-											label: __( 'Ease', 'tribe' ),
-											value: 'ease',
-										},
-										{
-											label: __( 'Ease In', 'tribe' ),
-											value: 'ease-in',
-										},
-										{
-											label: __( 'Ease Out', 'tribe' ),
-											value: 'ease-out',
-										},
-										{
-											label: __( 'Ease In Out', 'tribe' ),
-											value: 'ease-in-out',
-										},
-										{
-											label: __( 'Linear', 'tribe' ),
-											value: 'linear',
-										},
-									] }
+									options={ state.easings }
 								/>
 								<ToggleControl
 									label={ __(
@@ -307,6 +225,15 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 	};
 }, 'animationControls' );
 
+/**
+ * @function addAnimationAttributes
+ *
+ * @description add new attributes to blocks for animation settings
+ *
+ * @param {Object} settings
+ *
+ * @return {Object} returns updates settings object
+ */
 const addAnimationAttributes = ( settings ) => {
 	if ( settings?.attributes !== undefined ) {
 		settings.attributes = {
@@ -335,7 +262,12 @@ const addAnimationAttributes = ( settings ) => {
 	return settings;
 };
 
-const handleFilters = () => {
+/**
+ * @function registerFilters
+ *
+ * @description register block filters for adding animation controls
+ */
+const registerFilters = () => {
 	addFilter(
 		'blocks.registerBlockType',
 		'tribe/add-animation-options',
@@ -355,8 +287,55 @@ const handleFilters = () => {
 	);
 };
 
+/**
+ * @function initializeSettings
+ *
+ * @description pull settings from theme.json or add default settings
+ */
+const initializeSettings = () => {
+	state.animations = themeJson?.settings?.animations ?? [
+		{ label: __( 'None', 'tribe' ), value: 'none' },
+		{ label: __( 'Fade In', 'tribe' ), value: 'fade-in' },
+		{ label: __( 'Fade In Up', 'tribe' ), value: 'fade-in-up' },
+		{ label: __( 'Fade In Down', 'tribe' ), value: 'fade-in-down' },
+		{ label: __( 'Fade In Right', 'tribe' ), value: 'fade-in-right' },
+		{ label: __( 'Fade In Left', 'tribe' ), value: 'fade-in-left' },
+	];
+	state.speeds = themeJson?.settings?.animationSpeeds ?? [
+		{ label: __( 'Extra Slow', 'tribe' ), value: '0.7s' },
+		{ label: __( 'Slow', 'tribe' ), value: '0.5s' },
+		{ label: __( 'Normal', 'tribe' ), value: '0.3s' },
+		{ label: __( 'Fast', 'tribe' ), value: '0.2s' },
+		{ label: __( 'Extra Fast', 'tribe' ), value: '0.1s' },
+	];
+	state.delays = themeJson?.settings?.animationDelays ?? [
+		{ label: __( 'None', 'tribe' ), value: '0s' },
+		{ label: __( 'Extra Short', 'tribe' ), value: '0.1s' },
+		{ label: __( 'Short', 'tribe' ), value: '0.2s' },
+		{ label: __( 'Medium', 'tribe' ), value: '0.3s' },
+		{ label: __( 'Long', 'tribe' ), value: '0.5s' },
+		{ label: __( 'Extra Long', 'tribe' ), value: '0.7s' },
+	];
+	state.easings = themeJson?.settings?.animationEasings ?? [
+		{ label: __( 'Ease', 'tribe' ), value: 'ease' },
+		{ label: __( 'Ease In', 'tribe' ), value: 'ease-in' },
+		{ label: __( 'Ease Out', 'tribe' ), value: 'ease-out' },
+		{ label: __( 'Ease In Out', 'tribe' ), value: 'ease-in-out' },
+		{ label: __( 'Linear', 'tribe' ), value: 'linear' },
+	];
+};
+
+/**
+ * @function init
+ *
+ * @description initializes this modules functions
+ */
 const init = () => {
-	handleFilters();
+	// initialize settings
+	initializeSettings();
+
+	// handle registering block filters
+	registerFilters();
 };
 
 export default init;
