@@ -32,6 +32,7 @@ class Blocks_Definer implements Definer_Interface {
 			self::TYPES           => DI\add( [
 				'tribe/post-type-name',
 				'tribe/post-permalink',
+				'tribe/query-results-count',
 			] ),
 
 			self::EXTENDED        => DI\add( [
