@@ -2,8 +2,8 @@ name: Dokku Deploy Review App
 
 on:
   workflow_dispatch:
-  # pull_request:
-  #   types: [ opened, closed, synchronize ]
+  pull_request:
+    types: [ opened, closed, synchronize ]
 
 
 # workflows don't support env
