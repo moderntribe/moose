@@ -1,0 +1,181 @@
+/**
+ * @module stacking-order
+ *
+ * @description handles setting up stacking order settings for columns block
+ *
+ */
+
+import { InspectorControls } from '@wordpress/block-editor';
+import {
+	PanelBody,
+	__experimentalNumberControl as NumberControl,
+} from '@wordpress/components';
+import { createHigherOrderComponent } from '@wordpress/compose';
+import { Fragment } from '@wordpress/element';
+import { addFilter } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
+
+/**
+ * @function applyAnimationProps
+ *
+ * @description updates props on the block with new animation settings
+ *
+ * @param {Object} props
+ * @param {Object} block
+ * @param {Object} attributes
+ *
+ * @return {Object} updated props object
+ */
+const applyStackingOrderProps = ( props, block, attributes ) => {
+	// return default props if block isn't in the includes array
+	if ( block.name !== 'core/column' ) {
+		return props;
+	}
+
+	const { stackingOrder } = attributes;
+
+	if ( stackingOrder === undefined || stackingOrder === 0 ) {
+		return props;
+	}
+
+	props.className = `${ props.className } tribe-has-stacking-order`;
+	props.style = {
+		...props.style,
+		'--tribe-stacking-order': stackingOrder,
+	};
+
+	return props;
+};
+
+/**
+ * @function stackingOrderControls
+ *
+ * @description creates component that overrides the edit functionality of the block with new stacking order controls
+ */
+const stackingOrderControls = createHigherOrderComponent( ( BlockEdit ) => {
+	return ( props ) => {
+		const { attributes, setAttributes, isSelected, name } = props;
+
+		// return default Edit function if block isn't a column block
+		if ( name !== 'core/column' ) {
+			return <BlockEdit { ...props } />;
+		}
+
+		const { stackingOrder } = attributes;
+
+		let blockClass =
+			attributes.className !== undefined ? attributes.className : '';
+		const blockStyles = { ...props.style };
+
+		if ( stackingOrder !== undefined && stackingOrder !== 0 ) {
+			blockClass = `${ blockClass } tribe-has-stacking-order`;
+			blockStyles[ '--tribe-stacking-order' ] = stackingOrder;
+		}
+
+		const blockProps = {
+			...props,
+			attributes: {
+				...attributes,
+				className: blockClass,
+			},
+			style: blockStyles,
+		};
+
+		return (
+			<Fragment>
+				<div style={ blockStyles } className={ blockClass }>
+					<BlockEdit { ...blockProps } />
+					{ isSelected && (
+						<InspectorControls>
+							<PanelBody
+								title={ __( 'Tribe Stacking Order', 'tribe' ) }
+								initialOpen={ false }
+							>
+								<NumberControl
+									label={ __( 'Stacking Order', 'tribe' ) }
+									value={ stackingOrder ?? 0 }
+									help={ __(
+										'The stacking order of the element at mobile breakpoints.',
+										'tribe'
+									) }
+									onChange={ ( newValue ) => {
+										setAttributes( {
+											stackingOrder: newValue,
+										} );
+									} }
+									min={ 0 }
+									isShiftStepEnabled={ false }
+								/>
+							</PanelBody>
+						</InspectorControls>
+					) }
+				</div>
+			</Fragment>
+		);
+	};
+}, 'stackingOrderControls' );
+
+/**
+ * @function addStackingOrderAttributes
+ *
+ * @description add new attributes to blocks for stacking order settings
+ *
+ * @param {Object} settings
+ * @param {string} name
+ *
+ * @return {Object} returns updates settings object
+ */
+const addStackingOrderAttributes = ( settings, name ) => {
+	// return default settings if block isn't a column block
+	if ( name !== 'core/column' ) {
+		return settings;
+	}
+
+	if ( settings?.attributes !== undefined ) {
+		settings.attributes = {
+			...settings.attributes,
+			stackingOrder: {
+				type: 'string',
+			},
+		};
+	}
+
+	return settings;
+};
+
+/**
+ * @function registerFilters
+ *
+ * @description register block filters for adding stacking order controls
+ */
+const registerFilters = () => {
+	addFilter(
+		'blocks.registerBlockType',
+		'tribe/add-stacking-order-options',
+		addStackingOrderAttributes
+	);
+
+	addFilter(
+		'editor.BlockEdit',
+		'tribe/stacking-order-advanced-control',
+		stackingOrderControls
+	);
+
+	addFilter(
+		'blocks.getSaveContent.extraProps',
+		'tribe/apply-stacking-order-classes',
+		applyStackingOrderProps
+	);
+};
+
+/**
+ * @function init
+ *
+ * @description initializes this modules functions
+ */
+const init = () => {
+	// handle registering block filters
+	registerFilters();
+};
+
+export default init;
