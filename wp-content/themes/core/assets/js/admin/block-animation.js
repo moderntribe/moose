@@ -358,6 +358,9 @@ const registerFilters = () => {
  * @function initializeSettings
  *
  * @description pull settings from theme.json or add default settings
+ *
+ * @todo work with design to handle defining these defaults
+ * @todo do we need to handle translations if pulling from theme.json?
  */
 const initializeSettings = () => {
 	state.animations = themeJson?.settings?.animations ?? [
