@@ -5,11 +5,8 @@
  *
  */
 
-import { InspectorControls } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	__experimentalNumberControl as NumberControl,
-} from '@wordpress/components';
+import { InspectorAdvancedControls } from '@wordpress/block-editor';
+import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment } from '@wordpress/element';
 import { addFilter } from '@wordpress/hooks';
@@ -86,28 +83,23 @@ const stackingOrderControls = createHigherOrderComponent( ( BlockEdit ) => {
 				<div style={ blockStyles } className={ blockClass }>
 					<BlockEdit { ...blockProps } />
 					{ isSelected && (
-						<InspectorControls>
-							<PanelBody
-								title={ __( 'Tribe Stacking Order', 'tribe' ) }
-								initialOpen={ false }
-							>
-								<NumberControl
-									label={ __( 'Stacking Order', 'tribe' ) }
-									value={ stackingOrder ?? 0 }
-									help={ __(
-										'The stacking order of the element at mobile breakpoints.',
-										'tribe'
-									) }
-									onChange={ ( newValue ) => {
-										setAttributes( {
-											stackingOrder: newValue,
-										} );
-									} }
-									min={ 0 }
-									isShiftStepEnabled={ false }
-								/>
-							</PanelBody>
-						</InspectorControls>
+						<InspectorAdvancedControls>
+							<NumberControl
+								label={ __( 'Stacking Order', 'tribe' ) }
+								value={ stackingOrder ?? 0 }
+								help={ __(
+									'The stacking order of the element at mobile breakpoints.',
+									'tribe'
+								) }
+								onChange={ ( newValue ) => {
+									setAttributes( {
+										stackingOrder: newValue,
+									} );
+								} }
+								min={ 0 }
+								isShiftStepEnabled={ false }
+							/>
+						</InspectorAdvancedControls>
 					) }
 				</div>
 			</Fragment>
@@ -144,11 +136,12 @@ const addStackingOrderAttributes = ( settings, name ) => {
 };
 
 /**
- * @function registerFilters
+ * @function init
  *
- * @description register block filters for adding stacking order controls
+ * @description initializes this modules functions
  */
-const registerFilters = () => {
+const init = () => {
+	// register block filters for adding stacking order controls
 	addFilter(
 		'blocks.registerBlockType',
 		'tribe/add-stacking-order-options',
@@ -166,16 +159,6 @@ const registerFilters = () => {
 		'tribe/apply-stacking-order-classes',
 		applyStackingOrderProps
 	);
-};
-
-/**
- * @function init
- *
- * @description initializes this modules functions
- */
-const init = () => {
-	// handle registering block filters
-	registerFilters();
 };
 
 export default init;
