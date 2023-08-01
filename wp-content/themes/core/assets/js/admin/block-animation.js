@@ -182,7 +182,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 					{ isSelected && (
 						<InspectorControls>
 							<PanelBody
-								title={ __( 'Tribe Animations', 'tribe' ) }
+								title={ __( 'Block Animations', 'tribe' ) }
 								initialOpen={ false }
 							>
 								<SelectControl
