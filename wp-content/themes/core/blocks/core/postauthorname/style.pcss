@@ -1,0 +1,25 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-post-author-name {
+
+	@mixin t-body-small;
+
+	/**
+	 * add ::before pseduo element to create "By" text
+	 */
+	&::before {
+		content: "By ";
+	}
+
+	> a {
+		color: var(--color-black);
+		font-weight: 700;
+
+		&:hover,
+		&:focus {
+			color: var(--color-neutral-80);
+		}
+	}
+}

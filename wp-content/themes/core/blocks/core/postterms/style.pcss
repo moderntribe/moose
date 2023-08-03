@@ -2,10 +2,50 @@
  * Styles specific to this block
  */
 
-.wp-block-post-terms {
+.wp-block-post-terms,
+:is(.editor-styles-wrapper) .wp-block-post-terms {
 
 	> a {
 
 		@mixin t-category;
+		color: var(--color-black);
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	/**
+	 * Adding the .is-tags class to the post terms block will give pill shaped
+	 * clickable tags: http://p.tri.be/i/K0SeDF
+	 * Post terms block adds forced separator with an empty space if nothing is
+	 * defined in the "Separator" field in the block editor, so the gap of 2px
+	 * is set to define a small space between each tag and the separator (for
+	 * a total of ~8px between each tag)
+	 */
+	&.is-tags {
+		display: flex;
+		align-items: center;
+		gap: 2px;
+
+		> a {
+
+			@mixin t-tag;
+			display: inline-flex;
+			padding: 4px 16px;
+			align-items: center;
+			background-color: var(--color-neutral-20);
+			border-radius: 100px;
+			color: var(--color-black);
+			transition: var(--transition);
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-black);
+				color: var(--color-white);
+				text-decoration: none;
+			}
+		}
 	}
 }
