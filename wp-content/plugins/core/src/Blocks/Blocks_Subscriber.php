@@ -37,7 +37,7 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		add_filter( 'render_block', function ( string $block_content, array $block ): string {
 			$filter = $this->container->get( Filter_Factory::class )->make( $block );
 
-			return $filter ? $filter->filter_block_content( $block_content ) : $block_content;
+			return $filter ? $filter->filter_block_content( $block_content, $block ) : $block_content;
 		}, 10, 2 );
 
 		add_action( 'after_setup_theme', function (): void {
