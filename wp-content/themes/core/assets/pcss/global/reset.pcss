@@ -88,6 +88,16 @@ select {
 	margin: 0;
 }
 
+/**
+ * Hide default "X" icon in webkit browsers for search inputs
+ */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+	display: none;
+}
+
 :where(.wp-site-blocks) *:focus-visible {
 
 	@mixin focus-visible;
