@@ -1,0 +1,82 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/* -----------------------------------------------------------------------
+ * Terms Block
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	&.aligncenter {
+		justify-content: center;
+	}
+
+	&.alignright {
+		justify-content: flex-end;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Terms Block - List
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms__list {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+/* -----------------------------------------------------------------------
+ * Terms Block - Link (sometimes not a link)
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms__link {
+
+	@mixin t-category;
+	color: var(--color-black);
+
+	/* target links for the hover/focus effect */
+	&:is(a) {
+
+		&:hover,
+		&:focus {
+			color: var(--color-black);
+			text-decoration: underline;
+		}
+	}
+
+	/* style pills differently */
+	.is-style-pills & {
+
+		@mixin t-tag;
+		display: inline-flex;
+		padding: 4px 16px;
+		align-items: center;
+		background-color: var(--color-neutral-20);
+		border-radius: 100px;
+		color: var(--color-black);
+		text-decoration: none;
+		transition: var(--transition);
+
+		/* target links for the hover/focus effect */
+		&:is(a) {
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-black);
+				color: var(--color-white);
+				text-decoration: none;
+			}
+		}
+	}
+}
