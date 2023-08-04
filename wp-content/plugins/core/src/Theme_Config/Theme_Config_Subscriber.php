@@ -16,6 +16,10 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 			$this->container->get( Image_Sizes::class )->register_sizes();
 		}, 10, 0 );
 
+		add_filter( 'excerpt_more', static function (): string {
+			return '...';
+		});
+
 		// Handle admin functions for disabling comments
 		add_action( 'admin_init', function (): void {
 			$this->container->get( Comment_Support::class )->admin_comment_page_redirect();
