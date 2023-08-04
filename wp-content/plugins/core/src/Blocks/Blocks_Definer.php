@@ -14,6 +14,7 @@ use Tribe\Theme\blocks\core\paragraph\Paragraph;
 use Tribe\Theme\blocks\core\postterms\Post_Terms;
 use Tribe\Theme\blocks\core\querypagination\Query_Pagination;
 use Tribe\Theme\blocks\core\quote\Quote;
+use Tribe\Theme\blocks\core\search\Search;
 use Tribe\Theme\blocks\core\separator\Separator;
 use Tribe\Theme\blocks\core\spacer\Spacer;
 use Tribe\Theme\blocks\core\table\Table;
@@ -45,6 +46,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Post_Terms::class ),
 				DI\get( Query_Pagination::class ),
 				DI\get( Quote::class ),
+				DI\get( Search::class ),
 				DI\get( Separator::class ),
 				DI\get( Spacer::class ),
 				DI\get( Table::class ),
