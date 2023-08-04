@@ -21,6 +21,9 @@ if ( $taxonomy === 'category' && $only_primay_term && class_exists( 'WPSEO_Prima
 	$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
 	if ( $wpseo_primary_term ) {
 		$primary_term = get_term( $wpseo_primary_term );
+	} else {
+		$terms        = get_the_terms( get_the_ID(), $taxonomy );
+		$primary_term = $terms ? $terms[0] : false;
 	}
 } elseif ( $only_primay_term ) {
 	$terms        = get_the_terms( get_the_ID(), $taxonomy );
