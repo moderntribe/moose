@@ -4,8 +4,7 @@
 	"name": "tribe/terms",
 	"version": "0.1.0",
 	"title": "Terms",
-	"category": "text",
-	"icon": "tag",
+	"category": "tribe-custom",
 	"description": "Displays chosen taxonomy terms in different formats",
 	"supports": {
 		"html": false,
