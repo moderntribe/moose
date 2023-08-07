@@ -15,13 +15,9 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public function register(): void {
 		$args = $this->get_asset_file_args( $this->assets_path . self::ASSETS_FILE );
-		wp_enqueue_style(
-			self::ADMIN,
-			$this->assets_path_uri . self::ADMIN_FILE_NAME . '.css',
-			[],
-			$args['version'] ?? false,
-			'all',
-		);
+
+		add_editor_style( $this->assets_path_uri . self::ADMIN_FILE_NAME . '.css' );
+
 		wp_enqueue_script(
 			self::ADMIN,
 			$this->assets_path_uri . self::ADMIN_FILE_NAME . '.js',

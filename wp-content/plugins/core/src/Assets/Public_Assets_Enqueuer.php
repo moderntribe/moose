@@ -9,6 +9,7 @@ class Public_Assets_Enqueuer extends Assets_Enqueuer {
 
 	public function register(): void {
 		$args = $this->get_asset_file_args( $this->assets_path . self::ASSETS_FILE );
+
 		wp_enqueue_style(
 			self::PUBLIC,
 			$this->assets_path_uri . self::PUBLIC . '.css',
@@ -16,6 +17,7 @@ class Public_Assets_Enqueuer extends Assets_Enqueuer {
 			$args['version'] ?? false,
 			'all',
 		);
+
 		wp_enqueue_script(
 			self::PUBLIC,
 			$this->assets_path_uri . self::PUBLIC . '.js',
