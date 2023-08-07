@@ -72,7 +72,7 @@ const blockEntryPoints = () => {
 	);
 
 	const coreBlockEditorFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/admin.js`,
+		`${ pkg.config.coreThemeBlocksDir }/**/editor.js`,
 		{ absolute: true }
 	);
 
