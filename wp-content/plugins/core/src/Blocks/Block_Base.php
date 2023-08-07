@@ -74,7 +74,7 @@ abstract class Block_Base {
 			return;
 		}
 
-		wp_enqueue_block_style( $block, [
+		wp_enqueue_block_style( $this->get_block_name(), [
 			'handle' => "$block-styles",
 			'src'    => $src,
 			'deps'   => $this->get_block_dependencies(),

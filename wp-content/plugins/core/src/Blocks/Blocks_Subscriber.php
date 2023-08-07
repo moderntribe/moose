@@ -23,6 +23,11 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$block->register_block_style();
 			}
 
+			// Register block CSS stylesheets.
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				$block->enqueue_front_style();
+			}
+
 			// Register block pattern categories.
 			$this->container->get( Pattern_Category::class )->register_pattern_categories();
 
@@ -31,20 +36,6 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$this->container->get( Pattern_Registrar::class )->register( $pattern );
 			}
 		}, 10, 0 );
-
-		/* Register block CSS stylesheets. */
-		add_action( 'wp_enqueue_scripts', function (): void {
-			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				$block->enqueue_front_style();
-			}
-		}, 10, 0 );
-
-		/* Register block editor scripts */
-		// add_action( 'after_setup_theme', function (): void {
-		// 	foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-
-		// 	}
-		// }, 10, 0 );
 
 		/* Enqueue block editor styles / scripts */
 		add_action( 'enqueue_block_editor_assets', function (): void {
