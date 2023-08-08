@@ -11,7 +11,6 @@ import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
 
 import animation from './block-animation.js';
-import stackingOrder from './stacking-order.js';
 
 /**
  * @function bindEvents
@@ -49,9 +48,6 @@ const init = () => {
 const domReady = () => {
 	// initialize admin block animation settings
 	animation();
-
-	// initialize admin stacking order settings
-	stackingOrder();
 
 	ready( init );
 };

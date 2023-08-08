@@ -6,6 +6,8 @@ use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
+use Tribe\Theme\blocks\core\column\Column;
+use Tribe\Theme\blocks\core\columns\Columns;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\image\Image;
@@ -37,6 +39,8 @@ class Blocks_Definer implements Definer_Interface {
 
 			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
+				DI\get( Column::class ),
+				DI\get( Columns::class ),
 				DI\get( Embed::class ),
 				DI\get( Heading::class ),
 				DI\get( Image::class ),

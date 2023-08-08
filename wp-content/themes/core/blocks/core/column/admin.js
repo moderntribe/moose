@@ -61,7 +61,9 @@ const stackingOrderControls = createHigherOrderComponent( ( BlockEdit ) => {
 		const { stackingOrder } = attributes;
 
 		let blockClass =
-			attributes.className !== undefined ? attributes.className : '';
+			attributes.className !== undefined
+				? attributes.className
+				: 'wp-block-column';
 		const blockStyles = { ...props.style };
 
 		if ( stackingOrder !== undefined && stackingOrder !== 0 ) {
@@ -135,30 +137,21 @@ const addStackingOrderAttributes = ( settings, name ) => {
 	return settings;
 };
 
-/**
- * @function init
- *
- * @description initializes this modules functions
- */
-const init = () => {
-	// register block filters for adding stacking order controls
-	addFilter(
-		'blocks.registerBlockType',
-		'tribe/add-stacking-order-options',
-		addStackingOrderAttributes
-	);
+// register block filters for adding stacking order controls
+addFilter(
+	'blocks.registerBlockType',
+	'tribe/add-stacking-order-options',
+	addStackingOrderAttributes
+);
 
-	addFilter(
-		'editor.BlockEdit',
-		'tribe/stacking-order-advanced-control',
-		stackingOrderControls
-	);
+addFilter(
+	'editor.BlockEdit',
+	'tribe/stacking-order-advanced-control',
+	stackingOrderControls
+);
 
-	addFilter(
-		'blocks.getSaveContent.extraProps',
-		'tribe/apply-stacking-order-classes',
-		applyStackingOrderProps
-	);
-};
-
-export default init;
+addFilter(
+	'blocks.getSaveContent.extraProps',
+	'tribe/apply-stacking-order-classes',
+	applyStackingOrderProps
+);
