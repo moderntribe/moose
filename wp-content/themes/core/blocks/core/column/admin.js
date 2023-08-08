@@ -91,7 +91,7 @@ const stackingOrderControls = createHigherOrderComponent( ( BlockEdit ) => {
 								label={ __( 'Stacking Order', 'tribe' ) }
 								value={ stackingOrder ?? 0 }
 								help={ __(
-									'The stacking order of the element at mobile breakpoints.',
+									'The stacking order of the element at mobile breakpoints. This setting only applies if the "Stack on mobile" setting for the Columns block is turned on.',
 									'tribe'
 								) }
 								onChange={ ( newValue ) => {
