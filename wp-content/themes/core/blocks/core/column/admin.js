@@ -6,6 +6,7 @@
  */
 
 import { InspectorAdvancedControls } from '@wordpress/block-editor';
+// eslint-disable-next-line
 import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment } from '@wordpress/element';
