@@ -1210,7 +1210,7 @@
         },
         {
             "name": "gravityforms/gravityforms",
-            "version": "2.7",
+            "version": "2.7.12",
             "dist": {
                 "type": "zip",
                 "url": "https://composer.utility.mtribe.site/gravityforms/?key={%WP_PLUGIN_GF_KEY}&token={%WP_PLUGIN_GF_TOKEN}&t={%VERSION}"
