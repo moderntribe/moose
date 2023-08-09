@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - Updated: WordPress core to 6.3
 - Updated: ACF to 6.1.8
-- Updates: Gravity Forms to 2.7.12
+- Updated: Gravity Forms to 2.7.12
 - Updated: Local Lando PHP version to 8.1
 - Updated: Misc composer packages updated to match local PHP version
 - Added: Stacking order controls on the Column block. This allows editors to control what order columns appear in at mobile widths.
