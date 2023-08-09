@@ -12,7 +12,11 @@
 			"cweagans/composer-patches": true,
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"phpstan/extension-installer": true
-		}
+		},
+		"platform": {
+			"php": "8.1"
+		},
+		"platform-check": false
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
@@ -22,6 +26,7 @@
 		"phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
 		"setup-project": [
 			"@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
+			"@php -r \"file_exists('auth.json') || copy('auth-sample.json', 'auth.json');\"",
 			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
 			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
 		],
@@ -40,7 +45,7 @@
 		"phpcs": "Run PHPCS on the project.",
 		"phpcbf": "Run PHPCBF on the project.",
 		"phpstan": "Run PHPStan on the project.",
-		"setup-project": "Moves the .env, local-config.php, and local-config.json files for setting up the project.",
+		"setup-project": "Moves the .env, auth.json, local-config.php, and local-config.json files for setting up the project.",
 		"setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value."
 	},
 	"repositories": [
@@ -68,19 +73,8 @@
 			}
 		},
 		{
-			"type": "package",
-			"package": {
-				"name": "advanced-custom-fields/advanced-custom-fields-pro",
-				"version": "6.1.8",
-				"type": "wordpress-plugin",
-				"dist": {
-					"type": "zip",
-					"url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%WP_PLUGIN_ACF_KEY}&t={%VERSION}"
-				},
-				"require": {
-					"ffraenz/private-composer-installer": "^5.0"
-				}
-			}
+			"type": "composer",
+			"url": "https://connect.advancedcustomfields.com"
 		},
 		{
 			"type": "package",
@@ -116,8 +110,7 @@
 		"wpackagist-plugin/debug-bar": "^1.1"
 	},
 	"require": {
-		"php": "^7.4|^8.0",
-		"advanced-custom-fields/advanced-custom-fields-pro": "*",
+		"php": "^8.0|^8.1",
 		"block-editor-custom-alignments/block-editor-custom-alignments": "*",
 		"composer/installers": "^2.2",
 		"gravityforms/gravityforms": "*",
@@ -138,7 +131,8 @@
 		"wpackagist-plugin/safe-svg": "^2.1",
 		"wpackagist-plugin/user-switching": "^1.7",
 		"wpackagist-plugin/wordpress-seo": "^20.1",
-		"wpackagist-plugin/wp-tota11y": "^1.2"
+		"wpackagist-plugin/wp-tota11y": "^1.2",
+		"wpengine/advanced-custom-fields-pro": "6.2"
 	},
 	"extra": {
 		"installer-paths": {
