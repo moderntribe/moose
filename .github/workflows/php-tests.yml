@@ -6,6 +6,9 @@ on:
       COMPOSER_ENV:
         required: true
         description: COMPOSER_ENV Secret
+      COMPOSER_AUTH_JSON:
+        required: true
+        description: Composer auth.json
 
 jobs:
   test:
@@ -20,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       build_folder: build
+      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
 
     steps:
       - name: Checkout the repository
