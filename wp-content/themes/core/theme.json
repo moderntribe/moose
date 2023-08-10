@@ -439,19 +439,10 @@
 				}
 			},
 			"core/quote": {
-				"border": {
-					"left": {
-						"width": "0",
-						"color": "currentcolor"
-					}
-				},
 				"spacing": {
 					"margin": {
 						"top": "2rem",
 						"bottom": "2rem"
-					},
-					"padding": {
-						"left": "0"
 					}
 				},
 				"typography": {
