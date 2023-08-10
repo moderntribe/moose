@@ -2,7 +2,7 @@
 	"http-basic": {
 		"connect.advancedcustomfields.com": {
 			"username": "ACF License Key",
-			"password": "SITE_URL"
+			"password": "https://moose.lando.site"
 		}
 	}
 }

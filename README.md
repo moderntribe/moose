@@ -23,7 +23,7 @@ It is recommeneded to create a blank blueprint in Local by Flywheel in order to 
 
 ### BE Setup
 
-Run `composer run setup-project` to copy the `.env`, `auth.json`, and `local-config` files over. Once that has completed, update the `.env` file to include the required license for Gravity Forms and update the `auth.json` to include the [ACF License for the username](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) and the site url in the password section. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php` for the local environment you are working in.
+Run `composer run setup-project` to copy the `.env`, `auth.json`, and `local-config` files over. Once that has completed, update the `.env` file to include the required license for Gravity Forms and update the `auth.json` to include the [ACF License for the username](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) and the site url (`https://moose.lndo.site`) in the password section. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php` for the local environment you are working in.
 
 ``` bash
 composer setup-project
