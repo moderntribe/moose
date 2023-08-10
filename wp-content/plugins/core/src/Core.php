@@ -68,7 +68,7 @@ class Core {
 	private function init_container( string $plugin_path ): void {
 
 		/**
-		 * Filter the list of definers that power the plugin
+		 * Filter the list of definers that power the plugin.
 		 *
 		 * @param string[] $definers The class names of definers that will be instantiated
 		 */
