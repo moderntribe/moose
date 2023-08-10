@@ -30,6 +30,8 @@ on:
         required: true
       slack_webhook:
         required: true
+      COMPOSER_AUTH_JSON:
+        required: true
 
 jobs:
   deploy_dokku:
@@ -57,6 +59,10 @@ jobs:
       - name: Create local config
         run: |
           mv .deploy/config/local-config-dokku.php local-config.php
+
+      - name: Composer Auth Setup
+        run: |
+          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
 
       - name: Setup node version
         uses: actions/setup-node@v2

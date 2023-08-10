@@ -34,6 +34,7 @@ jobs:
       github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
       ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      composer_auth_json: ${{ secrets.COMPOSER_AUTH_JSON }}
 
   destroy_review_app:
     if: (github.event_name == 'pull_request' && github.event.action == 'closed') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
