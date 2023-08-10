@@ -105,21 +105,26 @@ const copyPluginIndex = defaultConfig.plugins.findIndex(
 );
 
 if ( copyPluginIndex > -1 ) {
-	const blockJsonPatternIndex = defaultConfig.plugins[
-		copyPluginIndex
-	].patterns.findIndex( ( pattern ) => pattern.from === '**/block.json' );
-
-	if ( blockJsonPatternIndex > -1 ) {
-		defaultConfig.plugins[ copyPluginIndex ].patterns[
-			blockJsonPatternIndex
-		] = {
-			...defaultConfig.plugins[ copyPluginIndex ].patterns[
-				blockJsonPatternIndex
-			],
-			context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
-			to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
-		};
-	}
+	defaultConfig.plugins[ copyPluginIndex ].patterns.forEach(
+		( pattern, index ) => {
+			if ( pattern.from === '**/block.json' ) {
+				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
+					...defaultConfig.plugins[ copyPluginIndex ].patterns[
+						index
+					],
+					context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
+					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
+				};
+			} else if ( pattern.from === '**/*.php' ) {
+				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
+					from: '**/*.php',
+					noErrorOnMissing: true,
+					context: resolve( pkg.config.coreThemeDir, 'blocks/tribe' ),
+					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/tribe' ),
+				};
+			}
+		}
+	);
 }
 
 module.exports = {
