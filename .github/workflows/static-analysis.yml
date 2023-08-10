@@ -56,8 +56,9 @@ jobs:
         if: steps.changed-files.outputs.phpstan == 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
+          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
-          rm .env
+          rm .env auth.json
 
       - name: Run PHPStan static analysis
         if: steps.changed-files.outputs.phpstan == 'true'

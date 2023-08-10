@@ -66,6 +66,7 @@ jobs:
         if: steps.changed-files.outputs.tests == 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> ${GITHUB_WORKSPACE}/${{ env.build_folder }}/.env
+          echo "${{ secrets.COMPOSER_AUTH_JSON }}" >> ${GITHUB_WORKSPACE}/${{ env.build_folder }}/auth.json
 
       - name: Set up slic env vars
         if: steps.changed-files.outputs.tests == 'true'

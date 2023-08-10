@@ -52,8 +52,9 @@ jobs:
         if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           echo "${{ secrets.COMPOSER_ENV }}" >> .env
+          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
-          rm .env
+          rm .env auth.json
 
       - name: Run PHPCS
         if: steps.changed-files.outputs.phpcs == 'true'
