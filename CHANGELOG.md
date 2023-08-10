@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2023.08]
 
-- Updated: WordPress core to 6.3, ACF to 6.1.8, Gravity Forms to 2.7.12, Local Lando PHP version to 8.1, Yoast SEO to ^20.1.
+- Updated: Composer method for pulling in ACF requiring the use of a auth.json file.
+- Updated: WordPress core to 6.3, ACF to 6.2, Gravity Forms to 2.7.12, Local Lando PHP version to 8.1, Yoast SEO to ^20.1.
 - Updated: Misc composer packages updated to match local PHP version
 - Added: Stacking order controls on the Column block. This allows editors to control what order columns appear in at mobile widths.
 
