@@ -18,14 +18,14 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$this->container->get( Block_Registrar::class )->register( $type );
 			}
 
-			// Register block styles
+			// Register block variations (called "Block Styles")
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				$block->register_block_style();
+				$block->register_core_block_variations();
 			}
 
 			// Register block CSS stylesheets.
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				$block->enqueue_front_style();
+				$block->enqueue_core_block_front_style();
 			}
 
 			// Register block pattern categories.
@@ -37,11 +37,24 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 			}
 		}, 10, 0 );
 
-		/* Enqueue block editor styles / scripts */
+		/**
+		 * Enqueue block editor styles / scripts
+		 *
+		 * Includes FE styles & editor styles so editor styles can override the FE ones
+		 *
+		 * Core blocks shouldn't ever have FE scripts and should only include
+		 * editor scripts in order to override default block functionality
+		 */
 		add_action( 'enqueue_block_editor_assets', function (): void {
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				$block->enqueue_editor_style();
-				$block->enqueue_editor_scripts();
+				// core block front styles
+				$block->enqueue_core_block_editor_front_style();
+
+				// core block editor styles
+				$block->enqueue_core_block_editor_style();
+
+				// core block editor scripts
+				$block->enqueue_core_block_editor_script();
 			}
 		}, 10, 0 );
 
