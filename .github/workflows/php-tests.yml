@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       build_folder: build
-      COMPOSER_AUTH: '${{ secret.COMPOSER_AUTH_JSON }}'
+      COMPOSER_AUTH: ${{ secret.COMPOSER_AUTH_JSON }}
 
     steps:
       - name: Checkout the repository
