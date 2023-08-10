@@ -69,6 +69,7 @@ local-xdebuginfo.php
 /wp/
 .phpstan-cache/
 node_modules/
+auth.json
 
 wp-content/themes/core/dist/
 wp-content/plugins/core/dist/
