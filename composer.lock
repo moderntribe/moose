@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66272c6d22b3e8c7aba47d125b5e01e1",
+    "content-hash": "c274c26e484ad04bcb438ad8e9089acf",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.277.12",
+            "version": "3.278.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2f7c7f7d4c949469eca4e4c18fb5646aafb0375c"
+                "reference": "494c3bcd0e1f99aed7ef8b90e3a413d82f6c7e4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2f7c7f7d4c949469eca4e4c18fb5646aafb0375c",
-                "reference": "2f7c7f7d4c949469eca4e4c18fb5646aafb0375c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/494c3bcd0e1f99aed7ef8b90e3a413d82f6c7e4d",
+                "reference": "494c3bcd0e1f99aed7ef8b90e3a413d82f6c7e4d",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.277.12"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.278.0"
             },
-            "time": "2023-08-09T18:09:09+00:00"
+            "time": "2023-08-10T18:15:03+00:00"
         },
         {
             "name": "block-editor-custom-alignments/block-editor-custom-alignments",
@@ -981,28 +981,35 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v4.8.9",
+            "version": "v4.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "46b053c3559803d4f7e0a281c5425be5a8c3d9ad"
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/46b053c3559803d4f7e0a281c5425be5a8c3d9ad",
-                "reference": "46b053c3559803d4f7e0a281c5425be5a8c3d9ad",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/9fd2cf8230e36fbed87d36b7da9a47441fc27270",
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270",
                 "shasum": ""
             },
             "require": {
                 "gettext/languages": "^2.3",
-                "php": "^7.2|^8.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "brick/varexporter": "^0.3.5",
-                "friendsofphp/php-cs-fixer": "^3.2",
-                "oscarotero/php-cs-fixer-config": "^2.0",
-                "phpunit/phpunit": "^8.0|^9.0",
-                "squizlabs/php_codesniffer": "^3.0"
+                "illuminate/view": "^5.0.x-dev",
+                "phpunit/phpunit": "^4.8|^5.7|^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
+                "symfony/yaml": "~2",
+                "twig/extensions": "*",
+                "twig/twig": "^1.31|^2.0"
+            },
+            "suggest": {
+                "illuminate/view": "Is necessary if you want to use the Blade extractor",
+                "symfony/yaml": "Is necessary if you want to use the Yaml extractor/generator",
+                "twig/extensions": "Is necessary if you want to use the Twig extractor",
+                "twig/twig": "Is necessary if you want to use the Twig extractor"
             },
             "type": "library",
             "autoload": {
@@ -1023,7 +1030,7 @@
                 }
             ],
             "description": "PHP gettext manager",
-            "homepage": "https://github.com/php-gettext/Gettext",
+            "homepage": "https://github.com/oscarotero/Gettext",
             "keywords": [
                 "JS",
                 "gettext",
@@ -1034,8 +1041,8 @@
             ],
             "support": {
                 "email": "oom@oscarotero.com",
-                "issues": "https://github.com/php-gettext/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.9"
+                "issues": "https://github.com/oscarotero/Gettext/issues",
+                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.10"
             },
             "funding": [
                 {
@@ -1051,7 +1058,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-04-14T08:18:49+00:00"
+            "time": "2023-08-10T14:26:38+00:00"
         },
         {
             "name": "gettext/languages",
@@ -8647,21 +8654,21 @@
         },
         {
             "name": "php-stubs/wordpress-stubs",
-            "version": "v6.2.1",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "0009429e639b748eef1c955200ea0d4e5ad5627d"
+                "reference": "adda7609e71d5f4dc7b87c74f8ec9e3437d2e92c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/0009429e639b748eef1c955200ea0d4e5ad5627d",
-                "reference": "0009429e639b748eef1c955200ea0d4e5ad5627d",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/adda7609e71d5f4dc7b87c74f8ec9e3437d2e92c",
+                "reference": "adda7609e71d5f4dc7b87c74f8ec9e3437d2e92c",
                 "shasum": ""
             },
             "require-dev": {
-                "nikic/php-parser": "< 4.12.0",
-                "php": "~7.3 || ~8.0",
+                "nikic/php-parser": "^4.13",
+                "php": "^7.4 || ~8.0.0",
                 "php-stubs/generator": "^0.8.3",
                 "phpdocumentor/reflection-docblock": "^5.3",
                 "phpstan/phpstan": "^1.10.12",
@@ -8669,7 +8676,6 @@
             },
             "suggest": {
                 "paragonie/sodium_compat": "Pure PHP implementation of libsodium",
-                "symfony/polyfill-php73": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
                 "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
             },
             "type": "library",
@@ -8686,22 +8692,22 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wordpress-stubs/issues",
-                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.2.1"
+                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.3.0"
             },
-            "time": "2023-05-18T04:35:23+00:00"
+            "time": "2023-08-10T16:34:11+00:00"
         },
         {
             "name": "php-stubs/wordpress-tests-stubs",
-            "version": "v6.2.0",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-tests-stubs.git",
-                "reference": "175f395c814d9f52ebd2c1c64069a3b01ef764e8"
+                "reference": "c603908a8e70895ba3d5b5050ed791511cabc60f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-tests-stubs/zipball/175f395c814d9f52ebd2c1c64069a3b01ef764e8",
-                "reference": "175f395c814d9f52ebd2c1c64069a3b01ef764e8",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-tests-stubs/zipball/c603908a8e70895ba3d5b5050ed791511cabc60f",
+                "reference": "c603908a8e70895ba3d5b5050ed791511cabc60f",
                 "shasum": ""
             },
             "require-dev": {
@@ -8726,9 +8732,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wordpress-tests-stubs/issues",
-                "source": "https://github.com/php-stubs/wordpress-tests-stubs/tree/v6.2.0"
+                "source": "https://github.com/php-stubs/wordpress-tests-stubs/tree/v6.3.0"
             },
-            "time": "2023-05-15T07:50:52+00:00"
+            "time": "2023-08-10T16:09:20+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -11785,11 +11791,8 @@
         "php": "^8.0|^8.1"
     },
     "platform-dev": [],
-<<<<<<< HEAD
-=======
     "platform-overrides": {
         "php": "8.1"
     },
->>>>>>> 720662ad7f650207c093f95b84f45c8695494043
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
