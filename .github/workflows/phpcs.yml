@@ -6,6 +6,9 @@ on:
       COMPOSER_ENV:
         required: true
         description: COMPOSER_ENV Secret
+      COMPOSER_AUTH_JSON:
+        required: true
+        description: Composer auth.json
 
 jobs:
   phpcs:
