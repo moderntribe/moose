@@ -1,0 +1,46 @@
+/**
+ * Styles specific to this block
+ */
+
+/**
+ * Vertical (list layout) post template spacing
+ */
+.wp-block-post-template:not(.is-layout-grid) .wp-block-post + .wp-block-post {
+	margin-block-start: var(--spacer-40);
+}
+
+/**
+ * Horizontal (grid layout) post template spacing / media queries
+ *
+ * Essentially the calculations take the amount of columns and subtract
+ * the amount of spacers divided by the amount of columns. This gets the column
+ * width. The calculations subtract an extra pixel due to calc not enjoying our
+ * use of clamped spacer variables.
+ */
+.wp-block-post-template.is-layout-grid {
+	--post-template-grid-template-columns: 1fr;
+	gap: var(--spacer-40);
+	grid-template-columns: var(--post-template-grid-template-columns);
+
+	&.columns-2,
+	&.columns-4 {
+
+		@media (--mq-wp-medium) {
+			--post-template-grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	&.columns-3 {
+
+		@media (--viewport-full) {
+			--post-template-grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	&.columns-4 {
+
+		@media (--viewport-full) {
+			--post-template-grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+}
