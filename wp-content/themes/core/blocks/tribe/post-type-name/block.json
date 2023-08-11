@@ -4,8 +4,7 @@
 	"name": "tribe/post-type-name",
 	"version": "0.1.0",
 	"title": "Post Type Name",
-	"category": "text",
-	"icon": "edit-large",
+	"category": "theme",
 	"description": "Returns the post type name for a post object.",
 	"supports": {
 		"html": false,

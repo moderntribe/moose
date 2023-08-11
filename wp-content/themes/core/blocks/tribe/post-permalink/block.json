@@ -4,8 +4,7 @@
 	"name": "tribe/post-permalink",
 	"version": "0.1.0",
 	"title": "Post Permalink",
-	"category": "text",
-	"icon": "admin-links",
+	"category": "theme",
 	"description": "Returns the post permalink as link text.",
 	"supports": {
 		"html": false,
