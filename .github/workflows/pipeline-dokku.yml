@@ -30,6 +30,8 @@ on:
         required: true
       slack_webhook:
         required: true
+      composer_auth_json:
+        required: true
 
 jobs:
   deploy_dokku:
@@ -68,6 +70,10 @@ jobs:
 
       - name: NPM Build
         run: npm run dist
+
+      - name: Composer Auth Setup
+        run: |
+          echo '${{ secrets.composer_auth_json }}' > auth.json
 
       - name: Commit Files
         uses: moderntribe/actions/utils/commit-files@v1

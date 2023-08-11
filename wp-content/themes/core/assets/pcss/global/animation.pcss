@@ -1,0 +1,103 @@
+/* -------------------------------------------------------------------------
+ *
+ * Global: Animations
+ * Works with our block-animations code in core/assets/js/admin along with
+ * our FE IntersectionObserver in core/assets/js/utils/animate-on-scroll.js
+ * to create animations with settings on individual blocks
+ *
+ * ------------------------------------------------------------------------- */
+
+/* Setup default animation variables so they can be overridden per block */
+:root {
+	--tribe-animation-delay: 0s;
+	--tribe-animation-speed: 0.3s;
+	--tribe-animation-easing: ease;
+}
+
+/* -------------------------------------------------------------------------
+ * Animated Element / Block
+ * We set opacity to 0 here because all of our animations involve fades
+ * Also set the default transition for the block, if the "Animation should
+ * trigger every time the element is in the viewport" setting is checked,
+ * this transition will handle in & out animations.
+ * ------------------------------------------------------------------------- */
+
+.is-animated-on-scroll,
+.is-animated-on-scroll-full {
+	opacity: 0;
+	transition: opacity var(--tribe-animation-speed) var(--tribe-animation-delay) var(--tribe-animation-easing);
+
+	/* -------------------------------------------------------------------------
+	 * Fade In
+	 * Don't run "first time" animation if multiple is set
+	 * ------------------------------------------------------------------------- */
+
+	&.tribe-animation-style-fade-in.is-scrolled-into-view,
+	&:not(.tribe-animate-multiple).tribe-animation-style-fade-in.is-scrolled-into-view-first-time {
+		opacity: 1;
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Fade In Up
+	 * Don't run "first time" animation if multiple is set
+	 * ------------------------------------------------------------------------- */
+
+	&.tribe-animation-style-fade-in-up {
+		transition-property: all;
+		transform: translateY(25%);
+
+		&.is-scrolled-into-view,
+		&:not(.tribe-animate-multiple).is-scrolled-into-view-first-time {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Fade In Down
+	 * Don't run "first time" animation if multiple is set
+	 * ------------------------------------------------------------------------- */
+
+	&.tribe-animation-style-fade-in-down {
+		transition-property: all;
+		transform: translateY(-25%);
+
+		&.is-scrolled-into-view,
+		&:not(.tribe-animate-multiple).is-scrolled-into-view-first-time {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Fade In Right
+	 * Don't run "first time" animation if multiple is set
+	 * ------------------------------------------------------------------------- */
+
+	&.tribe-animation-style-fade-in-right {
+		transition-property: all;
+		transform: translateX(-25%);
+
+		&.is-scrolled-into-view,
+		&:not(.tribe-animate-multiple).is-scrolled-into-view-first-time {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	 * Fade In Left
+	 * Don't run "first time" animation if multiple is set
+	 * ------------------------------------------------------------------------- */
+
+	&.tribe-animation-style-fade-in-left {
+		transition-property: all;
+		transform: translateX(25%);
+
+		&.is-scrolled-into-view,
+		&:not(.tribe-animate-multiple).is-scrolled-into-view-first-time {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+}

@@ -6,14 +6,19 @@ use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Theme\blocks\core\button\Button;
+use Tribe\Theme\blocks\core\column\Column;
+use Tribe\Theme\blocks\core\columns\Columns;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
 use Tribe\Theme\blocks\core\paragraph\Paragraph;
+use Tribe\Theme\blocks\core\postauthorname\Post_Author_Name;
+use Tribe\Theme\blocks\core\posttemplate\Post_Template;
 use Tribe\Theme\blocks\core\postterms\Post_Terms;
 use Tribe\Theme\blocks\core\querypagination\Query_Pagination;
 use Tribe\Theme\blocks\core\quote\Quote;
+use Tribe\Theme\blocks\core\search\Search;
 use Tribe\Theme\blocks\core\separator\Separator;
 use Tribe\Theme\blocks\core\spacer\Spacer;
 use Tribe\Theme\blocks\core\table\Table;
@@ -37,14 +42,19 @@ class Blocks_Definer implements Definer_Interface {
 
 			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
+				DI\get( Column::class ),
+				DI\get( Columns::class ),
 				DI\get( Embed::class ),
 				DI\get( Heading::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),
 				DI\get( Paragraph::class ),
+				DI\get( Post_Author_Name::class ),
+				DI\get( Post_Template::class ),
 				DI\get( Post_Terms::class ),
 				DI\get( Query_Pagination::class ),
 				DI\get( Quote::class ),
+				DI\get( Search::class ),
 				DI\get( Separator::class ),
 				DI\get( Spacer::class ),
 				DI\get( Table::class ),

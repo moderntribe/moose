@@ -6,6 +6,6 @@ abstract class Block_Content_Filter {
 
 	public const BLOCK = '';
 
-	abstract public function filter_block_content( string $block_content ): string;
+	abstract public function filter_block_content( string $block_content, array $block ): string;
 
 }
