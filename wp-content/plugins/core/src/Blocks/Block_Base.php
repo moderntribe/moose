@@ -54,7 +54,7 @@ abstract class Block_Base {
 		}
 
 		foreach ( $this->get_block_styles() as $name => $label ) {
-			\register_block_style( $this->get_block_name(), [
+			register_block_style( $this->get_block_name(), [
 				'name'  => $name,
 				'label' => $label,
 			] );
