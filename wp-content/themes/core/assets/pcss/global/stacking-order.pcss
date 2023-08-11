@@ -1,0 +1,14 @@
+:root {
+	--tribe-stacking-order: 0;
+}
+
+/**
+ * need to target .is-not-stacked-on-mobile to make sure
+ * stacking order actually makes sense
+ */
+.wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column.tribe-has-stacking-order {
+
+	@media (--mq-wp-small-max) {
+		order: var(--tribe-stacking-order);
+	}
+}
