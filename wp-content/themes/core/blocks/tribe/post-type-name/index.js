@@ -41,55 +41,20 @@ registerBlockType( metadata.name, {
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M0 60C0 37.3563 18.3563 19 41 19H159C181.644 19 200 37.3563 200 60C200 82.6437 181.644 101 159 101H41C18.3563 101 0 82.6437 0 60ZM184 60C184 46.1929 172.807 35 159 35H41C27.1929 35 16 46.1929 16 60C16 73.8071 27.1929 85 41 85H159C172.807 85 184 73.8071 184 60Z"
-					fill="url(#paint0_linear_5_380)"
+					fill="currentcolor"
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M18 133C18 128.582 21.5817 125 26 125H174C178.418 125 182 128.582 182 133C182 137.418 178.418 141 174 141H26C21.5817 141 18 137.418 18 133Z"
-					fill="url(#paint1_linear_5_380)"
+					fill="currentcolor"
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M18 173C18 168.582 21.5817 165 26 165H132C136.418 165 140 168.582 140 173C140 177.418 136.418 181 132 181H26C21.5817 181 18 177.418 18 173Z"
-					fill="url(#paint2_linear_5_380)"
+					fill="currentcolor"
 				/>
-				<defs>
-					<linearGradient
-						id="paint0_linear_5_380"
-						x1="27.619"
-						y1="41.3714"
-						x2="140.344"
-						y2="185.675"
-						gradientUnits="userSpaceOnUse"
-					>
-						<stop stopColor="#3050E5" />
-						<stop offset="1" stopColor="#B66CFF" />
-					</linearGradient>
-					<linearGradient
-						id="paint1_linear_5_380"
-						x1="27.619"
-						y1="41.3714"
-						x2="140.344"
-						y2="185.675"
-						gradientUnits="userSpaceOnUse"
-					>
-						<stop stopColor="#3050E5" />
-						<stop offset="1" stopColor="#B66CFF" />
-					</linearGradient>
-					<linearGradient
-						id="paint2_linear_5_380"
-						x1="27.619"
-						y1="41.3714"
-						x2="140.344"
-						y2="185.675"
-						gradientUnits="userSpaceOnUse"
-					>
-						<stop stopColor="#3050E5" />
-						<stop offset="1" stopColor="#B66CFF" />
-					</linearGradient>
-				</defs>
 			</svg>
 		),
 	},
