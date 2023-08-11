@@ -17,6 +17,7 @@ jobs:
     uses: ./.github/workflows/phpcs.yml
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
+      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
 
   linting:
     name: 'Linting'
@@ -28,6 +29,7 @@ jobs:
     uses: ./.github/workflows/static-analysis.yml
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
+      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
 
   slic:
     name: 'PHP Tests'
@@ -35,3 +37,4 @@ jobs:
     uses: ./.github/workflows/php-tests.yml
     secrets:
       COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
+      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}

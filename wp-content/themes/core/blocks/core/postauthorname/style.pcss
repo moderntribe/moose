@@ -1,0 +1,28 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-post-author-name {
+
+	@mixin t-body-small;
+
+	/**
+	 * add ::before pseduo element to create "By" text
+	 */
+	&::before {
+		content: "By ";
+	}
+}
+
+/**
+ * If the author name is set as a link we should style that as well
+ */
+.p-block-post-author-name__link {
+	color: var(--color-black);
+	font-weight: 700;
+
+	&:hover,
+	&:focus {
+		color: var(--color-neutral-80);
+	}
+}

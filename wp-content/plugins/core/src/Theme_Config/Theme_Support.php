@@ -12,7 +12,6 @@ class Theme_Support {
 		$this->support_title_tag();
 		$this->support_responsive_embeds();
 		$this->support_html5();
-		$this->support_block_styles();
 		$this->remove_support_block_widgets();
 	}
 
@@ -60,13 +59,6 @@ class Theme_Support {
 			'script',
 			'style',
 		] );
-	}
-
-	/**
-	 * Support: default Gutenberg block styles in the theme.
-	 */
-	private function support_block_styles(): void {
-		add_theme_support( 'wp-block-styles' );
 	}
 
 	/**

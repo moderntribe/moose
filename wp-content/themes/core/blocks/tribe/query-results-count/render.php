@@ -2,7 +2,7 @@
 
 global $wp_query;
 $is_search = is_search();
-$count     = (int) $wp_query->post_count;
+$count     = (int) $wp_query->found_posts;
 $output    = sprintf( _n( '%d result', '%d results', $count, 'tribe' ), number_format_i18n( $count ) );
 
 if ( $is_search ) {
