@@ -28,12 +28,8 @@
 <!-- /wp:post-template -->
 
 <!-- wp:query-no-results -->
-<!-- wp:heading {"textAlign":"left"} -->
-<h2 class="wp-block-heading has-text-align-left">No results found</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left">Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Your search query returned no results. Try another search term.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"50px"} -->
@@ -41,7 +37,11 @@
 <!-- /wp:spacer -->
 <!-- /wp:query-no-results -->
 
-<!-- wp:template-part {"slug":"pagination","theme":"core","area":"uncategorized"} /--></div>
+<!-- wp:query-pagination {"paginationArrow":"chevron","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous {"label":"Previous Page"} /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next {"label":"Next Page"} /-->
+<!-- /wp:query-pagination --></div>
 <!-- /wp:query --></main>
 <!-- /wp:group -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->

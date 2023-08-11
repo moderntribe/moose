@@ -10,6 +10,8 @@ import { debounce } from 'utils/tools.js';
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
 
+import animation from './block-animation.js';
+
 /**
  * @function bindEvents
  * @description Bind global event listeners here,
@@ -44,6 +46,9 @@ const init = () => {
  */
 
 const domReady = () => {
+	// initialize admin block animation settings
+	animation();
+
 	ready( init );
 };
 

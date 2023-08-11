@@ -29,23 +29,15 @@
 
 :where(.wp-site-blocks) ul,
 :is(.editor-styles-wrapper) ul.wp-block-list {
-	padding-inline-start: 0;
+	padding-inline-start: 10px;
 
 	& li {
-		padding-inline-start: 1.75rem;
+		padding-inline-start: 1.3rem;
 		position: relative;
 
 		&::marker {
-			content: "";
-		}
-
-		&::before {
 			content: var(--icon-list-bullet);
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 10px;
-			height: 10px;
+			transform: translateX(10px);
 		}
 
 		& ~ li {

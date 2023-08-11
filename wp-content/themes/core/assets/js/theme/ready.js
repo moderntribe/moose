@@ -6,6 +6,7 @@
 
 import { ready } from 'utils/events.js';
 import { debounce } from 'utils/tools.js';
+import animateOnScroll from 'utils/animate-on-scroll.js';
 
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
@@ -32,6 +33,10 @@ const init = () => {
 	// initialize global events
 
 	bindEvents();
+
+	// initialize on scroll animations
+
+	animateOnScroll();
 
 	console.info(
 		'Moose Theme: Initialized all javascript that targeted document ready.'
