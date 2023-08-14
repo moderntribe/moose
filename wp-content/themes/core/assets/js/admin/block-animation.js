@@ -177,105 +177,103 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 
 		return (
 			<Fragment>
-				<div style={ blockStyles } className={ blockClass }>
-					<BlockEdit { ...blockProps } />
-					{ isSelected && (
-						<InspectorControls>
-							<PanelBody
-								title={ __( 'Block Animations', 'tribe' ) }
-								initialOpen={ false }
-							>
-								<SelectControl
-									label={ __( 'Animation Style', 'tribe' ) }
-									value={ animationStyle ?? 'none' }
-									help={ __(
-										'Animation style is the type of animation you want to display.',
-										'tribe'
-									) }
-									onChange={ ( newValue ) => {
-										setAttributes( {
-											animationStyle: newValue,
-										} );
-									} }
-									options={ state.animations }
-								/>
-								<SelectControl
-									label={ __( 'Animation Speed', 'tribe' ) }
-									value={ animationSpeed ?? '0.3s' }
-									help={ __(
-										'Animation speed is the speed at which the animation should run.'
-									) }
-									onChange={ ( newValue ) =>
-										setAttributes( {
-											animationSpeed: newValue,
-										} )
-									}
-									options={ state.speed }
-								/>
-								<SelectControl
-									label={ __( 'Animation Delay', 'tribe' ) }
-									value={ animationDelay ?? '0s' }
-									help={ __(
-										'Animation delay adds extra time before the animation starts.',
-										'tribe'
-									) }
-									onChange={ ( newValue ) =>
-										setAttributes( {
-											animationDelay: newValue,
-										} )
-									}
-									options={ state.delays }
-								/>
-								<SelectControl
-									label={ __( 'Animation Easing', 'tribe' ) }
-									value={ animationEasing ?? 'ease' }
-									help={ __(
-										'Animation easing determines what easing function the animation should use.',
-										'tribe'
-									) }
-									onChange={ ( newValue ) =>
-										setAttributes( {
-											animationEasing: newValue,
-										} )
-									}
-									options={ state.easings }
-								/>
-								<ToggleControl
-									label={ __(
-										'Animation should trigger every time the element is in the viewport',
-										'tribe'
-									) }
-									help={ __(
-										'Default functionality is to trigger the animation once.',
-										'tribe'
-									) }
-									checked={ !! animationTrigger }
-									onChange={ ( newValue ) =>
-										setAttributes( {
-											animationTrigger: newValue,
-										} )
-									}
-								/>
-								<ToggleControl
-									label={ __(
-										'Animation should trigger when the element is completely in the viewport',
-										'tribe'
-									) }
-									help={ __(
-										'Default functionality is to trigger the animation when 25% of it is in the viewport.',
-										'tribe'
-									) }
-									checked={ !! animationPosition }
-									onChange={ ( newValue ) =>
-										setAttributes( {
-											animationPosition: newValue,
-										} )
-									}
-								/>
-							</PanelBody>
-						</InspectorControls>
-					) }
-				</div>
+				<BlockEdit { ...blockProps } />
+				{ isSelected && (
+					<InspectorControls>
+						<PanelBody
+							title={ __( 'Block Animations', 'tribe' ) }
+							initialOpen={ false }
+						>
+							<SelectControl
+								label={ __( 'Animation Style', 'tribe' ) }
+								value={ animationStyle ?? 'none' }
+								help={ __(
+									'Animation style is the type of animation you want to display.',
+									'tribe'
+								) }
+								onChange={ ( newValue ) => {
+									setAttributes( {
+										animationStyle: newValue,
+									} );
+								} }
+								options={ state.animations }
+							/>
+							<SelectControl
+								label={ __( 'Animation Speed', 'tribe' ) }
+								value={ animationSpeed ?? '0.3s' }
+								help={ __(
+									'Animation speed is the speed at which the animation should run.'
+								) }
+								onChange={ ( newValue ) =>
+									setAttributes( {
+										animationSpeed: newValue,
+									} )
+								}
+								options={ state.speed }
+							/>
+							<SelectControl
+								label={ __( 'Animation Delay', 'tribe' ) }
+								value={ animationDelay ?? '0s' }
+								help={ __(
+									'Animation delay adds extra time before the animation starts.',
+									'tribe'
+								) }
+								onChange={ ( newValue ) =>
+									setAttributes( {
+										animationDelay: newValue,
+									} )
+								}
+								options={ state.delays }
+							/>
+							<SelectControl
+								label={ __( 'Animation Easing', 'tribe' ) }
+								value={ animationEasing ?? 'ease' }
+								help={ __(
+									'Animation easing determines what easing function the animation should use.',
+									'tribe'
+								) }
+								onChange={ ( newValue ) =>
+									setAttributes( {
+										animationEasing: newValue,
+									} )
+								}
+								options={ state.easings }
+							/>
+							<ToggleControl
+								label={ __(
+									'Animation should trigger every time the element is in the viewport',
+									'tribe'
+								) }
+								help={ __(
+									'Default functionality is to trigger the animation once.',
+									'tribe'
+								) }
+								checked={ !! animationTrigger }
+								onChange={ ( newValue ) =>
+									setAttributes( {
+										animationTrigger: newValue,
+									} )
+								}
+							/>
+							<ToggleControl
+								label={ __(
+									'Animation should trigger when the element is completely in the viewport',
+									'tribe'
+								) }
+								help={ __(
+									'Default functionality is to trigger the animation when 25% of it is in the viewport.',
+									'tribe'
+								) }
+								checked={ !! animationPosition }
+								onChange={ ( newValue ) =>
+									setAttributes( {
+										animationPosition: newValue,
+									} )
+								}
+							/>
+						</PanelBody>
+					</InspectorControls>
+				) }
 			</Fragment>
 		);
 	};
