@@ -44,8 +44,8 @@
 <h2 class="wp-block-heading is-style-small" style="margin-top:0">Related Posts</h2>
 <!-- /wp:heading -->
 
-<!-- wp:query {"queryId":0,"query":{"perPage":"18","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]},"displayLayout":{"type":"flex","columns":3}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
+<!-- wp:query {"queryId":0,"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
+<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
 <!-- wp:group {"tagName":"article","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"className":"p-card-post l-clearfix","layout":{"type":"default"}} -->
 <article class="wp-block-group p-card-post l-clearfix" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:post-featured-image {"width":"100%","className":"p-card-post__image s-aspect-ratio-cover s-aspect-ratio-4-3"} /-->
 
