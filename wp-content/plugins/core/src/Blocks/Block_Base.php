@@ -65,6 +65,10 @@ abstract class Block_Base {
 	 * Enqueue front-end block styles
 	 */
 	public function enqueue_core_block_front_style(): void {
+		if ( is_admin() ) {
+			return;
+		}
+
 		$block    = $this->get_block_handle();
 		$path     = $this->get_block_path();
 		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
