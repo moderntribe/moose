@@ -23,11 +23,6 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$block->register_core_block_variations();
 			}
 
-			// Register block CSS stylesheets.
-			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				$block->enqueue_core_block_front_style();
-			}
-
 			// Register block pattern categories.
 			$this->container->get( Pattern_Category::class )->register_pattern_categories();
 
@@ -36,6 +31,15 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 				$this->container->get( Pattern_Registrar::class )->register( $pattern );
 			}
 		}, 10, 0 );
+
+		// Register block CSS stylesheets - only runs on FE
+		if ( ! is_admin() ) {
+			add_action( 'after_setup_theme', function (): void {
+				foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+					$block->enqueue_core_block_front_style();
+				}
+			} );
+		}
 
 		/**
 		 * Enqueue block editor styles / scripts
