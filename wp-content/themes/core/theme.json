@@ -421,11 +421,6 @@
 						"bottom": "var(--wp--preset--spacing--40)"
 					}
 				},
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--50)",
-					"fontWeight": "var(--wp--custom--font-weight--bold)",
-					"lineHeight": "1.2"
-				},
 				"elements": {
 					"cite": {
 						"typography": {
@@ -436,7 +431,8 @@
 							"fontStyle": "normal"
 						}
 					}
-				}
+				},
+				"css": "> blockquote p {font-size: var(--wp--preset--font-size--50); font-weight: var(--wp--custom--font-weight--bold); line-height: 1.2;}"
 			},
 			"core/quote": {
 				"spacing": {
@@ -445,11 +441,6 @@
 						"bottom": "2rem"
 					}
 				},
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--30)",
-					"fontWeight": "var(--wp--custom--font-weight--bold)",
-					"lineHeight": "1.4"
-				},
 				"elements": {
 					"cite": {
 						"typography": {
@@ -460,7 +451,8 @@
 							"fontStyle": "normal"
 						}
 					}
-				}
+				},
+				"css": "> p {font-size: var(--wp--preset--font-size--30); font-weight: var(--wp--custom--font-weight--bold); line-height: 1.4;}"
 			},
 			"core/table": {
 				"typography": {
