@@ -6,6 +6,34 @@
 
 /* -------------------------------------------------------------------------
  *
+ * Layout: Align None (Content Width)
+ *
+ * Adjustments for content width blocks nested inside alignfull container blocks
+ * For blocks w/ align none nested inside container block with alignfull and
+ * constrained layout.
+ *
+ * ------------------------------------------------------------------------- */
+
+/*
+ * CASE: useRootPaddingAwareAlignments = true
+ *
+ * WP styles remove padding from blocks nested in .has-global-padding.alignfull.
+ *
+ * Padding is added back to prevent contentWidth blocks from bumping up to
+ * the viewport edge. Negative margins are set to ensure the block's
+ * contents fill the contentWidth setting in theme.json
+ *
+ * Screenshot: http://p.tri.be/i/oaIM0F
+ */
+.has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide)),
+:is(.editor-styles-wrapper) .has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide)) {
+	padding-right: var(--wp--style--root--padding-right);
+	padding-left: var(--wp--style--root--padding-left);
+	max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) * 2);
+}
+
+/* -------------------------------------------------------------------------
+ *
  * Layout: Align Wide
  *
  * Adjustments for fluid value in theme.json settings.layout.wideSize

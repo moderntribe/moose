@@ -3,9 +3,9 @@ name: Dokku Deploy Dev
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - develop
+  push:
+    branches:
+      - main
 
 jobs:
   deploy_app:
