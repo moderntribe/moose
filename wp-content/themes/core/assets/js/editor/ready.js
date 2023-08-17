@@ -4,7 +4,7 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
-import animation from 'block-animation.js';
+import animation from './block-animation.js';
 
 /**
  * @function init
