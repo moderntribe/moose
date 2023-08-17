@@ -27,6 +27,9 @@
 		"corePluginDir": "./wp-content/plugins/core",
 		"coreThemeBlocksDir": "./wp-content/themes/core/blocks"
 	},
+	"dependencies": {
+		"swiper": "^10.2.0"
+	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^1.0.3",
 		"@wordpress/create-block": "^4.15.0",

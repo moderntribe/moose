@@ -39,6 +39,8 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/post-type-name',
 				'tribe/post-permalink',
 				'tribe/query-results-count',
+				'tribe/slider-container',
+				'tribe/slider-slide',
 			] ),
 
 			self::EXTENDED        => DI\add( [
