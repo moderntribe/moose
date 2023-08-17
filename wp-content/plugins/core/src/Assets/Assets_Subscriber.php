@@ -19,6 +19,10 @@ class Assets_Subscriber extends Abstract_Subscriber {
 			$this->container->get( Admin_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
 
+		add_action( 'enqueue_block_editor_assets', function (): void {
+			$this->container->get( Editor_Assets_Enqueuer::class )->register();
+		}, 10, 0 );
+
 		// Uncomment this if you want to enable WP login styles
 		// add_action( 'login_enqueue_scripts', function (): void {
 		// 	$this->container->get( Admin_Assets_Enqueuer::class )->enqueue_login_styles();
