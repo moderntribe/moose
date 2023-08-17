@@ -39,7 +39,7 @@ const init = () => {
 	animateOnScroll();
 
 	console.info(
-		'Moose Theme: Initialized all javascript that targeted document ready.'
+		'Theme: Initialized all javascript that targeted document ready.'
 	);
 };
 

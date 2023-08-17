@@ -34,7 +34,7 @@ const init = () => {
 	bindEvents();
 
 	console.info(
-		'Moose Admin: Initialized all javascript that targeted document ready.'
+		'Admin: Initialized all javascript that targeted document ready.'
 	);
 };
 

@@ -13,7 +13,7 @@ const init = () => {
 	// intentionally left blank for now
 
 	console.info(
-		'Moose Editor: Initialized all javascript that targeted document ready.'
+		'Editor: Initialized all javascript that targeted document ready.'
 	);
 };
 
