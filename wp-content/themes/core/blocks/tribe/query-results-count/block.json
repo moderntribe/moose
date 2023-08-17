@@ -1,11 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "tribe/query-results-count",
 	"version": "0.1.0",
 	"title": "Query Results Count",
-	"category": "text",
-	"icon": "chart-line",
+	"category": "theme",
 	"description": "Displays (in context) the total number of posts in a archive",
 	"supports": {
 		"html": false,

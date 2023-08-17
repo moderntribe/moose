@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2023.08]
 
+- Added: GTM4WP Plugin for handling Google Tag Manager.
 - Updated: Deployments to use the secrets.COMPOSER_AUTH_JSON for auth.json file.
 - Updated: Composer method for pulling in ACF requiring the use of a auth.json file.
 - Updated: WordPress core to 6.3, ACF to 6.2, Gravity Forms to 2.7.12, Local Lando PHP version to 8.1, Yoast SEO to ^20.1.

@@ -45,9 +45,10 @@ abstract class Block_Base {
 	}
 
 	/**
-	 * Allows registration of additional block styles
+	 * Allows registration of additional block variations (called "Block Styles")
+	 * Not to be confused with CSS Styles
 	 */
-	public function register_block_style(): void {
+	public function register_core_block_variations(): void {
 		if ( ! function_exists( 'register_block_style' ) ) {
 			return;
 		}
@@ -61,9 +62,9 @@ abstract class Block_Base {
 	}
 
 	/**
-	 * Register block styles prior to enqueueing to allow other blocks to define these as dependencies
+	 * Enqueue front-end block styles
 	 */
-	public function register_style(): void {
+	public function enqueue_core_block_front_style(): void {
 		$block    = $this->get_block_handle();
 		$path     = $this->get_block_path();
 		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
@@ -74,49 +75,65 @@ abstract class Block_Base {
 			return;
 		}
 
-		wp_register_style(
-			"$block-styles",
-			$src,
-			$this->get_block_dependencies(),
-			$args['version'] ?? false
-		);
-	}
-
-	/**
-	 * Enqueue our registered stylesheet for this specific block
-	 */
-	public function enqueue_block_style(): void {
-		$block = $this->get_block_handle();
-
 		wp_enqueue_block_style( $this->get_block_name(), [
 			'handle' => "$block-styles",
+			'src'    => $src,
+			'deps'   => $this->get_block_dependencies(),
+			'ver'    => $args['version'] ?? false,
+			'media'  => 'all',
 		] );
 	}
 
-	public function register_admin_scripts(): void {
-		$block    = $this->get_block_handle();
+	/**
+	 * Enqueue core block editor front styles
+	 * These are the FE styles.
+	 */
+	public function enqueue_core_block_editor_front_style(): void {
 		$path     = $this->get_block_path();
-		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/admin.asset.php" ) );
-		$src_path = get_theme_file_path( "dist/blocks/$path/admin.js" );
-		$src      = get_theme_file_uri( "dist/blocks/$path/admin.js" );
+		$src_path = get_theme_file_path( "dist/blocks/$path/style-index.css" );
+		$src      = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
 
 		if ( ! file_exists( $src_path ) ) {
 			return;
 		}
 
-		wp_register_script(
+		add_editor_style( $src );
+	}
+
+	/**
+	 * Enqueue core block editor admin (editor) styles
+	 * These are the editor specific style overrides for the block
+	 */
+	public function enqueue_core_block_editor_style(): void {
+		$path            = $this->get_block_path();
+		$editor_src_path = get_theme_file_path( "dist/blocks/$path/index.css" );
+		$editor_src      = get_theme_file_uri( "dist/blocks/$path/index.css" );
+
+		if ( ! file_exists( $editor_src_path ) ) {
+			return;
+		}
+
+		add_editor_style( $editor_src );
+	}
+
+	public function enqueue_core_block_editor_script(): void {
+		$block    = $this->get_block_handle();
+		$path     = $this->get_block_path();
+		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/admin.asset.php" ) );
+		$src_path = get_theme_file_path( "dist/blocks/$path/editor.js" );
+		$src      = get_theme_file_uri( "dist/blocks/$path/editor.js" );
+
+		if ( ! file_exists( $src_path ) ) {
+			return;
+		}
+
+		wp_enqueue_script(
 			"admin-$block-scripts",
 			$src,
 			$args['dependencies'] ?? [],
 			$args['version'] ?? false,
 			true
 		);
-	}
-
-	public function enqueue_admin_scripts(): void {
-		$block = $this->get_block_handle();
-
-		wp_enqueue_script( "admin-$block-scripts" );
 	}
 
 }

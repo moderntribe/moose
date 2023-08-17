@@ -1,11 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "tribe/post-permalink",
 	"version": "0.1.0",
 	"title": "Post Permalink",
-	"category": "text",
-	"icon": "admin-links",
+	"category": "theme",
 	"description": "Returns the post permalink as link text.",
 	"supports": {
 		"html": false,
