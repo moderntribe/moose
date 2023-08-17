@@ -29,7 +29,7 @@ class Pattern_Category {
 		];
 	}
 
-	public function register_pattern_category(): void {
+	public function register_pattern_categories(): void {
 		foreach ( $this->get_pattern_categories() as $category ) {
 			register_block_pattern_category(
 				$category['slug'],

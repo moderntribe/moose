@@ -126,6 +126,7 @@
 		"vlucas/phpdotenv": "^5.5",
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/disable-emojis": "^1.7",
+		"wpackagist-plugin/duracelltomi-google-tag-manager": "^1.18",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "^2.25",
 		"wpackagist-plugin/redirection": "^5.3",
 		"wpackagist-plugin/safe-svg": "^2.1",

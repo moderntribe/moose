@@ -34,12 +34,12 @@ const init = () => {
 
 	bindEvents();
 
-	// initialize on scroll animations
+	// initialize animate on scroll
 
 	animateOnScroll();
 
 	console.info(
-		'Moose Theme: Initialized all javascript that targeted document ready.'
+		'Theme: Initialized all javascript that targeted document ready.'
 	);
 };
 
