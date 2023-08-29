@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c274c26e484ad04bcb438ad8e9089acf",
+=======
+    "content-hash": "505a0e45348108a80d4446090a882a3b",
+>>>>>>> 08efc6456dd21208e9c5019c1097788c67db3bcd
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6395,6 +6399,7 @@
             "homepage": "https://wordpress.org/plugins/disable-emojis/"
         },
         {
+<<<<<<< HEAD
             "name": "wpackagist-plugin/kadence-blocks",
             "version": "3.0.38",
             "source": {
@@ -6415,14 +6420,36 @@
         {
             "name": "wpackagist-plugin/limit-login-attempts-reloaded",
             "version": "2.25.21",
+=======
+            "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
+            "version": "1.18",
+>>>>>>> 08efc6456dd21208e9c5019c1097788c67db3bcd
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/limit-login-attempts-reloaded/",
-                "reference": "tags/2.25.21"
+                "url": "https://plugins.svn.wordpress.org/duracelltomi-google-tag-manager/",
+                "reference": "tags/1.18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.21.zip"
+                "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.18.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/duracelltomi-google-tag-manager/"
+        },
+        {
+            "name": "wpackagist-plugin/limit-login-attempts-reloaded",
+            "version": "2.25.22",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/limit-login-attempts-reloaded/",
+                "reference": "tags/2.25.22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.22.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

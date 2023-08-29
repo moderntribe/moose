@@ -28,6 +28,11 @@ const assetEntryPoints = () => {
 			'assets',
 			'admin.js'
 		),
+		'assets/editor': resolve(
+			pkg.config.coreThemeDir,
+			'assets',
+			'editor.js'
+		),
 		'assets/theme': resolve(
 			pkg.config.coreThemeDir,
 			'assets',
@@ -66,12 +71,12 @@ const blockEntryPoints = () => {
 		{ absolute: true }
 	);
 
-	const coreBlockAdminFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/admin.js`,
+	const coreBlockEditorFiles = glob(
+		`${ pkg.config.coreThemeBlocksDir }/**/editor.js`,
 		{ absolute: true }
 	);
 
-	if ( ! coreBlockFiles.length && ! coreBlockAdminFiles.length ) {
+	if ( ! coreBlockFiles.length && ! coreBlockEditorFiles.length ) {
 		return;
 	}
 
@@ -84,7 +89,7 @@ const blockEntryPoints = () => {
 		entryPoints[ entryName ] = entryFilePath;
 	} );
 
-	coreBlockAdminFiles.forEach( ( entryFilePath ) => {
+	coreBlockEditorFiles.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
 			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
