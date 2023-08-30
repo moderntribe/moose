@@ -80,6 +80,6 @@ if ( ! $terms && ! $primary_term && ! is_admin() ) {
 		echo '</ul>';
 	} else {
 		// display if no terms are available
-		echo 'No terms to list.';
+		echo '<!-- Terms block: No terms to list. -->';
 	} ?>
 </div>
