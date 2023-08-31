@@ -132,7 +132,6 @@
 		"wpackagist-plugin/safe-svg": "2.2.0",
 		"wpackagist-plugin/seo-by-rank-math": "^1.0",
 		"wpackagist-plugin/user-switching": "^1.7",
-		"wpackagist-plugin/wordpress-seo": "21.0",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
 		"wpengine/advanced-custom-fields-pro": "6.2"
 	},
