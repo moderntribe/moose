@@ -32,33 +32,38 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 			}
 		}, 10, 0 );
 
-		// Register block CSS stylesheets - only runs on FE
-		if ( ! is_admin() ) {
-			add_action( 'after_setup_theme', function (): void {
-				foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-					$block->enqueue_core_block_front_style();
-				}
-			} );
-		}
+		/**
+		 * Enqueue styles on the public site for WP Core blocks
+		 */
+		add_action( 'wp_enqueue_scripts', function (): void {
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				// core block public styles
+				$block->enqueue_core_block_public_styles();
+			}
+		}, 10, 0 );
 
 		/**
-		 * Enqueue block editor styles / scripts
-		 *
-		 * Includes FE styles & editor styles so editor styles can override the FE ones
+		 * Enqueue styles in the editor for WP Core blocks
+		 */
+		add_action( 'admin_init', function (): void {
+			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
+				// core block public styles
+				$block->enqueue_core_block_public_styles();
+				// core block editor-only styles
+				$block->enqueue_core_block_editor_styles();
+			}
+		}, 10, 0 );
+
+		/**
+		 * Enqueue block editor-only scripts
 		 *
 		 * Core blocks shouldn't ever have FE scripts and should only include
 		 * editor scripts in order to override default block functionality
 		 */
 		add_action( 'enqueue_block_editor_assets', function (): void {
 			foreach ( $this->container->get( Blocks_Definer::EXTENDED ) as $block ) {
-				// core block front styles
-				$block->enqueue_core_block_editor_front_style();
-
-				// core block editor styles
-				$block->enqueue_core_block_editor_style();
-
-				// core block editor scripts
-				$block->enqueue_core_block_editor_script();
+				// core block editor-only scripts
+				$block->enqueue_core_block_editor_scripts();
 			}
 		}, 10, 0 );
 
