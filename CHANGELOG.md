@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: Misc composer packages updated to match local PHP version
 - Added: Stacking order controls on the Column block. This allows editors to control what order columns appear in at mobile widths.
 - Updated: Swapped Yoast SEO plugin out in favor of [Rank Math SEO](https://wordpress.org/plugins/seo-by-rank-math/) plugin. Updated primary term helper method to support both plugins' primary term meta value.
+
 ## [2023.06]
 
 - Added: Ability to hide ACF menu item using the `HIDE_ACF_MENU` constant (boolean true hides the menu item) or if we are in a production environment.
