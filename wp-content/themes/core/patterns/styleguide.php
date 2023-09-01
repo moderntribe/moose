@@ -40,17 +40,9 @@
 <p class="is-style-large">Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:spacer {"className":"is-style-medium"} -->
-<div style="height:100px" aria-hidden="true" class="wp-block-spacer is-style-medium"></div>
-<!-- /wp:spacer -->
-
 <!-- wp:paragraph -->
 <p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:spacer {"className":"is-style-medium"} -->
-<div style="height:100px" aria-hidden="true" class="wp-block-spacer is-style-medium"></div>
-<!-- /wp:spacer -->
 
 <!-- wp:paragraph {"className":"is-style-small"} -->
 <p class="is-style-small">Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
@@ -103,10 +95,6 @@
 <li>We believe your tech, tools, and teams work better together. Every “thing” we build is designed to link people and platforms. We connect the dots … and occasionally color outside the lines.</li>
 <!-- /wp:list-item --></ol>
 <!-- /wp:list -->
-
-<!-- wp:spacer {"className":"is-style-medium"} -->
-<div style="height:100px" aria-hidden="true" class="wp-block-spacer is-style-medium"></div>
-<!-- /wp:spacer -->
 
 <!-- wp:list -->
 <ul><!-- wp:list-item -->
