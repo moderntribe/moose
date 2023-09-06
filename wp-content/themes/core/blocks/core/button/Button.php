@@ -10,12 +10,4 @@ class Button extends Block_Base {
 		return 'core/button';
 	}
 
-	public function get_block_styles(): array {
-		return [
-			'primary'   => esc_html__( 'Primary', 'tribe' ),
-			'secondary' => esc_html__( 'Secondary', 'tribe' ),
-			'ghost'     => esc_html__( 'Ghost', 'tribe' ),
-		];
-	}
-
 }

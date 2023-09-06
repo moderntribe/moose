@@ -61,20 +61,16 @@
 <!-- /wp:separator -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Default Button</a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"className":"is-style-primary"} -->
-<div class="wp-block-button is-style-primary"><a class="wp-block-button__link wp-element-button">Primary Button</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-primary"} -->
+<div class="wp-block-button is-style-primary"><a class="wp-block-button__link wp-element-button">Button Text</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-secondary"} -->
-<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button">Secondary Button</a></div>
+<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button">Button Text</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button">Ghost Button</a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button">Button Text</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
