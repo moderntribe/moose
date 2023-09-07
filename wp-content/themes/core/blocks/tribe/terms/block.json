@@ -23,11 +23,11 @@
 		},
 		"hasLinks": {
 			"type": "boolean"
-		},
-		"termStyle": {
-			"type": "string"
 		}
 	},
+	"styles": [
+		{ "name": "pills", "label": "Pills" }
+	],
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

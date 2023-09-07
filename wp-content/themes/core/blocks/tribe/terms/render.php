@@ -1,12 +1,20 @@
 <?php declare(strict_types=1);
 
+use Tribe\Plugin\Post_Types\Post\Post;
+
 // get block settings (attributes)
 $taxonomy         = $attributes['taxonomyToUse'] ?? 'category';
 $only_primay_term = $attributes['onlyPrimaryTerm'] ?? false;
 $has_links        = $attributes['hasLinks'] ?? false;
-$style            = $attributes['termStyle'] ?? 'default';
 $terms            = false;
 $primary_term     = false;
+
+/**
+ * the Post class contains the trait to grab the primary term
+ *
+ * @see https://github.com/moderntribe/moose/blob/main/wp-content/plugins/core/src/Templates/Traits/Primary_Term.php
+ */
+$post = new Post();
 
 /**
  * If we should only display the primary term:
@@ -16,18 +24,8 @@ $primary_term     = false;
  * If we should display all terms:
  * - Grab all terms for the taxonomy
  */
-if ( $taxonomy === 'category' && $only_primay_term && class_exists( 'WPSEO_Primary_Term' ) ) {
-	$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, get_the_ID() );
-	$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
-	if ( $wpseo_primary_term ) {
-		$primary_term = get_term( $wpseo_primary_term );
-	} else {
-		$terms        = get_the_terms( get_the_ID(), $taxonomy );
-		$primary_term = $terms ? $terms[0] : false;
-	}
-} elseif ( $only_primay_term ) {
-	$terms        = get_the_terms( get_the_ID(), $taxonomy );
-	$primary_term = $terms ? $terms[0] : false;
+if ( $only_primay_term ) {
+	$primary_term = $post->get_primary_term( get_the_ID(), $taxonomy );
 } else {
 	$terms = get_the_terms( get_the_ID(), $taxonomy );
 }
@@ -43,14 +41,14 @@ if ( ! $terms && ! $primary_term && ! is_admin() ) {
 		// displays differently if we should have links or not
 		echo $has_links ? sprintf(
 			'<span class="%s"><a href="%s" target="%s" class="%s">%s</a></span>',
-			esc_attr( "wp-block-tribe-terms__term is-style-$style" ),
+			esc_attr( "wp-block-tribe-terms__term" ),
 			esc_url( get_term_link( $primary_term ) ),
 			esc_attr( '_self' ),
 			esc_attr( 'wp-block-tribe-terms__link' ),
 			esc_html( $primary_term->name )
 		) : sprintf(
 			'<span class="%s"><span class="%s">%s</span></span>',
-			esc_attr( "wp-block-tribe-terms__term is-style-$style" ),
+			esc_attr( "wp-block-tribe-terms__term" ),
 			esc_attr( 'wp-block-tribe-terms__link' ),
 			esc_html( $primary_term->name )
 		);
@@ -65,14 +63,14 @@ if ( ! $terms && ! $primary_term && ! is_admin() ) {
 		foreach ( $terms as $term ) {
 			echo $has_links ? sprintf(
 				'<li class="%s"><a href="%s" target="%s" class="%s">%s</a></li>',
-				esc_attr( "wp-block-tribe-terms__term is-style-$style" ),
+				esc_attr( "wp-block-tribe-terms__term" ),
 				esc_url( get_term_link( $term ) ),
 				esc_attr( '_self' ),
 				esc_attr( 'wp-block-tribe-terms__link' ),
 				esc_html( $term->name )
 			) : sprintf(
 				'<li class="%s"><span class="%s">%s</span></li>',
-				esc_attr( "wp-block-tribe-terms__term is-style-$style" ),
+				esc_attr( "wp-block-tribe-terms__term" ),
 				esc_attr( 'wp-block-tribe-terms__link' ),
 				esc_html( $term->name )
 			);

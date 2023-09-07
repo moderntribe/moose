@@ -5,12 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RadioControl,
-	SelectControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 
@@ -33,7 +28,7 @@ import ServerSideRender from '@wordpress/server-side-render';
  */
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useBlockProps();
-	const { taxonomyToUse, onlyPrimaryTerm, hasLinks, termStyle } = attributes;
+	const { taxonomyToUse, onlyPrimaryTerm, hasLinks } = attributes;
 
 	const taxonomies = useSelect( ( select ) =>
 		select( 'core' ).getTaxonomies( { per_page: -1 } )
@@ -93,29 +88,6 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							onChange={ ( newValue ) =>
 								setAttributes( {
 									hasLinks: newValue,
-								} )
-							}
-						/>
-						<RadioControl
-							label={ __( 'Term Style', 'tribe' ) }
-							help={ __(
-								'The format the terms should display.',
-								'tribe'
-							) }
-							options={ [
-								{
-									label: __( 'Default', 'tribe' ),
-									value: 'default',
-								},
-								{
-									label: __( 'Pills', 'tribe' ),
-									value: 'pills',
-								},
-							] }
-							selected={ termStyle ?? 'default' }
-							onChange={ ( newValue ) =>
-								setAttributes( {
-									termStyle: newValue,
 								} )
 							}
 						/>
