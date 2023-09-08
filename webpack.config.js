@@ -66,34 +66,21 @@ const blockEntryPoints = () => {
 	 * contain a `block.json` file (they are already registered), but they
 	 * still may contain scripts or styles which should be processed.
 	 */
-	const coreBlockFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/index.js`,
-		{ absolute: true }
-	);
+	const fileEntryPoints = [
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/index.js`, {
+			absolute: true,
+		} ),
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/editor.js`, {
+			absolute: true,
+		} ),
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/view.js`, {
+			absolute: true,
+		} ),
+	];
 
-	const coreBlockEditorFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/editor.js`,
-		{ absolute: true }
-	);
-
-	const coreBlockViewFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/view.js`,
-		{ absolute: true }
-	);
-
-	if (
-		! coreBlockFiles.length &&
-		! coreBlockEditorFiles.length &&
-		! coreBlockViewFiles.length
-	) {
+	if ( fileEntryPoints.length <= 0 ) {
 		return;
 	}
-
-	const fileEntryPoints = [
-		...coreBlockFiles,
-		...coreBlockEditorFiles,
-		...coreBlockViewFiles,
-	];
 
 	const entryPoints = {};
 
