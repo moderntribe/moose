@@ -4,3 +4,18 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
+/**
+ * this block doesn't get any wrapping classes as it only displays
+ * in the slider container block, we'll wrap it in that block here
+ * so we don't have any global issues
+ */
+.wp-block-tribe-slider-container {
+
+	/* center everything in the slider for easier testing */
+	.swiper-slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
