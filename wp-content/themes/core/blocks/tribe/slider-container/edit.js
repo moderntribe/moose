@@ -12,6 +12,7 @@ import {
 
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import Swiper from 'swiper';
+import swiperSettings from './swiper.json';
 /* eslint-enable */
 
 const TEMPLATE = [
@@ -44,17 +45,7 @@ export default function Edit() {
 
 	new Swiper( '.swiper', {
 		modules: [ Navigation, Pagination, A11y ],
-		init: true,
-		loop: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-			clickable: true,
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
+		...swiperSettings,
 	} );
 
 	return (
