@@ -44,8 +44,6 @@ export default function Edit() {
 		template: TEMPLATE,
 	} );
 
-	console.log( block );
-
 	useEffect( () => {
 		if (
 			block.current &&
