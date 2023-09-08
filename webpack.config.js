@@ -76,20 +76,28 @@ const blockEntryPoints = () => {
 		{ absolute: true }
 	);
 
-	if ( ! coreBlockFiles.length && ! coreBlockEditorFiles.length ) {
+	const coreBlockViewFiles = glob(
+		`${ pkg.config.coreThemeBlocksDir }/**/view.js`,
+		{ absolute: true }
+	);
+
+	if (
+		! coreBlockFiles.length &&
+		! coreBlockEditorFiles.length &&
+		! coreBlockViewFiles.length
+	) {
 		return;
 	}
 
+	const fileEntryPoints = [
+		...coreBlockFiles,
+		...coreBlockEditorFiles,
+		...coreBlockViewFiles,
+	];
+
 	const entryPoints = {};
 
-	coreBlockFiles.forEach( ( entryFilePath ) => {
-		const entryName = entryFilePath
-			.replace( extname( entryFilePath ), '' )
-			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
-		entryPoints[ entryName ] = entryFilePath;
-	} );
-
-	coreBlockEditorFiles.forEach( ( entryFilePath ) => {
+	fileEntryPoints.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
 			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );

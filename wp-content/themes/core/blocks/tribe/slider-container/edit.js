@@ -37,7 +37,7 @@ const TEMPLATE = [
  */
 export default function Edit() {
 	const blockProps = useBlockProps();
-	const { children, ...innerBlockProps } = useInnerBlocksProps( blockProps, {
+	const { children } = useInnerBlocksProps( blockProps, {
 		allowedBlocks: [ 'tribe/slider-slide' ],
 		template: TEMPLATE,
 	} );
@@ -58,7 +58,7 @@ export default function Edit() {
 	} );
 
 	return (
-		<div { ...innerBlockProps }>
+		<div { ...blockProps }>
 			<div className="swiper">
 				<div className="swiper-wrapper">{ children }</div>
 				<div className="swiper-pagination"></div>

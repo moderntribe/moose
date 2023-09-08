@@ -17,6 +17,7 @@
 	},
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
 	"editorStyle": [ "file:./index.css", "file:./style-index.css"],
 	"style": [ "file:./index.css", "file:./style-index.css"]
 }
