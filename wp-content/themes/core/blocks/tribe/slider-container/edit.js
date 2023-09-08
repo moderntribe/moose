@@ -9,7 +9,7 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
-
+import { useRef, useEffect } from '@wordpress/element';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import Swiper from 'swiper';
 import swiperSettings from './swiper.json';
@@ -37,20 +37,28 @@ const TEMPLATE = [
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+	const block = useRef( null );
 	const blockProps = useBlockProps();
 	const { children } = useInnerBlocksProps( blockProps, {
 		allowedBlocks: [ 'tribe/slider-slide' ],
 		template: TEMPLATE,
 	} );
 
-	new Swiper( '.swiper', {
-		modules: [ Navigation, Pagination, A11y ],
-		...swiperSettings,
+	useEffect( () => {
+		if (
+			block.current &&
+			! block.current.classList.contains( 'swiper-initialized' )
+		) {
+			new Swiper( '.swiper', {
+				modules: [ Navigation, Pagination, A11y ],
+				...swiperSettings,
+			} );
+		}
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="swiper">
+			<div ref={ block } className="swiper">
 				<div className="swiper-wrapper">{ children }</div>
 				<div className="swiper-pagination"></div>
 				<div className="swiper-button-next"></div>
