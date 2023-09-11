@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: WordPress core to 6.3, ACF to 6.2, Gravity Forms to 2.7.12, Local Lando PHP version to 8.1, Yoast SEO to ^20.1.
 - Updated: Misc composer packages updated to match local PHP version
 - Added: Stacking order controls on the Column block. This allows editors to control what order columns appear in at mobile widths.
-- Updated: Swapped Yoast SEO plugin out in favor of [Rank Math SEO](https://wordpress.org/plugins/seo-by-rank-math/) plugin. Updated primary term helper method to support both plugins' primary term meta value.
+- Updated: Swapped Yoast SEO plugin out in favor of [Rank Math SEO](https://wordpress.org/plugins/seo-by-rank-math/) plugin. Remove Redirection plugin as Rank Math supports the same feature. Updated primary term helper method to support both plugins' primary term meta value.
 
 ## [2023.06]
 
