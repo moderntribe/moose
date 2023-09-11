@@ -372,6 +372,12 @@
 		},
 		"blocks": {
 			"core/paragraph": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--30)",
+						"bottom": "0"
+					}
+				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
@@ -380,6 +386,9 @@
 			},
 			"core/separator": {
 				"border": {
+					"top": {
+						"width": "0"
+					},
 					"bottom": {
 						"width": "1px"
 					}
@@ -392,6 +401,12 @@
 				}
 			},
 			"core/list": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "0"
+					}
+				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
@@ -413,8 +428,8 @@
 				},
 				"spacing": {
 					"margin": {
-						"top": "2rem",
-						"bottom": "2rem"
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--preset--spacing--40)"
 					},
 					"padding": {
 						"top": "var(--wp--preset--spacing--40)",
@@ -436,8 +451,8 @@
 			"core/quote": {
 				"spacing": {
 					"margin": {
-						"top": "2rem",
-						"bottom": "2rem"
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--preset--spacing--40)"
 					}
 				},
 				"elements": {
@@ -453,6 +468,11 @@
 				}
 			},
 			"core/table": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--40)"
+					}
+				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"lineHeight": "1.5"
@@ -473,10 +493,24 @@
 					"fontWeight": "var(--wp--custom--font-weight--regular)",
 					"lineHeight": "1.5"
 				}
+			},
+			"core/image": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--preset--spacing--40)"
+					}
+				}
 			}
 		},
 		"elements": {
 			"heading": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "0"
+					}
+				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--roboto)",
 					"fontWeight": "var(--wp--custom--font-weight--bold)"
