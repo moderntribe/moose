@@ -10,6 +10,7 @@ abstract class Block_Base {
 
 	protected string $assets_path;
 	protected string $assets_path_uri;
+	protected bool $global_enqueue = false;
 
 	abstract public function get_block_name(): string;
 
@@ -83,7 +84,20 @@ abstract class Block_Base {
 			return;
 		}
 
-		wp_add_inline_style( $handle, file_get_contents( $src_path ) );
+		if ( $this->global_enqueue ) {
+			$args = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
+
+			wp_enqueue_style(
+				$this->get_block_handle(),
+				$src,
+				$this->get_block_dependencies(),
+				$args['version'] ?? false,
+				'all'
+			);
+		} else {
+			wp_add_inline_style( $handle, file_get_contents( $src_path ) );
+		}
+
 		add_editor_style( $src );
 	}
 
