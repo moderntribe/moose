@@ -4,6 +4,12 @@
 
 /* ----------------------------------------------------------------------
  * Ordered List
+ *
+ * The first selector applies to the FE, the second in the editor.
+ * The list block is the only block on the FE that doesn't get a class,
+ * so we're able to apply a :not() selector for the class attribute.
+ * While both will apply in the editor, only the second will affect
+ * the actual list block.
  * ---------------------------------------------------------------------- */
 
 .wp-site-blocks ol:not([class]),
@@ -25,6 +31,12 @@ ol.wp-block-list {
 
 /* ----------------------------------------------------------------------
  * Unordered List
+ *
+ * The first selector applies to the FE, the second in the editor.
+ * The list block is the only block on the FE that doesn't get a class,
+ * so we're able to apply a :not() selector for the class attribute.
+ * While both will apply in the editor, only the second will affect
+ * the actual list block.
  * ---------------------------------------------------------------------- */
 
 .wp-site-blocks ul:not([class]),

@@ -1,0 +1,14 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-query-no-results {
+
+	/**
+	* Hack to get around query block displaying no results blocks
+	* on final page of results
+	*/
+	.search-results & {
+		display: none;
+	}
+}
