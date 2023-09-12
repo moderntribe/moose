@@ -90,7 +90,7 @@ abstract class Block_Base {
 			wp_enqueue_style(
 				$this->get_block_handle(),
 				$src,
-				$this->get_block_dependencies(),
+				$args['dependencies'] ?? [],
 				$args['version'] ?? false,
 				'all'
 			);
