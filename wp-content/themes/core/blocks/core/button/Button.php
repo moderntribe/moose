@@ -6,8 +6,6 @@ use Tribe\Plugin\Blocks\Block_Base;
 
 class Button extends Block_Base {
 
-	protected bool $global_enqueue = true;
-
 	public function get_block_name(): string {
 		return 'core/button';
 	}
