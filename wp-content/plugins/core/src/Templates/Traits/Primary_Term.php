@@ -19,6 +19,11 @@ trait Primary_Term {
 			$primary_term_id = yoast_get_primary_term_id( $taxonomy, $post_id );
 		}
 
+		// RankMath SEO Enabled
+		if ( $this->has_rank_math() ) {
+			$primary_term_id = get_post_meta( "rank_math_primary_{$taxonomy}", $post_id );
+		}
+
 		// No Yoast fallback
 		if ( empty( $primary_term_id ) ) {
 			$primary_term_id = reset( $terms )->term_id;
@@ -44,6 +49,10 @@ trait Primary_Term {
 
 	protected function has_yoast(): bool {
 		return function_exists( 'yoast_get_primary_term_id' );
+	}
+
+	protected function has_rank_math(): bool {
+		return class_exists( 'RankMath\Common' );
 	}
 
 }

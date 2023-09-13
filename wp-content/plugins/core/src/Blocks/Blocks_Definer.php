@@ -17,6 +17,7 @@ use Tribe\Theme\blocks\core\postauthorname\Post_Author_Name;
 use Tribe\Theme\blocks\core\posttemplate\Post_Template;
 use Tribe\Theme\blocks\core\postterms\Post_Terms;
 use Tribe\Theme\blocks\core\pullquote\Pullquote;
+use Tribe\Theme\blocks\core\querynoresults\Query_No_Results;
 use Tribe\Theme\blocks\core\querypagination\Query_Pagination;
 use Tribe\Theme\blocks\core\quote\Quote;
 use Tribe\Theme\blocks\core\search\Search;
@@ -55,6 +56,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Post_Template::class ),
 				DI\get( Post_Terms::class ),
 				DI\get( Pullquote::class ),
+				DI\get( Query_No_Results::class ),
 				DI\get( Query_Pagination::class ),
 				DI\get( Quote::class ),
 				DI\get( Search::class ),

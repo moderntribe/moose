@@ -14,6 +14,7 @@
 
 .p-card-post {
 	position: relative;
+	container: postcard / inline-size;
 }
 
 /* -----------------------------------------------------------------------
@@ -34,7 +35,7 @@
 		}
 	}
 
-	@media (--viewport-small-max) {
+	@container (max-width: 320px) {
 		width: 22% !important;
 		float: right;
 		margin-inline-start: 2em;
