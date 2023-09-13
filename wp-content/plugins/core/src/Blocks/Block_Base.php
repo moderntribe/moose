@@ -79,14 +79,17 @@ abstract class Block_Base {
 		$path     = $this->get_block_path();
 		$src_path = get_theme_file_path( "dist/blocks/$path/style-index.css" );
 		$src      = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
+		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
 
 		if ( ! file_exists( $src_path ) ) {
 			return;
 		}
 
-		if ( $this->global_enqueue ) {
-			$args = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
+		// Add the style in the editor
+		add_editor_style( $src );
 
+		if ( $this->global_enqueue && ! is_admin() ) {
+			// Enqueue the style unconditionally on the public site
 			wp_enqueue_style(
 				$this->get_block_handle(),
 				$src,
@@ -94,11 +97,12 @@ abstract class Block_Base {
 				$args['version'] ?? false,
 				'all'
 			);
-		} else {
-			wp_add_inline_style( $handle, file_get_contents( $src_path ) );
+
+			return;
 		}
 
-		add_editor_style( $src );
+		// Conditionally inline the style for the public site
+		wp_add_inline_style( $handle, file_get_contents( $src_path ) );
 	}
 
 	/**
