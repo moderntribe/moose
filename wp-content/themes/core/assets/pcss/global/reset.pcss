@@ -29,13 +29,6 @@ body {
 	overflow-x: hidden;
 }
 
-p,
-ol,
-ul,
-blockquote {
-	margin: 0;
-}
-
 cite,
 figcaption {
 	display: block;
@@ -64,12 +57,12 @@ picture {
 }
 
 /**
- * @todo Need to ensure we can properly enqueue this reset to prevent pattern
- * previews from disappearing in the editor. Although, they don't appear to
- * currently be breaking, maybe something to keep an eye on.
- * @see https://github.com/wpcomvip/careforth/pull/14
+ * This `iframe` selector currently breaks pattern previews in the WordPress
+ * editors. For now, we're going to leave it commented-out and address iframes
+ * within a site's content on a case-by-case basis.
  */
-iframe,
+
+/*iframe,*/
 video,
 embed {
 	max-width: 100%;
