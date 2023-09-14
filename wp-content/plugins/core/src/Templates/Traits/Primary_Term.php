@@ -21,7 +21,7 @@ trait Primary_Term {
 
 		// RankMath SEO Enabled
 		if ( $this->has_rank_math() ) {
-			$primary_term_id = get_post_meta( "rank_math_primary_{$taxonomy}", $post_id );
+			$primary_term_id = get_post_meta( $post_id, "rank_math_primary_{$taxonomy}", true );
 		}
 
 		// No Yoast fallback
