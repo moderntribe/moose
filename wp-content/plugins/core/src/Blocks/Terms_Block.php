@@ -43,7 +43,7 @@ class Terms_Block {
 	}
 
 	public function display_as_links(): bool {
-		return $this->has_links;
+		return (bool) $this->has_links;
 	}
 
 }
