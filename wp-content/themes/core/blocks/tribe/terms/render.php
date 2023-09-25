@@ -33,7 +33,7 @@ foreach ( $terms as $term ) {
 		);
 	} else {
 		echo sprintf(
-			'<span class="wp-block-tribe-terms__link">%s</span></span>',
+			'<span class="wp-block-tribe-terms__link">%s</span>',
 			esc_html( $term->name )
 		);
 	}
