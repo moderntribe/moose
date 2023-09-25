@@ -7,6 +7,13 @@ $terms       = $terms_block->get_the_terms();
 
 echo '<div ' . get_block_wrapper_attributes() . '>';
 
+if ( 0 === count( $terms ) ) {
+	echo '<!-- Terms block: No terms to list. -->';
+	echo '</div>';
+
+	return;
+}
+
 if ( count( $terms ) > 1 ) {
 	echo  '<ul class="wp-block-tribe-terms__list">';
 }
