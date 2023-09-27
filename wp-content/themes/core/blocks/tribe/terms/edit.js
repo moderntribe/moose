@@ -30,8 +30,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useBlockProps();
 	const { taxonomyToUse, onlyPrimaryTerm, hasLinks } = attributes;
 
+	const postType = useSelect( ( select ) =>
+		select( 'core/editor' ).getCurrentPostType()
+	);
+
 	const taxonomies = useSelect( ( select ) =>
-		select( 'core' ).getTaxonomies( { per_page: -1 } )
+		select( 'core' ).getTaxonomies( { type: postType, per_page: -1 } )
 	);
 
 	return (
