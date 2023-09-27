@@ -111,23 +111,23 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-category {
+	color: var(--color-black);
 	font-family: var(--wp--preset--font-family--roboto);
 	font-size: var(--wp--preset--font-size--10);
 	line-height: 1.6;
 	font-weight: 400;
 	text-transform: uppercase;
-	text-decoration: none;
-}
+	text-decoration: none !important; /* override block editor default */
 
-/* -------------------------------------------------------------------------
- * Tag
- * ------------------------------------------------------------------------- */
+	/* target links for the hover/focus effect */
+	&:is(a) {
 
-@define-mixin t-tag {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--10);
-	line-height: 1.6;
-	font-weight: 700;
+		&:hover,
+		&:focus {
+			color: var(--color-black);
+			text-decoration: underline !important; /* override original state */
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------
@@ -147,8 +147,27 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 16px;
+	background-color: var(--color-neutral-20);
+	border-radius: 100px;
+	color: var(--color-black);
+	text-decoration: none !important; /* override block editor default */
 	font-family: var(--wp--preset--font-family--roboto);
 	font-size: var(--wp--preset--font-size--10);
 	line-height: 1.6;
 	font-weight: 700;
+	transition: var(--transition);
+
+	/* target links for the hover/focus effect */
+	&:is(a) {
+
+		&:hover,
+		&:focus {
+			background-color: var(--color-black);
+			color: var(--color-white);
+			text-decoration: none !important; /* override original state */
+		}
+	}
 }

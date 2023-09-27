@@ -42,41 +42,9 @@
 
 .wp-block-tribe-terms__link {
 
-	@mixin t-category;
-	color: var(--color-black);
-
-	/* target links for the hover/focus effect */
-	&:is(a) {
-
-		&:hover,
-		&:focus {
-			color: var(--color-black);
-			text-decoration: underline;
-		}
-	}
-
 	/* style pills differently */
 	.is-style-pills & {
 
 		@mixin t-tag;
-		display: inline-flex;
-		padding: 4px 16px;
-		align-items: center;
-		background-color: var(--color-neutral-20);
-		border-radius: 100px;
-		color: var(--color-black);
-		text-decoration: none;
-		transition: var(--transition);
-
-		/* target links for the hover/focus effect */
-		&:is(a) {
-
-			&:hover,
-			&:focus {
-				background-color: var(--color-black);
-				color: var(--color-white);
-				text-decoration: none;
-			}
-		}
 	}
 }

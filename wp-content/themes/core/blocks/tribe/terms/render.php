@@ -35,13 +35,13 @@ foreach ( $terms as $term ) {
 
 	if ( $terms_block->display_as_links() ) {
 		echo sprintf(
-			'<a href="%s" class="wp-block-tribe-terms__link">%s</a>',
+			'<a href="%s" class="wp-block-tribe-terms__link t-category">%s</a>',
 			esc_url( get_term_link( $term ) ),
 			esc_html( $term->name )
 		);
 	} else {
 		echo sprintf(
-			'<span class="wp-block-tribe-terms__link">%s</span>',
+			'<span class="wp-block-tribe-terms__link t-category">%s</span>',
 			esc_html( $term->name )
 		);
 	}
