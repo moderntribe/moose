@@ -1,0 +1,50 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/* -----------------------------------------------------------------------
+ * Terms Block
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	&.aligncenter {
+		justify-content: center;
+	}
+
+	&.alignright {
+		justify-content: flex-end;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Terms Block - List
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms__list {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacer-20);
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+/* -----------------------------------------------------------------------
+ * Terms Block - Link (sometimes not a link)
+ * ----------------------------------------------------------------------- */
+
+.wp-block-tribe-terms__link {
+
+	/* style pills differently */
+	.is-style-pills & {
+
+		@mixin t-tag;
+	}
+}

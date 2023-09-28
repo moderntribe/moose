@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/terms",
+	"version": "0.1.0",
+	"title": "Terms",
+	"category": "theme",
+	"description": "Displays chosen taxonomy terms in different formats",
+	"supports": {
+		"html": false,
+		"align": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"taxonomyToUse": {
+			"type": "string"
+		},
+		"onlyPrimaryTerm": {
+			"type": "boolean"
+		},
+		"hasLinks": {
+			"type": "boolean"
+		}
+	},
+	"styles": [
+		{ "name": "pills", "label": "Pills" }
+	],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
