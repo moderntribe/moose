@@ -10,24 +10,24 @@ use Tribe\Plugin\Blocks\Terms_Block;
  * @var \WP_Block $block          The instance of the WP_Block class that represents the block being rendered.
  */
 
-$terms_block = new Terms_Block( $attributes );
-$terms       = $terms_block->get_the_terms();
+$terms_block       = new Terms_Block( $attributes );
+$terms_block_terms = $terms_block->get_the_terms();
 
 echo '<div ' .  wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
-if ( 0 === count( $terms ) ) {
+if ( 0 === count( $terms_block_terms ) ) {
 	echo '<!-- Terms block: No terms to list. -->';
 	echo '</div>';
 
 	return;
 }
 
-if ( count( $terms ) > 1 ) {
+if ( count( $terms_block_terms ) > 1 ) {
 	echo  '<ul class="wp-block-tribe-terms__list">';
 }
 
-foreach ( $terms as $term ) {
-	if ( count( $terms ) > 1 ) {
+foreach ( $terms_block_terms as $term ) {
+	if ( count( $terms_block_terms ) > 1 ) {
 		echo '<li class="wp-block-tribe-terms__term">';
 	}
 
@@ -36,7 +36,7 @@ foreach ( $terms as $term ) {
 	if ( $terms_block->display_as_links() ) {
 		echo sprintf(
 			'<a href="%s" class="wp-block-tribe-terms__link t-category">%s</a>',
-			esc_url( get_term_link( $term ) ),
+			esc_url( get_term_link( $term ) ?? '' ),
 			esc_html( $term->name )
 		);
 	} else {
@@ -48,12 +48,12 @@ foreach ( $terms as $term ) {
 
 	echo '</span>';
 
-	if ( count( $terms ) > 1 ) { // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
+	if ( count( $terms_block_terms ) > 1 ) { // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
 		echo '</li>';
 	}
 }
 
-if ( count( $terms ) > 1 ) {
+if ( count( $terms_block_terms ) > 1 ) {
 	echo '</ul>';
 }
 
