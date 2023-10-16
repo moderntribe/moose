@@ -111,7 +111,6 @@
 	},
 	"require": {
 		"php": "^8.0|^8.1",
-		"block-editor-custom-alignments/block-editor-custom-alignments": "*",
 		"composer/installers": "^2.2",
 		"gravityforms/gravityforms": "*",
 		"humanmade/s3-uploads": "^3.0",

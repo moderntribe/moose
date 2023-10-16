@@ -9,10 +9,8 @@
  *
  * @param string $key
  * @param string $default
- *
- * @return string|bool
  */
-function fromenv( string $key, mixed $default = null ) {
+function fromenv( string $key, mixed $default = null ): string|array|bool {
 	$value = getenv( $key );
 	if ( $value === false ) {
 		$value = $default;
