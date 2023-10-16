@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da2ed3eaf3f1f3cde32644ff23675671",
+    "content-hash": "c3a80f6fc3836ee7b290191f73432a39",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -154,18 +154,6 @@
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.280.0"
             },
             "time": "2023-08-30T18:19:33+00:00"
-        },
-        {
-            "name": "block-editor-custom-alignments/block-editor-custom-alignments",
-            "version": "1.0.6",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.6/block-editor-custom-alignments.1.0.6.zip"
-            },
-            "require": {
-                "ffraenz/private-composer-installer": "^5.0"
-            },
-            "type": "wordpress-plugin"
         },
         {
             "name": "composer/ca-bundle",
@@ -6440,24 +6428,6 @@
             "homepage": "https://wordpress.org/plugins/limit-login-attempts-reloaded/"
         },
         {
-            "name": "wpackagist-plugin/redirection",
-            "version": "5.3.10",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/redirection/",
-                "reference": "tags/5.3.10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redirection.5.3.10.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/redirection/"
-        },
-        {
             "name": "wpackagist-plugin/safe-svg",
             "version": "2.2.0",
             "source": {
@@ -11859,5 +11829,5 @@
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
