@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - Updated: WordPress Core update to 6.3.2
 - Updated: Disable Emojis to 1.7.6, Limit Login Attempts Reloaded to 2.25.25, RankMath to 1.0.203, ACF Pro to 6.2.1.1
+- Adds: Lighthouse GitHub Action for automatic track of SEO, Accessability, Performance, and Best Practices.
 
 ## [2023.08]
 

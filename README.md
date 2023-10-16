@@ -17,7 +17,7 @@ You can use [Lando](https://lando.dev/download/) to for your local development. 
 
 ### Local by Flywheel
 
-It is recommeneded to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started. Make sure to use the Open Site Shell option to run composer commands allowing you to have the right PHP version in your shell path.
+It is recommended to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started. Make sure to use the Open Site Shell option to run composer commands allowing you to have the right PHP version in your shell path.
 
 ## Getting Started
 
@@ -65,6 +65,10 @@ A test suite is ready to use utilizing [Slic](https://github.com/stellarwp/slic)
 The only major setup config you must do for slic is set the php-version to 8.0 since the default is 7.4.  You can do this by running `slic php-version set 8.0`.
 
 Once Slic is installed, you can go to the project root and enter `slic here` telling slic that you want to run tests from this folder.  Then run `slic use site` telling slic that you want to run the tests for the full site and not just a singular plugin or theme. Then you are ready to start testing by running `slic run wpunit`. You can exchange out the `wpunit` for any of the testing suites you would like to run (`wpunit`, `unit`, `functional`, or `acceptance`).  
+
+## GitHub Actions
+
+We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [readme.md](.github/README.md) in that folder.
 
 ## Modern Tribe
 
