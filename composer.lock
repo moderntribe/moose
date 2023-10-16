@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3a80f6fc3836ee7b290191f73432a39",
+    "content-hash": "9618499769d40cbea4f912c52cf84cf5",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -154,6 +154,18 @@
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.280.0"
             },
             "time": "2023-08-30T18:19:33+00:00"
+        },
+        {
+            "name": "block-editor-custom-alignments/block-editor-custom-alignments",
+            "version": "1.0.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.6/block-editor-custom-alignments.1.0.6.zip"
+            },
+            "require": {
+                "ffraenz/private-composer-installer": "^5.0"
+            },
+            "type": "wordpress-plugin"
         },
         {
             "name": "composer/ca-bundle",
@@ -6375,15 +6387,15 @@
         },
         {
             "name": "wpackagist-plugin/disable-emojis",
-            "version": "1.7.5",
+            "version": "1.7.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/disable-emojis/",
-                "reference": "tags/1.7.5"
+                "reference": "tags/1.7.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-emojis.1.7.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/disable-emojis.1.7.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6411,15 +6423,15 @@
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts-reloaded",
-            "version": "2.25.23",
+            "version": "2.25.25",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/limit-login-attempts-reloaded/",
-                "reference": "tags/2.25.23"
+                "reference": "tags/2.25.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.23.zip"
+                "url": "https://downloads.wordpress.org/plugin/limit-login-attempts-reloaded.2.25.25.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6447,15 +6459,15 @@
         },
         {
             "name": "wpackagist-plugin/seo-by-rank-math",
-            "version": "1.0.122",
+            "version": "1.0.203",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                "reference": "tags/1.0.122"
+                "reference": "tags/1.0.203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.122.zip"
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.203.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6501,10 +6513,10 @@
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
-            "version": "6.2.0",
+            "version": "6.2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.0"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.1.1"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"
