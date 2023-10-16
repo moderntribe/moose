@@ -68,7 +68,7 @@ Once Slic is installed, you can go to the project root and enter `slic here` tel
 
 ## GitHub Actions
 
-We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [readme.md](./docs/actions.md) in that folder.
+We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [./docs/actions.md](./docs/actions.md) for details.
 
 ## Modern Tribe
 
