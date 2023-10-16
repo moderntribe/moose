@@ -10,7 +10,7 @@
 	<!--  Update to the PHP version your production/local docker container runs on -->
 	<config name="testVersion" value="8.0" />
 	<!-- php -r 'echo PHP_VERSION_ID;' -->
-	<config name="php_version" value="70407" />
+	<config name="php_version" value="80118" />
 
 	<!-- Fix WordPress's terrible typing breaking PHPCS -->
 	<config name="minimum_supported_wp_version" value="6.0.2" />

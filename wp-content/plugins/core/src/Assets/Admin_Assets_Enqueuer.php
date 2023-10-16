@@ -77,7 +77,7 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 					padding-top: 86px;
 				}
 			</style>',
-			$login_logo
+			esc_url( $login_logo )
 		);
 	}
 
