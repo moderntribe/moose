@@ -15,7 +15,7 @@ $terms_block_terms = $terms_block->get_the_terms();
 
 echo '<div ' .  wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
-if ( 0 === count( $terms ) ) {
+if ( 0 === count( $terms_block_terms ) ) {
 	if ( strpos( $_SERVER['REQUEST_URI'], 'wp-admin' ) !== false || strpos( $_SERVER['REQUEST_URI'], 'wp-json' ) !== false ) {
 		echo '<ul class="wp-block-tribe-terms__list">';
 		echo '<li class="wp-block-tribe-terms__term">';
