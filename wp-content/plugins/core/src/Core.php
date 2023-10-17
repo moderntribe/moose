@@ -8,10 +8,7 @@ class Core {
 
 	public const PLUGIN_FILE = 'plugin.file';
 
-	/**
-	 * @var \Psr\Container\ContainerInterface|\Invoker\InvokerInterface|\DI\FactoryInterface
-	 */
-	private $container;
+	private \Psr\Container\ContainerInterface|\Invoker\InvokerInterface|\DI\FactoryInterface $container;
 
 	/**
 	 * @var string[] Names of classes implementing Definer_Interface.
@@ -56,10 +53,7 @@ class Core {
 		$this->init_container( $plugin_path );
 	}
 
-	/**
-	 * @return \Psr\Container\ContainerInterface|\Invoker\InvokerInterface|\DI\FactoryInterface
-	 */
-	public function container() {
+	public function container(): \Psr\Container\ContainerInterface|\Invoker\InvokerInterface|\DI\FactoryInterface {
 		return $this->container;
 	}
 
