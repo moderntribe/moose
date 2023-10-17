@@ -1,0 +1,16 @@
+.wp-block-tribe-terms {
+
+	&:empty {
+
+		&::before {
+
+			@mixin t-category;
+			content: "Terms Display Here";
+
+			.is-style-pills & {
+
+				@mixin t-tag;
+			}
+		}
+	}
+}

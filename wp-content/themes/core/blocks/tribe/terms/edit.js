@@ -34,10 +34,20 @@ export default function Edit( {
 } ) {
 	const blockProps = useBlockProps();
 	const { taxonomyToUse, onlyPrimaryTerm, hasLinks } = attributes;
-	const { postType } = context;
+	const { postType, query } = context;
+	let contextPostType = '';
+
+	if ( query !== undefined ) {
+		contextPostType = query.postType;
+	} else {
+		contextPostType = postType;
+	}
 
 	const taxonomies = useSelect( ( select ) =>
-		select( 'core' ).getTaxonomies( { type: postType, per_page: -1 } )
+		select( 'core' ).getTaxonomies( {
+			type: contextPostType,
+			per_page: -1,
+		} )
 	);
 
 	return (
