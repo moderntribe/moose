@@ -19,6 +19,6 @@ if ( $is_search ) {
 }
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<p><?php echo wp_kses_post( $output ); ?></p>
 </div>
