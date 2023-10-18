@@ -46,4 +46,12 @@ class Terms_Block {
 		return (bool) $this->has_links;
 	}
 
+	public function get_taxonomy_name(): string {
+		$taxonomy_object = get_taxonomy( $this->taxonomy );
+
+		return $taxonomy_object
+			? $taxonomy_object->labels->name
+			: esc_html_x( 'terms', 'Generic name for an unknown taxonomy\'s items', 'tribe' );
+	}
+
 }
