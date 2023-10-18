@@ -16,7 +16,11 @@ $terms_block_terms = $terms_block->get_the_terms();
 echo '<div ' .  wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
 if ( 0 === count( $terms_block_terms ) ) {
-	echo '<!-- Terms block: No terms to list. -->';
+	$taxonomy_name = $terms_block->get_taxonomy_name();
+	printf(
+		'<span class="wp-block-tribe-terms--is-empty t-category">%s</span>',
+		esc_html__( "No ${taxonomy_name} selected", 'tribe' )
+	);
 	echo '</div>';
 
 	return;
@@ -34,13 +38,13 @@ foreach ( $terms_block_terms as $term ) {
 	echo '<span class="wp-block-tribe-terms__term">';
 
 	if ( $terms_block->display_as_links() ) {
-		echo sprintf(
+		printf(
 			'<a href="%s" class="wp-block-tribe-terms__link t-category">%s</a>',
 			esc_url( get_term_link( $term ) ?? '' ),
 			esc_html( $term->name )
 		);
 	} else {
-		echo sprintf(
+		printf(
 			'<span class="wp-block-tribe-terms__link t-category">%s</span>',
 			esc_html( $term->name )
 		);
