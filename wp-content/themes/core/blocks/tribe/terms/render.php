@@ -15,49 +15,35 @@ $terms_block_terms = $terms_block->get_the_terms();
 
 echo '<div ' .  wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
-if ( 0 === count( $terms_block_terms ) ) {
-	$taxonomy_name = $terms_block->get_taxonomy_name();
-	printf(
-		'<span class="wp-block-tribe-terms--is-empty t-category">%s</span>',
-		esc_html__( "No ${taxonomy_name} selected", 'tribe' )
-	);
-	echo '</div>';
-
-	return;
-}
-
-if ( count( $terms_block_terms ) > 1 ) {
-	echo  '<ul class="wp-block-tribe-terms__list">';
-}
-
-foreach ( $terms_block_terms as $term ) {
-	if ( count( $terms_block_terms ) > 1 ) {
-		echo '<li class="wp-block-tribe-terms__term">';
-	}
-
-	echo '<span class="wp-block-tribe-terms__term">';
-
-	if ( $terms_block->display_as_links() ) {
-		printf(
-			'<a href="%s" class="wp-block-tribe-terms__link t-category">%s</a>',
-			esc_url( get_term_link( $term ) ?? '' ),
-			esc_html( $term->name )
-		);
-	} else {
-		printf(
-			'<span class="wp-block-tribe-terms__link t-category">%s</span>',
-			esc_html( $term->name )
-		);
-	}
-
+// No terms and we're in the block editor
+if ( 0 === count( $terms_block_terms ) && ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
+	echo '<span class="wp-block-tribe-terms__empty-msg t-category">';
+	printf( esc_html__( "No %s assigned to post", 'tribe' ), $terms_block->get_taxonomy_name() );
 	echo '</span>';
+}
 
-	if ( count( $terms_block_terms ) > 1 ) { // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
+if ( count( $terms_block_terms ) > 0 ) {
+	echo '<ul class="wp-block-tribe-terms__list">';
+
+	foreach ( $terms_block_terms as $term ) {
+		echo '<li class="wp-block-tribe-terms__term">';
+
+		if ( $terms_block->display_as_links() ) {
+			printf(
+				'<a href="%s" class="wp-block-tribe-terms__link t-category">%s</a>',
+				esc_url( get_term_link( $term ) ?? '' ),
+				esc_html( $term->name )
+			);
+		} else {
+			printf(
+				'<span class="wp-block-tribe-terms__link t-category">%s</span>',
+				esc_html( $term->name )
+			);
+		}
+
 		echo '</li>';
 	}
-}
 
-if ( count( $terms_block_terms ) > 1 ) {
 	echo '</ul>';
 }
 
