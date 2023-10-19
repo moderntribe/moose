@@ -1,16 +1,14 @@
-.wp-block-tribe-terms {
+.wp-block-tribe-terms {}
 
-	&:empty {
+/* -----------------------------------------------------------------------
+ * Terms Block - Empty Terms List
+ * ----------------------------------------------------------------------- */
 
-		&::before {
+.wp-block-tribe-terms__empty-msg {
 
-			@mixin t-category;
-			content: "Terms Display Here";
+	/* style pills appropriately */
+	.is-style-pills & {
 
-			.is-style-pills & {
-
-				@mixin t-tag;
-			}
-		}
+		@mixin t-tag;
 	}
 }
