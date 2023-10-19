@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "tribe/terms",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"title": "Terms",
 	"category": "theme",
 	"description": "Displays chosen taxonomy terms in different formats",
@@ -28,6 +28,7 @@
 	"styles": [
 		{ "name": "pills", "label": "Pills" }
 	],
+	"usesContext": [ "postType" ],
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
