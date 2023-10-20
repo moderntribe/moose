@@ -28,19 +28,19 @@
 		"coreThemeBlocksDir": "./wp-content/themes/core/blocks"
 	},
 	"devDependencies": {
-		"@csstools/postcss-global-data": "^1.0.3",
-		"@wordpress/create-block": "^4.15.0",
-		"@wordpress/scripts": "^26.2.0",
-		"browser-sync": "^2.27",
+		"@csstools/postcss-global-data": "^2.1.0",
+		"@wordpress/create-block": "^4.28.0",
+		"@wordpress/scripts": "^26.15.0",
+		"browser-sync": "^2.29",
 		"browser-sync-webpack-plugin": "^2.3",
-		"cssnano": "^6.0.0",
-		"fast-glob": "^3.2.12",
-		"lefthook": "^1.3.10",
+		"cssnano": "^6.0.1",
+		"fast-glob": "^3.3.1",
+		"lefthook": "^1.5.2",
 		"postcss-import": "^15.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^9.0.4",
-		"postcss-preset-env": "^8.3.2",
-		"webpack-remove-empty-scripts": "^1.0.3"
+		"postcss-preset-env": "^9.2.0",
+		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {
 		"dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
