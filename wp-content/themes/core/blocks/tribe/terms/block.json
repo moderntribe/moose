@@ -25,9 +25,7 @@
 			"type": "boolean"
 		}
 	},
-	"styles": [
-		{ "name": "pills", "label": "Pills" }
-	],
+	"styles": [ { "name": "pills", "label": "Pills" } ],
 	"usesContext": [ "postType" ],
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
