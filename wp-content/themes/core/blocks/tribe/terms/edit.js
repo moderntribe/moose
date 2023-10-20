@@ -26,16 +26,21 @@ import ServerSideRender from '@wordpress/server-side-render';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	context,
+	isSelected,
+} ) {
 	const blockProps = useBlockProps();
 	const { taxonomyToUse, onlyPrimaryTerm, hasLinks } = attributes;
-
-	const postType = useSelect( ( select ) =>
-		select( 'core/editor' ).getCurrentPostType()
-	);
+	const { postType } = context;
 
 	const taxonomies = useSelect( ( select ) =>
-		select( 'core' ).getTaxonomies( { type: postType, per_page: -1 } )
+		select( 'core' ).getTaxonomies( {
+			type: postType,
+			per_page: -1,
+		} )
 	);
 
 	return (
