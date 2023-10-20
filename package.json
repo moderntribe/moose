@@ -12,9 +12,8 @@
 	},
 	"browserslist": [
 		"last 2 versions",
-		"safari >= 15",
-		"ios >= 15",
-		"android >= 8.0",
+		"safari >= 15.6",
+		"ios >= 15.6",
 		"not op_mini all",
 		"not dead"
 	],
