@@ -12,8 +12,8 @@
 	},
 	"browserslist": [
 		"last 2 versions",
-		"safari >= 15.6",
-		"ios >= 15.6",
+		"safari >= 16.0",
+		"ios >= 16.0",
 		"not op_mini all",
 		"not dead"
 	],
