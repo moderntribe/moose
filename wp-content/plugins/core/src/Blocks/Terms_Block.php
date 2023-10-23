@@ -8,9 +8,9 @@ class Terms_Block {
 
 	use Primary_Term;
 
-	private string $taxonomy       = 'category';
-	private bool $only_primay_term = false;
-	private bool $has_links        = false;
+	private string $taxonomy        = 'category';
+	private bool $only_primary_term = false;
+	private bool $has_links         = false;
 
 	/**
 	 * @var \WP_Term[]
@@ -18,16 +18,16 @@ class Terms_Block {
 	private array $terms = [];
 
 	public function __construct( array $block_attributes ) {
-		$this->taxonomy         = $block_attributes['taxonomyToUse'] ?? 'category';
-		$this->only_primay_term = $block_attributes['onlyPrimaryTerm'] ?? false;
-		$this->has_links        = $block_attributes['hasLinks'] ?? false;
+		$this->taxonomy          = $block_attributes['taxonomyToUse'] ?? 'category';
+		$this->only_primary_term = $block_attributes['onlyPrimaryTerm'] ?? false;
+		$this->has_links         = $block_attributes['hasLinks'] ?? false;
 	}
 
 	/**
 	 * @return \WP_Term[]
 	 */
 	public function get_the_terms(): array {
-		if ( $this->only_primay_term ) {
+		if ( $this->only_primary_term ) {
 			$term = $this->get_primary_term( get_the_ID(), $this->taxonomy );
 			if ( $term ) {
 				$this->terms[] = $term;
@@ -44,6 +44,14 @@ class Terms_Block {
 
 	public function display_as_links(): bool {
 		return (bool) $this->has_links;
+	}
+
+	public function get_taxonomy_name(): string {
+		$taxonomy_object = get_taxonomy( $this->taxonomy );
+
+		return $taxonomy_object
+			? $taxonomy_object->labels->name
+			: esc_html_x( 'terms', 'Generic name for an unknown taxonomy\'s items', 'tribe' );
 	}
 
 }

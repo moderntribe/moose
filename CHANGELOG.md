@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2023.10]
 
+- Added: Terms block v1.0.0. Displays a set of terms for a given taxonomy. Is able to display those terms in a few different ways (links, pills).
 - Updated: WordPress Core update to 6.3.2
 - Updated: Disable Emojis to 1.7.6, Limit Login Attempts Reloaded to 2.25.25, RankMath to 1.0.203, ACF Pro to 6.2.1.1
 - Adds: Lighthouse GitHub Action for automatic track of SEO, Accessability, Performance, and Best Practices.
