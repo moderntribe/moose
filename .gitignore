@@ -19,6 +19,7 @@ pimple.json
 ######################
 .vscode/*
 !.vscode/extensions.json
+*.code-workspace
 wp-content/mu-plugins/local-by-flywheel-live-link-helper.php
 
 # Vim generated files #
