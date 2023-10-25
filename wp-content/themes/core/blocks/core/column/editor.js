@@ -2,7 +2,6 @@
  * @module stacking-order
  *
  * @description handles setting up stacking order settings for columns block
- *
  */
 
 import { InspectorAdvancedControls } from '@wordpress/block-editor';
