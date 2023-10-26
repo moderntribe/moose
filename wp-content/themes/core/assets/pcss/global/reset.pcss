@@ -81,7 +81,15 @@ select {
 	margin: 0;
 }
 
+/**
+ * TODO: Make sure this is desired.
+ * Right now it only appears to affect the block editor and in unintended ways.
+ * I *think* we want to set a global default focus-visible style,
+ * but it should _not_ bleed into the admin/editor.
+ */
+/*
 :where(.wp-site-blocks) *:focus-visible {
 
 	@mixin focus-visible;
 }
+*/
