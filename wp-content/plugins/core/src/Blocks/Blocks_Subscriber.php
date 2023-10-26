@@ -3,6 +3,7 @@
 namespace Tribe\Plugin\Blocks;
 
 use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Blocks\Filters\Add_Block_Default_Class_Name;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
@@ -82,6 +83,13 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			return $filter ? $filter->filter_block_content( $block_content, $block ) : $block_content;
 		}, 10, 2 );
+
+		/**
+		 * Add a default css class name to specific blocks.
+		 */
+		add_filter( 'render_block', function ( string $block_content, array $parsed_block, object $block ): string {
+			return $this->container->get( Add_Block_Default_Class_Name::class )->add_class_name( $block_content, $parsed_block, $block );
+		}, 10, 3 );
 
 		/**
 		 * Disable default WP block patterns.
