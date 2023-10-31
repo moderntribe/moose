@@ -1,16 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Blocks\Filters;
+namespace Tribe\Plugin\Blocks\Filters\Traits;
 
-class Add_Block_Default_Class_Name {
-
-	/**
-	 * @var string[]
-	 */
-	private array $blocks_to_filter = [
-		'core/paragraph',
-		'core/list',
-	];
+trait Add_Block_Default_Class_Name {
 
 	/**
 	 * Ensures there's a `wp-block-<block name>` CSS class rendered for the specific blocks mentioned above.
@@ -37,10 +29,6 @@ class Add_Block_Default_Class_Name {
 		}
 
 		if ( ! $block->block_type || $block->block_type->is_dynamic() ) {
-			return $block_content;
-		}
-
-		if ( ! in_array( $block->name, $this->blocks_to_filter ) ) {
 			return $block_content;
 		}
 
