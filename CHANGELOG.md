@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2023.11]
+
+- Chore: WordPress 6.4.1 Update
+- Chore: Plugin updates - advanced-custom-fields-pro:6.2.2, limit-login-attempts-reloaded:2.25.26, seo-by-rank-math:1.0.205, safe-svg:2.2.1
+
 ## [2023.10]
 
 - Chore: Update package.json dependencies and related scripts. Update supported browsers (browserlist).
