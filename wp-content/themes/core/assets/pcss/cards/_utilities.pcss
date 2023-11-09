@@ -14,7 +14,7 @@
 	display: block;
 	padding: 0;
 
-	:where(.wp-site-blocks) & {
+	:where(.wp-block-post-content) & {
 		position: absolute;
 		background: transparent;
 		color: transparent;
@@ -74,7 +74,7 @@
 		}
 
 		/* this needs to be specific to override global focus visible styles */
-		:where(.wp-site-blocks) :not(.wp-element-button) & {
+		:where(.wp-block-post-content) :not(.wp-element-button) & {
 
 			&:focus-visible {
 

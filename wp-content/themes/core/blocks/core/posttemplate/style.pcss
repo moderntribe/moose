@@ -5,7 +5,7 @@
 /**
  * Vertical (list layout) post template spacing
  */
-.wp-site-blocks .wp-block-post-template:not(.is-layout-grid) .wp-block-post + .wp-block-post {
+.wp-block-post-content .wp-block-post-template:not(.is-layout-grid) .wp-block-post + .wp-block-post {
 	margin-block-start: var(--spacer-40);
 }
 
@@ -17,7 +17,7 @@
  * width. The calculations subtract an extra pixel due to calc not enjoying our
  * use of clamped spacer variables.
  */
-.wp-site-blocks .wp-block-post-template.is-layout-grid {
+.wp-block-post-content .wp-block-post-template.is-layout-grid {
 	--post-template-grid-template-columns: 1fr;
 	gap: var(--spacer-40);
 	grid-template-columns: var(--post-template-grid-template-columns);

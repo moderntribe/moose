@@ -2,58 +2,43 @@
  * Styles specific to this block
  */
 
-/* ----------------------------------------------------------------------
- * Ordered List
- *
- * The first selector applies to the FE, the second in the editor.
- * The list block is the only block on the FE that doesn't get a class,
- * so we're able to apply a :not() selector for the class attribute.
- * While both will apply in the editor, only the second will affect
- * the actual list block.
- * ---------------------------------------------------------------------- */
+.wp-block-list {
 
-.wp-site-blocks ol:not([class]),
-ol.wp-block-list {
-	padding-inline-start: 1.2rem;
+	li ~ li {
+		margin-top: var(--spacer-30);
+	}
 
-	& li {
-		padding-inline-start: 10px;
+	/* ----------------------------------------------------------------------
+	 * CASE: Ordered List
+	 * ---------------------------------------------------------------------- */
 
-		&::marker {
-			font-weight: var(--font-weight-bold);
-		}
+	ol& {
+		padding-inline-start: 1.2rem;
 
-		& ~ li {
-			margin-top: var(--spacer-30);
+		li {
+			padding-inline-start: 10px;
+
+			&::marker {
+				font-weight: var(--font-weight-bold);
+			}
 		}
 	}
-}
 
-/* ----------------------------------------------------------------------
- * Unordered List
- *
- * The first selector applies to the FE, the second in the editor.
- * The list block is the only block on the FE that doesn't get a class,
- * so we're able to apply a :not() selector for the class attribute.
- * While both will apply in the editor, only the second will affect
- * the actual list block.
- * ---------------------------------------------------------------------- */
+	/* ----------------------------------------------------------------------
+	 * CASE: Unordered List
+	 * ---------------------------------------------------------------------- */
 
-.wp-site-blocks ul:not([class]),
-ul.wp-block-list {
-	padding-inline-start: 10px;
+	ul& {
+		padding-inline-start: 10px;
 
-	& li {
-		padding-inline-start: 1.3rem;
-		position: relative;
+		li {
+			padding-inline-start: 1.3rem;
+			position: relative;
 
-		&::marker {
-			content: var(--icon-list-bullet);
-			transform: translateX(10px);
-		}
-
-		& ~ li {
-			margin-top: var(--spacer-30);
+			&::marker {
+				content: var(--icon-list-bullet);
+				transform: translateX(10px);
+			}
 		}
 	}
 }

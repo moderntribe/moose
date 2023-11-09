@@ -77,11 +77,11 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		/**
 		 * Filter block content using the render_block filter
 		 */
-		add_filter( 'render_block', function ( string $block_content, array $block ): string {
-			$filter = $this->container->get( Filter_Factory::class )->make( $block );
+		add_filter( 'render_block', function ( string $block_content, array $parsed_block, object $block ): string {
+			$filter = $this->container->get( Filter_Factory::class )->make( $parsed_block );
 
-			return $filter ? $filter->filter_block_content( $block_content, $block ) : $block_content;
-		}, 10, 2 );
+			return $filter ? $filter->filter_block_content( $block_content, $parsed_block, $block ) : $block_content;
+		}, 10, 3 );
 
 		/**
 		 * Disable default WP block patterns.

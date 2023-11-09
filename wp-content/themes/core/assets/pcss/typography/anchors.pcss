@@ -6,7 +6,7 @@
 
 a {
 
-	:where(.wp-site-blocks) &:not(.wp-element-button):focus-visible {
+	.wp-block-post-content &:not(.wp-element-button):focus-visible {
 
 		@mixin focus-visible-inline-text;
 	}
@@ -17,8 +17,7 @@ a {
 	 * Note: Not in theme.json as the selector needs to be more specific
 	 * ------------------------------------------------------------------------- */
 
-	:where(.wp-site-blocks) :where(p, li) &,
-	.editor-styles-wrapper :where(p, li) & {
+	.wp-block-post-content :where(p, li) & {
 
 		@mixin inline-text-link;
 	}
