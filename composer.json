@@ -36,12 +36,10 @@
 			"@setup-repo"
 		],
 		"post-install-cmd": [
-			"@setup-wordpress",
-			"@update-db"
+			"@setup-wordpress"
 		],
 		"post-update-cmd": [
-			"@setup-wordpress",
-			"@update-db"
+			"@setup-wordpress"
 		]
 	},
 	"scripts-descriptions": {
