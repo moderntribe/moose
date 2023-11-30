@@ -82,28 +82,26 @@ const stackingOrderControls = createHigherOrderComponent( ( BlockEdit ) => {
 
 		return (
 			<Fragment>
-				<div style={ blockStyles } className={ blockClass }>
-					<BlockEdit { ...blockProps } />
-					{ isSelected && (
-						<InspectorAdvancedControls>
-							<NumberControl
-								label={ __( 'Stacking Order', 'tribe' ) }
-								value={ stackingOrder ?? 0 }
-								help={ __(
-									'The stacking order of the element at mobile breakpoints. This setting only applies if the "Stack on mobile" setting for the Columns block is turned on.',
-									'tribe'
-								) }
-								onChange={ ( newValue ) => {
-									setAttributes( {
-										stackingOrder: newValue,
-									} );
-								} }
-								min={ 0 }
-								isShiftStepEnabled={ false }
-							/>
-						</InspectorAdvancedControls>
-					) }
-				</div>
+				<BlockEdit { ...blockProps } />
+				{ isSelected && (
+					<InspectorAdvancedControls>
+						<NumberControl
+							label={ __( 'Stacking Order', 'tribe' ) }
+							value={ stackingOrder ?? 0 }
+							help={ __(
+								'The stacking order of the element at mobile breakpoints. This setting only applies if the "Stack on mobile" setting for the Columns block is turned on.',
+								'tribe'
+							) }
+							onChange={ ( newValue ) => {
+								setAttributes( {
+									stackingOrder: newValue,
+								} );
+							} }
+							min={ 0 }
+							isShiftStepEnabled={ false }
+						/>
+					</InspectorAdvancedControls>
+				) }
 			</Fragment>
 		);
 	};
