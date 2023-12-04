@@ -8,6 +8,10 @@ config:
   xdebug: true
   memcached: true
 services:
+  appserver:
+    overrides:
+      environment:
+        - XDEBUG_TRIGGER=1
   mailhog:
     type: mailhog
     portforward: true
