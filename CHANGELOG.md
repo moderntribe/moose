@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - Chore: WordPress 6.4.1 Update
 - Chore: Plugin updates - advanced-custom-fields-pro:6.2.2, limit-login-attempts-reloaded:2.25.26, seo-by-rank-math:1.0.205, safe-svg:2.2.1
+- Updated: Only exclude the node_modules folder if it is in the root of the project.
 
 ## [2023.10]
 

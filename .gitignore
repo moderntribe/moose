@@ -69,7 +69,7 @@ local-xdebuginfo.php
 .env
 /wp/
 .phpstan-cache/
-node_modules/
+/node_modules/
 auth.json
 
 wp-content/themes/core/dist/
