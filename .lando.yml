@@ -22,7 +22,7 @@ tooling:
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.
-    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm && echo "Enabling xdebug enabled"
+    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm && echo "Xdebug enabled"
     user: root
   xdebug-off:
     service: appserver
