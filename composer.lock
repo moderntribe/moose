@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d782bc05ba6bfc6eb2b947b6f6afb98a",
+    "content-hash": "0a37431acb7d14df75d9a4f8420ddf35",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6405,15 +6405,15 @@
         },
         {
             "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
-            "version": "1.18.1",
+            "version": "1.19",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/duracelltomi-google-tag-manager/",
-                "reference": "tags/1.18.1"
+                "reference": "tags/1.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.18.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/duracelltomi-google-tag-manager.1.19.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6441,15 +6441,15 @@
         },
         {
             "name": "wpackagist-plugin/safe-svg",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/safe-svg/",
-                "reference": "tags/2.2.1"
+                "reference": "tags/2.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.2.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.2.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6459,15 +6459,15 @@
         },
         {
             "name": "wpackagist-plugin/seo-by-rank-math",
-            "version": "1.0.205",
+            "version": "1.0.208.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                "reference": "tags/1.0.205"
+                "reference": "tags/1.0.208.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.205.zip"
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.208.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6477,15 +6477,15 @@
         },
         {
             "name": "wpackagist-plugin/user-switching",
-            "version": "1.7.0",
+            "version": "1.7.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/user-switching/",
-                "reference": "tags/1.7.0"
+                "reference": "tags/1.7.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/user-switching.1.7.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/user-switching.1.7.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6513,10 +6513,10 @@
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
-            "version": "6.2.2",
+            "version": "6.2.4",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.2"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.4"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"

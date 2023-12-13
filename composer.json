@@ -30,7 +30,7 @@
 			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
 			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
 		],
-		"setup-wordpress": "./vendor/bin/wp core download --version=6.4.1 --skip-content --force",
+		"setup-wordpress": "./vendor/bin/wp core download --version=6.4.2 --skip-content --force",
 		"update-db": "./vendor/bin/wp core update-db",
 		"post-root-package-install": [
 			"@setup-repo"
@@ -128,13 +128,13 @@
 		"vlucas/phpdotenv": "^5.5",
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/disable-emojis": "1.7.6",
-		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.18.1",
+		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.19.0",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "2.25.26",
-		"wpackagist-plugin/safe-svg": "2.2.1",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.205",
-		"wpackagist-plugin/user-switching": "^1.7",
+		"wpackagist-plugin/safe-svg": "2.2.2",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.208.1",
+		"wpackagist-plugin/user-switching": "1.7.2",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
-		"wpengine/advanced-custom-fields-pro": "6.2.2"
+		"wpengine/advanced-custom-fields-pro": "6.2.4"
 	},
 	"extra": {
 		"installer-paths": {
