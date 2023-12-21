@@ -63,7 +63,7 @@
 			"type": "package",
 			"package": {
 				"name": "gravityforms/gravityforms",
-				"version": "2.7.12",
+				"version": "2.8.0",
 				"type": "wordpress-plugin",
 				"dist": {
 					"type": "zip",
@@ -128,10 +128,10 @@
 		"vlucas/phpdotenv": "^5.5",
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/disable-emojis": "1.7.6",
-		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.19.0",
-		"wpackagist-plugin/limit-login-attempts-reloaded": "2.25.26",
+		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.19.1",
+		"wpackagist-plugin/limit-login-attempts-reloaded": "2.25.27",
 		"wpackagist-plugin/safe-svg": "2.2.2",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.208.1",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.209",
 		"wpackagist-plugin/user-switching": "1.7.2",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
 		"wpengine/advanced-custom-fields-pro": "6.2.4"
