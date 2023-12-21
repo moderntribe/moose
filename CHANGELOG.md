@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file. The format 
 ## [2023.12]
 
 - Added: Xdebug support for WP Cli commands.
-- Chore: Update WordPress Core to 6.4.2 and plugins (ACF, GTM, RankMath, SafeSVG, User Switching)
+- Chore: Update WordPress Core to 6.4.2 and plugins (ACF, Gravity Forms, GTM, LLAR, RankMath, SafeSVG, User Switching)
+- Chore: Update NPM engines & packages, update GitHub action for npm install, remove unused npm scripts
 
 ## [2023.11]
 
