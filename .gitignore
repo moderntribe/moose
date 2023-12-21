@@ -105,5 +105,8 @@ debug.log
 # PhpStorm
 .idea/
 
+# LocalWP
+/.htaccess
+
 # Make sure to include the .sql file for tests
 !tests/_data/dump.sql
