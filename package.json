@@ -58,8 +58,6 @@
 		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
-		"server-lint": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json",
-		"server-dist": "npm run dist"
+		"check-licenses": "wp-scripts check-licenses"
 	}
 }
