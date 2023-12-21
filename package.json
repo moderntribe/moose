@@ -18,8 +18,8 @@
 		"not dead"
 	],
 	"engines": {
-		"node": "18.16.0",
-		"npm": "9.6.4"
+		"node": ">=20.10.0",
+		"npm": ">=10.2.3"
 	},
 	"config": {
 		"coreThemeDir": "./wp-content/themes/core",
