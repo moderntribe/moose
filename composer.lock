@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00ca26812131376ebd0e94f659bf82ce",
+    "content-hash": "12081cd94197811bf330359513fe6656",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2371,6 +2371,49 @@
                 "source": "https://github.com/nb/oxymel/tree/master"
             },
             "time": "2013-02-24T15:01:54+00:00"
+        },
+        {
+            "name": "outermost/social-sharing-block",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ndiego/social-sharing-block.git",
+                "reference": "353aac3b41a92dddb8bd19d0a5dd7e8a5fb81d82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ndiego/social-sharing-block/zipball/353aac3b41a92dddb8bd19d0a5dd7e8a5fb81d82",
+                "reference": "353aac3b41a92dddb8bd19d0a5dd7e8a5fb81d82",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.1"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "scripts": {
+                "lint": [
+                    "@php ./vendor/bin/phpcs"
+                ],
+                "lint:fix": [
+                    "@php ./vendor/bin/phpcbf"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "A simple little block that allows you to add social share icons to your website.",
+            "support": {
+                "source": "https://github.com/ndiego/social-sharing-block/tree/v1.0.0",
+                "issues": "https://github.com/ndiego/social-sharing-block/issues"
+            },
+            "time": "2024-01-02T20:00:13+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -12058,7 +12101,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "moderntribe/tribe-glomar": 20
+        "moderntribe/tribe-glomar": 20,
+        "outermost/social-sharing-block": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

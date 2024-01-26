@@ -92,6 +92,10 @@
 					"ffraenz/private-composer-installer": "^5.0"
 				}
 			}
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/ndiego/social-sharing-block.git"
 		}
 	],
 	"require-dev": {
@@ -123,6 +127,7 @@
 		"moderntribe/square1-taxonomy": "^4.2",
 		"moderntribe/square1-utils": "^4.2",
 		"moderntribe/tribe-glomar": "dev-main",
+		"outermost/social-sharing-block": "dev-main",
 		"php-di/php-di": "^6.0",
 		"vinkla/extended-acf": "^13.6",
 		"vlucas/phpdotenv": "^5.5",
