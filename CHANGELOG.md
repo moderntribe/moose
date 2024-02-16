@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.02]
+- Chore: WordPress 6.4.3 Update
+- Chore: Plugin updates: advanced-custom-fields-pro:6.2.6, gravityforms:2.8.3, duracelltomi-google-tag-manager:1.20,, limit-login-attempts-reloaded:2.26.2,seo-by-rank-math:1.0.212
+
 ## [2023.12]
 
 - Added: Xdebug support for WP Cli commands.
