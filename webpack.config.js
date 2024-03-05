@@ -62,34 +62,31 @@ const assetEntryPoints = () => {
  */
 const blockEntryPoints = () => {
 	/**
-	 * Use `index.js` instead of `block.json` for glob b/c core blocks won't
-	 * contain a `block.json` file (they are already registered), but they
-	 * still may contain scripts or styles which should be processed.
+	 * Create files array using index.js, editor.js and view.js files
+	 *
+	 * We use `index.js` instead of `block.json` for glob b/c core blocks
+	 * won't contain a `block.json` file (they are already registered),
+	 * but they still may contain scripts or styles which should be processed.
 	 */
-	const coreBlockFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/index.js`,
-		{ absolute: true }
-	);
+	const files = [
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/index.js`, {
+			absolute: true,
+		} ),
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/editor.js`, {
+			absolute: true,
+		} ),
+		...glob( `${ pkg.config.coreThemeBlocksDir }/**/view.js`, {
+			absolute: true,
+		} ),
+	];
 
-	const coreBlockEditorFiles = glob(
-		`${ pkg.config.coreThemeBlocksDir }/**/editor.js`,
-		{ absolute: true }
-	);
-
-	if ( ! coreBlockFiles.length && ! coreBlockEditorFiles.length ) {
+	if ( ! files.length ) {
 		return;
 	}
 
 	const entryPoints = {};
 
-	coreBlockFiles.forEach( ( entryFilePath ) => {
-		const entryName = entryFilePath
-			.replace( extname( entryFilePath ), '' )
-			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
-		entryPoints[ entryName ] = entryFilePath;
-	} );
-
-	coreBlockEditorFiles.forEach( ( entryFilePath ) => {
+	files.forEach( ( entryFilePath ) => {
 		const entryName = entryFilePath
 			.replace( extname( entryFilePath ), '' )
 			.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' );
