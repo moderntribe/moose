@@ -14,7 +14,7 @@ const settings = {
 			attribute: 'useBalancedText',
 			defaultValue: false,
 			helpText: __(
-				'Turning this feature on sets text-wrap to balance to allow better responsive text',
+				'Enable to evenly balance text over multiple lines',
 				'tribe'
 			),
 			label: __( 'Use Balanced Text', 'tribe' ),
