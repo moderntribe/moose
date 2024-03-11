@@ -3,7 +3,9 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2024.03]
-- Added: Styling for editor title bar (http://p.tri.be/i/Dszjax) [[MOOSE-111]](https://moderntribe.atlassian.net/browse/MOOSE-111)
+- Added: Styling for editor title bar (http://p.tri.be/i/Dszjax). [[MOOSE-111]](https://moderntribe.atlassian.net/browse/MOOSE-111)
+- Added: Allow `view.js` files for blocks. [[MOOSE-86]](https://moderntribe.atlassian.net/browse/MOOSE-86)
+- Changed: `render_template` function for ACF blocks should now properly pass in all block variables. [[MOOSE-81]](https://moderntribe.atlassian.net/browse/MOOSE-81)
 
 ## [2024.02]
 - Chore: WordPress 6.4.3 Update
