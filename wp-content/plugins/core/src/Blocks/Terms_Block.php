@@ -27,13 +27,19 @@ class Terms_Block {
 	 * @return \WP_Term[]
 	 */
 	public function get_the_terms(): array {
+		$post_id = get_the_ID();
+
+		if ( ! $post_id ) {
+			return $this->terms;
+		}
+
 		if ( $this->only_primary_term ) {
-			$term = $this->get_primary_term( get_the_ID(), $this->taxonomy );
+			$term = $this->get_primary_term( $post_id, $this->taxonomy );
 			if ( $term ) {
 				$this->terms[] = $term;
 			}
 		} else {
-			$terms = get_the_terms( get_the_ID(), $this->taxonomy );
+			$terms = get_the_terms( $post_id, $this->taxonomy );
 			if ( $terms && ! is_wp_error( $terms ) ) {
 				$this->terms = $terms;
 			}
