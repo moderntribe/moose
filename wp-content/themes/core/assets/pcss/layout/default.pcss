@@ -25,8 +25,7 @@
  *
  * Screenshot: http://p.tri.be/i/oaIM0F
  */
-.has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide)),
-:is(.editor-styles-wrapper) .has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide)) {
+.has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide)) {
 	padding-right: var(--wp--style--root--padding-right);
 	padding-left: var(--wp--style--root--padding-left);
 	max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) * 2);
@@ -34,55 +33,20 @@
 
 /* -------------------------------------------------------------------------
  *
- * Layout: Align Wide
- *
- * Adjustments for fluid value in theme.json settings.layout.wideSize
+ * Layout: Align Wide & Grid
  *
  * ------------------------------------------------------------------------- */
 
 /*
- * CASE: settings.layout.wideSize = fluid value
+ * CASE: Double global padding selectors with alignwide / aligngrid children
  *
- * Max-width of blocks aligned wide should not account for grid margin
- * when nested in .has-global-padding because the container applies
- * grid margin as padding.
+ * WP styles remove padding from blocks nested in .has-global-padding.alignfull.
  *
- * Example: Top level Group block set to align wide should get a default
- * max-width of 100% because the top level already has global padding and
- * if we kept it, it would double the left/right spacing.
- *
- * Screenshot: http://p.tri.be/i/pV2gSJ
+ * Padding is added back to prevent alignwide/aligngrid from bumping
+ * up to the viewport edge.
  */
-.has-global-padding.is-layout-constrained > .alignwide,
-:is(.editor-styles-wrapper) .is-root-container.has-global-padding.is-layout-constrained > .alignwide {
-	max-width: 100%;
-}
-
-/*
- * CASE: settings.layout.wideSize = fluid value
- *
- * Max-width of blocks aligned wide nested inside two .has-global-padding
- * containers need to re-account for grid-margin.
- *
- * Example: Top level Columns block aligned wide inside Group block aligned full
- * should get our default wide size again because the Group block no longer has
- * padding.
- *
- * Screenshot (padding removed from alignfull element): http://p.tri.be/i/hfP3Fj
- * Screenshot (alignwide element reset): http://p.tri.be/i/Z86h5E
- */
-.has-global-padding :is(.has-global-padding) > .alignwide,
-:is(.editor-styles-wrapper) .has-global-padding :is(.has-global-padding) > .alignwide {
-	max-width: var(--wp--style--global--wide-size);
-}
-
-/*
- * Previously to this change, adding a full width pattern to the bottom
- * of a page would force the user to have to use "Insert After" functions
- * to add a block below.
- * This adds space for clicking at the bottom of the
- * .editor-styles-wrapper element and only appears in the admin editor.
- */
-:is(.editor-styles-wrapper) {
-	padding-bottom: 40vh;
+.has-global-padding > .alignfull:where(.has-global-padding):has(.alignwide),
+.has-global-padding > .alignfull:where(.has-global-padding):has(.aligngrid) {
+	padding-right: var(--wp--style--root--padding-right);
+	padding-left: var(--wp--style--root--padding-left);
 }
