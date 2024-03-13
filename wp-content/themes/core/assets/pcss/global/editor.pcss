@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------
+ *
+ * Global - Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+/* handle styling the editor "title bar" */
+.edit-post-visual-editor__post-title-wrapper {
+	width: 100% !important;
+	margin-top: 0 !important;
+	padding-top: var(--spacer-40);
+	padding-bottom: var(--spacer-40);
+	background-color: var(--color-neutral-20);
+
+	.wp-block-post-title {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacer-10);
+
+		/* we're defaulting to a different content width here to further
+		   differentiate between this title & the other blocks */
+		max-width: var(--grid-max-width);
+		margin-top: 0;
+		padding: var(--spacer-20) var(--spacer-30);
+		border: 1px solid var(--color-neutral-60);
+		border-left: 6px solid var(--color-neutral-60);
+		background-color: var(--color-white);
+
+		/* add pseudo element to display field label */
+		&::before {
+
+			@mixin t-body;
+			content: "Page Title";
+			color: var(--color-neutral-60);
+		}
+	}
+}
