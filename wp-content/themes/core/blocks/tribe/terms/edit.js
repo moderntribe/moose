@@ -61,12 +61,16 @@ export default function Edit( {
 									taxonomyToUse: newValue,
 								} );
 							} }
-							options={ taxonomies.map( ( taxonomy ) => {
-								return {
-									label: taxonomy.name,
-									value: taxonomy.slug,
-								};
-							} ) }
+							options={
+								taxonomies
+									? taxonomies.map( ( taxonomy ) => {
+											return {
+												label: taxonomy.name,
+												value: taxonomy.slug,
+											};
+									  } )
+									: []
+							}
 						/>
 						<ToggleControl
 							label={ __(
