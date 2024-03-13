@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file. The format 
 - Added: Styling for editor title bar (http://p.tri.be/i/Dszjax). [[MOOSE-111]](https://moderntribe.atlassian.net/browse/MOOSE-111)
 - Added: Allow `view.js` files for blocks. [[MOOSE-86]](https://moderntribe.atlassian.net/browse/MOOSE-86)
 - Changed: `render_template` function for ACF blocks should now properly pass in all block variables. [[MOOSE-81]](https://moderntribe.atlassian.net/browse/MOOSE-81)
+- Changed: Layout styles are now properly separated between FE & editor. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+- Changed: `theme.json` now contains static widths for content and wide widths. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+- Added: `theme.json` now contains a new static "grid" width. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
 
 ## [2024.02]
 - Chore: WordPress 6.4.3 Update
