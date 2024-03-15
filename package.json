@@ -55,7 +55,7 @@
 		"lint:configs": "wp-scripts lint-js \"./*.js\"",
 		"lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
+		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe --template ../../../../../dev/templates/",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses",
