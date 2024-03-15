@@ -1,0 +1,11 @@
+{
+  "name": "tribe-block-template",
+  "version": "1.0.0",
+  "description": "Custom Block Template for the wp create block script.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Modern Tribe <admin@tri.be>",
+  "license": "GPL-2.0-or-later"
+}
