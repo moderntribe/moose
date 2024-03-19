@@ -1,11 +1,17 @@
 {
-  "name": "tribe-block-template",
+  "name": "tribe-block-templates",
   "version": "1.0.0",
-  "description": "Custom Block Template for the wp create block script.",
-  "main": "index.js",
+  "description": "Custom block templates for the WP create-block script to use",
+	"author": "Modern Tribe <admin@tri.be>",
+	"license": "GPL-2.0-or-later",
+	"keywords": [],
+	"homepage": "https://github.com/moderntribe/moose#readme",
+	"repository": "https://github.com/moderntribe/moose",
+	"bugs": {
+		"email": "admin@tri.be"
+	},
+	"main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Modern Tribe <admin@tri.be>",
-  "license": "GPL-2.0-or-later"
+  }
 }

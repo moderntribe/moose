@@ -3,6 +3,12 @@ const { join } = require( 'path' );
 module.exports = {
 	blockTemplatesPath: join( __dirname, 'block' ),
 	defaultValues: {
+		attributes: {
+			exampleTextControl: {
+				type: 'string',
+				default: '',
+			},
+		},
 		dashicon: 'block-default',
 		supports: {
 			html: false,
