@@ -1,0 +1,47 @@
+import { __ } from '@wordpress/i18n';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl } from '@wordpress/components';
+{{#isDynamicVariant}}
+import ServerSideRender from '@wordpress/server-side-render';
+{{/isDynamicVariant}}
+
+import './editor.pcss';
+
+export default function Edit( { attributes, setAttributes, isSelected } ) {
+	const blockProps = useBlockProps();
+
+	const { exampleTextControl } = attributes;
+
+	return (
+		<div { ...blockProps }>
+			{{#isDynamicVariant}}
+			<ServerSideRender block="{{namespace}}/{{slug}}" attributes={ attributes } />
+			{{/isDynamicVariant}}
+			{{#isStaticVariant}}
+			<p>{ __( '{{title}} – hello from the editor!', '{{namespace}}' ) }</p>
+			{ exampleTextControl ? <p>{ exampleTextControl }</p> : '' }
+			{{/isStaticVariant}}
+			{ isSelected && (
+				<InspectorControls>
+					<PanelBody title={ __( 'Block Settings', '{{namespace}}' ) }>
+						<TextControl
+							label={ __( 'Example Text Control', '{{namespace}}' ) }
+							value={ exampleTextControl }
+							help={ __(
+								'Some helpful text describing the text control.',
+								'{{namespace}}'
+							) }
+							placeholder={ __(
+								'Helpful placeholder text',
+								'{{namespace}}'
+							) }
+							onChange={ ( value ) =>
+								setAttributes( { exampleTextControl: value } )
+							}
+						/>
+					</PanelBody>
+				</InspectorControls>
+			) }
+		</div>
+	);
+}

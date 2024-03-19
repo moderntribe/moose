@@ -24,7 +24,8 @@
 	"config": {
 		"coreThemeDir": "./wp-content/themes/core",
 		"corePluginDir": "./wp-content/plugins/core",
-		"coreThemeBlocksDir": "./wp-content/themes/core/blocks"
+		"coreThemeBlocksDir": "./wp-content/themes/core/blocks",
+		"coreBlockTemplatesDir": "../../../../../dev/templates"
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^2.1.0",
@@ -55,7 +56,7 @@
 		"lint:configs": "wp-scripts lint-js \"./*.js\"",
 		"lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe",
+		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe --template $npm_package_config_coreBlockTemplatesDir",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses",
