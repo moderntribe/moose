@@ -1,0 +1,37 @@
+/* -------------------------------------------------------------------------
+ *
+ * Layouts
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+ *
+ * Layout: Align None (Content Width)
+ *
+ * Adjustments for content width blocks nested inside alignfull container blocks
+ * For blocks w/ align none nested inside container block with alignfull and
+ * constrained layout.
+ *
+ * ------------------------------------------------------------------------- */
+
+/* important added to override WP's editor stylesheet */
+.has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide):not(.aligngrid)) {
+	max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) * 2) !important;
+}
+
+/* -------------------------------------------------------------------------
+ *
+ * Editor Fixes
+ *
+ * ------------------------------------------------------------------------- */
+
+/*
+ * Previously to this change, adding a full width pattern to the bottom
+ * of a page would force the user to have to use "Insert After" functions
+ * to add a block below.
+ * This adds space for clicking at the bottom of the
+ * .editor-styles-wrapper element and only appears in the admin editor.
+ */
+:is(.editor-styles-wrapper) {
+	padding-bottom: 40vh;
+}

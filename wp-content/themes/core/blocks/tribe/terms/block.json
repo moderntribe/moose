@@ -16,13 +16,16 @@
 	},
 	"attributes": {
 		"taxonomyToUse": {
-			"type": "string"
+			"type": "string",
+			"default": "category"
 		},
 		"onlyPrimaryTerm": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"hasLinks": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"styles": [ { "name": "pills", "label": "Pills" } ],

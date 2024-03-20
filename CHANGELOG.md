@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.03]
+- Fixed: Fixed an issue with the Terms block where if a post ID wasn't provided it would error out. [Panopto Slack thread.](https://tribe.slack.com/archives/C061UC7B2F9/p1710250320818599)
+- Added: Styling for editor title bar (http://p.tri.be/i/Dszjax). [[MOOSE-111]](https://moderntribe.atlassian.net/browse/MOOSE-111)
+- Added: Allow `view.js` files for blocks. [[MOOSE-86]](https://moderntribe.atlassian.net/browse/MOOSE-86)
+- Changed: `render_template` function for ACF blocks should now properly pass in all block variables. [[MOOSE-81]](https://moderntribe.atlassian.net/browse/MOOSE-81)
+- Changed: Layout styles are now properly separated between FE & editor. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+- Changed: `theme.json` now contains static widths for content and wide widths. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+- Added: `theme.json` now contains a new static "grid" width. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+
 ## [2024.02]
 - Chore: WordPress 6.4.3 Update
 - Chore: Plugin updates: advanced-custom-fields-pro:6.2.6, gravityforms:2.8.3, duracelltomi-google-tag-manager:1.20,, limit-login-attempts-reloaded:2.26.2,seo-by-rank-math:1.0.212
