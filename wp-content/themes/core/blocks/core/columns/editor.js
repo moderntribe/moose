@@ -22,8 +22,7 @@ const settings = {
 			type: 'select',
 			selectOptions: [
 				{
-					disabled: true,
-					label: __( 'Select an option', 'tribe' ),
+					label: __( 'No custom gap', 'tribe' ),
 					value: '',
 				},
 				{
