@@ -7,6 +7,7 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
+	SelectControl,
 	ToggleControl,
 	__experimentalNumberControl as NumberControl, // eslint-disable-line
 } from '@wordpress/components';
@@ -81,13 +82,14 @@ const applyEditorBlockProps = createHigherOrderComponent(
 			const classes = attributes.classes
 				? attributes.classes.split( ' ' )
 				: [];
+			const styles = { style: {} };
 
 			// return default BlockListBlock if we're dealing with an unsupported block
 			if ( ! state.settings.blocks.includes( name ) ) {
 				return <BlockListBlock { ...props } />;
 			}
 
-			// loop through controls to assign classes if necessary
+			// loop through controls to assign classes & styles if necessary
 			state.settings.controls.forEach( ( control ) => {
 				if (
 					Object.keys( control ).includes( 'applyClass' ) &&
@@ -97,9 +99,27 @@ const applyEditorBlockProps = createHigherOrderComponent(
 				) {
 					classes.push( control.applyClass );
 				}
+
+				// styles get added to the `wrapperProps` attribute on the BlockListBlock
+				if (
+					Object.keys( control ).includes( 'applyStyleProperty' ) &&
+					attributes[ control.attribute ] &&
+					attributes[ control.attribute ] !== control.defaultValue
+				) {
+					styles.style = {
+						[ control.applyStyleProperty ]:
+							attributes[ control.attribute ],
+					};
+				}
 			} );
 
-			return <BlockListBlock { ...props } className={ classes } />;
+			return (
+				<BlockListBlock
+					{ ...props }
+					className={ classes }
+					wrapperProps={ styles }
+				/>
+			);
 		};
 	}
 );
@@ -138,13 +158,28 @@ const determineControlToRender = ( control, attributes, setAttributes ) => {
 				label={ control.label }
 				value={ attributes[ control.attribute ] }
 				help={ control.helpText }
-				onChange={ ( newValue ) => {
+				onChange={ ( value ) => {
 					setAttributes( {
-						[ control.attribute ]: newValue,
+						[ control.attribute ]: value,
 					} );
 				} }
 				min={ 0 }
 				isShiftStepEnabled={ false }
+			/>
+		);
+	} else if ( control.type === 'select' ) {
+		return (
+			<SelectControl
+				key={ control.attribute }
+				label={ control.label }
+				value={ attributes[ control.attribute ] }
+				help={ control.helpText }
+				options={ control.selectOptions }
+				onChange={ ( value ) => {
+					setAttributes( {
+						[ control.attribute ]: value,
+					} );
+				} }
 			/>
 		);
 	}

@@ -3,5 +3,9 @@
  */
 
 .wp-block-columns {
-	gap: var(--spacing-40) var(--wp--custom--spacing--grid-gutter);
+	gap: var(--spacer-40) var(--wp--custom--spacing--grid-gutter);
+
+	&.tribe-has-custom-gap {
+		gap: var(--tribe-custom-gap);
+	}
 }
