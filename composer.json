@@ -60,21 +60,6 @@
 			"url": "https://github.com/moderntribe/tribe-glomar.git"
 		},
 		{
-			"type": "package",
-			"package": {
-				"name": "gravityforms/gravityforms",
-				"version": "2.8.3",
-				"type": "wordpress-plugin",
-				"dist": {
-					"type": "zip",
-					"url": "https://composer.utility.mtribe.site/gravityforms/?key={%WP_PLUGIN_GF_KEY}&token={%WP_PLUGIN_GF_TOKEN}&t={%VERSION}"
-				},
-				"require": {
-					"ffraenz/private-composer-installer": "^5.0"
-				}
-			}
-		},
-		{
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		},
@@ -115,7 +100,6 @@
 		"php": "^8.0|^8.1",
 		"block-editor-custom-alignments/block-editor-custom-alignments": "^1.0",
 		"composer/installers": "^2.2",
-		"gravityforms/gravityforms": "*",
 		"humanmade/s3-uploads": "^3.0",
 		"johnbillion/extended-cpts": "^5.0",
 		"moderntribe/square1-post-type": "^4.2",
