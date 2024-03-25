@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 - Changed: Layout styles are now properly separated between FE & editor. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
 - Changed: `theme.json` now contains static widths for content and wide widths. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
 - Added: `theme.json` now contains a new static "grid" width. [[MOOSE-84]](https://moderntribe.atlassian.net/browse/MOOSE-84)
+- Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
 
 ## [2024.02]
 - Chore: WordPress 6.4.3 Update
