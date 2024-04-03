@@ -13,16 +13,15 @@
 	background-color: var(--color-neutral-20);
 
 	.wp-block-post-title {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--spacer-10);
+		position: relative;
 
 		/* we're defaulting to a different content width here to further
 		   differentiate between this title & the other blocks */
-		max-width: var(--grid-max-width);
+		max-width: var(--grid-max-grid-width) !important;
 		margin-top: 0;
-		padding: var(--spacer-20) var(--spacer-30);
+
+		/* padding * 2 + psuedo "Page Title" element font size */
+		padding: calc((var(--spacer-20) * 2) + var(--font-size-20)) var(--spacer-30) var(--spacer-20);
 		border: 1px solid var(--color-neutral-60);
 		border-left: 6px solid var(--color-neutral-60);
 		background-color: var(--color-white);
@@ -32,6 +31,9 @@
 
 			@mixin t-body;
 			content: "Page Title";
+			position: absolute;
+			top: var(--spacer-20);
+			left: var(--spacer-30);
 			color: var(--color-neutral-60);
 		}
 	}
