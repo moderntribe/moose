@@ -25,7 +25,6 @@
 		"phpcs": "./vendor/bin/phpcs",
 		"phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
 		"setup-project": [
-			"@php -r \"file_exists('.env') || copy('.env.sample', '.env');\"",
 			"@php -r \"file_exists('auth.json') || copy('auth-sample.json', 'auth.json');\"",
 			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
 			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
@@ -46,7 +45,7 @@
 		"phpcs": "Run PHPCS on the project.",
 		"phpcbf": "Run PHPCBF on the project.",
 		"phpstan": "Run PHPStan on the project.",
-		"setup-project": "Moves the .env, auth.json, local-config.php, and local-config.json files for setting up the project.",
+		"setup-project": "Moves the auth.json, local-config.php, and local-config.json files for setting up the project.",
 		"setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value.",
 		"update-db": "Runs the wpcli command to update the WordPress database. This is sometimes required after a version update."
 	},
