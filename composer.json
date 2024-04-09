@@ -111,13 +111,13 @@
 		"vlucas/phpdotenv": "^5.5",
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/disable-emojis": "1.7.6",
-		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20",
-		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.2",
-		"wpackagist-plugin/safe-svg": "2.2.2",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.212",
-		"wpackagist-plugin/user-switching": "1.7.2",
+		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.2",
+		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.8",
+		"wpackagist-plugin/safe-svg": "2.2.4",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.216",
+		"wpackagist-plugin/user-switching": "1.7.3",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
-		"wpengine/advanced-custom-fields-pro": "6.2.6"
+		"wpengine/advanced-custom-fields-pro": "6.2.9"
 	},
 	"extra": {
 		"installer-paths": {
