@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.04]
+- Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
+- Chore: Composer updates including plugins: advanced-custom-fields-pro:6.2.9, duracelltomi-google-tag-manager:1.20.2, limit-login-attempts-reloaded:2.26.8, safe-svg:2.2.4, seo-by-rank-math:1.0.216, user-switching:1.7.3
+- Chore: Update NPM packages, including swapping browser-sync-webpack-plugin to browser-sync-v3-webpack-plugin for correct version support.
+
 ## [2024.03]
 - Fixed: Fixed an issue with the Terms block where if a post ID wasn't provided it would error out. [Panopto Slack thread.](https://tribe.slack.com/archives/C061UC7B2F9/p1710250320818599)
 - Added: Styling for editor title bar (http://p.tri.be/i/Dszjax). [[MOOSE-111]](https://moderntribe.atlassian.net/browse/MOOSE-111)
