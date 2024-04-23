@@ -4,6 +4,8 @@ Last Updated: 04/23/24
 
 Currently we support creating static and dynamic custom blocks. Generated custom blocks ultimately live in the core theme under `./blocks/tribe`.
 
+Please see the WordPress documentation on [external block templates here](https://developer.wordpress.org/news/2024/04/16/creating-an-external-project-template-for-create-block/).
+
 ## Usage
 
 In your command line tool, you can run `npm run create-block`. This will trigger the create block tool. Once within this tool, follow the prompts to complete creating your block 
