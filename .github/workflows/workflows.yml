@@ -16,7 +16,6 @@ jobs:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
     secrets:
-      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
       COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
 
   linting:
@@ -28,7 +27,6 @@ jobs:
     needs: [coding-standards, linting]
     uses: ./.github/workflows/static-analysis.yml
     secrets:
-      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
       COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
 
   slic:
@@ -36,5 +34,4 @@ jobs:
     needs: [coding-standards, phpstan, linting]
     uses: ./.github/workflows/php-tests.yml
     secrets:
-      COMPOSER_ENV: ${{ secrets.COMPOSER_ENV }}
       COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}

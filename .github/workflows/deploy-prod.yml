@@ -48,10 +48,9 @@ jobs:
       - name: Install composer dependencies
         working-directory: ${{ env.BUILD_FOLDER }}
         run: |
-          echo "${{ secrets.COMPOSER_ENV }}" > .env
           echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
           composer install --optimize-autoloader --ignore-platform-reqs --no-dev
-          rm .env auth.json
+          rm auth.json
 
       # Set up node version
       - name: Set up node

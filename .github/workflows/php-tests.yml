@@ -3,9 +3,6 @@ name: 'PHP Tests'
 on:
   workflow_call:
     secrets:
-      COMPOSER_ENV:
-        required: true
-        description: COMPOSER_ENV Secret
       COMPOSER_AUTH_JSON:
         required: true
         description: Composer auth.json
@@ -65,11 +62,6 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-
-      - name: Install Composer
-        if: steps.changed-files.outputs.tests == 'true'
-        run: |
-          echo "${{ secrets.COMPOSER_ENV }}" >> ${GITHUB_WORKSPACE}/${{ env.build_folder }}/.env
 
       - name: Set up slic env vars
         if: steps.changed-files.outputs.tests == 'true'

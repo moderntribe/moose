@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file. The format 
 ## [2024.04]
 - Removed: `example` custom block in favor of custom block generation through `npm run create-block`.
 - Added: Custom block external template (+ documentation) that allows us to quickly create blocks through the command line using `npm run create-block`. [[MOOSE-77]](https://moderntribe.atlassian.net/browse/MOOSE-77)
+- Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
+- Chore: Composer updates including plugins: advanced-custom-fields-pro:6.2.9, duracelltomi-google-tag-manager:1.20.2, limit-login-attempts-reloaded:2.26.8, safe-svg:2.2.4, seo-by-rank-math:1.0.216, user-switching:1.7.3
+- Chore: Update NPM packages, including swapping browser-sync-webpack-plugin to browser-sync-v3-webpack-plugin for correct version support.
 
 ## [2024.03]
 - Fixed: Fixed an issue with the Terms block where if a post ID wasn't provided it would error out. [Panopto Slack thread.](https://tribe.slack.com/archives/C061UC7B2F9/p1710250320818599)
