@@ -18,6 +18,7 @@ module.exports = {
 				padding: true,
 			},
 		},
+		textdomain: 'tribe',
 		viewScript: 'file:./view.js',
 	},
 	variants: {
