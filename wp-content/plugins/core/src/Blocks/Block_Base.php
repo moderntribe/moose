@@ -32,8 +32,6 @@ abstract class Block_Base {
 
 	/**
 	 * Block styles to be defined in extending class
-	 *
-	 * @return array
 	 */
 	public function get_block_styles(): array {
 		return [];
@@ -41,8 +39,6 @@ abstract class Block_Base {
 
 	/**
 	 * Block dependencies to be defined in extending class
-	 *
-	 * @return array
 	 */
 	public function get_block_dependencies(): array {
 		return [];

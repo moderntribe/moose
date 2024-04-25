@@ -10,7 +10,7 @@
 const { resolve, extname } = require( 'path' );
 const { sync: glob } = require( 'fast-glob' );
 const pkg = require( './package.json' );
-const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
+const BrowserSyncPlugin = require( 'browser-sync-v3-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
