@@ -13,6 +13,7 @@ body {
 	--grid-gutter: var(--wp--custom--spacing--grid-gutter);
 	--grid-wide-width: var(--wp--style--global--wide-size);
 
-	/* this should match the "Grid" size defined in theme.json */
-	--grid-max-width: 1680px;
+	/* this should match the "Grid" size defined in the
+	   `_experimentalLayout` setting within theme.json */
+	--grid-max-width: var(--tribe--style--global--grid-size, 1680px);
 }
