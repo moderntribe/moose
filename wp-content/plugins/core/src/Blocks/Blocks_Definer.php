@@ -7,6 +7,7 @@ use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Filters\List_Filter;
 use Tribe\Plugin\Blocks\Filters\Paragraph_Filter;
+use Tribe\Plugin\Blocks\Filters\Post_Featured_Image_Filter;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
@@ -72,8 +73,9 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::FILTERS         => DI\add( [
-				DI\get( Paragraph_Filter::class ),
 				DI\get( List_Filter::class ),
+				DI\get( Paragraph_Filter::class ),
+				DI\get( Post_Featured_Image_Filter::class ),
 			] ),
 
 			Filter_Factory::class => DI\autowire()->constructorParameter( 'filters', DI\get( self::FILTERS ) ),
