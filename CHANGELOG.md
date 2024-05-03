@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.05]
+- Updated: Pattern definition consistency for usage of `Inserter:`
+- Removed: Automatic injection of `Post` pattern from the `post` post type and moves to using the pattern selector on creation of new post
+
 ## [2024.04]
 - Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
 - Chore: Composer updates including plugins: advanced-custom-fields-pro:6.2.9, duracelltomi-google-tag-manager:1.20.2, limit-login-attempts-reloaded:2.26.8, safe-svg:2.2.4, seo-by-rank-math:1.0.216, user-switching:1.7.3
