@@ -6,7 +6,8 @@
  * Categories: templates
  * Description: A simple pattern for a single post page - added automatically to new posts
  * Keywords: post, placeholder
- * Inserter: no
+ * Block Types: core/post-content
+ * Post Types: post, wp_template
  */
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->

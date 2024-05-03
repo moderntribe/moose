@@ -6,7 +6,6 @@
  * Categories: cards
  * Description: Post card with featured image, post type, post title, excerpt, and URL
  * Keywords: search, post, card
- * Inserter: yes
  * Block Types: core/query
  */
 ?>
