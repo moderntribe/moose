@@ -12,32 +12,34 @@ body {
 	--ssb-button-border-size: 1px;
 }
 
-.wp-block-outermost-social-sharing,
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-outermost-social-sharing {
+.wp-block-outermost-social-sharing {
 	background: transparent;
 	transition: var(--transition);
-}
 
-.wp-block-outermost-social-sharing:not(.is-style-logos-only) .outermost-social-sharing-link {
-	background-color: var(--ssb-button-background-color);
-	color: var(--ssb-button-color);
-	fill: var(--ssb-button-color);
-	border: var(--ssb-button-border-size) solid var(--ssb-button-border-color);
+	&:not(.is-style-logos-only) {
 
-	&:hover,
-	&:focus {
-		background-color: var(--ssb-button-background-hover-color);
-		color: var(--ssb-button-hover-color);
-		fill: var(--ssb-button-hover-color);
-		border: var(--ssb-button-border-size) solid var(--ssb-button-border-hover-color);
-	}
+		.outermost-social-sharing-link {
+			background-color: var(--ssb-button-background-color);
+			color: var(--ssb-button-color);
+			fill: var(--ssb-button-color);
+			border: var(--ssb-button-border-size) solid var(--ssb-button-border-color);
 
-	a:focus-visible {
-		outline: none;
-		outline-offset: 0;
-		background-color: var(--ssb-button-background-hover-color);
-		color: var(--ssb-button-hover-color);
-		fill: var(--ssb-button-hover-color);
-		border-radius: 9999px; /* Value provided by their base CSS for the plugin */
+			&:hover,
+			&:focus {
+				background-color: var(--ssb-button-background-hover-color);
+				color: var(--ssb-button-hover-color);
+				fill: var(--ssb-button-hover-color);
+				border: var(--ssb-button-border-size) solid var(--ssb-button-border-hover-color);
+			}
+
+			a:focus-visible {
+				outline: none;
+				outline-offset: 0;
+				background-color: var(--ssb-button-background-hover-color);
+				color: var(--ssb-button-hover-color);
+				fill: var(--ssb-button-hover-color);
+				border-radius: 9999px; /* Value provided by their base CSS for the plugin */
+			}
+		}
 	}
 }
