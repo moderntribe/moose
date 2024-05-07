@@ -27,6 +27,7 @@ use Tribe\Theme\blocks\core\separator\Separator;
 use Tribe\Theme\blocks\core\spacer\Spacer;
 use Tribe\Theme\blocks\core\table\Table;
 use Tribe\Theme\blocks\core\video\Video;
+use Tribe\Theme\blocks\outermost\socialsharing\Social_Sharing;
 
 class Blocks_Definer implements Definer_Interface {
 
@@ -66,6 +67,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Spacer::class ),
 				DI\get( Table::class ),
 				DI\get( Video::class ),
+				DI\get( Social_Sharing::class ),
 			] ),
 
 			self::PATTERNS        => DI\add( [
