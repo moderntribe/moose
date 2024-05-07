@@ -12,8 +12,6 @@ class Block_Category {
 	 * @filter block_categories_all
 	 *
 	 * @param array $categories
-	 *
-	 * @return array
 	 */
 	public function custom_block_category( array $categories ): array {
 		return array_merge( [
