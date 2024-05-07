@@ -3,9 +3,6 @@ name: Coding Standards
 on:
   workflow_call:
     secrets:
-      COMPOSER_ENV:
-        required: true
-        description: COMPOSER_ENV Secret
       COMPOSER_AUTH_JSON:
         required: true
         description: Composer auth.json
@@ -54,10 +51,9 @@ jobs:
       - name: Install Composer
         if: steps.changed-files.outputs.phpcs == 'true'
         run: |
-          echo "${{ secrets.COMPOSER_ENV }}" >> .env
           echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
-          rm .env auth.json
+          rm auth.json
 
       - name: Run PHPCS
         if: steps.changed-files.outputs.phpcs == 'true'

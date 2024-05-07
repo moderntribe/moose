@@ -10,7 +10,7 @@ The [Dokku](https://dokku.com/) deployments are for internal qa and development 
 
 ### Production Deployment Workflows
 
-We have 3 deployment workflows to interface with whatever hosting environment is needed (deploy-dev.yml, deploy-stage.yml, deploy-prod.yml). You will need to update the `[DEV|STAGE|PROD]_DEPLOY_REPO`, `DEPLOY_PRIVATE_SSH_KEY`, `COMPOSER_AUTH_JSON`, and `COMPOSER_ENV` secrets to use these deployments in your project. These are intended to be deploying to the hosting service where the site will live. Most hosting companies work with `git` making it the default push we currently use.
+We have 3 deployment workflows to interface with whatever hosting environment is needed (deploy-dev.yml, deploy-stage.yml, deploy-prod.yml). You will need to update the `[DEV|STAGE|PROD]_DEPLOY_REPO`, `DEPLOY_PRIVATE_SSH_KEY`, and `COMPOSER_AUTH_JSON` secrets to use these deployments in your project. These are intended to be deploying to the hosting service where the site will live. Most hosting companies work with `git` making it the default push we currently use.
 
 ## Static Analysis and Testing
 
