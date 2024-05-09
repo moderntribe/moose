@@ -1,0 +1,45 @@
+/**
+ * Styles specific to this block
+ */
+
+body {
+	--ssb-button-color: var(--wp--preset--color--base-black);
+	--ssb-button-hover-color: var(--wp--preset--color--base-white);
+	--ssb-button-background-color: var(--wp--preset--color--base-white);
+	--ssb-button-background-hover-color: var(--wp--preset--color--base-black);
+	--ssb-button-border-color: var(--wp--preset--color--base-black);
+	--ssb-button-border-hover-color: var(--wp--preset--color--base-white);
+	--ssb-button-border-size: 1px;
+}
+
+.wp-block-outermost-social-sharing {
+	background: transparent;
+	transition: var(--transition);
+
+	&:not(.is-style-logos-only) {
+
+		.outermost-social-sharing-link {
+			background-color: var(--ssb-button-background-color);
+			color: var(--ssb-button-color);
+			fill: var(--ssb-button-color);
+			border: var(--ssb-button-border-size) solid var(--ssb-button-border-color);
+
+			&:hover,
+			&:focus {
+				background-color: var(--ssb-button-background-hover-color);
+				color: var(--ssb-button-hover-color);
+				fill: var(--ssb-button-hover-color);
+				border: var(--ssb-button-border-size) solid var(--ssb-button-border-hover-color);
+			}
+
+			a:focus-visible {
+				outline: none;
+				outline-offset: 0;
+				background-color: var(--ssb-button-background-hover-color);
+				color: var(--ssb-button-hover-color);
+				fill: var(--ssb-button-hover-color);
+				border-radius: 9999px; /* Value provided by their base CSS for the plugin */
+			}
+		}
+	}
+}
