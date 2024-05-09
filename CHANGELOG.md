@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. The format 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
 - Updated: Post pattern now shows up in the pattern selector when adding a new post.
+- Updated: Post pattern should now have a layout more consistent with designs we've been seeing
+- Updated: Search Result Post Card should now use the Read More block instead of the Post Title block for it's link wrapper
+- Updated: Search template has been updated to reflect this card change
+- Removed: Utility that helped the Post Title block act as a link wrapper for cards. It's not being used anywhere within core Moose anymore, so it's not needed.
+- Added: Post Split Header pattern to act as an example of an alternate post pattern. This pattern can be deleted if not necessary.
 
 ## [2024.04]
 - Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
