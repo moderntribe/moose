@@ -14,7 +14,8 @@
 	display: block;
 	padding: 0;
 
-	:where(.wp-block-post-content) & {
+	:where(.wp-block-post-content) &,
+	:where(.p-card-search-result) & {
 		position: absolute;
 		background: transparent;
 		color: transparent;
@@ -38,48 +39,5 @@
 
 	:is(.editor-styles-wrapper) & {
 		margin-top: 1rem !important;
-	}
-}
-
-/* -------------------------------------------------------------------------
- *
- * Hidden Link Cover
- *
- * Applicable for blocks needing to be fully clickable. This is intended for
- * use with WP's Post Title block set as a link within post card patterns.
- *
- * ------------------------------------------------------------------------- */
-
-.a-hidden-link-cover {
-	display: inline;
-	margin: 0 !important;
-	padding: 0;
-
-	> a {
-		display: block;
-		margin: 0;
-		padding: 0;
-		background: transparent !important;
-		color: transparent !important;
-		position: absolute !important;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		z-index: 1;
-		font-size: 0;
-
-		&::selection {
-			color: transparent;
-		}
-
-		/* this needs to be specific to override global focus visible styles */
-		:where(.wp-block-post-content) :not(.wp-element-button) & {
-
-			&:focus-visible {
-
-				@mixin focus-visible;
-			}
-		}
 	}
 }
