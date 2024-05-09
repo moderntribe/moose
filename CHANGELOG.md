@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
-- Removed: Automatic injection of `Post` pattern from the `post` post type and moves to using the pattern selector on creation of new post
+- Updated: Post pattern now shows up in the pattern selector when adding a new post.
 
 ## [2024.04]
 - Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
