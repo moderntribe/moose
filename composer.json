@@ -29,7 +29,7 @@
 			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
 			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
 		],
-		"setup-wordpress": "./vendor/bin/wp core download --version=6.5 --skip-content --force",
+		"setup-wordpress": "./vendor/bin/wp core download --version=6.5.3 --skip-content --force",
 		"update-db": "./vendor/bin/wp core update-db",
 		"post-root-package-install": [
 			"@setup-repo"
@@ -66,11 +66,11 @@
 			"type": "package",
 			"package": {
 				"name": "block-editor-custom-alignments/block-editor-custom-alignments",
-				"version": "1.0.6",
+				"version": "1.0.7",
 				"type": "wordpress-plugin",
 				"dist": {
 					"type": "zip",
-					"url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.6/block-editor-custom-alignments.1.0.6.zip"
+					"url": "https://github.com/moderntribe/block-editor-custom-alignments/releases/download/v1.0.7/block-editor-custom-alignments.1.0.7.zip"
 				},
 				"require": {
 					"ffraenz/private-composer-installer": "^5.0"
@@ -114,7 +114,7 @@
 		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.2",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.8",
 		"wpackagist-plugin/safe-svg": "2.2.4",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.216",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.218",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
 		"wpackagist-plugin/user-switching": "1.7.3",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
