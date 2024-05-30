@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.05]
+- Added: Filter for Post Featured Image block to show placeholder image when the featured image isn't set. [[MOOSE-81]](https://moderntribe.atlassian.net/browse/MOOSE-88)
+
 ## [2024.04]
 - Removed: `example` custom block in favor of custom block generation through `npm run create-block`.
 - Added: Custom block external template (+ documentation) that allows us to quickly create blocks through the command line using `npm run create-block`. [[MOOSE-77]](https://moderntribe.atlassian.net/browse/MOOSE-77)

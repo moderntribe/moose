@@ -19,7 +19,7 @@
 <!-- wp:post-date {"textAlign":"center","fontSize":"10"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:post-featured-image {"width":"1136px","align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40","right":"0","left":"0"}}}} /-->
+<!-- wp:post-featured-image {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40","right":"0","left":"0"}}}} /-->
 
 <!-- wp:paragraph -->
 <p>Aenean ut aliquet quam, sit amet ullamcorper dolor. Aliquam nec ultricies sem. Nunc malesuada elementum libero non accumsan. Nam at venenatis odio. Aenean euismod rhoncus nulla id varius. Ut ultrices velit vel dui gravida ullamcorper. Proin lobortis leo et venenatis consectetur. Aliquam iaculis ipsum id tristique euismod. Donec tempor a purus ut tempus.</p>
