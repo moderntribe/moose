@@ -115,6 +115,7 @@
 		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.8",
 		"wpackagist-plugin/safe-svg": "2.2.4",
 		"wpackagist-plugin/seo-by-rank-math": "1.0.218",
+		"wpackagist-plugin/social-sharing-block": "^1.0",
 		"wpackagist-plugin/user-switching": "1.7.3",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
 		"wpengine/advanced-custom-fields-pro": "6.2.9"
