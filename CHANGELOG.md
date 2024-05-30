@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.05]
+- Chore: Composer updates including plugins: seo-by-rank-math:1.0.218, block-editor-custom-alignment:1.0.7
+- Choice: WP version to 6.5.2
+
 ## [2024.04]
 - Removed: `example` custom block in favor of custom block generation through `npm run create-block`.
 - Added: Custom block external template (+ documentation) that allows us to quickly create blocks through the command line using `npm run create-block`. [[MOOSE-77]](https://moderntribe.atlassian.net/browse/MOOSE-77)
