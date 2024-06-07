@@ -1,0 +1,109 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/custom-query-loop",
+	"version": "0.1.0",
+	"title": "Custom Query Loop",
+	"category": "theme",
+	"icon": "filter",
+	"description": "A dynamic block to use in place of the core Query block",
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"component": {
+			"type": "string",
+			"default": "post"
+		},
+		"hasMetaQuery": {
+			"type": "boolean",
+			"default": false
+		},
+		"hasPagination": {
+			"type": "boolean",
+			"default": false
+		},
+		"hasTaxQuery": {
+			"type": "boolean",
+			"default": false
+		},
+		"offset": {
+			"type": "string",
+			"default": "0"
+		},
+		"order": {
+			"type": "string",
+			"default": "DESC"
+		},
+		"orderby": {
+			"type": "string",
+			"default": "date"
+		},
+		"postsPerPage": {
+			"type": "string",
+			"default": "12"
+		},
+		"postIn": {
+			"type": "array",
+			"default": []
+		},
+		"postTypes": {
+			"type": "array",
+			"default": []
+		},
+		"taxQueryTaxonomies": {
+			"type": "array",
+			"default": [ "category" ]
+		},
+		"taxQueryFields": {
+			"type": "array",
+			"default": [ "term_id" ]
+		},
+		"taxQueryTerms": {
+			"type": "array",
+			"default": [ "[]" ]
+		},
+		"taxQueryOperators": {
+			"type": "array",
+			"default": [ "IN" ]
+		},
+		"taxQueryRelation": {
+			"type": "string",
+			"default": "OR"
+		},
+		"metaQueryKeys": {
+			"type": "array",
+			"default": [ "" ]
+		},
+		"metaQueryValues": {
+			"type": "array",
+			"default": [ "" ]
+		},
+		"metaQueryCompares": {
+			"type": "array",
+			"default": [ "=" ]
+		},
+		"metaQueryTypes": {
+			"type": "array",
+			"default": [ "CHAR" ]
+		},
+		"metaQueryRelation": {
+			"type": "string",
+			"default": "OR"
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [ "wide", "grid", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
