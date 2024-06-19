@@ -89,10 +89,6 @@ jobs:
             echo ::set-output name=deploy_app::${{ inputs.app_name }}
           fi
 
-      - name: Remove deploy lock
-        run: |
-          dokku apps:unlock ${{ steps.define_app.outputs.deploy_app }}
-
       - name: Deploy to ${{ steps.define_app.outputs.deploy_app }}
         uses: moderntribe/actions/deploy/gitdeploy@v1
         with:
