@@ -6,7 +6,6 @@
  * Categories: cards
  * Description: Post card with featured image, post type, post title, excerpt, and URL
  * Keywords: search, post, card
- * Inserter: yes
  * Block Types: core/query
  */
 ?>
@@ -23,7 +22,7 @@
 
 <!-- wp:tribe/post-permalink {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","right":"0","bottom":"0","left":"0"}}}} /-->
 
-<!-- wp:post-title {"isLink":true,"className":"a-hidden-link-cover"} /--></div>
+<!-- wp:read-more {"className":"a-link-cover"} /--></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>
 <!-- /wp:query -->
