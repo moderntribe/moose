@@ -9,9 +9,12 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: Search Result Post Card should now use the Read More block instead of the Post Title block for it's link wrapper
 - Updated: Search template has been updated to reflect this card change
 - Removed: Utility that helped the Post Title block act as a link wrapper for cards. It's not being used anywhere within core Moose anymore, so it's not needed.
-- Added: Post Split Header pattern to act as an example of an alternate post pattern. This pattern can be deleted if not necessary.
+- Chore: Composer updates including plugins: seo-by-rank-math:1.0.218, block-editor-custom-alignment:1.0.7
+- Choice: WP version to 6.5.2
 
 ## [2024.04]
+- Removed: `example` custom block in favor of custom block generation through `npm run create-block`.
+- Added: Custom block external template (+ documentation) that allows us to quickly create blocks through the command line using `npm run create-block`. [[MOOSE-77]](https://moderntribe.atlassian.net/browse/MOOSE-77)
 - Changed: Remove Gravity Forms as a composer dependency and the respective mtribe.site composer utility. Gravity Forms should be added directly to a project repo when required.
 - Chore: Composer updates including plugins: advanced-custom-fields-pro:6.2.9, duracelltomi-google-tag-manager:1.20.2, limit-login-attempts-reloaded:2.26.8, safe-svg:2.2.4, seo-by-rank-math:1.0.216, user-switching:1.7.3
 - Chore: Update NPM packages, including swapping browser-sync-webpack-plugin to browser-sync-v3-webpack-plugin for correct version support.
