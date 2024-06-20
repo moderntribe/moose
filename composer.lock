@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "243a5af06ff854a8a1ebeb0978677ac5",
+    "content-hash": "4a6ed20ad72a3540f562d87276c0b448",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -7998,7 +7998,7 @@
         },
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "dev-main",
+            "version": "v253",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
@@ -8010,7 +8010,6 @@
                 "reference": "dd69b2ae22209a47fe4038fd32abd3bdf0eaa2a1",
                 "shasum": ""
             },
-            "default-branch": true,
             "bin": [
                 "bin/heroku-php-apache2",
                 "bin/heroku-php-nginx"
@@ -12378,8 +12377,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "moderntribe/tribe-glomar": 20,
-        "heroku/heroku-buildpack-php": 20
+        "moderntribe/tribe-glomar": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
