@@ -45,3 +45,6 @@ jobs:
     secrets:
       github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
       server: d1.moderntribe.qa
+
+  finish_deploy_review_app:
+    run: echo "Dokku Deploy Review App action complete."
