@@ -50,6 +50,9 @@ small {
 	font-size: 80%;
 }
 
+/**
+ * Prevent images from overflowing their container and maintain their aspect ratio.
+ */
 img,
 picture {
 	height: auto;
@@ -57,12 +60,9 @@ picture {
 }
 
 /**
- * This `iframe` selector currently breaks pattern previews in the WordPress
- * editors. For now, we're going to leave it commented-out and address iframes
- * within a site's content on a case-by-case basis.
+ * Prevent media from overflowing its container.
  */
-
-/*iframe,*/
+iframe,
 video,
 embed {
 	max-width: 100%;
@@ -80,17 +80,3 @@ select {
 	font: inherit;
 	margin: 0;
 }
-
-/**
- * TODO: Make sure this is desired.
- * This only appears to affect the block editor; and in unintended ways.
- * I *think* we want to set a global default focus-visible style for the
- * frontend, but it should _not_ bleed into the admin/editor.
- */
-
-/*
-:where(.wp-site-blocks) *:focus-visible {
-
-	@mixin focus-visible;
-}
-*/
