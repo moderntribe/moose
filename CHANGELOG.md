@@ -8,6 +8,13 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].
 - Chore: WP version to 6.5.5
 - Chore: Composer updates including plugins: limit-login-attempts-reloaded (2.26.8 => 2.26.11), seo-by-rank-math (1.0.218 => 1.0.221), social-sharing-block (1.1.0 => 1.2.0), advanced-custom-fields-pro (6.2.9 => 6.3.2.1)
+- Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].  
+- Updated: theme.json version and related adjustments for WP v6.6. [Reference](https://make.wordpress.org/core/2024/06/19/theme-json-version-3/)
+- Updated: Remove some old, commented out css from our reset that is no longer causing issues.
+- Updated: root style selector updates per [Core's specificity updates](https://make.wordpress.org/core/2024/06/21/wordpress-6-6-css-specificity/).
+- Changed: Remove the injectChanges parameter from BrowserSync config as css injection doesn't work.
+- Changed: Update the `dist` npm script to use the `production` ENV value so that assets are minified.
+- Added: A `build` npm task to build non-minified assets on demand.
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
