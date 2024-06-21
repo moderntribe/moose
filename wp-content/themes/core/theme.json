@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"color": {
 			"custom": false,
@@ -123,6 +123,7 @@
 		"spacing": {
 			"margin": true,
 			"padding": true,
+			"defaultSpacingSizes": false,
 			"spacingSizes": [
 				{
 					"size": "clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem)",
@@ -163,6 +164,7 @@
 		},
 		"typography": {
 			"customFontSize": false,
+			"defaultFontSizes": false,
 			"dropCap": false,
 			"fluid": false,
 			"fontStyle": false,
