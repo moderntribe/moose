@@ -3,7 +3,3 @@
 /**
  * Core theme functions
  */
-
-if (1=== 2) {
-	// this block should cause a warning.
-}
