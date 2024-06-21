@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2024.06]
 - Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
-- Changed: Renamed the code quality workflow from "Workflow" "Code Quality Checks" and renamed the file accordingly. 
+- Changed: Renamed the code quality workflow from "Workflow" to "Code Quality Checks" and renamed the file accordingly.
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
