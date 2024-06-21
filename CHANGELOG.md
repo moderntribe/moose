@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. The format 
 - Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
 - Changed: Renamed the code quality workflow from "Workflow" to "Code Quality Checks" and renamed the file accordingly.
 - Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].  
+- Updated: 
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
