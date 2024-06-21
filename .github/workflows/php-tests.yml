@@ -24,12 +24,12 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: ${{ env.build_folder }}
 
       - name: Detect File Changes
-        uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@v3
         id: changed-files
         with:
           working-directory: ${{ env.build_folder }}
@@ -42,7 +42,7 @@ jobs:
 
       - name: Checkout slic
         if: steps.changed-files.outputs.tests == 'true'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: stellarwp/slic
           ref: main
