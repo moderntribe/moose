@@ -43,7 +43,8 @@
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {
-		"dist": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
+		"dist": "NODE_ENV=production wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
+		"build": "wp-scripts build --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
 		"dev": "wp-scripts start --webpack-src-dir=$npm_package_config_coreThemeBlocksDir",
 		"format": "npm run format:theme && npm run format:configs",
 		"format:theme": "wp-scripts format $npm_package_config_coreThemeDir",
