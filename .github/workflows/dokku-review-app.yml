@@ -1,4 +1,4 @@
-name: Dokku Deploy Review App
+name: 'Dokku Review App'
 
 on:
   workflow_dispatch:
