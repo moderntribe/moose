@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.06]
+- Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
+- Changed: Renamed the code quality workflow from "Workflow" "Code Quality Checks" and renamed the file accordingly. 
+
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
 - Updated: Post pattern now shows up in the pattern selector when adding a new post.
