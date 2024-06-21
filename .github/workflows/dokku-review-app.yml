@@ -52,4 +52,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Complete Workflow
-        run: echo "Workflow Complete"
+        run: echo "Dokku Deploy Review App workflow complete."
