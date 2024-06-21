@@ -47,4 +47,6 @@ jobs:
       server: d1.moderntribe.qa
 
   finish_deploy_review_app:
+    name: 'Finished workflow'
+    uses:
     run: echo "Dokku Deploy Review App action complete."
