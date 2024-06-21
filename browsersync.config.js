@@ -50,7 +50,6 @@ module.exports = {
 		`${ pkg.config.corePluginDir }/**/*.php`,
 	],
 	host: localConfig.host,
-	injectChanges: true,
 	logConnections: true,
 	notify: true,
 	open: 'external',
