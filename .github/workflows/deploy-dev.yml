@@ -26,7 +26,7 @@ jobs:
 
       # Get Build Repository
       - name: Check out build branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: ${{ env.BUILD_FOLDER }}
           ref: ${{github.ref}}
@@ -52,7 +52,7 @@ jobs:
 
       # Set up node version
       - name: Set up node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: "${{ env.BUILD_FOLDER }}/.nvmrc"
           cache: 'npm'
