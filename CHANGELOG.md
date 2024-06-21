@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2024.05]
+- Updated: Pattern definition consistency for usage of `Inserter:`
+- Updated: Post pattern now shows up in the pattern selector when adding a new post.
+- Updated: Post pattern should now have a layout more consistent with designs we've been seeing
+- Updated: Search Result Post Card should now use the Read More block instead of the Post Title block for it's link wrapper
+- Updated: Search template has been updated to reflect this card change
+- Removed: Utility that helped the Post Title block act as a link wrapper for cards. It's not being used anywhere within core Moose anymore, so it's not needed.
 - Chore: Composer updates including plugins: seo-by-rank-math:1.0.218, block-editor-custom-alignment:1.0.7
 - Choice: WP version to 6.5.2
 
