@@ -49,6 +49,7 @@ jobs:
   complete_workflow:
     if: ${{ always() }}
     needs: [create_review_app, deploy_review_app, destroy_review_app]
+    runs-on: ubuntu-latest
     steps:
       - name: Complete Workflow
         run: echo "Workflow Complete"
