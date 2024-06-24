@@ -12,6 +12,10 @@ All notable changes to this project will be documented in this file. The format 
 - Changed: Remove the injectChanges parameter from BrowserSync config as css injection doesn't work.
 - Changed: Update the `dist` npm script to use the `production` ENV value so that assets are minified.
 - Added: A `build` npm task to build non-minified assets on demand.
+- Updated: `theme.json` objects should now be ordered alphabetically in order to more easily find properties.
+- Updated: `theme.json` now allows you to style block style variations using the `variations` property - so some styling has been moved out of `.scss` files and into `theme.json` to reflect this.
+- Changed: Query Pagination styles were somewhat confusing, it should now be properly nested so the hierarchy makes sense.
+
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`
