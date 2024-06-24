@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: `theme.json` objects should now be ordered alphabetically in order to more easily find properties.
 - Updated: `theme.json` now allows you to style block style variations using the `variations` property - so some styling has been moved out of `.scss` files and into `theme.json` to reflect this.
 - Changed: Query Pagination styles were somewhat confusing, it should now be properly nested so the hierarchy makes sense.
+- Added: [Documentation](./docs/supported-block-features.md) surrounding what features of Gutenberg Moose disables by default.
 
 
 ## [2024.05]
