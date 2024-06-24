@@ -6,6 +6,13 @@ use Tribe\Plugin\Blocks\Bindings\Binding_Base;
 
 class Post_Type_Name extends Binding_Base {
 
+	/**
+	 * example markup:
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tribe/post-type-name"}}}} -->
+<p>Post Type Name Placeholder</p>
+<!-- /wp:paragraph -->
+	 */
+
 	public function get_slug(): string {
 		return 'tribe/post-type-name';
 	}
