@@ -6,6 +6,13 @@ use Tribe\Plugin\Blocks\Bindings\Binding_Base;
 
 class Query_Results_Count extends Binding_Base {
 
+	/**
+	 * example markup:
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tribe/query-results-count"}}}} -->
+<p>Query Results Count Placeholder</p>
+<!-- /wp:paragraph -->
+	 */
+
 	public function get_slug(): string {
 		return 'tribe/query-results-count';
 	}
