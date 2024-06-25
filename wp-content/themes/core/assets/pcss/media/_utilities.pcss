@@ -8,27 +8,31 @@
  * exist within WP.
  *
  * Example:
- * <figure class="wp-block-image s-aspect-ratio-1-1 s-aspect-ratio-cover">
+ * <figure class="wp-block-image aspect-ratio-4-5 aspect-ratio-cover">
  *     <img class="wp-post-image" src="..."></img>
  * </figure>
  *
  * ------------------------------------------------------------------------- */
 
-.s-aspect-ratio-cover,
-.s-aspect-ratio-cover > img {
+.aspect-ratio-cover,
+.aspect-ratio-cover > img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
 
-.s-aspect-ratio-1-1 {
-	aspect-ratio: 1 / 1;
+.aspect-ratio-4-5 {
+	aspect-ratio: 4 / 5;
 }
 
-.s-aspect-ratio-4-3 {
-	aspect-ratio: 4 / 3;
+.aspect-ratio-5-4 {
+	aspect-ratio: 5 / 4;
 }
 
-.s-aspect-ratio-16-9 {
-	aspect-ratio: 16 / 9;
+.aspect-ratio-16-10 {
+	aspect-ratio: 16 / 10;
+}
+
+.aspect-ratio-10-16 {
+	aspect-ratio: 10 / 16;
 }
