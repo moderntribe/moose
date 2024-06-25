@@ -29,17 +29,17 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^2.1.0",
-		"@wordpress/create-block": "^4.39.0",
-		"@wordpress/scripts": "^27.6.0",
+		"@wordpress/create-block": "^4.44.0",
+		"@wordpress/scripts": "^28.1.0",
 		"browser-sync": "^3.0.2",
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
-		"cssnano": "^6.0.1",
+		"cssnano": "^7.0.3",
 		"fast-glob": "^3.3.1",
-		"lefthook": "^1.5.2",
+		"lefthook": "^1.6.18",
 		"postcss-import": "^16.1.0",
 		"postcss-inline-svg": "^6.0.0",
-		"postcss-mixins": "^10.0.0",
-		"postcss-preset-env": "^9.2.0",
+		"postcss-mixins": "^10.0.1",
+		"postcss-preset-env": "^9.5.14",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {
