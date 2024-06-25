@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file. The format 
 ## [2024.06]
 - Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
 - Changed: Renamed the code quality workflow from "Workflow" to "Code Quality Checks" and renamed the file accordingly.
+- Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].
+- Chore: WP version to 6.5.5
+- Chore: Composer updates including plugins: limit-login-attempts-reloaded (2.26.8 => 2.26.11), seo-by-rank-math (1.0.218 => 1.0.221), social-sharing-block (1.1.0 => 1.2.0), advanced-custom-fields-pro (6.2.9 => 6.3.2.1)
 - Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].  
 - Updated: theme.json version and related adjustments for WP v6.6. [Reference](https://make.wordpress.org/core/2024/06/19/theme-json-version-3/)
 - Updated: Remove some old, commented out css from our reset that is no longer causing issues.
@@ -26,7 +29,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: Search template has been updated to reflect this card change
 - Removed: Utility that helped the Post Title block act as a link wrapper for cards. It's not being used anywhere within core Moose anymore, so it's not needed.
 - Chore: Composer updates including plugins: seo-by-rank-math:1.0.218, block-editor-custom-alignment:1.0.7
-- Choice: WP version to 6.5.2
+- Chore: WP version to 6.5.2
 
 ## [2024.04]
 - Removed: `example` custom block in favor of custom block generation through `npm run create-block`.
