@@ -26,7 +26,9 @@ const ready = ( fn ) => {
  */
 const triggerCustomEvent = ( type, el = document, detail = {} ) => {
 	// Event type is required
-	if ( ! type ) return;
+	if ( ! type ) {
+		return;
+	}
 
 	// Create new event
 	// eslint-disable-next-line no-undef
