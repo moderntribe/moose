@@ -5,11 +5,23 @@ All notable changes to this project will be documented in this file. The format 
 ## [2024.06]
 - Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
 - Changed: Renamed the code quality workflow from "Workflow" to "Code Quality Checks" and renamed the file accordingly.
-- Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].
+- Updated: Updated GitHub default & 3rd-party action versions to eliminate [node version warnings](https://github.com/moderntribe/moose/actions/runs/9617664104).
 - Chore: WP version to 6.5.5
 - Chore: Composer updates including plugins: limit-login-attempts-reloaded (2.26.8 => 2.26.11), seo-by-rank-math (1.0.218 => 1.0.221), social-sharing-block (1.1.0 => 1.2.0), advanced-custom-fields-pro (6.2.9 => 6.3.2.1)
 - Added: Create WP Controls script & documentation.
-- Changed: Column block now uses the Create WP Controls script to create the "stacking order" controls.
+- Changed: Column block now uses the Create WP Controls script to create the "stacking order" controls. 
+- Updated: theme.json version and related adjustments for WP v6.6. [Reference](https://make.wordpress.org/core/2024/06/19/theme-json-version-3/)
+- Updated: Remove some old, commented out css from our reset that is no longer causing issues.
+- Updated: root style selector updates per [Core's specificity updates](https://make.wordpress.org/core/2024/06/21/wordpress-6-6-css-specificity/).
+- Changed: Remove the injectChanges parameter from BrowserSync config as css injection doesn't work.
+- Changed: Update the `dist` npm script to use the `production` ENV value so that assets are minified.
+- Added: A `build` npm task to build non-minified assets on demand.
+- Updated: `theme.json` objects should now be ordered alphabetically in order to more easily find properties.
+- Updated: `theme.json` now allows you to style block style variations using the `variations` property - so some styling has been moved out of `.scss` files and into `theme.json` to reflect this.
+- Changed: Query Pagination styles were somewhat confusing, it should now be properly nested so the hierarchy makes sense.
+- Added: [Documentation](./docs/supported-block-features.md) surrounding what features of Gutenberg Moose disables by default.
+- Removed: Block content filters that add the block class name to the Core List and Paragraph blocks. [List blocks now have their class name added via Core](https://make.wordpress.org/core/2024/06/24/miscellaneous-editor-changes-in-wordpress-6-6/#Added-wp-block-list-class-to-the-list-block) and Paragraphs are targeted via their element. 
+
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`

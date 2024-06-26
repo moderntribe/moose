@@ -3,8 +3,11 @@
  */
 
 .wp-block-table {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+
+	/* margin settings from theme.json apply to the table element
+	   therefore, we need to remove margin from the figure element
+	   that wraps the table element */
+	margin-bottom: 0;
 
 	& th {
 		border-top: 0;

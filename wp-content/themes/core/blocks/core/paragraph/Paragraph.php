@@ -12,8 +12,8 @@ class Paragraph extends Block_Base {
 
 	public function get_block_styles(): array {
 		return [
-			'large' => esc_html__( 'Large', 'tribe' ),
 			'small' => esc_html__( 'Small', 'tribe' ),
+			'large' => esc_html__( 'Large', 'tribe' ),
 		];
 	}
 

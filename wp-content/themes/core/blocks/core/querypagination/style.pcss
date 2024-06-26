@@ -7,6 +7,7 @@
 	gap: 0 24px;
 	margin-top: var(--spacer-40);
 
+	/* ensure all links within the pagination get the same styling */
 	& a {
 		color: var(--color-black);
 		text-decoration: none;
@@ -26,25 +27,25 @@
 		align-items: center;
 		gap: 0 16px;
 		margin: 0;
-	}
 
-	.page-numbers {
-		line-height: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 40px;
-		width: 40px;
+		.page-numbers {
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 40px;
+			width: 40px;
 
-		&:where(:not(.current, .dots)):hover,
-		&:where(:not(.current, .dots)):focus:not(:focus-visible) {
-			background-color: var(--color-neutral-10);
-		}
+			&:where(:not(.current, .dots)):hover,
+			&:where(:not(.current, .dots)):focus:not(:focus-visible) {
+				background-color: var(--color-neutral-10);
+			}
 
-		/* Current page indicator */
-		&.current {
-			background-color: var(--color-royal-blue);
-			color: var(--color-white);
+			/* Current page indicator */
+			&.current {
+				background-color: var(--color-royal-blue);
+				color: var(--color-white);
+			}
 		}
 	}
 
@@ -62,42 +63,39 @@
 		&:focus:not(:focus-visible) {
 			color: var(--color-royal-blue);
 
-			.wp-block-query-pagination-previous-arrow::before {
-				background-image: var(--icon-chevron-left-primary);
-			}
-
-			.wp-block-query-pagination-next-arrow::before {
-				background-image: var(--icon-chevron-right-primary);
+			.is-arrow-chevron::before,
+			.is-arrow-arrow::before {
+				background-color: var(--color-royal-blue);
 			}
 		}
 
-		.wp-block-query-pagination-previous-arrow::before {
-			background-image: var(--icon-chevron-left-black);
-		}
+		/* always style pagination prev/next arrows with the same chevron */
+		.is-arrow-chevron,
+		.is-arrow-arrow {
+			color: transparent;
+			position: relative;
+			height: 16px;
+			width: 10px;
+			margin: 0;
 
-		.wp-block-query-pagination-next-arrow::before {
-			background-image: var(--icon-chevron-right-black);
+			&::before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: var(--color-black);
+				mask: var(--icon-chevron-left-black) center no-repeat;
+				mask-size: contain;
+			}
 		}
 	}
 
-	/* -----------------------------------------------------------------------
-	 * Prev / Next Chevron Arrows
-	 * ----------------------------------------------------------------------- */
-	.is-arrow-chevron {
-		color: transparent;
-		position: relative;
-		height: 16px;
-		width: 10px;
-		margin: 0;
+	/* pagination next button arrow has a different mask (reversed chevron) */
+	.wp-block-query-pagination-next {
 
-		&::before {
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: contain;
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
+		.is-arrow-chevron::before,
+		.is-arrow-arrow::before {
+			mask-image: var(--icon-chevron-right-black);
 		}
 	}
 }
