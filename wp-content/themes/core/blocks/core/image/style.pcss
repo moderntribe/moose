@@ -5,4 +5,12 @@
 .wp-block-image {
 
 	@mixin media-block-shared-alignment;
+
+	&.is-full-width {
+		width: 100%;
+
+		& img {
+			width: 100%;
+		}
+	}
 }
