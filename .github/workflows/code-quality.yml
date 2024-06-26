@@ -1,4 +1,4 @@
-name: 'Workflows'
+name: 'Code Quality Checks'
 
 on:
   workflow_dispatch:
