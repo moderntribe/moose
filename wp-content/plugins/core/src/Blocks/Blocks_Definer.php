@@ -7,6 +7,9 @@ use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Filters\List_Filter;
 use Tribe\Plugin\Blocks\Filters\Paragraph_Filter;
+use Tribe\Theme\bindings\Post_Permalink;
+use Tribe\Theme\bindings\Post_Type_Name;
+use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
@@ -36,13 +39,11 @@ class Blocks_Definer implements Definer_Interface {
 	public const CORE     = 'blocks.core';
 	public const PATTERNS = 'blocks.patterns';
 	public const FILTERS  = 'blocks.filters';
+	public const BINDINGS = 'blocks.bindings';
 
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'tribe/post-type-name',
-				'tribe/post-permalink',
-				'tribe/query-results-count',
 				'tribe/terms',
 			] ),
 
@@ -76,6 +77,12 @@ class Blocks_Definer implements Definer_Interface {
 			self::FILTERS         => DI\add( [
 				DI\get( Paragraph_Filter::class ),
 				DI\get( List_Filter::class ),
+			] ),
+
+			self::BINDINGS        => DI\add( [
+				DI\get( Post_Permalink::class ),
+				DI\get( Post_Type_Name::class ),
+				DI\get( Query_Results_Count::class ),
 			] ),
 
 			Filter_Factory::class => DI\autowire()->constructorParameter( 'filters', DI\get( self::FILTERS ) ),

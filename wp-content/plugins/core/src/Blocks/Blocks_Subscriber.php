@@ -3,6 +3,7 @@
 namespace Tribe\Plugin\Blocks;
 
 use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Blocks\Bindings\Binding_Registrar;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
@@ -29,6 +30,11 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 			// Register block patterns.
 			foreach ( $this->container->get( Blocks_Definer::PATTERNS ) as $pattern ) {
 				$this->container->get( Pattern_Registrar::class )->register( $pattern );
+			}
+
+			// Register block bindings.
+			foreach ( $this->container->get( Blocks_Definer::BINDINGS ) as $binding ) {
+				$this->container->get( Binding_Registrar::class )->register( $binding );
 			}
 		}, 10, 0 );
 
