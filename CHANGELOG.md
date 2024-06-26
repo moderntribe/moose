@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: `theme.json` now allows you to style block style variations using the `variations` property - so some styling has been moved out of `.scss` files and into `theme.json` to reflect this.
 - Changed: Query Pagination styles were somewhat confusing, it should now be properly nested so the hierarchy makes sense.
 - Added: [Documentation](./docs/supported-block-features.md) surrounding what features of Gutenberg Moose disables by default.
+- Removed: Block content filters that add the block class name to the Core List and Paragraph blocks. List blocks (now have their class name added via Core)[https://make.wordpress.org/core/2024/06/24/miscellaneous-editor-changes-in-wordpress-6-6/#Added-wp-block-list-class-to-the-list-block] and Paragraphs are targeted via their element. 
 
 
 ## [2024.05]
