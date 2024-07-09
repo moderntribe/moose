@@ -6,21 +6,6 @@
 
 /* -------------------------------------------------------------------------
  *
- * Layout: Align None (Content Width)
- *
- * Adjustments for content width blocks nested inside alignfull container blocks
- * For blocks w/ align none nested inside container block with alignfull and
- * constrained layout.
- *
- * ------------------------------------------------------------------------- */
-
-/* important added to override WP's editor stylesheet */
-.has-global-padding > .alignfull:where(.has-global-padding) > :where(:not(.alignfull):not(.alignwide):not(.aligngrid)) {
-	max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) * 2) !important;
-}
-
-/* -------------------------------------------------------------------------
- *
  * Editor Fixes
  *
  * ------------------------------------------------------------------------- */
