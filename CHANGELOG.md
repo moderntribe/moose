@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file. The format 
 - Updated: Updated GitHub default & 3rd-party action versions to eliminate (node version warnings)[https://github.com/moderntribe/moose/actions/runs/9617664104].
 - Chore: WP version to 6.5.5
 - Chore: Composer updates including plugins: limit-login-attempts-reloaded (2.26.8 => 2.26.11), seo-by-rank-math (1.0.218 => 1.0.221), social-sharing-block (1.1.0 => 1.2.0), advanced-custom-fields-pro (6.2.9 => 6.3.2.1)
+- Added: Create WP Controls script & documentation.
+- Changed: Column block now uses the Create WP Controls script to create the "stacking order" controls.
 
 ## [2024.05]
 - Updated: Pattern definition consistency for usage of `Inserter:`

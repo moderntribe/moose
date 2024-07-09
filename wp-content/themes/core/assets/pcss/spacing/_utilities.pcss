@@ -1,31 +1,23 @@
 /* -------------------------------------------------------------------------
  *
- * Aspect Ratio Helpers
- *
- * Useful for fixing the height of an element based on it's width.
- *
- * Example:
- * <figure class="wp-block-image s-aspect-ratio-1-1 s-aspect-ratio-cover">
- *     <img class="wp-post-image" src="..."></img>
- * </figure>
+ * Spacing Helpers
  *
  * ------------------------------------------------------------------------- */
 
-.s-aspect-ratio-cover,
-.s-aspect-ratio-cover > img {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
+.s-remove-margin {
+	margin: 0 !important; /* override editor default */
 }
 
-.s-aspect-ratio-1-1 {
-	aspect-ratio: 1 / 1;
+.s-remove-margin--vertical {
+	margin-top: 0 !important; /* override editor default */
+	margin-bottom: 0 !important; /* override editor default */
 }
 
-.s-aspect-ratio-4-3 {
-	aspect-ratio: 4 / 3;
+.s-remove-margin--horizontal {
+	margin-left: 0 !important; /* override editor default */
+	margin-right: 0 !important; /* override editor default */
 }
 
-.s-aspect-ratio-16-9 {
-	aspect-ratio: 16 / 9;
+.s-remove-margin--top {
+	margin-top: 0 !important; /* override editor default */
 }

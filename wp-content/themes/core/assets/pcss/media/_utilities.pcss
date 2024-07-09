@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------
+ *
+ * Aspect Ratio Helpers
+ *
+ * Useful for fixing the height of an element based on it's width.
+ * Since the default Image block contains aspect ratio controls,
+ * these helpers should only be used if using an aspect ratio that doesn't
+ * exist within WP.
+ *
+ * Example:
+ * <figure class="wp-block-image aspect-ratio-4-5 aspect-ratio-cover">
+ *     <img class="wp-post-image" src="..."></img>
+ * </figure>
+ *
+ * ------------------------------------------------------------------------- */
+
+.aspect-ratio-cover,
+.aspect-ratio-cover > img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.aspect-ratio-4-5 {
+	aspect-ratio: 4 / 5;
+}
+
+.aspect-ratio-5-4 {
+	aspect-ratio: 5 / 4;
+}
+
+.aspect-ratio-16-10 {
+	aspect-ratio: 16 / 10;
+}
+
+.aspect-ratio-10-16 {
+	aspect-ratio: 10 / 16;
+}
