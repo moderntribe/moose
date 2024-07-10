@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Detect File Changes
-        uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@v3
         id: changed-files
         with:
           list-files: shell
@@ -32,7 +32,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           tools: composer:2
-          php-version: '8.0'
+          php-version: '8.1'
 
       - name: Get Composer Cache Directory
         id: composer-cache
