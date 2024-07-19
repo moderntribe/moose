@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2024.07]
 - Chore: WP version to 6.6
+- Chore: Package updates for composer & NPM, including plugins: limit-login-attempts-reloaded (2.26.11 => 2.26.12), seo-by-rank-math (1.0.221 => 1.0.223), advanced-custom-fields-pro (6.3.2.1 => 6.3.4).
 - Removed: We were previously using some overrides to handle nested Group block layouts. With some updates in WP 6.6 these classes are no longer necessary as WP handles this use case in core now.
 
 ## [2024.06]
