@@ -70,6 +70,13 @@ Once Slic is installed, you can go to the project root and enter `slic here` tel
 
 We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [./docs/actions.md](./docs/actions.md) for details.
 
+## Additional Documentation
+Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
+* [GitHub Actions](./docs/actions.md)
+* [Create Block Script Templates](./docs/block-templates.md)
+* [Create WP Controls Script](./docs/wp-controls-templates.md)
+* [Supported Block Features](./docs/block-features.md)
+
 ## Modern Tribe
 
 [![Modern Tribe](https://moderntribe-common.s3.us-west-2.amazonaws.com/marketing/ModernTribe-Banner.png)](https://tri.be/contact/)
