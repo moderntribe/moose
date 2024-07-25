@@ -3,9 +3,11 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2024.07]
-- Chore: WP version to 6.6
-- Chore: Package updates for composer & NPM, including plugins: limit-login-attempts-reloaded (2.26.11 => 2.26.12), seo-by-rank-math (1.0.221 => 1.0.223), advanced-custom-fields-pro (6.3.2.1 => 6.3.4).
+- Chore: WP version to 6.6.1
+- Chore: Package updates for composer & NPM, including plugins: limit-login-attempts-reloaded (2.26.11 => 2.26.12), seo-by-rank-math (1.0.221 => 1.0.224), advanced-custom-fields-pro (6.3.2.1 => 6.3.4), user-switching (1.7.3 => 1.8.0).
 - Removed: We were previously using some overrides to handle nested Group block layouts. With some updates in WP 6.6 these classes are no longer necessary as WP handles this use case in core now.
+- Updated: Composer PHP platform to PHP 8.2.
+- Updated: Lando composer config to use 2-latest.
 
 ## [2024.06]
 - Changed: Renamed and added a finish job to the Dokku Deploy App workflow so that it doesn't fail when all 3 app jobs are skipped.
