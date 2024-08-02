@@ -5,7 +5,7 @@ config:
   database: mariadb
   composer_version: 2-latest
   via: nginx
-  xdebug: true
+  xdebug: false
   memcached: true
 services:
   appserver:
