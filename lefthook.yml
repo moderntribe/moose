@@ -2,6 +2,12 @@
 # Refer for explanation to following link:
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
 
+# only show errors
+skip_output:
+  - meta
+  - success
+  - summary
+
 # phpcs
 pre-commit:
   parallel: true

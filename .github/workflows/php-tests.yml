@@ -55,7 +55,7 @@ jobs:
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         if: steps.changed-files.outputs.tests == 'true'
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
@@ -96,7 +96,7 @@ jobs:
           ${SLIC_BIN} build-subdir off
           ${SLIC_BIN} xdebug off
           ${SLIC_BIN} debug on
-          ${SLIC_BIN} php-version set 8.0
+          ${SLIC_BIN} php-version set 8.2
           ${SLIC_BIN} info
           ${SLIC_BIN} config
 
