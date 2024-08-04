@@ -13,69 +13,65 @@
 	 * Color Naming Site: https://chir.ag/projects/name-that-color/
 	 * ----------------------------------------------------------------------- */
 
-	--color-royal-blue: var(--wp--preset--color--royal-blue);
-	--color-jacksons-purple: var(--wp--preset--color--jacksons-purple);
+	--color-blue: var(--wp--preset--color--blue, #3050e5);
+	--color-blue-rgb: 48, 80, 229;
+	--color-blue-alpha-20: rgba(var(--color-blue-rgb), 0.2);
+	--color-dark-blue: #2238a0;
 
 	/* -----------------------------------------------------------------------
 	 * Neutral: Grey
 	 * ----------------------------------------------------------------------- */
 
-	--color-neutral-10: var(--wp--preset--color--neutral-10);
-	--color-neutral-20: var(--wp--preset--color--neutral-20);
-	--color-neutral-30: var(--wp--preset--color--neutral-30);
-	--color-neutral-40: var(--wp--preset--color--neutral-40);
-	--color-neutral-50: var(--wp--preset--color--neutral-50);
-	--color-neutral-60: var(--wp--preset--color--neutral-60);
-	--color-neutral-70: var(--wp--preset--color--neutral-70);
-	--color-neutral-80: var(--wp--preset--color--neutral-80);
-	--color-neutral-90: var(--wp--preset--color--neutral-90);
+	--color-neutral-10: var(--wp--preset--color--neutral-10, #f5f5f5);
+	--color-neutral-20: #e8e8e8;
+	--color-neutral-30: #d1d1d1;
+	--color-neutral-40: #a3a3a3;
+	--color-neutral-50: var(--wp--preset--color--neutral-50, #767676);
+	--color-neutral-60: #5d5d5d;
+	--color-neutral-70: #464646;
+	--color-neutral-80: #2f2f2f;
+	--color-neutral-90: #1f1f1f;
 
 	/* -----------------------------------------------------------------------
 	 * Whites
 	 * ----------------------------------------------------------------------- */
 
-	--color-white: var(--wp--preset--color--white);
+	--color-white: var(--wp--preset--color--base-white, #fff);
 
 	/* -----------------------------------------------------------------------
 	 * Blacks
 	 * ----------------------------------------------------------------------- */
 
-	--color-black: var(--wp--preset--color--black);
+	--color-black: var(--wp--preset--color--base-black, #000);
 
 	/* -----------------------------------------------------------------------
 	 * Text
 	 * ----------------------------------------------------------------------- */
 
-	--color-text: var(--wp--preset--color--base-black);
+	--color-text: var(--color-black);
 
 	/* -----------------------------------------------------------------------
 	 * Borders
 	 * ----------------------------------------------------------------------- */
 
-	--color-border: var(--wp--preset--color--neutral-40);
+	--color-border: var(--color-neutral-40);
 
 	/* -----------------------------------------------------------------------
 	 * Semantic
 	 * ----------------------------------------------------------------------- */
 
-	--color-alert-success: var(--wp--preset--color--success);
-	--color-alert-error: var(--wp--preset--color--error);
-	--color-alert-warning: var(--wp--preset--color--warning);
-
-	/* -----------------------------------------------------------------------
-	 * Social
-	 * ----------------------------------------------------------------------- */
-
-	--color-facebook: #3b5998;
-	--color-linkedin: #0077b5;
-	--color-outlook: #0072c6;
-	--color-pinterest: #bd081c;
-	--color-twitter: #0084b4;
+	--color-alert-success: #84bd00;
+	--color-alert-error: #df3a3a;
+	--color-alert-warning: #f1c400;
 
 	/* -----------------------------------------------------------------------
 	 * Box Shadows
 	 * ----------------------------------------------------------------------- */
 
-	--box-shadow-default: var(--wp--preset--shadow--default);
-	--box-shadow-hover: var(--wp--preset--shadow--hover);
+	--box-shadow-10: var(--wp--preset--shadow--10);
+	--box-shadow-20: var(--wp--preset--shadow--20);
+	--box-shadow-30: var(--wp--preset--shadow--30);
+	--box-shadow-40: var(--wp--preset--shadow--40);
+	--box-shadow-50: var(--wp--preset--shadow--50);
+	--box-shadow-60: var(--wp--preset--shadow--60);
 }

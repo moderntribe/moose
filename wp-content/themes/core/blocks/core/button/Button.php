@@ -12,9 +12,8 @@ class Button extends Block_Base {
 
 	public function get_block_styles(): array {
 		return [
-			'primary'   => esc_html__( 'Primary', 'tribe' ),
-			'secondary' => esc_html__( 'Secondary', 'tribe' ),
-			'ghost'     => esc_html__( 'Ghost', 'tribe' ),
+			'outlined' => esc_html__( 'Outlined', 'tribe' ),
+			'ghost'    => esc_html__( 'Ghost', 'tribe' ),
 		];
 	}
 

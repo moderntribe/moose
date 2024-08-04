@@ -2,78 +2,33 @@
  * Styles specific to this block
  */
 
-@import "_variables.pcss";
-
 .wp-block-buttons {
 	gap: var(--wp--preset--spacing--30);
 }
 
 .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
 	transition: var(--transition);
 
 	/* -------------------------------------------------------------------------
-	 * Button: Arrow After Label
+	 * Button: Has Icon
+	 * Note here that the "Ghost" button always contains the icon
 	 * ------------------------------------------------------------------------- */
 
-	:is(.is-style-primary, .is-style-secondary) & {
-		display: inline-flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 10px;
-		position: relative;
-
-		&::after {
-			content: "";
-			background: var(--themed-button-icon) center center no-repeat;
-			display: block;
-			height: 16px;
-			width: 10px;
-			transition: var(--transition);
-		}
-
-		&:hover,
-		&:focus {
-
-			&::after {
-				background-image: var(--themed-button-hover-icon);
-			}
-		}
-	}
-
-	/* -------------------------------------------------------------------------
-	 * Button: Ghost
-	 * ------------------------------------------------------------------------- */
-
+	:is(.tribe-button-has-icon) &,
 	:is(.is-style-ghost) & {
-		display: inline-flex;
-		align-items: center;
-		gap: 16px;
-		position: relative;
 
 		&::after {
-			background-color: var(--themed-button-icon-color);
-			background-image: var(--themed-button-icon);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: 10px 16px;
-			border-radius: 50%;
 			content: "";
-			display: inline-block;
-			width: 48px;
-			height: 48px;
+			display: block;
+			width: 10px;
+			height: 16px;
+			mask: var(--icon-chevron-right) center no-repeat;
+			mask-size: contain;
+			background-color: currentcolor;
 			transition: var(--transition);
-		}
-
-		&:hover,
-		&:focus {
-			background-color: var(--themed-button-background-color);
-			color: var(--themed-button-text-color);
-
-			&::after {
-				transform: none;
-				background-color: var(--themed-button-hover-icon-color);
-				background-image: var(--themed-button-hover-icon);
-			}
 		}
 	}
 }

@@ -7,22 +7,26 @@
  *
  * ------------------------------------------------------------------------- */
 
-@custom-media --viewport-xxsmall (min-width: 320px);
-@custom-media --viewport-xsmall (min-width: 500px);
-@custom-media --viewport-small (min-width: 600px);
-@custom-media --viewport-small-max (max-width: 767px);
-@custom-media --viewport-medium (min-width: 768px);
-@custom-media --viewport-wpadmin (min-width: 783px);
-@custom-media --viewport-medium-max (max-width: 959px);
-@custom-media --viewport-full (min-width: 960px);
-@custom-media --viewport-large (min-width: 1200px);
-@custom-media --viewport-xlarge (min-width: 1260px);
-@custom-media --viewport-retina (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx);
+@custom-media --mq-mobile (min-width: 320px);
+@custom-media --mq-tablet (min-width: 782px);
+@custom-media --mq-desktop (min-width: 992px);
+@custom-media --mq-large (min-width: 1280px);
+@custom-media --mq-max (min-width: 1920px);
 
-/* --------------------------------------------------
+/* -------------------------------------------------------------------------
+ * Page State Media Queries
+ *
+ * Hover media query:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
+ * - used to apply styles when the device accepts hover effects
+ * ------------------------------------------------------------------------- */
+
+@custom-media --has-hover (hover: hover);
+
+/* -------------------------------------------------------------------------
  * WP Breakpoints
  * https://github.com/WordPress/gutenberg/blob/trunk/packages/base-styles/_breakpoints.scss
- * -------------------------------------------------- */
+ * ------------------------------------------------------------------------- */
 
 @custom-media --mq-wp-mobile-max (max-width: 600px);
 @custom-media --mq-wp-small (min-width: 601px);
