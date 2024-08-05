@@ -26,11 +26,6 @@
 					"textTransform": false
 				}
 			},
-			"core/group": {
-				"color": {
-					"background": true
-				}
-			},
 			"core/heading": {
 				"typography": {
 					"fontFamilies": [],
