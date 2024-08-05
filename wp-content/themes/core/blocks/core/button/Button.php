@@ -10,11 +10,4 @@ class Button extends Block_Base {
 		return 'core/button';
 	}
 
-	public function get_block_styles(): array {
-		return [
-			'outlined' => esc_html__( 'Outlined', 'tribe' ),
-			'ghost'    => esc_html__( 'Ghost', 'tribe' ),
-		];
-	}
-
 }

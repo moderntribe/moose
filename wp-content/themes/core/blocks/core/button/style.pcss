@@ -32,3 +32,35 @@
 		}
 	}
 }
+
+/* -------------------------------------------------------------------------
+ * Group block - Dark Theme
+ * Everything here unfortunately needs to have !important rules due to the
+ * current nature of the WP block variations.
+ * ------------------------------------------------------------------------- */
+
+.is-style-dark .wp-block-button {
+
+	.wp-block-button__link {
+
+		:is(.is-style-outlined) & {
+			border-color: var(--color-white) !important;
+			color: var(--color-white) !important;
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-white) !important;
+				color: var(--color-black) !important;
+			}
+		}
+
+		:is(.is-style-ghost) & {
+			color: var(--color-white) !important;
+
+			&:hover,
+			&:focus {
+				color: var(--color-neutral-20) !important;
+			}
+		}
+	}
+}
