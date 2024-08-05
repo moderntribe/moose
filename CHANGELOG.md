@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2024.08]
+- Updated: Moose 2.0; See specific updates in the [Github PR here](https://github.com/moderntribe/moose/pull/152). Design requirements in the [Jira ticket here](https://moderntribe.atlassian.net/browse/MOOSE-99).
+
 ## [2024.07]
 - Chore: WP version to 6.6.1
 - Chore: Package updates for composer & NPM, including plugins: limit-login-attempts-reloaded (2.26.11 => 2.26.12), seo-by-rank-math (1.0.221 => 1.0.224), advanced-custom-fields-pro (6.3.2.1 => 6.3.4), user-switching (1.7.3 => 1.8.0).
