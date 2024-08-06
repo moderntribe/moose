@@ -5,8 +5,6 @@ namespace Tribe\Plugin\Blocks;
 use DI;
 use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
-use Tribe\Plugin\Blocks\Filters\List_Filter;
-use Tribe\Plugin\Blocks\Filters\Paragraph_Filter;
 use Tribe\Theme\bindings\Post_Permalink;
 use Tribe\Theme\bindings\Post_Type_Name;
 use Tribe\Theme\bindings\Query_Results_Count;
@@ -75,8 +73,6 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::FILTERS         => DI\add( [
-				DI\get( Paragraph_Filter::class ),
-				DI\get( List_Filter::class ),
 			] ),
 
 			self::BINDINGS        => DI\add( [
