@@ -1,0 +1,10 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "xx-small",
+	"title": "XX Small",
+	"blockTypes": [ "core/spacer" ],
+	"styles": {
+		"css": "height: var(--wp--preset--spacing--10) !important"
+	}
+}

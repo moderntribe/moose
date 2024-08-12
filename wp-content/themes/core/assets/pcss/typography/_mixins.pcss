@@ -11,10 +11,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-x-large {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--80);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-80);
 	line-height: 1.1;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -22,10 +22,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-large {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--70);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-70);
 	line-height: 1.12;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -33,10 +33,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-medium {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--60);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-60);
 	line-height: 1.15;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -44,10 +44,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-small {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--50);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-50);
 	line-height: 1.2;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -55,10 +55,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-x-small {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--40);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-40);
 	line-height: 1.25;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -66,10 +66,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-display-xx-small {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--30);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-30);
 	line-height: 1.4;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -77,10 +77,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-body-large {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--30);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-30);
 	line-height: 1.4;
-	font-weight: var(--wp--custom--font-weight--regular);
+	font-weight: var(--font-weight-regular);
 }
 
 /* -------------------------------------------------------------------------
@@ -88,10 +88,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-body {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--20);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-20);
 	line-height: 1.5;
-	font-weight: var(--wp--custom--font-weight--regular);
+	font-weight: var(--font-weight-regular);
 }
 
 /* -------------------------------------------------------------------------
@@ -99,10 +99,21 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-body-small {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--10);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-10);
 	line-height: 1.6;
-	font-weight: var(--wp--custom--font-weight--regular);
+	font-weight: var(--font-weight-regular);
+}
+
+/* -------------------------------------------------------------------------
+ * Overline
+ * ------------------------------------------------------------------------- */
+
+@define-mixin t-overline {
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-20);
+	line-height: 1.6;
+	font-weight: var(--font-weight-bold);
 }
 
 /* -------------------------------------------------------------------------
@@ -112,10 +123,10 @@
 
 @define-mixin t-category {
 	color: var(--color-black);
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--10);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-10);
 	line-height: 1.6;
-	font-weight: var(--wp--custom--font-weight--regular);
+	font-weight: var(--font-weight-regular);
 	text-transform: uppercase;
 	text-decoration: none !important; /* override block editor default */
 
@@ -136,10 +147,10 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin t-caption {
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--10);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-10);
 	line-height: 1.6;
-	font-weight: var(--wp--custom--font-weight--regular);
+	font-weight: var(--font-weight-regular);
 }
 
 /* -------------------------------------------------------------------------
@@ -151,13 +162,13 @@
 	align-items: center;
 	padding: 4px 16px;
 	background-color: var(--color-neutral-20);
-	border-radius: 100px;
+	border-radius: var(--border-radius-full);
 	color: var(--color-black);
 	text-decoration: none !important; /* override block editor default */
-	font-family: var(--wp--preset--font-family--roboto);
-	font-size: var(--wp--preset--font-size--10);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-10);
 	line-height: 1.6;
-	font-weight: var(--wp--custom--font-weight--bold);
+	font-weight: var(--font-weight-bold);
 	transition: var(--transition);
 
 	/* target links for the hover/focus effect */

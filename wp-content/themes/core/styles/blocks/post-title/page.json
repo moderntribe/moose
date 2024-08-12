@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "page",
+	"title": "Page",
+	"blockTypes": [ "core/post-title" ],
+	"styles": {
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--90)"
+		}
+	}
+}
