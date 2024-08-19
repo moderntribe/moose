@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [2024.08]
 - Updated: Moose 2.0; See specific updates in the [Github PR here](https://github.com/moderntribe/moose/pull/152). Design requirements in the [Jira ticket here](https://moderntribe.atlassian.net/browse/MOOSE-99).
+- Chore: Github Action workflow updates to use the latest versions of actions/cache.
+- Chore: Github Action tests job removed to conserve resources. Tests should be run locally.
+- Updated: Composer PHP minimum requirement set to 8.2 to match expected platform version.
+- Updated: GHA Code quality workflow dispatch to Pull Requests opened.
 
 ## [2024.07]
 - Chore: WP version to 6.6.1

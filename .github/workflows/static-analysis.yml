@@ -33,7 +33,7 @@ jobs:
         if: steps.changed-files.outputs.phpstan == 'true'
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           extensions: mbstring, intl
           coverage: none
           tools: composer:2

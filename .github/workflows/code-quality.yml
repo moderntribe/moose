@@ -3,9 +3,8 @@ name: 'Code Quality Checks'
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
-      - develop
+    types:
+      - opened
   push:
     branches:
       - main
@@ -29,9 +28,10 @@ jobs:
     secrets:
       COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
 
-  slic:
-    name: 'PHP Tests'
-    needs: [coding-standards, phpstan, linting]
-    uses: ./.github/workflows/php-tests.yml
-    secrets:
-      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
+# Enable this job if you have PHPUnit tests
+# slic:
+#   name: 'PHP Tests'
+#   needs: [coding-standards, phpstan, linting]
+#   uses: ./.github/workflows/php-tests.yml
+#   secrets:
+#     COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
