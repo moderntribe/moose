@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "large",
+	"title": "Large",
+	"blockTypes": [ "core/heading" ],
+	"styles": {
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--70)",
+			"lineHeight": "1.12"
+		}
+	}
+}

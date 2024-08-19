@@ -12,8 +12,6 @@
 	},
 	"browserslist": [
 		"last 2 versions",
-		"safari >= 16",
-		"ios >= 16",
 		"not op_mini all",
 		"not dead"
 	],
@@ -28,18 +26,18 @@
 		"coreBlockTemplatesDir": "../../../../../dev/templates"
 	},
 	"devDependencies": {
-		"@csstools/postcss-global-data": "^2.1.0",
-		"@wordpress/create-block": "^4.47.0",
-		"@wordpress/scripts": "^28.4.0",
+		"@csstools/postcss-global-data": "^3.0.0",
+		"@wordpress/create-block": "^4.48.0",
+		"@wordpress/scripts": "^28.5.0",
 		"browser-sync": "^3.0.2",
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
-		"cssnano": "^7.0.3",
+		"cssnano": "^7.0.5",
 		"fast-glob": "^3.3.1",
-		"lefthook": "^1.7.7",
+		"lefthook": "^1.7.12",
 		"postcss-import": "^16.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^10.0.1",
-		"postcss-preset-env": "^9.5.14",
+		"postcss-preset-env": "^10.0.0",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {

@@ -2,6 +2,24 @@
  * Styles specific to this block
  */
 
+:root {
+	--tribe-stacking-order: 0;
+}
+
 .wp-block-columns {
-	gap: var(--spacer-40) var(--wp--custom--spacing--grid-gutter);
+	gap: var(--spacer-40) var(--grid-gutter);
+
+	/* -------------------------------------------------------------------------
+	 * Stacking Order - Tribe Plugin
+	 * Need to target .is-not-stacked-on-mobile to ensure stacking actually
+	 * makes sense to apply to this context
+	 * ------------------------------------------------------------------------- */
+
+	&:not(.is-not-stacked-on-mobile) .wp-block-column.tribe-has-stacking-order {
+
+		@media (--mq-wp-small-max) {
+			order: var(--tribe-stacking-order);
+		}
+	}
+
 }

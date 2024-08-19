@@ -72,11 +72,17 @@ abstract class Block_Base {
 	public function enqueue_core_block_public_styles(): void {
 		$handle   = $this->get_block_style_handle();
 		$path     = $this->get_block_path();
+		$args     = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/index.asset.php" ) );
+		$version  = $args['version'] ?? false;
 		$src_path = get_theme_file_path( "dist/blocks/$path/style-index.css" );
 		$src      = get_theme_file_uri( "dist/blocks/$path/style-index.css" );
 
 		if ( ! file_exists( $src_path ) ) {
 			return;
+		}
+
+		if ( ! empty( $version ) ) {
+			$src = $src . '?ver=' . $version;
 		}
 
 		wp_add_inline_style( $handle, file_get_contents( $src_path ) );
@@ -92,11 +98,17 @@ abstract class Block_Base {
 	 */
 	public function enqueue_core_block_editor_styles(): void {
 		$path            = $this->get_block_path();
+		$args            = $this->get_asset_file_args( get_theme_file_path( "dist/blocks/$path/editor.asset.php" ) );
+		$version         = $args['version'] ?? false;
 		$editor_src_path = get_theme_file_path( "dist/blocks/$path/editor.css" );
 		$editor_src      = get_theme_file_uri( "dist/blocks/$path/editor.css" );
 
 		if ( ! file_exists( $editor_src_path ) ) {
 			return;
+		}
+
+		if ( ! empty( $version ) ) {
+			$editor_src = $editor_src . '?ver=' . $version;
 		}
 
 		add_editor_style( $editor_src );

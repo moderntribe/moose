@@ -5,6 +5,27 @@
  * ------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------
+ * Focus Visible
+ * Box-shadow is required to display double border in all browsers
+ * ------------------------------------------------------------------------- */
+
+@define-mixin focus-visible {
+	box-shadow: 0 0 0 3px var(--color-focus-contrast-dark), 0 0 0 5px var(--color-focus-contrast-light);
+	outline: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Inline Text - Focus Visible
+ * Inline text links that wrap lines look better w/ outline vs box-shadow
+ * ------------------------------------------------------------------------- */
+
+@define-mixin focus-visible-inline-text {
+	box-shadow: none;
+	outline: 2px solid currentcolor;
+	outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
  * Inline Text Links
  * ------------------------------------------------------------------------- */
 
@@ -25,5 +46,10 @@
 	&:active {
 		color: var(--themed-link-hover-text-color);
 		text-decoration-color: currentcolor;
+	}
+
+	&:focus-visible {
+
+		@mixin focus-visible-inline-text;
 	}
 }

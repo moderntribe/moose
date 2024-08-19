@@ -19,9 +19,20 @@
 	--spacer-70: var(--wp--preset--spacing--70);
 
 	/* -------------------------------------------------------------
-	 * Spacers (WP Admin Bar)
-	 * WP's CSS custom property handles mobile/desktop height change
+	 * Spacing Scale
 	 * ------------------------------------------------------------- */
 
-	--spacer-wpadmin: var(--wp-admin--admin-bar--height);
+	--grid-gutter: var(--wp--custom--spacing--grid-gutter);
+	--grid-margin: var(--wp--custom--spacing--grid-margin);
+
+	/* -------------------------------------------------------------
+	 * Spacers (WP Admin Bar)
+	 *
+	 * WP's CSS custom property handles mobile/desktop height change
+	 * If not set, we need to set to 0px in order for this property
+	 * to properly be used in calculations - stylelint doesn't like
+	 * the "px", so we disable linting for this line.
+	 * ------------------------------------------------------------- */
+
+	--spacer-wpadmin: var(--wp-admin--admin-bar--height, 0px); /* stylelint-disable-line */
 }

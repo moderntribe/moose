@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "xx-small",
+	"title": "XX Small",
+	"blockTypes": [ "core/heading" ],
+	"styles": {
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--30)",
+			"lineHeight": "1.4"
+		}
+	}
+}

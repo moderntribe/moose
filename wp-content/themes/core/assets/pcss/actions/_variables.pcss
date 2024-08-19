@@ -13,7 +13,14 @@
 	 * ----------------------------------------------------------------------- */
 
 	--themed-link-text-color: var(--color-black);
-	--themed-link-hover-text-color: var(--color-royal-blue);
+	--themed-link-hover-text-color: var(--color-blue);
+
+	/* -----------------------------------------------------------------------
+	 * Focus
+	 * ----------------------------------------------------------------------- */
+
+	--color-focus-contrast-light: var(--color-black); /* outer border */
+	--color-focus-contrast-dark: var(--color-white); /* inner border */
 }
 
 /* -------------------------------------------------------------------------
@@ -22,7 +29,19 @@
  *
  * ------------------------------------------------------------------------- */
 
-.has-jacksons-purple-background-color {
+.wp-block-group.is-style-dark {
+
+	/* -----------------------------------------------------------------------
+	 * Themed Color Properties
+	 * ----------------------------------------------------------------------- */
+
 	--themed-link-text-color: var(--color-white);
-	--themed-link-hover-text-color: var(--color-royal-blue);
+	--themed-link-hover-text-color: var(--color-neutral-10);
+
+	/* -----------------------------------------------------------------------
+	 * Focus
+	 * ----------------------------------------------------------------------- */
+
+	--color-focus-contrast-light: var(--color-white); /* outer border */
+	--color-focus-contrast-dark: var(--color-black); /* inner border */
 }
