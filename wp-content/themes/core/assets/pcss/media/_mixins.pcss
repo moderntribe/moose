@@ -38,4 +38,13 @@
 			margin-inline-start: 0;
 		}
 	}
+
+	/* Fix layout issue with resizable container in editor with grid alignment */
+	:is(body.editor-styles-wrapper) &.aligngrid {
+
+		> .components-resizable-box__container {
+			max-width: 100% !important;
+			max-height: unset !important;
+		}
+	}
 }
