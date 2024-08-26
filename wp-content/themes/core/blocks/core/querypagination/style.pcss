@@ -61,11 +61,11 @@
 
 		&:hover,
 		&:focus:not(:focus-visible) {
-			color: var(--color-royal-blue);
+			color: var(--color-blue);
 
 			.is-arrow-chevron::before,
 			.is-arrow-arrow::before {
-				background-color: var(--color-royal-blue);
+				background-color: var(--color-blue);
 			}
 		}
 
@@ -84,8 +84,9 @@
 				width: 100%;
 				height: 100%;
 				background-color: var(--color-black);
-				mask: var(--icon-chevron-left-black) center no-repeat;
+				mask: var(--icon-chevron-left) center no-repeat;
 				mask-size: contain;
+				transition: var(--transition);
 			}
 		}
 	}
@@ -95,7 +96,7 @@
 
 		.is-arrow-chevron::before,
 		.is-arrow-arrow::before {
-			mask-image: var(--icon-chevron-right-black);
+			mask-image: var(--icon-chevron-right);
 		}
 	}
 }
