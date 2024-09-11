@@ -61,6 +61,7 @@ wp-content/themes/*
 wp-content/plugins/*
 !wp-content/themes/core
 !wp-content/plugins/core
+!wp-content/plugins/gravityforms
 !wp-config.php
 !wp-config-environment.php
 
