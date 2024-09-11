@@ -6,7 +6,7 @@
 	"blockTypes": [ "core/heading" ],
 	"styles": {
 		"typography": {
-			"fontSize": "var(--wp--preset--font-size--60)",
+			"fontSize": "var(--wp--preset--font-size--60) !important",
 			"lineHeight": "1.15"
 		}
 	}
