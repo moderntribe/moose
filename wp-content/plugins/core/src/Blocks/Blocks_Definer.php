@@ -40,6 +40,7 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/terms',
+				'tribe/custom-query-loop',
 			] ),
 
 			self::EXTENDED        => DI\add( [
