@@ -14,7 +14,7 @@ class Integrations_Subscriber extends Abstract_Subscriber {
 		}, 10, 1 );
 
 		add_filter( 'wpseo_accessible_post_types', function ( $post_types ) {
-			if ( ! is_array( $columns ) ) {
+			if ( ! is_array( $post_types ) ) {
 				return [];
 			}
 
@@ -22,7 +22,7 @@ class Integrations_Subscriber extends Abstract_Subscriber {
 		}, 100 );
 
 		add_filter( 'rank_math/excluded_post_types', function ( $post_types ) {
-			if ( ! is_array( $columns ) ) {
+			if ( ! is_array( $post_types ) ) {
 				return [];
 			}
 
