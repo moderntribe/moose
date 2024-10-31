@@ -62,13 +62,14 @@ class Config extends Post_Type_Config {
 		}
 
 		$post_type_object = get_post_type_object( $this->post_type );
-		$all_roles        = array_keys( $wp_roles->roles );
+		$adjust_roles     = [
+			'administrator',
+			'editor',
+			'author',
+			'contributor',
+		];
 
-		foreach ( $all_roles as $role ) {
-			if ( 'subscriber' === $role ) {
-				continue;
-			}
-
+		foreach ( $adjust_roles as $role ) {
 			$role = get_role( $role );
 
 			foreach ( (array) $post_type_object->cap as $cap ) {
