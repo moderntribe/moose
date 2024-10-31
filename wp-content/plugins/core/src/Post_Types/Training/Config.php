@@ -112,4 +112,31 @@ class Config extends Post_Type_Config {
 		return current_user_can( $post_type_object->cap->read_post );
 	}
 
+	/**
+	 * Remove filters from list table.
+	 */
+	public function list_table_filters( string $post_type ): void {
+		if ( $post_type !== $this->post_type ) {
+			return;
+		}
+
+		if ( ! has_action( current_action() ) ) {
+			return;
+		}
+
+		remove_all_actions( current_action() );
+	}
+
+	/**
+	 * Limit list table columns to checkbox and title.
+	 */
+	public function list_table_columns(): array {
+		return [
+			'cb'    => '<input type="checkbox" />',
+			'title' => 'Title',
+		];
+
+		return $columns;
+	}
+
 }

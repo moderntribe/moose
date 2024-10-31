@@ -14,6 +14,7 @@ class Training_Subscriber extends Post_Type_Subscriber {
 
 		$this->block_templates();
 		$this->user_permissions();
+		$this->list_table();
 	}
 
 	public function block_templates(): void {
@@ -36,6 +37,19 @@ class Training_Subscriber extends Post_Type_Subscriber {
 		add_action( 'template_redirect', function (): void {
 			$this->container->get( Config::class )->send_404_unauthorized();
 		} );
+	}
+
+	public function list_table(): void {
+		// Prevent filtering added by plugins.
+		add_action( 'restrict_manage_posts', function ( $post_type ): void {
+			$this->container->get( Config::class )->list_table_filters( $post_type );
+		}, 0 );
+
+		// Remove columns added by plugins.
+		add_filter( 'manage_' . Training::NAME . '_posts_columns', function ( $columns ): array {
+			return $this->container->get( Config::class )->list_table_columns();
+		}, 100, 2 );
+
 	}
 
 }
