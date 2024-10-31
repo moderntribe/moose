@@ -14,10 +14,18 @@ class Integrations_Subscriber extends Abstract_Subscriber {
 		}, 10, 1 );
 
 		add_filter( 'wpseo_accessible_post_types', function ( $post_types ) {
+			if ( ! is_array( $columns ) ) {
+				return [];
+			}
+
 			return $this->container->get( YoastSEO::class )->exclude_post_types( $post_types );
 		}, 100 );
 
 		add_filter( 'rank_math/excluded_post_types', function ( $post_types ) {
+			if ( ! is_array( $columns ) ) {
+				return [];
+			}
+
 			return $this->container->get( RankMath::class )->exclude_post_types( $post_types );
 		}, 100 );
 	}
