@@ -21,10 +21,9 @@ class Config extends Post_Type_Config {
 			'menu_position'         => 19,
 			'public'                => true,
 			'publicly_queryable'    => true,
-			'rewrite'               => [ 'slug' => 'training', 'with_front' => false ],
-			'rest_controller_class' => Rest_Controller::class,
-			'show_in_rest'          => true,
+			'rewrite'               => [ 'slug' => $this->post_type, 'with_front' => false ],
 			'show_in_nav_menus'     => false,
+			'show_in_rest'          => current_user_can( 'read_' . $this->post_type ),
 			'supports'              => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 		];
 	}
@@ -33,7 +32,7 @@ class Config extends Post_Type_Config {
 		return [
 			'singular' => __( 'Training', 'tribe' ),
 			'plural'   => __( 'Training', 'tribe' ),
-			'slug'     => Training::NAME,
+			'slug'     => $this->post_type,
 		];
 	}
 
