@@ -11,20 +11,20 @@ class Config extends Post_Type_Config {
 
 	public function get_args(): array {
 		return [
-			'capability_type'       => $this->post_type,
-			'delete_with_user'      => false,
-			'exclude_from_search'   => true,
-			'has_archive'           => false,
-			'hierarchical'          => false,
-			'map_meta_cap'          => false,
-			'menu_icon'             => 'dashicons-welcome-learn-more',
-			'menu_position'         => 19,
-			'public'                => true,
-			'publicly_queryable'    => true,
-			'rewrite'               => [ 'slug' => $this->post_type, 'with_front' => false ],
-			'show_in_nav_menus'     => false,
-			'show_in_rest'          => current_user_can( 'read_' . $this->post_type ),
-			'supports'              => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
+			'capability_type'     => $this->post_type,
+			'delete_with_user'    => false,
+			'exclude_from_search' => true,
+			'has_archive'         => false,
+			'hierarchical'        => false,
+			'map_meta_cap'        => false,
+			'menu_icon'           => 'dashicons-welcome-learn-more',
+			'menu_position'       => 19,
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'rewrite'             => [ 'slug' => $this->post_type, 'with_front' => false ],
+			'show_in_nav_menus'   => false,
+			'show_in_rest'        => current_user_can( 'read_' . $this->post_type ),
+			'supports'            => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 		];
 	}
 
@@ -93,14 +93,13 @@ class Config extends Post_Type_Config {
 		nocache_headers();
 
 		require_once get_query_template( '404' );
-
-		exit();
+		exit;
 	}
 
 	/**
 	 * Indicate if the post type is viewable.
 	 */
-	public function current_user_can_read( $bool, $post_type_object ): bool {
+	public function current_user_can_read( bool $bool, \WP_Post_Type $post_type_object ): bool {
 		if ( ! $bool ) {
 			return false;
 		}
