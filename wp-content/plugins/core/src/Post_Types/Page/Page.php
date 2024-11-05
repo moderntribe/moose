@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Post_Types\Page;
 
-use Tribe\Libs\Post_Type\Post_Object;
+use Tribe\Plugin\Post_Types\Post_Object;
 
 class Page extends Post_Object {
 
