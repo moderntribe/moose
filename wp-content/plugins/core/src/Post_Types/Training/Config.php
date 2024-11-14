@@ -135,8 +135,6 @@ class Config extends Post_Type_Config {
 			'cb'    => '<input type="checkbox" />',
 			'title' => 'Title',
 		];
-
-		return $columns;
 	}
 
 }

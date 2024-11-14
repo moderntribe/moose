@@ -48,7 +48,7 @@ class Training_Subscriber extends Post_Type_Subscriber {
 		// Remove columns added by plugins.
 		add_filter( 'manage_' . Training::NAME . '_posts_columns', function ( $columns ): array {
 			return $this->container->get( Config::class )->list_table_columns();
-		}, 100, 2 );
+		}, 100 );
 	}
 
 }
