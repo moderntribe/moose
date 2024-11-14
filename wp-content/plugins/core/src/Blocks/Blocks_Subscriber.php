@@ -2,11 +2,11 @@
 
 namespace Tribe\Plugin\Blocks;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
 use Tribe\Plugin\Blocks\Bindings\Binding_Registrar;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 use Tribe\Plugin\Theme_Config\Theme_Support;
 
 class Blocks_Subscriber extends Abstract_Subscriber {

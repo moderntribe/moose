@@ -2,8 +2,7 @@
 
 namespace Tribe\Plugin\Integrations;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
-use Tribe\Plugin\Integrations\ACF;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 
 class Integrations_Subscriber extends Abstract_Subscriber {
 

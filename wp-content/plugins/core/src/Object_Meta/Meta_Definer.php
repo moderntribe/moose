@@ -3,7 +3,7 @@
 namespace Tribe\Plugin\Object_Meta;
 
 use DI;
-use Tribe\Libs\Container\Definer_Interface;
+use Tribe\Plugin\Core\Interfaces\Definer_Interface;
 
 class Meta_Definer implements Definer_Interface {
 

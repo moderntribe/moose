@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Object_Meta;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 
 class Meta_Subscriber extends Abstract_Subscriber {
 

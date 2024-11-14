@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Theme_Config;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 use Tribe\Plugin\Menus\Menu_Registrar;
 
 class Theme_Config_Subscriber extends Abstract_Subscriber {
