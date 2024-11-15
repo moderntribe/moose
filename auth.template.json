@@ -1,0 +1,13 @@
+{
+	"http-basic": {
+		"connect.advancedcustomfields.com": {
+			"username": "{{op://${OPVAULT:-Engineering}/MT ACF Pro License/http-basic-auth/username}}",
+			"password": "{{op://${OPVAULT:-Engineering}/MT ACF Pro License/http-basic-auth/password}}"
+		},
+		"composer.gravity.io": {
+			"username": "{{op://${OPVAULT:-Engineering}/MT Gravity Forms License/http-basic-auth/username}}",
+			"password": "{{op://${OPVAULT:-Engineering}/MT Gravity Forms License/http-basic-auth/password}}"
+		}
+	}
+}
+rm -r
