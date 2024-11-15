@@ -12,6 +12,8 @@ services:
     overrides:
       environment:
         - XDEBUG_TRIGGER=1
+    run:
+      - composer install
   mailhog:
     type: mailhog
     portforward: true
