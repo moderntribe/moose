@@ -20,10 +20,6 @@ if ( getenv( 'LANDO_INFO' ) ) {
 	define( 'DB_USER', $database_config->creds->user );
 	define( 'DB_PASSWORD', $database_config->creds->password );
 	define( 'DB_HOST', $database_config->internal_connection->host );
-
-	/** URL routing (Optional, may not be necessary) */
-	// define('WP_HOME','http://mysite.lndo.site');
-	// define('WP_SITEURL','http://mysite.lndo.site');
 }
 
 /**
