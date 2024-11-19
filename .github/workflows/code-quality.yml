@@ -17,6 +17,7 @@ jobs:
     uses: ./.github/workflows/phpcs.yml
     secrets:
       COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
   linting:
     name: 'Linting'
