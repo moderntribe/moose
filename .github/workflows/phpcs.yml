@@ -6,6 +6,9 @@ on:
       COMPOSER_AUTH_JSON:
         required: true
         description: Composer auth.json
+      OP_SERVICE_ACCOUNT_TOKEN:
+        required: true
+        description: 1Password Service Account Token
 
 jobs:
   phpcs:
@@ -48,10 +51,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Install Composer
-        if: steps.changed-files.outputs.phpcs == 'true'
+      - name: Install 1Password CLI
+        uses: 1password/install-cli-action@v1
+        # if: steps.changed-files.outputs.phpcs == 'true'
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: |
-          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
+          op user get --me
+          op inject -i auth.template.json -o auth.json
+
+      - name: Install Composer
+        # if: steps.changed-files.outputs.phpcs == 'true'
+        run: |
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
           rm auth.json
 
