@@ -1,6 +1,7 @@
 name: Coding Standards
 
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       COMPOSER_AUTH_JSON:
