@@ -25,7 +25,7 @@ jobs:
 
       - name: Composer Install
         # if: steps.changed-files.outputs.phpcs == 'true'
-        uses: ./.github/workflows/composer-install.yml
+        uses: ./app/public/.github/actions/composer-install
 
       - name: Run PHPCS
         if: steps.changed-files.outputs.phpcs == 'true'
