@@ -32,7 +32,7 @@ jobs:
               - added|modified: 'phpcs.xml.dist'
 
       - name: Composer Install
-        # if: steps.changed-files.outputs.phpcs == 'true'
+        if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
@@ -40,6 +40,6 @@ jobs:
           OP_ITEM: ${{ secrets.OP_ITEM }}
 
       - name: Run PHPCS
-        # if: steps.changed-files.outputs.phpcs == 'true'
+        if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           composer phpcs
