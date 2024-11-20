@@ -1,4 +1,4 @@
-name: 'Composer Install'
+name: Composer Install
 
 on:
   workflow_call:
@@ -8,9 +8,6 @@ jobs:
     name: Composer Install
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Configure PHP environment
         uses: shivammathur/setup-php@v2
         with:
