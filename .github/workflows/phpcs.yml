@@ -2,6 +2,11 @@ name: Coding Standards
 
 on:
   workflow_call:
+    inputs:
+      OP_VAULT:
+        description: 1Password vault to use
+      OP_ITEM:
+        description: 1Password item to use
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
@@ -32,8 +37,8 @@ jobs:
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          OP_VAULT: 'vob6y2d3l6ohybeuefe3uly2l4'
-          OP_ITEM: 'Test-Composer-Auth'
+          OP_VAULT: ${{ inputs.OP_VAULT }}
+          OP_ITEM: ${{ inputs.OP_ITEM }}
 
       - name: Run PHPCS
         # if: steps.changed-files.outputs.phpcs == 'true'
