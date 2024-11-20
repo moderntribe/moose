@@ -4,15 +4,15 @@ on:
   workflow_call:
     inputs:
       OP_VAULT:
-        required: false
+        type: string
         description: 1Password vault to use for populating composer auth.json
       OP_ITEM:
-        required: false
+        type: string
         description: 1Password item to use for populating composer auth.json
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: 1Password Service Account Token
+        description: 1Password Service Account Token to use for populating composer auth.json
 
 jobs:
   phpcs:
