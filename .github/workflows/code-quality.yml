@@ -28,6 +28,10 @@ jobs:
     name: 'Static Analysis'
     needs: [coding-standards, linting]
     uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
 
 # Enable this job if you have PHPUnit tests
 # slic:

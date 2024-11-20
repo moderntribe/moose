@@ -2,6 +2,14 @@ name: Static Analysis
 
 on:
   workflow_call:
+    secrets:
+      OP_SERVICE_ACCOUNT_TOKEN:
+        required: true
+        description: 1Password Service Account Token to use for populating composer auth.json
+      OP_VAULT:
+        description: 1Password vault to use for populating composer auth.json
+      OP_ITEM:
+        description: 1Password item to use for populating composer auth.json
 
 jobs:
   phpstsan:
@@ -26,7 +34,7 @@ jobs:
               - added|modified: 'phpstan.neon.dist'
 
       - name: Composer Install
-        # if: steps.changed-files.outputs.phpcs == 'true'
+        if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
@@ -34,5 +42,5 @@ jobs:
           OP_ITEM: ${{ secrets.OP_ITEM }}
 
       - name: Run PHPStan static analysis
-        # if: steps.changed-files.outputs.phpstan == 'true'
+        if: steps.changed-files.outputs.phpstan == 'true'
         run: composer phpstan
