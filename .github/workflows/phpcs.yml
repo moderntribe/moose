@@ -26,6 +26,8 @@ jobs:
       - name: Composer Install
         # if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/actions/composer-install
+        with:
+          token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
       - name: Run PHPCS
         if: steps.changed-files.outputs.phpcs == 'true'

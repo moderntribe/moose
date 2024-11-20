@@ -1,5 +1,10 @@
 name: Composer Install
 
+inputs:
+  token:
+    required: true
+    description: 1Password Service Account Token
+
 runs:
   using: "composite"
   steps:
@@ -13,6 +18,7 @@ runs:
       id: composer-cache
       run: |
         echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      shell: bash
 
     - uses: actions/cache@v4
       with:
@@ -26,12 +32,14 @@ runs:
 
     - name: Create auth.json via 1Password CLI
       env:
-        OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.token }}
       run: |
         op user get --me
         op inject -i auth.template.json -o auth.json
+      shell: bash
 
     - name: Install Composer
       run: |
         composer install --ignore-platform-reqs --optimize-autoloader --no-progress
         rm auth.json
+      shell: bash
