@@ -32,6 +32,8 @@ jobs:
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: 'vob6y2d3l6ohybeuefe3uly2l4'
+          OP_ITEM: 'Test-Composer-Auth'
 
       - name: Run PHPCS
         # if: steps.changed-files.outputs.phpcs == 'true'
