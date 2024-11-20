@@ -39,7 +39,7 @@ jobs:
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          OP_VAULT: ${{ inputs.OP_VAULT }}
+          OP_VAULT: 'test-vault' #${{ inputs.OP_VAULT }}
           OP_ITEM: ${{ inputs.OP_ITEM }}
 
       - name: Run PHPCS
