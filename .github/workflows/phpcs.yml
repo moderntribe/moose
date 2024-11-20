@@ -28,7 +28,7 @@ jobs:
               - added|modified: 'phpcs.xml.dist'
 
       - name: Configure PHP environment
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         uses: shivammathur/setup-php@v2
         with:
           tools: composer:2
@@ -36,12 +36,12 @@ jobs:
 
       - name: Get Composer Cache Directory
         id: composer-cache
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v4
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -49,11 +49,11 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install 1Password CLI
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         uses: 1password/install-cli-action@v1
 
       - name: Create auth.json via 1Password CLI
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: |
@@ -61,12 +61,12 @@ jobs:
           op inject -i auth.template.json -o auth.json
 
       - name: Install Composer
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
           rm auth.json
 
       - name: Run PHPCS
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           composer phpcs
