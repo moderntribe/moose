@@ -10,9 +10,10 @@ on:
     branches:
       - main
       - develop
-  env:
-    OP_VAULT: 'vob6y2d3l6ohybeuefe3uly2l4'
-    OP_ITEM: 'Test-Composer-Auth'
+
+env:
+  OP_VAULT: 'vob6y2d3l6ohybeuefe3uly2l4'
+  OP_ITEM: 'Test-Composer-Auth'
 
 jobs:
   coding-standards:
