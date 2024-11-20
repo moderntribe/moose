@@ -2,6 +2,14 @@ name: 'PHP Tests'
 
 on:
   workflow_call:
+    secrets:
+      OP_SERVICE_ACCOUNT_TOKEN:
+        required: true
+        description: 1Password Service Account Token to use for populating composer auth.json
+      OP_VAULT:
+        description: 1Password vault to use for populating composer auth.json
+      OP_ITEM:
+        description: 1Password item to use for populating composer auth.json
 
 jobs:
   test:
@@ -99,6 +107,12 @@ jobs:
       - name: Install 1Password CLI
         if: steps.changed-files.outputs.tests == 'true'
         uses: 1password/install-cli-action@v1
+
+      - name: Set env vars for 1Password CLI
+        if: steps.changed-files.outputs.tests == 'true'
+        run: |
+          echo "OP_VAULT=${{ secrets.OP_VAULT || 'Engineering' }}" >> $GITHUB_ENV
+          echo "OP_ITEM=${{ secrets.OP_ITEM || 'MT-Composer-Auth' }}" >> $GITHUB_ENV
 
       - name: Create auth.json via 1Password CLI
         if: steps.changed-files.outputs.tests == 'true'
