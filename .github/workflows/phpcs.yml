@@ -3,8 +3,9 @@ name: Coding Standards
 on:
   workflow_call:
     secrets:
-      op_service_account_token:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
+        description: 1Password Service Account Token
 
 jobs:
   phpcs:
@@ -30,7 +31,7 @@ jobs:
         # if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/actions/composer-install
         with:
-          op_service_account_token: ${{ secrets.op_service_account_token }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
       - name: Run PHPCS
         # if: steps.changed-files.outputs.phpcs == 'true'

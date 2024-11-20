@@ -16,7 +16,7 @@ jobs:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
     secrets:
-      op_service_account_token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
   linting:
     name: 'Linting'
