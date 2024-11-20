@@ -1,9 +1,17 @@
 name: Composer Install
 
 inputs:
-  op_service_account_token:
+  OP_SERVICE_ACCOUNT_TOKEN:
     required: true
-    description: 1Password Service Account Token
+    description: 1Password service account token
+  OP_VAULT:
+    required: true
+    description: 1Password vault to use
+    default: 'Engineering'
+  OP_ITEM:
+    required: true
+    description: 1Password item to use
+    default: 'MT-Composer-Auth'
 
 runs:
   using: "composite"
@@ -16,9 +24,9 @@ runs:
 
     - name: Get Composer Cache Directory
       id: composer-cache
+      shell: bash
       run: |
         echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-      shell: bash
 
     - uses: actions/cache@v4
       with:
@@ -31,15 +39,17 @@ runs:
       uses: 1password/install-cli-action@v1
 
     - name: Create auth.json via 1Password CLI
+      shell: bash
       env:
-        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.op_service_account_token }}
+        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.OP_SERVICE_ACCOUNT_TOKEN }}
+        OP_VAULT: ${{ inputs.OP_VAULT }}
+        OP_ITEM: ${{ inputs.OP_ITEM }}
       run: |
         op user get --me
         op inject -i auth.template.json -o auth.json
-      shell: bash
 
     - name: Install Composer
+      shell: bash
       run: |
         composer install --ignore-platform-reqs --optimize-autoloader --no-progress
         rm auth.json
-      shell: bash
