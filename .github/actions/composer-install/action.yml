@@ -7,11 +7,9 @@ inputs:
   OP_VAULT:
     required: true
     description: 1Password vault to use for populating composer auth.json
-    default: 'Engineering'
   OP_ITEM:
     required: true
     description: 1Password item to use for populating composer auth.json
-    default: 'MT-Composer-Auth'
 
 runs:
   using: "composite"
@@ -42,9 +40,9 @@ runs:
       shell: bash
       env:
         OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.OP_SERVICE_ACCOUNT_TOKEN }}
-        OP_VAULT: ${{ inputs.OP_VAULT }}
-        OP_ITEM: ${{ inputs.OP_ITEM }}
       run: |
+        echo "OP_VAULT=${{ inputs.OP_VAULT || 'Engineering' }}" >> $GITHUB_ENV
+        echo "OP_ITEM=${{ inputs.OP_ITEM || 'MT-Composer-Auth' }}" >> $GITHUB_ENV
         op user get --me
         op inject -i auth.template.json -o auth.json
     - name: Install Composer
