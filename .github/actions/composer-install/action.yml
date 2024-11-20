@@ -3,14 +3,14 @@ name: Composer Install
 inputs:
   OP_SERVICE_ACCOUNT_TOKEN:
     required: true
-    description: 1Password service account token
+    description: 1Password service account token to use for populating composer auth.json
   OP_VAULT:
     required: true
-    description: 1Password vault to use
+    description: 1Password vault to use for populating composer auth.json
     default: 'Engineering'
   OP_ITEM:
     required: true
-    description: 1Password item to use
+    description: 1Password item to use for populating composer auth.json
     default: 'MT-Composer-Auth'
 
 runs:
@@ -47,7 +47,6 @@ runs:
       run: |
         op user get --me
         op inject -i auth.template.json -o auth.json
-
     - name: Install Composer
       shell: bash
       run: |

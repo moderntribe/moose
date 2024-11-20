@@ -4,9 +4,11 @@ on:
   workflow_call:
     inputs:
       OP_VAULT:
-        description: 1Password vault to use
+        required: false
+        description: 1Password vault to use for populating composer auth.json
       OP_ITEM:
-        description: 1Password item to use
+        required: false
+        description: 1Password item to use for populating composer auth.json
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
