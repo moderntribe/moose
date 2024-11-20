@@ -1,7 +1,7 @@
 name: Composer Install
 
 inputs:
-  token:
+  op_service_account_token:
     required: true
     description: 1Password Service Account Token
 
@@ -32,7 +32,7 @@ runs:
 
     - name: Create auth.json via 1Password CLI
       env:
-        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.token }}
+        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.op_service_account_token }}
       run: |
         op user get --me
         op inject -i auth.template.json -o auth.json

@@ -2,6 +2,9 @@ name: Coding Standards
 
 on:
   workflow_call:
+    secrets:
+      op_service_account_token:
+        required: true
 
 jobs:
   phpcs:
@@ -27,7 +30,7 @@ jobs:
         # if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/actions/composer-install
         with:
-          token: 'test-token'
+          op_service_account_token: ${{ secrets.op_service_account_token }}
 
       - name: Run PHPCS
         if: steps.changed-files.outputs.phpcs == 'true'
