@@ -33,6 +33,6 @@ jobs:
           op_service_account_token: ${{ secrets.op_service_account_token }}
 
       - name: Run PHPCS
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           composer phpcs
