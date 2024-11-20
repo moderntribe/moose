@@ -2,10 +2,6 @@ name: 'PHP Tests'
 
 on:
   workflow_call:
-    secrets:
-      OP_SERVICE_ACCOUNT_TOKEN:
-        required: true
-        description: 1Password Service Account Token
 
 jobs:
   test:
