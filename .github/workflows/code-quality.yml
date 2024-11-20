@@ -17,6 +17,9 @@ jobs:
     uses: ./.github/workflows/phpcs.yml
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+    with:
+      OP_VAULT: ${{ vars.OP_VAULT }}
+      OP_ITEM: ${{ vars.OP_ITEM }}
 
   linting:
     name: 'Linting'
