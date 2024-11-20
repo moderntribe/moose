@@ -24,7 +24,7 @@ jobs:
               - added|modified: 'phpcs.xml.dist'
 
       - name: Composer Install
-        if: steps.changed-files.outputs.phpcs == 'true'
+        # if: steps.changed-files.outputs.phpcs == 'true'
         uses: ./.github/workflows/composer-install.yml
 
       - name: Run PHPCS
