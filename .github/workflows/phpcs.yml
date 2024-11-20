@@ -2,17 +2,14 @@ name: Coding Standards
 
 on:
   workflow_call:
-    inputs:
-      OP_VAULT:
-        type: string
-        description: 1Password vault to use for populating composer auth.json
-      OP_ITEM:
-        type: string
-        description: 1Password item to use for populating composer auth.json
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
         description: 1Password Service Account Token to use for populating composer auth.json
+      OP_VAULT:
+        description: 1Password vault to use for populating composer auth.json
+      OP_ITEM:
+        description: 1Password item to use for populating composer auth.json
 
 jobs:
   phpcs:
@@ -39,8 +36,8 @@ jobs:
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          OP_VAULT: ${{ inputs.OP_VAULT }}
-          OP_ITEM: ${{ inputs.OP_ITEM }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
 
       - name: Run PHPCS
         # if: steps.changed-files.outputs.phpcs == 'true'
