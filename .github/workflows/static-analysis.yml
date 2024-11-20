@@ -3,9 +3,9 @@ name: Static Analysis
 on:
   workflow_call:
     secrets:
-      COMPOSER_AUTH_JSON:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: Composer auth.json
+        description: 1Password Service Account Token
 
 jobs:
   phpstsan:
@@ -52,10 +52,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
+      - name: Install 1Password CLI
+        if: steps.changed-files.outputs.phpstan == 'true'
+        uses: 1password/install-cli-action@v1
+
+      - name: Create auth.json via 1Password CLI
+        if: steps.changed-files.outputs.phpstan == 'true'
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        run: |
+          op user get --me
+          op inject -i auth.template.json -o auth.json
+
       - name: Install Composer
         if: steps.changed-files.outputs.phpstan == 'true'
         run: |
-          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
           composer install --ignore-platform-reqs --optimize-autoloader --no-progress
           rm auth.json
 

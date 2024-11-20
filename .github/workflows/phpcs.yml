@@ -3,9 +3,6 @@ name: Coding Standards
 on:
   workflow_call:
     secrets:
-      COMPOSER_AUTH_JSON:
-        required: true
-        description: Composer auth.json
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
         description: 1Password Service Account Token
@@ -55,7 +52,7 @@ jobs:
         if: steps.changed-files.outputs.phpcs == 'true'
         uses: 1password/install-cli-action@v1
 
-      - name: Create auth.json from 1Password
+      - name: Create auth.json via 1Password CLI
         if: steps.changed-files.outputs.phpcs == 'true'
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}

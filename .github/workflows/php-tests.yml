@@ -3,9 +3,9 @@ name: 'PHP Tests'
 on:
   workflow_call:
     secrets:
-      COMPOSER_AUTH_JSON:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: Composer auth.json
+        description: 1Password Service Account Token
 
 jobs:
   test:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       build_folder: build
-      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
     steps:
       - name: Checkout the repository
@@ -100,11 +100,24 @@ jobs:
           ${SLIC_BIN} info
           ${SLIC_BIN} config
 
+      - name: Install 1Password CLI
+        if: steps.changed-files.outputs.tests == 'true'
+        uses: 1password/install-cli-action@v1
+
+      - name: Create auth.json via 1Password CLI
+        if: steps.changed-files.outputs.tests == 'true'
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        run: |
+          op user get --me
+          op inject -i auth.template.json -o auth.json
+
       - name: Set up site for CI
         if: steps.changed-files.outputs.tests == 'true'
         run: |
           ${SLIC_BIN} use site
-          ${SLIC_BIN} composer install --ignore-platform-reqs
+          ${SLIC_BIN} composer install --ignore-platform-reqs --optimize-autoloader --no-progress
+          ${SLIC_BIN} rm auth.json
 
       - name: Run suite tests
         if: steps.changed-files.outputs.tests == 'true'
