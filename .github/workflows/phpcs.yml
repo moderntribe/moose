@@ -55,8 +55,8 @@ jobs:
       - name: Create auth.json via 1Password CLI
         # if: steps.changed-files.outputs.phpcs == 'true'
         env:
-          OP_VAULT: 'vob6y2d3l6ohybeuefe3uly2l4'
-          OP_ITEM: 'Test-Composer-Auth'
+          OP_VAULT: ${{ env.OP_VAULT }}
+          OP_ITEM: ${{ env.OP_ITEM }}
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: |
           op user get --me
