@@ -19,6 +19,9 @@ jobs:
   coding-standards:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
+    env:
+      OP_VAULT: ${{ env.OP_VAULT }}
+      OP_ITEM: ${{ env.OP_ITEM }}
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
