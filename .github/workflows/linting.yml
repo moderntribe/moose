@@ -21,6 +21,7 @@ jobs:
               - added|modified: 'wp-content/plugins/core/**/*.{pcss,json,js}'
               - added|modified: 'wp-content/themes/core/**/*.{pcss,json,js}'
               - added|modified: 'wp-content/mu-plugins/**/*.{pcss,json,js}'
+              - added|modified: './*.{json,js}'
 
       - name: Set up node
         if: steps.changed-files.outputs.linting == 'true'
