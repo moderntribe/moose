@@ -21,6 +21,7 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"scripts": {
+		"create-auth": "op inject -i auth.template.json -o auth.json",
 		"phpcbf": "./vendor/bin/phpcbf -s",
 		"phpcs": "./vendor/bin/phpcs",
 		"phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
@@ -39,6 +40,7 @@
 		]
 	},
 	"scripts-descriptions": {
+		"create-auth": "Create or update the auth.json file for Composer via 1Password CLI.",
 		"phpcs": "Run PHPCS on the project.",
 		"phpcbf": "Run PHPCBF on the project.",
 		"phpstan": "Run PHPStan on the project.",
