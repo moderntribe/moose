@@ -32,7 +32,7 @@
 		"setup-wordpress": "./vendor/bin/wp core download --version=6.7.1 --skip-content --force",
 		"update-db": "./vendor/bin/wp core update-db",
 		"post-root-package-install": [
-			"@setup-repo"
+			"@setup-project"
 		],
 		"post-install-cmd": [
 			"@setup-wordpress"
@@ -49,20 +49,24 @@
 		"setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value.",
 		"update-db": "Runs the wpcli command to update the WordPress database. This is sometimes required after a version update."
 	},
-	"repositories": [
-		{
+	"repositories": {
+		"gravity": {
+			"type": "composer",
+			"url": "https://composer.gravity.io"
+		},
+		"0": {
 			"type": "composer",
 			"url": "https://wpackagist.org"
 		},
-		{
+		"1": {
 			"type": "vcs",
 			"url": "https://github.com/moderntribe/tribe-glomar.git"
 		},
-		{
+		"2": {
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		},
-		{
+		"3": {
 			"type": "package",
 			"package": {
 				"name": "block-editor-custom-alignments/block-editor-custom-alignments",
@@ -77,7 +81,7 @@
 				}
 			}
 		}
-	],
+	},
 	"require-dev": {
 		"codeception/module-asserts": "^1.0",
 		"codeception/module-cli": "^1.0",
@@ -103,6 +107,7 @@
 		"ext-json": "*",
 		"block-editor-custom-alignments/block-editor-custom-alignments": "^1.0",
 		"composer/installers": "^2.2",
+		"gravity/gravityforms": "2.9.0.2",
 		"humanmade/s3-uploads": "^3.0",
 		"johnbillion/extended-cpts": "^5.0",
 		"moderntribe/square1-post-type": "^4.2",
