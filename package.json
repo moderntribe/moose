@@ -11,9 +11,9 @@
 		"email": "admin@tri.be"
 	},
 	"browserslist": [
-		"last 2 versions",
-		"not op_mini all",
-		"not dead"
+		"defaults",
+		"not ios < 17.5",
+		"not op_mini all"
 	],
 	"engines": {
 		"node": ">=20.10.0",
