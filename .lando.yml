@@ -9,6 +9,8 @@ config:
   memcached: true
 services:
   appserver:
+    run:
+      - composer install
     overrides:
       environment:
         - XDEBUG_TRIGGER=1
