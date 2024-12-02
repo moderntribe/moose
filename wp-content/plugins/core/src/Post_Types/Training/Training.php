@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Post_Types\Training;
 
-use Tribe\Libs\Post_Type\Post_Object;
+use Tribe\Plugin\Post_Types\Post_Object;
 
 class Training extends Post_Object {
 

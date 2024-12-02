@@ -2,12 +2,11 @@
 
 namespace Tribe\Plugin\Post_Types\Training;
 
-use Tribe\Libs\Post_Type\Post_Type_Config;
+use Tribe\Plugin\Post_Types\Post_Type_Config;
 
 class Config extends Post_Type_Config {
 
-	// phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint
-	protected $post_type = Training::NAME;
+	protected string $post_type = Training::NAME;
 
 	public function get_args(): array {
 		return [
