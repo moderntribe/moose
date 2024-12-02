@@ -3,6 +3,10 @@
 		"connect.advancedcustomfields.com": {
 			"username": "ACF License Key",
 			"password": "https://moose.lando.site"
+		},
+		"composer.gravity.io": {
+			"username": "GF License Key",
+			"password": "https://moose.lndo.site"
 		}
 	}
 }
