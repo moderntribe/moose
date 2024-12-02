@@ -48,20 +48,24 @@
 		"install-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value.",
 		"update-db": "Runs the wpcli command to update the WordPress database. This is sometimes required after a version update."
 	},
-	"repositories": [
-		{
+	"repositories": {
+		"gravity": {
+			"type": "composer",
+			"url": "https://composer.gravity.io"
+		},
+		"0": {
 			"type": "composer",
 			"url": "https://wpackagist.org"
 		},
-		{
+		"1": {
 			"type": "vcs",
 			"url": "https://github.com/moderntribe/tribe-glomar.git"
 		},
-		{
+		"2": {
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		},
-		{
+		"3": {
 			"type": "package",
 			"package": {
 				"name": "block-editor-custom-alignments/block-editor-custom-alignments",
@@ -76,7 +80,7 @@
 				}
 			}
 		}
-	],
+	},
 	"require-dev": {
 		"codeception/module-asserts": "^1.0",
 		"codeception/module-cli": "^1.0",
@@ -102,6 +106,7 @@
 		"ext-json": "*",
 		"block-editor-custom-alignments/block-editor-custom-alignments": "^1.0",
 		"composer/installers": "^2.2",
+		"gravity/gravityforms": "2.9.0.2",
 		"humanmade/s3-uploads": "^3.0",
 		"johnbillion/extended-cpts": "^5.0",
 		"moderntribe/square1-post-type": "^4.2",
@@ -115,13 +120,13 @@
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/disable-emojis": "1.7.6",
 		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.2",
-		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.13",
+		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.16",
 		"wpackagist-plugin/safe-svg": "2.2.6",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.227.1",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.232",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
-		"wpackagist-plugin/user-switching": "1.8.0",
+		"wpackagist-plugin/user-switching": "1.9.0",
 		"wpackagist-plugin/wp-tota11y": "^1.2",
-		"wpengine/advanced-custom-fields-pro": "6.3.6"
+		"wpengine/advanced-custom-fields-pro": "6.3.11"
 	},
 	"extra": {
 		"installer-paths": {

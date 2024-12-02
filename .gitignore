@@ -13,7 +13,6 @@ Thumbs.db
 .DS_Store
 .idea
 pimple.json
-.phpstorm.meta.php
 
 # IDE generated files #
 ######################
