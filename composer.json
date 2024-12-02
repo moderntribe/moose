@@ -31,10 +31,6 @@
 		"phpcs": "./vendor/bin/phpcs",
 		"phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
 		"update-db": "./vendor/bin/wp core update-db",
-		"post-root-package-install": [
-			"@copy-local-configs",
-			"@install-wordpress"
-		],
 		"post-install-cmd": [
 			"@install-wordpress"
 		],
