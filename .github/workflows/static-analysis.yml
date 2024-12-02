@@ -34,7 +34,7 @@ jobs:
               - added|modified: 'phpstan.neon.dist'
 
       - name: Composer Install
-        if: steps.changed-files.outputs.phpcs == 'true'
+        if: steps.changed-files.outputs.phpstan == 'true'
         uses: ./.github/actions/composer-install
         with:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
