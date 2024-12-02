@@ -11,6 +11,7 @@ services:
   appserver:
     run:
       - composer install
+      - composer run copy-local-configs
     overrides:
       environment:
         - XDEBUG_TRIGGER=1
