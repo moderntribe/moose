@@ -126,7 +126,6 @@
 		"wpackagist-plugin/seo-by-rank-math": "1.0.232",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
 		"wpackagist-plugin/user-switching": "1.9.0",
-		"wpackagist-plugin/wp-tota11y": "^1.2",
 		"wpengine/advanced-custom-fields-pro": "6.3.11"
 	},
 	"extra": {
