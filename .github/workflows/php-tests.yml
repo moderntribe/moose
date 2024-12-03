@@ -120,7 +120,7 @@ jobs:
         if: steps.changed-files.outputs.tests == 'true'
         run: |
           ${SLIC_BIN} use site
-          ${SLIC_BIN} composer install --ignore-platform-reqs --optimize-autoloader --no-progress
+          ${SLIC_BIN} composer install --optimize-autoloader --no-progress
           ${SLIC_BIN} rm auth.json
 
       - name: Run suite tests
