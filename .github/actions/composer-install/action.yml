@@ -2,7 +2,7 @@ name: Composer Install
 
 inputs:
   BUILD_FOLDER:
-    description: 'Folder to run shell commands in. Defaults to '
+    description: 'Folder to run shell commands in.'
     required: false
     default: ${{ github.workspace }}
   COMPOSER_INSTALL_FLAGS:
