@@ -30,7 +30,14 @@ on:
         required: true
       slack_webhook:
         required: true
-      composer_auth_json:
+      OP_SERVICE_ACCOUNT_TOKEN:
+        required: true
+        description: '1Password service account token to use for populating composer auth.json'
+      OP_VAULT:
+        description: '1Password vault to use for populating composer auth.json'
+        required: true
+      OP_ITEM:
+        description: '1Password item to use for populating composer auth.json'
         required: true
 
 jobs:
@@ -73,9 +80,15 @@ jobs:
       - name: NPM Build
         run: npm run dist
 
-      - name: Composer Auth Setup
-        run: |
-          echo '${{ secrets.composer_auth_json }}' > auth.json
+      - name: 'Install 1Password CLI'
+        uses: 1password/install-cli-action@v1
+
+      - name: 'Create auth.json via 1Password CLI'
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
+        run: op inject -i auth.template.json -o auth.json
 
       - name: Commit Files
         uses: moderntribe/actions/utils/commit-files@v1
