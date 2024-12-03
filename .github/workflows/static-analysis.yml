@@ -5,23 +5,21 @@ on:
     secrets:
       OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: 1Password Service Account Token to use for populating composer auth.json
+        description: '1Password Service Account Token to use for populating composer auth.json'
       OP_VAULT:
-        description: 1Password vault to use for populating composer auth.json
+        description: '1Password vault to use for populating composer auth.json'
       OP_ITEM:
-        description: 1Password item to use for populating composer auth.json
+        description: '1Password item to use for populating composer auth.json'
 
 jobs:
   phpstsan:
     name: phpstan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 'Checkout'
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Detect File Changes
+      - name: 'Detect file changes'
         uses: dorny/paths-filter@v3
         id: changed-files
         with:
@@ -33,14 +31,15 @@ jobs:
               - added|modified: 'wp-content/mu-plugins/**/*.php'
               - added|modified: 'phpstan.neon.dist'
 
-      - name: Composer Install
+      - name: 'Composer install'
         if: steps.changed-files.outputs.phpstan == 'true'
         uses: ./.github/actions/composer-install
         with:
+          COMPOSER_INSTALL_FLAGS: '--ignore-platform-reqs --optimize-autoloader'
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           OP_VAULT: ${{ secrets.OP_VAULT }}
           OP_ITEM: ${{ secrets.OP_ITEM }}
 
-      - name: Run PHPStan static analysis
+      - name: 'Run PHPStan static analysis'
         if: steps.changed-files.outputs.phpstan == 'true'
         run: composer phpstan
