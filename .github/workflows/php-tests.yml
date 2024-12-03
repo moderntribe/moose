@@ -108,19 +108,13 @@ jobs:
         if: steps.changed-files.outputs.tests == 'true'
         uses: 1password/install-cli-action@v1
 
-      - name: Set env vars for 1Password CLI
-        if: steps.changed-files.outputs.tests == 'true'
-        run: |
-          echo "OP_VAULT=${{ secrets.OP_VAULT || 'Engineering' }}" >> $GITHUB_ENV
-          echo "OP_ITEM=${{ secrets.OP_ITEM || 'MT-Composer-Auth' }}" >> $GITHUB_ENV
-
       - name: Create auth.json via 1Password CLI
         if: steps.changed-files.outputs.tests == 'true'
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-        run: |
-          op user get --me
-          op inject -i auth.template.json -o auth.json
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
+        run: op inject -i auth.template.json -o auth.json
 
       - name: Set up site for CI
         if: steps.changed-files.outputs.tests == 'true'

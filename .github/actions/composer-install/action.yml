@@ -44,21 +44,14 @@ runs:
     - name: 'Install 1Password CLI'
       uses: 1password/install-cli-action@v1
 
-    - name: 'Set env vars for 1Password CLI'
-      working-directory: ${{ inputs.BUILD_FOLDER }}
-      shell: bash
-      run: |
-        echo "OP_VAULT=${{ inputs.OP_VAULT || 'Engineering' }}" >> $GITHUB_ENV
-        echo "OP_ITEM=${{ inputs.OP_ITEM || 'MT-Composer-Auth' }}" >> $GITHUB_ENV
-
     - name: 'Create auth.json via 1Password CLI'
       working-directory: ${{ inputs.BUILD_FOLDER }}
       shell: bash
       env:
         OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.OP_SERVICE_ACCOUNT_TOKEN }}
-      run: |
-        op user get --me
-        op inject -i auth.template.json -o auth.json
+        OP_VAULT: ${{ inputs.OP_VAULT }}
+        OP_ITEM: ${{ inputs.OP_ITEM }}
+      run: op inject -i auth.template.json -o auth.json
 
     - name: 'Install Composer'
       working-directory: ${{ inputs.BUILD_FOLDER }}
