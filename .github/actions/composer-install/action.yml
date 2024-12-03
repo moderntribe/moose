@@ -7,7 +7,8 @@ inputs:
     default: ${{ github.workspace }}
   COMPOSER_INSTALL_FLAGS:
     description: 'Flags to pass to the `composer install` command.'
-    required: true
+    required: false
+    default: '--optimize-autoloader --no-dev'
   OP_SERVICE_ACCOUNT_TOKEN:
     required: true
     description: '1Password service account token to use for populating composer auth.json'
