@@ -118,4 +118,3 @@ jobs:
           app_url: "${{ steps.define_app.outputs.deploy_app }}.${{ inputs.server }}"
           gha_url: ${{ env.GHA_URL }}
           status: ${{ job.status }}
-
