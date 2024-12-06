@@ -1,41 +1,46 @@
 # Moose
 
 ## Requirements
+* 
+* [Git](https://git-scm.com/)
+* [Composer](https://getcomposer.org/)
+* [Node & NPM](https://nodejs.org/)
+  * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same workstation.
+* [Lando](https://lando.dev/) (Optional) Provides a consistent local development environment for all team members.
+* [1Password CLI](https://developer.1password.com/docs/cli/) (Optional) Automates the creation of composer's `auth.json`
+file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
 
-* Git
-* Composer
-* Node v16.13.1 or higher & NPM v8.1.2 or higher
-* NVM is recommended for managing multiple versions of node on the same workstation.
-
-## Local Development
-
-One of the goals of this starter is to allow developers to use whatever local development platform that works best for them. There are some details below for Lando and Local by Flywheel. If you are using a different environment, feel free to add it.
-
-### Lando
-
-You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the lando is running, you can follow the BE Setup instructions for the composer commands to finish the setup. When running composer commands make sure to run `lando composer [command]` in order to run composer in the container.
-
-### Local by Flywheel
-
-It is recommended to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started. Make sure to use the Open Site Shell option to run composer commands allowing you to have the right PHP version in your shell path.
+> [!TIP]
+> This starter is designed to allow developers the freedom to use any local development tooling that works best for
+> them. The following instructions assume the use of Lando, but any local development platform should work as long as it
+> provides a basic LAMP or LEMP stack and uses the correct version of PHP as defined in `composer.json`.
 
 ## Getting Started
 
-### BE Setup
+1. Clone the repository
+2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the 1Password CLI.)
+3. Run `lando start` to create the local environment.
+4. Run `nvm use` to ensure the correct version of node is in use.
+5. Run `npm install` to install the required npm dependencies.
+6. Run `npm run dist` to build the theme assets.
 
-Run `composer run setup-project` to copy the `auth.json`, and `local-config` files over. Once that has completed, update the `auth.json` to include the [ACF License for the username](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) and the site url (`https://moose.lndo.site`) in the password section. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php` for the local environment you are working in.
+That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the 
+necessary local config files for the project.
 
-``` bash
-composer setup-project
-# ... update auth.json file if you need ACF Pro
-composer install
-composer setup-wordpress
-```
+## Composer
+TBD: Outline deps management, updating WP, scripts, etc. ... For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
 
-For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
+## Lando Updates
+TBD: outline lando commands, db management, etc.
+
+## 1Password CLI
+TBD: outline 1Password CLI integration
+
+## GH Actions
+TBD: Outline GH Actions
 
 ### Front End Dev
-
+RBD: Update this to latest.
 1. Duplicate the `local-config-sample.json` file into a git-ignored `local-config.json` and update the certsPath and host entries to match your local dev set up.
 1. In the root of the project, run `nvm use` to confirm the correct version of node is in-use.
 1. Run `npm install` to install the required dependencies.
