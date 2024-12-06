@@ -14,7 +14,6 @@ class Core {
 	 * @var string[] Names of classes implementing Definer_Interface.
 	 */
 	private array $definers = [
-		\Tribe\Libs\Settings\Settings_Definer::class,
 		Blocks\Blocks_Definer::class,
 		Object_Meta\Meta_Definer::class,
 		Settings\Settings_Definer::class,
@@ -24,7 +23,7 @@ class Core {
 	 * @var string[] Names of classes extending Abstract_Subscriber.
 	 */
 	private array $subscribers = [
-		\Tribe\Libs\Settings\Settings_Subscriber::class,
+		Settings\Settings_Subscriber::class,
 		Assets\Assets_Subscriber::class,
 		Blocks\Blocks_Subscriber::class,
 		Integrations\Integrations_Subscriber::class,

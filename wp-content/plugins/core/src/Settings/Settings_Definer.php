@@ -3,14 +3,16 @@
 namespace Tribe\Plugin\Settings;
 
 use DI;
-use Tribe\Libs\Container\Definer_Interface;
+use Tribe\Plugin\Core\Interfaces\Definer_Interface;
 
 class Settings_Definer implements Definer_Interface {
+
+	public const PAGES = 'libs.settings.pages';
 
 	public function define(): array {
 		return [
 			// add the settings screens to the global array
-			\Tribe\Libs\Settings\Settings_Definer::PAGES => DI\add( [
+			self::PAGES => DI\add( [
 				DI\get( Login_Settings::class ),
 			] ),
 		];
