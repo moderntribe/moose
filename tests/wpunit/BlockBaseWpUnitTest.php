@@ -4,12 +4,20 @@ class BlockBaseWpUnitTest extends \Codeception\TestCase\WPTestCase {
 
     use \Tribe\Plugin\Assets\Traits\Assets;
 
+    protected bool $is_local_built = false;
+
     public function setUp(): void {
         parent::setUp();
 
         $block_dir    = get_template_directory() . '/dist/blocks/core/button';
         $editor_asset = $block_dir . '/editor.asset.php';
-        mkdir( $block_dir, 0777, true );
+
+        // If you have blocks dist built do not create it
+        if ( ! is_dir( $block_dir ) ) {
+            mkdir( $block_dir, 0777, true );
+        } else {
+            $this->is_local_built = true;
+        }
 
         $editor_asset_content = file_get_contents( __DIR__ . '/../_data/editor_asset_test.php' );
         $file_handler         = fopen( $editor_asset, 'w' );
@@ -31,6 +39,9 @@ class BlockBaseWpUnitTest extends \Codeception\TestCase\WPTestCase {
         $block_dir    = get_template_directory() . '/dist/blocks/core/button';
         $editor_asset = $block_dir . '/editor.asset.php';
 
+        if ( $this->is_local_built ) {
+            return;
+        }
         unlink( $editor_asset );
         rmdir( $block_dir );
     }
