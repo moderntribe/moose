@@ -49,7 +49,6 @@ final class ForcePluginActivation {
 		'debug-bar/debug-bar.php'                                           => [ 'local', 'development' ],
 		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php'   => [ 'development', 'staging', 'production' ],
 		'tribe-glomar/tribe-glomar.php'                                     => [ 'development', 'staging' ],
-		'wp-tota11y/wp-tota11y.php'                                         => [ 'local', 'development', 'staging' ],
 	];
 
 	/**
@@ -64,7 +63,6 @@ final class ForcePluginActivation {
 	private array $networkOnlyPlugins = [
 		'advanced-custom-fields-pro/acf.php' => [ 'all' ],
 		'debug-bar/debug-bar.php'            => [ 'local', 'development' ],
-		'wp-tota11y/wp-tota11y.php'          => [ 'local', 'development', 'staging' ],
 	];
 
 	/**
