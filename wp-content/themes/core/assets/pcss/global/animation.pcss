@@ -29,6 +29,14 @@
 		opacity: 0;
 		transition: opacity var(--tribe-animation-speed) var(--tribe-animation-delay) var(--tribe-animation-easing);
 
+		/* turn off delay for mobile if setting is set */
+		@media (--mq-wp-mobile-max) {
+
+			&.tribe-animation-mobile-disable-delay {
+				transition-delay: 0s !important;
+			}
+		}
+
 		/* -------------------------------------------------------------------------
 		* Fade In (Simple)
 		* Don't run "first time" animation if multiple is set
