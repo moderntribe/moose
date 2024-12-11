@@ -8,10 +8,12 @@
  * 		{ "label": "None", "value": "none" },
  * 		{ "label": "Fade In", "value": "fade-in" }
  * ],
- * "animationDirection": [
- * 		{ "label": "Top", "value": "top" },
- * 		{ "label": "Bottom", "value": "bottom" }
- * ],
+ * "animationDirection": {
+ * 		"fade-in": [
+ * 			{ "label": "Top", "value": "top" },
+ * 			{ "label": "Bottom", "value": "bottom" }
+ * 		]
+ * },
  * "animationSpeeds": [
  * 		{ "label": "200ms", "value": "0.2s" },
  * 		{ "label": "800ms", "value": "0.8s" }
