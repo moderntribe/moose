@@ -17,14 +17,16 @@
 
 /* -------------------------------------------------------------------------
  * Animated Element / Block
+ *
  * We set opacity to 0 here because all of our animations involve fades
  * Also set the default transition for the block, if the "Animation should
  * trigger every time the element is in the viewport" setting is checked,
  * this transition will handle in & out animations.
  * ------------------------------------------------------------------------- */
 
-[class*="is-animated-on-scroll-"] {
+.tribe-animation-type-fade-in {
 
+	/* Only run animations if the users has no preference on reduced motion */
 	@media (prefers-reduced-motion: no-preference) {
 		opacity: 0;
 		transition: opacity var(--tribe-animation-speed) var(--tribe-animation-delay) var(--tribe-animation-easing);

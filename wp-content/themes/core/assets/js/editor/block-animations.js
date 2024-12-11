@@ -93,7 +93,7 @@ const applyAnimationProps = ( props, block, attributes ) => {
 		props.className = '';
 	}
 
-	props.className = `${ props.className } tribe-animation-direction-${ animationDirection } is-animated-on-scroll-${ animationPosition }`;
+	props.className = `${ props.className } is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
 
 	if ( animationDuration !== undefined && animationDuration ) {
 		props.style = {
@@ -166,7 +166,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 
 		if ( animationType !== undefined && animationType !== 'none' ) {
 			// set block class for animation direction & animation position, if it's not set to the default
-			blockClass = `${ blockClass } tribe-animation-direction-${ animationDirection } is-animated-on-scroll-${ animationPosition }`;
+			blockClass = `${ blockClass } is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
 
 			// set block styles for animation duration
 			if ( animationDuration !== undefined && animationDuration ) {
@@ -248,7 +248,9 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 														newValue,
 												} );
 											} }
-											options={ state.direction }
+											options={
+												state.direction[ animationType ]
+											}
 										/>
 										<SelectControl
 											label={ __(
@@ -462,19 +464,22 @@ const initializeSettings = () => {
 		{ label: __( 'None', 'tribe' ), value: 'none' },
 		{ label: __( 'Fade In', 'tribe' ), value: 'fade-in' },
 	];
-	state.direction = themeJson?.settings?.animationDirection ?? [
-		{ label: __( 'Bottom', 'tribe' ), value: 'bottom' },
-		{ label: __( 'Right', 'tribe' ), value: 'right' },
-		{ label: __( 'Top Right', 'tribe' ), value: 'top-right' },
-		{ label: __( 'Bottom Right', 'tribe' ), value: 'bottom-right' },
-		{ label: __( 'Left', 'tribe' ), value: 'left' },
-		{ label: __( 'Top Left', 'tribe' ), value: 'top-left' },
-		{ label: __( 'Bottom Left', 'tribe' ), value: 'bottom-left' },
-		{ label: __( 'Forward', 'tribe' ), value: 'forward' },
-		{ label: __( 'Back', 'tribe' ), value: 'back' },
-		{ label: __( 'Top', 'tribe' ), value: 'top' },
-		{ label: __( 'Simple', 'tribe' ), value: 'simple' },
-	];
+	// direction is an object with keys for each animation type
+	state.direction = themeJson?.settings?.animationDirection ?? {
+		'fade-in': [
+			{ label: __( 'Bottom', 'tribe' ), value: 'bottom' },
+			{ label: __( 'Right', 'tribe' ), value: 'right' },
+			{ label: __( 'Top Right', 'tribe' ), value: 'top-right' },
+			{ label: __( 'Bottom Right', 'tribe' ), value: 'bottom-right' },
+			{ label: __( 'Left', 'tribe' ), value: 'left' },
+			{ label: __( 'Top Left', 'tribe' ), value: 'top-left' },
+			{ label: __( 'Bottom Left', 'tribe' ), value: 'bottom-left' },
+			{ label: __( 'Forward', 'tribe' ), value: 'forward' },
+			{ label: __( 'Back', 'tribe' ), value: 'back' },
+			{ label: __( 'Top', 'tribe' ), value: 'top' },
+			{ label: __( 'Simple', 'tribe' ), value: 'simple' },
+		],
+	};
 	state.duration = themeJson?.settings?.animationDuration ?? [
 		{ label: __( '300ms', 'tribe' ), value: '0.3s' },
 		{ label: __( '600ms', 'tribe' ), value: '0.6s' },
