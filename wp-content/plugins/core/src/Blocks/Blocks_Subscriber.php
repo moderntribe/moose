@@ -102,10 +102,16 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
 		/**
-		 * Disable openverse media category.
+		 * Handle Block Editor Settings
 		 */
 		add_filter( 'block_editor_settings_all', function ( array $settings ): array {
-			return $this->container->get( Theme_Support::class )->disable_openverse_media_category( $settings );
+			// Disable openverse media category.
+			$settings = $this->container->get( Theme_Support::class )->disable_openverse_media_category( $settings );
+
+			// Disable the WP block editor font library.
+			$settings = $this->container->get( Theme_Support::class )->disable_font_library_ui( $settings );
+
+			return $settings;
 		} );
 	}
 

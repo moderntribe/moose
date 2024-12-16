@@ -36,11 +36,6 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 		// Hide existing comments
 		add_filter( 'comments_array', '__return_empty_array', 10 );
 
-		// Disable font library
-		add_filter( 'block_editor_settings_all', function ( array $settings ): array {
-			return $this->container->get( Block_Editor::class )->disable_font_library_ui( $settings );
-		} );
-
 		// Remove comments page in menu
 		add_action( 'admin_menu', function (): void {
 			$this->container->get( Comment_Support::class )->remove_comments_menu_item();
