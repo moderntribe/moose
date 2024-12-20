@@ -25,11 +25,7 @@ import ServerSideRender from '@wordpress/server-side-render';
  *
  * @return {Element} Element to render.
  */
-export default function Edit( {
-	attributes,
-	isSelected,
-	setAttributes,
-} ) {
+export default function Edit( { attributes, isSelected, setAttributes } ) {
 	const blockProps = useBlockProps();
 	const { showStartingYear, startingYear, copyrightText } = attributes;
 	const currentYear = new Date().getFullYear().toString();
@@ -43,7 +39,7 @@ export default function Edit( {
 		displayDate = currentYear;
 	}
 
-	title = copyrightText ?? wp.data.select('core').getSite().title;
+	title = copyrightText ?? wp.data.select( 'core' ).getSite().title;
 
 	return (
 		<div { ...blockProps }>
@@ -52,10 +48,7 @@ export default function Edit( {
 					<InspectorControls>
 						<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
 							<TextControl
-								label={ __(
-									'Copyright Text',
-									'tribe'
-								) }
+								label={ __( 'Copyright Text', 'tribe' ) }
 								value={ title }
 								onChange={ ( value ) =>
 									setAttributes( { copyrightText: value } )
@@ -63,10 +56,7 @@ export default function Edit( {
 							/>
 							<ToggleControl
 								checked={ !! showStartingYear }
-								label={ __(
-									'Show starting year',
-									'tribe'
-								) }
+								label={ __( 'Show starting year', 'tribe' ) }
 								onChange={ () =>
 									setAttributes( {
 										showStartingYear: ! showStartingYear,
@@ -77,10 +67,7 @@ export default function Edit( {
 								<TextControl
 									__nextHasNoMarginBottom
 									__next40pxDefaultSize
-									label={ __(
-										'Starting year',
-										'tribe'
-									) }
+									label={ __( 'Starting year', 'tribe' ) }
 									value={ startingYear || '' }
 									onChange={ ( value ) =>
 										setAttributes( { startingYear: value } )
@@ -91,7 +78,9 @@ export default function Edit( {
 					</InspectorControls>
 				</>
 			) }
-			<p>{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }</p>
+			<p>
+				{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }
+			</p>
 		</div>
 	);
 }

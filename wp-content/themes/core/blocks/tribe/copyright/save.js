@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 export default function save( { attributes } ) {
 	const { showStartingYear, startingYear, copyrightText } = attributes;
 	const currentYear = new Date().getFullYear().toString();
-	const title = copyrightText || wp.data.select('core').getSite().title;
+	const title = copyrightText || wp.data.select( 'core' ).getSite().title;
 
 	let displayDate;
 
@@ -14,6 +14,8 @@ export default function save( { attributes } ) {
 	}
 
 	return (
-		<p { ...useBlockProps.save() }>{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }</p>
+		<p { ...useBlockProps.save() }>
+			{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }
+		</p>
 	);
 }
