@@ -36,11 +36,11 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando start` - Starts the local development environment.
 * `lando stop` - Stops the local development environment.
 * `lando poweroff` - Completely shuts down all running Lando services.
-* `lando db-export` - Exports the project database to a file in the project root.
-* `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within
-* the project directory. it can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
 * `lando composer <command>` - Runs a composer command within the project container.
 * `lando wp <command>` - Runs a WP-CLI command within the project container.
+* `lando db-export` - Exports the project database to a file in the project root.
+* `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within 
+the project directory. it can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
 * `lando rebuild` - Rebuilds the project containers. This is useful if you need to update the PHP version or there have
 been other changes to the project's Lando configuration. This is a non-destructive action and will not delete any data.
 * `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
