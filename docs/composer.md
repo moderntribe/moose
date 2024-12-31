@@ -19,7 +19,8 @@ day-today PHP development.
 * `composer phpcs` - Run PHPCS on the project.
 * `composer phpcbf` - Run PHPCBF on the project.
 * `composer phpstan` - Run PHPStan on the project.
-* `composer update-db` - Runs the WP CLI command to update the WordPress database. This is often required after a version update.
+* `composer update-db` - Runs the WP CLI command to update the WordPress database. This is often required after a 
+version update.
 
 ## Updating WordPress
 
@@ -36,6 +37,16 @@ Many providers including Advanced Custom Fields, Gravity Forms, and Yoast SEO pr
 options.
 1. Check the plugin files into the repository directly. This is the simplest option but is not ideal for a number of
 reasons, including licensing, security, and ease of management.
+
+### Creating an auth.json File
+
+If the plugin maker provides a composer-based installation method, you will likely create an `auth.json` file to 
+store the required credentials. This file is used by composer to install the plugin. This project provides an 
+auth.json template file that the 1Password CLI can use to automatically generate the required `auth.json` file. See the
+[1Password CLI Docs](./1password-cli.md) for more information on this integration.
+
+To manually create the `auth.json` file, copy the `auth.template.json` file to `auth.json` and update the placeholder 
+values within the file with the required credentials.
 
 ## Platform Dependencies
 

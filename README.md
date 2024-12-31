@@ -17,7 +17,9 @@ file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity 
 ## Getting Started
 
 1. Clone the repository
-2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the 1Password CLI.)
+2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the 
+[1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#Creating-an-auth-json-file) for manual 
+instructions.)
 3. Run `lando start` to create the local environment.
 4. Run `nvm use` to ensure the correct version of node is in use.
 5. Run `npm install` to install the required npm dependencies.
@@ -65,7 +67,10 @@ NPM is used for managing frontend dependencies and npm scripts for managing the 
 available scripts and how to use them in the [NPM Docs](./docs/npm.md).
 
 ### 1Password CLI
-TBD: outline 1Password CLI integration
+
+The 1Password CLI can be used to automate the creation of the `auth.json` file for composer. This file is used to store 
+credentials used by composer to install paid plugins like Advanced Custom Fields Pro and Gravity Forms. See the 
+[1Password CLI Docs](./docs/1password-cli.md) for further details.
 
 ### GitHub Actions
 
