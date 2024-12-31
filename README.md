@@ -1,7 +1,6 @@
 # Moose
 
 ## Requirements
-* 
 * [Git](https://git-scm.com/)
 * [Composer](https://getcomposer.org/)
 * [Node & NPM](https://nodejs.org/)
@@ -39,30 +38,6 @@ TBD: outline 1Password CLI integration
 ## GH Actions
 TBD: Outline GH Actions
 
-### Front End Dev
-RBD: Update this to latest.
-1. Duplicate the `local-config-sample.json` file into a git-ignored `local-config.json` and update the certsPath and host entries to match your local dev set up.
-1. In the root of the project, run `nvm use` to confirm the correct version of node is in-use.
-1. Run `npm install` to install the required dependencies.
-1. Run `npm run dev` to start the webpack watch & browsersync tasks.
-
-### Front End Scripts
-
-* `npm run dist`: Builds production versions of all assets.
-* `npm run dev`: Builds dev assets and starts an instance of browsersync to handle live-reload for changes.
-* `npm run create-block`: Starts an interactive shell script to generate a new block per WordPress's [Create Block script](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) and the theme config.
-* `npm run format`: Runs Prettier on all theme assets (css, scss, js, & json files).
-* `npm run lint`: Prettifies, lints (and fixes) theme & root assets (css, scss, js, & json files). Also see the sub-tasks for specific file types.
-* `npm run server_dist`: Alias for the `dist` task.
-
-These scripts are based on WordPress's [WP-Scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) package. See the documentation there for additional information.
-
-There are also several additional scripts aliased directly from wp-scripts that may be useful:
-
-* `packages-check`
-* `check-engines`
-* `check-licenses`
-
 ## Testing
 
 A test suite is ready to use utilizing [Slic](https://github.com/stellarwp/slic). You can follow the instructions on the Slic readme to configure testing locally. Slic utilizes [WP-Browser](https://wpbrowser.wptestkit.dev/) and [Codeception](https://codeception.com/) to run tests in a docker container allowing us to use all the generate commands those libraries have to offer.
@@ -77,6 +52,7 @@ We use GitHub Action as a CI for deployments, testing and many other features.  
 
 ## Additional Documentation
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
+* [NPM Scripts & Building Assets](./docs/npm.md)
 * [GitHub Actions](./docs/actions.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/wp-controls-templates.md)
