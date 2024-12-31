@@ -95,12 +95,16 @@ const applyAnimationProps = ( props, block, attributes ) => {
 		props.className = '';
 	}
 
-	props.className = `${ props.className } is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
+	props.className = `${
+		props.className !== '' ? props.className + ' ' : ''
+	} is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
 
 	if ( animationDuration !== undefined && animationDuration ) {
 		props.style = {
 			...props.style,
 			'--tribe-animation-speed': animationDuration,
+			'--tribe-animation-offset':
+				state.offsetDistance[ animationDuration ],
 		};
 	}
 
@@ -168,11 +172,16 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 
 		if ( animationType !== undefined && animationType !== 'none' ) {
 			// set block class for animation direction & animation position, if it's not set to the default
-			blockClass = `${ blockClass } is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
+			blockClass = `${
+				blockClass !== '' ? blockClass + ' ' : ''
+			}is-animated-on-scroll-${ animationPosition } tribe-animation-type-${ animationType } tribe-animation-direction-${ animationDirection }`;
 
 			// set block styles for animation duration
 			if ( animationDuration !== undefined && animationDuration ) {
 				blockStyles[ '--tribe-animation-speed' ] = animationDuration;
+
+				blockStyles[ '--tribe-animation-offset' ] =
+					state.offsetDistance[ animationDuration ];
 			}
 
 			// set block styles for animation delay
@@ -488,7 +497,16 @@ const initializeSettings = () => {
 		{ label: __( '900ms', 'tribe' ), value: '0.9s' },
 		{ label: __( '1200ms', 'tribe' ), value: '1.2s' },
 		{ label: __( '1600ms', 'tribe' ), value: '1.6s' },
+		{ label: __( '2000ms', 'tribe' ), value: '2.0s' },
 	];
+	state.offsetDistance = {
+		'0.3s': '20px',
+		'0.6s': '50px',
+		'0.9s': '75px',
+		'1.2s': '82px',
+		'1.6s': '100px',
+		'2.0s': '110px',
+	};
 	state.delay = themeJson?.settings?.animationDelay ?? [
 		{ label: __( '0', 'tribe' ), value: '0s' },
 		{ label: __( '300ms', 'tribe' ), value: '0.3s' },
