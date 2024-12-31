@@ -35,8 +35,10 @@ TBD: outline lando commands, db management, etc.
 ## 1Password CLI
 TBD: outline 1Password CLI integration
 
-## GH Actions
-TBD: Outline GH Actions
+## GitHub Actions
+
+We use GitHub Action as a CI for deployments, testing and many other features. Take a look at [./docs/actions.md](./docs/actions.md)
+to learn more about each action.
 
 ## Testing
 
