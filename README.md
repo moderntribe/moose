@@ -18,7 +18,7 @@ file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity 
 
 1. Clone the repository
 2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the 
-[1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#Creating-an-auth-json-file) for manual 
+[1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual 
 instructions.)
 3. Run `lando start` to create the local environment.
 4. Run `nvm use` to ensure the correct version of node is in use.
