@@ -45,22 +45,12 @@ TBD: outline 1Password CLI integration
 We use GitHub Action as a CI for deployments, testing and many other features. Take a look at [./docs/actions.md](./docs/actions.md)
 to learn more about each action.
 
-## Testing
-
-A test suite is ready to use utilizing [Slic](https://github.com/stellarwp/slic). You can follow the instructions on the Slic readme to configure testing locally. Slic utilizes [WP-Browser](https://wpbrowser.wptestkit.dev/) and [Codeception](https://codeception.com/) to run tests in a docker container allowing us to use all the generate commands those libraries have to offer.
-
-The only major setup config you must do for slic is set the php-version to 8.0 since the default is 7.4.  You can do this by running `slic php-version set 8.0`.
-
-Once Slic is installed, you can go to the project root and enter `slic here` telling slic that you want to run tests from this folder.  Then run `slic use site` telling slic that you want to run the tests for the full site and not just a singular plugin or theme. Then you are ready to start testing by running `slic run wpunit`. You can exchange out the `wpunit` for any of the testing suites you would like to run (`wpunit`, `unit`, `functional`, or `acceptance`).  
-
-## GitHub Actions
-
-We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [./docs/actions.md](./docs/actions.md) for details.
 
 ## Additional Documentation
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
 * [NPM Packages, Scripts & Building Assets](./docs/npm.md)
 * [GitHub Actions](./docs/actions.md)
+* [PHP Tests](./docs/php-tests.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/wp-controls-templates.md)
 * [Supported Block Features](./docs/block-features.md)
