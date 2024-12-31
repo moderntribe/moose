@@ -81,6 +81,7 @@ We use GitHub Action as a CI for deployments, testing and many other features. T
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
 * [Composer](./docs/composer.md)
 * [NPM Packages, Scripts & Building Assets](./docs/npm.md)
+* [1Password CLI](./docs/1password-cli.md)
 * [GitHub Actions](./docs/actions.md)
 * [PHP Tests](./docs/php-tests.md)
 * [Create Block Script Templates](./docs/block-templates.md)
