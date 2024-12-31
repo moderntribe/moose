@@ -48,23 +48,23 @@
 		"update-db": "Runs the wpcli command to update the WordPress database. This is sometimes required after a version update."
 	},
 	"repositories": {
-		"gravity": {
+		"0": {
 			"type": "composer",
 			"url": "https://composer.gravity.io"
 		},
-		"0": {
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		},
 		"1": {
-			"type": "vcs",
-			"url": "https://github.com/moderntribe/tribe-glomar.git"
-		},
-		"2": {
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		},
+		"2": {
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		},
 		"3": {
+			"type": "vcs",
+			"url": "https://github.com/moderntribe/tribe-glomar.git"
+		},
+		"4": {
 			"type": "package",
 			"package": {
 				"name": "block-editor-custom-alignments/block-editor-custom-alignments",
