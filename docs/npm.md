@@ -1,6 +1,8 @@
-# NPM Scripts & Building Assets
+# NPM Packages, Scripts & Building Assets
 
-These scripts are based on WordPress's [WP-Scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) package. See the documentation there for more information.
+NPM is used to manage frontend dependencies. There are also a number of npm scripts defined to assist in day-to-day
+development. These npm scripts are based on WordPress's [WP-Scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) package. See the documentation there for 
+further details.
 
 ## Building Assets
 
