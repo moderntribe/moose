@@ -37,4 +37,4 @@ jobs:
 
       - name: Check linting
         if: steps.changed-files.outputs.linting == 'true'
-        run: npm run server-lint
+        run: npm run lint:server
