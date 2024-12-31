@@ -30,15 +30,20 @@ necessary local config files for the project.
 
 ### NPM Packages, Scripts & Building Frontend Assets
 
-NPM use used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the 
+NPM is used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the 
 available scripts and how to use them in the [NPM Docs](./docs/npm.md).
 
 ### Composer
 
-## Composer
-TBD: Outline deps management, updating WP, scripts, etc. ... For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
+Composer is configured to manage PHP dependencies. There are also a number of composer scripts set up to assist with
+day-today PHP development. You can learn more about the available scripts and how to use them in the
+[Composer Docs](./docs/composer.md).
 
-## Lando Updates
+#### Updating WordPress
+
+To update the installed version of WordPress, change the `--version=` value in the `install-wordpress` composer script.
+
+### Lando Updates
 TBD: outline lando commands, db management, etc.
 
 ### 1Password CLI
@@ -52,6 +57,7 @@ We use GitHub Action as a CI for deployments, testing and many other features. T
 ### Additional Documentation
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
 * [NPM Packages, Scripts & Building Assets](./docs/npm.md)
+* [Composer](./docs/composer.md)
 * [GitHub Actions](./docs/actions.md)
 * [PHP Tests](./docs/php-tests.md)
 * [Create Block Script Templates](./docs/block-templates.md)
