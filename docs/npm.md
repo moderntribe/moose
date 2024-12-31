@@ -27,12 +27,12 @@ for local development follow the steps below:
 
 ## NPM Scripts
 
-* `npm run dist`: Builds production versions of all assets.
-* `npm run build`: Builds non-production versions of all assets.
-* `npm run dev`: Builds dev assets and starts an instance of browsersync to handle live-reload for changes.
-* `npm run format`: Runs Prettier on all theme assets (css, scss, js, & json files).
-* `npm run lint`: Prettifies, lints (and fixes) theme & root assets (css, scss, js, & json files).
-* `npm run create-block`: Starts an interactive shell script to generate a new block per WordPress's
+* `npm run dist` - Builds production versions of all assets.
+* `npm run build` - Builds non-production versions of all assets.
+* `npm run dev` - Builds dev assets and starts an instance of browsersync to handle live-reload for changes.
+* `npm run format` - Runs Prettier on all theme assets (css, scss, js, & json files).
+* `npm run lint` - Prettifies, lints (and fixes) theme & root assets (css, scss, js, & json files).
+* `npm run create-block` - Starts an interactive shell script to generate a new block per WordPress's
   [Create Block script](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) and the theme config.
 
 Several scripts have sub-tasks that can be run individually. Reference `package.json` for details.

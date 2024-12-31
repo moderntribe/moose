@@ -11,15 +11,15 @@ day-today PHP development.
 
 ## Composer Scripts
 
-* `composer create-auth`: Create or update the auth.json file for Composer via 1Password CLI.
-* `composer copy-local-configs`: Creates the `local-config.php` and `local-config.json` files from the respective
+* `composer create-auth` - Create or update the auth.json file for Composer via 1Password CLI.
+* `composer copy-local-configs` - Creates the `local-config.php` and `local-config.json` files from the respective
   sample file.
-* `composer install-wordpress`: Runs the WP CLI command to download and install WordPress core. To change the WordPress
+* `composer install-wordpress` - Runs the WP CLI command to download and install WordPress core. To change the WordPress
   version, update the `--version` value for this script.
-* `composer phpcs`: Run PHPCS on the project.
-* `composer phpcbf`: Run PHPCBF on the project.
-* `composer phpstan`: Run PHPStan on the project.
-* `composer update-db`: Runs the WP CLI command to update the WordPress database. This is often required after a version update.
+* `composer phpcs` - Run PHPCS on the project.
+* `composer phpcbf` - Run PHPCBF on the project.
+* `composer phpstan` - Run PHPStan on the project.
+* `composer update-db` - Runs the WP CLI command to update the WordPress database. This is often required after a version update.
 
 ## Updating WordPress
 
