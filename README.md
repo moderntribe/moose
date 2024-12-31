@@ -26,10 +26,14 @@ file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity 
 That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the 
 necessary local config files for the project.
 
-## NPM Packages, Scripts & Building Frontend Assets
+## Documentation
+
+### NPM Packages, Scripts & Building Frontend Assets
 
 We use a variety of npm scripts for managing the frontend assets. Learn more about the available scripts and how to use
-them in the [./docs/npm.md](./docs/npm.md) documentation.
+them in the [NPM Docs](./docs/npm.md).
+
+### Composer
 
 ## Composer
 TBD: Outline deps management, updating WP, scripts, etc. ... For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
@@ -37,16 +41,15 @@ TBD: Outline deps management, updating WP, scripts, etc. ... For WordPress updat
 ## Lando Updates
 TBD: outline lando commands, db management, etc.
 
-## 1Password CLI
+### 1Password CLI
 TBD: outline 1Password CLI integration
 
-## GitHub Actions
+### GitHub Actions
 
-We use GitHub Action as a CI for deployments, testing and many other features. Take a look at [./docs/actions.md](./docs/actions.md)
-to learn more about each action.
+We use GitHub Action as a CI for deployments, testing and many other features. Take a look at the 
+[GitHub Action Docs](./docs/actions.md) to learn more about each action.
 
-
-## Additional Documentation
+### Additional Documentation
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
 * [NPM Packages, Scripts & Building Assets](./docs/npm.md)
 * [GitHub Actions](./docs/actions.md)
