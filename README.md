@@ -30,8 +30,8 @@ necessary local config files for the project.
 
 ### NPM Packages, Scripts & Building Frontend Assets
 
-We use a variety of npm scripts for managing the frontend assets. Learn more about the available scripts and how to use
-them in the [NPM Docs](./docs/npm.md).
+NPM use used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the 
+available scripts and how to use them in the [NPM Docs](./docs/npm.md).
 
 ### Composer
 
