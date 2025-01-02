@@ -2,16 +2,25 @@
  *
  * Layout Helpers
  *
- * Uses clear attribute to clear floats on elements
- *
  * ------------------------------------------------------------------------- */
 
 /* -----------------------------------------------------------------------
  * Clearfix
+ * Uses clear attribute to clear floats on elements
  * ----------------------------------------------------------------------- */
 
 .l-clearfix::after {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+/* -----------------------------------------------------------------------
+ * Global Padding Reset
+ * Fixes issues with nested .alignfull elements
+ * ----------------------------------------------------------------------- */
+
+.l-padding-reset {
+	padding-left: var(--wp--style--root--padding-left);
+	padding-right: var(--wp--style--root--padding-right);
 }
