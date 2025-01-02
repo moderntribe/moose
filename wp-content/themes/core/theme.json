@@ -26,6 +26,12 @@
 					"textTransform": false
 				}
 			},
+			"core/group": {
+				"background": {
+					"backgroundImage": true,
+					"backgroundSize": true
+				}
+			},
 			"core/heading": {
 				"typography": {
 					"fontFamilies": [],
