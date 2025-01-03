@@ -3,10 +3,32 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
-- Add ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the `table` element within the table block.
-- Enabled background images on the Group block; We should try to use this instead of the Cover block where possible.
+- Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the `table` element within the table block.
+- Updated: Enabled background images on the Group block; We should try to use this instead of the Cover block where possible.
+
+## [2024.12]
+- Remove: Removed WordPress Core Font Library support. [#171](https://github.com/moderntribe/moose/pull/171)
+- Fix: Only lint root `package.json` file. [#170](https://github.com/moderntribe/moose/pull/170)
+- Updated: `local-config-sample` updates for clarity. [#169](https://github.com/moderntribe/moose/pull/169)
+- Updated: Lando config updated to use PHP 8.3, MariaDB 11.5, disables MailHog by default (this causes a Lnado startup error), Removed unused WP Tota11y plugin, moved WP Debug to require so it's available in Dokku containers. [#167](https://github.com/moderntribe/moose/pull/167)
+- Removed: External SquareOne dependencies.  [#161](https://github.com/moderntribe/moose/pull/161)
+
+## [2024.11]
+- Chore: WordPress Core, plugin, and package updates. Add Gravity Forms as a composer dependency. Update browserlist. [#166](https://github.com/moderntribe/moose/pull/166)
+- Removed: Outdated theme support features. [#165](https://github.com/moderntribe/moose/pull/165)
+- Added: PHP extensions required for Dokku containers. [#163](https://github.com/moderntribe/moose/pull/163)
+- Updated: Code Quality actions to run on PR sync inaddition to PR open. [#162](https://github.com/moderntribe/moose/pull/162) 
+- Added: Add an "internal" custom post type for project-specific training materials. [#160](https://github.com/moderntribe/moose/pull/160)
+- Chore: WordPress 6.7 Update [#159](https://github.com/moderntribe/moose/pull/159)
+
+## [2024.09]
+- Added: Gravity Forms plugin
+- Chore: Plugin version updates
 
 ## [2024.08]
+- Added: cache busting for editor stylesheets and related example Codeception test. [#155](https://github.com/moderntribe/moose/pull/155)
+- Updated: Browser versions ot remove old Safari. [#154](https://github.com/moderntribe/moose/pull/154)
+- Updated: Custom Alignments plugin version to latest. [#153](https://github.com/moderntribe/moose/pull/153)
 - Updated: Moose 2.0; See specific updates in the [Github PR here](https://github.com/moderntribe/moose/pull/152). Design requirements in the [Jira ticket here](https://moderntribe.atlassian.net/browse/MOOSE-99).
 - Chore: Github Action workflow updates to use the latest versions of actions/cache.
 - Chore: Github Action tests job removed to conserve resources. Tests should be run locally.
