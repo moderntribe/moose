@@ -16,7 +16,9 @@ jobs:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
     secrets:
-      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
 
   linting:
     name: 'Linting'
@@ -27,12 +29,16 @@ jobs:
     needs: [coding-standards, linting]
     uses: ./.github/workflows/static-analysis.yml
     secrets:
-      COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
 
 # Enable this job if you have PHPUnit tests
 # slic:
 #   name: 'PHP Tests'
 #   needs: [coding-standards, phpstan, linting]
 #   uses: ./.github/workflows/php-tests.yml
-#   secrets:
-#     COMPOSER_AUTH_JSON: ${{ secrets.COMPOSER_AUTH_JSON }}
+#    secrets:
+#      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+#      OP_VAULT: ${{ secrets.OP_VAULT }}
+#      OP_ITEM: ${{ secrets.OP_ITEM }}
