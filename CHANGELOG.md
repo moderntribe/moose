@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.01]
+- Added: 1Password CLI integration for automating the creation of auth.json files.
+- Added: A composite GitHub action for composer installs. This composite action can be used in any workflow files that need to composer install.
+- Updated: `lando start` now automatically creates local config files and composer installs on first run. This eliminates those as manual steps when starting a project for the first time.
+- Updated: Misc small tweaks to composer & package files & scripts for consistency and ease of use.
+- Updated: GitHub action workflows to use new composite action for composer installs as well other small improvements and updates to workflows
+- Updated: Readme.md and docs for clarity and simplification.
+
 ## [2024.08]
 - Updated: Moose 2.0; See specific updates in the [Github PR here](https://github.com/moderntribe/moose/pull/152). Design requirements in the [Jira ticket here](https://moderntribe.atlassian.net/browse/MOOSE-99).
 - Chore: Github Action workflow updates to use the latest versions of actions/cache.
