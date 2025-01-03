@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.01]
+- Enabled background images on the Group block; We should try to use this instead of the Cover block where possible.
+
 ## [2024.08]
 - Updated: Moose 2.0; See specific updates in the [Github PR here](https://github.com/moderntribe/moose/pull/152). Design requirements in the [Jira ticket here](https://moderntribe.atlassian.net/browse/MOOSE-99).
 - Chore: Github Action workflow updates to use the latest versions of actions/cache.
