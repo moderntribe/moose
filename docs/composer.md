@@ -25,7 +25,7 @@ day-to-day PHP development.
 
 ## Updating WordPress
 
-To adjust the installed version of WordPress, change the `--version=` value in the `install-wordpress` composer script.
+To adjust the installed version of WordPress, run `composer config extra.wordpress-version <new-version>` and then `composer install-wordpress`.
 
 ## Adding a Paid or Premium WordPress Plugin
 
