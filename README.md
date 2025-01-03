@@ -1,13 +1,20 @@
 # Moose
 
+Moose is a WordPress project starter framework. It is a collection of modular tools, configurations, and best practices
+for enterprise WordPress design and development. It is designed to be a modern, flexible, and developer-friendly
+starting point for WordPress projects. Features include a core plugin, core theme, technical framework, and the
+requisite developer tooling to maintain a secure, consistent codebase across teams and projects. Moose is lovingly
+maintained by the folks at [Modern Tribe](https://tri.be).
+
 ## Requirements
+
 * [Git](https://git-scm.com/)
 * [Composer](https://getcomposer.org/)
 * [Node & NPM](https://nodejs.org/)
-  * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same workstation.
+    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same workstation.
 * [Lando](https://lando.dev/) (Optional) Provides a consistent local development environment for all team members.
 * [1Password CLI](https://developer.1password.com/docs/cli/) (Optional) Automates the creation of composer's `auth.json`
-file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
+  file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
 
 > [!TIP]
 > This starter is designed to allow developers the freedom to use any local development tooling that works best for
@@ -17,15 +24,15 @@ file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity 
 ## Getting Started
 
 1. Clone the repository
-2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the 
-[1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual 
-instructions.)
+2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the
+   [1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual
+   instructions.)
 3. Run `lando start` to create the local environment.
 4. Run `nvm use` to ensure the correct version of node is in use.
 5. Run `npm install` to install the required npm dependencies.
 6. Run `npm run dist` to build the theme assets.
 
-That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the 
+That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the
 necessary local config files for the project.
 
 ## Documentation
@@ -41,13 +48,14 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando composer <command>` - Runs a composer command within the project container.
 * `lando wp <command>` - Runs a WP-CLI command within the project container.
 * `lando db-export` - Exports the project database to a file in the project root.
-* `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within 
-the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
+* `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within
+  the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
 * `lando rebuild` - Rebuilds the project containers. This is useful if you need to update the PHP version or there have
-been other changes to the project's Lando configuration. This is a non-destructive action and will not delete any data.
+  been other changes to the project's Lando configuration. This is a non-destructive action and will not delete any
+  data.
 * `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
-the existing data within the project database and completely remove all the project containers. It will not delete the
-project files on your local machine.
+  the existing data within the project database and completely remove all the project containers. It will not delete the
+  project files on your local machine.
 
 For further documentation on Lando, please visit the [Lando Docs](https://docs.lando.dev/).
 
@@ -63,22 +71,24 @@ To adjust the installed version of WordPress, change the `--version=` value in t
 
 ### NPM Packages, Scripts & Building Frontend Assets
 
-NPM is used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the 
+NPM is used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the
 available scripts and how to use them in the [NPM Docs](./docs/npm.md).
 
 ### 1Password CLI
 
-The 1Password CLI can be used to automate the creation of the `auth.json` file for composer. This file is used to store 
-credentials used by composer to install paid plugins like Advanced Custom Fields Pro and Gravity Forms. See the 
+The 1Password CLI can be used to automate the creation of the `auth.json` file for composer. This file is used to store
+credentials used by composer to install paid plugins like Advanced Custom Fields Pro and Gravity Forms. See the
 [1Password CLI Docs](./docs/1password-cli.md) for further details.
 
 ### GitHub Actions
 
-We use GitHub Action as a CI for deployments, testing and many other features. Take a look at the 
+We use GitHub Action as a CI for deployments, testing and many other features. Take a look at the
 [GitHub Action Docs](./docs/actions.md) to learn more about each action.
 
 ### Additional Documentation
+
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
+
 * [Composer](./docs/composer.md)
 * [NPM Packages, Scripts & Building Assets](./docs/npm.md)
 * [1Password CLI](./docs/1password-cli.md)
