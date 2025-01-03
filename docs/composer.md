@@ -49,7 +49,8 @@ auth.json template file that the 1Password CLI can use to automatically generate
 To manually create the `auth.json` file, copy the `auth.template.json` file to `auth.json` and update the placeholder 
 values within the file with the required credentials.
 
-> [!IMPORTANT] The populated `auth.json` file should never be checked into the git repository as it contains 
+> [!IMPORTANT]
+> The populated `auth.json` file should never be checked into the git repository as it contains 
 > project-specific secrets (software license keys) which should never be available in source control.
 
 ## Platform Dependencies
