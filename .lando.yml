@@ -1,5 +1,6 @@
 name: moose
 recipe: wordpress
+
 config:
   php: '8.3'
   database: mariadb:11.5
@@ -7,14 +8,16 @@ config:
   via: nginx
   xdebug: false
   memcached: true
+
 services:
   appserver:
-    run:
-      - composer install
-      - composer run copy-local-configs
+    build:
+      - composer create-local-configs
     overrides:
       environment:
         - XDEBUG_TRIGGER=1
+  node:
+    type: node:22
 
 # Enabling MailHog will cause an error on start: `/bin/sh: 1: curl: not found`.
 # Related GH Issue: https://github.com/lando/mailhog/issues/35
@@ -30,7 +33,14 @@ services:
 #      - appserver_nginx
 #      - appserver
 
+events:
+  post-start:
+    - appserver: composer install
+    - node: npm install && npm run build
+
 tooling:
+  npm:
+    service: node
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.
