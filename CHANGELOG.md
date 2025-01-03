@@ -13,7 +13,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2024.12]
 
-- Remove: Removed WordPress Core Font Library support. [#171](https://github.com/moderntribe/moose/pull/171)
+- Removed: Removed WordPress Core Font Library support. [#171](https://github.com/moderntribe/moose/pull/171)
 - Fix: Only lint root `package.json` file. [#170](https://github.com/moderntribe/moose/pull/170)
 - Updated: `local-config-sample` updates for clarity. [#169](https://github.com/moderntribe/moose/pull/169)
 - Updated: Lando config updated to use PHP 8.3, MariaDB 11.5, disables MailHog by default (this causes a Lando startup
