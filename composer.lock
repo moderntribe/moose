@@ -171,6 +171,18 @@
             "type": "wordpress-plugin"
         },
         {
+            "name": "tribe-embeds/tribe-embeds",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/moderntribe/tribe-embeds/releases/download/v1.0.4/tribe-embed.1.0.4.zip"
+            },
+            "require": {
+                "ffraenz/private-composer-installer": "^5.0"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
             "name": "composer/ca-bundle",
             "version": "1.5.4",
             "source": {
