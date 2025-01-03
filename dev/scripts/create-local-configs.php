@@ -41,9 +41,9 @@ $cert_directory = str_replace( '/lando', '', dirname( getenv( 'LANDO_SERVICE_CER
 $config = [
 	// Append Lando's cert directory to Lando's local config directory path
 	'certPath' => getenv( 'LANDO_CONFIG_DIR' ) . $cert_directory,
-	// Set the cert name to the base name of Lando's nginx cert path without the `.internal` extension
+	// Set the cert name to the base name of Lando's hostname without the `.internal` extension
 	'certName' => basename( $http_service_info->hostnames[0], '.internal' ),
-	// Set the host from Lando's appserver_nginx service URL
+	// Set the host from Lando's service URL
 	'host'     => parse_url( $http_service_info->urls[0] )['host'],
 	'protocol' => 'https'
 ];
