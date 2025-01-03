@@ -28,12 +28,11 @@ maintained by the folks at [Modern Tribe](https://tri.be).
    [1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual
    instructions.)
 3. Run `lando start` to create the local environment.
-4. Run `nvm use` to ensure the correct version of node is in use.
-5. Run `npm install` to install the required npm dependencies.
-6. Run `npm run dist` to build the theme assets.
 
-That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the
-necessary local config files for the project.
+That should be it! After Lando starts the first time, it will automatically create the necessary local config files for
+the project. Additionally, Each time Lando starts, it will automatically run:
+* `composer install` to install the latest composer dependencies.
+* `npm install && npm run build` to install the latest npm dependencies and build the frontend assets.
 
 ## Documentation
 
