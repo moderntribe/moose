@@ -33,7 +33,7 @@ necessary local config files for the project.
 ### Lando
 
 Lando is the preferred local development environment for this project. It provides a consistent environment for all team
-members to use and provides a number of helpful features. Below are a number of helpful Lando commands to know:
+members to use and provides a number of helpful features. Below are a number of Lando commands to know:
 
 * `lando start` - Starts the local development environment.
 * `lando stop` - Stops the local development environment.
@@ -42,7 +42,7 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando wp <command>` - Runs a WP-CLI command within the project container.
 * `lando db-export` - Exports the project database to a file in the project root.
 * `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within 
-the project directory. it can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
+the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
 * `lando rebuild` - Rebuilds the project containers. This is useful if you need to update the PHP version or there have
 been other changes to the project's Lando configuration. This is a non-destructive action and will not delete any data.
 * `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
@@ -54,12 +54,12 @@ For further documentation on Lando, please visit the [Lando Docs](https://docs.l
 ### Composer
 
 Composer is configured to manage PHP dependencies. There are also a number of composer scripts set up to assist with
-day-today PHP development. You can learn more about the available scripts and how to use them in the
+day-t-day PHP development. You can learn more about the available scripts and how to use them in the
 [Composer Docs](./docs/composer.md).
 
 #### Updating WordPress
 
-To update the installed version of WordPress, change the `--version=` value in the `install-wordpress` composer script.
+To adjust the installed version of WordPress, change the `--version=` value in the `install-wordpress` composer script.
 
 ### NPM Packages, Scripts & Building Frontend Assets
 

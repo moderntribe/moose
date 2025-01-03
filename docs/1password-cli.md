@@ -62,4 +62,4 @@ The `OP_VAULT` and `OP_ITEM` secrets tell the 1Password CLI which vault and item
 not defined, the 1Password CLI will default to the `Engineering` vault and the `MT-Composer-Auth` item.
 
 When creating a project-specific 1Password vault be sure to follow the structure of the `MT-Composer-Auth` item in the
-Engineering vault. The structure of the auth.template.json file expects a specific 1Password item structure.
+Engineering vault. The structure of the `auth.template.json` file expects a specific 1Password item structure.

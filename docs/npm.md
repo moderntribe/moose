@@ -14,8 +14,8 @@ To build the theme assets for your local development environment, the following 
 
 ## Using Browsersync for Local Dev
 
-To handle live-reload for changes, Moose utilizes Browsersync to watch for asset file changes and reload the browser.
-In addition, Browsersync can be configured via a `local-config.json` file to proxy your local environment's 
+To handle live-reload for changes, this project utilizes Browsersync to watch for asset file changes and reload the 
+browser. In addition, Browsersync can be configured via a `local-config.json` file to proxy your local environment's 
 SSL configuration to allow live-reloading from a specific local project URL rather than localhost. To use Browsersync
 for local development follow the steps below:
 
