@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
+- Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the 
+  `table` element within the table block.
+- Updated: Enabled background images on the Group block; We should try to use this instead of the Cover block where 
+  possible.
 - Added: 1Password CLI integration for automating the creation of auth.json files.
 - Added: A composite GitHub action for composer installs. This composite action can be used in any workflow files that need to composer install.
 - Updated: `lando start` now automatically creates local config files and composer installs on first run. This eliminates those as manual steps when starting a project for the first time.

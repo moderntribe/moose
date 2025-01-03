@@ -9,6 +9,15 @@
 	   that wraps the table element */
 	margin-bottom: 0;
 
+	/* overflow-x is already set on table elements by default in WP
+	   so we don't need to set it here, but we do need to prevent
+	   tables from being able to reduce their width so that the
+	   overlfow actually applies on tables with minimal content.
+	   This can be updated as needed per project. */
+	table {
+		min-width: var(--grid-content-width);
+	}
+
 	& th {
 		border-top: 0;
 		padding-top: 0;
