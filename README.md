@@ -11,7 +11,8 @@ maintained by the folks at [Modern Tribe](https://tri.be).
 * [Git](https://git-scm.com/)
 * [Composer](https://getcomposer.org/)
 * [Node & NPM](https://nodejs.org/)
-    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same workstation.
+    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same
+      workstation.
 * [Lando](https://lando.dev/) (Optional) Provides a consistent local development environment for all team members.
 * [1Password CLI](https://developer.1password.com/docs/cli/) (Optional) Automates the creation of composer's `auth.json`
   file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
@@ -30,9 +31,9 @@ maintained by the folks at [Modern Tribe](https://tri.be).
 3. Run `lando start` to create the local environment.
 
 That should be it! After Lando starts the first time, it will automatically create the necessary local config files for
-the project. Additionally, Each time Lando starts, it will automatically run:
-* `composer install` to install the latest composer dependencies.
-* `npm install && npm run build` to install the latest npm dependencies and build the frontend assets.
+the project. Additionally, each time Lando starts it will automatically run `composer install` and
+`npm install && npm run build` make sure all the project dependencies are installed and the theme assets have been
+built.
 
 ## Documentation
 
