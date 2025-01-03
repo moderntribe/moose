@@ -47,6 +47,7 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando poweroff` - Completely shuts down all running Lando services.
 * `lando composer <command>` - Runs a composer command within the project container.
 * `lando wp <command>` - Runs a WP-CLI command within the project container.
+* `lando npm <command>` - Runs an npm command within the node container. Useful for rebuilding the theme assets.
 * `lando db-export` - Exports the project database to a file in the project root.
 * `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within
   the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.

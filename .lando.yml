@@ -39,6 +39,8 @@ events:
     - node: npm install && npm run build
 
 tooling:
+  npm:
+    service: node
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.
