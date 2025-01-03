@@ -33,6 +33,11 @@ services:
 #      - appserver_nginx
 #      - appserver
 
+events:
+  post-start:
+    - appserver: composer install
+    - node: npm install && npm run build
+
 tooling:
   xdebug-on:
     service: appserver
