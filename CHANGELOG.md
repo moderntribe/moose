@@ -6,7 +6,10 @@ Each changelog entry should be prefixed with the category of the item (Added, Ch
 Security).
 
 ## [2025.01]
-
+- Added: Node service to Lando so FE assets can be build automatically on start up.
+- Updated: project start up scripts to automatically generate the correct contents of the lcoal config files.
+- Updated: script to install WordPress so we can use a version constant and not install WP every time composer is
+  installed or updated.
 - Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the
   `table` element within the table block.
 - Updated: Enabled background images on the Group block; We should try to use this instead of the Cover block where
