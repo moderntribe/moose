@@ -4,6 +4,11 @@
  * Generates a local-config.json file using Lando's own environment variables if it doesn't exist.
  */
 
+if ( ! file_exists( '.lando.yml' ) ) {
+	// This script should only be run from the root of the project, not called directly in a browser.
+	die();
+}
+
 /**
  * PHP Local Config
  */
