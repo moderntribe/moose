@@ -55,6 +55,8 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
   the existing data within the project database and completely remove all the project containers. It will not delete the
   project files on your local machine.
+* `lando xdebug-on` - Enables Xdebug in the project container (xDebug is disabled by default).
+* `lando xdebug-off` - Disables Xdebug in the project container (xDebug is disabled by default).
 
 For further documentation on Lando, please visit the [Lando Docs](https://docs.lando.dev/).
 
