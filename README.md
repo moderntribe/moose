@@ -62,7 +62,7 @@ For further documentation on Lando, please visit the [Lando Docs](https://docs.l
 ### Composer
 
 Composer is configured to manage PHP dependencies. There are also a number of composer scripts set up to assist with
-day-t-day PHP development. You can learn more about the available scripts and how to use them in the
+day-to-day PHP development. You can learn more about the available scripts and how to use them in the
 [Composer Docs](./docs/composer.md).
 
 #### Updating WordPress
