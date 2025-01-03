@@ -22,10 +22,7 @@
 	"prefer-stable": true,
 	"scripts": {
 		"create-auth": "op inject -i auth.template.json -o auth.json",
-		"copy-local-configs": [
-			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
-			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
-		],
+		"create-local-configs": "php ./dev/scripts/create-local-configs.php",
 		"install-wordpress": "./dev/scripts/install-wordpress.sh",
 		"phpcbf": "./vendor/bin/phpcbf -s",
 		"phpcs": "./vendor/bin/phpcs",
@@ -40,7 +37,7 @@
 	},
 	"scripts-descriptions": {
 		"create-auth": "Create or update the auth.json file for Composer via 1Password CLI.",
-		"copy-local-configs": "Copies the local-config.php and local-config.json files.",
+		"create-local-configs": "Creates local config files for the project.",
 		"install-wordpress": "Runs the WP CLI command to download and install WordPress. To change the WordPress version, run `composer config extra.wordpress-version <new-version>`.",
 		"phpcs": "Run PHPCS on the project.",
 		"phpcbf": "Run PHPCBF on the project.",
