@@ -1,13 +1,17 @@
 {
 	"_instructions": {
 		"General": "Duplicate this file to local-config.json. Set `host` below to your local dev URL, `certPath` and `certName` to the directory & file name containing the SSL certificate and key file for this local dev URL.",
-		"Lando": {
+		"Example_Lando": {
 			"certPath": "/Users/{username}/.lando/certs",
-			"certName": "lndo.site"
+			"certName": "appserver_nginx.{lando-project-name}",
+			"host": "{lando-project-name}.lndo.site",
+			"protocol": "https"
 		},
-		"LocalWP": {
+		"Example_LocalWP": {
 			"certPath": "/Users/{username}/Library/Application Support/Local/run/router/nginx/certs",
-			"certName": "{hostname}.local"
+			"certName": "{hostname}.local",
+			"host": "{hostname}.local",
+			"protocol": "https"
 		}
 	},
 	"certPath": "",

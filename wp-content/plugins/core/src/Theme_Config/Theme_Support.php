@@ -30,6 +30,15 @@ class Theme_Support {
 	}
 
 	/**
+	 * Dsiable the WP block editor font library
+	 */
+	public function disable_font_library_ui( array $settings ): array {
+		$settings['fontLibraryEnabled'] = false;
+
+		return $settings;
+	}
+
+	/**
 	 * Disable Block Editor Widget Support
 	 */
 	private function remove_support_block_widgets(): void {
