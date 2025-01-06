@@ -14,16 +14,20 @@
  * 			{ "label": "Bottom", "value": "bottom" }
  * 		]
  * },
- * "animationSpeeds": [
+ * "animationDuration": [
  * 		{ "label": "200ms", "value": "0.2s" },
  * 		{ "label": "800ms", "value": "0.8s" }
  * ],
- * "animationDelays": [
+ * "offsetDistance": {
+ * 		"0.2s": "20px",
+ * 		"0.8s": "50px"
+ * },
+ * "animationDelay": [
  * 		{ "label": "0", "value": "0s" },
  * 		{ "label": "200ms", "value": "0.2s" },
  * 		{ "label": "800ms", "value": "0.8s" }
  * ],
- * "animationEasings": [
+ * "animationEasing": [
  * 		{ "label": "Ease In", "value": "ease-in" },
  * 		{ "label": "Ease Out", "value": "ease-out" }
  * ],
@@ -496,16 +500,14 @@ const initializeSettings = () => {
 		{ label: __( '600ms', 'tribe' ), value: '0.6s' },
 		{ label: __( '900ms', 'tribe' ), value: '0.9s' },
 		{ label: __( '1200ms', 'tribe' ), value: '1.2s' },
-		{ label: __( '1600ms', 'tribe' ), value: '1.6s' },
-		{ label: __( '2000ms', 'tribe' ), value: '2.0s' },
+		{ label: __( '1400ms', 'tribe' ), value: '1.4s' },
 	];
-	state.offsetDistance = {
+	state.offsetDistance = themeJson?.settings?.offsetDistance ?? {
 		'0.3s': '20px',
 		'0.6s': '50px',
-		'0.9s': '75px',
-		'1.2s': '82px',
-		'1.6s': '100px',
-		'2.0s': '110px',
+		'0.9s': '90px',
+		'1.2s': '160px',
+		'1.4s': '280px',
 	};
 	state.delay = themeJson?.settings?.animationDelay ?? [
 		{ label: __( '0', 'tribe' ), value: '0s' },
@@ -513,8 +515,7 @@ const initializeSettings = () => {
 		{ label: __( '600ms', 'tribe' ), value: '0.6s' },
 		{ label: __( '900ms', 'tribe' ), value: '0.9s' },
 		{ label: __( '1200ms', 'tribe' ), value: '1.2s' },
-		{ label: __( '1600ms', 'tribe' ), value: '1.6s' },
-		{ label: __( '2000ms', 'tribe' ), value: '2s' },
+		{ label: __( '1500ms', 'tribe' ), value: '1.5s' },
 	];
 	state.easing = themeJson?.settings?.animationEasing ?? [
 		{
