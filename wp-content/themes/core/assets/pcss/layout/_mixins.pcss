@@ -1,0 +1,41 @@
+/* -------------------------------------------------------------------------
+ *
+ * Mixins: Layout
+ *
+ * Limit mixins as much as possible to reduce global CSS size.
+ *
+ * ------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+ * Content Offset
+ *
+ * Offsets content based on grid margin & block alignment / width. This
+ * mixin should be used within a mobile media query and on an element we
+ * can assume will be used a specific way in all cases.
+ * ----------------------------------------------------------------------- */
+
+@define-mixin content-offset {
+	--offset-grid-margin: calc(var(--grid-margin) * -1);
+	padding-left: var(--grid-margin);
+	padding-right: var(--grid-margin);
+
+	/* target content width blocks - this needs to be done to override
+	   specificity in the core block CSS */
+	&:not(.alignleft, .alignright, .alignfull, .alignwide, .aligngrid) {
+		margin-left: var(--offset-grid-margin) !important;
+		margin-right: var(--offset-grid-margin) !important;
+	}
+
+	/* target wide/grid width blocks - this needs to be done to override
+	   specificity in the core block CSS */
+	&.alignwide,
+	&.aligngrid {
+
+		/* 100% width here wouldn't actually be 100% width because of the
+		   left/right global padding, so we need to calculate the width based
+		   on the addition of the left/right global padding */
+		max-width: calc(100% + (var(--grid-margin) * 2)) !important;
+		margin-left: var(--offset-grid-margin) !important;
+		margin-right: var(--offset-grid-margin) !important;
+	}
+}
