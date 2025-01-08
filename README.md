@@ -32,7 +32,7 @@ maintained by the folks at [Modern Tribe](https://tri.be).
 
 That should be it! After Lando starts the first time, it will automatically create the necessary local config files for
 the project. Additionally, each time Lando starts it will automatically run `composer install` and
-`npm install && npm run build` make sure all the project dependencies are installed and the theme assets have been
+`npm install && npm run build` to make sure all the project dependencies are installed and the theme assets have been
 built.
 
 ## Documentation
