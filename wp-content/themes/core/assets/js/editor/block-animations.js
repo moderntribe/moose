@@ -46,7 +46,12 @@
  */
 
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
+import {
+	Button,
+	PanelBody,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment } from '@wordpress/element';
 import { addFilter } from '@wordpress/hooks';
@@ -162,6 +167,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 		const {
 			animationType,
 			animationDirection,
+			showAdvancedControls,
 			animationDuration,
 			animationDelay,
 			animationMobileDisableDelay,
@@ -267,108 +273,142 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 												state.direction[ animationType ]
 											}
 										/>
-										<SelectControl
-											label={ __(
-												'Animation Duration',
-												'tribe'
-											) }
-											value={ animationDuration }
-											help={ __(
-												'Animation duration is the speed at which the animation should run.'
-											) }
-											onChange={ ( newValue ) =>
+										<Button
+											__next40pxDefaultSize={ true }
+											text={
+												showAdvancedControls
+													? __(
+															'Hide Advanced Controls',
+															'tribe'
+													  )
+													: __(
+															'Show Advanced Controls',
+															'tribe'
+													  )
+											}
+											variant="secondary"
+											onClick={ () => {
 												setAttributes( {
-													animationDuration: newValue,
-												} )
-											}
-											options={ state.duration }
+													showAdvancedControls:
+														! showAdvancedControls,
+												} );
+											} }
 										/>
-										<SelectControl
-											label={ __(
-												'Animation Delay',
-												'tribe'
-											) }
-											value={ animationDelay }
-											help={ __(
-												'Animation delay adds extra time before the animation starts.',
-												'tribe'
-											) }
-											onChange={ ( newValue ) =>
-												setAttributes( {
-													animationDelay: newValue,
-												} )
-											}
-											options={ state.delay }
-										/>
-										<ToggleControl
-											label={ __(
-												'Animation delays should be disabled on mobile.',
-												'tribe'
-											) }
-											help={ __(
-												"Default functionality will not disable animation delays on mobile. This feature is useful for animations that are delayed on desktop, but shouldn't be on mobile.",
-												'tribe'
-											) }
-											checked={
-												!! animationMobileDisableDelay
-											}
-											onChange={ ( newValue ) =>
-												setAttributes( {
-													animationMobileDisableDelay:
-														newValue,
-												} )
-											}
-										/>
-										<SelectControl
-											label={ __(
-												'Animation Easing',
-												'tribe'
-											) }
-											value={ animationEasing }
-											help={ __(
-												'Animation easing determines what easing function the animation should use.',
-												'tribe'
-											) }
-											onChange={ ( newValue ) =>
-												setAttributes( {
-													animationEasing: newValue,
-												} )
-											}
-											options={ state.easing }
-										/>
-										<ToggleControl
-											label={ __(
-												'Animation should trigger every time the element is in the viewport',
-												'tribe'
-											) }
-											help={ __(
-												'Default functionality is to trigger the animation once.',
-												'tribe'
-											) }
-											checked={ !! animationTrigger }
-											onChange={ ( newValue ) =>
-												setAttributes( {
-													animationTrigger: newValue,
-												} )
-											}
-										/>
-										<SelectControl
-											label={ __(
-												'Animation Trigger Position',
-												'tribe'
-											) }
-											value={ animationPosition }
-											help={ __(
-												'Animation trigger position determines how much of the element should be in the viewport before the animation triggers.',
-												'tribe'
-											) }
-											onChange={ ( newValue ) =>
-												setAttributes( {
-													animationPosition: newValue,
-												} )
-											}
-											options={ state.position }
-										/>
+										{ showAdvancedControls && (
+											<div
+												style={ { paddingTop: '16px' } }
+											>
+												<SelectControl
+													label={ __(
+														'Animation Duration',
+														'tribe'
+													) }
+													value={ animationDuration }
+													help={ __(
+														'Animation duration is the speed at which the animation should run.'
+													) }
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationDuration:
+																newValue,
+														} )
+													}
+													options={ state.duration }
+												/>
+												<SelectControl
+													label={ __(
+														'Animation Delay',
+														'tribe'
+													) }
+													value={ animationDelay }
+													help={ __(
+														'Animation delay adds extra time before the animation starts.',
+														'tribe'
+													) }
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationDelay:
+																newValue,
+														} )
+													}
+													options={ state.delay }
+												/>
+												<ToggleControl
+													label={ __(
+														'Animation delays should be disabled on mobile.',
+														'tribe'
+													) }
+													help={ __(
+														"Default functionality will not disable animation delays on mobile. This feature is useful for animations that are delayed on desktop, but shouldn't be on mobile.",
+														'tribe'
+													) }
+													checked={
+														!! animationMobileDisableDelay
+													}
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationMobileDisableDelay:
+																newValue,
+														} )
+													}
+												/>
+												<SelectControl
+													label={ __(
+														'Animation Easing',
+														'tribe'
+													) }
+													value={ animationEasing }
+													help={ __(
+														'Animation easing determines what easing function the animation should use.',
+														'tribe'
+													) }
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationEasing:
+																newValue,
+														} )
+													}
+													options={ state.easing }
+												/>
+												<ToggleControl
+													label={ __(
+														'Animation should trigger every time the element is in the viewport',
+														'tribe'
+													) }
+													help={ __(
+														'Default functionality is to trigger the animation once.',
+														'tribe'
+													) }
+													checked={
+														!! animationTrigger
+													}
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationTrigger:
+																newValue,
+														} )
+													}
+												/>
+												<SelectControl
+													label={ __(
+														'Animation Trigger Position',
+														'tribe'
+													) }
+													value={ animationPosition }
+													help={ __(
+														'Animation trigger position determines how much of the element should be in the viewport before the animation triggers.',
+														'tribe'
+													) }
+													onChange={ ( newValue ) =>
+														setAttributes( {
+															animationPosition:
+																newValue,
+														} )
+													}
+													options={ state.position }
+												/>
+											</div>
+										) }
 									</>
 								) ) }
 						</PanelBody>
@@ -410,6 +450,10 @@ const addAnimationAttributes = ( settings, name ) => {
 			animationDirection: {
 				type: 'string',
 				default: 'bottom',
+			},
+			showAdvancedControls: {
+				type: 'boolean',
+				default: false,
 			},
 			animationDuration: {
 				type: 'string',
