@@ -6,6 +6,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
 
+- Updated: ESLint config now supports browser environment variable such as `IntersectionObserver`
 - Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the
   `table` element within the table block.
 - Updated: Enabled background images on the Group block; We should try to use this instead of the Cover block where
