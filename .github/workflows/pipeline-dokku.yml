@@ -35,8 +35,10 @@ on:
         required: true
       ONEPASS_VAULT:
         description: '1Password vault to use for populating composer auth.json'
+        required: true
       ONEPASS_ITEM:
         description: '1Password item to use for populating composer auth.json'
+        required: true
 
 jobs:
   deploy_dokku:
