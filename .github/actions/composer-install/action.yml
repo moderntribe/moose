@@ -9,13 +9,13 @@ inputs:
     description: 'Flags to pass to the `composer install` command.'
     required: false
     default: '--optimize-autoloader --no-dev'
-  ONEPASS_SERVICE_ACCOUNT_TOKEN:
+  OP_SERVICE_ACCOUNT_TOKEN:
     required: true
     description: '1Password service account token to use for populating composer auth.json'
-  ONEPASS_VAULT:
+  OP_VAULT:
     description: '1Password vault to use for populating composer auth.json'
     required: true
-  ONEPASS_ITEM:
+  OP_ITEM:
     description: '1Password item to use for populating composer auth.json'
     required: true
 
@@ -49,9 +49,9 @@ runs:
       working-directory: ${{ inputs.BUILD_FOLDER }}
       shell: bash
       env:
-        ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ inputs.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-        ONEPASS_VAULT: ${{ inputs.ONEPASS_VAULT }}
-        ONEPASS_ITEM: ${{ inputs.ONEPASS_ITEM }}
+        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.OP_SERVICE_ACCOUNT_TOKEN }}
+        OP_VAULT: ${{ inputs.OP_VAULT }}
+        OP_ITEM: ${{ inputs.OP_ITEM }}
       run: op inject -i auth.template.json -o auth.json
 
     - name: 'Install Composer'

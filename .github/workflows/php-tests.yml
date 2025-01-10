@@ -3,12 +3,12 @@ name: 'PHP Tests'
 on:
   workflow_call:
     secrets:
-      ONEPASS_SERVICE_ACCOUNT_TOKEN:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
         description: 1Password Service Account Token to use for populating composer auth.json
-      ONEPASS_VAULT:
+      OP_VAULT:
         description: 1Password vault to use for populating composer auth.json
-      ONEPASS_ITEM:
+      OP_ITEM:
         description: 1Password item to use for populating composer auth.json
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       build_folder: build
-      ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
     steps:
       - name: Checkout the repository
@@ -111,9 +111,9 @@ jobs:
       - name: Create auth.json via 1Password CLI
         if: steps.changed-files.outputs.tests == 'true'
         env:
-          ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-          ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
-          ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
         run: op inject -i auth.template.json -o auth.json
 
       - name: Set up site for CI

@@ -16,9 +16,9 @@ jobs:
     name: 'Coding Standards'
     uses: ./.github/workflows/phpcs.yml
     secrets:
-      ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-      ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
-      ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
 
   linting:
     name: 'Linting'
@@ -29,9 +29,9 @@ jobs:
     needs: [coding-standards, linting]
     uses: ./.github/workflows/static-analysis.yml
     secrets:
-      ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-      ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
-      ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
 
 # Enable this job if you have PHPUnit tests
 # slic:
@@ -39,6 +39,6 @@ jobs:
 #   needs: [coding-standards, phpstan, linting]
 #   uses: ./.github/workflows/php-tests.yml
 #    secrets:
-#      ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-#      ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
-#      ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
+#      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+#      OP_VAULT: ${{ secrets.OP_VAULT }}
+#      OP_ITEM: ${{ secrets.OP_ITEM }}

@@ -30,9 +30,9 @@ jobs:
         uses: ./.github/actions/composer-install
         with:
           BUILD_FOLDER: ${{ env.BUILD_FOLDER }}
-          ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
-          ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
-          ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
 
       # Set up node version
       - name: Set up node
