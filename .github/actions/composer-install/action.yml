@@ -52,9 +52,7 @@ runs:
         ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ inputs.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
         ONEPASS_VAULT: ${{ inputs.ONEPASS_VAULT }}
         ONEPASS_ITEM: ${{ inputs.ONEPASS_ITEM }}
-      run: |
-      op user get --me
-      op inject -i auth.template.json -o auth.json
+      run: op inject -i auth.template.json -o auth.json
 
     - name: 'Install Composer'
       working-directory: ${{ inputs.BUILD_FOLDER }}
