@@ -24,6 +24,7 @@ jobs:
   deploy_review_app:
     if: (github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
     uses: ./.github/workflows/pipeline-dokku.yml
+    environment: Dokku
     with:
       app_name: moose-dev
       branch: ${{ github.event.pull_request.head.ref }}
