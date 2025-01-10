@@ -1,12 +1,12 @@
 {
 	"http-basic": {
 		"connect.advancedcustomfields.com": {
-			"username": "{{op://${OP_VAULT:-Engineering}/${OP_ITEM:-MT-Composer-Auth}/ACF/license}}",
-			"password": "{{op://${OP_VAULT:-Engineering}/${OP_ITEM:-MT-Composer-Auth}/url}}"
+			"username": "{{op://${ONEPASS_VAULT:-Engineering}/${ONEPASS_ITEM:-MT-Composer-Auth}/ACF/license}}",
+			"password": "{{op://${ONEPASS_VAULT:-Engineering}/${ONEPASS_ITEM:-MT-Composer-Auth}/url}}"
 		},
 		"composer.gravity.io": {
-			"username": "{{op://${OP_VAULT:-Engineering}/${OP_ITEM:-MT-Composer-Auth}/GF/license}}",
-			"password": "{{op://${OP_VAULT:-Engineering}/${OP_ITEM:-MT-Composer-Auth}/url}}"
+			"username": "{{op://${ONEPASS_VAULT:-Engineering}/${ONEPASS_ITEM:-MT-Composer-Auth}/GF/license}}",
+			"password": "{{op://${ONEPASS_VAULT:-Engineering}/${ONEPASS_ITEM:-MT-Composer-Auth}/url}}"
 		}
 	}
 }
