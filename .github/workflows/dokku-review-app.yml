@@ -30,13 +30,14 @@ jobs:
       pr_number: ${{ github.event.number }}
       is_review_app: true
       server: d1.moderntribe.qa
+    env:
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      OP_VAULT: ${{ secrets.OP_VAULT }}
+      OP_ITEM: ${{ secrets.OP_ITEM }}
     secrets:
       github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
       ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
-      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-      OP_VAULT: ${{ secrets.OP_VAULT }}
-      OP_ITEM: ${{ secrets.OP_ITEM }}
 
   destroy_review_app:
     if: (github.event_name == 'pull_request' && github.event.action == 'closed') && contains(github.event.pull_request.labels.*.name, 'Launch Environment')
