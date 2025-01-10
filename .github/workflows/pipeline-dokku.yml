@@ -31,14 +31,12 @@ on:
       slack_webhook:
         required: true
       ONEPASS_SERVICE_ACCOUNT_TOKEN:
-        required: true
         description: '1Password service account token to use for populating composer auth.json'
+        required: true
       ONEPASS_VAULT:
         description: '1Password vault to use for populating composer auth.json'
-        required: true
       ONEPASS_ITEM:
         description: '1Password item to use for populating composer auth.json'
-        required: true
 
 jobs:
   deploy_dokku:
