@@ -35,8 +35,8 @@ Here are steps for adding a new authentication or secret value to the project:
 1Password provides [their own GitHub Action](https://github.com/1Password/install-cli-action) that is used in the 
 project workflows. The following GitHub secrets are required to use the 1Password CLI in GitHub Actions:
 * `OP_SERVICE_ACCOUNT_TOKEN` - (Required) A 1Password service account token.
-* `OP_VAULT` - The 1Password vault where the secrets are stored. Defaults to `Engineering`.
-* `OP_ITEM` - The 1Password item containing the secrets. Defaults to `MT-Composer-Auth`.
+* `OP_VAULT` - (Required) The 1Password vault where the secrets are stored.
+* `OP_ITEM` - (Required) The 1Password item containing the secrets.
 
 We have configured a default service account with access to Modern Tribe's Engineering vault. This service account is
 sufficient for projects that are just getting started and haven't yet purchased any client-specific licenses.
