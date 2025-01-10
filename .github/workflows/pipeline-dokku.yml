@@ -42,6 +42,7 @@ on:
 
 jobs:
   deploy_dokku:
+    environment: Dokku
     runs-on: ubuntu-latest
     steps:
       - name: Cloning repo
