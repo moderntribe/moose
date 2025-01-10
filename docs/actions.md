@@ -18,7 +18,7 @@ dokku-ansible repo to accept the connection.
 
 We have 3 deployment workflows to interface with whatever hosting environment is needed (deploy-dev.yml, 
 deploy-stage.yml, deploy-prod.yml). You will need to update the `[DEV|STAGE|PROD]_DEPLOY_REPO`, 
-`DEPLOY_PRIVATE_SSH_KEY`, and 1Password secrets (`OP_SERVICE_ACCOUNT_TOKEN`, `OP_VAULT`, `OP_ITEM`) to use these 
+`DEPLOY_PRIVATE_SSH_KEY`, and 1Password secrets (`ONEPASS_SERVICE_ACCOUNT_TOKEN`, `ONEPASS_VAULT`, `ONEPASS_ITEM`) to use these 
 deployments in your project. These are intended to be deploying to the hosting service where the site will live. Most 
 hosting companies work with `git` making it the default push we currently use.
 

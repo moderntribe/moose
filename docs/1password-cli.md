@@ -34,9 +34,9 @@ Here are steps for adding a new authentication or secret value to the project:
 
 1Password provides [their own GitHub Action](https://github.com/1Password/install-cli-action) that is used in the 
 project workflows. The following GitHub secrets are required to use the 1Password CLI in GitHub Actions:
-* `OP_SERVICE_ACCOUNT_TOKEN` - (Required) A 1Password service account token.
-* `OP_VAULT` - The 1Password vault where the secrets are stored. Defaults to `Engineering`.
-* `OP_ITEM` - The 1Password item containing the secrets. Defaults to `MT-Composer-Auth`.
+* `ONEPASS_SERVICE_ACCOUNT_TOKEN` - (Required) A 1Password service account token.
+* `ONEPASS_VAULT` - The 1Password vault where the secrets are stored. Defaults to `Engineering`.
+* `ONEPASS_ITEM` - The 1Password item containing the secrets. Defaults to `MT-Composer-Auth`.
 
 We have configured a default service account with access to Modern Tribe's Engineering vault. This service account is
 sufficient for projects that are just getting started and haven't yet purchased any client-specific licenses.
@@ -50,7 +50,7 @@ sufficient for projects that are just getting started and haven't yet purchased 
 ### 1Password Service Account Token
 
 To use 1Password CLI with GitHub Actions, you must create a [1Password service account](https://developer.1password.com/docs/service-accounts/get-started) 
-and populate the `OP_SERVICE_ACCOUNT_TOKEN` secret in the project's GitHub repository with the respective service 
+and populate the `ONEPASS_SERVICE_ACCOUNT_TOKEN` secret in the project's GitHub repository with the respective service 
 account token. You may need to ask Modern Tribe leadership or the project manager to create this account for you.
 
 When creating the service account, be sure that the account can only access the project's vault(s). Service accounts
@@ -58,7 +58,7 @@ cannot be modified once they are created and should not be shared between projec
 
 ### 1Password Vault and Item
 
-The `OP_VAULT` and `OP_ITEM` secrets tell the 1Password CLI which vault and item to retrieve values from. If they are
+The `ONEPASS_VAULT` and `ONEPASS_ITEM` secrets tell the 1Password CLI which vault and item to retrieve values from. If they are
 not defined, the 1Password CLI will default to the `Engineering` vault and the `MT-Composer-Auth` item.
 
 When creating a project-specific 1Password vault be sure to follow the structure of the `MT-Composer-Auth` item in the

@@ -30,13 +30,13 @@ on:
         required: true
       slack_webhook:
         required: true
-      OP_SERVICE_ACCOUNT_TOKEN:
+      ONEPASS_SERVICE_ACCOUNT_TOKEN:
         required: true
         description: '1Password service account token to use for populating composer auth.json'
-      OP_VAULT:
+      ONEPASS_VAULT:
         description: '1Password vault to use for populating composer auth.json'
         required: true
-      OP_ITEM:
+      ONEPASS_ITEM:
         description: '1Password item to use for populating composer auth.json'
         required: true
 
@@ -85,9 +85,9 @@ jobs:
 
       - name: 'Create auth.json via 1Password CLI'
         env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          OP_VAULT: ${{ secrets.OP_VAULT }}
-          OP_ITEM: ${{ secrets.OP_ITEM }}
+          ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
+          ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
+          ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
         run: op inject -i auth.template.json -o auth.json
 
       - name: Commit Files

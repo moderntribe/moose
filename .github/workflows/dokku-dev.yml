@@ -19,6 +19,6 @@ jobs:
       github_pat_token: ${{ secrets.GH_BOT_TOKEN }}
       ssh_private_key: ${{ secrets.DOKKU_DEPLOY_KEY }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
-      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-      OP_VAULT: ${{ secrets.OP_VAULT }}
-      OP_ITEM: ${{ secrets.OP_ITEM }}
+      ONEPASS_SERVICE_ACCOUNT_TOKEN: ${{ secrets.ONEPASS_SERVICE_ACCOUNT_TOKEN }}
+      ONEPASS_VAULT: ${{ secrets.ONEPASS_VAULT }}
+      ONEPASS_ITEM: ${{ secrets.ONEPASS_ITEM }}
