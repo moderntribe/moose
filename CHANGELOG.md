@@ -6,6 +6,10 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
 
+- Added: Node service to Lando so FE assets can be built automatically on start up.
+- Updated: project start up scripts to automatically generate the correct contents of the lcoal config files.
+- Updated: script to install WordPress so we can use a version constant and not install WP every time composer is
+  installed or updated.
 - Updated: ESLint config now supports browser environment variable such as `IntersectionObserver`
 - Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the
   `table` element within the table block.

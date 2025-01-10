@@ -11,7 +11,8 @@ maintained by the folks at [Modern Tribe](https://tri.be).
 * [Git](https://git-scm.com/)
 * [Composer](https://getcomposer.org/)
 * [Node & NPM](https://nodejs.org/)
-    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same workstation.
+    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same
+      workstation.
 * [Lando](https://lando.dev/) (Optional) Provides a consistent local development environment for all team members.
 * [1Password CLI](https://developer.1password.com/docs/cli/) (Optional) Automates the creation of composer's `auth.json`
   file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
@@ -28,12 +29,11 @@ maintained by the folks at [Modern Tribe](https://tri.be).
    [1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual
    instructions.)
 3. Run `lando start` to create the local environment.
-4. Run `nvm use` to ensure the correct version of node is in use.
-5. Run `npm install` to install the required npm dependencies.
-6. Run `npm run dist` to build the theme assets.
 
-That should be it! After Lando starts the first time, it should automatically trigger a composer install and create the
-necessary local config files for the project.
+That should be it! After Lando starts the first time, it will automatically create the necessary local config files for
+the project. Additionally, each time Lando starts it will automatically run `composer install` and
+`npm install && npm run build` to make sure all the project dependencies are installed and the theme assets have been
+built.
 
 ## Documentation
 
@@ -47,6 +47,7 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando poweroff` - Completely shuts down all running Lando services.
 * `lando composer <command>` - Runs a composer command within the project container.
 * `lando wp <command>` - Runs a WP-CLI command within the project container.
+* `lando npm <command>` - Runs an npm command within the node container. Useful for rebuilding the theme assets.
 * `lando db-export` - Exports the project database to a file in the project root.
 * `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within
   the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
@@ -56,6 +57,8 @@ members to use and provides a number of helpful features. Below are a number of 
 * `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
   the existing data within the project database and completely remove all the project containers. It will not delete the
   project files on your local machine.
+* `lando xdebug-on` - Enables Xdebug in the project container (xDebug is disabled by default).
+* `lando xdebug-off` - Disables Xdebug in the project container (xDebug is disabled by default).
 
 For further documentation on Lando, please visit the [Lando Docs](https://docs.lando.dev/).
 
@@ -67,7 +70,8 @@ day-to-day PHP development. You can learn more about the available scripts and h
 
 #### Updating WordPress
 
-To adjust the installed version of WordPress, change the `--version=` value in the `install-wordpress` composer script.
+To adjust the installed version of WordPress, run `composer config extra.wordpress-version <new-version>` and then
+`composer install-wordpress`.
 
 ### NPM Packages, Scripts & Building Frontend Assets
 
