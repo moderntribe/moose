@@ -287,12 +287,18 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 													  )
 											}
 											variant="secondary"
+											icon={
+												showAdvancedControls
+													? 'arrow-up-alt2'
+													: 'arrow-down-alt2'
+											}
 											onClick={ () => {
 												setAttributes( {
 													showAdvancedControls:
 														! showAdvancedControls,
 												} );
 											} }
+											style={ { width: '100%' } }
 										/>
 										{ showAdvancedControls && (
 											<div
