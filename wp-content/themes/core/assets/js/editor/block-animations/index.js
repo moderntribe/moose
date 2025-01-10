@@ -2,47 +2,6 @@
  * @module block-animation
  *
  * @description handles setting up animation settings for blocks
- *
- * theme.json settings:
- * "animationType": [
- * 		{ "label": "None", "value": "none" },
- * 		{ "label": "Fade In", "value": "fade-in" }
- * ],
- * "animationDirection": {
- * 		"fade-in": [
- * 			{ "label": "Top", "value": "top" },
- * 			{ "label": "Bottom", "value": "bottom" }
- * 		]
- * },
- * "animationDuration": [
- * 		{ "label": "200ms", "value": "0.2s" },
- * 		{ "label": "800ms", "value": "0.8s" }
- * ],
- * "offsetDistance": {
- * 		"0.2s": "20px",
- * 		"0.8s": "50px"
- * },
- * "animationDelay": [
- * 		{ "label": "0", "value": "0s" },
- * 		{ "label": "200ms", "value": "0.2s" },
- * 		{ "label": "800ms", "value": "0.8s" }
- * ],
- * "animationEasing": [
- * 		{ "label": "Ease In", "value": "ease-in" },
- * 		{ "label": "Ease Out", "value": "ease-out" }
- * ],
- * "animationPosition": [
- * 		{ "label": "25%", "value": "25" },
- * 		{ "label": "50%", "value": "50" },
- * ],
- * "animationIncludes": [
- * 		"core/group",
- * 		"core/heading"
- * ],
- * "animationExcludes": [
- * 		"core/group",
- * 		"core/heading"
- * ],
  */
 
 import { InspectorControls } from '@wordpress/block-editor';
@@ -56,9 +15,7 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment } from '@wordpress/element';
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
-import themeJson from '../../../theme.json';
-
-const state = {};
+import animationSettings from './settings';
 
 /**
  * @function applyAnimationProps
@@ -74,14 +31,17 @@ const state = {};
 const applyAnimationProps = ( props, block, attributes ) => {
 	// return default props if block isn't in the includes array
 	if (
-		state.includes.length > 0 &&
-		! state.includes.includes( block.name )
+		animationSettings.includes.length > 0 &&
+		! animationSettings.includes.includes( block.name )
 	) {
 		return props;
 	}
 
 	// return default props if block is in the excludes array
-	if ( state.excludes.length > 0 && state.excludes.includes( block.name ) ) {
+	if (
+		animationSettings.excludes.length > 0 &&
+		animationSettings.excludes.includes( block.name )
+	) {
 		return props;
 	}
 
@@ -113,7 +73,7 @@ const applyAnimationProps = ( props, block, attributes ) => {
 			...props.style,
 			'--tribe-animation-speed': animationDuration,
 			'--tribe-animation-offset':
-				state.offsetDistance[ animationDuration ],
+				animationSettings.offset[ animationDuration ],
 		};
 	}
 
@@ -155,12 +115,18 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 		const { attributes, setAttributes, isSelected, name } = props;
 
 		// return default Edit function if block isn't in the includes array
-		if ( state.includes.length > 0 && ! state.includes.includes( name ) ) {
+		if (
+			animationSettings.includes.length > 0 &&
+			! animationSettings.includes.includes( name )
+		) {
 			return <BlockEdit { ...props } />;
 		}
 
 		// return default Edit function if block is in the excludes array
-		if ( state.excludes.length > 0 && state.excludes.includes( name ) ) {
+		if (
+			animationSettings.excludes.length > 0 &&
+			animationSettings.excludes.includes( name )
+		) {
 			return <BlockEdit { ...props } />;
 		}
 
@@ -191,7 +157,7 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 				blockStyles[ '--tribe-animation-speed' ] = animationDuration;
 
 				blockStyles[ '--tribe-animation-offset' ] =
-					state.offsetDistance[ animationDuration ];
+					animationSettings.offset[ animationDuration ];
 			}
 
 			// set block styles for animation delay
@@ -237,6 +203,8 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 							initialOpen={ false }
 						>
 							<SelectControl
+								__next40pxDefaultSize={ true }
+								__nextHasNoMarginBottom={ true }
 								label={ __( 'Animation Type', 'tribe' ) }
 								value={ animationType }
 								help={ __(
@@ -248,12 +216,14 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 										animationType: newValue,
 									} );
 								} }
-								options={ state.type }
+								options={ animationSettings.type }
 							/>
 							{ animationType === undefined ||
 								( animationType !== 'none' && (
 									<>
 										<SelectControl
+											__next40pxDefaultSize={ true }
+											__nextHasNoMarginBottom={ true }
 											label={ __(
 												'Animation Direction',
 												'tribe'
@@ -270,7 +240,9 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 												} );
 											} }
 											options={
-												state.direction[ animationType ]
+												animationSettings.direction[
+													animationType
+												]
 											}
 										/>
 										<Button
@@ -305,6 +277,12 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 												style={ { paddingTop: '16px' } }
 											>
 												<SelectControl
+													__next40pxDefaultSize={
+														true
+													}
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation Duration',
 														'tribe'
@@ -319,9 +297,17 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 																newValue,
 														} )
 													}
-													options={ state.duration }
+													options={
+														animationSettings.duration
+													}
 												/>
 												<SelectControl
+													__next40pxDefaultSize={
+														true
+													}
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation Delay',
 														'tribe'
@@ -337,9 +323,14 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 																newValue,
 														} )
 													}
-													options={ state.delay }
+													options={
+														animationSettings.delay
+													}
 												/>
 												<ToggleControl
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation delays should be disabled on mobile.',
 														'tribe'
@@ -359,6 +350,12 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 													}
 												/>
 												<SelectControl
+													__next40pxDefaultSize={
+														true
+													}
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation Easing',
 														'tribe'
@@ -374,9 +371,14 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 																newValue,
 														} )
 													}
-													options={ state.easing }
+													options={
+														animationSettings.easing
+													}
 												/>
 												<ToggleControl
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation should trigger every time the element is in the viewport',
 														'tribe'
@@ -396,6 +398,12 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 													}
 												/>
 												<SelectControl
+													__next40pxDefaultSize={
+														true
+													}
+													__nextHasNoMarginBottom={
+														true
+													}
 													label={ __(
 														'Animation Trigger Position',
 														'tribe'
@@ -411,7 +419,9 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
 																newValue,
 														} )
 													}
-													options={ state.position }
+													options={
+														animationSettings.position
+													}
 												/>
 											</div>
 										) }
@@ -437,54 +447,25 @@ const animationControls = createHigherOrderComponent( ( BlockEdit ) => {
  */
 const addAnimationAttributes = ( settings, name ) => {
 	// return default settings if block isn't in the includes array
-	if ( state.includes.length > 0 && ! state.includes.includes( name ) ) {
+	if (
+		animationSettings.includes.length > 0 &&
+		! animationSettings.includes.includes( name )
+	) {
 		return settings;
 	}
 
 	// return default settings if block is in the excludes array
-	if ( state.excludes.length > 0 && state.excludes.includes( name ) ) {
+	if (
+		animationSettings.excludes.length > 0 &&
+		animationSettings.excludes.includes( name )
+	) {
 		return settings;
 	}
 
 	if ( settings?.attributes !== undefined ) {
 		settings.attributes = {
 			...settings.attributes,
-			animationType: {
-				type: 'string',
-				default: 'none',
-			},
-			animationDirection: {
-				type: 'string',
-				default: 'bottom',
-			},
-			showAdvancedControls: {
-				type: 'boolean',
-				default: false,
-			},
-			animationDuration: {
-				type: 'string',
-				default: '0.6s',
-			},
-			animationDelay: {
-				type: 'string',
-				default: '0s',
-			},
-			animationMobileDisableDelay: {
-				type: 'boolean',
-				default: false,
-			},
-			animationEasing: {
-				type: 'string',
-				default: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)',
-			},
-			animationTrigger: {
-				type: 'boolean',
-				default: false,
-			},
-			animationPosition: {
-				type: 'string',
-				default: '25',
-			},
+			...animationSettings.attributes,
 		};
 	}
 
@@ -492,11 +473,11 @@ const addAnimationAttributes = ( settings, name ) => {
 };
 
 /**
- * @function registerFilters
+ * @function init
  *
- * @description register block filters for adding animation controls
+ * @description initializes this modules functions
  */
-const registerFilters = () => {
+const init = () => {
 	addFilter(
 		'blocks.registerBlockType',
 		'tribe/add-animation-options',
@@ -514,106 +495,6 @@ const registerFilters = () => {
 		'tribe/apply-animation-classes',
 		applyAnimationProps
 	);
-};
-
-/**
- * @function initializeSettings
- *
- * @description pull settings from theme.json or add default settings
- *
- * @todo work with design to handle defining these defaults
- * @todo do we need to handle translations if pulling from theme.json?
- */
-const initializeSettings = () => {
-	state.type = themeJson?.settings?.animationType ?? [
-		{ label: __( 'None', 'tribe' ), value: 'none' },
-		{ label: __( 'Fade In', 'tribe' ), value: 'fade-in' },
-	];
-	// direction is an object with keys for each animation type
-	state.direction = themeJson?.settings?.animationDirection ?? {
-		'fade-in': [
-			{ label: __( 'Bottom', 'tribe' ), value: 'bottom' },
-			{ label: __( 'Right', 'tribe' ), value: 'right' },
-			{ label: __( 'Top Right', 'tribe' ), value: 'top-right' },
-			{ label: __( 'Bottom Right', 'tribe' ), value: 'bottom-right' },
-			{ label: __( 'Left', 'tribe' ), value: 'left' },
-			{ label: __( 'Top Left', 'tribe' ), value: 'top-left' },
-			{ label: __( 'Bottom Left', 'tribe' ), value: 'bottom-left' },
-			{ label: __( 'Forward', 'tribe' ), value: 'forward' },
-			{ label: __( 'Back', 'tribe' ), value: 'back' },
-			{ label: __( 'Top', 'tribe' ), value: 'top' },
-			{ label: __( 'Simple', 'tribe' ), value: 'simple' },
-		],
-	};
-	state.duration = themeJson?.settings?.animationDuration ?? [
-		{ label: __( '300ms', 'tribe' ), value: '0.3s' },
-		{ label: __( '600ms', 'tribe' ), value: '0.6s' },
-		{ label: __( '900ms', 'tribe' ), value: '0.9s' },
-		{ label: __( '1200ms', 'tribe' ), value: '1.2s' },
-		{ label: __( '1400ms', 'tribe' ), value: '1.4s' },
-	];
-	state.offsetDistance = themeJson?.settings?.offsetDistance ?? {
-		'0.3s': '20px',
-		'0.6s': '50px',
-		'0.9s': '90px',
-		'1.2s': '160px',
-		'1.4s': '280px',
-	};
-	state.delay = themeJson?.settings?.animationDelay ?? [
-		{ label: __( '0', 'tribe' ), value: '0s' },
-		{ label: __( '300ms', 'tribe' ), value: '0.3s' },
-		{ label: __( '600ms', 'tribe' ), value: '0.6s' },
-		{ label: __( '900ms', 'tribe' ), value: '0.9s' },
-		{ label: __( '1200ms', 'tribe' ), value: '1.2s' },
-		{ label: __( '1500ms', 'tribe' ), value: '1.5s' },
-	];
-	state.easing = themeJson?.settings?.animationEasing ?? [
-		{
-			label: __( 'Ease Out Sine', 'tribe' ),
-			value: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)',
-		},
-		{
-			label: __( 'Ease In Sine', 'tribe' ),
-			value: 'cubic-bezier(0.470, 0.000, 0.745, 0.715)',
-		},
-		{
-			label: __( 'Ease In Out Sine', 'tribe' ),
-			value: 'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
-		},
-		{
-			label: __( 'Ease Out Quad', 'tribe' ),
-			value: 'cubic-bezier(0.250, 0.460, 0.450, 0.940)',
-		},
-		{
-			label: __( 'Ease In Quad', 'tribe' ),
-			value: 'cubic-bezier(0.550, 0.085, 0.680, 0.530)',
-		},
-		{
-			label: __( 'Ease In Out Quad', 'tribe' ),
-			value: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)',
-		},
-	];
-	state.position = themeJson?.settings?.animationPosition ?? [
-		{ label: __( '25%', 'tribe' ), value: '25' },
-		{ label: __( '50%', 'tribe' ), value: '50' },
-		{ label: __( '75%', 'tribe' ), value: '75' },
-		{ label: __( '100%', 'tribe' ), value: '100' },
-	];
-	state.includes = themeJson.settings.animationIncludes ?? [];
-	state.excludes = themeJson.settings.animationExcludes ?? [];
-};
-
-/**
- * @function init
- *
- * @description initializes this modules functions
- */
-const init = () => {
-	// initialize settings
-	initializeSettings();
-
-	// handle registering block filters
-	registerFilters();
 };
 
 export default init;
