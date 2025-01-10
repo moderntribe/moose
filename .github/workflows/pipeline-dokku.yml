@@ -88,7 +88,9 @@ jobs:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           OP_VAULT: ${{ secrets.OP_VAULT }}
           OP_ITEM: ${{ secrets.OP_ITEM }}
-        run: op inject -i auth.template.json -o auth.json
+        run: |
+          op user get --me
+          op inject -i auth.template.json -o auth.json
 
       - name: Commit Files
         uses: moderntribe/actions/utils/commit-files@v1
