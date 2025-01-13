@@ -21,52 +21,47 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"scripts": {
+		"create-auth": "op inject -i auth.template.json -o auth.json",
+		"create-local-configs": "php ./dev/scripts/create-local-configs.php",
+		"install-wordpress": "./dev/scripts/install-wordpress.sh",
 		"phpcbf": "./vendor/bin/phpcbf -s",
 		"phpcs": "./vendor/bin/phpcs",
 		"phpstan": "./vendor/bin/phpstan analyse --memory-limit=-1",
-		"setup-project": [
-			"@php -r \"file_exists('auth.json') || copy('auth-sample.json', 'auth.json');\"",
-			"@php -r \"file_exists('local-config.php') || copy('local-config-sample.php', 'local-config.php');\"",
-			"@php -r \"file_exists('local-config.json') || copy('local-config-sample.json', 'local-config.json');\""
-		],
-		"setup-wordpress": "./vendor/bin/wp core download --version=6.7.1 --skip-content --force",
 		"update-db": "./vendor/bin/wp core update-db",
-		"post-root-package-install": [
-			"@setup-project"
-		],
 		"post-install-cmd": [
-			"@setup-wordpress"
+			"@install-wordpress"
 		],
 		"post-update-cmd": [
-			"@setup-wordpress"
+			"@install-wordpress"
 		]
 	},
 	"scripts-descriptions": {
+		"create-auth": "Create or update the auth.json file for Composer via 1Password CLI.",
+		"create-local-configs": "Creates local config files for the project.",
+		"install-wordpress": "Runs the WP CLI command to download and install WordPress. To change the WordPress version, run `composer config extra.wordpress-version <new-version>`.",
 		"phpcs": "Run PHPCS on the project.",
 		"phpcbf": "Run PHPCBF on the project.",
 		"phpstan": "Run PHPStan on the project.",
-		"setup-project": "Moves the auth.json, local-config.php, and local-config.json files for setting up the project.",
-		"setup-wordpress": "Runs the wpcli command to download and install core WordPress. To change the WordPress version, update the --version value.",
 		"update-db": "Runs the wpcli command to update the WordPress database. This is sometimes required after a version update."
 	},
 	"repositories": {
-		"gravity": {
+		"0": {
 			"type": "composer",
 			"url": "https://composer.gravity.io"
 		},
-		"0": {
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		},
 		"1": {
-			"type": "vcs",
-			"url": "https://github.com/moderntribe/tribe-glomar.git"
-		},
-		"2": {
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		},
+		"2": {
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		},
 		"3": {
+			"type": "vcs",
+			"url": "https://github.com/moderntribe/tribe-glomar.git"
+		},
+		"4": {
 			"type": "package",
 			"package": {
 				"name": "block-editor-custom-alignments/block-editor-custom-alignments",
@@ -125,6 +120,7 @@
 		"wpengine/advanced-custom-fields-pro": "6.3.11"
 	},
 	"extra": {
+		"wordpress-version": "6.7.1",
 		"installer-paths": {
 			"wp-content/plugins/{$name}": [
 				"type:wordpress-plugin"

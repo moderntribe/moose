@@ -3,9 +3,13 @@ name: 'PHP Tests'
 on:
   workflow_call:
     secrets:
-      COMPOSER_AUTH_JSON:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: Composer auth.json
+        description: 1Password Service Account Token to use for populating composer auth.json
+      OP_VAULT:
+        description: 1Password vault to use for populating composer auth.json
+      OP_ITEM:
+        description: 1Password item to use for populating composer auth.json
 
 jobs:
   test:
@@ -20,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       build_folder: build
-      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
     steps:
       - name: Checkout the repository
@@ -100,11 +104,24 @@ jobs:
           ${SLIC_BIN} info
           ${SLIC_BIN} config
 
+      - name: Install 1Password CLI
+        if: steps.changed-files.outputs.tests == 'true'
+        uses: 1password/install-cli-action@v1
+
+      - name: Create auth.json via 1Password CLI
+        if: steps.changed-files.outputs.tests == 'true'
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
+        run: op inject -i auth.template.json -o auth.json
+
       - name: Set up site for CI
         if: steps.changed-files.outputs.tests == 'true'
         run: |
           ${SLIC_BIN} use site
-          ${SLIC_BIN} composer install --ignore-platform-reqs
+          ${SLIC_BIN} composer install --optimize-autoloader --no-progress
+          ${SLIC_BIN} rm auth.json
 
       - name: Run suite tests
         if: steps.changed-files.outputs.tests == 'true'

@@ -6,10 +6,24 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
 
+- Added: Node service to Lando so FE assets can be built automatically on start up.
+- Updated: project start up scripts to automatically generate the correct contents of the lcoal config files.
+- Updated: script to install WordPress so we can use a version constant and not install WP every time composer is
+  installed or updated.
+- Updated: ESLint config now supports browser environment variable such as `IntersectionObserver`
 - Added: ability for table blocks to utilize the `overflow-x` set on them by setting a `min-width` property for the
   `table` element within the table block.
 - Updated: Enabled background images on the Group block; We should try to use this instead of the Cover block where
   possible.
+- Added: 1Password CLI integration for automating the creation of auth.json files.
+- Added: A composite GitHub action for composer installs. This composite action can be used in any workflow files that
+  need to composer install.
+- Updated: `lando start` now automatically creates local config files and composer installs on first run. This
+  eliminates those as manual steps when starting a project for the first time.
+- Updated: Misc small tweaks to composer & package files & scripts for consistency and ease of use.
+- Updated: GitHub action workflows to use new composite action for composer installs as well other small improvements
+  and updates to workflows
+- Updated: Readme.md and docs for clarity and simplification.
 
 ## [2024.12]
 

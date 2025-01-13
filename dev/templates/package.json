@@ -1,7 +1,7 @@
 {
-  "name": "tribe-block-templates",
-  "version": "1.0.0",
-  "description": "Custom block templates for the WP create-block script to use",
+	"name": "tribe-block-templates",
+	"version": "1.0.0",
+	"description": "Custom block templates for the WP create-block script to use",
 	"author": "Modern Tribe <admin@tri.be>",
 	"license": "GPL-2.0-or-later",
 	"keywords": [],
@@ -11,7 +11,7 @@
 		"email": "admin@tri.be"
 	},
 	"main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
 }
