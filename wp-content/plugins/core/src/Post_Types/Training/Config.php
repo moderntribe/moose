@@ -29,9 +29,10 @@ class Config extends Post_Type_Config {
 
 	public function get_labels(): array {
 		return [
-			'singular' => __( 'Training Doc', 'tribe' ),
-			'plural'   => __( 'Training Docs', 'tribe' ),
-			'slug'     => $this->post_type,
+			'singular'  => __( 'Training Doc', 'tribe' ),
+			'plural'    => __( 'Training Docs', 'tribe' ),
+			'menu_name' => __( 'Training', 'tribe' ),
+			'slug'      => $this->post_type,
 		];
 	}
 
