@@ -83,7 +83,7 @@ class Config extends Post_Type_Config {
 	 * if not, send and display 404.
 	 */
 	public function send_404_unauthorized(): void {
-		if ( is_post_type_viewable( $this->post_type ) ) {
+		if ( is_post_type_viewable( get_post_type() ) || get_post_type() !== Training::NAME ) {
 			return;
 		}
 
