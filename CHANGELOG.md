@@ -6,6 +6,8 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
 
+- Added: `Admin_Menu_Order` class to handle reordering the WP Admin menu items that Moose loads with by default.
+  This also includes Yoast SEO & RankMath, just in case either are used by default. 
 - Added: Node service to Lando so FE assets can be built automatically on start up.
 - Updated: project start up scripts to automatically generate the correct contents of the lcoal config files.
 - Updated: script to install WordPress so we can use a version constant and not install WP every time composer is

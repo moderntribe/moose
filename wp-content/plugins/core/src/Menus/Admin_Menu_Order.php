@@ -22,6 +22,7 @@ class Admin_Menu_Order {
 			'edit.php?post_type=training',
 			'separator-last',
 			'edit.php?post_type=acf-field-group',
+			'wpseo_dashboard',
 			'rank-math',
 		];
 	}
