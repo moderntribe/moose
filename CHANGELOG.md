@@ -6,6 +6,8 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
 
+- Updated: Inline link styling should now apply to all links inside the post content block that do not have a 
+  class assigned to them. This should exclude things like buttons & navigation.
 - Added: `Admin_Menu_Order` class to handle reordering the WP Admin menu items that Moose loads with by default.
   This also includes Yoast SEO & RankMath, just in case either are used by default. 
 - Added: Node service to Lando so FE assets can be built automatically on start up.
