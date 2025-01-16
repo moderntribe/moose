@@ -6,18 +6,13 @@
 
 a {
 
-	.wp-block-post-content &:not(.wp-element-button):focus-visible {
-
-		@mixin focus-visible-inline-text;
-	}
-
 	/* -------------------------------------------------------------------------
 	 * Anchor: Inline Links
 	 *
 	 * Note: Not in theme.json as the selector needs to be more specific
 	 * ------------------------------------------------------------------------- */
 
-	.wp-block-post-content :where(p, li) & {
+	.wp-block-post-content &:not([class]) {
 
 		@mixin inline-text-link;
 	}
