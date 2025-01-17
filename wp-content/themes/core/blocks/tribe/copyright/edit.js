@@ -9,13 +9,6 @@ import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
- * Server-side rendering of the block in the editor view
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-server-side-render/
- */
-import ServerSideRender from '@wordpress/server-side-render';
-
-/**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
@@ -31,7 +24,6 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 	const currentYear = new Date().getFullYear().toString();
 
 	let displayDate;
-	let title;
 
 	if ( showStartingYear && startingYear ) {
 		displayDate = startingYear + '–' + currentYear;
@@ -39,7 +31,7 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 		displayDate = currentYear;
 	}
 
-	title = copyrightText ?? wp.data.select( 'core' ).getSite().title;
+	const title = copyrightText ?? wp.data.select( 'core' ).getSite().title;
 
 	return (
 		<div { ...blockProps }>
