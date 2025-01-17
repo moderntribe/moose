@@ -26,10 +26,20 @@
 					"textTransform": false
 				}
 			},
+			"core/columns": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
 			"core/heading": {
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
+				}
+			},
+			"core/group": {
+				"spacing": {
+					"blockGap": true
 				}
 			},
 			"core/list": {
@@ -42,6 +52,11 @@
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
+				}
+			},
+			"core/navigation": {
+				"spacing": {
+					"blockGap": true
 				}
 			},
 			"core/paragraph": {
@@ -286,6 +301,7 @@
 			"defaultSpacingSizes": false,
 			"margin": true,
 			"padding": true,
+			"blockGap": false,
 			"spacingSizes": [
 				{
 					"size": "clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem)",
