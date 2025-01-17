@@ -40,7 +40,6 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/terms',
-				'tribe/copyright',
 			] ),
 
 			self::EXTENDED        => DI\add( [
