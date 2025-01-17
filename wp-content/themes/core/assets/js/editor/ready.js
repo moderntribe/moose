@@ -4,13 +4,16 @@
  * @description The core dispatcher for the dom ready event javascript.
  */
 
+import blockAnimations from './block-animations';
+
 /**
  * @function init
  * @description The core dispatcher for init across the codebase.
  */
 
 const init = () => {
-	// intentionally left blank for now
+	// load animations
+	blockAnimations();
 
 	console.info(
 		'Editor: Initialized all javascript that targeted document ready.'

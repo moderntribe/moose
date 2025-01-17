@@ -10,6 +10,8 @@ import { debounce } from 'utils/tools.js';
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
 
+import animateOnScroll from './animate-on-scroll';
+
 /**
  * @function bindEvents
  * @description Bind global event listeners here,
@@ -32,6 +34,9 @@ const init = () => {
 	// initialize global events
 
 	bindEvents();
+
+	// run animations
+	animateOnScroll();
 
 	console.info(
 		'Theme: Initialized all javascript that targeted document ready.'
