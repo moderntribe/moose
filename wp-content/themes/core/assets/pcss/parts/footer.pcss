@@ -1,0 +1,46 @@
+/* -------------------------------------------------------------------------
+ *
+ * Part: Footer
+ *
+ * minimal styles for footer layout.
+ * ------------------------------------------------------------------------- */
+
+.site-footer {
+	container-type: inline-size;
+	container-name: footer;
+
+	@container footer (max-width: 779px) {
+
+		.wp-block-group {
+			display: flex;
+			flex-flow: column nowrap;
+			flex-basis: unset;
+		}
+
+		.wp-block-columns {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.wp-block-navigation-item {
+
+		a {
+			transition: var(--transition);
+			text-decoration: underline;
+			text-decoration-color: transparent;
+
+			&:hover,
+			&:focus-visible {
+				text-decoration: underline;
+				text-underline-offset: 0.2em;
+			}
+
+			&:focus-visible {
+				outline: 0;
+				border: 0;
+			}
+		}
+	}
+}
