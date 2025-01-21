@@ -5,7 +5,7 @@ on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entr
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
-
+- Chore: WordPress plugin updates, Composer & NPM package updates.
 - Added: `Admin_Menu_Order` class to handle reordering the WP Admin menu items that Moose loads with by default.
   This also includes Yoast SEO & RankMath, just in case either are used by default. 
 - Added: Node service to Lando so FE assets can be built automatically on start up.
