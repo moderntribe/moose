@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "372654293e292eb9ccc0cb45b1c417c9",
+    "content-hash": "b77e55b8d5aa5c00125dae6fb1ded8c0",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1298,10 +1298,10 @@
         },
         {
             "name": "gravity/gravityforms",
-            "version": "2.9.0.2",
+            "version": "2.9.2",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.gravity.io/downloads/?plugin=gravityforms&version=2.9.0.2"
+                "url": "https://composer.gravity.io/downloads/?plugin=gravityforms&version=2.9.2"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
