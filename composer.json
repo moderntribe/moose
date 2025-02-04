@@ -101,7 +101,7 @@
 		"ext-json": "*",
 		"block-editor-custom-alignments/block-editor-custom-alignments": "^1.0",
 		"composer/installers": "^2.2",
-		"gravity/gravityforms": "2.9.0.2",
+		"gravity/gravityforms": "2.9.2",
 		"humanmade/s3-uploads": "^3.0",
 		"johnbillion/extended-cpts": "^5.0",
 		"moderntribe/tribe-glomar": "dev-main",
@@ -111,13 +111,13 @@
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/debug-bar": "^1.1",
 		"wpackagist-plugin/disable-emojis": "1.7.6",
-		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.2",
+		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.3",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.16",
-		"wpackagist-plugin/safe-svg": "2.2.6",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.232",
+		"wpackagist-plugin/safe-svg": "2.3.1",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.236",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
-		"wpackagist-plugin/user-switching": "1.9.0",
-		"wpengine/advanced-custom-fields-pro": "6.3.11"
+		"wpackagist-plugin/user-switching": "1.9.1",
+		"wpengine/advanced-custom-fields-pro": "6.3.12"
 	},
 	"extra": {
 		"wordpress-version": "6.7.1",

@@ -5,7 +5,7 @@ on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entr
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.01]
-
+- Chore: WordPress plugin updates, Composer & NPM package updates.
 - Updated: Inline link styling should now apply to all links inside the post content block that do not have a 
   class assigned to them. This should exclude things like buttons & navigation.
 - Added: `Admin_Menu_Order` class to handle reordering the WP Admin menu items that Moose loads with by default.
