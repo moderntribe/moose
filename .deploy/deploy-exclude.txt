@@ -34,3 +34,4 @@ wp-config.php
 wp-content/debug.log
 wp-content/object-cache.php
 wp-content/upload
+tests/
