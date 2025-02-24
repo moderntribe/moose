@@ -110,17 +110,17 @@
 		"vlucas/phpdotenv": "^5.5",
 		"wp-cli/wp-cli-bundle": "^2.8",
 		"wpackagist-plugin/debug-bar": "^1.1",
-		"wpackagist-plugin/disable-emojis": "1.7.6",
+		"wpackagist-plugin/disable-emojis": "1.7.7",
 		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.3",
-		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.16",
+		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.18",
 		"wpackagist-plugin/safe-svg": "2.3.1",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.236",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.238",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
 		"wpackagist-plugin/user-switching": "1.9.1",
 		"wpengine/advanced-custom-fields-pro": "6.3.12"
 	},
 	"extra": {
-		"wordpress-version": "6.7.1",
+		"wordpress-version": "6.7.2",
 		"installer-paths": {
 			"wp-content/plugins/{$name}": [
 				"type:wordpress-plugin"
