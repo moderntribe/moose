@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.02]
+- Chore: WordPress plugin updates.
+
 ## [2025.01]
 - Chore: WordPress plugin updates, Composer & NPM package updates.
 - Updated: Inline link styling should now apply to all links inside the post content block that do not have a 
