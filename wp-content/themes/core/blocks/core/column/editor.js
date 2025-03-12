@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 const settings = {
 	attributes: {
 		stackingOrder: {
-			type: 'string',
+			type: 'number',
 		},
 	},
 	blocks: [ 'core/column' ],
