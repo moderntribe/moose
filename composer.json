@@ -114,10 +114,10 @@
 		"wpackagist-plugin/duracelltomi-google-tag-manager": "1.20.3",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "2.26.18",
 		"wpackagist-plugin/safe-svg": "2.3.1",
-		"wpackagist-plugin/seo-by-rank-math": "1.0.238",
+		"wpackagist-plugin/seo-by-rank-math": "1.0.241",
 		"wpackagist-plugin/social-sharing-block": "^1.0",
 		"wpackagist-plugin/user-switching": "1.9.1",
-		"wpengine/advanced-custom-fields-pro": "6.3.12"
+		"wpengine/advanced-custom-fields-pro": "6.4.0.1"
 	},
 	"extra": {
 		"wordpress-version": "6.8-RC3",
