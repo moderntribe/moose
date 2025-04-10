@@ -27,20 +27,11 @@
 	.wp-block-navigation-item {
 
 		a {
-			transition: var(--transition);
-			text-decoration: underline;
+
+			@mixin inline-text-link;
+
 			text-decoration-color: transparent;
-
-			&:hover,
-			&:focus-visible {
-				text-decoration: underline;
-				text-underline-offset: 0.2em;
-			}
-
-			&:focus-visible {
-				outline: 0;
-				border: 0;
-			}
+			font-weight: var(--font-weight-normal);
 		}
 	}
 }

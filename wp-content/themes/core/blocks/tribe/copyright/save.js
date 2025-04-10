@@ -14,8 +14,8 @@ export default function save( { attributes } ) {
 	}
 
 	return (
-		<p { ...useBlockProps.save() }>
+		<span { ...useBlockProps.save() }>
 			{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }
-		</p>
+		</span>
 	);
 }

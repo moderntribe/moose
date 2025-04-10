@@ -70,9 +70,9 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 					</InspectorControls>
 				</>
 			) }
-			<p>
+			<span>
 				{ __( 'Copyright', 'tribe' ) } © { displayDate } { title }
-			</p>
+			</span>
 		</div>
 	);
 }

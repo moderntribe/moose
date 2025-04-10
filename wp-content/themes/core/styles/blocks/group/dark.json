@@ -16,41 +16,27 @@
 					"text": "var(--wp--preset--color--black)"
 				},
 				":hover": {
+					"border": {
+						"width": "1px",
+						"style": "solid",
+						"color": "var(--wp--preset--color--white)",
+						"radius": "var(--border-radius-full)"
+					},
 					"color": {
-						"background": "var(--color-blue)",
+						"background": "var(--wp--preset--color--black)",
 						"text": "var(--wp--preset--color--white)"
 					}
 				},
 				":focus": {
 					"color": {
-						"background": "var(--color-dark-blue)",
+						"background": "var(--wp--preset--color--black)",
 						"text": "var(--wp--preset--color--white)"
 					}
 				},
 				":active": {
 					"color": {
-						"background": "var(--color-dark-blue)",
+						"background": "var(--wp--preset--color--black)",
 						"text": "var(--wp--preset--color--white)"
-					}
-				}
-			},
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--white)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--color-blue) !important"
-					}
-				},
-				":focus": {
-					"color": {
-						"text": "var(--color-blue) !important"
-					}
-				},
-				":active": {
-					"color": {
-						"text": "var(--color-dark-blue) !important"
 					}
 				}
 			}
