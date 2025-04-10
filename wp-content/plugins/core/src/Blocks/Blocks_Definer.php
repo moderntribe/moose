@@ -3,8 +3,8 @@
 namespace Tribe\Plugin\Blocks;
 
 use DI;
-use Tribe\Libs\Container\Definer_Interface;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
+use Tribe\Plugin\Core\Interfaces\Definer_Interface;
 use Tribe\Theme\bindings\Post_Permalink;
 use Tribe\Theme\bindings\Post_Type_Name;
 use Tribe\Theme\bindings\Query_Results_Count;

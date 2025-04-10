@@ -2,11 +2,11 @@
 
 namespace Tribe\Plugin\Blocks;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
 use Tribe\Plugin\Blocks\Bindings\Binding_Registrar;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 use Tribe\Plugin\Theme_Config\Theme_Support;
 
 class Blocks_Subscriber extends Abstract_Subscriber {
@@ -102,10 +102,16 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
 		/**
-		 * Disable openverse media category.
+		 * Handle Block Editor Settings
 		 */
 		add_filter( 'block_editor_settings_all', function ( array $settings ): array {
-			return $this->container->get( Theme_Support::class )->disable_openverse_media_category( $settings );
+			// Disable openverse media category.
+			$settings = $this->container->get( Theme_Support::class )->disable_openverse_media_category( $settings );
+
+			// Disable the WP block editor font library.
+			$settings = $this->container->get( Theme_Support::class )->disable_font_library_ui( $settings );
+
+			return $settings;
 		} );
 	}
 

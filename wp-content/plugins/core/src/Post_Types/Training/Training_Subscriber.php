@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Post_Types\Training;
 
-use Tribe\Libs\Post_Type\Post_Type_Subscriber;
+use Tribe\Plugin\Post_Types\Post_Type_Subscriber;
 
 class Training_Subscriber extends Post_Type_Subscriber {
 

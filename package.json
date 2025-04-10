@@ -27,17 +27,17 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
-		"@wordpress/create-block": "^4.55.0",
-		"@wordpress/scripts": "^30.5.1",
+		"@wordpress/create-block": "^4.59.0",
+		"@wordpress/scripts": "^30.9.0",
 		"browser-sync": "^3.0.3",
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
 		"cssnano": "^7.0.6",
-		"fast-glob": "^3.3.1",
-		"lefthook": "^1.8.4",
+		"fast-glob": "^3.3.3",
+		"lefthook": "^1.10.10",
 		"postcss-import": "^16.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^11.0.3",
-		"postcss-preset-env": "^10.1.1",
+		"postcss-preset-env": "^10.1.3",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {
@@ -54,11 +54,11 @@
 		"lint:js:fix": "wp-scripts lint-js \"$npm_package_config_coreThemeDir/**/*.js\" --fix",
 		"lint:configs": "wp-scripts lint-js \"./*.js\"",
 		"lint:configs:fix": "wp-scripts lint-js \"./*.js\" --fix",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"lint:pkg-json": "wp-scripts lint-pkg-json \"./package.json\"",
+		"lint:server": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json",
 		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe --template $npm_package_config_coreBlockTemplatesDir",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
-		"server-lint": "npm run lint:js && npm run lint:css && npm run lint:configs && npm run lint:pkg-json"
+		"check-licenses": "wp-scripts check-licenses"
 	}
 }

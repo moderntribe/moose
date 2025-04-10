@@ -3,7 +3,6 @@
 namespace Tribe\Plugin\Settings;
 
 use Extended\ACF\Location;
-use Tribe\Libs\Settings\Base_Settings;
 
 abstract class Settings_Sub_Page extends Base_Settings {
 
@@ -35,12 +34,9 @@ abstract class Settings_Sub_Page extends Base_Settings {
 	 * Get setting value
 	 *
 	 * @param string $key
-	 * @param null   $default
-	 *
-	 * @return mixed
+	 * @param mixed  $default
 	 */
-	// phpcs:ignore SlevomatCodingStandard.TypeHints
-	public function get_setting( $key, $default = null ) {
+	public function get_setting( string $key, mixed $default = null ): mixed {
 		$value = get_field( $key, 'option' );
 
 		return ! empty( $value ) ? $value : $default;

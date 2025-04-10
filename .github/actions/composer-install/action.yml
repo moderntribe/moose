@@ -1,0 +1,62 @@
+name: Composer Install
+
+inputs:
+  BUILD_FOLDER:
+    description: 'Folder to run shell commands in.'
+    required: false
+    default: ${{ github.workspace }}
+  COMPOSER_INSTALL_FLAGS:
+    description: 'Flags to pass to the `composer install` command.'
+    required: false
+    default: '--optimize-autoloader --no-dev'
+  OP_SERVICE_ACCOUNT_TOKEN:
+    required: true
+    description: '1Password service account token to use for populating composer auth.json'
+  OP_VAULT:
+    description: '1Password vault to use for populating composer auth.json'
+    required: true
+  OP_ITEM:
+    description: '1Password item to use for populating composer auth.json'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: 'Configure PHP environment'
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+
+    - name: 'Get composer cache directory'
+      working-directory: ${{ inputs.BUILD_FOLDER }}
+      id: composer-cache
+      shell: bash
+      run: |
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+    - name: 'Cache composer dependencies'
+      uses: actions/cache@v4
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+
+    - name: 'Install 1Password CLI'
+      uses: 1password/install-cli-action@v1
+
+    - name: 'Create auth.json via 1Password CLI'
+      working-directory: ${{ inputs.BUILD_FOLDER }}
+      shell: bash
+      env:
+        OP_SERVICE_ACCOUNT_TOKEN: ${{ inputs.OP_SERVICE_ACCOUNT_TOKEN }}
+        OP_VAULT: ${{ inputs.OP_VAULT }}
+        OP_ITEM: ${{ inputs.OP_ITEM }}
+      run: op inject -i auth.template.json -o auth.json
+
+    - name: 'Install Composer'
+      working-directory: ${{ inputs.BUILD_FOLDER }}
+      shell: bash
+      run: |
+        composer install ${{ inputs.COMPOSER_INSTALL_FLAGS }}
+        rm auth.json

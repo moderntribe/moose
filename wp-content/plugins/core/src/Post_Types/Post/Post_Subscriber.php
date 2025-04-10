@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Post_Types\Post;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 
 class Post_Subscriber extends Abstract_Subscriber {
 
