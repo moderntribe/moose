@@ -47,10 +47,12 @@ const applyBlockProps = ( props, block, attributes ) => {
 		// determine if we should add a class name to the block
 		if (
 			Object.keys( control ).includes( 'applyClass' ) &&
-			props.className &&
+			props.className !== undefined &&
 			! props.className.includes( control.applyClass ) &&
-			attributes[ control.attribute ] &&
-			attributes[ control.attribute ] !== control.defaultValue
+			attributes[ control.attribute ] !== undefined &&
+			( ( control.type === 'toggle' &&
+				attributes[ control.attribute ] ) ||
+				control.type !== 'toggle' )
 		) {
 			props.className = `${ props.className } ${ control.applyClass }`;
 		}
@@ -59,8 +61,10 @@ const applyBlockProps = ( props, block, attributes ) => {
 		// assumes we only have one style property to add and assigns it to the value of the control created
 		if (
 			Object.keys( control ).includes( 'applyStyleProperty' ) &&
-			attributes[ control.attribute ] &&
-			attributes[ control.attribute ] !== control.defaultValue
+			attributes[ control.attribute ] !== undefined &&
+			( ( control.type === 'toggle' &&
+				attributes[ control.attribute ] ) ||
+				control.type !== 'toggle' )
 		) {
 			props.style = {
 				...props.style,
@@ -96,8 +100,10 @@ const applyEditorBlockProps = createHigherOrderComponent(
 				if (
 					Object.keys( control ).includes( 'applyClass' ) &&
 					! classes.includes( control.applyClass ) &&
-					attributes[ control.attribute ] &&
-					attributes[ control.attribute ] !== control.defaultValue
+					attributes[ control.attribute ] !== undefined &&
+					( ( control.type === 'toggle' &&
+						attributes[ control.attribute ] ) ||
+						control.type !== 'toggle' )
 				) {
 					classes.push( control.applyClass );
 				}
@@ -105,8 +111,10 @@ const applyEditorBlockProps = createHigherOrderComponent(
 				// styles get added to the `wrapperProps` attribute on the BlockListBlock
 				if (
 					Object.keys( control ).includes( 'applyStyleProperty' ) &&
-					attributes[ control.attribute ] &&
-					attributes[ control.attribute ] !== control.defaultValue
+					attributes[ control.attribute ] !== undefined &&
+					( ( control.type === 'toggle' &&
+						attributes[ control.attribute ] ) ||
+						control.type !== 'toggle' )
 				) {
 					styles.style = {
 						[ control.applyStyleProperty ]:
@@ -141,6 +149,7 @@ const determineControlToRender = ( control, attributes, setAttributes ) => {
 	if ( control.type === 'toggle' ) {
 		return (
 			<ToggleControl
+				__nextHasNoMarginBottom={ true }
 				key={ control.attribute }
 				label={ control.label }
 				checked={ attributes[ control.attribute ] }
@@ -203,7 +212,7 @@ const addBlockControls = createHigherOrderComponent( ( BlockEdit ) => {
 
 		// set default attributes if not set
 		state.settings.controls.forEach( ( control ) => {
-			if ( ! attributes[ control.attribute ] ) {
+			if ( attributes[ control.attribute ] === undefined ) {
 				attributes[ control.attribute ] = control.defaultValue;
 			}
 		} );
