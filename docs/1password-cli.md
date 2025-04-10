@@ -38,23 +38,27 @@ project workflows. The following GitHub secrets are required to use the 1Passwor
 * `OP_VAULT` - (Required) The 1Password vault where the secrets are stored.
 * `OP_ITEM` - (Required) The 1Password item containing the secrets.
 
-We have configured a default service account with access to Modern Tribe's Engineering vault. This service account is
-sufficient for projects that are just getting started and haven't yet purchased any client-specific licenses.
-
-> [!IMPORTANT]
-> Modern Tribe's default 1Password service account and the plugin licenses in the MT Engineering vault are shared 
-> across all Modern Tribe projects and are intended for local development and Dokku environments only. If a project is 
-> deploying to other hosting environments, the project should be using a project-specific 1Password vault and 
-> client-supplied license keys for GitHub Actions.
-
 ### 1Password Service Account Token
 
 To use 1Password CLI with GitHub Actions, you must create a [1Password service account](https://developer.1password.com/docs/service-accounts/get-started) 
 and populate the `OP_SERVICE_ACCOUNT_TOKEN` secret in the project's GitHub repository with the respective service 
 account token. You may need to ask Modern Tribe leadership or the project manager to create this account for you.
 
-When creating the service account, be sure that the account can only access the project's vault(s). Service accounts
+When creating the service account, be sure that the account can only access the project's vault(s) and potentially
+our internal Engineering vault if you're utilizing MT's license keys for local development. Service accounts
 cannot be modified once they are created and should not be shared between projects.
+
+#### Modern Tribe's Default Service Account
+
+We have configured a default service account with access to Modern Tribe's Engineering vault. This service account is
+sufficient for projects that are just getting started and haven't yet purchased any client-specific licenses. You'll
+need to add the `OP_SERVICE_ACCOUNT_TOKEN` to your repository to be able to use the MT account for deploys to Dokku.
+This service account token is saved in the Engineering 1Password vault.
+
+> [!IMPORTANT]
+> Modern Tribe's default 1Password service account and the plugin licenses in the MT Engineering vault are intended
+> for local development and Dokku environments only. If a project is deploying to other hosting environments, the
+> project should be using a project-specific 1Password vault and client-supplied license keys for GitHub Actions.
 
 ### 1Password Vault and Item
 
