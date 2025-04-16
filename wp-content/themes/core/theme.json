@@ -41,11 +41,6 @@
 					"fontSizes": []
 				}
 			},
-			"core/group": {
-				"spacing": {
-					"blockGap": true
-				}
-			},
 			"core/list": {
 				"typography": {
 					"fontFamilies": [],
