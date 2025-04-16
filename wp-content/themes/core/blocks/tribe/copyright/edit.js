@@ -9,12 +9,11 @@ import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
+ * @function Edit
  *
- * @ignore
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ * @description Edit function contains a custom toggle for showing a starting year
+ * as well as a text field to add the year. There is another text field to override
+ * the default site title text.
  *
  * @return {Element} Element to render.
  */
@@ -25,12 +24,14 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 
 	let displayDate;
 
+	// If starting year is enabled, change the text string to use both, separated by a hyphen.
 	if ( showStartingYear && startingYear ) {
 		displayDate = startingYear + '–' + currentYear;
 	} else {
 		displayDate = currentYear;
 	}
 
+	// Use Copyright Text value or use the default site title text read from wp_options.
 	const title = copyrightText ?? wp.data.select( 'core' ).getSite().title;
 
 	return (
