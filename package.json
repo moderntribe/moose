@@ -27,8 +27,8 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
-		"@wordpress/create-block": "^4.64.1",
-		"@wordpress/scripts": "^30.9.0",
+		"@wordpress/create-block": "^4.65.0",
+		"@wordpress/scripts": "^30.15.0",
 		"browser-sync": "^3.0.4",
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
 		"cssnano": "^7.0.6",
