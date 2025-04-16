@@ -1,24 +1,46 @@
 name: moose
 recipe: wordpress
+
 config:
-  php: '8.2'
-  database: mariadb
+  php: '8.3'
+  database: mariadb:11.5
   composer_version: 2-latest
   via: nginx
   xdebug: false
   memcached: true
+
 services:
   appserver:
+    build:
+      - composer create-local-configs
     overrides:
       environment:
         - XDEBUG_TRIGGER=1
-  mailhog:
-    type: mailhog
-    portforward: true
-    hogfrom:
-      - appserver_nginx
-      - appserver
+  node:
+    type: node:22
+
+# Enabling MailHog will cause an error on start: `/bin/sh: 1: curl: not found`.
+# Related GH Issue: https://github.com/lando/mailhog/issues/35
+#
+# The error doesn't actually cause any issues, but prevents lando from starting cleanly.
+# If you need access to email from this site, enable the Mailhog service below.
+# Otherwise, It's safe to keep this service disabled.
+
+#  mailhog:
+#    type: mailhog
+#    portforward: true
+#    hogfrom:
+#      - appserver_nginx
+#      - appserver
+
+events:
+  post-start:
+    - appserver: composer install
+    - node: npm install && npm run build
+
 tooling:
+  npm:
+    service: node
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.

@@ -2,7 +2,7 @@
 
 namespace Tribe\Plugin\Assets;
 
-use Tribe\Libs\Container\Abstract_Subscriber;
+use Tribe\Plugin\Core\Abstract_Subscriber;
 
 class Assets_Subscriber extends Abstract_Subscriber {
 

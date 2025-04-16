@@ -26,7 +26,11 @@
 					"textTransform": false
 				}
 			},
-			"core/columns": {
+			"core/group": {
+				"background": {
+					"backgroundImage": true,
+					"backgroundSize": true
+				},
 				"spacing": {
 					"blockGap": true
 				}

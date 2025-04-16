@@ -3,19 +3,25 @@ name: Coding Standards
 on:
   workflow_call:
     secrets:
-      COMPOSER_AUTH_JSON:
+      OP_SERVICE_ACCOUNT_TOKEN:
         required: true
-        description: Composer auth.json
+        description: '1Password Service Account Token to use for populating composer auth.json'
+      OP_VAULT:
+        description: '1Password vault to use for populating composer auth.json'
+        required: false
+      OP_ITEM:
+        description: '1Password item to use for populating composer auth.json'
+        required: false
 
 jobs:
   phpcs:
     name: phpcs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 'Checkout'
         uses: actions/checkout@v4
 
-      - name: Detect File Changes
+      - name: 'Detect file changes'
         uses: dorny/paths-filter@v3
         id: changed-files
         with:
@@ -27,35 +33,16 @@ jobs:
               - added|modified: 'wp-content/mu-plugins/**/*.php'
               - added|modified: 'phpcs.xml.dist'
 
-      - name: Configure PHP environment
+      - name: 'Composer install'
         if: steps.changed-files.outputs.phpcs == 'true'
-        uses: shivammathur/setup-php@v2
+        uses: ./.github/actions/composer-install
         with:
-          tools: composer:2
-          php-version: '8.2'
+          COMPOSER_INSTALL_FLAGS: '--optimize-autoloader'
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          OP_VAULT: ${{ secrets.OP_VAULT }}
+          OP_ITEM: ${{ secrets.OP_ITEM }}
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        if: steps.changed-files.outputs.phpcs == 'true'
-        run: |
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v4
-        if: steps.changed-files.outputs.phpcs == 'true'
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-
-      - name: Install Composer
-        if: steps.changed-files.outputs.phpcs == 'true'
-        run: |
-          echo '${{ secrets.COMPOSER_AUTH_JSON }}' > auth.json
-          composer install --ignore-platform-reqs --optimize-autoloader --no-progress
-          rm auth.json
-
-      - name: Run PHPCS
+      - name: 'Run PHPCS'
         if: steps.changed-files.outputs.phpcs == 'true'
         run: |
           composer phpcs

@@ -1,78 +1,103 @@
 # Moose
 
+Moose is a WordPress project starter framework. It is a collection of modular tools, configurations, and best practices
+for enterprise WordPress design and development. It is designed to be a modern, flexible, and developer-friendly
+starting point for WordPress projects. Features include a core plugin, core theme, technical framework, and the
+requisite developer tooling to maintain a secure, consistent codebase across teams and projects. Moose is lovingly
+maintained by the folks at [Modern Tribe](https://tri.be).
+
 ## Requirements
 
-* Git
-* Composer
-* Node v16.13.1 or higher & NPM v8.1.2 or higher
-* NVM is recommended for managing multiple versions of node on the same workstation.
+* [Git](https://git-scm.com/)
+* [Composer](https://getcomposer.org/)
+* [Node & NPM](https://nodejs.org/)
+    * [NVM](https://github.com/nvm-sh/nvm) is recommended for managing multiple versions of node on the same
+      workstation.
+* [Lando](https://lando.dev/) (Optional) Provides a consistent local development environment for all team members.
+* [1Password CLI](https://developer.1password.com/docs/cli/) (Optional) Automates the creation of composer's `auth.json`
+  file so that paid 3rd-party plugins like Advanced Custom Fields Pro and Gravity Forms can be installed via composer.
 
-## Local Development
-
-One of the goals of this starter is to allow developers to use whatever local development platform that works best for them. There are some details below for Lando and Local by Flywheel. If you are using a different environment, feel free to add it.
-
-### Lando
-
-You can use [Lando](https://lando.dev/download/) to for your local development. When starting a new project, change the name value in the `.lando.yml` file to the name of the project. Then run `lando start` to build the environment. The `local-config.php` is setup to support lando out of the box. Once the lando is running, you can follow the BE Setup instructions for the composer commands to finish the setup. When running composer commands make sure to run `lando composer [command]` in order to run composer in the container.
-
-### Local by Flywheel
-
-It is recommended to create a blank blueprint in Local by Flywheel in order to make it easier to startup a project. Select the blank blueprint, clone in the repository to the public folder and then follow the BE Setup instructions for getting started. Make sure to use the Open Site Shell option to run composer commands allowing you to have the right PHP version in your shell path.
+> [!TIP]
+> This starter is designed to allow developers the freedom to use any local development tooling that works best for
+> them. The following instructions assume the use of Lando, but any local development platform should work as long as it
+> provides a basic LAMP or LEMP stack and uses the correct version of PHP as defined in `composer.json`.
 
 ## Getting Started
 
-### BE Setup
+1. Clone the repository
+2. Run `composer create-auth` to create the `auth.json` file. (Assumes you are using the
+   [1Password CLI](#1password-cli). See the [Composer Docs](./docs/composer.md#creating-an-authjson-file) for manual
+   instructions.)
+3. Run `lando start` to create the local environment.
 
-Run `composer run setup-project` to copy the `auth.json`, and `local-config` files over. Once that has completed, update the `auth.json` to include the [ACF License for the username](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/) and the site url (`https://moose.lndo.site`) in the password section. Once the keys are up to date, run `composer install` to pull in the required libraries.  Then run `composer setup-wordpress` to install WordPress using WP Cli. Depending on your local environment you may need to update your `local-config.php` for the local environment you are working in.
+That should be it! After Lando starts the first time, it will automatically create the necessary local config files for
+the project. Additionally, each time Lando starts it will automatically run `composer install` and
+`npm install && npm run build` to make sure all the project dependencies are installed and the theme assets have been
+built.
 
-``` bash
-composer setup-project
-# ... update auth.json file if you need ACF Pro
-composer install
-composer setup-wordpress
-```
+## Documentation
 
-For WordPress updates, you can change the `--version=` value in the `setup-wordpress` composer script.
+### Lando
 
-### Front End Dev
+Lando is the preferred local development environment for this project. It provides a consistent environment for all team
+members to use and provides a number of helpful features. Below are a number of Lando commands to know:
 
-1. Duplicate the `local-config-sample.json` file into a git-ignored `local-config.json` and update the certsPath and host entries to match your local dev set up.
-1. In the root of the project, run `nvm use` to confirm the correct version of node is in-use.
-1. Run `npm install` to install the required dependencies.
-1. Run `npm run dev` to start the webpack watch & browsersync tasks.
+* `lando start` - Starts the local development environment.
+* `lando stop` - Stops the local development environment.
+* `lando poweroff` - Completely shuts down all running Lando services.
+* `lando composer <command>` - Runs a composer command within the project container.
+* `lando wp <command>` - Runs a WP-CLI command within the project container.
+* `lando npm <command>` - Runs an npm command within the node container. Useful for rebuilding the theme assets.
+* `lando db-export` - Exports the project database to a file in the project root.
+* `lando db-import <filename.sql>` - Imports a database file into the project database. This file must be located within
+  the project directory. It can be either an archived (`.zip`) or unarchived SQL (`.sql`) file.
+* `lando rebuild` - Rebuilds the project containers. This is useful if you need to update the PHP version or there have
+  been other changes to the project's Lando configuration. This is a non-destructive action and will not delete any
+  data.
+* `lando destroy` - Destroys the local development environment. *WARNING:* This is a destructive action and will delete
+  the existing data within the project database and completely remove all the project containers. It will not delete the
+  project files on your local machine.
+* `lando xdebug-on` - Enables Xdebug in the project container (Xdebug is disabled by default).
+* `lando xdebug-off` - Disables Xdebug in the project container (Xdebug is disabled by default).
 
-### Front End Scripts
+For further documentation on Lando, please visit the [Lando Docs](https://docs.lando.dev/).
 
-* `npm run dist`: Builds production versions of all assets.
-* `npm run dev`: Builds dev assets and starts an instance of browsersync to handle live-reload for changes.
-* `npm run create-block`: Starts an interactive shell script to generate a new block per WordPress's [Create Block script](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) and the theme config.
-* `npm run format`: Runs Prettier on all theme assets (css, scss, js, & json files).
-* `npm run lint`: Prettifies, lints (and fixes) theme & root assets (css, scss, js, & json files). Also see the sub-tasks for specific file types.
-* `npm run server_dist`: Alias for the `dist` task.
+### Composer
 
-These scripts are based on WordPress's [WP-Scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) package. See the documentation there for additional information.
+Composer is configured to manage PHP dependencies. There are also a number of composer scripts set up to assist with
+day-to-day PHP development. You can learn more about the available scripts and how to use them in the
+[Composer Docs](./docs/composer.md).
 
-There are also several additional scripts aliased directly from wp-scripts that may be useful:
+#### Updating WordPress
 
-* `packages-check`
-* `check-engines`
-* `check-licenses`
+To adjust the installed version of WordPress, run `composer config extra.wordpress-version <new-version>` and then
+`composer install-wordpress`.
 
-## Testing
+### NPM Packages, Scripts & Building Frontend Assets
 
-A test suite is ready to use utilizing [Slic](https://github.com/stellarwp/slic). You can follow the instructions on the Slic readme to configure testing locally. Slic utilizes [WP-Browser](https://wpbrowser.wptestkit.dev/) and [Codeception](https://codeception.com/) to run tests in a docker container allowing us to use all the generate commands those libraries have to offer.
+NPM is used for managing frontend dependencies and npm scripts for managing the frontend assets. Learn more about the
+available scripts and how to use them in the [NPM Docs](./docs/npm.md).
 
-The only major setup config you must do for slic is set the php-version to 8.0 since the default is 7.4.  You can do this by running `slic php-version set 8.0`.
+### 1Password CLI
 
-Once Slic is installed, you can go to the project root and enter `slic here` telling slic that you want to run tests from this folder.  Then run `slic use site` telling slic that you want to run the tests for the full site and not just a singular plugin or theme. Then you are ready to start testing by running `slic run wpunit`. You can exchange out the `wpunit` for any of the testing suites you would like to run (`wpunit`, `unit`, `functional`, or `acceptance`).  
+The 1Password CLI can be used to automate the creation of the `auth.json` file for composer. This file is used to store
+credentials used by composer to install paid plugins like Advanced Custom Fields Pro and Gravity Forms. See the
+[1Password CLI Docs](./docs/1password-cli.md) for further details.
 
-## GitHub Actions
+### GitHub Actions
 
-We use GitHub Action as a CI for deployments, testing and many other features.  To learn more about each action, checkout the [./docs/actions.md](./docs/actions.md) for details.
+We use GitHub Action as a CI for deployments, testing and many other features. Take a look at the
+[GitHub Action Docs](./docs/actions.md) to learn more about each action.
 
-## Additional Documentation
+### Additional Documentation
+
 Specific features and functionality may have additional documentation in the [./docs](./docs) folder.
+
+* [Composer](./docs/composer.md)
+* [NPM Packages, Scripts & Building Assets](./docs/npm.md)
+* [1Password CLI](./docs/1password-cli.md)
 * [GitHub Actions](./docs/actions.md)
+* [PHP Tests](./docs/php-tests.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/wp-controls-templates.md)
 * [Supported Block Features](./docs/block-features.md)

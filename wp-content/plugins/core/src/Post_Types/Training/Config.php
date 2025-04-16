@@ -2,12 +2,11 @@
 
 namespace Tribe\Plugin\Post_Types\Training;
 
-use Tribe\Libs\Post_Type\Post_Type_Config;
+use Tribe\Plugin\Post_Types\Post_Type_Config;
 
 class Config extends Post_Type_Config {
 
-	// phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint
-	protected $post_type = Training::NAME;
+	protected string $post_type = Training::NAME;
 
 	public function get_args(): array {
 		return [
@@ -30,9 +29,10 @@ class Config extends Post_Type_Config {
 
 	public function get_labels(): array {
 		return [
-			'singular' => __( 'Training Doc', 'tribe' ),
-			'plural'   => __( 'Training Docs', 'tribe' ),
-			'slug'     => $this->post_type,
+			'singular'  => __( 'Training Doc', 'tribe' ),
+			'plural'    => __( 'Training Docs', 'tribe' ),
+			'menu_name' => __( 'Training', 'tribe' ),
+			'slug'      => $this->post_type,
 		];
 	}
 
@@ -83,7 +83,7 @@ class Config extends Post_Type_Config {
 	 * if not, send and display 404.
 	 */
 	public function send_404_unauthorized(): void {
-		if ( is_post_type_viewable( $this->post_type ) ) {
+		if ( is_post_type_viewable( get_post_type() ) || get_post_type() !== Training::NAME ) {
 			return;
 		}
 
