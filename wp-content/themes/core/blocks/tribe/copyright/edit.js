@@ -15,6 +15,8 @@ import { __ } from '@wordpress/i18n';
  * as well as a text field to add the year. There is another text field to override
  * the default site title text.
  *
+ * @ignore
+ *
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, isSelected, setAttributes } ) {
