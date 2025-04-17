@@ -46,7 +46,6 @@ final class ForcePluginActivation {
 		'advanced-custom-fields-pro/acf.php'                                => [ 'all' ],
 		'block-editor-custom-alignments/block-editor-custom-alignments.php' => [ 'all' ],
 		'core/core.php'                                                     => [ 'all' ],
-		'debug-bar/debug-bar.php'                                           => [ 'local', 'development' ],
 		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php'   => [ 'development', 'staging', 'production' ],
 		'tribe-glomar/tribe-glomar.php'                                     => [ 'development', 'staging' ],
 	];
