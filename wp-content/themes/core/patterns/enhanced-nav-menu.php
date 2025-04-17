@@ -1,5 +1,14 @@
-<!-- wp:group {"tagName":"footer","metadata":{"name":"Site Footer Pattern"},"align":"full","className":"site-footer alignfull is-style-dark","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"0"}},"layout":{"type":"constrained","justifyContent":"center"}} -->
-<footer class="wp-block-group site-footer alignfull is-style-dark" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"metadata":{"categories":["navigation","menu"],"patternName":"patterns/enhanced-nav-menu","name":"Enhanced Navigation Menu"},"align":"wide","className":"nav-menu__enhanced alignwide","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"right":"0","left":"0"}}},"layout":{"type":"default"}} -->
+<?php declare(strict_types=1);
+
+/**
+ * Title: Enhanced Navigation Menu
+ * Slug: patterns/enhanced-nav-menu
+ * Categories: navigation, menu
+ * Description: Menu layout that includes an image, a description, a button, and multiple navigation menus
+ * Keywords: menu, navigation, footer, mega nav
+ */
+?>
+<!-- wp:group {"metadata":{"categories":["navigation","menu"],"patternName":"patterns/enhanced-nav-menu","name":"Enhanced Navigation Menu"},"align":"wide","className":"nav-menu__enhanced alignwide","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"right":"0","left":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group nav-menu__enhanced alignwide" style="padding-right:0;padding-left:0"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"},"layout":{"selfStretch":"fixed","flexSize":"400px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"large","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
 <figure class="wp-block-image size-large" style="margin-top:0;margin-bottom:0"><img src="https://placehold.co/260x40" alt=""/></figure>
@@ -22,7 +31,7 @@
 <p class="is-style-default" style="margin-top:0;margin-bottom:0"><strong>Menu Title</strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:navigation {"ref":12,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"fontSize":"10","layout":{"type":"flex","flexWrap":"wrap","orientation":"vertical"}} /--></div>
+<!-- wp:navigation {"ref":31,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"wrap","orientation":"vertical"}} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"25%","stackingOrder":0} -->
@@ -30,7 +39,7 @@
 <p style="margin-top:0;margin-bottom:0"><strong>Menu Title</strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:navigation {"ref":14,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"fontSize":"10","layout":{"type":"flex","orientation":"vertical"}} /--></div>
+<!-- wp:navigation {"ref":32,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical"}} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"25%","stackingOrder":0} -->
@@ -41,25 +50,4 @@
 <div class="wp-block-column tribe-has-stacking-order" style="flex-basis:25%;--tribe-stacking-order:0"></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"wide","className":"site-footer__bottom alignwide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group site-footer__bottom alignwide" style="margin-top:var(--wp--preset--spacing--60)"><!-- wp:social-links {"iconColor":"base-white","iconColorValue":"#ffffff","className":"is-style-logos-only","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
-<ul class="wp-block-social-links has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"facebook","label":""} /-->
-
-<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
-
-<!-- wp:social-link {"url":"#","service":"x"} /-->
-
-<!-- wp:social-link {"url":"#","service":"tiktok"} /--></ul>
-<!-- /wp:social-links -->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:navigation {"ref":7,"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"fontSize":"10"} /-->
-
-<!-- wp:tribe/copyright -->
-<span class="wp-block-tribe-copyright">Copyright © 2025 Moose</span>
-<!-- /wp:tribe/copyright --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></footer>
 <!-- /wp:group -->
