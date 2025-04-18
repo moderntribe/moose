@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare( strict_types=1 );
 
 /**
  * Base environment configuration, loaded for all environments (including automated tests)
@@ -9,8 +9,8 @@ function tribe_isSSL(): bool {
 }
 
 /**
- * @param  string  $name
- * @param  mixed   $default
+ * @param string $name
+ * @param mixed $default
  *
  * @return array|int|mixed|string|null
  */
@@ -26,19 +26,20 @@ function tribe_getenv( string $name, $default = null ) {
 	}
 
 	if ( is_numeric( $env ) ) {
-		return  $env - 0;
+		return $env - 0;
 	}
 
 	return $env;
 }
 
+if ( is_readable( require_once __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+}
 
 if ( file_exists( __DIR__ . '/.env' ) ) {
-	require_once __DIR__ . '/vendor/autoload.php';
 	$dotenv = Dotenv\Dotenv::createUnsafeImmutable( __DIR__ );
 	$dotenv->load();
 }
-
 
 if ( file_exists( __DIR__ . '/local-config.php' ) ) {
 	include __DIR__ . '/local-config.php';
@@ -57,7 +58,6 @@ if ( ! defined( 'DB_NAME' ) && tribe_getenv( 'DATABASE_URL', false ) ) {
 	/** MySQL hostname */
 	define( 'DB_HOST', $DSN['host'] );
 }
-
 
 // ==============================================================
 // Assign default constant values
@@ -205,7 +205,12 @@ if ( empty( $GLOBALS['table_prefix'] ) ) {
 }
 
 if ( empty( $GLOBALS['memcached_servers'] ) ) {
-	$GLOBALS['memcached_servers'] = [ [ tribe_getenv( 'MEMCACHED_HOST', 'memcached' ), tribe_getenv( 'MEMCACHED_PORT', '11211' ) ] ];
+	$GLOBALS['memcached_servers'] = [
+		[
+			tribe_getenv( 'MEMCACHED_HOST', 'memcached' ),
+			tribe_getenv( 'MEMCACHED_PORT', '11211' )
+		]
+	];
 }
 
 // ==============================================================
