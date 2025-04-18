@@ -32,7 +32,7 @@ function tribe_getenv( string $name, $default = null ) {
 	return $env;
 }
 
-if ( is_readable( require_once __DIR__ . '/vendor/autoload.php' ) ) {
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
 
