@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/mega-nav-item",
+	"version": "0.1.0",
+	"title": "Mega Navigation Menu Item",
+	"category": "theme",
+	"icon": "editor-kitchensink",
+	"description": "A block for adding enhanced dropdown menus to navigation menus",
+	"attributes": {
+		"menuToggleLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"grid",
+			"full"
+		],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -41,6 +41,7 @@ class Blocks_Definer implements Definer_Interface {
 			self::TYPES           => DI\add( [
 				'tribe/terms',
 				'tribe/copyright',
+				'tribe/mega-nav-item',
 			] ),
 
 			self::EXTENDED        => DI\add( [
