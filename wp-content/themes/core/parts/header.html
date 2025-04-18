@@ -1,11 +1,17 @@
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
-	<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)">
-		<!-- wp:site-title {"level":0} /-->
-		<!-- wp:site-tagline /-->
-		<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} /-->
-	</div>
-	<!-- /wp:group -->
-</div>
+<!-- wp:group {"className":"aligngrid","layout":{"type":"constrained","justifyContent":"right"}} -->
+<div class="wp-block-group aligngrid"><!-- wp:navigation {"ref":27,"overlayMenu":"never","layout":{"type":"flex","justifyContent":"right"}} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"alignfull","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"align":"wide","className":"alignwide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:site-title {"level":0} /-->
+
+<!-- wp:template-part {"slug":"mega-nav","theme":"core","tagName":"ul","area":"uncategorized","className":"site-header__navigation"} /-->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"hasIcon":false} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Masthead CTA</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
