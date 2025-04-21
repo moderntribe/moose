@@ -21,7 +21,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	return (
 		<div { ...blockProps }>
 			{ menuToggleLabel ? <button type="button" className="tribe-mega-menu-item__toggle" data-js="menu-menu-toggle">{ menuToggleLabel }</button> : '' }
-			<InnerBlocks template={ TEMPLATE } />
+			<div className="site-header__mega-menu-item-wrapper">
+				<InnerBlocks template={ TEMPLATE } />
+			</div>
 			{ isSelected && (
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'tribe' ) }>

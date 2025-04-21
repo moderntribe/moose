@@ -10,12 +10,47 @@
 
 	.nav-menu__enhanced {
 
-		@media (--mq-desktop) {
-			position: absolute;
-			left: 0;
-			top: 100%;
-			padding: 0 var(--spacer-50);
-			z-index: 10;
+		@container megamenu (max-width: 779px) {
+
+			.wp-block-group {
+				display: flex;
+				flex-flow: column nowrap;
+				flex-basis: unset;
+			}
+
+			.wp-block-columns {
+				width: 100%;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+			}
 		}
+
+		.wp-block-navigation-item {
+
+			a {
+
+				@mixin inline-text-link;
+
+				text-decoration-color: transparent;
+				font-weight: var(--font-weight-normal);
+			}
+		}
+	}
+}
+
+.site-header__mega-menu-item-wrapper {
+	width: 100%;
+	padding-left: var(--wp--style--root--padding-right);
+	padding-right: var(--wp--style--root--padding-right);
+	background-color: var(--color-white);
+	color: var(--color-text);
+	container-type: inline-size;
+	container-name: megamenu;
+
+	@media (--mq-desktop) {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 10;
 	}
 }

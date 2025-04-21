@@ -12,14 +12,18 @@ div.site-header__navigation-wrapper {
 
 .site-header__navigation {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(var(--masthead-navigation-item-column-width), auto));
+	grid-template-columns: 1fr;
 	grid-gap: var(--masthead-navigation-column-gap);
-	align-items: center;
-	justify-content: center;
-	grid-auto-flow: column;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+
+	@media (--mq-desktop) {
+		grid-template-columns: repeat(auto-fit, minmax(var(--masthead-navigation-item-column-width), auto));
+		align-items: center;
+		justify-content: center;
+		grid-auto-flow: column;
+	}
 
 	.wp-block-tribe-mega-nav {
 		margin: 0 auto;

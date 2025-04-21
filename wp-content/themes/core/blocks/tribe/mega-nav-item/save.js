@@ -8,7 +8,9 @@ export default function save( { attributes } ) {
 	return (
 		<li { ...blockProps }>
 			{ menuToggleLabel ? <button type="button" className="tribe-mega-menu-item__toggle" data-js="menu-menu-toggle">{ menuToggleLabel }</button> : '' }
-			<InnerBlocks.Content />
+			<div className="site-header__mega-menu-item-wrapper">
+				<InnerBlocks.Content />
+			</div>
 		</li>
 	);
 }
