@@ -1,13 +1,14 @@
 :root {
 	--masthead-primary-column-width: 160px;
 	--masthead-navigation-item-column-width: 120px;
-	--masthead-navigation-column-gap: var(--spacer-50);
+	--masthead-navigation-column-gap: var(--spacer-20);
 }
 
 .site-header__navigation-wrapper,
 div.site-header__navigation-wrapper {
 	display: grid;
 	grid-template-columns: minmax(var(--masthead-primary-column-width), auto) 1fr minmax(var(--masthead-primary-column-width), auto);
+	align-items: flex-start;
 }
 
 .site-header__navigation {
@@ -23,6 +24,8 @@ div.site-header__navigation-wrapper {
 		align-items: center;
 		justify-content: center;
 		grid-auto-flow: column;
+		align-self: stretch;
+		align-content: stretch;
 	}
 
 	.wp-block-tribe-mega-nav {

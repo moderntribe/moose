@@ -11,7 +11,7 @@ export default function save( { attributes } ) {
 				<button
 					type="button"
 					className="tribe-mega-menu-item__toggle"
-					data-js="menu-menu-toggle"
+					data-js="menu-item-toggle"
 				>
 					{ menuToggleLabel }
 				</button>

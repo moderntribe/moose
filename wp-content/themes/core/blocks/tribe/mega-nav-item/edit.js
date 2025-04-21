@@ -28,7 +28,6 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				<button
 					type="button"
 					className="tribe-mega-menu-item__toggle"
-					data-js="menu-menu-toggle"
 				>
 					{ menuToggleLabel }
 				</button>

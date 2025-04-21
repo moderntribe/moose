@@ -1,25 +1,48 @@
 /**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
+ * Mega Nav Item view script.
  *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your block doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
+ * Controls front end UI interactions with the mega-nav-item block in the masthead.
  */
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from tribe-mega-nav block)' );
-/* eslint-enable no-console */
+import { ready, triggerCustomEvent } from 'utils/events.js';
+
+const el = {
+	megaMenuItems: document.querySelectorAll( '.wp-block-tribe-mega-nav-item' ),
+}
+
+const cacheElements = () => {
+	el.masthead = document.querySelector( '.site-header' );
+};
+
+const maybeResetMenuItems = () => {
+	el.megaMenuItems.forEach( item => item.classList.remove( 'menu-item-active' ) );
+};
+
+const handleItemToggle = (event) => {
+	const menuButton = event.currentTarget;
+	const wrapper = menuButton.parentNode;
+
+	// When opening a mega menu item that is not currently open, check to see if we need to close any open menu items.
+	if ( ! wrapper.classList.contains( 'menu-item-active' ) ) {
+		maybeResetMenuItems();
+	}
+
+	wrapper.classList.toggle( 'menu-item-active' );
+};
+
+const bindEvents = () => {
+	el.megaMenuItems.forEach( (item) => {
+		item.querySelector( '[data-js="menu-item-toggle"]' ).addEventListener( 'click', handleItemToggle );
+	} );
+};
+
+const init = () => {
+	if ( ! el.megaMenuItems || el.megaMenuItems.length <= 0 ) {
+		return;
+	}
+
+	cacheElements();
+	bindEvents();
+};
+
+ready( init );
