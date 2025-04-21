@@ -15,10 +15,7 @@
 	},
 	"supports": {
 		"html": false,
-		"align": [
-			"grid",
-			"full"
-		],
+		"align": [ "grid", "full" ],
 		"spacing": {
 			"margin": true,
 			"padding": true
