@@ -42,6 +42,8 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/terms',
 				'tribe/copyright',
 				'tribe/mega-nav-item',
+				'tribe/menu-toggle',
+				'tribe/site-search',
 			] ),
 
 			self::EXTENDED        => DI\add( [
