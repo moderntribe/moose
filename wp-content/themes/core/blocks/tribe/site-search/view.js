@@ -69,12 +69,16 @@ const handlePropagation = ( e ) => {
 };
 
 const cacheElements = () => {
-	el.wrapper = document.querySelector( '[data-js="site-header-search-wrapper"]' );
+	el.wrapper = document.querySelector(
+		'[data-js="site-header-search-wrapper"]'
+	);
 	el.toggle = el.wrapper.querySelector( '[data-js="toggle-search-overlay"]' );
 	el.overlay = el.wrapper.querySelector(
 		'[data-js="site-header-search-overlay"]'
 	);
-	el.input = el.wrapper.querySelector( '.site-header-search__overlay-form-input' );
+	el.input = el.wrapper.querySelector(
+		'.site-header-search__overlay-form-input'
+	);
 };
 
 /**

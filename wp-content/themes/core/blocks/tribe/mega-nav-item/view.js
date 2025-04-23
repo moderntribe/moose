@@ -52,7 +52,10 @@ const bindEvents = () => {
 		);
 	} );
 
-	document.addEventListener( 'modern_tribe/search_open', maybeResetMenuItems );
+	document.addEventListener(
+		'modern_tribe/search_open',
+		maybeResetMenuItems
+	);
 };
 
 const init = () => {

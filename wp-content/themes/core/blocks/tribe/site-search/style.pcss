@@ -32,8 +32,6 @@
 	display: none;
 	background: var(--color-white);
 	padding: var(--spacer-20) 0;
-	box-shadow: var(--box-shadow-30);
-	visibility: hidden;
 
 	@media (--mq-navigation) {
 		padding: var(--spacer-30) var(--wp--style--root--padding-left);
@@ -42,6 +40,8 @@
 		top: 100%;
 		width: 100%;
 		border-top: 1px solid var(--color-neutral-30);
+		box-shadow: var(--box-shadow-30);
+		visibility: hidden;
 		z-index: -1;
 
 		.active & {
