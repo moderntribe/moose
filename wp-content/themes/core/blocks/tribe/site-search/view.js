@@ -92,7 +92,7 @@ const bindEvents = () => {
 			toggleOverlayOff
 		);
 		document.addEventListener(
-			'modern_tribe/menu_item_open',
+			'modern_tribe/mega_menu_open',
 			toggleOverlayOff
 		);
 	}

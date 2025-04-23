@@ -51,6 +51,8 @@ const bindEvents = () => {
 			handleItemToggle
 		);
 	} );
+
+	document.addEventListener( 'modern_tribe/search_open', maybeResetMenuItems );
 };
 
 const init = () => {
