@@ -44,6 +44,8 @@
 	border: 0;
 	padding: var(--spacer-10) var(--spacer-30) var(--spacer-20) var(--spacer-10);
 	position: relative;
+	color: var(--color-text);
+	transition: var(--transition);
 
 	&::before {
 		content: "";
@@ -74,6 +76,7 @@
 	}
 
 	.menu-item-active & {
+		color: var(--masthead-navigation-accent-color);
 
 		&::before {
 			width: calc(100% - var(--spacer-10));
@@ -87,6 +90,7 @@
 	&:hover,
 	&:focus-visible {
 		outline: none;
+		color: var(--masthead-navigation-accent-color);
 
 		&::before {
 			width: calc(100% - var(--spacer-10));
