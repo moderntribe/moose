@@ -45,13 +45,11 @@
 	padding: var(--spacer-10) var(--spacer-30) var(--spacer-20) var(--spacer-10);
 	position: relative;
 
-	@mixin t-body;
-
 	&::before {
 		content: "";
 		width: 0;
 		height: 4px;
-		background-color: var(--themed-link-hover-text-color);
+		background-color: var(--masthead-navigation-accent-color);
 		position: absolute;
 		bottom: -1px;
 		left: var(--spacer-10);
@@ -83,6 +81,15 @@
 
 		&::after {
 			transform: rotate(-90deg);
+		}
+	}
+
+	&:hover,
+	&:focus-visible {
+		outline: none;
+
+		&::before {
+			width: calc(100% - var(--spacer-10));
 		}
 	}
 }

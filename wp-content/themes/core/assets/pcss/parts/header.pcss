@@ -2,6 +2,8 @@
 	--masthead-primary-column-width: 160px;
 	--masthead-navigation-item-column-width: 120px;
 	--masthead-navigation-column-gap: var(--spacer-30);
+	--masthead-navigation-accent-color: var(--color-blue);
+	--themed-link-hover-text-color: var(--color-text);
 }
 
 .site-header__navigation-wrapper,
@@ -36,7 +38,11 @@ div.site-header__navigation-wrapper {
 .site-header__utility-nav {
 
 	.wp-block-navigation-item__content {
+
+		@mixin inline-text-link;
+
 		padding: 4px 0;
+		font-weight: var(--font-weight-normal);
 	}
 
 	.wp-block-navigation-submenu__toggle {
