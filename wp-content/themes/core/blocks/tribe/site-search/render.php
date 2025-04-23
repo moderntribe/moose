@@ -13,14 +13,14 @@ $search_icon = '<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmln
 ';
 
 ?>
-<div class="global-search" data-js="global-search-wrapper">
-	<button type="button" class="global-search__icon" data-js="toggle-search-overlay" title="<?php echo esc_attr__( 'Toggle Search Overlay', 'tribe' ); ?>">
+<div class="site-header-search" data-js="site-header-search-wrapper">
+	<button type="button" class="site-header-search__icon" data-js="toggle-search-overlay" title="<?php echo esc_attr__( 'Toggle Search Overlay', 'tribe' ); ?>">
 		<?php echo $search_icon; ?>
 	</button>
-	<div class="global-search__overlay" data-js="global-search-overlay" aria-hidden="true">
-		<form class="global-search__overlay-form" action="<?php echo esc_url( home_url() ); ?>" method="GET">
-			<input type="text" name="s" class="global-search__overlay-form-input" placeholder="<?php echo esc_html__( 'What are you looking for?', 'tribe' ); ?>">
-			<button type="submit" class="global-search__overlay-form-submit" title="<?php echo esc_attr__( 'Search', 'tribe' ); ?>">
+	<div class="site-header-search__overlay" data-js="site-header-search-overlay" aria-hidden="true">
+		<form class="site-header-search__overlay-form" action="<?php echo esc_url( home_url() ); ?>" method="GET">
+			<input type="text" name="s" class="site-header-search__overlay-form-input" placeholder="<?php echo esc_html__( 'What are you looking for?', 'tribe' ); ?>">
+			<button type="submit" class="site-header-search__overlay-form-submit" title="<?php echo esc_attr__( 'Search', 'tribe' ); ?>">
 				<?php echo $search_icon; ?>
 			</button>
 		</form>

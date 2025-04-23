@@ -1,5 +1,5 @@
-.global-search__icon,
-.global-search__overlay-form-submit {
+.site-header-search__icon,
+.site-header-search__overlay-form-submit {
 	display: none;
 	align-items: center;
 	background-color: initial;
@@ -10,45 +10,42 @@
 	justify-content: center;
 	width: 32px;
 	padding: 0;
-	color: var(--color-neutral-90);
+	color: var(--color-text);
 	transition: var(--transition);
 
 	@media (--mq-navigation) {
 		display: flex;
 	}
 
-	svg {
-		stroke: currentcolor;
-	}
-
 	&:hover,
 	&:focus-visible {
-		color: var(--color-cobalt);
+		color: var(--color-blue);
 	}
 }
 
-.global-search__overlay-form-submit {
+.site-header-search__overlay-form-submit {
 	display: flex;
+	color: var(--color-neutral-50);
 }
 
-.global-search__overlay {
+.site-header-search__overlay {
 	display: none;
 	background: var(--color-white);
-	border-bottom: 1px solid var(--color-neutral-20);
-	padding: var(--spacer-15) 0;
+	padding: var(--spacer-20) 0;
+	box-shadow: var(--box-shadow-30);
 	visibility: hidden;
 
 	@media (--mq-navigation) {
-		display: flex;
-		padding: var(--spacer-15) var(--wp--style--root--padding-left);
+		padding: var(--spacer-30) var(--wp--style--root--padding-left);
 		position: absolute;
 		left: 0;
 		top: 100%;
 		width: 100%;
-		border-top: 1px solid var(--color-neutral-20);
+		border-top: 1px solid var(--color-neutral-30);
 		z-index: -1;
 
 		.active & {
+			display: flex;
 			visibility: visible;
 			z-index: 10;
 		}
@@ -65,31 +62,25 @@
 	}
 }
 
-.global-search__overlay-form {
+.site-header-search__overlay-form {
 	width: 100%;
-	max-width: var(--grid-max-width);
+	max-width: var(--grid-content-width);
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 1fr auto;
-	grid-gap: var(--spacer-60);
-	padding: var(--spacer-25) 0;
-
-	.in-mobile-menu & {
-		padding: var(--spacer-20) 0;
-	}
+	grid-gap: var(--spacer-20);
+	padding: var(--spacer-20);
+	border: 1px solid var(--color-neutral-30);
+	border-radius: var(--border-radius-s);
 }
 
-.global-search__overlay-form-input {
+.site-header-search__overlay-form-input {
 	border: 0;
-	border-bottom: 1px solid transparent;
 
 	@mixin t-body;
 
 	&:focus-visible {
 		outline: none;
-
-		@media (--mq-navigation) {
-			border-bottom: 1px solid var(--color-neutral-30);
-		}
+		border-bottom: 1px solid var(--color-neutral-20);
 	}
 }

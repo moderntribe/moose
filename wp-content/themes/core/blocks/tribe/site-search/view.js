@@ -3,11 +3,8 @@ import { bodyLock } from 'utils/tools.js';
 import { HEADER_BREAKPOINT } from 'config/options.js';
 
 const el = {
-	header: null,
-	wrapper: null,
-	toggle: null,
-	overlay: null,
-	input: null,
+	header: document.querySelector( '.site-header' ),
+	wrapper: document.querySelector( '[data-js="site-header-search-wrapper"]' ),
 };
 
 const state = {
@@ -71,6 +68,15 @@ const handlePropagation = ( e ) => {
 	e.stopPropagation();
 };
 
+const cacheElements = () => {
+	el.wrapper = document.querySelector( '[data-js="site-header-search-wrapper"]' );
+	el.toggle = el.wrapper.querySelector( '[data-js="toggle-search-overlay"]' );
+	el.overlay = el.wrapper.querySelector(
+		'[data-js="site-header-search-overlay"]'
+	);
+	el.input = el.wrapper.querySelector( '.site-header-search__overlay-form-input' );
+};
+
 /**
  * @function bindEvents
  *
@@ -93,25 +99,17 @@ const bindEvents = () => {
 };
 
 /**
- * @function initGlobalSearch
+ * @function initSearch
  *
  * @description sets up events on elements / initial classes
  */
-const initGlobalSearch = () => {
-	el.header = document.querySelector( '.site-header' );
-	el.wrapper = document.querySelector( '[data-js="global-search-wrapper"]' );
-
-	if ( ! el.wrapper ) {
+const initSearch = () => {
+	if ( ! el.header ) {
 		return;
 	}
 
-	el.toggle = el.wrapper.querySelector( '[data-js="toggle-search-overlay"]' );
-	el.overlay = el.wrapper.querySelector(
-		'[data-js="global-search-overlay"]'
-	);
-	el.input = el.wrapper.querySelector( '.global-search__overlay-form-input' );
-
+	cacheElements();
 	bindEvents();
 };
 
-ready( initGlobalSearch );
+ready( initSearch );
