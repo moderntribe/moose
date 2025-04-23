@@ -15,7 +15,7 @@ const state = {
 	elementsCloned: false,
 }
 
-const duplicateNode = ( wrapper, node, prepend = true ) => {
+const insertClonedNode = ( wrapper, node, prepend = true ) => {
 	node.classList.add( 'cloned-mobile-element' );
 
 	if ( ! prepend ) {
@@ -33,16 +33,9 @@ const createMobileMenu = () => {
 	 * USAGE: duplicate elements in the order you need them to stack. If you're prepending, duplicate the bottom element
 	 * first. Order will be bottom to top. If you're appending, duplicate top item 1st.
 	 */
-	duplicateNode( el.navigation, el.search );
-	duplicateNode( el.navigation, el.cta );
-	duplicateNode( el.navigation, el.utilityNav, false );
-};
-
-const handleResize = () => {
-	if ( window.innerWidth < HEADER_BREAKPOINT && ! state.elementsCloned ) {
-		cloneElements();
-		createMobileMenu();
-	}
+	insertClonedNode( el.navigation, el.search );
+	insertClonedNode( el.navigation, el.cta );
+	insertClonedNode( el.navigation, el.utilityNav, false );
 };
 
 const cloneElements = () => {
@@ -54,6 +47,13 @@ const cloneElements = () => {
 		.querySelector( '.site-header__utility-nav' )
 		.cloneNode( true );
 	state.elementsCloned = true;
+};
+
+const handleResize = () => {
+	if ( window.innerWidth < HEADER_BREAKPOINT && ! state.elementsCloned ) {
+		cloneElements();
+		createMobileMenu();
+	}
 };
 
 const bindEvents = () => {
