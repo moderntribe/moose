@@ -4,7 +4,6 @@
  * @description global masthead and navigation scripts for mobile and desktop.
  */
 
-import { triggerCustomEvent } from 'utils/events.js';
 import { HEADER_BREAKPOINT } from 'config/options.js';
 
 const el = {
