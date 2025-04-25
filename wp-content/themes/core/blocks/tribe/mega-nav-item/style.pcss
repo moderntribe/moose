@@ -47,6 +47,12 @@
 	color: var(--color-text);
 	transition: var(--transition);
 
+	@media (--mq-navigation-max) {
+		width: 100%;
+		text-align: left;
+		padding-left: 0;
+	}
+
 	&::before {
 		content: "";
 		width: 0;
@@ -57,6 +63,11 @@
 		left: var(--spacer-10);
 		transition: width 0.15s ease-in-out;
 		z-index: 11;
+
+		@media (--mq-navigation-max) {
+			left: 0;
+			transition-duration: 0.25s;
+		}
 	}
 
 	&::after {
@@ -75,7 +86,10 @@
 
 	}
 
+	&:hover,
+	&:focus-visible,
 	.menu-item-active & {
+		outline: none;
 		color: var(--masthead-navigation-accent-color);
 
 		&::before {
@@ -85,15 +99,12 @@
 		&::after {
 			transform: rotate(-90deg);
 		}
-	}
 
-	&:hover,
-	&:focus-visible {
-		outline: none;
-		color: var(--masthead-navigation-accent-color);
+		@media (--mq-navigation-max) {
 
-		&::before {
-			width: calc(100% - var(--spacer-10));
+			&::before {
+				width: 100%;
+			}
 		}
 	}
 }
