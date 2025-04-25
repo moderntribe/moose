@@ -6,6 +6,8 @@
 	--masthead-navigation-background-color: var(--color-white);
 	--masthead-navigation-text-color: var(--color-text);
 	--masthead-navigation-accent-color: var(--color-blue);
+	--masthead-navigation-border-color: var(--color-neutral-30);
+	--masthead-navigation-shadow: var(--box-shadow-30);
 	--themed-link-hover-text-color: var(--color-text);
 }
 
@@ -64,8 +66,8 @@
 		@media (--mq-navigation) {
 			padding: var(--spacer-20);
 			border-radius: var(--border-radius-s);
-			border: 1px solid var(--color-neutral-30) !important;
-			box-shadow: var(--box-shadow-30);
+			border: 1px solid var(--masthead-navigation-border-color) !important;
+			box-shadow: var(--masthead-navigation-shadow);
 		}
 	}
 }

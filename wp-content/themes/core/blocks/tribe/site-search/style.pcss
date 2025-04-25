@@ -30,7 +30,7 @@
 
 .site-header-search__overlay {
 	display: none;
-	background: var(--color-white);
+	background: var(--masthead-navigation-background-color);
 	padding: var(--spacer-20) 0;
 
 	@media (--mq-navigation) {
@@ -39,8 +39,8 @@
 		left: 0;
 		top: 100%;
 		width: 100%;
-		border-top: 1px solid var(--color-neutral-30);
-		box-shadow: var(--box-shadow-30);
+		border-top: 1px solid var(--masthead-navigation-border-color);
+		box-shadow: var(--masthead-navigation-shadow);
 		visibility: hidden;
 		z-index: -1;
 
@@ -70,7 +70,7 @@
 	grid-template-columns: 1fr auto;
 	grid-gap: var(--spacer-20);
 	padding: var(--spacer-20);
-	border: 1px solid var(--color-neutral-30);
+	border: 1px solid var(--masthead-navigation-border-color);
 	border-radius: var(--border-radius-s);
 }
 
@@ -79,6 +79,7 @@
 
 	@mixin t-body;
 
+	/* USE CASE: focused input field needs a visual indicator */
 	&:focus-visible {
 		outline: none;
 		border-bottom: 1px solid var(--color-neutral-20);
