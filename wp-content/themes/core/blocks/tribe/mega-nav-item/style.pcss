@@ -96,15 +96,18 @@
 			width: calc(100% - var(--spacer-10));
 		}
 
-		&::after {
-			transform: rotate(-90deg);
-		}
-
 		@media (--mq-navigation-max) {
 
 			&::before {
 				width: 100%;
 			}
+		}
+	}
+
+	.menu-item-active & {
+
+		&::after {
+			transform: rotate(-90deg);
 		}
 	}
 }

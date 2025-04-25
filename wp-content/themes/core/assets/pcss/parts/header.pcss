@@ -2,13 +2,17 @@
 	--masthead-height: 56px;
 	--masthead-primary-column-width: 160px;
 	--masthead-navigation-item-column-width: 120px;
-	--masthead-navigation-column-gap: var(--spacer-30);
+	--masthead-navigation-column-gap: var(--spacer-40);
 	--masthead-navigation-background-color: var(--color-white);
 	--masthead-navigation-text-color: var(--color-text);
 	--masthead-navigation-accent-color: var(--color-blue);
 	--masthead-navigation-border-color: var(--color-neutral-30);
 	--masthead-navigation-shadow: var(--box-shadow-30);
 	--themed-link-hover-text-color: var(--color-text);
+
+	@media (--mq-navigation) {
+		--masthead-navigation-column-gap: var(--spacer-30);
+	}
 }
 
 .site-header {
@@ -172,5 +176,21 @@ div.site-header__navigation-wrapper {
 
 	.wp-block-tribe-mega-nav {
 		margin: 0 auto;
+	}
+}
+
+.site-header__cta {
+
+	@media (--mq-navigation-max) {
+		position: sticky;
+		top: 0;
+
+		.wp-block-button {
+			width: 100%;
+		}
+
+		.wp-block-button__link {
+			display: block;
+		}
 	}
 }
