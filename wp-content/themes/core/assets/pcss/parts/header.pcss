@@ -1,12 +1,19 @@
 :root {
+	--masthead-height: 56px;
 	--masthead-primary-column-width: 160px;
 	--masthead-navigation-item-column-width: 120px;
 	--masthead-navigation-column-gap: var(--spacer-30);
+	--masthead-navigation-background-color: var(--color-white);
+	--masthead-navigation-text-color: var(--color-text);
 	--masthead-navigation-accent-color: var(--color-blue);
 	--themed-link-hover-text-color: var(--color-text);
 }
 
 .site-header {
+
+	> .wp-block-group {
+		gap: var(--spacer-10);
+	}
 
 	.site-header__cta:not(.cloned-mobile-element),
 	.site-header__utility-nav:not(.cloned-mobile-element) {
@@ -26,63 +33,12 @@
 	}
 }
 
-.site-header__navigation-wrapper,
-div.site-header__navigation-wrapper {
-	display: grid;
-	grid-template-areas:
-		"logo toggle"
-		"menu menu";
-	justify-content: space-between;
-	grid-template-columns: 1fr auto;
-
-	.wp-block-site-title,
-	.wp-block-site-logo {
-		grid-area: logo;
-	}
-
-	.site-header__features {
-		grid-area: toggle;
-	}
-
-	@media (--mq-navigation) {
-		grid-template-areas: none;
-		justify-content: unset;
-		grid-template-columns: minmax(var(--masthead-primary-column-width), auto) 1fr minmax(var(--masthead-primary-column-width), auto);
-
-		.site-header__features,
-		.wp-block-site-title,
-		.wp-block-site-logo {
-			grid-area: unset;
-		}
-	}
-}
-
-.site-header__navigation {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-gap: var(--masthead-navigation-column-gap);
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	grid-area: menu;
-
-	@media (--mq-navigation) {
-		grid-area: unset;
-		grid-template-columns: repeat(auto-fit, minmax(var(--masthead-navigation-item-column-width), auto));
-		align-items: center;
-		justify-content: center;
-		grid-auto-flow: column;
-		align-self: stretch;
-		align-content: end;
-	}
-
-	.wp-block-tribe-mega-nav {
-		margin: 0 auto;
-	}
-}
-
 /* Utility Navigation Styles */
 .site-header__utility-nav {
+
+	@media (--mq-navigation) {
+		padding-top: var(--spacer-10);
+	}
 
 	.wp-block-navigation-item__content {
 
@@ -111,5 +67,108 @@ div.site-header__navigation-wrapper {
 			border: 1px solid var(--color-neutral-30) !important;
 			box-shadow: var(--box-shadow-30);
 		}
+	}
+}
+
+/* Primary Navigation Styles */
+
+.site-header__primary-nav {
+
+	@media (--mq-navigation-max) {
+
+		/* Static value is required here for mobile calculations */
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+}
+
+.site-header__navigation-wrapper,
+div.site-header__navigation-wrapper {
+	display: grid;
+	grid-template-areas:
+		"logo toggle"
+		"menu menu";
+	justify-content: space-between;
+	grid-template-columns: 1fr auto;
+
+	.wp-block-site-title,
+	.wp-block-site-logo {
+		line-height: 1;
+		grid-area: logo;
+	}
+
+	.site-header__features {
+		grid-area: toggle;
+	}
+
+	@media (--mq-navigation-max) {
+
+		/* remove blockGap setting for mobile */
+		grid-gap: 0;
+
+		.site-header__features {
+			align-self: center;
+		}
+	}
+
+	@media (--mq-navigation) {
+		grid-template-areas: none;
+		justify-content: unset;
+		grid-template-columns: minmax(var(--masthead-primary-column-width), auto) 1fr minmax(var(--masthead-primary-column-width), auto);
+
+		.site-header__features,
+		.wp-block-site-title,
+		.wp-block-site-logo {
+			grid-area: unset;
+		}
+	}
+}
+
+.site-header__navigation {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: var(--masthead-navigation-column-gap);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	grid-area: menu;
+	position: absolute;
+	background-color: var(--masthead-navigation-background-color);
+
+	@media (--mq-navigation-max) {
+		display: none;
+		align-items: start;
+		align-content: start;
+		left: 0;
+		top: var(--masthead-height);
+		width: 100%;
+		height: calc(100vh - var(--masthead-height));
+		padding: var(--spacer-30) var(--wp--style--root--padding-left);
+		z-index: 10;
+		overflow-y: scroll;
+		scroll-behavior: smooth;
+
+		.admin-bar & {
+			height: calc(100vh - var(--masthead-height) - var(--wp-admin--admin-bar--height));
+		}
+
+		.mobile-menu-shown & {
+			display: grid;
+		}
+	}
+
+	@media (--mq-navigation) {
+		position: unset;
+		grid-area: unset;
+		grid-template-columns: repeat(auto-fit, minmax(var(--masthead-navigation-item-column-width), auto));
+		align-items: center;
+		justify-content: center;
+		grid-auto-flow: column;
+		align-self: stretch;
+		align-content: end;
+	}
+
+	.wp-block-tribe-mega-nav {
+		margin: 0 auto;
 	}
 }

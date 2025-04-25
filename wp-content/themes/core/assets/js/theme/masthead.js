@@ -13,7 +13,7 @@ const el = {
 
 const state = {
 	elementsCloned: false,
-}
+};
 
 const insertClonedNode = ( wrapper, node, prepend = true ) => {
 	node.classList.add( 'cloned-mobile-element' );
@@ -65,7 +65,7 @@ const init = () => {
 		return;
 	}
 
-	if (window.innerWidth < HEADER_BREAKPOINT) {
+	if ( window.innerWidth < HEADER_BREAKPOINT ) {
 		cloneElements();
 		createMobileMenu();
 	}
