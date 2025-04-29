@@ -6,6 +6,10 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.02]
 - Chore: WordPress plugin updates.
+- Update: Enabled blogGap support for group, and navigation blocks.
+- Added: Footer template and basic styles updated to the latest Figma design.
+- Added: New pattern for enhanced menu layouts that can be used with the footer and as a mega menu starter.
+- Added: New custom Tribe block for copyright text in the footer.
 
 ## [2025.01]
 - Chore: WordPress plugin updates, Composer & NPM package updates.
