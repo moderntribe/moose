@@ -6,6 +6,7 @@
 	"title": "Copyright",
 	"category": "theme",
 	"description": "Displays the copyright information for the site.",
+	"icon": "info-outline",
 	"supports": {
 		"html": false,
 		"align": true,

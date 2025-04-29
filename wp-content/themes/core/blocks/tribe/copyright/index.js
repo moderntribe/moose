@@ -29,11 +29,6 @@ import metadata from './block.json';
 registerBlockType( metadata.name, {
 	...metadata,
 
-	icon: {
-		src: 'copyright',
-		foreground: '#fcb900',
-	},
-
 	/**
 	 * @see ./edit.js
 	 */
