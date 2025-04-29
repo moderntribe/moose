@@ -27,11 +27,16 @@
 	.wp-block-navigation-item {
 
 		a {
-
-			@mixin inline-text-link;
-
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
 			text-decoration-color: transparent;
 			font-weight: var(--font-weight-normal);
+			transition: var(--transition);
+
+			&:hover,
+			&:focus-visible {
+				text-decoration-color: currentcolor;
+			}
 		}
 	}
 
