@@ -42,7 +42,9 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/terms',
 				'tribe/copyright',
 				'tribe/mega-nav-item',
+				'tribe/mega-nav-standard-item',
 				'tribe/menu-toggle',
+				'tribe/navigation-link',
 				'tribe/site-search',
 			] ),
 
