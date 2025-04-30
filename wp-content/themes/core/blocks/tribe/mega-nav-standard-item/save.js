@@ -16,9 +16,13 @@ export default function save( { attributes } ) {
 					{ menuToggleLabel }
 				</button>
 			) }
-			<div className="site-header__standard-menu-item-wrapper">
+			{ hasSubMenu ? (
+				<div className="site-header__standard-menu-item-wrapper">
+					<InnerBlocks.Content />
+				</div>
+			) : (
 				<InnerBlocks.Content />
-			</div>
+			) }
 		</li>
 	);
 }
