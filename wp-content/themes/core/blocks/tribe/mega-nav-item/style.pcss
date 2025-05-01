@@ -116,14 +116,13 @@
 /* enhanced menu pattern wrapper */
 .site-header__mega-menu-item-wrapper {
 	width: 100%;
-	padding: var(--spacer-50) var(--wp--style--root--padding-right);
+	padding: var(--spacer-20) 0;
 	background-color: var(--masthead-navigation-background-color);
 	color: var(--masthead-navigation-text-color);
 	border-top: 1px solid var(--masthead-navigation-border-color);
 	container-type: inline-size;
 	container-name: megamenu;
 	display: none;
-	box-shadow: var(--masthead-navigation-shadow);
 
 	.menu-item-active & {
 		display: block;
@@ -134,6 +133,8 @@
 		left: 0;
 		top: 100%;
 		z-index: 10;
+		padding: var(--spacer-50) var(--wp--style--root--padding-right);
+		box-shadow: var(--masthead-navigation-shadow);
 
 		> * {
 			margin: 0 auto;

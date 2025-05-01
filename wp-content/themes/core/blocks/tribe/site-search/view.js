@@ -99,6 +99,10 @@ const bindEvents = () => {
 			'modern_tribe/mega_menu_open',
 			toggleOverlayOff
 		);
+		document.addEventListener(
+			'modern_tribe/standard_menu_open',
+			toggleOverlayOff
+		);
 	}
 };
 

@@ -27,7 +27,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) : (
 				''
 			) }
-			<InnerBlocks template={ TEMPLATE } />
+			<div className="site-header__standard-menu-item-wrapper">
+				<InnerBlocks template={ TEMPLATE } />
+			</div>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
 					<ToggleControl
