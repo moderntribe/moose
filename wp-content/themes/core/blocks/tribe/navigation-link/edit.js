@@ -13,7 +13,7 @@ import {
 } from '@wordpress/components';
 import { useState, useMemo, useRef } from '@wordpress/element';
 
-import './editor.pcss'
+import './editor.pcss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const itemLabelRef = useRef();

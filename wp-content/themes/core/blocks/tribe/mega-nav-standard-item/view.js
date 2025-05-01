@@ -7,7 +7,9 @@
 import { ready, triggerCustomEvent } from 'utils/events.js';
 
 const el = {
-	standardMenuItems: document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ),
+	standardMenuItems: document.querySelectorAll(
+		'.wp-block-tribe-mega-nav-standard-item'
+	),
 };
 
 const cacheElements = () => {
@@ -15,9 +17,9 @@ const cacheElements = () => {
 };
 
 const maybeResetMenuItems = () => {
-	document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ).forEach( ( item ) =>
-		item.classList.remove( 'menu-item-active' )
-	);
+	document
+		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
+		.forEach( ( item ) => item.classList.remove( 'menu-item-active' ) );
 };
 
 const openMenuItem = ( wrapper ) => {
@@ -45,19 +47,20 @@ const handleItemToggle = ( event ) => {
 };
 
 const bindToggleEvents = () => {
-	document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ).forEach( ( item ) => {
-		const button = item.querySelector( '[data-js="standard-menu-item-toggle"]' );
+	document
+		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
+		.forEach( ( item ) => {
+			const button = item.querySelector(
+				'[data-js="standard-menu-item-toggle"]'
+			);
 
-		if ( ! button ) {
-			return
-		}
+			if ( ! button ) {
+				return;
+			}
 
-		button.addEventListener(
-			'click',
-			handleItemToggle
-		);
-	} );
-}
+			button.addEventListener( 'click', handleItemToggle );
+		} );
+};
 
 const bindEvents = () => {
 	bindToggleEvents();
