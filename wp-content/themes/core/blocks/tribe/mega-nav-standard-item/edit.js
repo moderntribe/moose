@@ -27,7 +27,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) : (
 				''
 			) }
-			{ isSelected && <InnerBlocks template={ TEMPLATE } /> }
+			<InnerBlocks template={ TEMPLATE } />
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
 					<ToggleControl

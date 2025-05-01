@@ -5,6 +5,7 @@
  */
 
 import { HEADER_BREAKPOINT } from 'config/options.js';
+import { triggerCustomEvent } from 'utils/events.js';
 
 const el = {
 	header: document.querySelector( '.site-header' ),
@@ -36,6 +37,8 @@ const createMobileMenu = () => {
 	insertClonedNode( el.navigation, el.search );
 	insertClonedNode( el.navigation, el.cta );
 	insertClonedNode( el.navigation, el.utilityNav, false );
+
+	triggerCustomEvent( 'modern_tribe/cloned_elements_attached' );
 };
 
 const cloneElements = () => {
@@ -44,7 +47,7 @@ const cloneElements = () => {
 		.querySelector( '[data-js="site-header-search-overlay"]' )
 		.cloneNode( true );
 	el.utilityNav = el.header
-		.querySelector( '.site-header__utility-nav' )
+		.querySelector( '.site-header__utility-navigation' )
 		.cloneNode( true );
 	state.elementsCloned = true;
 };

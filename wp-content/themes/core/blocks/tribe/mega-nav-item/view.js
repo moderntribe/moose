@@ -56,6 +56,11 @@ const bindEvents = () => {
 		'modern_tribe/search_open',
 		maybeResetMenuItems
 	);
+
+	document.addEventListener(
+		'modern_tribe/standard_menu_open',
+		maybeResetMenuItems
+	);
 };
 
 const init = () => {

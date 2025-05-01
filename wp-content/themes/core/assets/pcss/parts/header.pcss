@@ -22,7 +22,7 @@
 	}
 
 	.site-header__cta:not(.cloned-mobile-element),
-	.site-header__utility-nav:not(.cloned-mobile-element) {
+	.site-header__utility-navigation:not(.cloned-mobile-element) {
 		display: none;
 
 		@media (--mq-navigation) {
@@ -40,10 +40,19 @@
 }
 
 /* Utility Navigation Styles */
-.site-header__utility-nav {
+.site-header__utility-navigation {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-flow: column nowrap;
+	gap: var(--spacer-20);
 
 	@media (--mq-navigation) {
+		flex-flow: row nowrap;
 		padding-top: var(--spacer-10);
+		align-items: center;
+		justify-content: flex-end;
 	}
 
 	.wp-block-navigation-item__content {

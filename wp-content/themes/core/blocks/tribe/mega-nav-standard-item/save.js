@@ -11,7 +11,7 @@ export default function save( { attributes } ) {
 				<button
 					type="button"
 					className="tribe-standard-menu-item__toggle"
-					data-js="menu-item-toggle"
+					data-js="standard-menu-item-toggle"
 				>
 					{ menuToggleLabel }
 				</button>

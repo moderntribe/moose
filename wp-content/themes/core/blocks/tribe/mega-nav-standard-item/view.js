@@ -7,7 +7,7 @@
 import { ready, triggerCustomEvent } from 'utils/events.js';
 
 const el = {
-	megaMenuItems: document.querySelectorAll( '.wp-block-tribe-mega-nav-item' ),
+	standardMenuItems: document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ),
 };
 
 const cacheElements = () => {
@@ -15,7 +15,7 @@ const cacheElements = () => {
 };
 
 const maybeResetMenuItems = () => {
-	el.megaMenuItems.forEach( ( item ) =>
+	el.standardMenuItems.forEach( ( item ) =>
 		item.classList.remove( 'menu-item-active' )
 	);
 };
@@ -24,7 +24,7 @@ const openMenuItem = ( wrapper ) => {
 	maybeResetMenuItems();
 
 	wrapper.classList.add( 'menu-item-active' );
-	triggerCustomEvent( 'modern_tribe/mega_menu_open' );
+	triggerCustomEvent( 'modern_tribe/standard_menu_open' );
 };
 
 const closeMenuItem = ( wrapper ) => {
@@ -44,22 +44,42 @@ const handleItemToggle = ( event ) => {
 	closeMenuItem( wrapper );
 };
 
-const bindEvents = () => {
-	el.megaMenuItems.forEach( ( item ) => {
-		item.querySelector( '[data-js="menu-item-toggle"]' ).addEventListener(
+const bindToggleEvents = () => {
+	document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ).forEach( ( item ) => {
+		const button = item.querySelector( '[data-js="standard-menu-item-toggle"]' );
+
+		if ( ! button ) {
+			return
+		}
+
+		button.addEventListener(
 			'click',
 			handleItemToggle
 		);
 	} );
+}
+
+const bindEvents = () => {
+	bindToggleEvents();
 
 	document.addEventListener(
 		'modern_tribe/search_open',
 		maybeResetMenuItems
 	);
+
+	document.addEventListener(
+		'modern_tribe/mega_menu_open',
+		maybeResetMenuItems
+	);
+
+	document.addEventListener(
+		'modern_tribe/cloned_elements_attached',
+		bindToggleEvents
+	);
 };
 
 const init = () => {
-	if ( ! el.megaMenuItems || el.megaMenuItems.length <= 0 ) {
+	if ( ! el.standardMenuItems || el.standardMenuItems.length <= 0 ) {
 		return;
 	}
 
