@@ -15,7 +15,7 @@ const cacheElements = () => {
 };
 
 const maybeResetMenuItems = () => {
-	el.standardMenuItems.forEach( ( item ) =>
+	document.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' ).forEach( ( item ) =>
 		item.classList.remove( 'menu-item-active' )
 	);
 };

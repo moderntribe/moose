@@ -12,6 +12,10 @@
 		font-size: 14px;
 		text-decoration-color: transparent;
 
+		@media (--mq-navigation-max) {
+			padding: var(--spacer-10) 0;
+		}
+
 		&:hover,
 		&:focus {
 			text-decoration-color: currentcolor;
@@ -70,14 +74,11 @@
 /* enhanced menu pattern wrapper */
 .site-header__standard-menu-item-wrapper {
 	display: none;
-	width: 180px;
 	flex-flow: column nowrap;
 	gap: var(--spacer-20);
-	padding: var(--spacer-20);
 	background-color: var(--masthead-navigation-background-color);
 	color: var(--masthead-navigation-text-color);
-	border-radius: var(--border-radius-s);
-	box-shadow: var(--masthead-navigation-shadow);
+	padding: var(--spacer-20) 0;
 
 	.menu-item-active & {
 		display: flex;
@@ -87,6 +88,10 @@
 		position: absolute;
 		right: 0;
 		top: 100%;
+		width: 180px;
+		padding: var(--spacer-20);
+		border-radius: var(--border-radius-s);
+		box-shadow: var(--masthead-navigation-shadow);
 		z-index: 10;
 	}
 }
