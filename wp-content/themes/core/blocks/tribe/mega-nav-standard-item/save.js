@@ -13,7 +13,7 @@ export default function save( { attributes } ) {
 					className="tribe-standard-menu-item__toggle"
 					data-js="standard-menu-item-toggle"
 				>
-					{ menuToggleLabel }
+					<span className="tribe-standard-menu-item__toggle-label">{ menuToggleLabel }</span>
 				</button>
 			) }
 			{ hasSubMenu ? (

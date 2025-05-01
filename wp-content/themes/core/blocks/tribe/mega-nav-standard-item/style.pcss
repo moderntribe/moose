@@ -11,6 +11,7 @@
 		padding: var(--spacer-10);
 		font-size: 14px;
 		text-decoration-color: transparent;
+		text-underline-offset: 3px;
 
 		@media (--mq-navigation-max) {
 			padding: var(--spacer-10) 0;
@@ -60,7 +61,11 @@
 	&:focus-visible,
 	.menu-item-active & {
 		text-decoration-color: currentcolor;
-		color: var(--masthead-navigation-accent-color);
+		color: currentcolor;
+
+		.tribe-standard-menu-item__toggle-label {
+			border-bottom-color: currentcolor;
+		}
 	}
 
 	.menu-item-active & {
@@ -69,6 +74,11 @@
 			transform: rotate(-90deg);
 		}
 	}
+}
+
+.tribe-standard-menu-item__toggle-label {
+	border-bottom: 1px solid transparent;
+	transition: var(--transition);
 }
 
 /* enhanced menu pattern wrapper */
