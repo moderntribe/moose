@@ -12,7 +12,7 @@ const TEMPLATE = [
 	[
 		'core/pattern',
 		{
-			slug: 'patterns/enhanced-nav-menu',
+			slug: 'patterns/enhanced-masthead-nav-menu',
 		},
 	],
 ];
