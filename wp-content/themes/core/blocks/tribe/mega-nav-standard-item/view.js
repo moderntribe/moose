@@ -16,12 +16,23 @@ const cacheElements = () => {
 	el.masthead = document.querySelector( '.site-header' );
 };
 
+/**
+ * @function maybeResetMenuItems
+ *
+ * @description close and reset any active menu items based on another event
+ */
 const maybeResetMenuItems = () => {
 	document
 		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
 		.forEach( ( item ) => item.classList.remove( 'menu-item-active' ) );
 };
 
+/**
+ * @function openMenuItem
+ *
+ * @description opens the sibling mega menu container on button click
+ * @param {HTMLElement} wrapper
+ */
 const openMenuItem = ( wrapper ) => {
 	maybeResetMenuItems();
 
@@ -29,10 +40,22 @@ const openMenuItem = ( wrapper ) => {
 	triggerCustomEvent( 'modern_tribe/standard_menu_open' );
 };
 
+/**
+ * @function closeMenuItem
+ *
+ * @description closes the sibling menu item container on button click
+ * @param {HTMLElement} wrapper
+ */
 const closeMenuItem = ( wrapper ) => {
 	wrapper.classList.remove( 'menu-item-active' );
 };
 
+/**
+ * @function handleItemToggle
+ *
+ * @description handle mega menu button clicks to open or close the menu
+ * @param event
+ */
 const handleItemToggle = ( event ) => {
 	const menuButton = event.currentTarget;
 	const wrapper = menuButton.parentNode;
@@ -46,6 +69,11 @@ const handleItemToggle = ( event ) => {
 	closeMenuItem( wrapper );
 };
 
+/**
+ * @function bindToggleEvents
+ *
+ * @description an isolated event binding function used to bind on DOM render as well as when cloned elements are created
+ */
 const bindToggleEvents = () => {
 	document
 		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
@@ -62,9 +90,15 @@ const bindToggleEvents = () => {
 		} );
 };
 
+/**
+ * @function bindEvents
+ *
+ * @description bind events either on ready or if a custom event is triggered
+ */
 const bindEvents = () => {
 	bindToggleEvents();
 
+	// Reset all menu items if any of these events are triggered
 	document.addEventListener(
 		'modern_tribe/search_open',
 		maybeResetMenuItems
@@ -80,12 +114,18 @@ const bindEvents = () => {
 		maybeResetMenuItems
 	);
 
+	// Bind click events to newly cloned menu items for the mobile nav
 	document.addEventListener(
 		'modern_tribe/cloned_elements_attached',
 		bindToggleEvents
 	);
 };
 
+/**
+ * @function init
+ *
+ * @description kick of this modules functionality
+ */
 const init = () => {
 	if ( ! el.standardMenuItems || el.standardMenuItems.length <= 0 ) {
 		return;

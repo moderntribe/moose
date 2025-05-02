@@ -16,6 +16,14 @@ const state = {
 	elementsCloned: false,
 };
 
+/**
+ * @function insertClonedNode
+ *
+ * @description appends or prepends a cloned node to the wrapper container
+ * @param {HTMLElement} wrapper
+ * @param {HTMLElement} node
+ * @param {boolean} prepend
+ */
 const insertClonedNode = ( wrapper, node, prepend = true ) => {
 	node.classList.add( 'cloned-mobile-element' );
 
@@ -27,6 +35,11 @@ const insertClonedNode = ( wrapper, node, prepend = true ) => {
 	wrapper.prepend( node );
 };
 
+/**
+ * @function createMobileMenu
+ *
+ * @description inserts a cloned element to the designated wrapper and triggers a custom event
+ */
 const createMobileMenu = () => {
 	/**
 	 * Duplicate nodes for the mobile nav.
@@ -41,6 +54,11 @@ const createMobileMenu = () => {
 	triggerCustomEvent( 'modern_tribe/cloned_elements_attached' );
 };
 
+/**
+ * @function cloneElements
+ *
+ * @description create a clone of various elements to use within the mobile menu.
+ */
 const cloneElements = () => {
 	el.cta = el.header.querySelector( '.site-header__cta' ).cloneNode( true );
 	el.search = el.header
@@ -52,6 +70,11 @@ const cloneElements = () => {
 	state.elementsCloned = true;
 };
 
+/**
+ * @function handleResize
+ *
+ * @description run any function that need to be executed from the resize event.
+ */
 const handleResize = () => {
 	if ( window.innerWidth < HEADER_BREAKPOINT && ! state.elementsCloned ) {
 		cloneElements();
@@ -59,6 +82,11 @@ const handleResize = () => {
 	}
 };
 
+/**
+ * @function handleKeyboardEvents
+ *
+ * @description trigger custom events from `keyup` keyboard interactions.
+ */
 const handleKeyboardEvents = ( e ) => {
 	if ( e.key === 'Escape' ) {
 		triggerCustomEvent( 'modern_tribe/close_on_escape' );

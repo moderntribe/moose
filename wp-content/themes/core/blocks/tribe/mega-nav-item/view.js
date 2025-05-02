@@ -14,12 +14,23 @@ const cacheElements = () => {
 	el.masthead = document.querySelector( '.site-header' );
 };
 
+/**
+ * @function maybeResetMenuItems
+ *
+ * @description close and reset any active menu items based on another event
+ */
 const maybeResetMenuItems = () => {
 	el.megaMenuItems.forEach( ( item ) =>
 		item.classList.remove( 'menu-item-active' )
 	);
 };
 
+/**
+ * @function openMenuItem
+ *
+ * @description opens the sibling mega menu container on button click
+ * @param {HTMLElement} wrapper
+ */
 const openMenuItem = ( wrapper ) => {
 	maybeResetMenuItems();
 
@@ -27,10 +38,22 @@ const openMenuItem = ( wrapper ) => {
 	triggerCustomEvent( 'modern_tribe/mega_menu_open' );
 };
 
+/**
+ * @function closeMenuItem
+ *
+ * @description closes the sibling mega menu container on button click
+ * @param {HTMLElement} wrapper
+ */
 const closeMenuItem = ( wrapper ) => {
 	wrapper.classList.remove( 'menu-item-active' );
 };
 
+/**
+ * @function handleItemToggle
+ *
+ * @description handle mega menu button clicks to open or close the menu
+ * @param event
+ */
 const handleItemToggle = ( event ) => {
 	const menuButton = event.currentTarget;
 	const wrapper = menuButton.parentNode;
@@ -44,6 +67,11 @@ const handleItemToggle = ( event ) => {
 	closeMenuItem( wrapper );
 };
 
+/**
+ * @function bindEvents
+ *
+ * @description bind events either on ready or if a custom event is triggered
+ */
 const bindEvents = () => {
 	el.megaMenuItems.forEach( ( item ) => {
 		item.querySelector( '[data-js="menu-item-toggle"]' ).addEventListener(
@@ -52,6 +80,7 @@ const bindEvents = () => {
 		);
 	} );
 
+	// Reset all menu items if any of these events are triggered
 	document.addEventListener(
 		'modern_tribe/search_open',
 		maybeResetMenuItems
@@ -68,6 +97,11 @@ const bindEvents = () => {
 	);
 };
 
+/**
+ * @function init
+ *
+ * @description kick of this modules functionality
+ */
 const init = () => {
 	if ( ! el.megaMenuItems || el.megaMenuItems.length <= 0 ) {
 		return;
