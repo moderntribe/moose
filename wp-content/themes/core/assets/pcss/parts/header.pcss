@@ -16,9 +16,25 @@
 }
 
 .site-header {
+	position: sticky;
+	top: 0;
+	background: var(--masthead-navigation-background-color);
+	z-index: 10;
+
+	@media (--mq-navigation-max) {
+		border-bottom: 1px solid var(--masthead-navigation-border-color);
+	}
+
+	.mobile-menu-shown & {
+		height: 100vh;
+	}
 
 	> .wp-block-group {
-		gap: var(--spacer-10);
+		gap: 0;
+
+		@media (--mq-navigation) {
+			gap: var(--spacer-10);
+		}
 	}
 
 	.site-header__cta:not(.cloned-mobile-element),
@@ -159,14 +175,10 @@ div.site-header__navigation-wrapper {
 		top: var(--masthead-height);
 		width: 100%;
 		height: calc(100vh - var(--masthead-height));
-		padding: 0 var(--wp--style--root--padding-left) var(--spacer-30);
+		padding: 0 var(--wp--style--root--padding-left) 60px;
 		z-index: 10;
 		overflow-y: scroll;
 		scroll-behavior: smooth;
-
-		.admin-bar & {
-			height: calc(100vh - var(--masthead-height) - var(--wp-admin--admin-bar--height));
-		}
 
 		.mobile-menu-shown & {
 			display: grid;

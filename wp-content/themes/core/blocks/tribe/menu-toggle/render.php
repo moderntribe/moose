@@ -6,6 +6,7 @@
 		<span class="c-menu-toggle__inner" aria-hidden="true">
 			<span class="c-menu-toggle__bar"></span>
 			<span class="c-menu-toggle__bar"></span>
+			<span class="c-menu-toggle__bar"></span>
 		</span>
 	</button>
 </div>
