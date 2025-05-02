@@ -22,7 +22,7 @@ const state = {
  * @description appends or prepends a cloned node to the wrapper container
  * @param {HTMLElement} wrapper
  * @param {HTMLElement} node
- * @param {boolean} prepend
+ * @param {boolean}     prepend
  */
 const insertClonedNode = ( wrapper, node, prepend = true ) => {
 	node.classList.add( 'cloned-mobile-element' );
@@ -86,6 +86,7 @@ const handleResize = () => {
  * @function handleKeyboardEvents
  *
  * @description trigger custom events from `keyup` keyboard interactions.
+ * @param {event} e
  */
 const handleKeyboardEvents = ( e ) => {
 	if ( e.key === 'Escape' ) {

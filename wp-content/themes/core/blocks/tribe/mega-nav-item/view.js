@@ -52,7 +52,7 @@ const closeMenuItem = ( wrapper ) => {
  * @function handleItemToggle
  *
  * @description handle mega menu button clicks to open or close the menu
- * @param event
+ * @param {event} event
  */
 const handleItemToggle = ( event ) => {
 	const menuButton = event.currentTarget;
