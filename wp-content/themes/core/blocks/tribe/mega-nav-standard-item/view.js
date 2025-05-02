@@ -76,6 +76,11 @@ const bindEvents = () => {
 	);
 
 	document.addEventListener(
+		'modern_tribe/close_on_escape',
+		maybeResetMenuItems
+	);
+
+	document.addEventListener(
 		'modern_tribe/cloned_elements_attached',
 		bindToggleEvents
 	);

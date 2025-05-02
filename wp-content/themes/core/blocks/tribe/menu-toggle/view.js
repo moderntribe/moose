@@ -13,19 +13,41 @@ const classes = {
 };
 
 /**
+ * @function openMobileMenu
+ *
+ * @description opens the mobile menu and sets the global isMobileMenuShown to true
+ */
+const openMobileMenu = () => {
+	el.body.classList.add( classes.mobileMenuShown );
+	globalState.isMobileMenuShown = true;
+	bodyLock( true );
+	triggerCustomEvent( 'modern_tribe/mobile_menu_open' );
+}
+
+/**
+ * @function closeMobileMenu
+ *
+ * @description closes the mobile menu and sets the global isMobileMenuShown to true
+ */
+const closeMobileMenu = () => {
+	el.body.classList.remove( classes.mobileMenuShown );
+	globalState.isMobileMenuShown = false;
+	bodyLock( false );
+}
+
+/**
  * @function maybeRemoveActiveMobileMenuState
  *
  * @description checks if active mobile menu state can/should be removed before removing it
  */
-const maybeRemoveActiveMobileMenuState = () => {
+const maybeRemoveActiveMobileMenuState = (e) => {
+	console.log(globalState.isMobileMenuShown);
 	if (
 		el.body.classList.contains( classes.mobileMenuShown ) &&
 		globalState.isMobileMenuShown &&
 		window.innerWidth > HEADER_BREAKPOINT
 	) {
-		el.body.classList.remove( classes.mobileMenuShown );
-		globalState.isMobileMenuShown = false;
-		bodyLock( false );
+		closeMobileMenu();
 	}
 };
 
@@ -39,15 +61,11 @@ const handleMobileMenuToggleClick = () => {
 		el.body.classList.contains( classes.mobileMenuShown ) &&
 		globalState.isMobileMenuShown
 	) {
-		el.body.classList.remove( classes.mobileMenuShown );
-		globalState.isMobileMenuShown = false;
-		bodyLock( false );
-	} else {
-		el.body.classList.add( classes.mobileMenuShown );
-		globalState.isMobileMenuShown = true;
-		bodyLock( true );
-		triggerCustomEvent( 'modern_tribe/mobile_menu_open' );
+		closeMobileMenu();
+		return;
 	}
+
+	openMobileMenu();
 };
 
 /**
@@ -63,6 +81,8 @@ const bindEvents = () => {
 		'modern_tribe/resize_executed',
 		maybeRemoveActiveMobileMenuState
 	);
+
+	document.addEventListener( 'modern_tribe/close_on_escape', closeMobileMenu );
 };
 
 /**

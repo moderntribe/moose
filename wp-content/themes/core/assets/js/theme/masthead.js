@@ -59,8 +59,16 @@ const handleResize = () => {
 	}
 };
 
+const handleKeyboardEvents = (e) => {
+	if (e.key === 'Escape' ) {
+		console.log(e.key)
+		triggerCustomEvent( 'modern_tribe/close_on_escape' );
+	}
+}
+
 const bindEvents = () => {
 	document.addEventListener( 'modern_tribe/resize_executed', handleResize );
+	el.header.addEventListener( 'keyup', handleKeyboardEvents );
 };
 
 const init = () => {

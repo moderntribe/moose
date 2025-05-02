@@ -103,6 +103,10 @@ const bindEvents = () => {
 			'modern_tribe/standard_menu_open',
 			toggleOverlayOff
 		);
+		document.addEventListener(
+			'modern_tribe/close_on_escape',
+			toggleOverlayOff
+		);
 	}
 };
 
