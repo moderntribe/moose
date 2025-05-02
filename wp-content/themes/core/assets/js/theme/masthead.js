@@ -59,12 +59,11 @@ const handleResize = () => {
 	}
 };
 
-const handleKeyboardEvents = (e) => {
-	if (e.key === 'Escape' ) {
-		console.log(e.key)
+const handleKeyboardEvents = ( e ) => {
+	if ( e.key === 'Escape' ) {
 		triggerCustomEvent( 'modern_tribe/close_on_escape' );
 	}
-}
+};
 
 const bindEvents = () => {
 	document.addEventListener( 'modern_tribe/resize_executed', handleResize );

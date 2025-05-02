@@ -22,7 +22,7 @@ const openMobileMenu = () => {
 	globalState.isMobileMenuShown = true;
 	bodyLock( true );
 	triggerCustomEvent( 'modern_tribe/mobile_menu_open' );
-}
+};
 
 /**
  * @function closeMobileMenu
@@ -33,15 +33,14 @@ const closeMobileMenu = () => {
 	el.body.classList.remove( classes.mobileMenuShown );
 	globalState.isMobileMenuShown = false;
 	bodyLock( false );
-}
+};
 
 /**
  * @function maybeRemoveActiveMobileMenuState
  *
  * @description checks if active mobile menu state can/should be removed before removing it
  */
-const maybeRemoveActiveMobileMenuState = (e) => {
-	console.log(globalState.isMobileMenuShown);
+const maybeRemoveActiveMobileMenuState = () => {
 	if (
 		el.body.classList.contains( classes.mobileMenuShown ) &&
 		globalState.isMobileMenuShown &&
@@ -82,7 +81,10 @@ const bindEvents = () => {
 		maybeRemoveActiveMobileMenuState
 	);
 
-	document.addEventListener( 'modern_tribe/close_on_escape', closeMobileMenu );
+	document.addEventListener(
+		'modern_tribe/close_on_escape',
+		closeMobileMenu
+	);
 };
 
 /**
