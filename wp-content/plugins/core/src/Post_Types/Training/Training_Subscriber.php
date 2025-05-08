@@ -6,8 +6,7 @@ use Tribe\Plugin\Post_Types\Post_Type_Subscriber;
 
 class Training_Subscriber extends Post_Type_Subscriber {
 
-	// phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint
-	protected $config_class = Config::class;
+	protected string $config_class = Config::class;
 
 	public function register(): void {
 		parent::register();
