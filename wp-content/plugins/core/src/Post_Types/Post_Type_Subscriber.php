@@ -9,7 +9,7 @@ abstract class Post_Type_Subscriber extends Abstract_Subscriber {
 	/**
 	 * @var class-string<\Tribe\Plugin\Post_Types\Post_Type_Config>
 	 */
-	protected $config_class;
+	protected string $config_class;
 
 	public function register(): void {
 		if ( ! $this->config_class ) {
