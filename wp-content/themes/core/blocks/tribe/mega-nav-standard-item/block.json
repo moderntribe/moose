@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/mega-nav-standard-item",
+	"version": "0.1.0",
+	"title": "Mega Navigation Standard Menu Item",
+	"category": "theme",
+	"description": "A block for adding simple menu items and sub menu items in the mega navigation feature.",
+	"attributes": {
+		"hasSubMenu": {
+			"type": "boolean",
+			"default": false
+		},
+		"menuToggleLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"allowedBlocks": [ "tribe/navigation-link" ],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
