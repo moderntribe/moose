@@ -8,6 +8,8 @@ config:
   via: nginx
   xdebug: false
   memcached: true
+  config:
+    vhosts: dev/lando/nginx.conf
 
 services:
   appserver:
