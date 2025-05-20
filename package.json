@@ -33,11 +33,15 @@
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
 		"cssnano": "^7.0.6",
 		"fast-glob": "^3.3.3",
+		"fs-extra": "^11.3.0",
 		"lefthook": "^1.11.8",
+		"minimist": "^1.2.8",
+		"postcss": "^8.5.3",
 		"postcss-import": "^16.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^11.0.3",
 		"postcss-preset-env": "^10.1.5",
+		"postcss-safe-parser": "^7.0.1",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
 	"scripts": {
@@ -59,6 +63,7 @@
 		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe --template $npm_package_config_coreBlockTemplatesDir",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses"
+		"check-licenses": "wp-scripts check-licenses",
+		"update-theme": "node dev/scripts/update-theme.mjs --css figma-tokens.css --theme wp-content/themes/core/theme.json"
 	}
 }
