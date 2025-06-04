@@ -1,0 +1,96 @@
+/* -------------------------------------------------------------------------
+ *
+ * Header - Mobile Menu Toggle
+ *
+ * ------------------------------------------------------------------------- */
+
+.c-menu-toggle {
+	display: block;
+
+	@media (--mq-desktop) {
+		display: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Hamburger - Toggle
+ * ------------------------------------------------------------------------- */
+
+.c-menu-toggle__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Hamburger - Bun
+ * ------------------------------------------------------------------------- */
+
+.c-menu-toggle__inner {
+	display: block;
+	width: 32px;
+	height: 22px;
+	position: relative;
+}
+
+/* -------------------------------------------------------------------------
+ * Hamburger - Layer
+ * ------------------------------------------------------------------------- */
+
+.c-menu-toggle__bar {
+	display: block;
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	background-color: var(--color-black);
+	border-radius: 2px;
+	transition: var(--transition);
+
+	&:nth-child(1) {
+		top: 0;
+	}
+
+	&:nth-child(2) {
+		top: 10px;
+	}
+
+	&:nth-child(3) {
+		top: 20px;
+	}
+
+	/* handle hover state */
+	.c-menu-toggle__toggle:hover & {
+		background-color: var(--masthead-navigation-accent-color);
+	}
+
+	/* handle active state */
+	.mobile-menu-shown & {
+		top: calc(50% - 1px) !important;
+		right: 0;
+
+		&:nth-child(1) {
+			transform: rotate(-45deg);
+		}
+
+		&:nth-child(2) {
+			transform: scale(0);
+		}
+
+		&:nth-child(3) {
+			transform: rotate(45deg);
+		}
+	}
+}
