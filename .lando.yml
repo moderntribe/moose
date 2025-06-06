@@ -13,7 +13,6 @@ config:
     #vhosts: dev/lando/ms-subdirectory.conf
 
 # Uncomment the following lines and update the URLs to enable a WordPress subDOMAIN multisite install.
-# No further config changes are needed for a subdomain-based multisite install.
 #proxy:
 #  appserver_nginx:
 #    - 'moose.lndo.site'
