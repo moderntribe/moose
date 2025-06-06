@@ -9,7 +9,8 @@ config:
   xdebug: false
   memcached: true
   config:
-    vhosts: dev/lando/nginx.conf
+    # uncomment the line below to enable the correct Nginx conf for a WordPress subdirectory install.
+    # vhosts: dev/lando/ms-subdirectory.conf
 
 services:
   appserver:
