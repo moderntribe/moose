@@ -9,8 +9,15 @@ config:
   xdebug: false
   memcached: true
   config:
-    # uncomment the line below to enable the correct Nginx conf for a WordPress subdirectory install.
-    # vhosts: dev/lando/ms-subdirectory.conf
+    # Uncomment the line below to enable the correct Nginx conf for a WordPress subDIRECTORY multisite install.
+    #vhosts: dev/lando/ms-subdirectory.conf
+
+# Uncomment the following lines and update the URLs to enable a WordPress subDOMAIN multisite install.
+# No further config changes are needed for a subdomain-based multisite install.
+#proxy:
+#  appserver_nginx:
+#    - 'moose.lndo.site'
+#    - '*.moose.lndo.site'
 
 services:
   appserver:
