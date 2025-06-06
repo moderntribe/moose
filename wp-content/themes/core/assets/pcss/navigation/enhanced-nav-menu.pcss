@@ -1,0 +1,18 @@
+/* -------------------------------------------------------------------------
+ *
+ * Pattern: Enhanced Navigation Menu
+ *
+ * minimal styles for enhanced navigation layout.
+ * ------------------------------------------------------------------------- */
+
+.nav-menu__enhanced {
+	display: grid;
+	grid-gap: var(--grid-gutter);
+	grid-template-columns: 1fr;
+
+	@container footer (min-width: 980px) {
+		display: grid;
+		grid-template-columns: minmax(auto, 400px) 1fr;
+		align-items: start;
+	}
+}

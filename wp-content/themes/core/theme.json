@@ -26,6 +26,11 @@
 					"textTransform": false
 				}
 			},
+			"core/columns": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
 			"core/group": {
 				"background": {
 					"backgroundImage": true,
@@ -39,11 +44,6 @@
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
-				}
-			},
-			"core/group": {
-				"spacing": {
-					"blockGap": true
 				}
 			},
 			"core/list": {
@@ -404,6 +404,13 @@
 					"lineHeight": "1.5"
 				}
 			},
+			"core/navigation": {
+				"spacing": {
+					"margin": {
+						"top": "var(--wp--preset--spacing--20)"
+					}
+				}
+			},
 			"core/paragraph": {
 				"spacing": {
 					"margin": {
@@ -548,6 +555,17 @@
 							"textAlign": "left"
 						}
 					}
+				}
+			},
+			"tribe/copyright": {
+				"spacing": {
+					"margin": {
+						"top": "0"
+					}
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--10)",
+					"fontWeight": "var(--wp--custom--font-weight--regular)"
 				}
 			}
 		},
