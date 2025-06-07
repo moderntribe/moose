@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/icon-picker",
+	"version": "1.0.0",
+	"title": "Icon Picker",
+	"category": "design",
+	"icon": "admin-customizer",
+	"description": "Select and display an icon with background color.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"colors": {
+			"type": "array",
+			"default": []
+		},
+		"searchQuery": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedIcon": {
+			"type": "string",
+			"default": "CommentSolid"
+		},
+		"selectedIconColor": {
+			"type": "string",
+			"default": "#0078d4"
+		},
+		"selectedBgColor": {
+			"type": "string",
+			"default": "transparent"
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
