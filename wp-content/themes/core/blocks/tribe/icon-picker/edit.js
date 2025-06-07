@@ -1,26 +1,50 @@
-import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 import { PanelBody, PanelRow, TextControl } from '@wordpress/components';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	useSetting,
+} from '@wordpress/block-editor';
 import { ICONS_LIST } from './icons';
 import './editor.pcss';
-
-// Color options
-const COLORS = [
-	{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
-	{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },
-	{ name: __( 'Gray', 'tribe' ), value: '#737373' },
-	{ name: __( 'Light Gray', 'tribe' ), value: '#d2d2d2' },
-	{ name: __( 'Dark Gray', 'tribe' ), value: '#505050' },
-	{ name: __( 'Teal', 'tribe' ), value: '#008575' },
-	{ name: __( 'White', 'tribe' ), value: '#ffffff' },
-	{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
-];
 
 export default function Edit( { attributes, setAttributes } ) {
 	const { selectedIcon, searchQuery, selectedIconColor, selectedBgColor } =
 		attributes;
 	const [ filteredIcons, setFilteredIcons ] = useState( ICONS_LIST );
+
+	// Option 1: Use theme.json color palette
+	// const themeColors = useSetting( 'color.palette' );
+	// const COLORS = Array.isArray( themeColors )
+	// 	? [
+	// 			...themeColors.map( ( { name, color } ) => ( {
+	// 				name,
+	// 				value: color,
+	// 			} ) ),
+	// 			{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
+	// 	  ]
+	// 	: [];
+
+	//Option 2: Use custom collors
+	const COLORS = [
+		{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
+		{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },
+		{ name: __( 'Gray', 'tribe' ), value: '#737373' },
+		{ name: __( 'Light Gray', 'tribe' ), value: '#d2d2d2' },
+		{ name: __( 'Dark Gray', 'tribe' ), value: '#505050' },
+		{ name: __( 'Teal', 'tribe' ), value: '#008575' },
+		{ name: __( 'White', 'tribe' ), value: '#ffffff' },
+		{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
+	];
+
+	// Warn developer if themeColors is not properly set
+	if ( COLORS.length === 0 ) {
+		console.error(
+			'[tribe/icon-picker] No colors found. ' +
+				'Ensure your theme defines `settings.color.palette` in theme.json, or switch to a custom color list.'
+		);
+	}
 
 	// Ensure selectedIcon is valid
 	const validIcon =
