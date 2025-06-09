@@ -19,7 +19,7 @@ $search_icon = '<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmln
 	</button>
 	<div class="site-header-search__overlay" data-js="site-header-search-overlay" aria-hidden="true">
 		<form class="site-header-search__overlay-form" action="<?php echo esc_url( home_url() ); ?>" method="GET">
-			<input type="text" name="s" class="site-header-search__overlay-form-input" placeholder="<?php echo esc_html__( 'What are you looking for?', 'tribe' ); ?>">
+			<input type="text" name="s" class="t-body site-header-search__overlay-form-input" placeholder="<?php echo esc_html__( 'What are you looking for?', 'tribe' ); ?>">
 			<button type="submit" class="site-header-search__overlay-form-submit" title="<?php echo esc_attr__( 'Search', 'tribe' ); ?>">
 				<?php echo $search_icon; ?>
 			</button>
