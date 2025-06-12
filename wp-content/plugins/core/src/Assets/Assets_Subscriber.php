@@ -19,7 +19,7 @@ class Assets_Subscriber extends Abstract_Subscriber {
 			$this->container->get( Admin_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
 
-		add_action( 'enqueue_block_editor_assets', function (): void {
+		add_action( 'enqueue_block_assets', function (): void {
 			$this->container->get( Editor_Assets_Enqueuer::class )->register();
 		}, 10, 0 );
 
