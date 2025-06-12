@@ -25,7 +25,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	return (
 		<div { ...blockProps }>
 			{ menuToggleLabel ? (
-				<button type="button" className="t-body tribe-mega-menu-item__toggle">
+				<button
+					type="button"
+					className="t-body tribe-mega-menu-item__toggle"
+				>
 					{ menuToggleLabel }
 				</button>
 			) : (
