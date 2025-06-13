@@ -1,6 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as solidIcons from '@fortawesome/free-solid-svg-icons';
+import { formatIconName } from './utils';
 
 export default function Save( { attributes } ) {
 	const {
@@ -15,7 +16,7 @@ export default function Save( { attributes } ) {
 
 	// Ensure selectedIcon is valid and retrieve its Unicode value
 	const icon = solidIcons[ selectedIcon ];
-	const label = iconLabel || ( icon && icon.iconName );
+	const label = iconLabel || ( icon && formatIconName( icon.iconName ) );
 
 	return (
 		<div { ...useBlockProps.save() }>

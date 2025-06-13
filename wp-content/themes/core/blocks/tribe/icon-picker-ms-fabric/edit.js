@@ -2,10 +2,10 @@ import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
 import {
 	PanelBody,
-	PanelRow,
 	TextControl,
 	ToggleControl,
 	RangeControl,
+	PanelRow,
 	TabPanel,
 } from '@wordpress/components';
 import {
@@ -56,7 +56,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	// Warn developer if themeColors is not properly set
 	if ( COLORS.length === 0 ) {
 		console.error(
-			'[tribe/icon-picker] No colors found. ' +
+			'[tribe/icon-picker-ms-fabric] No colors found. ' +
 				'Ensure your theme defines `settings.color.palette` in theme.json, or switch to a custom color list.'
 		);
 	}
@@ -102,7 +102,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			) }
 
 			<InspectorControls>
-				<PanelRow className="controls-tribe-icon-picker icon-preview">
+				<PanelRow className="controls-tribe-icon-picker-ms-fabric icon-preview">
 					{ validIcon ? (
 						<>
 							<div
@@ -127,33 +127,29 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 				</PanelRow>
 
-				<TabPanel
-					className="tribe-icon-picker-tab-panel"
-					activeClass="active-tab"
-					tabs={ [
-						{
-							name: 'icon',
-							title: __( 'Icon', 'tribe' ),
-						},
-						{
-							name: 'colors',
-							title: __( 'Colors', 'tribe' ),
-						},
-						{
-							name: 'dimensions',
-							title: __( 'Dimensions', 'tribe' ),
-						},
-					] }
-				>
-					{ ( tab ) => {
-						if ( tab.name === 'icon' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Icon', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+				<div className="controls-tribe-icon-picker-ms-fabric">
+					<TabPanel
+						className="tribe-icon-picker-tab-panel"
+						activeClass="active-tab"
+						tabs={ [
+							{
+								name: 'icon',
+								title: __( 'Icon', 'tribe' ),
+							},
+							{
+								name: 'colors',
+								title: __( 'Colors', 'tribe' ),
+							},
+							{
+								name: 'dimensions',
+								title: __( 'Dimensions', 'tribe' ),
+							},
+						] }
+					>
+						{ ( tab ) => {
+							if ( tab.name === 'icon' ) {
+								return (
+									<>
 										<div className="icon-picker">
 											<TextControl
 												label={ __(
@@ -240,19 +236,13 @@ export default function Edit( { attributes, setAttributes } ) {
 												) }
 											/>
 										</div>
-									</PanelBody>
-								</>
-							);
-						}
+									</>
+								);
+							}
 
-						if ( tab.name === 'colors' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Colors', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+							if ( tab.name === 'colors' ) {
+								return (
+									<>
 										<h4 style={ { margin: '0 0 6px' } }>
 											{ __( 'Icon color', 'tribe' ) }
 										</h4>
@@ -303,7 +293,11 @@ export default function Edit( { attributes, setAttributes } ) {
 											</div>
 										</div>
 
-										<h4 style={ { margin: '20px 0 6px' } }>
+										<h4
+											style={ {
+												margin: '20px 0 6px',
+											} }
+										>
 											{ __(
 												'Background Color',
 												'tribe'
@@ -355,19 +349,13 @@ export default function Edit( { attributes, setAttributes } ) {
 												) ) }
 											</div>
 										</div>
-									</PanelBody>
-								</>
-							);
-						}
+									</>
+								);
+							}
 
-						if ( tab.name === 'dimensions' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Dimensions', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+							if ( tab.name === 'dimensions' ) {
+								return (
+									<>
 										<RangeControl
 											label={ __( 'Padding', 'tribe' ) }
 											value={ iconPadding }
@@ -405,12 +393,12 @@ export default function Edit( { attributes, setAttributes } ) {
 												} )
 											}
 										/>
-									</PanelBody>
-								</>
-							);
-						}
-					} }
-				</TabPanel>
+									</>
+								);
+							}
+						} }
+					</TabPanel>
+				</div>
 			</InspectorControls>
 		</div>
 	);

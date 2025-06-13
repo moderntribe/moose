@@ -15,6 +15,7 @@ import {
 } from '@wordpress/block-editor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as solidIcons from '@fortawesome/free-solid-svg-icons';
+import { formatIconName } from './utils';
 import './editor.pcss';
 
 // Build array of FA icon entries
@@ -101,7 +102,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						icon={ solidIcons[ selectedIcon ] }
 						size="2x"
 						style={ { color: selectedIconColor } }
-						aria-label={ iconLabel || validIcon.name }
+						aria-label={
+							iconLabel || formatIconName( validIcon.name )
+						}
 					/>
 				</div>
 			) : (
@@ -127,40 +130,38 @@ export default function Edit( { attributes, setAttributes } ) {
 									style={ { color: selectedIconColor } }
 								/>
 							</div>
-							<p className="icon-name">{ validIcon.name }</p>
+							<p className="icon-name">
+								{ formatIconName( validIcon.name ) }
+							</p>
 						</>
 					) : (
 						__( 'No Icon Selected', 'tribe' )
 					) }
 				</PanelRow>
 
-				<TabPanel
-					className="tribe-icon-picker-tab-panel"
-					activeClass="active-tab"
-					tabs={ [
-						{
-							name: 'icon',
-							title: __( 'Icon', 'tribe' ),
-						},
-						{
-							name: 'colors',
-							title: __( 'Colors', 'tribe' ),
-						},
-						{
-							name: 'dimensions',
-							title: __( 'Dimensions', 'tribe' ),
-						},
-					] }
-				>
-					{ ( tab ) => {
-						if ( tab.name === 'icon' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Icon', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+				<div className="controls-tribe-icon-picker">
+					<TabPanel
+						className="tribe-icon-picker-tab-panel"
+						activeClass="active-tab"
+						tabs={ [
+							{
+								name: 'icon',
+								title: __( 'Icon', 'tribe' ),
+							},
+							{
+								name: 'colors',
+								title: __( 'Colors', 'tribe' ),
+							},
+							{
+								name: 'dimensions',
+								title: __( 'Dimensions', 'tribe' ),
+							},
+						] }
+					>
+						{ ( tab ) => {
+							if ( tab.name === 'icon' ) {
+								return (
+									<>
 										<div className="icon-picker">
 											<TextControl
 												label={ __(
@@ -215,6 +216,9 @@ export default function Edit( { attributes, setAttributes } ) {
 															<FontAwesomeIcon
 																icon={ icon }
 																size="2x"
+																title={ formatIconName(
+																	icon.iconName
+																) }
 															/>
 														</div>
 													)
@@ -238,19 +242,13 @@ export default function Edit( { attributes, setAttributes } ) {
 												) }
 											/>
 										</div>
-									</PanelBody>
-								</>
-							);
-						}
+									</>
+								);
+							}
 
-						if ( tab.name === 'colors' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Colors', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+							if ( tab.name === 'colors' ) {
+								return (
+									<>
 										<h4 style={ { margin: '0 0 6px' } }>
 											{ __( 'Icon color', 'tribe' ) }
 										</h4>
@@ -353,21 +351,18 @@ export default function Edit( { attributes, setAttributes } ) {
 												) ) }
 											</div>
 										</div>
-									</PanelBody>
-								</>
-							);
-						}
+									</>
+								);
+							}
 
-						if ( tab.name === 'dimensions' ) {
-							return (
-								<>
-									<PanelBody
-										title={ __( 'Dimensions', 'tribe' ) }
-										className="controls-tribe-icon-picker"
-										initialOpen={ true }
-									>
+							if ( tab.name === 'dimensions' ) {
+								return (
+									<>
 										<RangeControl
-											label={ __( 'Padding', 'tribe' ) }
+											label={ __(
+												'Container Padding',
+												'tribe'
+											) }
 											value={ iconPadding }
 											onChange={ ( value ) =>
 												setAttributes( {
@@ -379,7 +374,10 @@ export default function Edit( { attributes, setAttributes } ) {
 											afterIcon={ () => <span>px</span> }
 										/>
 										<RangeControl
-											label={ __( 'Width', 'tribe' ) }
+											label={ __(
+												'Container Width',
+												'tribe'
+											) }
 											value={ iconWidth }
 											onChange={ ( value ) =>
 												setAttributes( {
@@ -403,12 +401,12 @@ export default function Edit( { attributes, setAttributes } ) {
 												} )
 											}
 										/>
-									</PanelBody>
-								</>
-							);
-						}
-					} }
-				</TabPanel>
+									</>
+								);
+							}
+						} }
+					</TabPanel>
+				</div>
 			</InspectorControls>
 		</div>
 	);
