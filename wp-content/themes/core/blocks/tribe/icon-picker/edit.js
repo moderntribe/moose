@@ -11,7 +11,7 @@ import {
 import {
 	useBlockProps,
 	InspectorControls,
-	useSetting,
+	useSetting, // This is only needed if you want to use theme.json color palette.
 } from '@wordpress/block-editor';
 import { ICONS_LIST } from './icons';
 import './editor.pcss';
@@ -303,23 +303,12 @@ export default function Edit( { attributes, setAttributes } ) {
 											</div>
 										</div>
 
-										<h4 style={ { margin: '0 0 6px' } }>
+										<h4 style={ { margin: '20px 0 6px' } }>
 											{ __(
 												'Background Color',
 												'tribe'
 											) }
 										</h4>
-										<p
-											style={ {
-												color: '#555',
-												marginBottom: '10px',
-											} }
-										>
-											{ __(
-												'If ‘transparent’ is selected, the icon’s padding is removed.',
-												'tribe'
-											) }
-										</p>
 										<div className="color-picker">
 											<div className="color-grid">
 												{ COLORS.map( ( colorObj ) => (

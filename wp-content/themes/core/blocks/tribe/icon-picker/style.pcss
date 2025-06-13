@@ -18,24 +18,16 @@
 	display: inline-block;
 
 	.icon-wrapper {
+		container-type: inline-size;
+		box-sizing: content-box;
+	}
+
+	.ms-icon {
+		width: 100%;
+		height: 100%;
+		font-size: 100cqw;
 		display: flex;
-		align-items: center;
 		justify-content: center;
-		padding: 15px;
-		font-size: var(--font-size-90);
-
-		@media (--mq-desktop) {
-			font-size: var(--font-size-80);
-		}
-
-		&[data-transparent] {
-			padding: 0;
-		}
-
-		svg {
-			width: 60px;
-			height: auto;
-			color: currentcolor;
-		}
+		align-items: center;
 	}
 }
