@@ -6,6 +6,9 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.06]
 - Added: Multisite support for Lando and related docs.
+- Updated: Moved required plugins to Core plugin's Requires Plugins header and removed from force-activation mu-plugin. [#192](https://github.com/moderntribe/moose/issues/192)
+- Removed: Several unnecessary plugins. [#192](https://github.com/moderntribe/moose/issues/192)
+- Chore: WordPress Core & plugin updates.
 
 ## [2025.02]
 - Chore: WordPress plugin updates.
