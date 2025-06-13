@@ -43,11 +43,9 @@ final class ForcePluginActivation {
 	 * @var array<string, string[]> 'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
 	 */
 	private array $plugins = [
-		'advanced-custom-fields-pro/acf.php'                                => [ 'all' ],
-		'block-editor-custom-alignments/block-editor-custom-alignments.php' => [ 'all' ],
-		'core/core.php'                                                     => [ 'all' ],
-		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php'   => [ 'development', 'staging', 'production' ],
-		'tribe-glomar/tribe-glomar.php'                                     => [ 'development', 'staging' ],
+		'core/core.php'                                                   => [ 'all' ],
+		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' => [ 'development', 'staging', 'production' ],
+		'tribe-glomar/tribe-glomar.php'                                   => [ 'development', 'staging' ],
 	];
 
 	/**
@@ -59,10 +57,7 @@ final class ForcePluginActivation {
 	 *
 	 *  @var array<string, string[]>  'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
 	 */
-	private array $networkOnlyPlugins = [
-		'advanced-custom-fields-pro/acf.php' => [ 'all' ],
-		'debug-bar/debug-bar.php'            => [ 'local', 'development' ],
-	];
+	private array $networkOnlyPlugins = [];
 
 	/**
 	 * The list of plugins to activate.
