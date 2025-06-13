@@ -34,7 +34,7 @@ export default function Save( { attributes } ) {
 						? { 'data-transparent': true }
 						: {} ) }
 				>
-					<span className="ms-icon" aria-hidden="true">
+					<span className="ms-icon" aria-label={ iconObj.name }>
 						{ iconCharacter }
 					</span>
 				</div>
