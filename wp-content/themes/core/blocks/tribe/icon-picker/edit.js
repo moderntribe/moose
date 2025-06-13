@@ -1,6 +1,13 @@
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
-import { PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	PanelRow,
+	TextControl,
+	ToggleControl,
+	RangeControl,
+	TabPanel,
+} from '@wordpress/components';
 import {
 	useBlockProps,
 	InspectorControls,
@@ -10,8 +17,16 @@ import { ICONS_LIST } from './icons';
 import './editor.pcss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { selectedIcon, searchQuery, selectedIconColor, selectedBgColor } =
-		attributes;
+	const {
+		selectedIcon,
+		isRounded,
+		iconPadding,
+		iconLabel,
+		iconWidth,
+		searchQuery,
+		selectedIconColor,
+		selectedBgColor,
+	} = attributes;
 	const [ filteredIcons, setFilteredIcons ] = useState( ICONS_LIST );
 
 	// Option 1: Use theme.json color palette
@@ -67,6 +82,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					style={ {
 						backgroundColor: selectedBgColor || 'transparent',
 						color: selectedIconColor || 'white',
+						borderRadius: isRounded ? '50%' : '0',
+						width: iconWidth || '100%',
+						height: iconWidth || '100%',
+						padding: `${ iconPadding }px`,
 					} }
 					{ ...( selectedBgColor === 'transparent'
 						? { 'data-transparent': true }
@@ -83,176 +102,326 @@ export default function Edit( { attributes, setAttributes } ) {
 			) }
 
 			<InspectorControls>
-				<PanelRow className="controls-tribe-icon-picker">
+				<PanelRow className="controls-tribe-icon-picker icon-preview">
 					{ validIcon ? (
-						<div
-							className="icon-preview preview-sidebar"
-							style={ {
-								backgroundColor:
-									selectedBgColor || 'transparent',
-								color: selectedIconColor || 'white',
-								margin: '10px',
-							} }
-						>
-							<span className="ms-icon">
-								{ String.fromCharCode(
-									parseInt( validIcon.unicode, 16 )
-								) }
-							</span>
-						</div>
+						<>
+							<div
+								className="icon-image"
+								style={ {
+									backgroundColor:
+										selectedBgColor || 'transparent',
+									color: selectedIconColor || 'white',
+									borderRadius: isRounded ? '50%' : '0',
+								} }
+							>
+								<span className="ms-icon">
+									{ String.fromCharCode(
+										parseInt( validIcon.unicode, 16 )
+									) }
+								</span>
+							</div>
+							<p className="icon-name">{ validIcon.name }</p>
+						</>
 					) : (
 						__( 'No Icon Selected', 'tribe' )
 					) }
 				</PanelRow>
 
-				<PanelBody
-					title={ __( 'Icon', 'tribe' ) }
-					className="controls-tribe-icon-picker"
-					initialOpen={ true }
+				<TabPanel
+					className="tribe-icon-picker-tab-panel"
+					activeClass="active-tab"
+					tabs={ [
+						{
+							name: 'icon',
+							title: __( 'Icon', 'tribe' ),
+						},
+						{
+							name: 'colors',
+							title: __( 'Colors', 'tribe' ),
+						},
+						{
+							name: 'dimensions',
+							title: __( 'Dimensions', 'tribe' ),
+						},
+					] }
 				>
-					<div className="icon-picker">
-						<TextControl
-							label={ __( 'Search Icons', 'tribe' ) }
-							value={ searchQuery }
-							onChange={ ( value ) =>
-								setAttributes( { searchQuery: value } )
-							}
-						/>
-						<div className="icon-grid">
-							{ filteredIcons.map( ( { name, unicode } ) => (
-								<div
-									key={ name }
-									className={ `icon-item ${
-										selectedIcon === name ? 'selected' : ''
-									}` }
-									role="button"
-									tabIndex={ 0 }
-									onClick={ () =>
-										setAttributes( { selectedIcon: name } )
-									}
-									onKeyDown={ ( e ) => {
-										if (
-											e.key === 'Enter' ||
-											e.key === ' '
-										) {
-											setAttributes( {
-												selectedIcon: name,
-											} );
-										}
-									} }
-								>
-									<span
-										className="ms-icon"
-										style={ {
-											fontFamily: 'FabricMDL2Icons',
-										} }
+					{ ( tab ) => {
+						if ( tab.name === 'icon' ) {
+							return (
+								<>
+									<PanelBody
+										title={ __( 'Icon', 'tribe' ) }
+										className="controls-tribe-icon-picker"
+										initialOpen={ true }
 									>
-										{ String.fromCharCode(
-											parseInt( unicode, 16 )
-										) }
-									</span>
-								</div>
-							) ) }
-						</div>
-					</div>
-				</PanelBody>
+										<div className="icon-picker">
+											<TextControl
+												label={ __(
+													'Search Icons',
+													'tribe'
+												) }
+												value={ searchQuery }
+												onChange={ ( value ) =>
+													setAttributes( {
+														searchQuery: value,
+													} )
+												}
+											/>
+											<div className="icon-grid">
+												{ filteredIcons.map(
+													( { name, unicode } ) => (
+														<div
+															key={ name }
+															className={ `icon-item ${
+																selectedIcon ===
+																name
+																	? 'selected'
+																	: ''
+															}` }
+															role="button"
+															tabIndex={ 0 }
+															onClick={ () =>
+																setAttributes( {
+																	selectedIcon:
+																		name,
+																} )
+															}
+															onKeyDown={ (
+																e
+															) => {
+																if (
+																	e.key ===
+																		'Enter' ||
+																	e.key ===
+																		' '
+																) {
+																	setAttributes(
+																		{
+																			selectedIcon:
+																				name,
+																		}
+																	);
+																}
+															} }
+														>
+															<span
+																className="ms-icon"
+																style={ {
+																	fontFamily:
+																		'FabricMDL2Icons',
+																} }
+															>
+																{ String.fromCharCode(
+																	parseInt(
+																		unicode,
+																		16
+																	)
+																) }
+															</span>
+														</div>
+													)
+												) }
+											</div>
 
-				<PanelBody
-					title={ __( 'Icon color', 'tribe' ) }
-					className="controls-tribe-icon-picker"
-					initialOpen={ true }
-				>
-					<div className="color-picker">
-						<div className="color-grid">
-							{ COLORS.map( ( colorObj ) => (
-								<div
-									key={ colorObj.value }
-									role="button"
-									title={ colorObj.name }
-									tabIndex={ 0 }
-									className={ `color-item ${
-										selectedIconColor === colorObj.value
-											? 'selected'
-											: ''
-									}` }
-									style={ {
-										backgroundColor: colorObj.value,
-									} }
-									onClick={ () =>
-										setAttributes( {
-											selectedIconColor: colorObj.value,
-										} )
-									}
-									onKeyDown={ ( e ) => {
-										if (
-											e.key === 'Enter' ||
-											e.key === ' '
-										) {
-											setAttributes( {
-												selectedIconColor:
-													colorObj.value,
-											} );
-										}
-									} }
-									data-color={ colorObj.name
-										.toLowerCase()
-										.replace( / /g, '-' ) }
-								></div>
-							) ) }
-						</div>
-					</div>
-				</PanelBody>
+											<TextControl
+												label={ __(
+													'Custom label',
+													'tribe'
+												) }
+												value={ iconLabel }
+												onChange={ ( value ) =>
+													setAttributes( {
+														iconLabel: value,
+													} )
+												}
+												help={ __(
+													'Add a custom label to describe the icon to help screen reader users.',
+													'tribe'
+												) }
+											/>
+										</div>
+									</PanelBody>
+								</>
+							);
+						}
 
-				<PanelBody
-					title={ __( 'Background color', 'tribe' ) }
-					className="controls-tribe-icon-picker"
-					initialOpen={ true }
-				>
-					<p style={ { color: '#555', marginBottom: '10px' } }>
-						{ __(
-							'If ‘transparent’ is selected, the icon’s padding is removed.',
-							'tribe'
-						) }
-					</p>
-					<div className="color-picker">
-						<div className="color-grid">
-							{ COLORS.map( ( colorObj ) => (
-								<div
-									key={ colorObj.value }
-									role="button"
-									title={ colorObj.name }
-									tabIndex={ 0 }
-									className={ `color-item ${
-										selectedBgColor === colorObj.value
-											? 'selected'
-											: ''
-									}` }
-									style={ {
-										backgroundColor: colorObj.value,
-									} }
-									onClick={ () =>
-										setAttributes( {
-											selectedBgColor: colorObj.value,
-										} )
-									}
-									onKeyDown={ ( e ) => {
-										if (
-											e.key === 'Enter' ||
-											e.key === ' '
-										) {
-											setAttributes( {
-												selectedBgColor: colorObj.value,
-											} );
-										}
-									} }
-									data-color={ colorObj.name
-										.toLowerCase()
-										.replace( / /g, '-' ) }
-								></div>
-							) ) }
-						</div>
-					</div>
-				</PanelBody>
+						if ( tab.name === 'colors' ) {
+							return (
+								<>
+									<PanelBody
+										title={ __( 'Colors', 'tribe' ) }
+										className="controls-tribe-icon-picker"
+										initialOpen={ true }
+									>
+										<h4 style={ { margin: '0 0 6px' } }>
+											{ __( 'Icon color', 'tribe' ) }
+										</h4>
+										<div className="color-picker">
+											<div className="color-grid">
+												{ COLORS.map( ( colorObj ) => (
+													<div
+														key={ colorObj.value }
+														role="button"
+														title={ colorObj.name }
+														tabIndex={ 0 }
+														className={ `color-item ${
+															selectedIconColor ===
+															colorObj.value
+																? 'selected'
+																: ''
+														}` }
+														style={ {
+															backgroundColor:
+																colorObj.value,
+														} }
+														onClick={ () =>
+															setAttributes( {
+																selectedIconColor:
+																	colorObj.value,
+															} )
+														}
+														onKeyDown={ ( e ) => {
+															if (
+																e.key ===
+																	'Enter' ||
+																e.key === ' '
+															) {
+																setAttributes( {
+																	selectedIconColor:
+																		colorObj.value,
+																} );
+															}
+														} }
+														data-color={ colorObj.name
+															.toLowerCase()
+															.replace(
+																/ /g,
+																'-'
+															) }
+													></div>
+												) ) }
+											</div>
+										</div>
+
+										<h4 style={ { margin: '0 0 6px' } }>
+											{ __(
+												'Background Color',
+												'tribe'
+											) }
+										</h4>
+										<p
+											style={ {
+												color: '#555',
+												marginBottom: '10px',
+											} }
+										>
+											{ __(
+												'If ‘transparent’ is selected, the icon’s padding is removed.',
+												'tribe'
+											) }
+										</p>
+										<div className="color-picker">
+											<div className="color-grid">
+												{ COLORS.map( ( colorObj ) => (
+													<div
+														key={ colorObj.value }
+														role="button"
+														title={ colorObj.name }
+														tabIndex={ 0 }
+														className={ `color-item ${
+															selectedBgColor ===
+															colorObj.value
+																? 'selected'
+																: ''
+														}` }
+														style={ {
+															backgroundColor:
+																colorObj.value,
+														} }
+														onClick={ () =>
+															setAttributes( {
+																selectedBgColor:
+																	colorObj.value,
+															} )
+														}
+														onKeyDown={ ( e ) => {
+															if (
+																e.key ===
+																	'Enter' ||
+																e.key === ' '
+															) {
+																setAttributes( {
+																	selectedBgColor:
+																		colorObj.value,
+																} );
+															}
+														} }
+														data-color={ colorObj.name
+															.toLowerCase()
+															.replace(
+																/ /g,
+																'-'
+															) }
+													></div>
+												) ) }
+											</div>
+										</div>
+									</PanelBody>
+								</>
+							);
+						}
+
+						if ( tab.name === 'dimensions' ) {
+							return (
+								<>
+									<PanelBody
+										title={ __( 'Dimensions', 'tribe' ) }
+										className="controls-tribe-icon-picker"
+										initialOpen={ true }
+									>
+										<ToggleControl
+											label={ __(
+												'Rounded Icon Background',
+												'tribe'
+											) }
+											checked={ isRounded }
+											onChange={ ( value ) =>
+												setAttributes( {
+													isRounded: value,
+												} )
+											}
+										/>
+										<RangeControl
+											label={ __( 'Padding', 'tribe' ) }
+											value={ iconPadding }
+											onChange={ ( value ) =>
+												setAttributes( {
+													iconPadding: value,
+												} )
+											}
+											min={ 0 }
+											max={ 150 }
+											afterIcon={ () => <span>px</span> }
+										/>
+										<RangeControl
+											label={ __( 'Width', 'tribe' ) }
+											value={ iconWidth }
+											onChange={ ( value ) =>
+												setAttributes( {
+													iconWidth: value,
+												} )
+											}
+											min={ 20 }
+											max={ 300 }
+											step={ 1 }
+											afterIcon={ () => <span>px</span> }
+										/>
+									</PanelBody>
+								</>
+							);
+						}
+					} }
+				</TabPanel>
 			</InspectorControls>
 		</div>
 	);

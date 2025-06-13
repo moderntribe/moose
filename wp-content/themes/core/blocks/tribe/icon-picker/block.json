@@ -15,6 +15,22 @@
 			"type": "array",
 			"default": []
 		},
+		"isRounded": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"iconWidth": {
+			"type": "number",
+			"default": 80
+		},
+		"iconPadding": {
+			"type": "number",
+			"default": 16
+		},
 		"searchQuery": {
 			"type": "string",
 			"default": ""
