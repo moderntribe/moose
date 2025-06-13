@@ -98,10 +98,11 @@ Specific features and functionality may have additional documentation in the [./
 * [1Password CLI](./docs/1password-cli.md)
 * [GitHub Actions](./docs/actions.md)
 * [PHP Tests](./docs/php-tests.md)
+* [WordPress Multisite](./docs/multisite.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/wp-controls-templates.md)
 * [Supported Block Features](./docs/block-features.md)
 
 ## Modern Tribe
 
-[![Modern Tribe](https://moderntribe-common.s3.us-west-2.amazonaws.com/marketing/ModernTribe-Banner.png)](https://tri.be/contact/)
+[![Modern Tribe](https://moderntribeagency.com/wp-content/uploads/2025/06/github-banner.webp)](https://moderntribeagency.com/contact/)

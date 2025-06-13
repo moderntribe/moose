@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.06]
+- Added: Multisite support for Lando and related docs.
+
 ## [2025.02]
 - Chore: WordPress plugin updates.
 - Update: Enabled blogGap support for group, and navigation blocks.
