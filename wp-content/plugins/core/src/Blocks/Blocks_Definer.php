@@ -40,6 +40,7 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/icon-picker',
+				'tribe/icon-picker-ms-fabric',
 				'tribe/terms',
 				'tribe/copyright',
 			] ),

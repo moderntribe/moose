@@ -1,0 +1,147 @@
+.wp-block-tribe-icon-picker-ms-fabric {
+	.icon-selector {
+		display: flex;
+		align-items: center;
+	}
+
+
+}
+
+.controls-tribe-icon-picker-ms-fabric {
+	&.icon-preview {
+		padding-left: 20px;
+		gap: 10px;
+		justify-content: flex-start;
+		align-items: baseline;
+
+		.icon-image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: auto;
+			aspect-ratio: 1/1;
+			font-size: 60px;
+			margin-bottom: 15px;
+
+			svg {
+				width: 60px;
+				height: auto;
+				color: currentcolor;
+			}
+		}
+
+		.icon-name {
+			font-size: 11px;
+		}
+	}
+
+	.icon-preview.preview-sidebar {
+		margin-bottom: 15px;
+	}
+
+	.icon-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+		gap: 10px;
+		margin-bottom: 10px;
+		padding: 10px;
+		max-height: 300px;
+		overflow-y: auto;
+		border: 1px solid #ddd;
+	}
+
+	.icon-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		border: 1px solid transparent;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		font-size: 24px;
+
+		&:hover,
+		&.selected {
+			border-color: #007cba;
+			background: #f0f0f0;
+		}
+	}
+
+	/* Color picker */
+	.color-picker {
+		padding: 6px;
+		background: #fff;
+		border: 1px solid #ddd;
+	}
+
+	.color-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 5px;
+		padding: 5px;
+	}
+
+	.color-item {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1/1;
+		border-radius: 3px;
+		cursor: pointer;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+
+		/* Color gradient to represent transparent background */
+		--transparent: rgba(226, 226, 226, 0.5);
+
+		&[data-color="transparent"] {
+			background: linear-gradient(
+				45deg,
+				var(--transparent) 25%,
+				transparent 25%,
+				transparent 50%,
+				var(--transparent) 50%,
+				var(--transparent) 75%,
+				transparent 75%,
+				transparent
+			);
+			background-size: 20px 20px;
+		}
+
+		&[data-color="white"],
+		&[data-color="transparent"] {
+			border: 1px solid #e4e4e4;
+		}
+	}
+
+	.color-item.selected {
+		&::before {
+			content: "";
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			display: block;
+			right: 5px;
+			top: 5px;
+			border-radius: 50%;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		&::after {
+			content: "\F147";
+			font-family: dashicons, sans-serif;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			display: block;
+			right: 6px;
+			top: 6px;
+			font-size: 20px;
+			line-height: 25px;
+			color: #fff;
+		}
+	}
+}
