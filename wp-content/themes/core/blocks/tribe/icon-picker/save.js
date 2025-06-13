@@ -1,9 +1,11 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { ICONS_LIST } from './icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as solidIcons from '@fortawesome/free-solid-svg-icons';
 
 export default function Save( { attributes } ) {
 	const {
 		selectedIcon,
+		iconLabel,
 		isRounded,
 		iconPadding,
 		iconWidth,
@@ -12,14 +14,12 @@ export default function Save( { attributes } ) {
 	} = attributes;
 
 	// Ensure selectedIcon is valid and retrieve its Unicode value
-	const iconObj = ICONS_LIST.find( ( icon ) => icon.name === selectedIcon );
-	const iconCharacter = iconObj
-		? String.fromCharCode( parseInt( iconObj.unicode, 16 ) )
-		: null;
+	const icon = solidIcons[ selectedIcon ];
+	const label = iconLabel || ( icon && icon.iconName );
 
 	return (
 		<div { ...useBlockProps.save() }>
-			{ iconCharacter && (
+			{ icon && (
 				<div
 					className="icon-wrapper"
 					style={ {
@@ -34,9 +34,11 @@ export default function Save( { attributes } ) {
 						? { 'data-transparent': true }
 						: {} ) }
 				>
-					<span className="ms-icon" aria-hidden="true">
-						{ iconCharacter }
-					</span>
+					<FontAwesomeIcon
+						icon={ icon }
+						aria-label={ label }
+						style={ { color: selectedIconColor } }
+					/>
 				</div>
 			) }
 		</div>

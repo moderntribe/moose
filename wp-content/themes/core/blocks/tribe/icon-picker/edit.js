@@ -13,8 +13,14 @@ import {
 	InspectorControls,
 	useSetting, // This is only needed if you want to use theme.json color palette.
 } from '@wordpress/block-editor';
-import { ICONS_LIST } from './icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as solidIcons from '@fortawesome/free-solid-svg-icons';
 import './editor.pcss';
+
+// Build array of FA icon entries
+const ICONS_LIST = Object.entries( solidIcons )
+	.filter( ( [ key ] ) => key.startsWith( 'fa' ) )
+	.map( ( [ key, icon ] ) => ( { key, icon, name: icon.iconName } ) );
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
@@ -63,13 +69,13 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	// Ensure selectedIcon is valid
 	const validIcon =
-		ICONS_LIST.find( ( icon ) => icon.name === selectedIcon ) || null;
+		ICONS_LIST.find( ( { key } ) => key === selectedIcon ) || null;
 
 	// Filter icons based on search query
 	useEffect( () => {
 		setFilteredIcons(
-			ICONS_LIST.filter( ( { name } ) =>
-				name.toLowerCase().includes( searchQuery.toLowerCase() )
+			ICONS_LIST.filter( ( { key } ) =>
+				key.toLowerCase().includes( searchQuery.toLowerCase() )
 			)
 		);
 	}, [ searchQuery ] );
@@ -91,11 +97,12 @@ export default function Edit( { attributes, setAttributes } ) {
 						? { 'data-transparent': true }
 						: {} ) }
 				>
-					<span className="ms-icon">
-						{ String.fromCharCode(
-							parseInt( validIcon.unicode, 16 )
-						) }
-					</span>
+					<FontAwesomeIcon
+						icon={ solidIcons[ selectedIcon ] }
+						size="2x"
+						style={ { color: selectedIconColor } }
+						aria-label={ iconLabel || validIcon.name }
+					/>
 				</div>
 			) : (
 				__( 'No Icon Selected', 'tribe' )
@@ -114,11 +121,11 @@ export default function Edit( { attributes, setAttributes } ) {
 									borderRadius: isRounded ? '50%' : '0',
 								} }
 							>
-								<span className="ms-icon">
-									{ String.fromCharCode(
-										parseInt( validIcon.unicode, 16 )
-									) }
-								</span>
+								<FontAwesomeIcon
+									icon={ solidIcons[ selectedIcon ] }
+									size="2x"
+									style={ { color: selectedIconColor } }
+								/>
 							</div>
 							<p className="icon-name">{ validIcon.name }</p>
 						</>
@@ -167,25 +174,26 @@ export default function Edit( { attributes, setAttributes } ) {
 													} )
 												}
 											/>
+
 											<div className="icon-grid">
 												{ filteredIcons.map(
-													( { name, unicode } ) => (
+													( { key, icon } ) => (
 														<div
-															key={ name }
+															key={ key }
 															className={ `icon-item ${
 																selectedIcon ===
-																name
+																key
 																	? 'selected'
 																	: ''
 															}` }
 															role="button"
 															tabIndex={ 0 }
-															onClick={ () =>
+															onClick={ () => {
 																setAttributes( {
 																	selectedIcon:
-																		name,
-																} )
-															}
+																		key,
+																} );
+															} }
 															onKeyDown={ (
 																e
 															) => {
@@ -198,26 +206,16 @@ export default function Edit( { attributes, setAttributes } ) {
 																	setAttributes(
 																		{
 																			selectedIcon:
-																				name,
+																				key,
 																		}
 																	);
 																}
 															} }
 														>
-															<span
-																className="ms-icon"
-																style={ {
-																	fontFamily:
-																		'FabricMDL2Icons',
-																} }
-															>
-																{ String.fromCharCode(
-																	parseInt(
-																		unicode,
-																		16
-																	)
-																) }
-															</span>
+															<FontAwesomeIcon
+																icon={ icon }
+																size="2x"
+															/>
 														</div>
 													)
 												) }
@@ -274,12 +272,12 @@ export default function Edit( { attributes, setAttributes } ) {
 															backgroundColor:
 																colorObj.value,
 														} }
-														onClick={ () =>
+														onClick={ () => {
 															setAttributes( {
 																selectedIconColor:
 																	colorObj.value,
-															} )
-														}
+															} );
+														} }
 														onKeyDown={ ( e ) => {
 															if (
 																e.key ===
@@ -327,12 +325,12 @@ export default function Edit( { attributes, setAttributes } ) {
 															backgroundColor:
 																colorObj.value,
 														} }
-														onClick={ () =>
+														onClick={ () => {
 															setAttributes( {
 																selectedBgColor:
 																	colorObj.value,
-															} )
-														}
+															} );
+														} }
 														onKeyDown={ ( e ) => {
 															if (
 																e.key ===
@@ -368,18 +366,6 @@ export default function Edit( { attributes, setAttributes } ) {
 										className="controls-tribe-icon-picker"
 										initialOpen={ true }
 									>
-										<ToggleControl
-											label={ __(
-												'Rounded Icon Background',
-												'tribe'
-											) }
-											checked={ isRounded }
-											onChange={ ( value ) =>
-												setAttributes( {
-													isRounded: value,
-												} )
-											}
-										/>
 										<RangeControl
 											label={ __( 'Padding', 'tribe' ) }
 											value={ iconPadding }
@@ -404,6 +390,18 @@ export default function Edit( { attributes, setAttributes } ) {
 											max={ 300 }
 											step={ 1 }
 											afterIcon={ () => <span>px</span> }
+										/>
+										<ToggleControl
+											label={ __(
+												'Rounded Icon',
+												'tribe'
+											) }
+											checked={ isRounded }
+											onChange={ ( value ) =>
+												setAttributes( {
+													isRounded: value,
+												} )
+											}
 										/>
 									</PanelBody>
 								</>
