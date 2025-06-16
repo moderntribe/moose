@@ -62,10 +62,10 @@ const createMobileMenu = () => {
 const cloneElements = () => {
 	el.cta = el.header.querySelector( '.site-header__cta' ).cloneNode( true );
 	el.search = el.header
-		.querySelector( '[data-js="site-header-search-overlay"]' )
+		.querySelector( '[data-js="masthead-search-overlay"]' )
 		.cloneNode( true );
 	el.utilityNav = el.header
-		.querySelector( '.site-header__utility-navigation' )
+		.querySelector( '.site-header__utility-menu' )
 		.cloneNode( true );
 	state.elementsCloned = true;
 };
