@@ -33,7 +33,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
 					<ToggleControl
-						label={ __( 'Use submenu', 'tribe' ) }
+						label={ __( 'Simple Dropdown', 'tribe' ) }
 						checked={ !! hasSubMenu }
 						help={ __(
 							'Use this menu item as a parent toggle for a set of nested submenu links. Allowed Blocks: Navigation Link',

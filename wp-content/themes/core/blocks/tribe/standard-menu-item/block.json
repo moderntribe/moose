@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Standard Menu Item",
 	"category": "theme",
-	"description": "A block for adding simple menu items and sub menu items in the masthead.",
+	"description": "A block for adding simple menu items and sub menu items in the masthead. Default: Single Link.",
 	"attributes": {
 		"hasSubMenu": {
 			"type": "boolean",
