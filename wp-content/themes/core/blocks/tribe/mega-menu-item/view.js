@@ -7,7 +7,9 @@
 import { ready, triggerCustomEvent } from 'utils/events.js';
 
 const el = {
-	megaMenuItems: document.querySelectorAll( '.wp-block-tribe-mega-menu-item' ),
+	megaMenuItems: document.querySelectorAll(
+		'.wp-block-tribe-mega-menu-item'
+	),
 };
 
 const cacheElements = () => {
