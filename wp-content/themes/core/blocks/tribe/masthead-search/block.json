@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "tribe/site-search",
+	"name": "tribe/masthead-search",
 	"version": "1.0.0",
-	"title": "Site Search",
+	"title": "Masthead Search",
 	"category": "theme",
-	"icon": "text",
+	"icon": "search",
 	"description": "Site Search form",
 	"supports": {
 		"html": false

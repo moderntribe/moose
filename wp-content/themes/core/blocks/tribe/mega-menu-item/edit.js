@@ -12,7 +12,7 @@ const TEMPLATE = [
 	[
 		'core/pattern',
 		{
-			slug: 'patterns/enhanced-masthead-nav-menu',
+			slug: 'patterns/mega-dropdown',
 		},
 	],
 ];

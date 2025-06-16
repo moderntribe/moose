@@ -8,7 +8,7 @@ export default function Edit() {
 
 	return (
 		<div { ...blockProps }>
-			<ServerSideRender block="tribe/site-search" />
+			<ServerSideRender block="tribe/masthead-search" />
 		</div>
 	);
 }

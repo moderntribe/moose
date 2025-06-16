@@ -7,7 +7,7 @@
 	"category": "theme",
 	"icon": "plus-alt",
 	"description": "A block for adding simple menu item link to the mega navigation.",
-	"parent": [ "tribe/mega-nav-standard-item" ],
+	"parent": [ "tribe/standard-menu-item" ],
 	"attributes": {
 		"text": {
 			"type": "string",

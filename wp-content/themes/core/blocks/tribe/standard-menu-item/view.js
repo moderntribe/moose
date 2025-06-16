@@ -8,7 +8,7 @@ import { ready, triggerCustomEvent } from 'utils/events.js';
 
 const el = {
 	standardMenuItems: document.querySelectorAll(
-		'.wp-block-tribe-mega-nav-standard-item'
+		'.wp-block-tribe-standard-menu-item'
 	),
 };
 
@@ -23,7 +23,7 @@ const cacheElements = () => {
  */
 const maybeResetMenuItems = () => {
 	document
-		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
+		.querySelectorAll( '.wp-block-tribe-standard-menu-item' )
 		.forEach( ( item ) => item.classList.remove( 'menu-item-active' ) );
 };
 
@@ -76,7 +76,7 @@ const handleItemToggle = ( event ) => {
  */
 const bindToggleEvents = () => {
 	document
-		.querySelectorAll( '.wp-block-tribe-mega-nav-standard-item' )
+		.querySelectorAll( '.wp-block-tribe-standard-menu-item' )
 		.forEach( ( item ) => {
 			const button = item.querySelector(
 				'[data-js="standard-menu-item-toggle"]'

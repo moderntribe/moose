@@ -4,7 +4,7 @@ import { HEADER_BREAKPOINT } from 'config/options.js';
 
 const el = {
 	header: document.querySelector( '.site-header' ),
-	wrapper: document.querySelector( '[data-js="site-header-search-wrapper"]' ),
+	wrapper: document.querySelector( '[data-js="masthead-search-wrapper"]' ),
 };
 
 const state = {
@@ -70,14 +70,14 @@ const handlePropagation = ( e ) => {
 
 const cacheElements = () => {
 	el.wrapper = document.querySelector(
-		'[data-js="site-header-search-wrapper"]'
+		'[data-js="masthead-search-wrapper"]'
 	);
 	el.toggle = el.wrapper.querySelector( '[data-js="toggle-search-overlay"]' );
 	el.overlay = el.wrapper.querySelector(
-		'[data-js="site-header-search-overlay"]'
+		'[data-js="masthead-search-overlay"]'
 	);
 	el.input = el.wrapper.querySelector(
-		'.site-header-search__overlay-form-input'
+		'.masthead-search__overlay-form-input'
 	);
 };
 

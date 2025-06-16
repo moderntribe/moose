@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "tribe/mega-nav-standard-item",
+	"name": "tribe/standard-menu-item",
 	"version": "0.1.0",
-	"title": "Mega Navigation Standard Menu Item",
+	"title": "Standard Menu Item",
 	"category": "theme",
-	"description": "A block for adding simple menu items and sub menu items in the mega navigation feature.",
+	"description": "A block for adding simple menu items and sub menu items in the masthead.",
 	"attributes": {
 		"hasSubMenu": {
 			"type": "boolean",
