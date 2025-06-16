@@ -4,12 +4,29 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.06]
+- Added: Multisite support for Lando and related docs.
+- Updated: Moved required plugins to Core plugin's Requires Plugins header and removed from force-activation mu-plugin. [#192](https://github.com/moderntribe/moose/issues/192)
+- Removed: Several unnecessary plugins. [#192](https://github.com/moderntribe/moose/issues/192)
+- Fixed: Duplicate `<footer>` tag [#199](https://github.com/moderntribe/moose/pull/199)
+- Chore: WordPress Core & plugin updates.
+
+## [2025.05]
+- Fixed: Add type hints to post type subscribers [#196](https://github.com/moderntribe/moose/pull/196)
+- Fixed: Fix misnamed typography variables [#197](https://github.com/moderntribe/moose/pull/197)
+- Fixed: Replace deprecated `::set-output` in GH Actions [#198](https://github.com/moderntribe/moose/pull/198)
+
+## [2025.04]
+- Fixed: Misc fixes for Create WP Controls Scripts [#188](https://github.com/moderntribe/moose/pull/188)
+- Update: Enabled blogGap support for group, and navigation blocks. [#183](https://github.com/moderntribe/moose/pull/183)
+- Added: Footer template and basic styles updated to the latest Figma design. [#184](https://github.com/moderntribe/moose/pull/184)
+- Added: New pattern for enhanced menu layouts that can be used with the footer and as a mega menu starter. [#183](https://github.com/moderntribe/moose/pull/183)
+- Added: New custom Tribe block for copyright text in the footer. [#183](https://github.com/moderntribe/moose/pull/183)
+- Chore: WordPress Core & plugin updates.
+- Fixed: Always require composer's autoloader [#191](https://github.com/moderntribe/moose/pull/191)
+
 ## [2025.02]
 - Chore: WordPress plugin updates.
-- Update: Enabled blogGap support for group, and navigation blocks.
-- Added: Footer template and basic styles updated to the latest Figma design.
-- Added: New pattern for enhanced menu layouts that can be used with the footer and as a mega menu starter.
-- Added: New custom Tribe block for copyright text in the footer.
 
 ## [2025.01]
 - Chore: WordPress plugin updates, Composer & NPM package updates.
