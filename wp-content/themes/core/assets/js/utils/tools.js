@@ -21,3 +21,17 @@ export const debounce = ( callback, wait = 200 ) => {
 		}, wait );
 	};
 };
+
+/**
+ * @function bodyLock
+ * @description Lock or unlock page scrolling.
+ * @param {boolean} lock
+ */
+export const bodyLock = ( lock = false ) => {
+	if ( lock ) {
+		document.body.style.overflow = 'hidden';
+		return;
+	}
+
+	document.body.style.overflow = 'visible';
+};
