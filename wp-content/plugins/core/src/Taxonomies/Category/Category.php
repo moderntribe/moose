@@ -2,10 +2,9 @@
 
 namespace Tribe\Plugin\Taxonomies\Category;
 
-use Tribe\Plugin\Taxonomies\Term_Object;
 use Tribe\Plugin\Templates\Traits\Primary_Term;
 
-class Category extends Term_Object {
+class Category {
 
 	use Primary_Term;
 
