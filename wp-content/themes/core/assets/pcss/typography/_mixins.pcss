@@ -139,6 +139,19 @@
 			text-decoration: underline !important; /* override original state */
 		}
 	}
+
+	/* CASE: Dark Theme */
+	.is-style-dark & {
+		color: var(--color-white);
+
+		&:is(a) {
+
+			&:hover,
+			&:focus {
+				color: var(--color-white);
+			}
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------
@@ -179,6 +192,21 @@
 			background-color: var(--color-black);
 			color: var(--color-white);
 			text-decoration: none !important; /* override original state */
+		}
+	}
+
+	/* CASE: Dark Theme */
+	.is-style-dark & {
+		background-color: var(--color-white);
+		color: var(--color-black);
+
+		&:is(a) {
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-neutral-10);
+				color: var(--color-black);
+			}
 		}
 	}
 }

@@ -5,8 +5,6 @@ namespace Tribe\Plugin\Blocks;
 use DI;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Core\Interfaces\Definer_Interface;
-use Tribe\Theme\bindings\Post_Permalink;
-use Tribe\Theme\bindings\Post_Type_Name;
 use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
@@ -29,18 +27,19 @@ use Tribe\Theme\blocks\outermost\socialsharing\Social_Sharing;
 
 class Blocks_Definer implements Definer_Interface {
 
-	public const TYPES    = 'blocks.types';
-	public const EXTENDED = 'blocks.extended';
-	public const CORE     = 'blocks.core';
-	public const PATTERNS = 'blocks.patterns';
-	public const FILTERS  = 'blocks.filters';
-	public const BINDINGS = 'blocks.bindings';
+	public const string TYPES    = 'blocks.types';
+	public const string EXTENDED = 'blocks.extended';
+	public const string PATTERNS = 'blocks.patterns';
+	public const string FILTERS  = 'blocks.filters';
+	public const string BINDINGS = 'blocks.bindings';
 
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'tribe/terms',
 				'tribe/copyright',
+				'tribe/post-card',
+				'tribe/search-card',
+				'tribe/terms',
 			] ),
 
 			self::EXTENDED        => DI\add( [
@@ -71,8 +70,6 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::BINDINGS        => DI\add( [
-				DI\get( Post_Permalink::class ),
-				DI\get( Post_Type_Name::class ),
 				DI\get( Query_Results_Count::class ),
 			] ),
 

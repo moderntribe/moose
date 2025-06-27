@@ -2,19 +2,21 @@
  *
  * Post Card
  *
- * Minimal styles related to post cards
- *
  * ------------------------------------------------------------------------- */
 
-/* -----------------------------------------------------------------------
- * Post Card - Wrapper
- * Handles hover / focus states
- * Relatively positioned so that our link overlay can be contained
- * ----------------------------------------------------------------------- */
-
-.p-card-post {
+.c-post-card {
 	position: relative;
 	container: postcard / inline-size;
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Inner
+ * ----------------------------------------------------------------------- */
+
+.c-post-card__inner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-20);
 }
 
 /* -----------------------------------------------------------------------
@@ -23,45 +25,91 @@
  * search result post card)
  * ----------------------------------------------------------------------- */
 
-.p-card-post__image {
+.c-post-card__image {
 	overflow: hidden;
 
 	& img {
 		transition: var(--transition);
 
-		.p-card-post:hover &,
-		.p-card-post:focus-within & {
+		.c-post-card:hover &,
+		.c-post-card:focus-within & {
 			transform: scale(1.05);
 		}
-	}
-
-	@container (max-width: 320px) {
-		width: 22% !important;
-		float: right;
-		margin-inline-start: 2em;
 	}
 }
 
 /* -----------------------------------------------------------------------
- * Post Card - Categories
- * Relatively positioned & indexed higher than the link wrapper so that
- * we can click on the categories separately.
+ * Post Card - Content
  * ----------------------------------------------------------------------- */
 
-.p-card-post__categories a {
-	position: relative;
-	z-index: 2;
+.c-post-card__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-10);
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Primary Category
+ * ----------------------------------------------------------------------- */
+
+.c-post-card__primary-category {
+	margin-top: 0 !important;
 }
 
 /* -----------------------------------------------------------------------
  * Post Card - Title
- * Handles hover/focus state of the title element
  * ----------------------------------------------------------------------- */
 
-.p-card-post__title {
+.c-post-card__title {
+	margin-top: 0 !important;
+	text-decoration-line: underline;
+	text-decoration-thickness: from-font;
+	text-decoration-color: transparent;
+	text-underline-offset: 3px;
+	transition: var(--transition);
 
-	.p-card-post:hover &,
-	.p-card-post:focus-within & {
-		text-decoration: underline;
+	.c-post-card:hover &,
+	.c-post-card:focus-within & {
+		text-decoration-color: currentcolor;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Metadata
+ * ----------------------------------------------------------------------- */
+
+.c-post-card__metadata {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 8px;
+	margin-top: 0 !important;
+	color: var(--color-neutral-50);
+	font-size: 0;
+	line-height: 1;
+
+	.is-style-dark & {
+		color: var(--color-neutral-10);
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Post Card - Link Overlay
+ * ----------------------------------------------------------------------- */
+
+.c-post-card__link-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
+
+	.editor-styles-wrapper & {
+		display: none;
 	}
 }
