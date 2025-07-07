@@ -102,6 +102,7 @@ Specific features and functionality may have additional documentation in the [./
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/wp-controls-templates.md)
 * [Supported Block Features](./docs/block-features.md)
+* [Pattern Selection Modal](./docs/pattern-picker.md)
 
 ## Modern Tribe
 
