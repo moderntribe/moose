@@ -1,0 +1,33 @@
+.mega-menu-item__dropdown {
+	display: grid;
+	grid-gap: var(--grid-gutter);
+	grid-template-columns: 1fr;
+
+	@container megamenu (min-width: 980px) {
+		display: grid;
+		grid-template-columns: minmax(auto, 400px) 1fr;
+		align-items: start;
+	}
+}
+
+.mega-menu-item__dropdown-card {
+
+	@container megamenu (max-width: 979px) {
+		display: grid !important;
+		grid-template-columns: 1fr auto;
+		grid-template-areas: "content image";
+		align-items: center;
+
+		.wp-block-image {
+			grid-area: image;
+		}
+
+		.wp-block-group {
+			grid-area: content;
+		}
+	}
+
+	@container megamenu (max-width: 600px) {
+		grid-template-columns: 1fr minmax(auto, 75px);
+	}
+}
