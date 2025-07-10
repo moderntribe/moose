@@ -58,13 +58,17 @@ const createMobileMenu = () => {
  * @function wrapCloneElement
  * @description wrap cloned element in a <li> tag for a11y and semantic HTML compliance
  * @param {HTMLElement} clone
- * @returns {*}
+ * @return {HTMLElement|void} returns cloned element wrapped in a <li> tag
  */
-const wrapCloneElement = (clone) => {
-	const listItem = document.createElement('li');
-	listItem.appendChild(clone);
+const wrapCloneElement = ( clone ) => {
+	if ( ! clone ) {
+		return;
+	}
+
+	const listItem = document.createElement( 'li' );
+	listItem.appendChild( clone );
 	return listItem;
-}
+};
 
 /**
  * @function cloneElements
