@@ -6,7 +6,7 @@ export default function save( { attributes } ) {
 	const { menuToggleLabel } = attributes;
 
 	return (
-		<div { ...blockProps }>
+		<li { ...blockProps }>
 			{ menuToggleLabel ? (
 				<button
 					type="button"
@@ -21,6 +21,6 @@ export default function save( { attributes } ) {
 			<div className="site-header__mega-menu-item-wrapper">
 				<InnerBlocks.Content />
 			</div>
-		</div>
+		</li>
 	);
 }

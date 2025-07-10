@@ -22,6 +22,10 @@
 			text-decoration-color: currentcolor;
 		}
 	}
+
+	.site-header__navigation > & > a {
+		font-size: var(--font-size-20);
+	}
 }
 
 /* standard menu item button toggle */
@@ -74,11 +78,72 @@
 			transform: rotate(-90deg);
 		}
 	}
+
+	/* CASE: Standard menu item added to the Primary Menu */
+	/* TODO: @frontend refactor this so we can target standard menu item regardless of primary or utility menu use */
+	.site-header__navigation > .wp-block-tribe-standard-menu-item & {
+		font-size: var(--font-size-20);
+		text-decoration: none;
+		padding: var(--spacer-10) var(--spacer-30) var(--spacer-20) var(--spacer-10);
+
+		@media (--mq-navigation-max) {
+			width: 100%;
+			text-align: left;
+			padding-left: 0;
+		}
+
+		&::before {
+			content: "";
+			width: 0;
+			height: 4px;
+			background-color: var(--masthead-navigation-accent-color);
+			position: absolute;
+			bottom: -1px;
+			left: var(--spacer-10);
+			transition: width 0.15s ease-in-out;
+			z-index: 11;
+
+			@media (--mq-navigation-max) {
+				left: 0;
+				transition-duration: 0.25s;
+			}
+		}
+
+		&::after {
+			height: 16px;
+			width: 10px;
+			right: 2px;
+		}
+
+		&:hover,
+		&:focus-visible,
+		.menu-item-active & {
+			text-decoration: none;
+			color: var(--masthead-navigation-accent-color);
+
+			&::before {
+				width: calc(100% - var(--spacer-10));
+			}
+
+			@media (--mq-navigation-max) {
+
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
 }
 
 .tribe-standard-menu-item__toggle-label {
 	border-bottom: 1px solid transparent;
 	transition: var(--transition);
+
+	/* CASE: Standard menu item added to the Primary Menu */
+	.site-header__navigation & {
+		border-bottom: 0;
+		transition: none;
+	}
 }
 
 /* enhanced menu pattern wrapper */
@@ -103,5 +168,16 @@
 		border-radius: var(--border-radius-s);
 		box-shadow: var(--masthead-navigation-shadow);
 		z-index: 10;
+	}
+
+	/* CASE: Standard menu item added to the Primary Menu */
+	.site-header__navigation > .wp-block-tribe-standard-menu-item & {
+
+		@media (--mq-navigation) {
+			right: auto;
+			left: var(--spacer-10);
+			min-width: 220px;
+			width: 100%;
+		}
 	}
 }

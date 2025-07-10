@@ -47,12 +47,24 @@ const createMobileMenu = () => {
 	 * USAGE: duplicate elements in the order you need them to stack. If you're prepending, duplicate the bottom element
 	 * first. Order will be bottom to top. If you're appending, duplicate top item 1st.
 	 */
-	insertClonedNode( el.navigation, el.search );
-	insertClonedNode( el.navigation, el.cta );
-	insertClonedNode( el.navigation, el.utilityNav, false );
+	insertClonedNode( el.navigation, wrapCloneElement( el.search ) );
+	insertClonedNode( el.navigation, wrapCloneElement( el.cta ) );
+	insertClonedNode( el.navigation, wrapCloneElement( el.utilityNav ), false );
 
 	triggerCustomEvent( 'modern_tribe/cloned_elements_attached' );
 };
+
+/**
+ * @function wrapCloneElement
+ * @description wrap cloned element in a <li> tag for a11y and semantic HTML compliance
+ * @param {HTMLElement} clone
+ * @returns {*}
+ */
+const wrapCloneElement = (clone) => {
+	const listItem = document.createElement('li');
+	listItem.appendChild(clone);
+	return listItem;
+}
 
 /**
  * @function cloneElements
