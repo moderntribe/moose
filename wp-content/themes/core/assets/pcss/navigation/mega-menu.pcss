@@ -11,23 +11,23 @@
 }
 
 .mega-menu-item__dropdown-card {
+	display: grid !important;
+	grid-template-columns: auto 1fr;
+	grid-template-areas: "image content";
+	align-items: start;
 
-	@container megamenu (max-width: 979px) {
-		display: grid !important;
-		grid-template-columns: 1fr auto;
-		grid-template-areas: "content image";
-		align-items: center;
-
-		.wp-block-image {
-			grid-area: image;
-		}
-
-		.wp-block-group {
-			grid-area: content;
-		}
+	.wp-block-image {
+		grid-area: image;
 	}
 
-	@container megamenu (max-width: 600px) {
+	.wp-block-group {
+		grid-area: content;
+	}
+
+	@container megamenu (max-width: 779px) {
+		align-items: center;
 		grid-template-columns: 1fr minmax(auto, 75px);
+		grid-template-areas: "content image";
+		order: 2;
 	}
 }
