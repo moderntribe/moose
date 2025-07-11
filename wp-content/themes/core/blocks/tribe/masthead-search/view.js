@@ -90,7 +90,7 @@ const handleClickOutside = ( e ) => {
 	if ( state.searchActive && ! el.wrapper.contains( e.target ) ) {
 		toggleOverlayOff();
 	}
-}
+};
 
 /**
  * @function bindEvents

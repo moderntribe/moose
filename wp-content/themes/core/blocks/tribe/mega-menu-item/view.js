@@ -15,7 +15,7 @@ const el = {
 const state = {
 	menuActive: false,
 	activeItem: '',
-}
+};
 
 const cacheElements = () => {
 	el.masthead = document.querySelector( '.site-header' );
@@ -90,7 +90,7 @@ const handleClickOutside = ( e ) => {
 	if ( state.menuActive && ! state.activeItem.contains( e.target ) ) {
 		maybeResetMenuItems();
 	}
-}
+};
 
 /**
  * @function bindEvents
