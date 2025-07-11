@@ -12,6 +12,11 @@ const el = {
 	),
 };
 
+const state = {
+	menuActive: false,
+	activeItem: '',
+}
+
 const cacheElements = () => {
 	el.masthead = document.querySelector( '.site-header' );
 };
@@ -25,6 +30,9 @@ const maybeResetMenuItems = () => {
 	el.megaMenuItems.forEach( ( item ) =>
 		item.classList.remove( 'menu-item-active' )
 	);
+
+	state.menuActive = false;
+	state.activeItem = '';
 };
 
 /**
@@ -38,6 +46,8 @@ const openMenuItem = ( wrapper ) => {
 
 	wrapper.classList.add( 'menu-item-active' );
 	triggerCustomEvent( 'modern_tribe/mega_menu_open' );
+	state.menuActive = true;
+	state.activeItem = wrapper;
 };
 
 /**
@@ -48,6 +58,8 @@ const openMenuItem = ( wrapper ) => {
  */
 const closeMenuItem = ( wrapper ) => {
 	wrapper.classList.remove( 'menu-item-active' );
+	state.menuActive = false;
+	state.activeItem = '';
 };
 
 /**
@@ -68,6 +80,17 @@ const handleItemToggle = ( event ) => {
 
 	closeMenuItem( wrapper );
 };
+
+/**
+ * @function handleClickOutside
+ * @description close this feature if a click occurs outside of its container
+ * @param {Object} e
+ */
+const handleClickOutside = ( e ) => {
+	if ( state.menuActive && ! state.activeItem.contains( e.target ) ) {
+		maybeResetMenuItems();
+	}
+}
 
 /**
  * @function bindEvents
@@ -97,6 +120,7 @@ const bindEvents = () => {
 		'modern_tribe/close_on_escape',
 		maybeResetMenuItems
 	);
+	document.addEventListener( 'click', handleClickOutside );
 };
 
 /**

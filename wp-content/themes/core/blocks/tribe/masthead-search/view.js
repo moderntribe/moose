@@ -82,6 +82,17 @@ const cacheElements = () => {
 };
 
 /**
+ * @function handleClickOutside
+ * @description close this feature if a click occurs outside of its container
+ * @param {Object} e
+ */
+const handleClickOutside = ( e ) => {
+	if ( state.searchActive && ! el.wrapper.contains( e.target ) ) {
+		toggleOverlayOff();
+	}
+}
+
+/**
  * @function bindEvents
  *
  * @description add events to elements related to this module
@@ -107,6 +118,7 @@ const bindEvents = () => {
 			'modern_tribe/close_on_escape',
 			toggleOverlayOff
 		);
+		document.addEventListener( 'click', handleClickOutside );
 	}
 };
 
