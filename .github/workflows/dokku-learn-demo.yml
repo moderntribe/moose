@@ -3,9 +3,6 @@ name: Dokku Deploy Learn Demo
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   deploy_app:
