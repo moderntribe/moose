@@ -21,5 +21,5 @@ In your command line tool, you can run `npm run create-block`. This will trigger
 
 ## Gotchas
 
-- Because the `create-block` script inherits the code that creates the "plugin" version of a block, it also inherits the code where the `textdomain` property in the `block.json` file is automatically set to the defined block slug. This only applies to the `block.json` file, as we use the `namespace` in the template files to get around this. Please remember to update the `textdomain` property in the `block.json` file once your block gets generated.
 - Once the block is created, don't forget to add the block slug to the block definers `TYPES` array in the core plugin under `./src/Blocks/Blocks_Definer.php`.
+- After adding the block slug to the Blocks_Definer, you will need to run `npm run dist` to ensure the block is available to use.
