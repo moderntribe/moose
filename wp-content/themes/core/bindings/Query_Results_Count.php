@@ -28,9 +28,9 @@ class Query_Results_Count extends Binding_Base {
 		global $wp_query;
 		$is_search = is_search();
 		$count     = (int) $wp_query->found_posts;
-		$output    = sprintf( _n( '%d result', '%d results', $count, 'tribe' ), number_format_i18n( $count ) );
+		$output    = $count > 0 ? sprintf( _n( '%d result', '%d results', $count, 'tribe' ), number_format_i18n( $count ) ) : '';
 
-		if ( $is_search ) {
+		if ( $is_search && $count > 0 ) {
 			$output = sprintf(
 				_x(
 					'%s %s for <span class="search-term" style="font-weight:var(--wp--custom--font-weight--bold)">&ldquo;%s&rdquo;</span>',
