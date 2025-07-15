@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/post-card",
+	"version": "0.1.0",
+	"title": "Post Card",
+	"category": "theme",
+	"icon": "text-page",
+	"description": "Displays post data related to posts via a PHP template part.",
+	"attributes": {
+		"headingLevel": {
+			"type": "string",
+			"default": "h3"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"usesContext": [ "postId" ],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

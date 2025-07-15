@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/search-card",
+	"version": "0.1.0",
+	"title": "Search Card",
+	"category": "theme",
+	"icon": "media-document",
+	"description": "Displays post data related to posts / pages that display in a search query via a PHP template part.",
+	"supports": {
+		"html": false,
+		"align": false,
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"usesContext": [ "postId" ],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
