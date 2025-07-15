@@ -1,6 +1,49 @@
-/**
- * Styles specific to this block
- */
+/* -----------------------------------------------------------------------
+ *
+ * Search Block
+ *
+ * ----------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+ * Search Block - Wrapper
+ * ----------------------------------------------------------------------- */
+
+.wp-block-search__inside-wrapper {
+
+	/* CASE: Button Inside */
+	.wp-block-search__button-inside & {
+		align-items: center;
+		gap: var(--spacer-20);
+		padding: 0 var(--spacer-20) 0 0;
+		background-color: var(--color-white);
+		border: 1px solid var(--color-neutral-30);
+		border-radius: 0;
+
+		&:focus-within {
+			border-color: var(--color-black);
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Search Block - Input
+ * ----------------------------------------------------------------------- */
+
+.wp-block-search__input {
+
+	/* CASE: Button Inside */
+	.wp-block-search__button-inside & {
+
+		@mixin t-body;
+		padding: var(--spacer-20) 0 var(--spacer-20) var(--spacer-20);
+		background-color: transparent;
+		color: var(--color-black);
+
+		&::placeholder {
+			color: var(--color-neutral-50);
+		}
+	}
+}
 
 /**
  * Hide default "X" icon in webkit browsers for search inputs
@@ -10,4 +53,33 @@
 .wp-block-search__input::-webkit-search-results-button,
 .wp-block-search__input::-webkit-search-results-decoration {
 	display: none;
+}
+
+/* -----------------------------------------------------------------------
+ * Search Block - Button
+ * ----------------------------------------------------------------------- */
+
+.wp-block-search__button {
+
+	/* CASE: Button Inside */
+	.wp-block-search__button-inside & {
+		width: 32px;
+		height: 32px;
+		margin-left: 0;
+		mask: var(--icon-search) center no-repeat;
+		mask-size: 24px;
+		background-color: var(--color-neutral-50);
+		border-radius: 0;
+		padding: 0;
+		color: var(--color-black);
+
+		svg {
+			display: none;
+		}
+
+		&:focus-visible {
+
+			@mixin focus-visible;
+		}
+	}
 }
