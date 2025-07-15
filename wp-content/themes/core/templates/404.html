@@ -1,11 +1,13 @@
 <!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"0"}}}} -->
-<h1 class="wp-block-heading has-text-align-center" style="margin-top:0">404 Error</h1>
-<!-- /wp:heading -->
+<!-- wp:group {"metadata":{"name":"404 Page Template"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"textAlign":"center","level":1,"className":"is-style-medium","style":{"spacing":{"margin":{"top":"0"}}}} -->
+	<h1 class="wp-block-heading has-text-align-center is-style-medium" style="margin-top:0">Sorry, the page you are looking for could not be found.</h1>
+	<!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","className":"is-style-large"} -->
-<p class="has-text-align-center is-style-large">Sorry, this page couldn't be found.</p>
-<!-- /wp:paragraph --></div>
+	<!-- wp:paragraph {"align":"center","className":"is-style-default","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+	<p class="has-text-align-center is-style-default" style="margin-top:var(--wp--preset--spacing--50)">Your search returned no results. Please try another search term.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"What can we help you find today?","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /--></div>
 <!-- /wp:group -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
