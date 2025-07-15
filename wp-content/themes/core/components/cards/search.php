@@ -31,8 +31,8 @@ $permalink        = get_the_permalink( $post_id );
 		<?php if ( $post_type_object ) : ?>
 			<p class="c-search-card__post-type t-category"><?php echo esc_html( $post_type_object->labels->singular_name ); ?></p>
 		<?php endif; ?>
-		<h2 class="c-search-card__title t-display-x-small"><?php echo esc_html( $title ); ?></h2>
-		<p class="c-search-card__metadata">
+		<h2 class="c-search-card__title t-display-x-small t-transparent-underline"><?php echo esc_html( $title ); ?></h2>
+		<p class="c-search-card__metadata is-color-text-secondary">
 			<?php if ( $author ) : ?>
 				<span class="c-search-card__metadata-author t-body-small"><?php esc_html_e( 'by', 'tribe' ); ?> <?php echo esc_html( $author ); ?></span>
 			<?php endif; ?>

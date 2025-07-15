@@ -62,15 +62,11 @@
 
 .c-post-card__title {
 	margin-top: 0 !important;
-	text-decoration-line: underline;
-	text-decoration-thickness: from-font;
-	text-decoration-color: transparent;
-	text-underline-offset: 3px;
-	transition: var(--transition);
 
 	.c-post-card:hover &,
 	.c-post-card:focus-within & {
-		text-decoration-color: currentcolor;
+
+		@mixin t-transparent-underline-hover;
 	}
 }
 
@@ -83,13 +79,8 @@
 	flex-wrap: wrap;
 	gap: 0 8px;
 	margin-top: 0 !important;
-	color: var(--color-neutral-50);
 	font-size: 0;
 	line-height: 1;
-
-	.is-style-dark & {
-		color: var(--color-neutral-10);
-	}
 }
 
 /* -----------------------------------------------------------------------

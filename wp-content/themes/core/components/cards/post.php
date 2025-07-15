@@ -38,11 +38,11 @@ $permalink        = get_the_permalink( $post_id );
 				<p class="c-post-card__primary-category t-category"><?php echo esc_html( $primary_category->name ); ?></p>
 			<?php endif; ?>
 			<?php echo sprintf(
-				'<%1$s class="c-post-card__title t-display-x-small">%2$s</%1$s>',
+				'<%1$s class="c-post-card__title t-display-x-small t-transparent-underline">%2$s</%1$s>',
 				esc_html( $heading_level ),
 				esc_html( $title )
 			); ?>
-			<p class="c-post-card__metadata">
+			<p class="c-post-card__metadata is-color-text-secondary">
 				<?php if ( $author ) : ?>
 					<span class="c-post-card__metadata-author t-body-small"><?php esc_html_e( 'by', 'tribe' ); ?> <?php echo esc_html( $author ); ?></span>
 				<?php endif; ?>
