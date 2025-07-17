@@ -10,9 +10,9 @@
 
 /**
  * Lando local development
- * uncomment below to use the lando settings for local development.
+ *
+ * If you're not using Lando, you'll need to set these values manually.
  */
-/** This will ensure these are only loaded on Lando */
 if ( getenv( 'LANDO_INFO' ) ) {
 	$lando_info      = json_decode( getenv( 'LANDO_INFO' ) );
 	$database_config = $lando_info->database;
@@ -21,6 +21,17 @@ if ( getenv( 'LANDO_INFO' ) ) {
 	define( 'DB_PASSWORD', $database_config->creds->password );
 	define( 'DB_HOST', $database_config->internal_connection->host );
 }
+
+/**
+ * Multisite Config
+ *
+ * Note that there are already multisite config values defined in wp-config-environment.php.
+ * These are the only values that need to be overridden to fully enable multisite.
+ */
+// define( 'WP_ALLOW_MULTISITE', true );
+// define( 'MULTISITE', true );
+// define( 'SUBDOMAIN_INSTALL', false );
+// define( 'DOMAIN_CURRENT_SITE', 'moose.lndo.site' );
 
 /**
  * Set the current environment type. Accepted values:

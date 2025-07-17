@@ -69,6 +69,11 @@
 					"fontSizes": []
 				}
 			},
+			"core/post-template": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
 			"core/pullquote": {
 				"typography": {
 					"fontFamilies": [],
