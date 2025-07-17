@@ -1,7 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
 import {
-	PanelBody,
 	TextControl,
 	ToggleControl,
 	RangeControl,
@@ -22,7 +21,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		isRounded,
 		iconPadding,
 		iconLabel,
-		iconWidth,
+		iconSize,
 		searchQuery,
 		selectedIconColor,
 		selectedBgColor,
@@ -30,28 +29,28 @@ export default function Edit( { attributes, setAttributes } ) {
 	const [ filteredIcons, setFilteredIcons ] = useState( ICONS_LIST );
 
 	// Option 1: Use theme.json color palette
-	// const themeColors = useSetting( 'color.palette' );
-	// const COLORS = Array.isArray( themeColors )
-	// 	? [
-	// 			...themeColors.map( ( { name, color } ) => ( {
-	// 				name,
-	// 				value: color,
-	// 			} ) ),
-	// 			{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
-	// 	  ]
-	// 	: [];
+	const themeColors = useSetting( 'color.palette' );
+	const COLORS = Array.isArray( themeColors )
+		? [
+				...themeColors.map( ( { name, color } ) => ( {
+					name,
+					value: color,
+				} ) ),
+				{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
+		  ]
+		: [];
 
 	//Option 2: Use custom collors
-	const COLORS = [
-		{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
-		{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },
-		{ name: __( 'Gray', 'tribe' ), value: '#737373' },
-		{ name: __( 'Light Gray', 'tribe' ), value: '#d2d2d2' },
-		{ name: __( 'Dark Gray', 'tribe' ), value: '#505050' },
-		{ name: __( 'Teal', 'tribe' ), value: '#008575' },
-		{ name: __( 'White', 'tribe' ), value: '#ffffff' },
-		{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
-	];
+	// const COLORS = [
+	// 	{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
+	// 	{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },
+	// 	{ name: __( 'Gray', 'tribe' ), value: '#737373' },
+	// 	{ name: __( 'Light Gray', 'tribe' ), value: '#d2d2d2' },
+	// 	{ name: __( 'Dark Gray', 'tribe' ), value: '#505050' },
+	// 	{ name: __( 'Teal', 'tribe' ), value: '#008575' },
+	// 	{ name: __( 'White', 'tribe' ), value: '#ffffff' },
+	// 	{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
+	// ];
 
 	// Warn developer if themeColors is not properly set
 	if ( COLORS.length === 0 ) {
@@ -80,12 +79,13 @@ export default function Edit( { attributes, setAttributes } ) {
 				<div
 					className="icon-wrapper"
 					style={ {
-						backgroundColor: selectedBgColor || 'transparent',
-						color: selectedIconColor || 'white',
-						borderRadius: isRounded ? '50%' : '0',
-						width: iconWidth || '100%',
-						height: iconWidth || '100%',
-						padding: `${ iconPadding }px`,
+						'--icon-picker--background-color':
+							selectedBgColor || 'transparent',
+						'--icon-picker--icon-color':
+							selectedIconColor || 'white',
+						'--icon-picker--border-radius': isRounded ? '50%' : '0',
+						'--icon-picker--icon-size': `${ iconSize }px` || '100%',
+						'--icon-picker--icon-padding': `${ iconPadding }px`,
 					} }
 					{ ...( selectedBgColor === 'transparent'
 						? { 'data-transparent': true }
@@ -357,7 +357,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								return (
 									<>
 										<RangeControl
-											label={ __( 'Padding', 'tribe' ) }
+											label={ __(
+												'Container Padding',
+												'tribe'
+											) }
 											value={ iconPadding }
 											onChange={ ( value ) =>
 												setAttributes( {
@@ -369,11 +372,14 @@ export default function Edit( { attributes, setAttributes } ) {
 											afterIcon={ () => <span>px</span> }
 										/>
 										<RangeControl
-											label={ __( 'Width', 'tribe' ) }
-											value={ iconWidth }
+											label={ __(
+												'Container Size',
+												'tribe'
+											) }
+											value={ iconSize }
 											onChange={ ( value ) =>
 												setAttributes( {
-													iconWidth: value,
+													iconSize: value,
 												} )
 											}
 											min={ 20 }

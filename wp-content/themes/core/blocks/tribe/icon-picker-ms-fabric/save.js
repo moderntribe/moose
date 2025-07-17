@@ -6,7 +6,7 @@ export default function Save( { attributes } ) {
 		selectedIcon,
 		isRounded,
 		iconPadding,
-		iconWidth,
+		iconSize,
 		selectedIconColor,
 		selectedBgColor,
 	} = attributes;
@@ -23,12 +23,13 @@ export default function Save( { attributes } ) {
 				<div
 					className="icon-wrapper"
 					style={ {
-						backgroundColor: selectedBgColor || 'transparent',
-						color: selectedIconColor || 'white',
-						borderRadius: isRounded ? '50%' : '0',
-						width: iconWidth || '100%',
-						height: iconWidth || '100%',
-						padding: `${ iconPadding }px`,
+						'--icon-picker--background-color':
+							selectedBgColor || 'transparent',
+						'--icon-picker--icon-color':
+							selectedIconColor || 'white',
+						'--icon-picker--border-radius': isRounded ? '50%' : '0',
+						'--icon-picker--icon-size': `${ iconSize }px` || '100%',
+						'--icon-picker--icon-padding': `${ iconPadding }px`,
 					} }
 					{ ...( selectedBgColor === 'transparent'
 						? { 'data-transparent': true }

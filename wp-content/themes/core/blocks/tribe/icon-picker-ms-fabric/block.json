@@ -23,7 +23,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"iconWidth": {
+		"iconSize": {
 			"type": "number",
 			"default": 80
 		},
