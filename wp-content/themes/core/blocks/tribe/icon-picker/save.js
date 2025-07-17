@@ -9,7 +9,7 @@ export default function Save( { attributes } ) {
 		iconLabel,
 		isRounded,
 		iconPadding,
-		iconWidth,
+		iconSize,
 		selectedIconColor,
 		selectedBgColor,
 	} = attributes;
@@ -29,8 +29,7 @@ export default function Save( { attributes } ) {
 						'--icon-picker--icon-color':
 							selectedIconColor || 'white',
 						'--icon-picker--border-radius': isRounded ? '50%' : '0',
-						'--icon-picker--icon-size':
-							`${ iconWidth }px` || '100%',
+						'--icon-picker--icon-size': `${ iconSize }px` || '100%',
 						'--icon-picker--icon-padding': `${ iconPadding }px`,
 					} }
 					{ ...( selectedBgColor === 'transparent'
