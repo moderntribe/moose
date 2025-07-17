@@ -144,6 +144,11 @@
 					"slug": "neutral-10"
 				},
 				{
+					"color": "#d1d1d1",
+					"name": "Neutral 30",
+					"slug": "neutral-30"
+				},
+				{
 					"color": "#767676",
 					"name": "Neutral 50",
 					"slug": "neutral-50"
@@ -357,6 +362,32 @@
 			"background": "var(--wp--preset--color--base-white)"
 		},
 		"blocks": {
+			"core/details": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontSize": "var(--wp--preset--font-size--30)",
+					"lineHeight": "1.4",
+					"fontWeight": "var(--wp--custom--font-weight--bold)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--preset--spacing--40)"
+					}
+				},
+				"border": {
+					"top": {
+						"color": "var(--wp--preset--color--neutral-30)",
+						"style": "solid",
+						"width": "1px"
+					},
+					"bottom": {
+						"color": "var(--wp--preset--color--neutral-30)",
+						"style": "solid",
+						"width": "1px"
+					}
+				}
+			},
 			"core/embed": {
 				"elements": {
 					"caption": {
