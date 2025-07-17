@@ -6,7 +6,7 @@
 	"title": "Icon Picker (MS Fabric)",
 	"category": "design",
 	"icon": "admin-customizer",
-	"description": "Select and display an icon from Microsoft Office UI Fabric library.",
+	"description": "Select and display an icon from Microsoft UI Fabric library.",
 	"supports": {
 		"html": false
 	},
