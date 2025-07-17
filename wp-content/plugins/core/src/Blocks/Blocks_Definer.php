@@ -9,6 +9,7 @@ use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
+use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
@@ -46,6 +47,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Button::class ),
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
+				DI\get( Details::class ),
 				DI\get( Embed::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),

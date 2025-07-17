@@ -1,0 +1,72 @@
+/**
+ * Styles specific to this block
+ */
+.wp-block-details {
+
+	summary {
+		display: list-item;
+		cursor: pointer;
+		list-style: none;
+		position: relative;
+		padding-right: 20px;
+
+		/* Arrow */
+		&::after {
+			content: "";
+			display: block;
+			width: 10px;
+			height: 16px;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%) rotate(90deg);
+			mask: var(--icon-chevron-right) center no-repeat;
+			mask-size: contain;
+			background-color: currentcolor;
+			transition: var(--transition);
+		}
+	}
+
+	/* Opened */
+	&[open] > summary::after {
+	  transform: translateY(-50%) rotate(-90deg);
+	}
+
+	/* Dark style */
+	.is-style-dark & {
+		border-bottom-color: var(--color-white);
+
+		&:first-child {
+			border-top-color: var(--color-white);
+		}
+	}
+
+	/**
+	* Remove margin between items for grouped together <details>
+	* Ensure the <details> block is the first child of the group,
+	* then target its siblings.
+	**/
+	.wp-block-group > &:first-child ~ & {
+		border-top: 0;
+		margin-top: 0;
+	}
+
+	/* Add animation to the content */
+	&[open] summary ~ * {
+		animation: sweep 0.3s ease-in-out;
+	}
+}
+
+/* Custom animation for the content  */
+@keyframes sweep {
+
+	0% {
+		opacity: 0;
+		transform: translateX(-10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
