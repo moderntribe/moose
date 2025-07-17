@@ -25,6 +25,10 @@
 		"coreThemeBlocksDir": "./wp-content/themes/core/blocks",
 		"coreBlockTemplatesDir": "../../../../../dev/templates"
 	},
+	"dependencies": {
+		"@fortawesome/free-solid-svg-icons": "^6.7.2",
+		"@fortawesome/react-fontawesome": "^0.2.2"
+	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
 		"@wordpress/create-block": "^4.65.0",
@@ -60,9 +64,5 @@
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses"
-	},
-	"dependencies": {
-		"@fortawesome/free-solid-svg-icons": "^6.7.2",
-		"@fortawesome/react-fontawesome": "^0.2.2"
 	}
 }
