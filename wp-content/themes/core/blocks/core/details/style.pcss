@@ -4,7 +4,6 @@
 .wp-block-details {
 
 	summary {
-		display: list-item;
 		cursor: pointer;
 		list-style: none;
 		position: relative;
@@ -19,7 +18,7 @@
 			width: 10px;
 			height: 16px;
 			position: absolute;
-			right: 0;
+			right: 3px;
 			top: 50%;
 			transform: translateY(-50%) rotate(90deg);
 			mask: var(--icon-chevron-right) center no-repeat;
@@ -45,16 +44,6 @@
 		&:first-child {
 			border-top-color: var(--color-white);
 		}
-	}
-
-	/* -------------------------------------------------------------------
-	* Remove margin between items for grouped together <details>
-	* Ensure the <details> block is the first child of the group,
-	* then target its siblings.
-	* ------------------------------------------------------------------- */
-	.wp-block-group > &:first-child ~ & {
-		border-top: 0;
-		margin-top: 0;
 	}
 
 	/**

@@ -31,6 +31,17 @@
 					"blockGap": true
 				}
 			},
+			"core/details": {
+				"border": {
+					"color": true,
+					"radius": false,
+					"style": false,
+					"width": true
+				},
+				"spacing": {
+					"margin": true
+				}
+			},
 			"core/group": {
 				"background": {
 					"backgroundImage": true,
