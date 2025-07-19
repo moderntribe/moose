@@ -144,11 +144,6 @@
 					"slug": "neutral-10"
 				},
 				{
-					"color": "#d1d1d1",
-					"name": "Neutral 30",
-					"slug": "neutral-30"
-				},
-				{
 					"color": "#767676",
 					"name": "Neutral 50",
 					"slug": "neutral-50"
@@ -377,12 +372,12 @@
 				},
 				"border": {
 					"top": {
-						"color": "var(--wp--preset--color--neutral-30)",
+						"color": "var(--wp--preset--color--base-black)",
 						"style": "solid",
 						"width": "1px"
 					},
 					"bottom": {
-						"color": "var(--wp--preset--color--neutral-30)",
+						"color": "var(--wp--preset--color--base-black)",
 						"style": "solid",
 						"width": "1px"
 					}
