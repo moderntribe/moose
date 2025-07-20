@@ -571,6 +571,11 @@
 					}
 				}
 			},
+			"outermost/social-sharing": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--30)"
+				}
+			},
 			"tribe/copyright": {
 				"spacing": {
 					"margin": {
