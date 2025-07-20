@@ -477,12 +477,12 @@
 				},
 				"spacing": {
 					"margin": {
-						"top": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--preset--spacing--40)"
+						"top": "var(--wp--preset--spacing--50)",
+						"bottom": "var(--wp--preset--spacing--50)"
 					},
 					"padding": {
-						"top": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--preset--spacing--40)"
+						"top": "var(--wp--preset--spacing--50)",
+						"bottom": "var(--wp--preset--spacing--50)"
 					}
 				},
 				"typography": {

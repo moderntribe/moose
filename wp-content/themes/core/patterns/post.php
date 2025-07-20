@@ -15,8 +15,12 @@
 
 <!-- wp:post-title {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|30"}}}} /-->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
-<div class="wp-block-group"><!-- wp:post-author-name {"textAlign":"center","isLink":true,"style":{"spacing":{"margin":{"bottom":"0","top":"0","left":"0","right":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|blue"}}}},"textColor":"blue"} /-->
+<!-- wp:paragraph {"align":"center","className":"is-style-large"} -->
+<p class="has-text-align-center is-style-large">Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10","padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-bottom:0"><!-- wp:post-author-name {"textAlign":"center","isLink":true,"style":{"spacing":{"margin":{"bottom":"0","top":"0","left":"0","right":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|blue"}}}},"textColor":"blue"} /-->
 
 <!-- wp:paragraph -->
 <p>•</p>
@@ -26,18 +30,18 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:post-featured-image {"align":"wide","className":"alignwide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40","right":"0","left":"0"}}}} /-->
+<!-- wp:post-featured-image {"align":"wide","className":"alignwide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|70","right":"0","left":"0"}}}} /-->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">Heading level 2</h2>
+<!-- wp:heading {"className":"is-style-medium"} -->
+<h2 class="wp-block-heading is-style-medium">Heading level 2</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Heading Level Three</h3>
+<!-- wp:heading {"level":3,"className":"is-style-small"} -->
+<h3 class="wp-block-heading is-style-small">Heading Level Three</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -48,8 +52,8 @@
 <p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":6} -->
-<h6 class="wp-block-heading">Heading Level Six</h6>
+<!-- wp:heading {"level":6,"className":"is-style-xx-small"} -->
+<h6 class="wp-block-heading is-style-xx-small">Heading Level Six</h6>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
