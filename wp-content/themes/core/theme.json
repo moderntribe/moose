@@ -115,6 +115,11 @@
 					"fontFamilies": [],
 					"fontSizes": []
 				}
+			},
+			"outermost/social-sharing": {
+				"spacing": {
+					"blockGap": true
+				}
 			}
 		},
 		"color": {
