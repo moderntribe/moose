@@ -16,7 +16,7 @@
 <!-- wp:post-title {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|30"}}}} /-->
 
 <!-- wp:paragraph {"align":"center","className":"is-style-large"} -->
-<p class="has-text-align-center is-style-large">Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<p class="has-text-align-center is-style-large">Post excerpt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10","padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
@@ -33,11 +33,11 @@
 <!-- wp:post-featured-image {"align":"wide","className":"alignwide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|70","right":"0","left":"0"}}}} /-->
 
 <!-- wp:heading {"className":"is-style-medium"} -->
-<h2 class="wp-block-heading is-style-medium">Heading level 2</h2>
+<h2 class="wp-block-heading is-style-medium">Heading level two</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3,"className":"is-style-small"} -->
@@ -45,11 +45,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Our stakeholder interview process, honed over nearly two decades launching digital projects across diverse sectors, is integral to our discovery phase, and ensuring that what we build meets client objectives.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":6,"className":"is-style-xx-small"} -->
@@ -57,7 +53,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"ordered":true} -->
@@ -66,11 +62,11 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>We foster a culture of open communication and no surprises. Despite being remote since day one, everything from our communication tools to our dev infrastructure is designed for close collaboration.</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>We believe your tech, tools, and teams work better together. Every “thing” we build is designed to link people and platforms. We connect the dots … and occasionally color outside the lines.</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</li>
 <!-- /wp:list-item --></ol>
 <!-- /wp:list -->
 
@@ -79,7 +75,7 @@
 <!-- /wp:pullquote -->
 
 <!-- wp:paragraph -->
-<p>Whatever we’re working on, we push what’s possible to accomplish ambitious goals, to serve your communities, and to build a braver, brighter, better connected world. Here’s how we make it happen.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
@@ -88,11 +84,11 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>We foster a culture of open communication and no surprises. Despite being remote since day one, everything from our communication tools to our dev infrastructure is designed for close collaboration.</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>We believe your tech, tools, and teams work better together. Every “thing” we build is designed to link people and platforms. We connect the dots … and occasionally color outside the lines.</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
