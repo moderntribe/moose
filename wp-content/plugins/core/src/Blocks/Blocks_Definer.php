@@ -10,6 +10,7 @@ use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
 use Tribe\Theme\blocks\core\embed\Embed;
+use Tribe\Theme\blocks\core\gallery\Gallery;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
 use Tribe\Theme\blocks\core\postauthorname\Post_Author_Name;
@@ -47,6 +48,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
 				DI\get( Embed::class ),
+				DI\get( Gallery::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),
 				DI\get( Post_Author_Name::class ),
