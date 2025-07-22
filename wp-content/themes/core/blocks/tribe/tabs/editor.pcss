@@ -1,0 +1,56 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-tribe-tabs__tabs {
+	gap: 0 !important;
+	border: 1px solid var(--theme-border-color, var(--color-black));
+}
+
+.wp-block-tribe-tabs__tab {
+	position: relative;
+	padding: var(--spacer-20);
+	cursor: pointer;
+	border-right: 1px solid var(--theme-border-color, var(--color-black));
+
+	&.active-tab {
+		position: relative;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			bottom: -1px;
+			left: 0;
+			background-color: var(--theme-background-color, var(--color-white));
+		}
+	}
+}
+
+.wp-block-tribe-tabs__tab-label {
+	cursor: text;
+}
+
+.wp-block-tribe-tabs__tab-delete {
+	padding: 0 !important;
+	color: var(--theme-text-color, var(--color-text)) !important;
+
+	&:hover,
+	&:focus {
+		color: var(--theme-accent-color, var(--wp-admin-theme-color)) !important;
+	}
+}
+
+.wp-block-tribe-tabs__add {
+	margin-left: var(--spacer-20);
+}
+
+.wp-block-tribe-tabs__tab-content {
+	border: 1px solid var(--theme-border-color, var(--color-black));
+	border-top: 0;
+	padding: var(--spacer-20);
+}

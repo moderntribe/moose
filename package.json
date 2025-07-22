@@ -25,6 +25,9 @@
 		"coreThemeBlocksDir": "./wp-content/themes/core/blocks",
 		"coreBlockTemplatesDir": "../../../../../dev/templates"
 	},
+	"dependencies": {
+		"delegate": "^3.2.0"
+	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
 		"@wordpress/create-block": "^4.65.0",

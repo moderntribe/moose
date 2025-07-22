@@ -1,0 +1,52 @@
+.wp-block-tribe-tabs__tab-nav {
+	overflow-x: auto;
+}
+
+.wp-block-tribe-tabs__tab-list {
+	display: inline-flex;
+	align-items: stretch;
+	justify-content: center;
+	gap: var(--spacer-40);
+	min-width: 100%;
+	position: relative;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 3px solid var(--theme-border-color, var(--color-neutral-20));
+}
+
+/* keep this for allowing previous versions of the block to still work */
+.wp-block-tribe-tabs__tab-item {
+	display: flex;
+	justify-content: center;
+}
+
+.wp-block-tribe-tabs__tab-item-button {
+
+	@mixin t-display-xx-small;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	z-index: 2;
+	padding: var(--spacer-20);
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	white-space: nowrap;
+	color: var(--theme-text-color, var(--color-text));
+
+	&[aria-selected="true"] {
+		color: var(--theme-accent-color, var(--color-text));
+
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			background-color: var(--theme-accent-color, var(--color-text));
+		}
+	}
+}

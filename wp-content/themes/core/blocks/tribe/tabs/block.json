@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/tabs",
+	"version": "0.1.0",
+	"title": "Tabs",
+	"category": "theme",
+	"description": "Allows creation of tabbed content",
+	"icon": "slides",
+	"supports": {
+		"html": false,
+		"align": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"currentActiveTabInstanceId": "tab-content-0",
+			"tabs": [
+				{
+					"clientId": "12345",
+					"id": "tab-content-0",
+					"label": "Tab Label",
+					"isActive": true
+				}
+			]
+		}
+	},
+	"attributes": {
+		"currentActiveTabInstanceId": {
+			"type": "string",
+			"default": ""
+		},
+		"tabs": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"providesContext": {
+		"tribe/tabs/currentActiveTabInstanceId": "currentActiveTabInstanceId"
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
