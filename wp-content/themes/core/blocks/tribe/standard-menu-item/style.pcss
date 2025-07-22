@@ -86,9 +86,10 @@
 
 	/* TODO: @frontend refactor this so we can target standard menu item regardless of primary or utility menu use */
 	.site-header__navigation > .wp-block-tribe-standard-menu-item & {
-		font-size: var(--font-size-20);
 		text-decoration: none;
 		padding: var(--spacer-10) var(--spacer-30) var(--spacer-20) var(--spacer-10);
+
+		@mixin t-body;
 
 		@media (--mq-navigation-max) {
 			width: 100%;

@@ -1,7 +1,6 @@
 :root {
 	--masthead-mobile-height: 56px;
 	--masthead-primary-column-width: 160px;
-	--masthead-navigation-item-column-width: 120px;
 	--masthead-mobile-navigation-top-bottom-padding: 12px;
 	--masthead-navigation-column-gap: var(--spacer-40);
 	--masthead-navigation-background-color: var(--color-white);
@@ -166,7 +165,7 @@ div.site-header__navigation-wrapper {
 	@media (--mq-navigation) {
 		position: unset;
 		grid-area: unset;
-		grid-template-columns: repeat(auto-fit, minmax(var(--masthead-navigation-item-column-width), auto));
+		grid-template-columns: repeat(auto-fit, minmax(0, auto));
 		align-items: center;
 		justify-content: center;
 		grid-auto-flow: column;

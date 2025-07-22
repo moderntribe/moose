@@ -9,8 +9,11 @@
 
 	.tribe-standard-menu-item__toggle {
 
-		&::after {
-			top: var(--spacer-10);
+		&:not(.site-header__navigation &) {
+
+			&::after {
+				top: var(--spacer-10);
+			}
 		}
 	}
 
@@ -36,5 +39,9 @@
 		.site-header__utility-menu &:not(:only-child) {
 			display: none;
 		}
+	}
+
+	.tribe-standard-menu-item__toggle + .site-header__standard-menu-item-wrapper {
+		display: none !important;
 	}
 }
