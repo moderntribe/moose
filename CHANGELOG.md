@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.07]
+- Updated: 404 & Search templates have been updated to Moose 2.0 design standards.
+- Fixed: Issue with editor pattern / template previews (still using `iframe` elements) displaying at the wrong width.
+
 ## [2025.06]
+- Updated: Post & Search templates now use dynamic custom blocks to render the post cards. [#210](https://moderntribe.atlassian.net/browse/MOOSE-210)
+- Fixed: `reset.pcss` now loads in the editor to fix issues with elements not properly getting `border-box` sizing. Because all editors are now `<iframe>` elements, this should not negatively affect anything outside of the editor like we were worried about before.
 - Added: Multisite support for Lando and related docs.
 - Updated: Moved required plugins to Core plugin's Requires Plugins header and removed from force-activation mu-plugin. [#192](https://github.com/moderntribe/moose/issues/192)
 - Removed: Several unnecessary plugins. [#192](https://github.com/moderntribe/moose/issues/192)
