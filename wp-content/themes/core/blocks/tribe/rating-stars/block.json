@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/rating-stars",
+	"version": "1.0.0",
+	"title": "Rating Stars",
+	"category": "theme",
+	"description": "Displays a rating stars.",
+	"icon": "star-filled",
+	"supports": {
+		"html": false,
+		"align": false,
+		"spacing": {
+			"margin": true,
+			"padding": false
+		},
+		"__experimentalResizable": true
+	},
+	"attributes": {
+		"rating": {
+			"type": "number",
+			"default": 5
+		},
+		"containerSize": {
+			"type": "number",
+			"default": 200
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
