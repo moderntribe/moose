@@ -13,6 +13,11 @@
 		],
 		"_experimentalLayoutSorting": true,
 		"blocks": {
+			"core/buttons": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
 			"core/button": {
 				"border": {
 					"color": false,
@@ -357,6 +362,11 @@
 			"background": "var(--wp--preset--color--base-white)"
 		},
 		"blocks": {
+			"core/buttons": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--30)"
+				}
+			},
 			"core/embed": {
 				"elements": {
 					"caption": {
