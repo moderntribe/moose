@@ -4,6 +4,7 @@ namespace Tribe\Plugin\Blocks;
 
 use Tribe\Plugin\Blocks\Bindings\Binding_Registrar;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
 use Tribe\Plugin\Core\Abstract_Subscriber;
@@ -88,6 +89,13 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			return $filter ? $filter->filter_block_content( $block_content, $parsed_block, $block ) : $block_content;
 		}, 10, 3 );
+
+		/**
+		 * Add support for block animation attributes in dynamic blocks.
+		 */
+		add_action( 'wp_loaded', function (): void {
+			$this->container->get( Block_Animation_Attributes::class )->register_animation_attributes();
+		}, 100, 0 );
 
 		/**
 		 * Disable default WP block patterns.
