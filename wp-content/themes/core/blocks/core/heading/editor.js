@@ -6,6 +6,9 @@ const settings = {
 		useBalancedText: {
 			type: 'boolean',
 		},
+		useHangingPunctuation: {
+			type: 'boolean',
+		},
 	},
 	blocks: [ 'core/heading' ],
 	controls: [
@@ -18,6 +21,17 @@ const settings = {
 				'tribe'
 			),
 			label: __( 'Use Balanced Text', 'tribe' ),
+			type: 'toggle',
+		},
+		{
+			applyClass: 'has-hanging-punctuation',
+			attribute: 'useHangingPunctuation',
+			defaultValue: false,
+			helpText: __(
+				'Enable to visually align opening punctuation with the text edge.',
+				'tribe'
+			),
+			label: __( 'Use Hanging Punctuation', 'tribe' ),
 			type: 'toggle',
 		},
 	],
