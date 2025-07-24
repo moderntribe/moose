@@ -56,6 +56,10 @@ class Admin_Assets_Enqueuer extends Assets_Enqueuer {
 	 * if set in ACF settings page, updates the login logo to a user set image
 	 */
 	public function update_login_header(): void {
+		if ( ! function_exists( 'get_field' ) ) {
+			return;
+		}
+
 		$login_logo_id = get_field( Login_Settings::LOGIN_LOGO, 'option' );
 		$login_logo    = $login_logo_id ? wp_get_attachment_image_src( $login_logo_id )[0] : false;
 
