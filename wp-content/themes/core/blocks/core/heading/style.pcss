@@ -1,0 +1,26 @@
+/**
+ * Styles specific to this block
+ */
+
+.wp-block-heading {
+
+	.tribe-heading-highlight {
+		text-decoration-line: underline;
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.105em;
+		text-decoration-color: var(--color-yellow);
+
+		.is-style-light-gray & {
+			text-decoration-color: var(--color-yellow-dark);
+		}
+
+		.is-style-accent & {
+			text-decoration-color: var(--color-white);
+		}
+	}
+
+	/* CASE: Has Balanced Text */
+	&.has-balanced-text {
+		text-wrap: balance !important;
+	}
+}
