@@ -42,6 +42,11 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/post-card',
 				'tribe/search-card',
 				'tribe/terms',
+				'tribe/mega-menu-item',
+				'tribe/standard-menu-item',
+				'tribe/menu-toggle',
+				'tribe/navigation-link',
+				'tribe/masthead-search',
 			] ),
 
 			self::EXTENDED        => DI\add( [

@@ -1,0 +1,188 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Standard Navigation Item - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-standard-menu-item {
+	position: relative;
+
+	> a.wp-block-tribe-navigation-link {
+		padding: var(--spacer-10);
+		font-size: 14px;
+		text-decoration-color: transparent;
+		text-underline-offset: 3px;
+
+		@media (--mq-navigation-max) {
+			padding: var(--spacer-10) 0;
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration-color: currentcolor;
+		}
+	}
+
+	.site-header__navigation > & > a {
+		font-size: var(--font-size-20);
+		display: block;
+		padding-top: var(--spacer-10);
+		padding-bottom: var(--spacer-20);
+	}
+}
+
+/* standard menu item button toggle */
+.tribe-standard-menu-item__toggle {
+	background-color: transparent;
+	border: 0;
+	padding: var(--spacer-10) var(--spacer-20) var(--spacer-10) var(--spacer-10);
+	position: relative;
+	color: var(--color-text);
+	transition: var(--transition);
+	font-size: 14px;
+	text-decoration-color: transparent;
+
+	@media (--mq-navigation-max) {
+		width: 100%;
+		text-align: left;
+		padding-left: 0;
+	}
+
+	&::after {
+		content: "";
+		background-color: currentcolor;
+		display: block;
+		height: 12px;
+		width: 6px;
+		mask: var(--icon-chevron-right) center no-repeat;
+		mask-size: contain;
+		position: absolute;
+		right: 2px;
+		top: calc(var(--spacer-10) + 5px);
+		transform: rotate(90deg);
+		transition: var(--transition);
+
+	}
+
+	&:hover,
+	&:focus-visible,
+	.menu-item-active & {
+		text-decoration-color: currentcolor;
+		color: currentcolor;
+
+		.tribe-standard-menu-item__toggle-label {
+			border-bottom-color: currentcolor;
+		}
+	}
+
+	.menu-item-active & {
+
+		&::after {
+			transform: rotate(-90deg);
+		}
+	}
+
+	/* CASE: Standard menu item added to the Primary Menu */
+
+	/* TODO: @frontend refactor this so we can target standard menu item regardless of primary or utility menu use */
+	.site-header__navigation > .wp-block-tribe-standard-menu-item & {
+		text-decoration: none;
+		padding: var(--spacer-10) var(--spacer-30) var(--spacer-20) var(--spacer-10);
+
+		@mixin t-body;
+
+		@media (--mq-navigation-max) {
+			width: 100%;
+			text-align: left;
+			padding-left: 0;
+		}
+
+		&::before {
+			content: "";
+			width: 0;
+			height: 4px;
+			background-color: var(--masthead-navigation-accent-color);
+			position: absolute;
+			bottom: -1px;
+			left: var(--spacer-10);
+			transition: width 0.15s ease-in-out;
+			z-index: 11;
+
+			@media (--mq-navigation-max) {
+				left: 0;
+				transition-duration: 0.25s;
+			}
+		}
+
+		&::after {
+			height: 16px;
+			width: 10px;
+			right: 2px;
+		}
+
+		&:hover,
+		&:focus-visible,
+		.menu-item-active & {
+			text-decoration: none;
+			color: var(--masthead-navigation-accent-color);
+
+			&::before {
+				width: calc(100% - var(--spacer-10));
+			}
+
+			@media (--mq-navigation-max) {
+
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.tribe-standard-menu-item__toggle-label {
+	border-bottom: 1px solid transparent;
+	transition: var(--transition);
+
+	/* CASE: Standard menu item added to the Primary Menu */
+	.site-header__navigation & {
+		border-bottom: 0;
+		transition: none;
+	}
+}
+
+/* enhanced menu pattern wrapper */
+.site-header__standard-menu-item-wrapper {
+	display: none;
+	flex-flow: column nowrap;
+	gap: var(--spacer-20);
+	background-color: var(--masthead-navigation-background-color);
+	color: var(--masthead-navigation-text-color);
+	padding: var(--spacer-20) 0;
+
+	.menu-item-active & {
+		display: flex;
+	}
+
+	@media (--mq-navigation) {
+		position: absolute;
+		right: 0;
+		top: 100%;
+		width: 180px;
+		padding: var(--spacer-20);
+		border-radius: var(--border-radius-s);
+		box-shadow: var(--masthead-navigation-shadow);
+		z-index: 10;
+	}
+
+	/* CASE: Standard menu item added to the Primary Menu */
+	.site-header__navigation > .wp-block-tribe-standard-menu-item & {
+
+		@media (--mq-navigation) {
+			right: auto;
+			left: var(--spacer-10);
+			min-width: 220px;
+			width: 100%;
+		}
+	}
+}
