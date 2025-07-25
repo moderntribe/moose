@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useState, useEffect, useMemo } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import {
 	PanelRow,
 	TextControl,
@@ -12,10 +12,15 @@ import {
 	InspectorControls,
 	useSetting, // This is only needed if you want to use theme.json color palette.
 } from '@wordpress/block-editor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as solidIcons from '@fortawesome/free-solid-svg-icons';
 import { formatIconName } from './utils';
 import './editor.pcss';
 
-import { ICONS_LIST } from './icons-list';
+// Build array of FA icon entries
+const ICONS_LIST = Object.entries( solidIcons )
+	.filter( ( [ key ] ) => key.startsWith( 'fa' ) )
+	.map( ( [ key, icon ] ) => ( { key, icon, name: icon.iconName } ) );
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
@@ -28,17 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		selectedIconColor,
 		selectedBgColor,
 	} = attributes;
-
-	const sortedIcons = useMemo(
-		() =>
-			[ ...ICONS_LIST ].sort( ( a, b ) => a.key.localeCompare( b.key ) ),
-		[]
-	);
-	const [ filteredIcons, setFilteredIcons ] = useState( sortedIcons );
-
-	const SelectedIconComponent =
-		ICONS_LIST.find( ( icon ) => icon.key === selectedIcon )?.component ||
-		null;
+	const [ filteredIcons, setFilteredIcons ] = useState( ICONS_LIST );
 
 	// Option 1: Use theme.json color palette
 	const themeColors = useSetting( 'color.palette' );
@@ -79,11 +74,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	// Filter icons based on search query
 	useEffect( () => {
 		setFilteredIcons(
-			sortedIcons.filter( ( { key } ) =>
+			ICONS_LIST.filter( ( { key } ) =>
 				key.toLowerCase().includes( searchQuery.toLowerCase() )
 			)
 		);
-	}, [ searchQuery, sortedIcons ] );
+	}, [ searchQuery ] );
 
 	return (
 		<div { ...useBlockProps() }>
@@ -103,7 +98,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						? { 'data-transparent': true }
 						: {} ) }
 				>
-					<SelectedIconComponent
+					<FontAwesomeIcon
+						icon={ solidIcons[ selectedIcon ] }
+						size="2x"
 						style={ { color: selectedIconColor } }
 						aria-label={
 							iconLabel || formatIconName( validIcon.name )
@@ -127,7 +124,9 @@ export default function Edit( { attributes, setAttributes } ) {
 									borderRadius: isRounded ? '50%' : '0',
 								} }
 							>
-								<SelectedIconComponent
+								<FontAwesomeIcon
+									icon={ solidIcons[ selectedIcon ] }
+									size="2x"
 									style={ { color: selectedIconColor } }
 								/>
 							</div>
@@ -179,61 +178,50 @@ export default function Edit( { attributes, setAttributes } ) {
 
 											<div className="icon-grid">
 												{ filteredIcons.map(
-													( {
-														key,
-														component:
-															IconComponent,
-														name,
-													} ) => {
-														if ( ! IconComponent ) {
-															return null;
-														}
-
-														return (
-															<div
-																key={ key }
-																className={ `icon-item ${
-																	selectedIcon ===
-																	key
-																		? 'selected'
-																		: ''
-																}` }
-																role="button"
-																tabIndex={ 0 }
-																onClick={ () => {
+													( { key, icon } ) => (
+														<div
+															key={ key }
+															className={ `icon-item ${
+																selectedIcon ===
+																key
+																	? 'selected'
+																	: ''
+															}` }
+															role="button"
+															tabIndex={ 0 }
+															onClick={ () => {
+																setAttributes( {
+																	selectedIcon:
+																		key,
+																} );
+															} }
+															onKeyDown={ (
+																e
+															) => {
+																if (
+																	e.key ===
+																		'Enter' ||
+																	e.key ===
+																		' '
+																) {
 																	setAttributes(
 																		{
 																			selectedIcon:
 																				key,
 																		}
 																	);
-																} }
-																onKeyDown={ (
-																	e
-																) => {
-																	if (
-																		e.key ===
-																			'Enter' ||
-																		e.key ===
-																			' '
-																	) {
-																		setAttributes(
-																			{
-																				selectedIcon:
-																					key,
-																			}
-																		);
-																	}
-																} }
-															>
-																<IconComponent
-																	title={ formatIconName(
-																		name
-																	) }
-																/>
-															</div>
-														);
-													}
+																}
+															} }
+														>
+															<FontAwesomeIcon
+																icon={ icon }
+																size="2x"
+																title={ formatIconName(
+																	icon.iconName
+																) }
+															/>
+														</div>
+													)
 												) }
 											</div>
 
@@ -266,11 +254,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										</h4>
 										<div className="color-picker">
 											<div className="color-grid">
-												{ COLORS.filter(
-													( colorObj ) =>
-														colorObj.value !==
-														'transparent'
-												).map( ( colorObj ) => (
+												{ COLORS.map( ( colorObj ) => (
 													<div
 														key={ colorObj.value }
 														role="button"

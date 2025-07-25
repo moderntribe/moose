@@ -1,0 +1,34 @@
+export default function IconBuildingHome( props ) {
+	return (
+		<svg
+			role="presentation"
+			aria-hidden="true"
+			xmlns="http://www.w3.org/2000/svg"
+			{ ...props }
+			width="64"
+			height="64"
+			viewBox="0 0 64 64"
+			fill="none"
+		>
+			<path
+				d="M2 28L32 4L62 28"
+				stroke="currentColor"
+				strokeWidth="2"
+				strokeMiterlimit="10"
+			/>
+			<path
+				d="M26 60V44H38V60"
+				stroke="currentColor"
+				strokeWidth="2"
+				strokeMiterlimit="10"
+			/>
+			<path
+				d="M10 32V54C10 57.314 12.686 60 16 60H48C51.314 60 54 57.314 54 54V32"
+				stroke="currentColor"
+				strokeWidth="2"
+				strokeMiterlimit="10"
+				strokeLinecap="square"
+			/>
+		</svg>
+	);
+}

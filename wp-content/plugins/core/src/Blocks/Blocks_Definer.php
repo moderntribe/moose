@@ -41,6 +41,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/search-card',
 				'tribe/terms',
 				'tribe/icon-picker',
+				'tribe/icon-picker-font-awesome',
 				'tribe/icon-picker-ms-fabric',
 			] ),
 
