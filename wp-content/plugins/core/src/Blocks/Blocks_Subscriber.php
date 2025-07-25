@@ -113,6 +113,26 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			return $settings;
 		} );
+
+		/**
+		 * Allow additional HTML attributes in the post content.
+		 * Multisite only grants the `unsafe_html` capability to Super Admins.
+		 * This is to allow Admins & Editors on multisite to create content using the Tribe Tabs block.
+		 *
+		 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L892
+		 */
+		add_filter( 'wp_kses_allowed_html', static function ( array $tags, string $context ): array {
+			if ( $context !== 'post' ) {
+				return $tags;
+			}
+
+			// Tribe Tabs Block needs these attributes to be allowed in the HTML.
+			$tags['button']['tabindex']      = true;
+			$tags['button']['aria-selected'] = true;
+			$tags['div']['tabindex']         = true;
+
+			return $tags;
+		}, 10, 2 );
 	}
 
 }
