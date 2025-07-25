@@ -115,9 +115,10 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		} );
 
 		/**
-		 * Allow additional HTML attributes in the post content.
-		 * Multisite only grants the `unsafe_html` capability to Super Admins.
-		 * This is to allow Admins & Editors on multisite to create content using the Tribe Tabs block.
+		 * Allows all roles to publish content containing the Tribe Tabs block.
+		 *
+		 *  These attributes are stripped on save if the user doesn't have the `unfiltered_html` capability,
+		 *  which admins & editors don't have by default on multisite.
 		 *
 		 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L892
 		 */
@@ -135,8 +136,9 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		}, 10, 2 );
 
 		/**
-		 * Allow cubic-bezier timing function values in inline CSS.
+		 * Allow all roles to publish content containing `cubic-bezier()` timing function values in inline CSS.
 		 * Example: `<div style="--tribe-animation-easing:cubic-bezier(0.4, 0, 0.2, 1);">`
+		 *
 		 * The Tribe Animation Library uses cubic-bezier functions to control the timing of animations.
 		 *
 		 * These values are stripped on save if the user doesn't have the `unfiltered_html` capability,
