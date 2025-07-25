@@ -133,6 +133,25 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			return $tags;
 		}, 10, 2 );
+
+		/**
+		 * Allow cubic-bezier timing function values in inline CSS.
+		 * Example: `<div style="--tribe-animation-easing:cubic-bezier(0.4, 0, 0.2, 1);">`
+		 * The Tribe Animation Library uses cubic-bezier functions to control the timing of animations.
+		 *
+		 * These values are stripped on save if the user doesn't have the `unfiltered_html` capability,
+		 * which admins & editors don't have by default on multisite.
+		 *
+		 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L2703
+		 */
+		add_filter( 'safecss_filter_attr_allow_css', static function ( bool $allow_css, string $css_test_string ): bool {
+			// Allow cubic-bezier timing function values in inline CSS
+			if ( preg_match( '/cubic-bezier\(([\d.]+,\s*){3}[\d.]+\)/', $css_test_string ) ) {
+				return true;
+			}
+
+			return $allow_css;
+		}, 10, 2 );
 	}
 
 }
