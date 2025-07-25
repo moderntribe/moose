@@ -1,8 +1,6 @@
 export default function IconServiceBell( props ) {
 	return (
 		<svg
-			role="presentation"
-			aria-hidden="true"
 			xmlns="http://www.w3.org/2000/svg"
 			{ ...props }
 			width="64"
