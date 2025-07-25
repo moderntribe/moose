@@ -1,11 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "tribe/icon-picker-fontawesome",
+	"name": "tribe/icon-picker-font-awesome",
 	"version": "1.0.0",
 	"title": "Icon Picker (FontAwesome)",
 	"category": "design",
-	"icon": "admin-customizer",
 	"description": "Select and display an icon with background color.",
 	"supports": {
 		"html": false
@@ -29,7 +28,7 @@
 		},
 		"iconPadding": {
 			"type": "number",
-			"default": 16
+			"default": 10
 		},
 		"searchQuery": {
 			"type": "string",
@@ -41,7 +40,7 @@
 		},
 		"selectedIconColor": {
 			"type": "string",
-			"default": "#0078d4"
+			"default": "#000000"
 		},
 		"selectedBgColor": {
 			"type": "string",

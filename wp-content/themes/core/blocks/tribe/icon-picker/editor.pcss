@@ -79,11 +79,12 @@
 
 	.icon-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-		gap: 10px;
+		grid-template-columns: repeat(auto-fit, minmax(41px, 1fr));
+		gap: 6px;
 		margin-bottom: 10px;
 		padding: 10px;
 		max-height: 300px;
+		overflow-x: hidden;
 		overflow-y: auto;
 		border: 1px solid #ddd;
 	}
@@ -92,7 +93,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 10px;
+		padding: 8px;
 		border: 1px solid transparent;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;

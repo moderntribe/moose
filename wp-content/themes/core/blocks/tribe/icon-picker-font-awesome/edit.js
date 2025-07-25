@@ -112,7 +112,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			) }
 
 			<InspectorControls>
-				<PanelRow className="controls-tribe-icon-picker icon-preview">
+				<PanelRow className="controls-tribe-icon-picker-font-awesome icon-preview">
 					{ validIcon ? (
 						<>
 							<div
@@ -139,7 +139,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 				</PanelRow>
 
-				<div className="controls-tribe-icon-picker">
+				<div className="controls-tribe-icon-picker-font-awesome">
 					<TabPanel
 						className="tribe-icon-picker-tab-panel"
 						activeClass="active-tab"

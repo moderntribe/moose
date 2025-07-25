@@ -5,7 +5,6 @@
 	"version": "1.0.0",
 	"title": "Icon Picker",
 	"category": "design",
-	"icon": "admin-customizer",
 	"description": "Select and display an icon with background color.",
 	"supports": {
 		"html": false
@@ -29,7 +28,7 @@
 		},
 		"iconPadding": {
 			"type": "number",
-			"default": 16
+			"default": 10
 		},
 		"searchQuery": {
 			"type": "string",
@@ -41,7 +40,7 @@
 		},
 		"selectedIconColor": {
 			"type": "string",
-			"default": "#0078d4"
+			"default": "#000000"
 		},
 		"selectedBgColor": {
 			"type": "string",
