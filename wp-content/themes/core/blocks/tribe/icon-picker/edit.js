@@ -15,7 +15,7 @@ import {
 import { formatIconName } from './utils';
 import './editor.pcss';
 
-import { ICONS_LIST } from './icons-list';
+import { ICONS_LIST } from './icons/icons-list';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
