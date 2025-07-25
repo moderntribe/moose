@@ -1,7 +1,8 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import fullStar from './icons/full-star.svg';
-import halfStar from './icons/half-star.svg';
-import emptyStar from './icons/empty-star.svg';
+
+import FullStarIcon from './icons/FullStarIcon';
+import HalfStarIcon from './icons/HalfStarIcon';
+import EmptyStarIcon from './icons/EmptyStarIcon';
 
 export default function save( { attributes } ) {
 	const { rating, containerSize } = attributes;
@@ -11,26 +12,15 @@ export default function save( { attributes } ) {
 		let remaining = rating;
 
 		for ( let i = 0; i < 5; i++ ) {
-			let src;
 			if ( remaining >= 1 ) {
-				src = fullStar;
+				stars.push( <FullStarIcon key={ i } /> );
 				remaining -= 1;
 			} else if ( remaining >= 0.5 ) {
-				src = halfStar;
+				stars.push( <HalfStarIcon key={ i } /> );
 				remaining -= 0.5;
 			} else {
-				src = emptyStar;
+				stars.push( <EmptyStarIcon key={ i } /> );
 			}
-
-			stars.push(
-				<img
-					key={ i }
-					src={ src }
-					alt=""
-					role="presentation"
-					aria-hidden="true"
-				/>
-			);
 		}
 		return stars;
 	};

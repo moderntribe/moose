@@ -3,9 +3,9 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
 
-import fullStar from './icons/full-star.svg';
-import halfStar from './icons/half-star.svg';
-import emptyStar from './icons/empty-star.svg';
+import FullStarIcon from './icons/FullStarIcon';
+import HalfStarIcon from './icons/HalfStarIcon';
+import EmptyStarIcon from './icons/EmptyStarIcon';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const { rating, containerSize } = attributes;
@@ -16,19 +16,13 @@ export default function Edit( { attributes, setAttributes } ) {
 
 		for ( let i = 0; i < 5; i++ ) {
 			if ( remaining >= 1 ) {
-				stars.push(
-					<img key={ i } src={ fullStar } alt="Full Star" />
-				);
+				stars.push( <FullStarIcon key={ i } /> );
 				remaining -= 1;
 			} else if ( remaining >= 0.5 ) {
-				stars.push(
-					<img key={ i } src={ halfStar } alt="Half Star" />
-				);
+				stars.push( <HalfStarIcon key={ i } /> );
 				remaining -= 0.5;
 			} else {
-				stars.push(
-					<img key={ i } src={ emptyStar } alt="Empty Star" />
-				);
+				stars.push( <EmptyStarIcon key={ i } /> );
 			}
 		}
 		return stars;
