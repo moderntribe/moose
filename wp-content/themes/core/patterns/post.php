@@ -60,8 +60,8 @@
 <p class="is-style-small">Share this page</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:outermost/social-sharing {"iconColor":"base-black","iconColorValue":"#000000","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"},"blockGap":{"left":"var:preset|spacing|20"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
-<ul class="wp-block-outermost-social-sharing has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--10)"><!-- wp:outermost/social-sharing-link {"service":"linkedin","label":"Share on LinkedIn"} /-->
+<!-- wp:outermost/social-sharing {"iconColor":"base-black","iconColorValue":"#000000","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"},"blockGap":{"left":"var:preset|spacing|20"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+<ul class="wp-block-outermost-social-sharing has-normal-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--10)"><!-- wp:outermost/social-sharing-link {"service":"linkedin","label":"Share on LinkedIn"} /-->
 
 <!-- wp:outermost/social-sharing-link {"service":"x","label":"Share on X"} /-->
 
