@@ -1,33 +1,25 @@
-export default function IconClipboardCheck( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M24 38L30 44L42 32"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M38 8C38 4.686 35.314 2 32 2C28.686 2 26 4.686 26 8H20V16H44V8H38Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M50 10H56V62H8V10H14"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-		</svg>
-	);
-}
+const SvgIconClipboardCheck = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="m24 38 6 6 12-12M38 8a6 6 0 1 0-12 0h-6v8h24V8z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M50 10h6v52H8V10h6"
+		/>
+	</svg>
+);
+export default SvgIconClipboardCheck;

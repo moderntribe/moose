@@ -1,33 +1,32 @@
-export default function IconEducationCap( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 34L4 20L32 6L60 20L32 34Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M12 24V46C12 51.522 20.954 56 32 56C43.046 56 52 51.522 52 46V24"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M60 28V42"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconEducationCap = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 34 4 20 32 6l28 14z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M12 24v22c0 5.522 8.954 10 20 10s20-4.478 20-10V24"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M60 28v14"
+		/>
+	</svg>
+);
+export default SvgIconEducationCap;

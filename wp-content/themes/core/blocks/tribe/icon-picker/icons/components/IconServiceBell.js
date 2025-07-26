@@ -1,48 +1,26 @@
-export default function IconServiceBell( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 14V6"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M60 42C60 34.5739 57.05 27.452 51.799 22.201C46.548 16.95 39.4261 14 32 14C24.5739 14 17.452 16.95 12.201 22.201C6.94999 27.452 4 34.5739 4 42V50H60V42Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M4 58H60"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M42 6H22"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M12 42C12 36.6957 14.1071 31.6086 17.8579 27.8579C21.6086 24.1071 26.6957 22 32 22"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconServiceBell = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 14V6M60 42a28 28 0 1 0-56 0v8h56zM4 58h56M42 6H22"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M12 42a20 20 0 0 1 20-20"
+		/>
+	</svg>
+);
+export default SvgIconServiceBell;

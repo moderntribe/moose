@@ -31,6 +31,7 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
+		"@svgr/cli": "^8.1.0",
 		"@wordpress/create-block": "^4.65.0",
 		"@wordpress/scripts": "^30.15.0",
 		"browser-sync": "^3.0.4",
@@ -63,6 +64,11 @@
 		"create-block": "cd \"$npm_package_config_coreThemeBlocksDir/tribe\" && npx @wordpress/create-block --no-plugin --namespace tribe --template $npm_package_config_coreBlockTemplatesDir",
 		"packages-update": "wp-scripts packages-update",
 		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses"
+		"check-licenses": "wp-scripts check-licenses",
+		"strip-react-import": "node $npm_package_config_coreThemeBlocksDir/tribe/icon-picker/scripts/strip-react-import.js",
+		"icon-picker": "npm run icon-picker:generate-components && rm -f $npm_package_config_coreThemeBlocksDir/tribe/icon-picker/icons/components/index.js && npm run icon-picker:generate-icons-list && npm run strip-react-import && npm run icon-picker:lint",
+		"icon-picker:generate-components": "svgr --icon --out-dir=$npm_package_config_coreThemeBlocksDir/tribe/icon-picker/icons/components $npm_package_config_coreThemeBlocksDir/tribe/icon-picker/icons/svg",
+		"icon-picker:generate-icons-list": "node $npm_package_config_coreThemeBlocksDir/tribe/icon-picker/scripts/generate-icons-list.js",
+		"icon-picker:lint": "wp-scripts lint-js \"$npm_package_config_coreThemeBlocksDir/tribe/icon-picker/**/*.js\" --fix"
 	}
 }

@@ -1,68 +1,32 @@
-export default function IconLightbulbIdea( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 42V52V51M32 42L26 36M32 42L38 36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M32 52C43.0456 52 52 43.0456 52 32C52 20.9544 43.0456 12 32 12C20.9544 12 12 20.9544 12 32C12 43.0456 20.9544 52 32 52Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M23 50L24 62H40L41 50"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M32 2V4"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M62 32H60"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M4 32H2"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M53.2132 10.7868L51.799 12.201"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M12.2009 12.201L10.7867 10.7868"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconLightbulbIdea = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 42v10-1m0-9-6-6m6 6 6-6M32 52c11.046 0 20-8.954 20-20s-8.954-20-20-20-20 8.954-20 20 8.954 20 20 20Z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="m23 50 1 12h16l1-12"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 2v2M62 32h-2M4 32H2M53.213 10.787 51.8 12.2M12.2 12.201l-1.413-1.414"
+		/>
+	</svg>
+);
+export default SvgIconLightbulbIdea;

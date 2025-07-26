@@ -1,51 +1,38 @@
-export default function IconWorldGlobe( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 2V62"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M2 32H62"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M32 62C41.4673 62 49.142 48.5685 49.142 32C49.142 15.4315 41.4673 2 32 2C22.5327 2 14.858 15.4315 14.858 32C14.858 48.5685 22.5327 62 32 62Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M6.62 16H57.38"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M6.62 48H57.38"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconWorldGlobe = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 2v60M2 32h60"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 62c9.467 0 17.142-13.431 17.142-30 0-16.568-7.675-30-17.142-30S14.858 15.432 14.858 32c0 16.569 7.675 30 17.142 30Z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M6.62 16h50.76M6.62 48h50.76"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 62c16.569 0 30-13.431 30-30C62 15.432 48.569 2 32 2 15.432 2 2 15.432 2 32c0 16.569 13.432 30 30 30Z"
+		/>
+	</svg>
+);
+export default SvgIconWorldGlobe;

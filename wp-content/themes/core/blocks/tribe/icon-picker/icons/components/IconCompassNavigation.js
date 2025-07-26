@@ -1,57 +1,32 @@
-export default function IconCompassNavigation( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 2V10"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M62 32H54"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M32 62V54"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M2 32H10"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M26 26L38 38"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M46 18L38 38L18 46L26 26L46 18Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconCompassNavigation = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 2v8M62 32h-8M32 62v-8M2 32h8M26 26l12 12"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 62c16.569 0 30-13.431 30-30C62 15.432 48.569 2 32 2 15.432 2 2 15.432 2 32c0 16.569 13.432 30 30 30Z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="m46 18-8 20-20 8 8-20z"
+		/>
+	</svg>
+);
+export default SvgIconCompassNavigation;

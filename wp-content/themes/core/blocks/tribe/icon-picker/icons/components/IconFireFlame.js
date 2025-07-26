@@ -1,20 +1,19 @@
-export default function IconFireFlame( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M38 26C38 26 40.6 10.662 30 4C29.8454 6.63476 29.1377 9.20744 27.923 11.5506C26.7084 13.8938 25.0139 15.955 22.95 17.6C18.422 21.6 9.91001 30.568 10 40.16C10.074 47.91 14.29 57.39 24.022 60.76C24.008 60.56 24 60.36 24 60.16C24.1012 56.6 25.4839 53.1961 27.894 50.574C29.8961 48.5865 31.1255 45.9512 31.362 43.14C37.088 46.328 40 54.74 40 59.74C40 60.032 40 60.326 39.972 60.618C43.9128 59.2789 47.3553 56.7767 49.8453 53.4416C52.3353 50.1064 53.756 46.0949 53.92 41.936C54.714 32.4 49.484 24.154 46 19.8"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconFireFlame = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M38 26s2.6-15.338-8-22a18.8 18.8 0 0 1-7.05 13.6C18.422 21.6 9.91 30.568 10 40.16c.074 7.75 4.29 17.23 14.022 20.6q-.021-.3-.022-.6a14.8 14.8 0 0 1 3.894-9.586 11.88 11.88 0 0 0 3.468-7.434C37.088 46.328 40 54.74 40 59.74c0 .292 0 .586-.028.878A20.59 20.59 0 0 0 53.92 41.936C54.714 32.4 49.484 24.154 46 19.8"
+		/>
+	</svg>
+);
+export default SvgIconFireFlame;

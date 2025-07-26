@@ -1,48 +1,26 @@
-export default function IconLeafGrowth( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M45.568 51.126C45.568 51.126 40.774 58.534 32.956 59.902C26.95 60.954 20 53.244 20 53.244C20 53.244 24.684 48.01 30.69 46.958C37.744 45.724 45.568 51.126 45.568 51.126Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M4 35.164C4 35.164 9.442 30.634 15.758 31.452C20.61 32.08 24.094 39.646 24.094 39.646C24.094 39.646 19.256 42.538 14.402 41.908C8.704 41.172 4 35.164 4 35.164Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M30.688 30C30.688 30 25.492 24.35 26.04 17.466C26.462 12.178 34.466 8.00201 34.466 8.00201C34.466 8.00201 37.856 13.086 37.434 18.374C36.942 24.586 30.688 30 30.688 30Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M46.504 27.512C46.504 27.512 41.97 35.024 44.152 42.61C45.828 48.438 55.746 51.294 55.746 51.294C55.746 51.294 58.386 44.826 56.71 39C54.74 32.154 46.504 27.512 46.504 27.512Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M60 52C34 52 16 32 16 6"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconLeafGrowth = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M45.568 51.126s-4.794 7.408-12.612 8.776C26.95 60.954 20 53.244 20 53.244s4.684-5.234 10.69-6.286c7.054-1.234 14.878 4.168 14.878 4.168ZM4 35.164s5.442-4.53 11.758-3.712c4.852.628 8.336 8.194 8.336 8.194s-4.838 2.892-9.692 2.262C8.704 41.172 4 35.164 4 35.164ZM30.688 30s-5.196-5.65-4.648-12.534c.422-5.288 8.426-9.464 8.426-9.464s3.39 5.084 2.968 10.372C36.942 24.586 30.688 30 30.688 30ZM46.504 27.512s-4.534 7.512-2.352 15.098c1.676 5.828 11.594 8.684 11.594 8.684s2.64-6.468.964-12.294c-1.97-6.846-10.206-11.488-10.206-11.488Z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M60 52C34 52 16 32 16 6"
+		/>
+	</svg>
+);
+export default SvgIconLeafGrowth;

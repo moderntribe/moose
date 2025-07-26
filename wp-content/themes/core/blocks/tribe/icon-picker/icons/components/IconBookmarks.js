@@ -1,27 +1,26 @@
-export default function IconBookmarks( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M50 60L28 46L6 60V16C6 14.4087 6.63214 12.8826 7.75736 11.7574C8.88258 10.6321 10.4087 10 12 10H44C45.5913 10 47.1174 10.6321 48.2426 11.7574C49.3679 12.8826 50 14.4087 50 16V60Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M20 2H52C53.5913 2 55.1174 2.63214 56.2426 3.75736C57.3679 4.88258 58 6.4087 58 8V52"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconBookmarks = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M50 60 28 46 6 60V16a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M20 2h32a6 6 0 0 1 6 6v44"
+		/>
+	</svg>
+);
+export default SvgIconBookmarks;

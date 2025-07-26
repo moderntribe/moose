@@ -1,35 +1,30 @@
-export default function IconSmile( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M20 32C22.2091 32 24 30.2091 24 28C24 25.7909 22.2091 24 20 24C17.7909 24 16 25.7909 16 28C16 30.2091 17.7909 32 20 32Z"
-				fill="currentColor"
-			/>
-			<path
-				d="M44 32C46.2091 32 48 30.2091 48 28C48 25.7909 46.2091 24 44 24C41.7909 24 40 25.7909 40 28C40 30.2091 41.7909 32 44 32Z"
-				fill="currentColor"
-			/>
-			<path
-				d="M42.4 44C41.3478 45.8278 39.8325 47.3461 38.0067 48.4018C36.1809 49.4575 34.1091 50.0133 32 50.0133C29.891 50.0133 27.8192 49.4575 25.9933 48.4018C24.1675 47.3461 22.6522 45.8278 21.6 44"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconSmile = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 62c16.569 0 30-13.431 30-30C62 15.432 48.569 2 32 2 15.432 2 2 15.432 2 32c0 16.569 13.432 30 30 30Z"
+		/>
+		<path
+			fill="currentColor"
+			d="M20 32a4 4 0 1 0 0-8 4 4 0 0 0 0 8M44 32a4 4 0 1 0 0-8 4 4 0 0 0 0 8"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M42.4 44a12 12 0 0 1-20.8 0"
+		/>
+	</svg>
+);
+export default SvgIconSmile;

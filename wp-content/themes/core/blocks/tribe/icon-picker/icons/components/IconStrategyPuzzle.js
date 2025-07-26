@@ -1,34 +1,33 @@
-export default function IconStrategyPuzzle( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M4 32H12V35C12 36.3261 12.5268 37.5979 13.4645 38.5355C14.4021 39.4732 15.6739 40 17 40C18.3261 40 19.5979 39.4732 20.5355 38.5355C21.4732 37.5979 22 36.3261 22 35V32H42V29C42 27.6739 42.5268 26.4021 43.4645 25.4645C44.4021 24.5268 45.6739 24 47 24C48.3261 24 49.5979 24.5268 50.5355 25.4645C51.4732 26.4021 52 27.6739 52 29V32H60"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M32 60V52H35C36.3261 52 37.5979 51.4732 38.5355 50.5355C39.4732 49.5979 40 48.3261 40 47C40 45.6739 39.4732 44.4021 38.5355 43.4645C37.5979 42.5268 36.3261 42 35 42H32V22H29C27.6739 22 26.4021 21.4732 25.4645 20.5355C24.5268 19.5979 24 18.3261 24 17C24 15.6739 24.5268 14.4021 25.4645 13.4645C26.4021 12.5268 27.6739 12 29 12H32V4"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M60 4H4V60H60V4Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconStrategyPuzzle = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M4 32h8v3a5 5 0 1 0 10 0v-3h20v-3a5 5 0 1 1 10 0v3h8"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M32 60v-8h3a5 5 0 1 0 0-10h-3V22h-3a5 5 0 1 1 0-10h3V4"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M60 4H4v56h56z"
+		/>
+	</svg>
+);
+export default SvgIconStrategyPuzzle;

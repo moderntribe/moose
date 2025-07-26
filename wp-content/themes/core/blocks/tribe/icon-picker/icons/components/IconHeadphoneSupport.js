@@ -1,47 +1,26 @@
-export default function IconHeadphoneSupport( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M10 45.484V48C10 54.628 15.372 60 22 60H26"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M8 30.674V20C8 10.058 16.058 2 26 2H38C47.942 2 56 10.058 56 20V30.686"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M20 26.424C19.046 26.154 18.042 26 17 26C10.924 26 6 30.924 6 37C6 43.076 10.924 48 17 48C18.042 48 19.046 47.846 20 47.576V26.424Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M44 47.576C44.954 47.846 45.958 48 47 48C53.076 48 58 43.076 58 37C58 30.924 53.076 26 47 26C45.958 26 44.954 26.154 44 26.424V47.576Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M38 58H26V62H38V58Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path d="M38 58H26V62H38V58Z" fill="currentColor" />
-		</svg>
-	);
-}
+const SvgIconHeadphoneSupport = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M10 45.484V48c0 6.628 5.372 12 12 12h4M8 30.674V20c0-9.942 8.058-18 18-18h12c9.942 0 18 8.058 18 18v10.686"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M20 26.424A11 11 0 0 0 17 26c-6.076 0-11 4.924-11 11s4.924 11 11 11c1.042 0 2.046-.154 3-.424zM44 47.576c.954.27 1.958.424 3 .424 6.076 0 11-4.924 11-11s-4.924-11-11-11c-1.042 0-2.046.154-3 .424zM38 58H26v4h12z"
+		/>
+		<path fill="currentColor" d="M38 58H26v4h12z" />
+	</svg>
+);
+export default SvgIconHeadphoneSupport;

@@ -1,83 +1,26 @@
-export default function IconMindLogic( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M50 62V43.852C52.9789 41.1816 55.2426 37.8085 56.5851 34.0399C57.9276 30.2712 58.3062 26.2267 57.6864 22.2743C57.0667 18.322 55.4683 14.5874 53.0367 11.4105C50.6052 8.23368 47.4177 5.71539 43.7644 4.08493C40.1111 2.45446 36.108 1.76359 32.1195 2.0752C28.1311 2.38682 24.2839 3.69102 20.9281 5.8691C17.5724 8.04717 14.8147 11.0299 12.906 14.5459C10.9974 18.0619 9.99838 21.9994 10 26V28L5 39L10 42V50C10 51.5913 10.6321 53.1174 11.7574 54.2427C12.8826 55.3679 14.4087 56 16 56H26V62"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M34 34C38.4183 34 42 30.4183 42 26C42 21.5817 38.4183 18 34 18C29.5817 18 26 21.5817 26 26C26 30.4183 29.5817 34 34 34Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M34 18V14"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M39.656 20.344L42.486 17.514"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M42 26H46"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M39.656 31.656L42.486 34.486"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M34 34V38"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M28.344 31.656L25.514 34.486"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M26 26H22"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M28.344 20.344L25.514 17.514"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconMindLogic = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M50 62V43.852A23.988 23.988 0 1 0 10 26v2L5 39l5 3v8a6 6 0 0 0 6 6h10v6"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M34 34a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM34 18v-4M39.656 20.344l2.83-2.83M42 26h4M39.656 31.656l2.83 2.83M34 34v4M28.344 31.656l-2.83 2.83M26 26h-4M28.344 20.344l-2.83-2.83"
+		/>
+	</svg>
+);
+export default SvgIconMindLogic;

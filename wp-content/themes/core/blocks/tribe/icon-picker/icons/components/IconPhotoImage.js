@@ -1,34 +1,26 @@
-export default function IconPhotoImage( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M12 50L20 36L28 44L40 28L52 50H12Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M25 26C27.7614 26 30 23.7614 30 21C30 18.2386 27.7614 16 25 16C22.2386 16 20 18.2386 20 21C20 23.7614 22.2386 26 25 26Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M54 4H10C6.68629 4 4 6.68629 4 10V54C4 57.3137 6.68629 60 10 60H54C57.3137 60 60 57.3137 60 54V10C60 6.68629 57.3137 4 54 4Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconPhotoImage = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="m12 50 8-14 8 8 12-16 12 22zM25 26a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M54 4H10a6 6 0 0 0-6 6v44a6 6 0 0 0 6 6h44a6 6 0 0 0 6-6V10a6 6 0 0 0-6-6Z"
+		/>
+	</svg>
+);
+export default SvgIconPhotoImage;

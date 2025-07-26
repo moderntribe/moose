@@ -1,27 +1,26 @@
-export default function IconInfinity( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M41.4646 38.875C44.9684 41.0976 48.5956 43 51.091 43C57.091 43 62 38.05 62 32C62 25.95 57.091 21 51.091 21C38.909 21 25.091 43 12.9091 43C6.9091 43 2 38.05 2 32C2 25.95 6.9091 21 12.9091 21C17.0982 21 20.9654 24.0252 24.5426 26.1324C24.6078 26.1708 24.3796 26.0366 24.4446 26.0744"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M14.3748 29L25 26.153L22.153 15.5278"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconInfinity = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M41.465 38.875C44.968 41.098 48.595 43 51.09 43 57.091 43 62 38.05 62 32s-4.909-11-10.909-11c-12.182 0-26 22-38.182 22C6.91 43 2 38.05 2 32s4.91-11 10.91-11c4.188 0 8.055 3.025 11.633 5.132.065.039-.163-.095-.098-.058"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M14.375 29 25 26.153l-2.847-10.625"
+		/>
+	</svg>
+);
+export default SvgIconInfinity;

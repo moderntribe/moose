@@ -1,46 +1,31 @@
-export default function IconHandMoney( props ) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			{ ...props }
-			width="64"
-			height="64"
-			viewBox="0 0 64 64"
-			fill="none"
-		>
-			<path
-				d="M10 32H12C16.536 32 21.652 34.494 24 38H32C36.014 38 40 41.986 40 46H22"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M38.722 42H52C59.25 42 60 46 60 46L31.36 57.632C29.082 58.544 26.522 58.438 24.326 57.34L10 50.064"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-			/>
-			<path
-				d="M48 32C52.4183 32 56 28.4183 56 24C56 19.5817 52.4183 16 48 16C43.5817 16 40 19.5817 40 24C40 28.4183 43.5817 32 48 32Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M10 28H2V54H10V28Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-			<path
-				d="M24 20C28.4183 20 32 16.4183 32 12C32 7.58172 28.4183 4 24 4C19.5817 4 16 7.58172 16 12C16 16.4183 19.5817 20 24 20Z"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeMiterlimit="10"
-				strokeLinecap="square"
-			/>
-		</svg>
-	);
-}
+const SvgIconHandMoney = ( props ) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		fill="none"
+		viewBox="0 0 64 64"
+		{ ...props }
+	>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M10 32h2c4.536 0 9.652 2.494 12 6h8c4.014 0 8 3.986 8 8H22"
+		/>
+		<path
+			stroke="currentColor"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M38.722 42H52c7.25 0 8 4 8 4L31.36 57.632a8.6 8.6 0 0 1-7.034-.292L10 50.064"
+		/>
+		<path
+			stroke="currentColor"
+			strokeLinecap="square"
+			strokeMiterlimit={ 10 }
+			strokeWidth={ 2 }
+			d="M48 32a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM10 28H2v26h8zM24 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"
+		/>
+	</svg>
+);
+export default SvgIconHandMoney;
