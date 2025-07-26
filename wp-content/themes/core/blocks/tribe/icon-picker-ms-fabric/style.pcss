@@ -1,0 +1,40 @@
+/*
+ * Add Microsoft Fabric Icons
+  Your use of the content in the files referenced here is subject to the terms of the license at https://aka.ms/fabric-assets-license
+*/
+@font-face {
+	font-family: "FabricMDL2Icons";
+	src: url(fabric-icons.woff) format("woff");
+	font-display: swap;
+}
+
+.ms-icon {
+	font-family: "FabricMDL2Icons", sans-serif !important;
+	display: inline-block;
+}
+
+/* Block Styles */
+.wp-block-tribe-icon-picker-ms-fabric {
+	display: inline-block;
+
+	.icon-wrapper {
+		container-type: inline-size;
+		box-sizing: border-box;
+
+		background-color: var(--icon-picker--background-color);
+		color: var(--icon-picker--icon-color);
+		border-radius: var(--icon-picker--border-radius);
+		width: var(--icon-picker--icon-size);
+		height: var(--icon-picker--icon-size);
+		padding: var(--icon-picker--icon-padding);
+	}
+
+	.ms-icon {
+		width: 100%;
+		height: 100%;
+		font-size: 100cqw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

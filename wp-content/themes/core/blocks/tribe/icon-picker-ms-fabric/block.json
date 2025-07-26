@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/icon-picker-ms-fabric",
+	"version": "1.0.0",
+	"title": "Icon Picker (MS Fabric)",
+	"category": "design",
+	"description": "Select and display an icon from Microsoft UI Fabric library.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"colors": {
+			"type": "array",
+			"default": []
+		},
+		"isRounded": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 80
+		},
+		"iconPadding": {
+			"type": "number",
+			"default": 10
+		},
+		"searchQuery": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedIcon": {
+			"type": "string",
+			"default": "CommentSolid"
+		},
+		"selectedIconColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"selectedBgColor": {
+			"type": "string",
+			"default": "transparent"
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
