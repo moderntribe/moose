@@ -6,9 +6,11 @@
 
 	/**
 	 * add ::before pseduo element to create "By" text
+	 * Prevent it from inheriting the author's text color.
 	 */
 	&::before {
 		content: "By ";
+		color: var(--color-black) !important;
 	}
 }
 
