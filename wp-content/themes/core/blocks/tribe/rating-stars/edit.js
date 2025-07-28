@@ -3,9 +3,9 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
 
-import FullStarIcon from './icons/FullStarIcon';
-import HalfStarIcon from './icons/HalfStarIcon';
-import EmptyStarIcon from './icons/EmptyStarIcon';
+import FullStarIcon from './icons/components/FullStarIcon';
+import HalfStarIcon from './icons/components/HalfStarIcon';
+import EmptyStarIcon from './icons/components/EmptyStarIcon';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const { rating, containerSize } = attributes;

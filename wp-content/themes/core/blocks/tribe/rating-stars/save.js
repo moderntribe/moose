@@ -1,8 +1,8 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
-import FullStarIcon from './icons/FullStarIcon';
-import HalfStarIcon from './icons/HalfStarIcon';
-import EmptyStarIcon from './icons/EmptyStarIcon';
+import FullStarIcon from './icons/components/FullStarIcon';
+import HalfStarIcon from './icons/components/HalfStarIcon';
+import EmptyStarIcon from './icons/components/EmptyStarIcon';
 
 export default function save( { attributes } ) {
 	const { rating, containerSize } = attributes;

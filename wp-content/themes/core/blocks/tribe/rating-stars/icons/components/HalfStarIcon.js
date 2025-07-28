@@ -1,4 +1,4 @@
-export default function EmptyStarIcon() {
+export default function HalfStarIcon() {
 	return (
 		<svg
 			width="64px"
@@ -6,7 +6,6 @@ export default function EmptyStarIcon() {
 			viewBox="0 0 64 64"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlSpace="preserve"
 			role="presentation"
 			aria-hidden="true"
 		>
@@ -16,6 +15,10 @@ export default function EmptyStarIcon() {
 				strokeWidth="2"
 				strokeMiterlimit="10"
 				strokeLinecap="square"
+			/>
+			<path
+				d="M15.696 57.628L32.5 49V5L23.348 22.9L5 25.712L19 39.358L15.696 57.628Z"
+				fill="currentColor"
 			/>
 		</svg>
 	);
