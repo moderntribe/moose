@@ -1,7 +1,3 @@
-/**
- * WordPress Dependencies
- */
-
 import {
 	useBlockProps,
 	MediaPlaceholder,
@@ -10,38 +6,12 @@ import {
 } from '@wordpress/block-editor';
 import { Button, ToolbarGroup } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { useSelect } from '@wordpress/data';
-import { store as coreStore } from '@wordpress/core-data';
 import { trash } from '@wordpress/icons';
 import './editor.pcss';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { images } = attributes;
 	const blockProps = useBlockProps();
-
-	// Fetch media details for each image
-	// eslint-disable-next-line no-unused-vars
-	const imageData = useSelect(
-		( select ) => {
-			const { getMedia } = select( coreStore );
-			return images.map( ( img ) => {
-				if ( ! img.id ) {
-					return null;
-				}
-				const media = getMedia( img.id );
-				if ( ! media ) {
-					return null;
-				}
-				return {
-					id: img.id,
-					url: img.url,
-					alt: img.alt || media.alt_text,
-					title: media.title?.raw || '',
-				};
-			} );
-		},
-		[ images ]
-	);
 
 	// Handle selection of new media items
 	const onSelectImages = ( newImages ) => {
