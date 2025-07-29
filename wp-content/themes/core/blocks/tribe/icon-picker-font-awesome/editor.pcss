@@ -1,0 +1,197 @@
+.wp-block-tribe-icon-picker-font-awesome {
+
+	.icon-selector {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.controls-tribe-icon-picker-font-awesome {
+	width: 100%;
+	padding: 0 16px 16px;
+
+	.components-tab-panel__tabs {
+		margin-bottom: 20px;
+		margin-left: -15px;
+		margin-right: -15px;
+		width: calc(100% + 30px);
+		justify-content: center;
+		gap: 8px;
+		border-bottom: 3px solid #e2e2e2;
+	}
+
+	.components-tab-panel__tabs-item {
+		border-bottom: 3px solid #e2e2e2;
+		margin-bottom: -3px;
+
+		&:active,
+		&:focus-visible {
+			color: var(
+				--wp-components-color-accent,
+				var(--wp-admin-theme-color, #3858e9)
+			);
+		}
+
+		&.active-tab {
+			border-color: var(
+				--wp-components-color-accent,
+				var(--wp-admin-theme-color, #3858e9)
+			);
+			color: var(
+				--wp-components-color-accent,
+				var(--wp-admin-theme-color, #3858e9)
+			);
+		}
+	}
+
+	&.icon-preview {
+		flex-direction: column;
+		gap: 10px;
+		justify-content: flex-start;
+		align-items: center;
+		padding-bottom: 0;
+
+		.icon-image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 100px;
+			padding: 24px;
+
+			svg {
+				object-fit: contain;
+				width: 100%;
+				height: 100%;
+				display: block;
+				color: currentcolor;
+			}
+		}
+
+		.icon-name {
+			font-size: 11px;
+		}
+	}
+
+	.icon-preview.preview-sidebar {
+		margin-bottom: 15px;
+	}
+
+	.icon-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(41px, 1fr));
+		gap: 5px;
+		margin-bottom: 10px;
+		padding: 10px;
+		max-height: 300px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border: 1px solid #ddd;
+	}
+
+	.icon-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		border: 1px solid transparent;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		max-width: 60px;
+		max-height: 60px;
+		box-sizing: border-box;
+
+		&:hover,
+		&.selected {
+			border-color: #007cba;
+			background: #f0f0f0;
+		}
+
+		svg {
+			object-fit: contain;
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	}
+
+	/* Color picker */
+	.color-picker {
+		padding: 6px;
+		background: #fff;
+		border: 1px solid #ddd;
+	}
+
+	.color-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 5px;
+		padding: 5px;
+	}
+
+	.color-item {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1/1;
+		border-radius: 3px;
+		cursor: pointer;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+
+		/* Color gradient to represent transparent background */
+		--transparent: rgba(226, 226, 226, 0.5);
+
+		&[data-color="transparent"] {
+			background: linear-gradient(
+				45deg,
+				var(--transparent) 25%,
+				transparent 25%,
+				transparent 50%,
+				var(--transparent) 50%,
+				var(--transparent) 75%,
+				transparent 75%,
+				transparent
+			);
+			background-size: 20px 20px;
+		}
+
+		&[data-color="white"],
+		&[data-color="transparent"] {
+			border: 1px solid #e4e4e4;
+		}
+	}
+
+	.color-item.selected {
+
+		&::before {
+			content: "";
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			display: block;
+			right: 5px;
+			top: 5px;
+			border-radius: 50%;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		&::after {
+			content: "\F147";
+			font-family: dashicons, sans-serif;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			display: block;
+			right: 6px;
+			top: 6px;
+			font-size: 20px;
+			line-height: 25px;
+			color: #fff;
+		}
+	}
+}
