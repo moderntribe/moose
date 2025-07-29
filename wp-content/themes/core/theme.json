@@ -372,6 +372,14 @@
 					"blockGap": "var(--wp--preset--spacing--30)"
 				}
 			},
+			"core/cover": {
+				"spacing": {
+					"padding": {
+						"left": "var(--wp--style--root--padding-left)",
+						"right": "var(--wp--style--root--padding-right)"
+					}
+				}
+			},
 			"core/embed": {
 				"elements": {
 					"caption": {
