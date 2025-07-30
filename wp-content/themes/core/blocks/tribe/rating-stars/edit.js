@@ -7,6 +7,11 @@ import FullStarIcon from './icons/components/FullStarIcon';
 import HalfStarIcon from './icons/components/HalfStarIcon';
 import EmptyStarIcon from './icons/components/EmptyStarIcon';
 
+// Constants for container size control
+const MIN_SIZE = 100;
+const MAX_SIZE = 840;
+const STEP_SIZE = 5;
+
 export default function Edit( { attributes, setAttributes } ) {
 	const { rating, containerSize } = attributes;
 
@@ -54,9 +59,9 @@ export default function Edit( { attributes, setAttributes } ) {
 								containerSize: value,
 							} )
 						}
-						min={ 100 }
-						max={ 840 }
-						step={ 5 }
+						min={ MIN_SIZE }
+						max={ MAX_SIZE }
+						step={ STEP_SIZE }
 						afterIcon={ () => <span>px</span> }
 					/>
 				</PanelBody>
