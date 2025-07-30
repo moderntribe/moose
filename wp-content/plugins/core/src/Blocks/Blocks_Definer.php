@@ -46,6 +46,8 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/tab',
 				'tribe/tabs',
 				'tribe/terms',
+				'tribe/vertical-tab',
+				'tribe/vertical-tabs',
 			] ),
 
 			self::EXTENDED        => DI\add( [
