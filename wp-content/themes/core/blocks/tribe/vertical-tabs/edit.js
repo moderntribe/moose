@@ -181,7 +181,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 										>
 											<RichText
 												tagName="h3"
-												className="wp-block-tribe-vertical-tabs__tab-title t-display-x-small s-remove-margin--top"
+												className="wp-block-tribe-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top"
 												value={ tab.title }
 												onChange={ ( value ) =>
 													updateTabAttributes(

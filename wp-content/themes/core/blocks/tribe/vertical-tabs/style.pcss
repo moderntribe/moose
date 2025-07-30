@@ -20,18 +20,18 @@
 
 .wp-block-tribe-vertical-tabs__tab {
 	cursor: pointer;
-	padding: var(--spacer-30);
+	padding: var(--spacer-40);
 	background-color: var(--color-light-gray);
 	border-radius: var(--border-radius-xl);
+	border-left: 3px solid #ccc;
+
+	&[aria-selected="true"]  {
+		border-color: var(--color-blue);
+	}
 
 	&:focus-visible {
 
 		@mixin focus-visible;
-	}
-
-	/* add some margin to the top of subsequent tabs */
-	+ .wp-block-tribe-vertical-tabs__tab {
-		margin-top: var(--spacer-20);
 	}
 
 	/* give tab content some space on mobile */
@@ -54,6 +54,17 @@
 
 	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
 		display: block;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Content (Description)
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__tab-title {
+
+	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+		color: var(--color-blue);
 	}
 }
 

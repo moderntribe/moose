@@ -33,7 +33,7 @@ export default function save( { attributes } ) {
 								>
 									<RichText.Content
 										tagName="h3"
-										className="wp-block-tribe-vertical-tabs__tab-title t-display-x-small s-remove-margin--top"
+										className="wp-block-tribe-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top"
 										value={ tab.title }
 									/>
 									<div className="wp-block-tribe-vertical-tabs__tab-hidden">
