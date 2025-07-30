@@ -35,23 +35,16 @@
 		}
 	}
 
-	/* Display logos in a grid layout when the block is selected in the editor */
-	&.is-selected .logo-list {
-		display: flex;
-		flex-flow: row wrap;
-		max-width: 100%;
-		gap: 30px 0;
-		justify-content: space-evenly;
-	}
-
 	/* handle gallery block image wrapper */
 	.gallery-item {
-		display: flex !important; /* override gallery block defaults */
+		display: flex !important;
 		align-items: center;
 		justify-content: center;
 		flex: 0 0 auto;
-		width: auto !important; /* override gallery block defaults */
-		margin: 0 var(--spacer-30) !important; /* override gallery block defaults */
+		width: auto !important;
+		margin: 0 var(--spacer-30) !important;
+
+		/* transform: scale(1) !important; */
 
 		/* prevent Safari flashing / eating */
 		-webkit-transform: translate3d(0, 0, 0);
@@ -60,5 +53,30 @@
 			width: auto;
 			max-height: 64px;
 		}
+	}
+
+
+
+	/* Display logos in a grid layout when the block is selected in the editor */
+	&.is-selected {
+
+		.logo-list {
+			display: flex;
+			flex-flow: row wrap;
+			max-width: 100%;
+			gap: 50px 0;
+			justify-content: space-evenly;
+		}
+
+		.gallery-item {
+			width: 150px !important;
+			height: 50px;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
 	}
 }
