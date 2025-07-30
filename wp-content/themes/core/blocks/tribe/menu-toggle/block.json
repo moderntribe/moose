@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/menu-toggle",
+	"version": "1.0.0",
+	"title": "Menu Toggle",
+	"category": "theme",
+	"icon": "menu-alt3",
+	"description": "Toggle button for the mobile menu",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
