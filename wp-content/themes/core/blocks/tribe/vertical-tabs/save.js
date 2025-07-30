@@ -19,6 +19,9 @@ export default function save( { attributes } ) {
 			>
 				{ tabs
 					? tabs.map( ( tab, index ) => {
+							if ( ! tab.title ) {
+								return null;
+							}
 							return (
 								<div
 									key={ tab.id }
@@ -42,16 +45,19 @@ export default function save( { attributes } ) {
 											className="wp-block-tribe-vertical-tabs__tab-description"
 											value={ tab.content }
 										/>
-										<div className="wp-block-tribe-vertical-tabs__buttons wp-block-buttons">
-											<span className="wp-block-button is-style-ghost tribe-button-has-icon">
-												<a
-													href={ tab.linkUrl }
-													className="wp-block-button__link wp-element-button"
-												>
-													{ tab.linkText }
-												</a>
-											</span>
-										</div>
+
+										{ tab.linkUrl && tab.linkText && (
+											<div className="wp-block-tribe-vertical-tabs__buttons wp-block-buttons">
+												<span className="wp-block-button is-style-ghost tribe-button-has-icon">
+													<a
+														href={ tab.linkUrl }
+														className="wp-block-button__link wp-element-button"
+													>
+														{ tab.linkText }
+													</a>
+												</span>
+											</div>
+										) }
 									</div>
 								</div>
 							);
