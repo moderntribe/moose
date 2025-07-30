@@ -13,6 +13,11 @@
 		],
 		"_experimentalLayoutSorting": true,
 		"blocks": {
+			"core/buttons": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
 			"core/button": {
 				"border": {
 					"color": false,
@@ -114,6 +119,11 @@
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
+				}
+			},
+			"outermost/social-sharing": {
+				"spacing": {
+					"blockGap": true
 				}
 			}
 		},
@@ -357,6 +367,19 @@
 			"background": "var(--wp--preset--color--base-white)"
 		},
 		"blocks": {
+			"core/buttons": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--30)"
+				}
+			},
+			"core/cover": {
+				"spacing": {
+					"padding": {
+						"left": "var(--wp--style--root--padding-left)",
+						"right": "var(--wp--style--root--padding-right)"
+					}
+				}
+			},
 			"core/embed": {
 				"elements": {
 					"caption": {
@@ -448,12 +471,12 @@
 			"core/pullquote": {
 				"border": {
 					"top": {
-						"width": "3px",
+						"width": "1px",
 						"style": "solid",
 						"color": "currentcolor"
 					},
 					"bottom": {
-						"width": "3px",
+						"width": "1px",
 						"style": "solid",
 						"color": "currentcolor"
 					}
@@ -462,22 +485,26 @@
 					"cite": {
 						"typography": {
 							"fontSize": "var(--wp--preset--font-size--20)",
+							"fontStyle": "normal",
 							"fontWeight": "var(--wp--custom--font-weight--regular)",
 							"lineHeight": "1.5",
-							"textTransform": "none",
-							"fontStyle": "normal"
+							"textAlign": "left",
+							"textTransform": "none"
 						}
 					}
 				},
 				"spacing": {
 					"margin": {
-						"top": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--preset--spacing--40)"
+						"top": "var(--wp--preset--spacing--50)",
+						"bottom": "var(--wp--preset--spacing--50)"
 					},
 					"padding": {
-						"top": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--preset--spacing--40)"
+						"top": "var(--wp--preset--spacing--50)",
+						"bottom": "var(--wp--preset--spacing--50)"
 					}
+				},
+				"typography": {
+					"textAlign": "left"
 				}
 			},
 			"core/query-pagination": {
@@ -560,6 +587,11 @@
 							"textAlign": "left"
 						}
 					}
+				}
+			},
+			"outermost/social-sharing": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--30)"
 				}
 			},
 			"tribe/copyright": {
