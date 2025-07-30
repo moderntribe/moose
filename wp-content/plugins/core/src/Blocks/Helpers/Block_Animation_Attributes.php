@@ -69,7 +69,7 @@ class Block_Animation_Attributes {
 				],
 				'animationEasing'             => [
 					'type'    => 'string',
-					'default' => 'cubic-bezier(0.390, 0.575, 0.565, 1.000)',
+					'default' => 'var(--easing--ease-out-sine)',
 				],
 				'animationTrigger'            => [
 					'type'    => 'boolean',

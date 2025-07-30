@@ -442,10 +442,6 @@ const addAnimationAttributes = ( settings, name ) => {
 		return settings;
 	}
 
-	if ( name === 'tribe/terms' ) {
-		console.log( name, settings );
-	}
-
 	if ( settings?.attributes !== undefined ) {
 		settings.attributes = {
 			...settings.attributes,
