@@ -1,10 +1,13 @@
 <?php declare(strict_types=1);
 
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
+
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$heading_level = $attributes['headingLevel'];
+$animation_attributes = new Block_Animation_Attributes( $attributes );
+$heading_level        = $attributes['headingLevel'];
 
 /**
  * $_GET['editorPostId'] is set when the block is used in the editor via context
@@ -20,6 +23,7 @@ if ( ! $post_id ) {
 }
 
 get_template_part( 'components/cards/post', null, [
-	'post_id'       => $post_id,
-	'heading_level' => $heading_level,
+	'post_id'              => $post_id,
+	'animation_attributes' => $animation_attributes,
+	'heading_level'        => $heading_level,
 ] );
