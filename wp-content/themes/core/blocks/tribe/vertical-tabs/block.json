@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/vertical-tabs",
+	"version": "0.1.2",
+	"title": "Vertical Tabs",
+	"category": "theme",
+	"icon": "align-pull-right",
+	"description": "Tab content displayed vertically",
+	"attributes": {
+		"blockUpdated": {
+			"type": "string",
+			"default": ""
+		},
+		"currentActiveTabInstanceId": {
+			"type": "string",
+			"default": ""
+		},
+		"tabs": {
+			"type": "array",
+			"default": [],
+			"source": "query",
+			"selector": ".wp-block-tribe-vertical-tabs__tab",
+			"query": {
+				"id": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "aria-controls"
+				},
+				"buttonId": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "id"
+				},
+				"title": {
+					"type": "string",
+					"source": "text",
+					"selector": ".wp-block-tribe-vertical-tabs__tab-title"
+				},
+				"content": {
+					"type": "string",
+					"source": "text",
+					"selector": ".wp-block-tribe-vertical-tabs__tab-description"
+				},
+				"linkUrl": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "href",
+					"selector": ".wp-block-button__link"
+				},
+				"linkText": {
+					"type": "string",
+					"source": "text",
+					"selector": ".wp-block-button__link"
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "grid", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"providesContext": {
+		"tribe/vertical-tabs/currentActiveTabInstanceId": "currentActiveTabInstanceId"
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
