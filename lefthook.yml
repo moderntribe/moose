@@ -12,22 +12,29 @@ skip_output:
 pre-commit:
   parallel: true
   commands:
-    phpcs:
-      run: composer run phpcs
     phpstan:
       run: composer run phpstan
-    lintjs:
-      run: npm run lint:js
-    lintconfigs:
-      run: npm run lint:configs
-    lintpkgjson:
-      run: npm run lint:pkg-json
   jobs:
-    - name: lintcss
-      run: wp-scripts lint-style {staged_files} --fix
+    - name: phpcs
+      run: ./vendor/bin/phpcs -- {staged_files}
       glob:
-        - "\"$npm_package_config_coreThemeDir/**/*.pcss\""
-      stage_fixed: true
+        - "*.php"
+    - name: lintcss
+      run: wp-scripts lint-style {staged_files}
+      glob:
+        - "$npm_package_config_coreThemeDir/**/*.pcss"
+    - name: lintjs
+      run: wp-scripts lint-js {staged_files}
+      glob:
+        - "$npm_package_config_coreThemeDir/**/*.js"
+    - name: lintconfigs
+      run: wp-scripts lint-js {staged_files}
+      glob:
+        - "./*.js"
+    - name: lintpkgjson
+      run: wp-scripts lint-pkg-json {staged_files}
+      glob:
+        - "./package.json"
 
 
 # prefix with jira ticket
