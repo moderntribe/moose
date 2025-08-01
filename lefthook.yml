@@ -19,18 +19,16 @@ pre-commit:
       run: ./vendor/bin/phpcs -- {staged_files}
       glob:
         - "./*.php"
-        - "./wp-content/themes/core/*.php"
-        - "./wp-content/themes/core/**/*.php"
-        - "./wp-content/plugins/core/*.php"
-        - "./wp-content/plugins/core/**/*.php"
+        - "wp-content/themes/core/*.php"
+        - "wp-content/plugins/core/*.php"
     - name: lintcss
       run: wp-scripts lint-style {staged_files}
       glob:
-        - "$npm_package_config_coreThemeDir/**/*.pcss"
+        - "$npm_package_config_coreThemeDir/*.pcss"
     - name: lintjs
       run: wp-scripts lint-js {staged_files}
       glob:
-        - "$npm_package_config_coreThemeDir/**/*.js"
+        - "$npm_package_config_coreThemeDir/*.js"
     - name: lintconfigs
       run: wp-scripts lint-js {staged_files}
       glob:
