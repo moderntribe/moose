@@ -24,11 +24,11 @@ pre-commit:
     - name: lintcss
       run: wp-scripts lint-style {staged_files}
       glob:
-        - "$npm_package_config_coreThemeDir/*.pcss"
+        - "wp-content/themes/core/*.pcss"
     - name: lintjs
       run: wp-scripts lint-js {staged_files}
       glob:
-        - "$npm_package_config_coreThemeDir/*.js"
+        - "wp-content/themes/core/*.js"
     - name: lintconfigs
       run: wp-scripts lint-js {staged_files}
       glob:
