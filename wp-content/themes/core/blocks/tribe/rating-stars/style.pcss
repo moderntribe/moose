@@ -10,15 +10,26 @@
 	.stars-wrapper {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		width: var(--rating-stars--size);
+		width: var(--rating-stars--size, 200px);
 		max-width: 100%;
 
-		/* Define the stars color */
-		color: #FFC107;
+		.star {
+			aspect-ratio: 1/1;
+			background-size: cover;
+			background-repeat: no-repeat;
+			display: inline-block;
+		}
 
-		svg {
-			width: 100%;
-			height: auto;
+		.star--full {
+			background-image: url(./icons/icon-star-full.svg);
+		}
+
+		.star--half {
+			background-image: url(./icons/icon-star-half.svg);
+		}
+
+		.star--empty {
+			background-image: url(./icons/icon-star-empty.svg);
 		}
 	}
 }

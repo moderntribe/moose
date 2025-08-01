@@ -3,10 +3,6 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
 
-import FullStarIcon from './icons/components/FullStarIcon';
-import HalfStarIcon from './icons/components/HalfStarIcon';
-import EmptyStarIcon from './icons/components/EmptyStarIcon';
-
 // Constants for container size control
 const MIN_SIZE = 100;
 const MAX_SIZE = 840;
@@ -15,23 +11,20 @@ const STEP_SIZE = 5;
 export default function Edit( { attributes, setAttributes } ) {
 	const { rating, containerSize } = attributes;
 
-	const renderStars = () => {
-		const stars = [];
-		let remaining = rating;
+	let remaining = rating;
+	const stars = [];
 
-		for ( let i = 0; i < 5; i++ ) {
-			if ( remaining >= 1 ) {
-				stars.push( <FullStarIcon key={ i } /> );
-				remaining -= 1;
-			} else if ( remaining >= 0.5 ) {
-				stars.push( <HalfStarIcon key={ i } /> );
-				remaining -= 0.5;
-			} else {
-				stars.push( <EmptyStarIcon key={ i } /> );
-			}
+	for ( let i = 0; i < 5; i++ ) {
+		if ( remaining >= 1 ) {
+			stars.push( <span key={ i } className="star star--full" /> );
+			remaining -= 1;
+		} else if ( remaining >= 0.5 ) {
+			stars.push( <span key={ i } className="star star--half" /> );
+			remaining -= 0.5;
+		} else {
+			stars.push( <span key={ i } className="star star--empty" /> );
 		}
-		return stars;
-	};
+	}
 
 	return (
 		<Fragment>
@@ -69,12 +62,10 @@ export default function Edit( { attributes, setAttributes } ) {
 			<div { ...useBlockProps() }>
 				<div
 					className="stars-wrapper"
-					style={ {
-						'--rating-stars--size':
-							`${ containerSize }px` || '100px',
-					} }
+					style={ { '--rating-stars--size': `${ containerSize }px` } }
+					aria-hidden="true"
 				>
-					{ renderStars() }
+					{ stars }
 				</div>
 			</div>
 		</Fragment>
