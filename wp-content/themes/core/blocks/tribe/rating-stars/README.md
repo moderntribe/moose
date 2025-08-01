@@ -1,46 +1,36 @@
 # Rating Stars Block
 
-This custom block renders a visual rating using stars, supporting values from 0 to 5 (including half stars like 3.5).
+This custom block renders a visual rating using stars, supporting values from 0 to 5 (including half stars like 3.5). It's fully accessible and uses CSS background images for star display.
 
 ## Features
 
-- Accepts a numeric rating (0–5) with half-star support
-- Adjustable width via a range control (`min: 100`, `max: 840`)
+- Accepts numeric ratings from 0 to 5, including half-star values (e.g. 3.5)
+- Adjustable width via a range control (`min: 100px`, `max: 840px`)
   - Developers can modify these limits in `edit.js`
-- Uses `render.php` for frontend output to prevent blocks from breaking if an icon is swapped or updated
+- Server-side rendering via `render.php` to prevent blocks from breaking if an icon is swapped or updated
 - Icons are fully customizable
-- Accessible markup using `aria-label` and `aria-hidden`
+- Accessible markup using `role="img"`, `aria-label` and `aria-hidden`
 
 ## Customizing Icons
 
-The block uses two sets of icons:
+Star icons are stored as static SVGs in:
+`/icons/icon-star-full.svg`
+`/icons/icon-star-half.svg`
+`/icons/icon-star-empty.svg`
 
-- **SVGs for frontend rendering**: stored in `/icons/svg`
-- **React components for the editor**: stored in `/icons/components`
+To update the visual style:
 
-To customize:
+1. Replace the SVG files directly.
+2. Ensure the new SVGs are colored as needed (no `currentColor` or dynamic fill).
+3. Keep the `viewBox` and dimensions consistent for best results.
 
-1. Replace the relevant SVGs in `/icons/svg`:
-   - `icon-star-full.svg`
-   - `icon-star-half.svg`
-   - `icon-star-empty.svg`
-
-2. Replace or update the corresponding component files in `/icons/components`:
-   - `FullStarIcon.js`
-   - `HalfStarIcon.js`
-   - `EmptyStarIcon.js`
-
-> ⚠️ Update SVG attributes in components to use JSX syntax  
-> (e.g., `strokeWidth` instead of `stroke-width`)
-
-> ⚠️ Add `aria-hidden="true"` to all inline SVGs to improve accessibility
-
-> ⚠️ Use `currentColor` for `fill` and/or `stroke` values so icons inherit theme color
+These SVGs are used as `background-image` values in CSS — no JS or JSX changes are required.
 
 ## Styling
 
-The icon color is controlled via CSS in `style.pcss`.
+Star layout and appearance are controlled in `style.pcss`.
 
-## Notes
-
-- To change default size or rating behavior, edit the range controls or attributes in `edit.js`.
+Key classes:
+- `rating-stars__container`: Holds the five stars
+- `rating-stars__star`: A single star element with a defined `aspect-ratio` so it scales proportionally within the `rating-stars__container`
+- `rating-stars__star--full`, `--half`, `--empty`: Determines star type
