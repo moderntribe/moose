@@ -24,7 +24,9 @@ pre-commit:
       run: npm run lint:pkg-json
   jobs:
     - name: lintcss
-      run: npm run lint:css:fix
+      run: wp-scripts lint-style {staged_files} --fix
+      glob:
+        - "\"$npm_package_config_coreThemeDir/**/*.pcss\""
       stage_fixed: true
 
 
