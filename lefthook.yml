@@ -11,12 +11,18 @@ skip_output:
 # code linting
 pre-commit:
   parallel: true
-  commands:
-    phpstan:
-      run: composer run phpstan
   jobs:
     - name: phpcs
       run: ./vendor/bin/phpcs -- {staged_files}
+      glob:
+        - ".phpstorm.meta.php"
+        - "local-config-sample.php"
+        - "wp-config.php"
+        - "wp-config-environment.php"
+        - "wp-content/themes/core/*.php"
+        - "wp-content/plugins/core/*.php"
+    - name: phpstan
+      run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
