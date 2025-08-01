@@ -14,7 +14,7 @@ $container_size = isset( $attributes['containerSize'] ) ? intval( $attributes['c
 	])); ?>>
 	<div
 		aria-hidden="true"
-		class="rating-stars__wrapper"
+		class="rating-stars__container"
 		style="--rating-stars--size: <?php echo esc_attr( (string) $container_size ) . 'px'; ?>">
 		<?php
 		$remaining = $rating;

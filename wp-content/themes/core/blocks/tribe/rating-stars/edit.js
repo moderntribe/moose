@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<div { ...useBlockProps() }>
 				<div
-					className="rating-stars__wrapper"
+					className="rating-stars__container"
 					style={ { '--rating-stars--size': `${ containerSize }px` } }
 					aria-hidden="true"
 				>
