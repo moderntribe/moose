@@ -20,7 +20,6 @@ function moduleExists( name ) {
 	try {
 		return require.resolve( name );
 	} catch ( e ) {
-
 		console.warn(
 			'Warning: local-config.json is missing. Did you create one?\n'
 		);

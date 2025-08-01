@@ -24,6 +24,10 @@ pre-commit:
     - name: phpstan
       run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
+        - ".phpstorm.meta.php"
+        - "local-config-sample.php"
+        - "wp-config.php"
+        - "wp-config-environment.php"
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: lintcss
@@ -37,11 +41,13 @@ pre-commit:
     - name: lintconfigs
       run: wp-scripts lint-js {staged_files}
       glob:
-        - "./*.js"
+        - "browsersync.config.js"
+        - "postcss.config.js"
+        - "webpack.config.js"
     - name: lintpkgjson
       run: wp-scripts lint-pkg-json {staged_files}
       glob:
-        - "./package.json"
+        - "package.json"
 
 
 # prefix with jira ticket
