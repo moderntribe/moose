@@ -14,20 +14,20 @@ $container_size = isset( $attributes['containerSize'] ) ? intval( $attributes['c
 	])); ?>>
 	<div
 		aria-hidden="true"
-		class="stars-wrapper"
+		class="rating-stars__wrapper"
 		style="--rating-stars--size: <?php echo esc_attr( (string) $container_size ) . 'px'; ?>">
 		<?php
 		$remaining = $rating;
 
 		for ( $i = 0; $i < 5; $i++ ) {
 			if ( $remaining >= 1 ) {
-				echo '<span class="star star--full"></span>';
+				echo '<span class="rating-stars__star star--full"></span>';
 				$remaining -= 1;
 			} elseif ( $remaining >= 0.5 ) {
-				echo '<span class="star star--half"></span>';
+				echo '<span class="rating-stars__star star--half"></span>';
 				$remaining -= 0.5;
 			} else {
-				echo '<span class="star star--empty"></span>';
+				echo '<span class="rating-stars__star star--empty"></span>';
 			}
 		}
 		?>

@@ -16,13 +16,19 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	for ( let i = 0; i < 5; i++ ) {
 		if ( remaining >= 1 ) {
-			stars.push( <span key={ i } className="star star--full" /> );
+			stars.push(
+				<span key={ i } className="rating-stars__star star--full" />
+			);
 			remaining -= 1;
 		} else if ( remaining >= 0.5 ) {
-			stars.push( <span key={ i } className="star star--half" /> );
+			stars.push(
+				<span key={ i } className="rating-stars__star star--half" />
+			);
 			remaining -= 0.5;
 		} else {
-			stars.push( <span key={ i } className="star star--empty" /> );
+			stars.push(
+				<span key={ i } className="rating-stars__star star--empty" />
+			);
 		}
 	}
 
@@ -61,7 +67,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<div { ...useBlockProps() }>
 				<div
-					className="stars-wrapper"
+					className="rating-stars__wrapper"
 					style={ { '--rating-stars--size': `${ containerSize }px` } }
 					aria-hidden="true"
 				>
