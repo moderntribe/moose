@@ -15,7 +15,6 @@ foreach ( [ 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST' ] as $dbvar ) {
 }
 
 if ( ! defined( 'ABSPATH' ) ) {
-    var_dump('hi');
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
