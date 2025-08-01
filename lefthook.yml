@@ -16,14 +16,17 @@ pre-commit:
       run: composer run phpcs
     phpstan:
       run: composer run phpstan
-    lintcss:
-      run: npm run lint:css
     lintjs:
       run: npm run lint:js
     lintconfigs:
       run: npm run lint:configs
     lintpkgjson:
       run: npm run lint:pkg-json
+  jobs:
+    - name: lintcss
+      run: npm run lint:css:fix
+      stage_fixed: true
+
 
 # prefix with jira ticket
 prepare-commit-msg:
