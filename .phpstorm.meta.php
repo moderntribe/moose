@@ -15,5 +15,5 @@ namespace PHPSTORM_META {
     override( \DI\Container::make( 0 ), map( [
         '' => '@',
     ] ) );
-    
+
 }

@@ -18,6 +18,7 @@ pre-commit:
     - name: phpcs
       run: ./vendor/bin/phpcs -- {staged_files}
       glob:
+        - "./*.php"
         - "./wp-content/themes/core/*.php"
         - "./wp-content/themes/core/**/*.php"
         - "./wp-content/plugins/core/*.php"
