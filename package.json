@@ -26,7 +26,8 @@
 		"coreBlockTemplatesDir": "../../../../../dev/templates"
 	},
 	"dependencies": {
-		"delegate": "^3.2.0"
+		"delegate": "^3.2.0",
+		"swiper": "^11.2.10"
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",

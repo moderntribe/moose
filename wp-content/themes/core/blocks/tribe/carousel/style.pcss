@@ -1,0 +1,101 @@
+.wp-block-tribe-carousel {
+
+	.swiper {
+		--swiper-controls-size: 48px;
+		--swiper-navigation-width: calc(
+			(var(--swiper-controls-size) * 2) + var(--spacer-10)
+		);
+
+		.swiper-navigation {
+			display: none;
+
+			@media (--mq-desktop) {
+				display: flex;
+				gap: var(--spacer-10);
+				position: absolute;
+				bottom: var(--spacer-50);
+				right: 0;
+				z-index: 3;
+				width: var(--swiper-navigation-width);
+			}
+		}
+
+		/* add navigation styling */
+		.swiper-button-next,
+		.swiper-button-prev {
+			--swiper-navigation-size: 16px;
+			--swiper-navigation-color: var(--color-black);
+			width: var(--swiper-controls-size);
+			height: var(--swiper-controls-size);
+			border: 1px solid var(--color-neutral-50);
+			border-radius: 100%;
+			background-color: transparent;
+			transition: var(--transition);
+			position: static;
+			margin: 0;
+
+			&:hover,
+			&:focus {
+				--swiper-navigation-color: var(--color-black);
+				border: 2px solid var(--color-black);
+			}
+
+			&.swiper-button-disabled {
+				--swiper-navigation-color: var(--color-neutral-50);
+				border-color: var(--color-neutral-50);
+				background-color: var(--color-neutral-30);
+			}
+
+			&:focus-visible {
+
+				@mixin focus-visible;
+			}
+
+			/* Style Dark */
+			.is-style-dark & {
+				--swiper-navigation-color: var(--color-white);
+				border-color: var(--color-neutral-50);
+
+				&.swiper-button-disabled {
+					--swiper-navigation-color: var(--color-neutral-50);
+				}
+
+				&:hover,
+				&:focus {
+					--swiper-navigation-color: var(--color-white);
+					border: 2px solid var(--color-white);
+				}
+			}
+		}
+
+		/* add pagination styling */
+		.swiper-pagination {
+			--swiper-pagination-bullet-size: 10px;
+			--swiper-theme-color: var(--color-black);
+			--swiper-pagination-bullet-inactive-color: var(--color-black);
+			--swiper-pagination-bullet-inactive-opacity: 0.3;
+			--swiper-pagination-bullet-horizontal-gap: 6px;
+			position: relative;
+			top: auto;
+			bottom: auto;
+			z-index: 2;
+			height: var(--swiper-controls-size);
+			width: 100%;
+			padding: var(--spacer-30) 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: content-box;
+
+			@media (--mq-desktop) {
+				padding: var(--spacer-50) 0;
+			}
+
+			/* Style Dark */
+			.is-style-dark & {
+				--swiper-theme-color: var(--color-white);
+				--swiper-pagination-bullet-inactive-color: var(--color-white);
+			}
+		}
+	}
+}
