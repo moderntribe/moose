@@ -14,9 +14,11 @@ This custom block renders a visual rating using stars, supporting values from 0 
 ## Customizing Icons
 
 Star icons are stored as static SVGs in:
-`/icons/icon-star-full.svg`
-`/icons/icon-star-half.svg`
-`/icons/icon-star-empty.svg`
+```
+/icons/icon-star-full.svg
+/icons/icon-star-half.svg
+/icons/icon-star-empty.svg
+````
 
 To update the visual style:
 
