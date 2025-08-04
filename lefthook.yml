@@ -31,21 +31,21 @@ pre-commit:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: lintcss
-      run: wp-scripts lint-style {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-style {staged_files}
       glob:
         - "wp-content/themes/core/*.pcss"
     - name: lintjs
-      run: wp-scripts lint-js {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-js {staged_files}
       glob:
         - "wp-content/themes/core/*.js"
     - name: lintconfigs
-      run: wp-scripts lint-js {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-js {staged_files}
       glob:
         - "browsersync.config.js"
         - "postcss.config.js"
         - "webpack.config.js"
     - name: lintpkgjson
-      run: wp-scripts lint-pkg-json {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-pkg-json {staged_files}
       glob:
         - "package.json"
 
