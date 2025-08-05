@@ -13,8 +13,7 @@
 		"spacing": {
 			"margin": true,
 			"padding": false
-		},
-		"__experimentalResizable": true
+		}
 	},
 	"attributes": {
 		"rating": {
