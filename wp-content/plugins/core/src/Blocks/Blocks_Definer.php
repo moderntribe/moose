@@ -41,6 +41,7 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/copyright',
+				'tribe/logo-marquee',
 				'tribe/post-card',
 				'tribe/search-card',
 				'tribe/tab',
