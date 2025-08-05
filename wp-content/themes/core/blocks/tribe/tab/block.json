@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/tab",
+	"version": "0.1.0",
+	"title": "Tab",
+	"category": "theme",
+	"description": "Child of Tabs block",
+	"icon": "text-page",
+	"parent": [ "tribe/tabs" ],
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": false,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string",
+			"default": ""
+		},
+		"tabLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": [ "tribe/tabs/currentActiveTabInstanceId" ],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

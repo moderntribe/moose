@@ -17,7 +17,7 @@ const settings = {
 			attribute: 'useBalancedText',
 			defaultValue: false,
 			helpText: __(
-				'Enable to evenly balance text over multiple lines',
+				'Distribute text evenly across multiple lines.',
 				'tribe'
 			),
 			label: __( 'Use Balanced Text', 'tribe' ),
@@ -28,7 +28,7 @@ const settings = {
 			attribute: 'useHangingPunctuation',
 			defaultValue: false,
 			helpText: __(
-				'Enable to visually align opening punctuation with the text edge.',
+				'Align opening punctuation mark outside text block.',
 				'tribe'
 			),
 			label: __( 'Use Hanging Punctuation', 'tribe' ),

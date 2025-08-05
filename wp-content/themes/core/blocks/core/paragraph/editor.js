@@ -14,7 +14,7 @@ const settings = {
 			attribute: 'useBalancedText',
 			defaultValue: false,
 			helpText: __(
-				'Enable to evenly balance text over multiple lines',
+				'Distribute text evenly across multiple lines.',
 				'tribe'
 			),
 			label: __( 'Use Balanced Text', 'tribe' ),
