@@ -44,6 +44,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/copyright',
 				'tribe/logo-marquee',
 				'tribe/post-card',
+				'tribe/rating-stars',
 				'tribe/search-card',
 				'tribe/tab',
 				'tribe/tabs',
