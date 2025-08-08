@@ -36,6 +36,17 @@
 					"blockGap": true
 				}
 			},
+			"core/details": {
+				"border": {
+					"color": true,
+					"radius": false,
+					"style": false,
+					"width": true
+				},
+				"spacing": {
+					"margin": true
+				}
+			},
 			"core/group": {
 				"background": {
 					"backgroundImage": true,
@@ -195,27 +206,21 @@
 							"fontDisplay": "swap",
 							"fontStyle": "normal",
 							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-regular.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-regular.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
 							"fontDisplay": "swap",
 							"fontStyle": "italic",
 							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-italic.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-italic.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
 							"fontDisplay": "swap",
 							"fontStyle": "normal",
 							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-700.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-700.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
@@ -377,6 +382,32 @@
 					"padding": {
 						"left": "var(--wp--style--root--padding-left)",
 						"right": "var(--wp--style--root--padding-right)"
+					}
+				}
+			},
+			"core/details": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontSize": "var(--wp--preset--font-size--30)",
+					"lineHeight": "1.4",
+					"fontWeight": "var(--wp--custom--font-weight--bold)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--preset--spacing--40)"
+					}
+				},
+				"border": {
+					"top": {
+						"color": "var(--wp--preset--color--base-black)",
+						"style": "solid",
+						"width": "1px"
+					},
+					"bottom": {
+						"color": "var(--wp--preset--color--base-black)",
+						"style": "solid",
+						"width": "1px"
 					}
 				}
 			},

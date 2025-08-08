@@ -1,0 +1,57 @@
+/**
+ * Styles specific to this block
+ */
+@keyframes marquee-scroll-x {
+
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.wp-block-tribe-logo-marquee {
+	overflow-x: hidden; /* prevent horizontal scroll */
+
+	.logo-list {
+		padding: var(--spacer-50) 0;
+		display: inline-flex;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		align-items: center;
+		gap: 0;
+		width: max-content;
+		max-width: none;
+		will-change: transform;
+		transform: translateX(0);
+
+		/* prevent Safari flashing / eating */
+		-webkit-backface-visibility: hidden;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation-play-state: paused;
+		}
+	}
+
+	/* handle gallery block image wrapper */
+	.gallery-item {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		width: auto !important;
+		margin: 0 var(--spacer-30) !important;
+
+		/* transform: scale(1) !important; */
+
+		/* prevent Safari flashing / eating */
+		-webkit-transform: translate3d(0, 0, 0);
+
+		& img {
+			width: auto;
+			max-height: 64px;
+		}
+	}
+}
