@@ -48,6 +48,16 @@ if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
 	define( 'WP_ENVIRONMENT_TYPE', 'local' );
 }
 
+/**
+ * Set the development mode for WordPress.
+ * Options are 'all', 'core', 'plugin', 'theme', or ''.
+ * 'all' allows us to bypass pattern caching for local development.
+ *
+ * @link https://make.wordpress.org/core/2023/10/17/improvements-to-template-loading-in-wordpress-6-4/
+ * @link https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/
+ */
+define( 'WP_DEVELOPMENT_MODE', 'all' );
+
 /*
  * Glomar
  *
