@@ -9,6 +9,7 @@ use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
+use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\gallery\Gallery;
 use Tribe\Theme\blocks\core\heading\Heading;
@@ -41,7 +42,9 @@ class Blocks_Definer implements Definer_Interface {
 		return [
 			self::TYPES           => DI\add( [
 				'tribe/copyright',
+				'tribe/logo-marquee',
 				'tribe/post-card',
+				'tribe/rating-stars',
 				'tribe/search-card',
 				'tribe/tab',
 				'tribe/tabs',
@@ -54,6 +57,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Button::class ),
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
+				DI\get( Details::class ),
 				DI\get( Embed::class ),
 				DI\get( Gallery::class ),
 				DI\get( Heading::class ),
