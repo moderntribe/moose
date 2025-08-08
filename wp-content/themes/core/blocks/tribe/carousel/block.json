@@ -9,7 +9,7 @@
 	"description": "A carousel block with limitless possibilities",
 	"supports": {
 		"html": false,
-		"align": ["wide", "grid", "full"]
+		"align": [ "wide", "grid", "full" ]
 	},
 	"example": {},
 	"attributes": {
@@ -72,6 +72,6 @@
 	},
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
-	"style": ["file:./index.css", "file:./style-index.css"],
+	"style": [ "file:./index.css", "file:./style-index.css" ],
 	"viewScript": "file:./view.js"
 }
