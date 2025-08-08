@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/carousel-slide",
+	"version": "0.1.0",
+	"title": "Carousel Slide",
+	"category": "design",
+	"icon": "slides",
+	"description": "An individual slide for the carousel block",
+	"supports": {
+		"html": false
+	},
+	"parent": [ "tribe/carousel" ],
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js"
+}
