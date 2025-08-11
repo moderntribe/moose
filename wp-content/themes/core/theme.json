@@ -431,6 +431,14 @@
 					}
 				}
 			},
+			"core/group": {
+				"spacing": {
+					"margin": {
+						"top": "0",
+						"bottom": "0"
+					}
+				}
+			},
 			"core/heading": {
 				"typography": {
 					"fontWeight": "var(--wp--custom--font-weight--bold)"
