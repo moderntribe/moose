@@ -9,7 +9,7 @@ skip_output:
   - summary
 
 # code linting
-pre-commit:
+pre-push:
   parallel: true
   jobs:
     - name: phpcs
