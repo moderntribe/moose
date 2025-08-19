@@ -1,0 +1,35 @@
+/**
+ * The following styles get applied both on the front and in the editor.
+ */
+
+/* -----------------------------------------------------------------------
+ * Rating Stars Block
+ * ----------------------------------------------------------------------- */
+.wp-block-tribe-rating-stars {
+
+	.rating-stars__container {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		width: var(--rating-stars--size, 200px);
+		max-width: 100%;
+
+		.rating-stars__star {
+			aspect-ratio: 1/1;
+			background-size: cover;
+			background-repeat: no-repeat;
+			display: inline-block;
+		}
+
+		.star--full {
+			background-image: url(./icons/icon-star-full.svg);
+		}
+
+		.star--half {
+			background-image: url(./icons/icon-star-half.svg);
+		}
+
+		.star--empty {
+			background-image: url(./icons/icon-star-empty.svg);
+		}
+	}
+}

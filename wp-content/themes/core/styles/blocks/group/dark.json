@@ -10,6 +10,18 @@
 			"background": "var(--wp--preset--color--black)",
 			"text": "var(--wp--preset--color--white)"
 		},
+		"blocks": {
+			"core/details": {
+				"border": {
+					"top": {
+						"color": "var(--wp--preset--color--base-white)"
+					},
+					"bottom": {
+						"color": "var(--wp--preset--color--base-white)"
+					}
+				}
+			}
+		},
 		"elements": {
 			"button": {
 				"color": {
