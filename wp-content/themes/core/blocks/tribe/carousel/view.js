@@ -37,6 +37,10 @@ const bindEvents = () => {
 	} );
 };
 
+/**
+ * @function cacheElements
+ * @description Caches DOM elements required for initializing Swiper instances.
+ */
 const cacheElements = () => {
 	el.swipers = document.querySelectorAll( '[data-swiper-settings]' );
 };

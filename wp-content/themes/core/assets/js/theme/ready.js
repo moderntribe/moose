@@ -6,6 +6,7 @@
 
 import { ready } from 'utils/events.js';
 import { debounce } from 'utils/tools.js';
+import masthead from './masthead';
 
 import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
@@ -34,6 +35,10 @@ const init = () => {
 	// initialize global events
 
 	bindEvents();
+
+	// initialize global features
+
+	masthead();
 
 	// initialize animation on scroll
 
