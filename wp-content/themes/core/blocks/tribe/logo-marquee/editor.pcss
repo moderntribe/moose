@@ -1,0 +1,30 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-tribe-logo-marquee {
+
+	/* Display logos in a grid layout when the block is selected in the editor */
+	&.is-selected {
+
+		.logo-list {
+			display: flex;
+			flex-flow: row wrap;
+			max-width: 100%;
+			gap: 50px 0;
+			justify-content: space-evenly;
+		}
+
+		.gallery-item {
+			width: 150px !important;
+			height: 50px;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

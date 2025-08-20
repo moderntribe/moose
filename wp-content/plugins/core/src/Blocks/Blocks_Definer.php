@@ -9,9 +9,14 @@ use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
+use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
+use Tribe\Theme\blocks\core\gallery\Gallery;
+use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
+use Tribe\Theme\blocks\core\paragraph\Paragraph;
+use Tribe\Theme\blocks\core\postauthor\Post_Author;
 use Tribe\Theme\blocks\core\postauthorname\Post_Author_Name;
 use Tribe\Theme\blocks\core\posttemplate\Post_Template;
 use Tribe\Theme\blocks\core\postterms\Post_Terms;
@@ -36,24 +41,37 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
+				'tribe/carousel',
+				'tribe/carousel-slide',
 				'tribe/copyright',
+				'tribe/logo-marquee',
 				'tribe/post-card',
+				'tribe/rating-stars',
 				'tribe/search-card',
+				'tribe/tab',
+				'tribe/tabs',
 				'tribe/terms',
 				'tribe/mega-menu-item',
 				'tribe/standard-menu-item',
 				'tribe/menu-toggle',
 				'tribe/navigation-link',
 				'tribe/masthead-search',
+				'tribe/vertical-tab',
+				'tribe/vertical-tabs',
 			] ),
 
 			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
+				DI\get( Details::class ),
 				DI\get( Embed::class ),
+				DI\get( Gallery::class ),
+				DI\get( Heading::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),
+				DI\get( Paragraph::class ),
+				DI\get( Post_Author::class ),
 				DI\get( Post_Author_Name::class ),
 				DI\get( Post_Template::class ),
 				DI\get( Post_Terms::class ),

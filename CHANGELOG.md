@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.08]
+
+- Updated: pre-commit hooks now no longer run if the commit does not include files related to the hook. Pre-commit hooks now also include FE linting.
+
 ## [2025.07]
 - Updated: 404 & Search templates have been updated to Moose 2.0 design standards.
 - Fixed: Issue with editor pattern / template previews (still using `iframe` elements) displaying at the wrong width.

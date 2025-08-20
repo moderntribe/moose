@@ -4,6 +4,7 @@ namespace Tribe\Plugin\Blocks;
 
 use Tribe\Plugin\Blocks\Bindings\Binding_Registrar;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Category;
 use Tribe\Plugin\Blocks\Patterns\Pattern_Registrar;
 use Tribe\Plugin\Core\Abstract_Subscriber;
@@ -90,6 +91,13 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 		}, 10, 3 );
 
 		/**
+		 * Add support for block animation attributes in dynamic blocks.
+		 */
+		add_action( 'wp_loaded', function (): void {
+			$this->container->get( Block_Animation_Attributes::class )->register_animation_attributes();
+		}, 100, 0 );
+
+		/**
 		 * Disable default WP block patterns.
 		 */
 		add_action( 'after_setup_theme', function (): void {
@@ -113,6 +121,47 @@ class Blocks_Subscriber extends Abstract_Subscriber {
 
 			return $settings;
 		} );
+
+		/**
+		 * Allows all roles to publish content containing the Tribe Tabs block.
+		 *
+		 *  These attributes are stripped on save if the user doesn't have the `unfiltered_html` capability,
+		 *  which admins & editors don't have by default on multisite.
+		 *
+		 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L892
+		 */
+		add_filter( 'wp_kses_allowed_html', static function ( array $tags, string $context ): array {
+			if ( $context !== 'post' ) {
+				return $tags;
+			}
+
+			// Tribe Tabs Block needs these attributes to be allowed in the HTML.
+			$tags['button']['tabindex']      = true;
+			$tags['button']['aria-selected'] = true;
+			$tags['div']['tabindex']         = true;
+
+			return $tags;
+		}, 10, 2 );
+
+		/**
+		 * Allow all roles to publish content containing `cubic-bezier()` timing function values in inline CSS.
+		 * Example: `<div style="--tribe-animation-easing:cubic-bezier(0.4, 0, 0.2, 1);">`
+		 *
+		 * The Tribe Animation Library uses cubic-bezier functions to control the timing of animations.
+		 *
+		 * These values are stripped on save if the user doesn't have the `unfiltered_html` capability,
+		 * which admins & editors don't have by default on multisite.
+		 *
+		 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L2703
+		 */
+		add_filter( 'safecss_filter_attr_allow_css', static function ( bool $allow_css, string $css_test_string ): bool {
+			// Allow cubic-bezier timing function values in inline CSS
+			if ( preg_match( '/cubic-bezier\(([\d.]+,\s*){3}[\d.]+\)/', $css_test_string ) ) {
+				return true;
+			}
+
+			return $allow_css;
+		}, 10, 2 );
 	}
 
 }
