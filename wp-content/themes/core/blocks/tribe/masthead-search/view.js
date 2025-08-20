@@ -68,6 +68,10 @@ const handlePropagation = ( e ) => {
 	e.stopPropagation();
 };
 
+/**
+ * @function cacheElements
+ * @description Caches DOM elements required for managing the masthead search overlay.
+ */
 const cacheElements = () => {
 	el.wrapper = document.querySelector(
 		'[data-js="masthead-search-wrapper"]'

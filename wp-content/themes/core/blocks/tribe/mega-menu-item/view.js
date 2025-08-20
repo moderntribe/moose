@@ -17,6 +17,10 @@ const state = {
 	activeItem: '',
 };
 
+/**
+ * @function cacheElements
+ * @description Caches DOM elements required for managing the mega menu items.
+ */
 const cacheElements = () => {
 	el.masthead = document.querySelector( '.site-header' );
 };

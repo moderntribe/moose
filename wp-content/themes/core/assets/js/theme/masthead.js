@@ -110,11 +110,19 @@ const handleKeyboardEvents = ( e ) => {
 	}
 };
 
+/**
+ * @function bindEvents
+ * @description Binds event listeners for handling resize and keyboard interactions.
+ */
 const bindEvents = () => {
 	document.addEventListener( 'modern_tribe/resize_executed', handleResize );
 	el.header.addEventListener( 'keyup', handleKeyboardEvents );
 };
 
+/**
+ * @function init
+ * @description Initializes the masthead by setting up elements, creating the mobile menu, and binding events.
+ */
 const init = () => {
 	if ( ! el.header || ! el.navigation ) {
 		return;
