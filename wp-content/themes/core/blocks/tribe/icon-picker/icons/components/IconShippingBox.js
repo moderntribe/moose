@@ -1,31 +1,31 @@
 const SvgIconShippingBox = ( props ) => (
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
 		width="1em"
 		height="1em"
-		fill="none"
 		viewBox="0 0 64 64"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
 		{ ...props }
 	>
 		<path
-			stroke="currentColor"
-			strokeMiterlimit={ 10 }
-			strokeWidth={ 2 }
 			d="M2 14h60"
+			stroke="currentColor"
+			strokeWidth={ 2 }
+			strokeMiterlimit={ 10 }
 		/>
 		<path
+			d="M62 14 48 2H16L2 14v48h60V14Z"
 			stroke="currentColor"
-			strokeLinecap="square"
-			strokeMiterlimit={ 10 }
 			strokeWidth={ 2 }
-			d="M62 14 48 2H16L2 14v48h60z"
+			strokeMiterlimit={ 10 }
+			strokeLinecap="square"
 		/>
 		<path
+			d="M40 34H24V14l6-12h4l6 12v20Z"
 			stroke="currentColor"
-			strokeLinecap="square"
-			strokeMiterlimit={ 10 }
 			strokeWidth={ 2 }
-			d="M40 34H24V14l6-12h4l6 12z"
+			strokeMiterlimit={ 10 }
+			strokeLinecap="square"
 		/>
 	</svg>
 );

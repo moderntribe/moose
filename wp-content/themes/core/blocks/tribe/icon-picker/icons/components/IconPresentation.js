@@ -1,31 +1,31 @@
 const SvgIconPresentation = ( props ) => (
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
 		width="1em"
 		height="1em"
-		fill="none"
 		viewBox="0 0 64 64"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
 		{ ...props }
 	>
 		<path
-			stroke="currentColor"
-			strokeLinecap="square"
-			strokeMiterlimit={ 10 }
-			strokeWidth={ 2 }
 			d="M22 22v40M14 14a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM42 22H10a4 4 0 0 0-4 4v36"
-		/>
-		<path
 			stroke="currentColor"
+			strokeWidth={ 2 }
+			strokeMiterlimit={ 10 }
 			strokeLinecap="square"
-			strokeMiterlimit={ 10 }
-			strokeWidth={ 2 }
-			d="M28 8h30v36H30"
 		/>
 		<path
+			d="M28 8h30v36H30"
 			stroke="currentColor"
-			strokeMiterlimit={ 10 }
 			strokeWidth={ 2 }
+			strokeMiterlimit={ 10 }
+			strokeLinecap="square"
+		/>
+		<path
 			d="m44 44 10 18"
+			stroke="currentColor"
+			strokeWidth={ 2 }
+			strokeMiterlimit={ 10 }
 		/>
 	</svg>
 );

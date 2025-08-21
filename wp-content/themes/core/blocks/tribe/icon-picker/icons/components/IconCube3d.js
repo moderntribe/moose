@@ -1,23 +1,23 @@
 const SvgIconCube3D = ( props ) => (
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
 		width="1em"
 		height="1em"
-		fill="none"
 		viewBox="0 0 64 64"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
 		{ ...props }
 	>
 		<path
-			stroke="currentColor"
-			strokeMiterlimit={ 10 }
-			strokeWidth={ 2 }
 			d="m8 18 24 14 24-14M32 32v28"
+			stroke="currentColor"
+			strokeWidth={ 2 }
+			strokeMiterlimit={ 10 }
 		/>
 		<path
+			d="M56 46V18L32 4 8 18v28l24 14 24-14Z"
 			stroke="currentColor"
-			strokeMiterlimit={ 10 }
 			strokeWidth={ 2 }
-			d="M56 46V18L32 4 8 18v28l24 14z"
+			strokeMiterlimit={ 10 }
 		/>
 	</svg>
 );

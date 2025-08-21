@@ -29,6 +29,7 @@
 		"@dnd-kit/core": "^6.3.1",
 		"@dnd-kit/sortable": "^10.0.0",
 		"@dnd-kit/utilities": "^3.2.2",
+		"@svgr/cli": "^6.5.1",
 		"@wordpress/icons": "^10.23.0",
 		"delegate": "^3.2.0",
 		"imagesloaded": "^5.0.0",
@@ -36,7 +37,6 @@
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "^3.0.0",
-		"@svgr/cli": "^8.1.0",
 		"@wordpress/create-block": "^4.65.0",
 		"@wordpress/scripts": "^30.15.0",
 		"browser-sync": "^3.0.4",
