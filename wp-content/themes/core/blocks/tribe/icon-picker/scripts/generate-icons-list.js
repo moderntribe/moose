@@ -14,7 +14,12 @@ function toName( key ) {
 	return key
 		.replace( /^icon-/, '' )
 		.split( '-' )
-		.map( ( word ) => word.charAt( 0 ).toUpperCase() + word.slice( 1 ) )
+		.map( ( part ) => {
+			if ( /^\d/.test( part ) ) {
+				return part.toUpperCase();
+			}
+			return part.charAt( 0 ).toUpperCase() + part.slice( 1 );
+		} )
 		.join( ' ' );
 }
 
@@ -31,7 +36,9 @@ function parseIconFile( filename ) {
 	const baseName = path.basename( filename, '.js' );
 	const kebab = baseName
 		.replace( /^Icon/, '' )
-		.replace( /([a-z0-9])([A-Z])/g, '$1-$2' )
+		.replace( /([a-z])([A-Z0-9])/g, '$1-$2' )
+		.replace( /([A-Z])([A-Z][a-z])/g, '$1-$2' )
+		.replace( /([a-zA-Z])([0-9]+[a-z]+)/g, '$1-$2' )
 		.toLowerCase();
 	const key = `icon-${ kebab }`;
 	const name = toName( key );
