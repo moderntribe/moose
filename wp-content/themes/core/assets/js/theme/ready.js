@@ -13,7 +13,7 @@ import viewportDims from 'common/viewport-dims.js';
 
 import animateOnScroll from './animate-on-scroll.js';
 
-import fixDetails from './details-block.js';
+import fixDetails from './blocks/details.js';
 
 /**
  * @function bindEvents
