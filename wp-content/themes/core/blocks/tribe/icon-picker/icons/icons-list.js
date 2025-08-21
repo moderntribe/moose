@@ -223,8 +223,8 @@ export const ICONS_LIST = [
 		component: IconComputerChip,
 	},
 	{
-		key: 'icon-cube3-d',
-		name: 'Cube3 D',
+		key: 'icon-cube-3d',
+		name: 'Cube 3D',
 		component: IconCube3D,
 	},
 	{
@@ -353,8 +353,8 @@ export const ICONS_LIST = [
 		component: IconLink,
 	},
 	{
-		key: 'icon-link1',
-		name: 'Link1',
+		key: 'icon-link-1',
+		name: 'Link 1',
 		component: IconLink1,
 	},
 	{
@@ -398,8 +398,8 @@ export const ICONS_LIST = [
 		component: IconMountain,
 	},
 	{
-		key: 'icon-name48',
-		name: 'Name48',
+		key: 'icon-name-48',
+		name: 'Name 48',
 		component: IconName48,
 	},
 	{
@@ -503,8 +503,8 @@ export const ICONS_LIST = [
 		component: IconSoundwave,
 	},
 	{
-		key: 'icon-sphere3-d',
-		name: 'Sphere3 D',
+		key: 'icon-sphere-3d',
+		name: 'Sphere 3D',
 		component: IconSphere3D,
 	},
 	{
