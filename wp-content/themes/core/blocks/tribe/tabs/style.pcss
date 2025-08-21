@@ -38,8 +38,12 @@
 	white-space: nowrap;
 	color: var(--theme-text-color, var(--color-text));
 
+	.is-style-dark & {
+		color: var(--color-white);
+	}
+
 	&[aria-selected="true"] {
-		color: var(--theme-accent-color, var(--color-text));
+		color: var(--theme-accent-color, var(--color-blue));
 
 		&::after {
 			content: "";
@@ -49,7 +53,7 @@
 			position: absolute;
 			top: 100%;
 			left: 0;
-			background-color: var(--theme-accent-color, var(--color-text));
+			background-color: var(--theme-accent-color, var(--color-blue));
 		}
 	}
 }
