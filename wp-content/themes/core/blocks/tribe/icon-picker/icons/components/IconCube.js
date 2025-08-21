@@ -1,4 +1,4 @@
-const SvgIconCube3D = ( props ) => (
+const SvgIconCube = ( props ) => (
 	<svg
 		width="1em"
 		height="1em"
@@ -21,4 +21,4 @@ const SvgIconCube3D = ( props ) => (
 		/>
 	</svg>
 );
-export default SvgIconCube3D;
+export default SvgIconCube;
