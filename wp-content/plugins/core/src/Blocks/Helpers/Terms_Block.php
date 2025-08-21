@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Blocks;
+namespace Tribe\Plugin\Blocks\Helpers;
 
 use Tribe\Plugin\Templates\Traits\Primary_Term;
 
