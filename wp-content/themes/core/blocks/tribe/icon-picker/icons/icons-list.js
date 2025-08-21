@@ -24,7 +24,7 @@ import IconCloudNetwork from './components/IconCloudNetwork';
 import IconCommentChat from './components/IconCommentChat';
 import IconCompassNavigation from './components/IconCompassNavigation';
 import IconComputerChip from './components/IconComputerChip';
-import IconCube3D from './components/IconCube3D';
+import IconCube from './components/IconCube';
 import IconCycleRefresh from './components/IconCycleRefresh';
 import IconDocumentSearch from './components/IconDocumentSearch';
 import IconEducationCap from './components/IconEducationCap';
@@ -80,7 +80,7 @@ import IconShippingBox from './components/IconShippingBox';
 import IconShoppingCart from './components/IconShoppingCart';
 import IconSmile from './components/IconSmile';
 import IconSoundwave from './components/IconSoundwave';
-import IconSphere3D from './components/IconSphere3D';
+import IconSphere from './components/IconSphere';
 import IconStackLayers from './components/IconStackLayers';
 import IconStarEmpty from './components/IconStarEmpty';
 import IconStarFilled from './components/IconStarFilled';
@@ -223,9 +223,9 @@ export const ICONS_LIST = [
 		component: IconComputerChip,
 	},
 	{
-		key: 'icon-cube-3d',
-		name: 'Cube 3D',
-		component: IconCube3D,
+		key: 'icon-cube',
+		name: 'Cube',
+		component: IconCube,
 	},
 	{
 		key: 'icon-cycle-refresh',
@@ -503,9 +503,9 @@ export const ICONS_LIST = [
 		component: IconSoundwave,
 	},
 	{
-		key: 'icon-sphere-3d',
-		name: 'Sphere 3D',
-		component: IconSphere3D,
+		key: 'icon-sphere',
+		name: 'Sphere',
+		component: IconSphere,
 	},
 	{
 		key: 'icon-stack-layers',
