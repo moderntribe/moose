@@ -1,0 +1,26 @@
+
+@svg-load star-full url(icon-star-full.svg) {
+	fill: currentcolor;
+	stroke: currentcolor;
+}
+
+@svg-load star-half url(icon-star-half.svg) {
+
+	path:nth-child(1) {
+		stroke: currentcolor;
+	}
+
+	path:nth-child(2) {
+		fill: currentcolor;
+	}
+}
+
+@svg-load star-empty url(icon-star-empty.svg) {
+	stroke: currentcolor;
+}
+
+:root {
+	--icon-star-full: svg-inline(star-full);
+	--icon-star-half: svg-inline(star-half);
+	--icon-star-empty: svg-inline(star-empty);
+}

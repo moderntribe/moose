@@ -61,7 +61,10 @@ const plugins = [
 	[
 		'postcss-inline-svg',
 		{
-			paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
+			paths: [
+				`${ pkg.config.coreThemeDir }/assets/media/icons`,
+				`${ pkg.config.coreThemeDir }/blocks/tribe/rating-stars/icons`,
+			],
 		},
 	],
 	[
