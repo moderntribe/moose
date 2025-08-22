@@ -1,6 +1,7 @@
 /**
- * Initializes a fix for inconsistent CSS transitions inside <details> elements.
+ * @module core-details
  *
+ * @description Initializes a fix for inconsistent CSS transitions inside <details> elements.
  * Some browsers skip re-triggering transitions when <details> is toggled multiple times.
  * This function forces a layout reflow by calling getComputedStyle on each child element,
  * ensuring that transitions reliably fire every time the <details> element is opened.
