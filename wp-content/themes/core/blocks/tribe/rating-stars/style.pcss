@@ -2,6 +2,32 @@
  * The following styles get applied both on the front and in the editor.
  */
 
+@svg-load star-full url(icon-star-full.svg) {
+	fill: currentcolor;
+	stroke: currentcolor;
+}
+
+@svg-load star-half url(icon-star-half.svg) {
+
+	path:nth-child(2) {
+		stroke: currentcolor;
+	}
+
+	path:nth-child(2) {
+		fill: currentcolor;
+	}
+}
+
+@svg-load star-empty url(icon-star-empty.svg) {
+	stroke: currentcolor;
+}
+
+:root {
+	--icon-star-full: svg-inline(star-full);
+	--icon-star-half: svg-inline(star-half);
+	--icon-star-empty: svg-inline(star-empty);
+}
+
 /* -----------------------------------------------------------------------
  * Rating Stars Block
  * ----------------------------------------------------------------------- */
@@ -13,23 +39,29 @@
 		width: var(--rating-stars--size, 200px);
 		max-width: 100%;
 
-		.rating-stars__star {
-			aspect-ratio: 1/1;
-			background-size: cover;
-			background-repeat: no-repeat;
-			display: inline-block;
-		}
-
 		.star--full {
-			background-image: url(./icons/icon-star-full.svg);
+			mask: var(--icon-star-full) center no-repeat;
 		}
 
 		.star--half {
-			background-image: url(./icons/icon-star-half.svg);
+			mask: var(--icon-star-half) center no-repeat;
 		}
 
 		.star--empty {
-			background-image: url(./icons/icon-star-empty.svg);
+			mask: var(--icon-star-empty) center no-repeat;
+		}
+
+		.rating-stars__star {
+			aspect-ratio: 1/1;
+			display: block;
+			mask-size: contain;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-text);
+
+			.is-style-dark & {
+				background-color: var(--color-white);
+			}
 		}
 	}
 }
