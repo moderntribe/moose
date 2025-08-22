@@ -6,12 +6,12 @@
 	"blockTypes": [ "core/button" ],
 	"styles": {
 		"color": {
-			"background": "transparent",
-			"text": "var(--wp--preset--color--base-black)"
+			"background": "var(--theme--button--outlined--background-color)",
+			"text": "var(--theme--button--outlined--color)"
 		},
 		"border": {
 			"width": "1px",
-			"color": "var(--wp--preset--color--base-black)"
+			"color": "var(--theme--button--outlined--border-color)"
 		},
 		"spacing": {
 			"padding": {
@@ -25,14 +25,20 @@
 			"button": {
 				":hover": {
 					"color": {
-						"background": "var(--wp--preset--color--base-black) !important",
-						"text": "var(--wp--preset--color--base-white) !important"
+						"background": "var(--theme--button--outlined--hover--background-color) !important",
+						"text": "var(--theme--button--outlined--hover--color) !important"
 					}
 				},
 				":focus": {
 					"color": {
-						"background": "var(--wp--preset--color--base-black) !important",
-						"text": "var(--wp--preset--color--base-white) !important"
+						"background": "var(--theme--button--outlined--hover--background-color) !important",
+						"text": "var(--theme--button--outlined--hover--color) !important"
+					}
+				},
+				":active": {
+					"color": {
+						"background": "var(--theme--button--outlined--hover--background-color) !important",
+						"text": "var(--theme--button--outlined--hover--color) !important"
 					}
 				}
 			}

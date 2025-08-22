@@ -9,8 +9,8 @@
 			"radius": "0"
 		},
 		"color": {
-			"background": "transparent",
-			"text": "var(--wp--preset--color--blue)"
+			"background": "var(--theme--button--ghost--background-color)",
+			"text": "var(--theme--button--ghost--color)"
 		},
 		"spacing": {
 			"padding": {
@@ -24,12 +24,17 @@
 			"button": {
 				":hover": {
 					"color": {
-						"text": "var(--color-dark-blue) !important"
+						"text": "var(--theme--button--ghost--hover--color) !important"
 					}
 				},
 				":focus": {
 					"color": {
-						"text": "var(--color-dark-blue) !important"
+						"text": "var(--theme--button--ghost--hover--color) !important"
+					}
+				},
+				":active": {
+					"color": {
+						"text": "var(--theme--button--ghost--hover--color) !important"
 					}
 				}
 			}
