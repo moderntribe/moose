@@ -20,6 +20,8 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Removed: Several unnecessary plugins. [#192](https://github.com/moderntribe/moose/issues/192)
 - Fixed: Duplicate `<footer>` tag [#199](https://github.com/moderntribe/moose/pull/199)
 - Chore: WordPress Core & plugin updates.
+- Added: Masthead template parts, patterns, JS functionality, and styles for mega nav, utility nav, and other masthead features. [#194](https://github.com/moderntribe/moose/pull/194)
+- Added: Custom blocks for Mega Men Item, Standard Menu Item, Masthead Search, Mobile Menu Toggle, and Navigation Link. [#194](https://github.com/moderntribe/moose/pull/194)
 
 ## [2025.05]
 - Fixed: Add type hints to post type subscribers [#196](https://github.com/moderntribe/moose/pull/196)
