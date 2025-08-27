@@ -1,6 +1,7 @@
 /**
- * The following styles get applied both on the front and in the editor.
+ * Import SVG icons
  */
+ @import "icons.pcss";
 
 /* -----------------------------------------------------------------------
  * Rating Stars Block
@@ -13,23 +14,29 @@
 		width: var(--rating-stars--size, 200px);
 		max-width: 100%;
 
-		.rating-stars__star {
-			aspect-ratio: 1/1;
-			background-size: cover;
-			background-repeat: no-repeat;
-			display: inline-block;
-		}
-
 		.star--full {
-			background-image: url(./icons/icon-star-full.svg);
+			mask: var(--icon-star-full) center no-repeat;
 		}
 
 		.star--half {
-			background-image: url(./icons/icon-star-half.svg);
+			mask: var(--icon-star-half) center no-repeat;
 		}
 
 		.star--empty {
-			background-image: url(./icons/icon-star-empty.svg);
+			mask: var(--icon-star-empty) center no-repeat;
+		}
+
+		.rating-stars__star {
+			aspect-ratio: 1/1;
+			display: block;
+			mask-size: contain;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-text);
+
+			.is-style-dark & {
+				background-color: var(--color-white);
+			}
 		}
 	}
 }
