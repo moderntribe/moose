@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 // Example block attributes (these would come from your block settings):
+$post_id     = 1; // Example post ID
 $heading     = 'Important Update';
 $body        = 'We’ve launched a new feature you should check out.';
 $cta_label   = 'Learn More';
@@ -18,19 +19,15 @@ $classes = [
 	'b-announcement--align-' . esc_attr( $align ),
 ];
 
-// @phpstan-ignore-next-line
-if ( $dismissible ) {
-	$classes[] = 'b-announcement--is-dismissible';
-}
-
 if ( in_array( $theme, $dark_themes ) ) {
 	$classes[] = 'is-style-dark';
 }
 ?>
 <section <?php echo wp_kses_data( get_block_wrapper_attributes( [
-	'class'      => implode( ' ', $classes ),
-	'role'       => 'region',
-	'aria-label' => esc_attr__( 'Site announcement', 'tribe' ),
+	'class'                => implode( ' ', $classes ),
+	'role'                 => 'region',
+	'aria-label'           => esc_attr__( 'Site announcement', 'tribe' ),
+	'data-announcement-id' => esc_attr( $post_id ),
 ] ) ); ?>>
 	<div class="b-announcement__inner">
 		<?php // @phpstan-ignore-next-line
