@@ -18,7 +18,7 @@ $classes = [
 	'b-announcement--align-' . esc_attr( $align ),
 ];
 
-// @phpcs:ignore-next-line
+// @phpstan-ignore-next-line
 if ( $dismissible ) {
 	$classes[] = 'b-announcement--is-dismissible';
 }
@@ -33,17 +33,17 @@ if ( in_array( $theme, $dark_themes ) ) {
 	'aria-label' => esc_attr__( 'Site announcement', 'tribe' ),
 ] ) ); ?>>
 	<div class="b-announcement__inner">
-		<?php // @phpcs:ignore-next-line
+		<?php // @phpstan-ignore-next-line
 		if ( $heading ) : ?>
 			<h2 class="b-announcement__heading t-body"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 
-		<?php // @phpcs:ignore-next-line
+		<?php // @phpstan-ignore-next-line
 		if ( $body ) : ?>
 			<p class="b-announcement__body t-body"><?php echo esc_html( $body ); ?></p>
 		<?php endif; ?>
 
-		<?php // @phpcs:ignore-next-line
+		<?php // @phpstan-ignore-next-line
 		if ( $cta_label && $cta_url ) : ?>
 			<div class="wp-block-buttons b-announcement__cta-wrapper">
 				<span class="wp-block-button is-style-<?php echo esc_attr( $cta_style ); ?> tribe-button-has-icon">
@@ -53,7 +53,7 @@ if ( in_array( $theme, $dark_themes ) ) {
 		<?php endif; ?>
 	</div>
 
-	<?php // @phpcs:ignore-next-line
+	<?php // @phpstan-ignore-next-line
 	if ( $dismissible ) : ?>
 		<div class="b-announcement__dismiss-wrapper">
 			<button type="button" class="b-announcement__dismiss u-button-reset" aria-label="Dismiss announcement">
