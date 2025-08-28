@@ -27,7 +27,7 @@ if ( in_array( $theme, $dark_themes ) ) {
 	'class'                => implode( ' ', $classes ),
 	'role'                 => 'region',
 	'aria-label'           => esc_attr__( 'Site announcement', 'tribe' ),
-	'data-announcement-id' => esc_attr( $post_id ),
+	'data-announcement-id' => esc_attr( (string) $post_id ),
 ] ) ); ?>>
 	<div class="b-announcement__inner">
 		<?php // @phpstan-ignore-next-line
