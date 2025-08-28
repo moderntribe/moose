@@ -54,3 +54,39 @@
 		@mixin focus-visible-inline-text;
 	}
 }
+
+/* -------------------------------------------------------------------------
+ * Button Reset
+ * ------------------------------------------------------------------------- */
+
+@define-mixin button-reset {
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+	cursor: pointer;
+	color: inherit;
+}
+
+@define-mixin outlined-button-reset {
+	background-color: transparent;
+	color: var(--color-black);
+	border: 1px solid var(--color-black);
+	padding: var(--spacer-20) var(--spacer-30);
+
+	&:hover, &:focus {
+		background-color: var(--color-black) !important;
+		color: var(--color-white) !important;
+	}
+}
+
+@define-mixin ghost-button-reset {
+	border-radius: 0;
+	background-color: transparent;
+	color: var(--color-blue);
+	padding: 0;
+
+	&:hover, &:focus {
+		color: var(--color-dark-blue) !important;
+	}
+}

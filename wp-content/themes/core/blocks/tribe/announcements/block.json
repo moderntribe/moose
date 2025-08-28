@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "tribe/announcements",
 	"version": "0.1.0",
-	"title": "announcements",
+	"title": "Announcements",
 	"category": "theme",
 	"icon": "megaphone",
 	"description": "A block to display globally configured announcements",
