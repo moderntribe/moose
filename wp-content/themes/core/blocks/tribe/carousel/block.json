@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/carousel",
+	"version": "0.1.0",
+	"title": "Carousel",
+	"category": "design",
+	"icon": "slides",
+	"description": "A carousel block with limitless possibilities",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "grid", "full" ]
+	},
+	"example": {},
+	"attributes": {
+		"activeIndex": {
+			"type": "number",
+			"default": 0
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplayDelay": {
+			"type": "number",
+			"default": 500
+		},
+		"centeredSlides": {
+			"type": "boolean",
+			"default": false
+		},
+		"loop": {
+			"type": "boolean",
+			"default": false
+		},
+		"navigation": {
+			"type": "boolean",
+			"default": true
+		},
+		"pagination": {
+			"type": "boolean",
+			"default": true
+		},
+		"paginationClickable": {
+			"type": "boolean",
+			"default": true
+		},
+		"slidesPerGroup": {
+			"type": "number",
+			"default": 1
+		},
+		"slidesPerViewAuto": {
+			"type": "boolean",
+			"default": false
+		},
+		"slidesPerView": {
+			"type": "number",
+			"default": 1
+		},
+		"spaceBetween": {
+			"type": "number",
+			"default": 0
+		},
+		"speed": {
+			"type": "number",
+			"default": 300
+		},
+		"totalSlides": {
+			"type": "number",
+			"default": 3
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"style": [ "file:./index.css", "file:./style-index.css" ],
+	"viewScript": "file:./view.js"
+}

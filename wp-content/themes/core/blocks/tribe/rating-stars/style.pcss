@@ -1,0 +1,42 @@
+/**
+ * Import SVG icons
+ */
+ @import "icons.pcss";
+
+/* -----------------------------------------------------------------------
+ * Rating Stars Block
+ * ----------------------------------------------------------------------- */
+.wp-block-tribe-rating-stars {
+
+	.rating-stars__container {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		width: var(--rating-stars--size, 200px);
+		max-width: 100%;
+
+		.star--full {
+			mask: var(--icon-star-full) center no-repeat;
+		}
+
+		.star--half {
+			mask: var(--icon-star-half) center no-repeat;
+		}
+
+		.star--empty {
+			mask: var(--icon-star-empty) center no-repeat;
+		}
+
+		.rating-stars__star {
+			aspect-ratio: 1/1;
+			display: block;
+			mask-size: contain;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-text);
+
+			.is-style-dark & {
+				background-color: var(--color-white);
+			}
+		}
+	}
+}
