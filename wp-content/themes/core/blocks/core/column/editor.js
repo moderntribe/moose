@@ -18,7 +18,7 @@ const settings = {
 			attribute: 'isSticky',
 			defaultValue: false,
 			helpText: __(
-				'Makes column stick to top when scrolling. Only one column should be set to sticky per row and the "sticky" effect only applies on large tablet and bigger screens.',
+				'Makes column stick to top when scrolling. Only one column should be set to sticky per row and the "sticky" effect only applies on screens larger than tablet size (782px).',
 				'tribe'
 			),
 			label: __( 'Stick Column on Scroll', 'tribe' ),
