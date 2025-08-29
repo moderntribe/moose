@@ -7,8 +7,8 @@ $body        = 'We’ve launched a new feature you should check out.';
 $cta_label   = 'Learn More';
 $cta_url     = '#';
 $cta_style   = 'outlined'; // outlined | ghost
-$align       = 'left';   // left | center
-$theme       = 'error';    // brand | black | error | warning
+$align       = 'center';   // left | center
+$theme       = 'brand';    // brand | black | error | warning
 $dismissible = true;       // true | false
 $dark_themes = [ 'brand', 'black', 'error' ];
 
