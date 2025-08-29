@@ -1,0 +1,20 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Tribe Navigation Link - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-navigation-link {
+	text-decoration-color: transparent;
+	transition: var(--transition);
+	color: var(--color-text);
+
+	&:hover,
+	&:focus {
+		text-decoration-color: currentcolor;
+	}
+
+	.site-header__utility-menu & {
+		font-size: 14px;
+	}
+}

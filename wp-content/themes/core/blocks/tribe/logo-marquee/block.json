@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/logo-marquee",
+	"version": "0.1.0",
+	"title": "Logo Marquee",
+	"category": "theme",
+	"description": "Creates side-scrolling gallery of logos.",
+	"icon": "slides",
+	"attributes": {
+		"images": {
+			"type": "array",
+			"default": [],
+			"source": "query",
+			"selector": ".gallery-item",
+			"query": {
+				"url": {
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "src"
+				},
+				"id": {
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "data-id"
+				},
+				"alt": {
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "alt",
+					"default": ""
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
