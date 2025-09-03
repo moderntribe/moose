@@ -12,7 +12,7 @@ export default function Edit( {
 } ) {
 	const blockProps = useBlockProps();
 
-	const { headingLevel } = attributes;
+	const { headingLevel, layout } = attributes;
 
 	/**
 	 * Set up a query string to pass the post id to the server side render.
@@ -46,6 +46,23 @@ export default function Edit( {
 							] }
 							onChange={ ( value ) =>
 								setAttributes( { headingLevel: value } )
+							}
+						/>
+						<SelectControl
+							__next40pxDefaultSize
+							__nextHasNoMarginBottom
+							label={ __( 'Card Layout', 'tribe' ) }
+							value={ layout }
+							help={ __(
+								'The layout for the post card.',
+								'tribe'
+							) }
+							options={ [
+								{ label: __( 'Vertical', 'tribe' ), value: 'vertical' },
+								{ label: __( 'Horizontal', 'tribe' ), value: 'horizontal' },
+							] }
+							onChange={ ( value ) =>
+								setAttributes( { layout: value } )
 							}
 						/>
 					</PanelBody>
