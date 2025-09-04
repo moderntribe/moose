@@ -7,6 +7,17 @@
 .c-post-card {
 	position: relative;
 	container: postcard / inline-size;
+
+	&.c-post-card__layout-horizontal {
+		border-top: 1px solid var(--border-border-primary, #000);
+		padding-top: var(--cards-query-interior-padding, 40px);
+	}
+
+	/* Dynamic borders for middle and last items, as controlled by JavaScript in theme/post-cards.js */
+	&.c-post-card__column-end {
+		border-bottom: 1px solid var(--border-border-primary, #000);
+		padding-bottom: var(--spacer-20);
+	}
 }
 
 /* -----------------------------------------------------------------------
@@ -17,6 +28,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacer-20);
+
+	.c-post-card__layout-horizontal & {
+		flex-direction: row-reverse;
+		align-items: center;
+		gap: var(--spacer-30);
+	}
 }
 
 /* -----------------------------------------------------------------------
