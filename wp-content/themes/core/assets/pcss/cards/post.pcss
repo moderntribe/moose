@@ -16,7 +16,7 @@
 	/* Dynamic borders for middle and last items, as controlled by JavaScript in theme/post-cards.js */
 	&.c-post-card__column-end {
 		border-bottom: 1px solid var(--border-border-primary, #000);
-		padding-bottom: var(--spacer-20);
+		padding-bottom: var(--cards-query-interior-padding, 40px);
 	}
 }
 
@@ -32,6 +32,7 @@
 	.c-post-card__layout-horizontal & {
 		flex-direction: row-reverse;
 		align-items: center;
+		justify-content: flex-end;
 		gap: var(--spacer-30);
 	}
 }
