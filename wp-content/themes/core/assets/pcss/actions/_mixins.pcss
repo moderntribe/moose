@@ -10,7 +10,7 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin focus-visible {
-	box-shadow: 0 0 0 3px var(--color-focus-contrast-dark), 0 0 0 5px var(--color-focus-contrast-light);
+	box-shadow: 0 0 0 3px var(--theme--focus-visible--dark), 0 0 0 5px var(--theme--focus-visible--light);
 	outline: 0;
 }
 
@@ -31,7 +31,7 @@
 
 @define-mixin inline-text-link {
 	transition: var(--transition);
-	color: var(--themed-link-text-color);
+	color: var(--theme--link--color);
 	font-weight: var(--font-weight-bold);
 	cursor: pointer;
 	text-decoration: underline 1px;
@@ -45,7 +45,7 @@
 	&:hover,
 	&:focus:not(:focus-visible),
 	&:active {
-		color: var(--themed-link-hover-text-color);
+		color: var(--theme--link--hover--color);
 		text-decoration-color: currentcolor;
 	}
 
