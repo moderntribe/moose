@@ -2,42 +2,34 @@
  * Styles specific to this block
  */
 
-:root {
-	--ssb-button-color: var(--wp--preset--color--base-black);
-	--ssb-button-hover-color: var(--wp--preset--color--base-white);
-	--ssb-button-background-color: var(--wp--preset--color--base-white);
-	--ssb-button-background-hover-color: var(--wp--preset--color--base-black);
-	--ssb-button-border-color: var(--wp--preset--color--base-black);
-	--ssb-button-border-hover-color: var(--wp--preset--color--base-white);
-	--ssb-button-border-size: 1px;
-}
-
 .wp-block-outermost-social-sharing {
+	--ssb-button-border-size: 1px;
 	background: transparent;
 	transition: var(--transition);
 
+	/* styling and theming is only available for non-logo-only styles */
 	&:not(.is-style-logos-only) {
 
 		.outermost-social-sharing-link {
-			background-color: var(--ssb-button-background-color);
-			color: var(--ssb-button-color);
-			fill: var(--ssb-button-color);
-			border: var(--ssb-button-border-size) solid var(--ssb-button-border-color);
+			background-color: var(--theme--ssb--button--background-color);
+			color: var(--theme--ssb--button--color);
+			fill: var(--theme--ssb--button--color);
+			border: var(--ssb-button-border-size) solid var(--theme--ssb--button--border-color);
 
 			&:hover,
 			&:focus {
-				background-color: var(--ssb-button-background-hover-color);
-				color: var(--ssb-button-hover-color);
-				fill: var(--ssb-button-hover-color);
-				border: var(--ssb-button-border-size) solid var(--ssb-button-border-hover-color);
+				background-color: var(--theme--ssb--button--hover--background-color);
+				color: var(--theme--ssb--button--hover--color);
+				fill: var(--theme--ssb--button--hover--color);
+				border: var(--ssb-button-border-size) solid var(--theme--ssb--button--hover--border-color);
 			}
 
 			a:focus-visible {
 				outline: none;
 				outline-offset: 0;
-				background-color: var(--ssb-button-background-hover-color);
-				color: var(--ssb-button-hover-color);
-				fill: var(--ssb-button-hover-color);
+				background-color: var(--theme--ssb--button--hover--background-color);
+				color: var(--theme--ssb--button--hover--color);
+				fill: var(--theme--ssb--button--hover--color);
 				border-radius: var(--border-radius-full);
 			}
 		}
