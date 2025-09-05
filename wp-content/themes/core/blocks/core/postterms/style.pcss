@@ -8,12 +8,6 @@
 	> a {
 
 		@mixin t-category;
-		color: var(--color-black);
-
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
 	}
 
 	/**
@@ -32,20 +26,6 @@
 		> a {
 
 			@mixin t-tag;
-			display: inline-flex;
-			padding: 4px 16px;
-			align-items: center;
-			background-color: var(--color-neutral-20);
-			border-radius: var(--border-radius-full);
-			color: var(--color-black);
-			transition: var(--transition);
-
-			&:hover,
-			&:focus {
-				background-color: var(--color-black);
-				color: var(--color-white);
-				text-decoration: none;
-			}
 		}
 	}
 }

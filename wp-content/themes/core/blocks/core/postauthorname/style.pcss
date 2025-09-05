@@ -10,7 +10,7 @@
 	 */
 	&::before {
 		content: "By ";
-		color: var(--color-black) !important;
+		color: var(--theme--post-author-name--color) !important;
 	}
 }
 
@@ -18,11 +18,11 @@
  * If the author name is set as a link we should style that as well
  */
 .wp-block-post-author-name__link {
-	color: var(--color-black);
+	color: var(--theme--post-author-name--color);
 	font-weight: 700;
 
 	&:hover,
 	&:focus {
-		color: var(--color-neutral-80);
+		color: var(--theme--post-author-name--hover--color);
 	}
 }
