@@ -14,7 +14,7 @@ class Config extends Post_Type_Config {
 			'has_archive' => false,
 			'public' => false,
 			'show_ui' => true,
-			'enter_title_here' => esc_html__( 'Enter Alert Title', 'tribe-alerts' ),
+			'enter_title_here' => esc_html__( 'Enter Alert Title', 'tribe' ),
 			'map_meta_cap' => true,
 			'supports' => [ 'title' ],
 			'menu_icon' => 'dashicons-warning',
@@ -24,9 +24,9 @@ class Config extends Post_Type_Config {
 
 	public function get_labels(): array {
 		return [
-			'singular' => esc_html__( 'Alert', 'tribe-alerts' ),
-			'plural'   => esc_html__( 'Alerts', 'tribe-alerts' ),
-			'slug'     => esc_html__( 'moose-alerts', 'tribe-alerts' ),
+			'singular' => esc_html__( 'Alert', 'tribe' ),
+			'plural'   => esc_html__( 'Alerts', 'tribe' ),
+			'slug'     => esc_html__( 'moose-alerts', 'tribe' ),
 		];
 	}
 
