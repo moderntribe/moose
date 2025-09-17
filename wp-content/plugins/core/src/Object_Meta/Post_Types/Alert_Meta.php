@@ -46,14 +46,14 @@ class Alert_Meta extends Meta_Object {
 				] ),
 			RadioButton::make( esc_html__( 'Placement', 'tribe' ), self::PLACEMENT )
 				->choices( [
-					self::PLACEMENT_ABOVE       => esc_html__( 'Above', 'tribe' ),
-					self::PLACEMENT_BELOW       => esc_html__( 'Below', 'tribe' ),
-				]),
+					self::PLACEMENT_ABOVE => esc_html__( 'Above', 'tribe' ),
+					self::PLACEMENT_BELOW => esc_html__( 'Below', 'tribe' ),
+				] ),
 			RadioButton::make( esc_html__( 'Alignment', 'tribe' ), self::ALIGNMENT_LEFT )
 				->choices( [
-					self::ALIGNMENT_LEFT       => esc_html__( 'Left', 'tribe' ),
-					self::ALIGNMENT_RIGHT       => esc_html__( 'Right', 'tribe' ),
-				])
+					self::ALIGNMENT_LEFT  => esc_html__( 'Left', 'tribe' ),
+					self::ALIGNMENT_RIGHT => esc_html__( 'Right', 'tribe' ),
+				] ),
 		];
 	}
 
