@@ -27,5 +27,5 @@ get_template_part( 'components/cards/post', null, [
 	'post_id'              => $post_id,
 	'animation_attributes' => $animation_attributes,
 	'heading_level'        => $heading_level,
-	'layout'               => $layout
+	'layout'               => $layout,
 ] );
