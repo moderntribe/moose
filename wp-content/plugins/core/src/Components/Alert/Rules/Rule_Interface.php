@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components\Alert;
+namespace Tribe\Plugin\Components\Alert\Rules;
 
 interface Rule_Interface {
 	/**

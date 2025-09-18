@@ -1,20 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tribe\Plugin\Components\Alert;
 
 use Tribe\Plugin\Components\Abstract_Controller;
+use Tribe\Plugin\Components\Alert\Rules\Placement_Rule;
+use Tribe\Plugin\Components\Alert\Rules\Rule_Interface;
 use Tribe\Plugin\Post_Types\Alert\Alert;
 
 class Alert_Controller extends Abstract_Controller {
-	const string PLACEMENT_ABOVE_HEADER = 'above_header';
-	const string PLACEMENT_BELOW_HEADER = 'below_header';
 
 	private array $rules = [];
 
 	private array $context = [];
 
 	public function __construct() {
-		$this->add_rule( new Schedule_Rule() );
+		$this->add_rule( new Placement_Rule() );
 	}
 
 	/**
@@ -44,28 +44,6 @@ class Alert_Controller extends Abstract_Controller {
 	}
 
 	/**
-	 * Get alerts for above header placement
-	 *
-	 * @param array $context
-	 *
-	 * @return \WP_Post[]
-	 */
-	public function get_above_header_alerts( array $context = [] ): array {
-		return $this->get_alerts_for_placement( self::PLACEMENT_ABOVE_HEADER, $context );
-	}
-
-	/**
-	 * Get alerts for below header placement
-	 *
-	 * @param array $context
-	 *
-	 * @return \WP_Post[]
-	 */
-	public function get_below_header_alerts( array $context = [] ): array {
-		return $this->get_alerts_for_placement( self::PLACEMENT_BELOW_HEADER, $context );
-	}
-
-	/**
 	 * Add a rule to the processing pipeline
 	 *
 	 * @param Rule_Interface $rule
@@ -92,15 +70,6 @@ class Alert_Controller extends Abstract_Controller {
 			} );
 		}
 
-		// Sort by menu_order (priority) and then by post date
-		usort( $alerts, function ( $a, $b ) {
-			if ( $a->menu_order === $b->menu_order ) {
-				return strtotime( $b->post_date ) - strtotime( $a->post_date );
-			}
-
-			return $a->menu_order - $b->menu_order;
-		} );
-
 		return $alerts;
 	}
 
@@ -113,8 +82,11 @@ class Alert_Controller extends Abstract_Controller {
 		$query = new \WP_Query( [
 			'post_type'      => Alert::NAME,
 			'post_status'    => 'publish',
-			'posts_per_page' => - 1,
-			'orderby'        => [ 'menu_order' => 'ASC', 'date' => 'DESC' ],
+			'posts_per_page' => -1,
+			'orderby'        => [
+				'menu_order' => 'ASC',
+				'date' => 'DESC'
+			],
 		] );
 
 		return $query->posts;
