@@ -32,7 +32,7 @@ $styles  = '';
 if ( $animation_attributes ) {
 	$classes .= ' ';
 	$classes .= $animation_attributes->get_classes();
-	$styles  = ' style="' . $animation_attributes->get_styles() . '"';
+	$styles   = ' style="' . $animation_attributes->get_styles() . '"';
 }
 ?>
 <article class="<?php echo esc_attr( $classes ); ?>"<?php echo esc_attr( $styles ); ?>>

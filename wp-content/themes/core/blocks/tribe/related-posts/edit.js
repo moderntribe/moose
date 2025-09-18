@@ -19,7 +19,7 @@ function Edit( { props, postList } ) {
 	const setChosenPosts = ( selectedPosts ) => {
 		const newChosenPosts = selectedPosts.map( ( selectedPost ) => {
 			/**
-			 * if we've alreadyed added a value, it will appear as an object
+			 * if we've already added a value, it will appear as an object
 			 * in this case, we can just return the existing object
 			 */
 			if ( typeof selectedPost !== 'string' ) {
