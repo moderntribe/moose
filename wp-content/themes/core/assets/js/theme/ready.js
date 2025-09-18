@@ -49,6 +49,16 @@ const init = () => {
 
 	postCards();
 
+	// conditionally load core/details animation fix
+	const coreDetailsEls = document.querySelectorAll( '.wp-block-details' );
+	if ( coreDetailsEls.length > 0 ) {
+		import(
+			/* webpackChunkName: "core-details" */ './blocks/details.js'
+		).then( ( module ) => {
+			module.default( coreDetailsEls );
+		} );
+	}
+
 	console.info(
 		'Theme: Initialized all javascript that targeted document ready.'
 	);
