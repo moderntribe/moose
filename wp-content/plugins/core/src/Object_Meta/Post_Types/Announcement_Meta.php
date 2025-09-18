@@ -7,7 +7,7 @@ use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Location;
 use Tribe\Plugin\Object_Meta\Meta_Object;
-use Tribe\Plugin\Post_Types\Alert\Alert;
+use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
 class Alert_Meta extends Meta_Object {
 
@@ -59,7 +59,7 @@ class Alert_Meta extends Meta_Object {
 
 	public function get_locations(): array {
 		return [
-			Location::where( 'post_type', '=', Alert::NAME ),
+			Location::where( 'post_type', '=', Announcement::NAME ),
 		];
 	}
 }

@@ -1,16 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "tribe/alerts",
+	"name": "tribe/announcement-renderer",
 	"version": "0.1.0",
-	"title": "Alert",
+	"title": "Announcement Renderer",
 	"category": "theme",
 	"icon": "block-default",
-	"description": "A block to output the Alerts from CPT",
+	"description": "A block to output the announcement block from CPT",
 	"supports": {
 		"html": false,
 		"align": [
 			"wide",
+			"grid",
 			"full"
 		],
 		"spacing": {

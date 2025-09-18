@@ -4,8 +4,8 @@ namespace Tribe\Plugin\Post_Types\Alert;
 
 use Tribe\Plugin\Post_Types\Post_Object;
 
-class Alert extends Post_Object {
+class Announcement extends Post_Object {
 
-    public const NAME = 'moose-alert';
+    public const NAME = 'announcement';
 
 }

@@ -8,7 +8,7 @@ export default function Edit() {
 
 	return (
 		<div { ...blockProps }>
-			<ServerSideRender block="tribe/announcements" />
+			<ServerSideRender block="tribe/announcement-renderer" />
 		</div>
 	);
 }

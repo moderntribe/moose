@@ -6,7 +6,7 @@ use Tribe\Plugin\Post_Types\Post_Type_Config;
 
 class Config extends Post_Type_Config {
 
-	protected string $post_type = Alert::NAME;
+	protected string $post_type = Announcement::NAME;
 
 	public function get_args(): array {
 		return [

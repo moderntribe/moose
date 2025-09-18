@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components\Alert;
+namespace Tribe\Plugin\Components\Announcements;
 
 use Tribe\Plugin\Components\Abstract_Controller;
-use Tribe\Plugin\Components\Alert\Rules\Placement_Rule;
-use Tribe\Plugin\Components\Alert\Rules\Rule_Interface;
-use Tribe\Plugin\Post_Types\Alert\Alert;
+use Tribe\Plugin\Components\Announcements\Rules\Placement_Rule;
+use Tribe\Plugin\Components\Announcements\Rules\Rule_Interface;
+use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
-class Alert_Controller extends Abstract_Controller {
+class Announcement_Controller extends Abstract_Controller {
 
 	private array $rules = [];
 
@@ -18,14 +18,14 @@ class Alert_Controller extends Abstract_Controller {
 	}
 
 	/**
-	 * Get alerts for a specific placement
+	 * Get announcements for a specific placement
 	 *
 	 * @param string $placement The placement location (above_header|below_header)
 	 * @param array  $context   Additional context for rule processing
 	 *
 	 * @return \WP_Post[]
 	 */
-	public function get_alerts_for_placement( string $placement, array $context = [] ): array {
+	public function get_announcement_for_placement( string $placement, array $context = [] ): array {
 		$this->context = array_merge( $context, [
 			'placement'       => $placement,
 			'current_post_id' => get_queried_object_id(),
@@ -38,9 +38,9 @@ class Alert_Controller extends Abstract_Controller {
 			'current_time'    => current_time( 'timestamp' ),
 		] );
 
-		$alerts = $this->get_all_alerts();
+		$announcements = $this->get_all_announcements();
 
-		return $this->process_pipeline( $alerts );
+		return $this->process_pipeline( $announcements );
 	}
 
 	/**
@@ -57,30 +57,30 @@ class Alert_Controller extends Abstract_Controller {
 	}
 
 	/**
-	 * Process alerts through the rule pipeline
+	 * Process announcements through the rule pipeline
 	 *
-	 * @param \WP_Post[] $alerts
+	 * @param \WP_Post[] $announcements
 	 *
 	 * @return \WP_Post[]
 	 */
-	private function process_pipeline( array $alerts ): array {
+	private function process_pipeline( array $announcements ): array {
 		foreach ( $this->rules as $rule ) {
-			$alerts = array_filter( $alerts, function ( $alert ) use ( $rule ) {
-				return $rule->passes( $alert, $this->context );
+			$announcements = array_filter( $announcements, function ( $announcement ) use ( $rule ) {
+				return $rule->passes( $announcement, $this->context );
 			} );
 		}
 
-		return $alerts;
+		return $announcements;
 	}
 
 	/**
-	 * Get all published alerts
+	 * Get all published announcements
 	 *
 	 * @return \WP_Post[]
 	 */
-	private function get_all_alerts(): array {
+	private function get_all_announcements(): array {
 		$query = new \WP_Query( [
-			'post_type'      => Alert::NAME,
+			'post_type'      => Announcement::NAME,
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			'orderby'        => [
