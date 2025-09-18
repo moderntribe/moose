@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Post_Types\Alert;
+namespace Tribe\Plugin\Post_Types\Announcement;
 
 use Tribe\Plugin\Post_Types\Post_Object;
 
