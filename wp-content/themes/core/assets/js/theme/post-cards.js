@@ -17,7 +17,9 @@ const setColumnBorders = () => {
 	}
 
 	el.containers.forEach( ( container ) => {
-		const postCards = container.querySelectorAll( '.c-post-card__layout-horizontal' );
+		const postCards = container.querySelectorAll(
+			'.c-post-card__layout-horizontal'
+		);
 		const total = postCards.length;
 
 		if ( total > 0 ) {
@@ -28,15 +30,24 @@ const setColumnBorders = () => {
 
 			// Get computed grid template columns to determine column count
 			const computedStyle = window.getComputedStyle( container );
-			const gridTemplateColumns = computedStyle.getPropertyValue( 'grid-template-columns' );
+			const gridTemplateColumns = computedStyle.getPropertyValue(
+				'grid-template-columns'
+			);
 
 			// Count the number of columns by splitting the grid-template-columns value
-			const columnCount = Math.min( gridTemplateColumns.split( ' ' ).filter( val => val !== 'none' ).length, 4 );
+			const columnCount = Math.min(
+				gridTemplateColumns
+					.split( ' ' )
+					.filter( ( val ) => val !== 'none' ).length,
+				4
+			);
 
 			// Calculate the last item index for each column and add class
 			for ( let col = 1; col <= columnCount; col++ ) {
 				// Find the last item in this column
-				const lastItemInColumn = Math.floor( ( total - col ) / columnCount ) * columnCount + col;
+				const lastItemInColumn =
+					Math.floor( ( total - col ) / columnCount ) * columnCount +
+					col;
 
 				if ( lastItemInColumn > 0 && lastItemInColumn <= total ) {
 					const lastCard = postCards[ lastItemInColumn - 1 ]; // Convert to 0-based index
@@ -64,7 +75,10 @@ const cacheElements = () => {
  * @description Bind events for this module
  */
 const bindEvents = () => {
-	document.addEventListener( 'modern_tribe/resize_executed', setColumnBorders );
+	document.addEventListener(
+		'modern_tribe/resize_executed',
+		setColumnBorders
+	);
 };
 
 /**

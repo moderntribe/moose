@@ -58,8 +58,14 @@ export default function Edit( {
 								'tribe'
 							) }
 							options={ [
-								{ label: __( 'Vertical', 'tribe' ), value: 'vertical' },
-								{ label: __( 'Horizontal', 'tribe' ), value: 'horizontal' },
+								{
+									label: __( 'Vertical', 'tribe' ),
+									value: 'vertical',
+								},
+								{
+									label: __( 'Horizontal', 'tribe' ),
+									value: 'horizontal',
+								},
 							] }
 							onChange={ ( value ) =>
 								setAttributes( { layout: value } )
