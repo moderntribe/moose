@@ -11,12 +11,17 @@
 		"html": false,
 		"align": [
 			"wide",
-			"grid",
 			"full"
 		],
 		"spacing": {
 			"margin": true,
 			"padding": false
+		}
+	},
+	"attributes": {
+		"placement": {
+			"type": "string",
+			"default": null
 		}
 	},
 	"textdomain": "tribe",
