@@ -37,7 +37,8 @@ if ( $has_automatic_selection && empty( $chosen_posts ) ) {
 if ( ! empty( $chosen_posts ) && is_array( $chosen_posts ) ) {
 	unset(
 		$query_args['tax_query'],
-		$query_args['post__not_in']
+		$query_args['post__not_in'],
+		$query_args['posts_per_page']
 	);
 
 	/**

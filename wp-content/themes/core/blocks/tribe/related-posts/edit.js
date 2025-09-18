@@ -74,40 +74,48 @@ function Edit( { props, postList } ) {
 							checked={ hasAutomaticSelection }
 						/>
 						{ ! hasAutomaticSelection && postList && (
-							<FormTokenField
+							<div style={ { marginBottom: '16px' } }>
+								<FormTokenField
+									__next40pxDefaultSize
+									__nextHasNoMarginBottom
+									__experimentalShowHowTo={ false }
+									label={ __(
+										'Chosen Posts to Show',
+										'tribe'
+									) }
+									suggestions={ postList.map(
+										( post ) => post.title.rendered
+									) }
+									value={ chosenPosts }
+									onChange={ ( tokens ) => {
+										setChosenPosts( tokens );
+									} }
+									placeholder={ __(
+										'Start typing to search for posts',
+										'tribe'
+									) }
+								/>
+							</div>
+						) }
+						{ hasAutomaticSelection && (
+							<RangeControl
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
-								label={ __( 'Chosen Posts to Show', 'tribe' ) }
-								suggestions={ postList.map(
-									( post ) => post.title.rendered
-								) }
-								value={ chosenPosts }
-								onChange={ ( tokens ) => {
-									setChosenPosts( tokens );
-								} }
-								placeholder={ __(
-									'Start typing to search for posts',
+								label={ __(
+									'Number of Posts to Display',
 									'tribe'
 								) }
+								min={ 1 }
+								max={ 9 }
+								marks={ true }
+								value={ postsToShow }
+								onChange={ ( value ) => {
+									setAttributes( {
+										postsToShow: value,
+									} );
+								} }
 							/>
 						) }
-						<RangeControl
-							__next40pxDefaultSize
-							__nextHasNoMarginBottom
-							label={ __(
-								'Number of Posts to Display',
-								'tribe'
-							) }
-							min={ 1 }
-							max={ 9 }
-							marks={ true }
-							value={ postsToShow }
-							onChange={ ( value ) => {
-								setAttributes( {
-									postsToShow: value,
-								} );
-							} }
-						/>
 						<SelectControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
