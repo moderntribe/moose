@@ -14,7 +14,7 @@ if ( ! $post_id ) {
 }
 
 // get template part args
-$animation_attributes = $args['animation_attributes'];
+$animation_attributes = $args['animation_attributes'] ?? false;
 $heading_level        = $args['heading_level'] ?? 'h3';
 
 // get post data
@@ -26,8 +26,16 @@ $author_id        = (int) get_post_field( 'post_author', $post_id );
 $author           = get_the_author_meta( 'display_name', $author_id );
 $date             = get_the_date( 'M j, Y' );
 $permalink        = get_the_permalink( $post_id );
+
+$classes = 'c-post-card';
+$styles  = '';
+if ( $animation_attributes ) {
+	$classes .= ' ';
+	$classes .= $animation_attributes->get_classes();
+	$styles  = ' style="' . $animation_attributes->get_styles() . '"';
+}
 ?>
-<article class="c-post-card <?php echo esc_attr( $animation_attributes->get_classes() ); ?>" style="<?php echo esc_attr( $animation_attributes->get_styles() ); ?>">
+<article class="<?php echo esc_attr( $classes ); ?>"<?php echo esc_attr( $styles ); ?>>
 	<div class="c-post-card__inner">
 		<?php if ( $image_id ) : ?>
 			<div class="c-post-card__image aspect-ratio-cover aspect-ratio-3-2">
