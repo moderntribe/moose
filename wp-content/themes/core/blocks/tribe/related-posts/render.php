@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 use Tribe\Plugin\Post_Types\Post\Post;
 use Tribe\Plugin\Taxonomies\Category\Category;
 
@@ -7,6 +8,7 @@ use Tribe\Plugin\Taxonomies\Category\Category;
  * @var array $attributes
  */
 
+$animation_attributes    = new Block_Animation_Attributes( $attributes );
 $post_id                 = get_the_ID();
 $has_automatic_selection = $attributes['hasAutomaticSelection'] ?? true;
 $chosen_posts            = $attributes['chosenPosts'] ?? [];
@@ -57,7 +59,7 @@ if ( ! $query->have_posts() ) {
 	return;
 }
 ?>
-<div <?php echo get_block_wrapper_attributes( [ 'class' => 'b-related-posts b-related-posts--layout-' . $block_layout ] ); ?>>
+<div <?php echo get_block_wrapper_attributes( [ 'class' => 'b-related-posts b-related-posts--layout-' . $block_layout . ' ' . $animation_attributes->get_classes(), 'style' => $animation_attributes->get_styles() ] ); ?>>
 	<?php while ( $query->have_posts() ) : ?>
 		<?php $query->the_post(); ?>
 		<?php get_template_part( 'components/cards/post', null, [
