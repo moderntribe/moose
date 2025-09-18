@@ -9,10 +9,10 @@ use Extended\ACF\Location;
 use Tribe\Plugin\Object_Meta\Meta_Object;
 use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
-class Alert_Meta extends Meta_Object {
+class Announcement_Meta extends Meta_Object {
 
 	public const string POSITION              = 'normal';
-	public const string GROUP_SLUG            = 'alert_meta';
+	public const string GROUP_SLUG            = 'announcement_meta';
 	public const string DISMISSIBLE           = 'dismissible';
 	public const string COLOR_THEME           = 'color_theme';
 	public const string COLOR_THEME_DEFAULT   = 'default';
@@ -30,7 +30,7 @@ class Alert_Meta extends Meta_Object {
 	}
 
 	public function get_title(): string {
-		return esc_html__( 'Alert', 'tribe' );
+		return esc_html__( 'Announcement', 'tribe' );
 	}
 
 	public function get_fields(): array {
