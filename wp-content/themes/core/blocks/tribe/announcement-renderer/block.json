@@ -3,10 +3,16 @@
 	"apiVersion": 3,
 	"name": "tribe/announcement-renderer",
 	"version": "0.1.0",
-	"title": "Announcement Renderer",
+	"title": "announcement Renderer",
 	"category": "theme",
 	"icon": "block-default",
-	"description": "A block to output the announcement block from CPT",
+	"description": "A dynamic block to render CPT Announcements",
+	"attributes": {
+		"exampleTextControl": {
+			"type": "string",
+			"default": ""
+		}
+	},
 	"supports": {
 		"html": false,
 		"align": [
@@ -16,19 +22,11 @@
 		],
 		"spacing": {
 			"margin": true,
-			"padding": false
-		}
-	},
-	"attributes": {
-		"placement": {
-			"type": "string",
-			"default": null
+			"padding": true
 		}
 	},
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+	"render": "file:./render.php"
 }
