@@ -80,7 +80,7 @@ function Edit( { props, postList } ) {
 									__nextHasNoMarginBottom
 									__experimentalShowHowTo={ false }
 									label={ __(
-										'Chosen Posts to Show',
+										'Manual Post Selection',
 										'tribe'
 									) }
 									suggestions={ postList.map(
