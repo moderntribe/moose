@@ -3,6 +3,9 @@
 namespace Tribe\Plugin\Components\Announcements;
 
 use Tribe\Plugin\Components\Abstract_Controller;
+use Tribe\Plugin\Components\Announcements\Rules\Date_Schedule_Rule;
+use Tribe\Plugin\Components\Announcements\Rules\Front_Page_Rule;
+use Tribe\Plugin\Components\Announcements\Rules\Page_Visibility_Rule;
 use Tribe\Plugin\Components\Announcements\Rules\Placement_Rule;
 use Tribe\Plugin\Components\Announcements\Rules\Rule_Interface;
 use Tribe\Plugin\Post_Types\Announcement\Announcement;
@@ -15,6 +18,8 @@ class Announcement_Controller extends Abstract_Controller {
 
 	public function __construct() {
 		$this->add_rule( new Placement_Rule() );
+		$this->add_rule( new Front_Page_Rule() );
+		$this->add_rule( new Page_Visibility_Rule() );
 	}
 
 	/**

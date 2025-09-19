@@ -7,7 +7,7 @@ use Tribe\Plugin\Object_Meta\Post_Types\Announcement_Meta;
 class Placement_Rule implements Rule_Interface {
 
 	public function passes( \WP_Post $announcement, array $context ): bool {
-		$placement           = get_post_meta( $announcement->ID, Announcement_Meta::PLACEMENT, true ); // @todo
+		$placement           = get_field( Announcement_Meta::PLACEMENT, $announcement->ID );
 		$requested_placement = $context['placement'] ?? '';
 
 		return $placement === $requested_placement;
