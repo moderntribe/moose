@@ -1,0 +1,137 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Announcements - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.b-announcement {
+	--vertical-padding: 16px;
+	display: none;
+	justify-content: flex-start;
+	position: relative;
+	padding: var(--vertical-padding) var(--wp--custom--spacing--grid-margin);
+	background-color: var(--color-blue);
+	color: var(--color-white);
+
+	/* CASE: Align Content Left */
+	&.b-announcement--align-left {
+		justify-content: flex-start;
+	}
+
+	/* CASE: Black Theme */
+	&.b-announcement--theme-black {
+		background-color: var(--color-black);
+	}
+
+	/* CASE: Error Theme */
+	&.b-announcement--theme-error {
+		background-color: var(--color-alert-error-dark);
+	}
+
+	/* CASE: Warning Theme */
+	&.b-announcement--theme-warning {
+		background-color: var(--color-alert-warning);
+		color: var(--color-black);
+	}
+
+	@media (--mq-large) {
+		justify-content: center;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Inner Wrapper
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: var(--spacer-20);
+
+	@media (--mq-large) {
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Heading
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__heading {
+	margin-top: 0;
+	font-weight: var(--font-weight-bold) !important;
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Body Copy
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__body {
+	margin-top: 0 !important;
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - CTA (Button)
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__cta {
+
+	/* CASE: Ghost Style Button */
+	.wp-block-button.is-style-ghost & {
+		padding-top: var(--spacer-20);
+		padding-bottom: var(--spacer-20);
+	}
+
+	/* CASE: Warning Theme + Ghost Button Style */
+	.b-announcement:not(.is-style-dark) .wp-block-button.is-style-ghost & {
+		color: var(--color-black);
+
+		&:hover, &:focus {
+			color: var(--color-neutral-90) !important;
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Dismiss Wrapper
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__dismiss-wrapper {
+	position: absolute;
+	bottom: calc(var(--vertical-padding) + (var(--spacer-20) / 2));
+	right: var(--wp--custom--spacing--grid-margin);
+
+	@media (--mq-large) {
+		top: 50%;
+		bottom: auto;
+		transform: translateY(-50%);
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Dismiss
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__dismiss {
+	display: flex;
+	align-items: center;
+	gap: var(--spacer-10);
+
+	&::after {
+		content: '';
+		display: block;
+		width: 32px;
+		height: 32px;
+		mask: var(--icon-dismiss) center no-repeat;
+		mask-size: 24px;
+		background-color: var(--color-white);
+	}
+
+	/* CASE: Warning Theme */
+	.b-announcement:not(.is-style-dark) &::after {
+		background-color: var(--color-black);
+	}
+}
