@@ -54,9 +54,7 @@ class Page_Visibility_Rule implements Rule_Interface {
 	 * Check if current page is a taxonomy archive
 	 */
 	private function is_taxonomy_archive( array $context ): bool {
-		return $context['is_category'] ?? is_category()
-		|| $context['is_tag'] ?? is_tag()
-		|| $context['is_tax'] ?? is_tax();
+		return $context['is_category'] || $context['is_tag'] || $context['is_tax'];
 	}
 
 	/**

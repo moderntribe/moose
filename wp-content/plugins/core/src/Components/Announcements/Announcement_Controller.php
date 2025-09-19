@@ -39,6 +39,8 @@ class Announcement_Controller extends Abstract_Controller {
 			'is_single'       => is_single(),
 			'is_page'         => is_page(),
 			'is_category'     => is_category(),
+			'is_tag'          => is_tag(),
+			'is_tax'          => is_tax(),
 			'is_archive'      => is_archive(),
 			'current_time'    => current_time( 'timestamp' ),
 		] );
