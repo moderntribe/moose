@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "full",
+	"title": "Full",
+	"blockTypes": [ "core/image" ],
+	"styles": {
+		"border": {
+			"radius": "9999px"
+		}
+	}
+}
