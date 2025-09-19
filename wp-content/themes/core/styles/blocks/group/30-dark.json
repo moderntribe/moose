@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "dark",
+	"title": "Dark",
+	"blockTypes": [ "core/group" ],
+	"styles": {
+		"css": "--color-text-secondary: var(--color-neutral-10)",
+		"color": {
+			"background": "var(--wp--preset--color--black)",
+			"text": "var(--wp--preset--color--white)"
+		},
+		"blocks": {
+			"core/details": {
+				"border": {
+					"top": {
+						"color": "var(--wp--preset--color--base-white)"
+					},
+					"bottom": {
+						"color": "var(--wp--preset--color--base-white)"
+					}
+				}
+			}
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--white)",
+					"text": "var(--wp--preset--color--black)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--color-neutral-20)",
+						"text": "var(--wp--preset--color--black)"
+					}
+				},
+				":focus": {
+					"color": {
+						"background": "var(--color-neutral-20)",
+						"text": "var(--wp--preset--color--black)"
+					}
+				},
+				":active": {
+					"color": {
+						"background": "var(--color-neutral-20)",
+						"text": "var(--wp--preset--color--black)"
+					}
+				}
+			}
+		}
+	}
+}

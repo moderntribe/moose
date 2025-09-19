@@ -20,5 +20,10 @@
 	/* handle fill on "link url" svg */
 	svg {
 		fill: var(--color-black);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			fill: var(--color-white);
+		}
 	}
 }
