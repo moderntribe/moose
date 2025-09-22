@@ -1,0 +1,10 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "check",
+	"title": "Check",
+	"blockTypes": [ "core/list" ],
+	"styles": {
+		"css": "> li::marker { content: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'%3E%3Cpath d='M2.23535 8.50049L5.52947 12.5005L13.7648 2.50049' stroke='%23212121' stroke-width='2' stroke-miterlimit='10' stroke-linecap='square'/%3E%3C/svg%3E\"); }"
+	}
+}

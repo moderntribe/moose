@@ -1,0 +1,10 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "arrow",
+	"title": "Arrow",
+	"blockTypes": [ "core/list" ],
+	"styles": {
+		"css": "> li::marker { content: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15' fill='none'%3E%3Cpath d='M1.77783 7.50049H12.6667M9.55561 2.50049L13.4445 7.50049L9.55561 12.5005' stroke='%23212121' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E\"); margin-inline-start: -0.2em; }"
+	}
+}
