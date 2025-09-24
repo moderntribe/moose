@@ -19,10 +19,10 @@ import {
 import ServerSideRender from '@wordpress/server-side-render';
 import { useMemo, useState } from '@wordpress/element';
 import IconPicker from 'blocks/tribe/icon-picker/IconPicker';
+import { formatIconName } from 'blocks/tribe/icon-picker/utils';
 import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list';
 
 import './editor.pcss';
-import { formatIconName } from 'blocks/tribe/icon-picker/utils.js';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useBlockProps();
