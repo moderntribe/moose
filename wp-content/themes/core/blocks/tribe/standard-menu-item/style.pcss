@@ -28,6 +28,10 @@
 		display: block;
 		padding-top: var(--spacer-10);
 		padding-bottom: var(--spacer-20);
+
+		@media (--mq-navigation-max) {
+			font-size: var(--font-size-40);
+		}
 	}
 }
 
@@ -62,6 +66,13 @@
 		transform: rotate(90deg);
 		transition: var(--transition);
 
+		@media (--mq-navigation-max) {
+			position: relative;
+			left: auto;
+			top: auto;
+			display: inline-block;
+			margin-left: var(--spacer-20);
+		}
 	}
 
 	&:hover,
