@@ -1,0 +1,22 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Announcements - Styles - Editor Only
+ *
+ * ------------------------------------------------------------------------- */
+
+.b-announcement {
+	display: flex;
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - CTA (Button)
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__cta {
+
+	/* CASE: Outlined Style Button */
+	.wp-block-button.is-style-outlined & {
+
+		@mixin outlined-button-reset;
+	}
+}
