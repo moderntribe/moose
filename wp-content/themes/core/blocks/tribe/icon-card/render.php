@@ -76,6 +76,6 @@ if ( file_exists( $icon_path ) ) {
 		<?php endif; ?>
 	</div>
 	<?php if ( $link_url ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>" class="b-icon-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
+		<a href="<?php echo esc_url( $link_url ); ?>"<?php echo $link_opens_in_new_tab ? ' target="_blank" rel="noopener noreferrer"' : ''; ?> class="b-icon-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
 </article>

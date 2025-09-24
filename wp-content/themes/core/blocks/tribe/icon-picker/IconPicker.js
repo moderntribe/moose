@@ -33,15 +33,19 @@ export default function IconPicker( {
 	 * useSettings('color.palette') returns an array of arrays but should only return one array of objects, so we can just use the first one.
 	 */
 	const themeColors = useSettings( 'color.palette' );
-	const COLORS = Array.isArray( themeColors[ 0 ] )
-		? [
-				...themeColors[ 0 ].map( ( { name, color } ) => ( {
-					name,
-					value: color,
-				} ) ),
-				{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
-		  ]
-		: [];
+	const COLORS =
+		themeColors && Array.isArray( themeColors[ 0 ] )
+			? [
+					...themeColors[ 0 ].map( ( { name, color } ) => ( {
+						name,
+						value: color,
+					} ) ),
+					{
+						name: __( 'Transparent', 'tribe' ),
+						value: 'transparent',
+					},
+			  ]
+			: [];
 
 	// Option 2: Use custom colors
 	// const COLORS = [
