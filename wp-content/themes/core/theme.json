@@ -48,6 +48,9 @@
 				}
 			},
 			"core/group": {
+				"color": {
+					"background": true
+				},
 				"background": {
 					"backgroundImage": true,
 					"backgroundSize": true
