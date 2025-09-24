@@ -11,9 +11,7 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-	background-color: var(--color-white);
-	border: 1px solid var(--color-black);
-	border-radius: var(--border-radius-l);
+	border: 1px solid var(--color-neutral-30);
 	transition: var(--transition);
 
 	&:focus-within {
@@ -28,6 +26,11 @@
 			@mixin icon-card-hover-focus;
 		}
 	}
+
+	/* CASE: Dark Mode */
+	.is-style-dark & {
+		border-color: var(--color-neutral-70);
+	}
 }
 
 /* -------------------------------------------------------------------------
@@ -38,17 +41,20 @@
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacer-70);
+	gap: var(--spacer-50);
 	height: 100%;
 	padding: var(--spacer-50) var(--spacer-40);
 }
 
 /* -------------------------------------------------------------------------
- * Icon Card - Content
+ * Icon Card - Top
  * ------------------------------------------------------------------------- */
 
-.b-icon-card__content {
-	margin-top: auto;
+.b-icon-card__top {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-50);
 }
 
 /* -------------------------------------------------------------------------
@@ -57,6 +63,10 @@
 
 .b-icon-card__title {
 	margin-top: 0;
+	text-decoration-thickness: auto;
+	text-decoration-color: transparent;
+	text-decoration-line: underline;
+	transition: var(--transition);
 }
 
 /* -------------------------------------------------------------------------
@@ -75,26 +85,7 @@
  * ------------------------------------------------------------------------- */
 
 .b-icon-card__buttons {
-	margin-top: var(--spacer-30);
-
-	.wp-block-button__link {
-
-		.is-style-ghost & {
-			background-color: transparent;
-			border-radius: 0;
-			color: var(--color-black);
-		}
-	}
-
-	.is-style-dark & .wp-block-button {
-
-		.wp-block-button__link {
-
-			.is-style-ghost & {
-				color: var(--color-black) !important;
-			}
-		}
-	}
+	margin-top: auto;
 }
 
 /* -------------------------------------------------------------------------

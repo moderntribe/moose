@@ -3,9 +3,9 @@ import { PanelRow } from '@wordpress/components';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { formatIconName } from './utils';
 import IconPicker from './IconPicker';
-import './editor.pcss';
-
 import { ICONS_LIST } from './icons/icons-list';
+
+import './editor.pcss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {

@@ -6,6 +6,9 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 import {
+	BaseControl,
+	Button,
+	Modal,
 	PanelBody,
 	Popover,
 	TextareaControl,
@@ -15,13 +18,24 @@ import {
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { useMemo, useState } from '@wordpress/element';
+import IconPicker from 'blocks/tribe/icon-picker/IconPicker';
+import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list';
 
 import './editor.pcss';
+import { formatIconName } from 'blocks/tribe/icon-picker/utils.js';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useBlockProps();
 
 	const {
+		selectedIcon,
+		isRounded,
+		iconPadding,
+		iconLabel,
+		iconSize,
+		searchQuery,
+		selectedIconColor,
+		selectedBgColor,
 		title,
 		description,
 		linkUrl,
@@ -29,6 +43,21 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		linkText,
 		linkA11yLabel,
 	} = attributes;
+
+	const [ isModalOpen, setIsModalOpen ] = useState( false );
+
+	/**
+	 * Selected icon component based on the selectedIcon attribute
+	 */
+	const SelectedIconComponent =
+		ICONS_LIST.find( ( icon ) => icon.key === selectedIcon )?.component ||
+		null;
+
+	/**
+	 * Ensure selectedIcon is valid
+	 */
+	const validIcon =
+		ICONS_LIST.find( ( { key } ) => key === selectedIcon ) || null;
 
 	/**
 	 * Use internal state instead of a ref to make sure that the component
@@ -110,9 +139,82 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					/>
 				</Popover>
 			) }
+			{ isModalOpen && (
+				<Modal
+					title={ __( 'Select Icon', 'tribe' ) }
+					onRequestClose={ () => setIsModalOpen( false ) }
+					size="medium"
+					className="controls-tribe-icon-picker"
+				>
+					<IconPicker
+						selectedIcon={ selectedIcon }
+						isRounded={ isRounded }
+						iconPadding={ iconPadding }
+						iconLabel={ iconLabel }
+						iconSize={ iconSize }
+						searchQuery={ searchQuery }
+						selectedIconColor={ selectedIconColor }
+						selectedBgColor={ selectedBgColor }
+						onChange={ ( changed ) => setAttributes( changed ) }
+					/>
+					<div
+						style={ {
+							display: 'flex',
+							marginTop: '16px',
+						} }
+					>
+						<Button
+							isPrimary
+							onClick={ () => setIsModalOpen( false ) }
+						>
+							{ __( 'Save & Close', 'tribe' ) }
+						</Button>
+					</div>
+				</Modal>
+			) }
 			{ isSelected && (
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
+						<BaseControl
+							__nextHasNoMarginBottom
+							id="icon-component"
+							className="controls-tribe-icon-picker icon-preview icon-card"
+						>
+							{ validIcon ? (
+								<>
+									<div
+										className="icon-image"
+										style={ {
+											backgroundColor:
+												selectedBgColor ||
+												'transparent',
+											color: selectedIconColor || 'white',
+											borderRadius: isRounded
+												? '50%'
+												: '0',
+										} }
+									>
+										<SelectedIconComponent
+											id="icon-component"
+											style={ {
+												color: selectedIconColor,
+											} }
+										/>
+									</div>
+									<p className="icon-name">
+										{ formatIconName( validIcon.name ) }
+									</p>
+								</>
+							) : (
+								__( 'No Icon Selected', 'tribe' )
+							) }
+							<Button
+								isPrimary
+								onClick={ () => setIsModalOpen( true ) }
+							>
+								{ __( 'Open Icon Picker', 'tribe' ) }
+							</Button>
+						</BaseControl>
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom

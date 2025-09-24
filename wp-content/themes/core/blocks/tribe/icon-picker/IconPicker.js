@@ -28,11 +28,14 @@ export default function IconPicker( {
 	);
 	const [ filteredIcons, setFilteredIcons ] = useState( sortedIcons );
 
-	// Option 1: Use theme.json color palette
+	/**
+	 * Option 1: Use theme.json color palette
+	 * useSettings('color.palette') returns an array of arrays but should only return one array of objects, so we can just use the first one.
+	 */
 	const themeColors = useSettings( 'color.palette' );
-	const COLORS = Array.isArray( themeColors )
+	const COLORS = Array.isArray( themeColors[ 0 ] )
 		? [
-				...themeColors.map( ( { name, color } ) => ( {
+				...themeColors[ 0 ].map( ( { name, color } ) => ( {
 					name,
 					value: color,
 				} ) ),
@@ -40,7 +43,7 @@ export default function IconPicker( {
 		  ]
 		: [];
 
-	//Option 2: Use custom collors
+	// Option 2: Use custom colors
 	// const COLORS = [
 	// 	{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
 	// 	{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },

@@ -1,3 +1,26 @@
 @define-mixin icon-card-hover-focus {
-	--test: 1;
+	background-color: var(--color-neutral-10);
+
+	.b-icon-card__title {
+		text-decoration-color: currentcolor;
+	}
+
+	.b-icon-card__buttons {
+
+		.wp-block-button__link {
+
+			.is-style-ghost & {
+				color: var(--color-dark-blue);
+
+				&::after {
+					transform: translateX(8px);
+				}
+			}
+		}
+	}
+
+	/* CASE: Dark Mode */
+	.is-style-dark & {
+		background-color: var(--color-neutral-80);
+	}
 }
