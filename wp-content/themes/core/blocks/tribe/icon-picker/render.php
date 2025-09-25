@@ -1,5 +1,11 @@
 <?php declare(strict_types=1);
 
+use enshrined\svgSanitize\Sanitizer;
+
+/**
+ * @var object $attributes
+ */
+
 $icon_key   = $attributes['selectedIcon'] ?? '';
 $icon_color = $attributes['selectedIconColor'] ?? 'currentColor';
 $bg_color   = $attributes['selectedBgColor'] ?? 'transparent';
@@ -35,6 +41,10 @@ if ( file_exists( $icon_path ) ) {
 			1
 		);
 	}
+
+	// Sanitize the SVG.
+	$sanitizer = new Sanitizer();
+	$svg       = $sanitizer->sanitize( $svg );
 }
 
 if ( ! empty( $svg ) ) : ?>

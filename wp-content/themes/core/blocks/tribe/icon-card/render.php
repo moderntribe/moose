@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use enshrined\svgSanitize\Sanitizer;
+
 /**
  * @var object $attributes
  */
@@ -46,12 +48,16 @@ if ( file_exists( $icon_path ) ) {
 			1
 		);
 	}
+
+	// Sanitize the SVG.
+	$sanitizer = new Sanitizer();
+	$svg       = $sanitizer->sanitize( $svg );
 }
 ?>
 <article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ) ] ); ?>>
 	<div class="b-icon-card__inner">
 		<div class="b-icon-card__top">
-			<?php if ( ! empty( $svg ) ) : ?>
+			<?php if ( $svg !== '' && $svg !== false ) : ?>
 				<div class="b-icon-card__media">
 					<div class="b-icon-card__icon-wrapper" style="<?php echo esc_attr( $style ); ?>">
 						<?php echo $svg; ?>
