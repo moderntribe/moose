@@ -47,7 +47,7 @@ if ( file_exists( $icon_path ) ) {
 	$svg       = $sanitizer->sanitize( $svg );
 }
 
-if ( ! empty( $svg ) ) : ?>
+if ( $svg !== '' && $svg !== false ) : ?>
 <div class="wp-block-tribe-icon-picker">
 	<div class="icon-wrapper" style="<?php echo esc_attr( $style ); ?>">
 		<?php echo $svg; ?>
