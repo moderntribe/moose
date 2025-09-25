@@ -58,6 +58,31 @@
 }
 
 /* -------------------------------------------------------------------------
+ * Icon Card - Icon Wrapper
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__icon-wrapper {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	justify-content: center;
+
+	background-color: var(--icon-picker--background-color);
+	color: var(--icon-picker--icon-color);
+	border-radius: var(--icon-picker--border-radius);
+	width: var(--icon-picker--icon-size);
+	height: var(--icon-picker--icon-size);
+	padding: var(--icon-picker--icon-padding);
+
+	svg, img {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+
+/* -------------------------------------------------------------------------
  * Icon Card - Title
  * ------------------------------------------------------------------------- */
 
