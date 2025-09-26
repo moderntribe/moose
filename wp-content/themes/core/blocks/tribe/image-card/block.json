@@ -6,7 +6,7 @@
 	"title": "Image Card",
 	"category": "theme",
 	"icon": "format-image",
-	"description": "A card with a prominant image element",
+	"description": "A card with a prominent image element",
 	"attributes": {
 		"mediaId": {
 			"type": "number",

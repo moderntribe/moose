@@ -51,6 +51,6 @@ if ( $animation_attributes->get_classes() !== '' ) {
 		</div>
 	</div>
 	<?php if ( $link_url ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>" class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
+		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>"<?php echo $link_opens_in_new_tab ? ' rel="noopener noreferrer"' : ''; ?> class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
 </article>
