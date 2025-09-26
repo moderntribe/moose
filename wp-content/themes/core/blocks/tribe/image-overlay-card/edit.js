@@ -175,7 +175,7 @@ const Edit = ( { attributes, setAttributes, isSelected, media } ) => {
 										<ColorPicker
 											color={ overlayColor }
 											copyFormat="hex"
-											defaultValue="#0000001C"
+											defaultValue="#000000a1"
 											enableAlpha={ true }
 											onChange={ ( value ) => {
 												setAttributes( {
@@ -191,7 +191,7 @@ const Edit = ( { attributes, setAttributes, isSelected, media } ) => {
 										<ColorPicker
 											color={ overlayHoverColor }
 											copyFormat="hex"
-											defaultValue="#0000001C"
+											defaultValue="#000000e0"
 											enableAlpha={ true }
 											onChange={ ( value ) => {
 												setAttributes( {
