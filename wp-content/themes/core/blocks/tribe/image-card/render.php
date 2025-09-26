@@ -1,10 +1,56 @@
 <?php declare(strict_types=1);
 
-$example_text_control = $attributes['exampleTextControl']; // @phpstan-ignore-line
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
+
+/**
+ * @var object $attributes
+ */
+
+$animation_attributes  = new Block_Animation_Attributes();
+$classes               = 'b-image-card';
+$media_id              = $attributes['mediaId'] ?: 0;
+$media_url             = $attributes['mediaUrl'] ?: '';
+$title                 = $attributes['title'] ?: '';
+$description           = $attributes['description'] ?: '';
+$link_url              = $attributes['linkUrl'] ?: '';
+$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?: false;
+$link_text             = $attributes['linkText'] ?: '';
+$link_a11y_label       = $attributes['linkA11yLabel'] ?: '';
+
+if ( $animation_attributes->get_classes() !== '' ) {
+	$classes .= ' ' . $animation_attributes->get_classes();
+}
 ?>
-<section <?php echo get_block_wrapper_attributes(); ?>>
-	<p><?php esc_html_e( 'Image Card – hello from a dynamic block!', 'tribe' ); ?></p>
-	<?php if ( $example_text_control ) : ?>
-		<p><?php echo esc_html( $example_text_control ); ?></p>
+<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ), 'style' => $animation_attributes->get_styles() ] ); ?>>
+	<div class="b-image-card__inner">
+		<?php if ( $media_id !== 0 ) : ?>
+			<div class="aspect-ratio-cover aspect-ratio-3-2 b-image-card__media">
+				<?php echo wp_get_attachment_image( $media_id, 'large' ); ?>
+			</div>
+		<?php elseif ( $media_url ) : ?>
+			<div class="aspect-ratio-cover aspect-ratio-3-2 b-image-card__media">
+				<img src="<?php echo esc_url( $media_url ); ?>" alt="Block placeholder image">
+			</div>
+		<?php endif; ?>
+		<div class="b-image-card__content">
+			<div class="b-image-card__content-top">
+				<h3 class="t-display-x-small b-image-card__title"><?php echo esc_html( $title ); ?></h3>
+				<?php if ( $description ) : ?>
+					<div class="t-body-small b-image-card__description">
+						<?php echo wp_kses_post( $description ); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+			<?php if ( $link_url ) : ?>
+				<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex b-image-card__buttons" aria-hidden="true">
+					<div class="wp-block-button is-style-ghost">
+						<span class="wp-block-button__link"><?php echo esc_html( $link_text ); ?></span>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php if ( $link_url ) : ?>
+		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>" class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
-</section>
+</article>

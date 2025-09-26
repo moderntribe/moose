@@ -45,6 +45,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/carousel-slide',
 				'tribe/copyright',
 				'tribe/icon-picker',
+				'tribe/image-card',
 				'tribe/logo-marquee',
 				'tribe/masthead-search',
 				'tribe/mega-menu-item',

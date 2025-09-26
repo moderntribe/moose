@@ -14,7 +14,7 @@
 		},
 		"mediaUrl": {
 			"type": "string",
-			"default": ""
+			"default": "https://placehold.co/600x400"
 		},
 		"title": {
 			"type": "string",
@@ -30,7 +30,7 @@
 		},
 		"linkOpensInNewTab": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"linkText": {
 			"type": "string",
