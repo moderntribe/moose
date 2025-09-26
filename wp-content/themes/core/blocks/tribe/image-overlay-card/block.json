@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/image-overlay-card",
+	"version": "0.1.0",
+	"title": "Image Overlay Card",
+	"category": "theme",
+	"icon": "format-gallery",
+	"description": "A card with text that sits on top of an image",
+	"attributes": {
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": "https://placehold.co/624x845"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "#000000a1"
+		},
+		"overlayHoverColor": {
+			"type": "string",
+			"default": "#000000e0"
+		},
+		"cardUsesDarkTheme": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet consectetur adipiscing"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "https://www.google.com"
+		},
+		"linkOpensInNewTab": {
+			"type": "boolean",
+			"default": true
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Link Label"
+		},
+		"linkA11yLabel": {
+			"type": "string",
+			"default": "Link to Card Title"
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [
+			"wide",
+			"grid",
+			"full"
+		],
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

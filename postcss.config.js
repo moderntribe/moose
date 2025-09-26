@@ -55,7 +55,10 @@ const plugins = [
 	[
 		'postcss-mixins',
 		{
-			mixinsFiles: `${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+			mixinsFiles: [
+				`${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+				`${ pkg.config.coreThemeDir }/blocks/**/_mixins.pcss`,
+			],
 		},
 	],
 	[
