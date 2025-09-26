@@ -1,11 +1,12 @@
 <?php declare(strict_types=1);
 
-use enshrined\svgSanitize\Sanitizer;
+use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-icon-card';
 $icon_key              = $attributes['selectedIcon'] ?? '';
 $icon_color            = $attributes['selectedIconColor'] ?? 'currentColor';
@@ -48,16 +49,16 @@ if ( file_exists( $icon_path ) ) {
 			1
 		);
 	}
+}
 
-	// Sanitize the SVG.
-	$sanitizer = new Sanitizer();
-	$svg       = $sanitizer->sanitize( $svg );
+if ( $animation_attributes->get_classes() !== '' ) {
+	$classes .= ' ' . $animation_attributes->get_classes();
 }
 ?>
-<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ) ] ); ?>>
+<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ), 'style' => $animation_attributes->get_styles() ] ); ?>>
 	<div class="b-icon-card__inner">
 		<div class="b-icon-card__top">
-			<?php if ( $svg !== '' && $svg !== false ) : ?>
+			<?php if ( ! empty( $svg ) ) : ?>
 				<div class="b-icon-card__media">
 					<div class="b-icon-card__icon-wrapper" style="<?php echo esc_attr( $style ); ?>">
 						<?php echo $svg; ?>

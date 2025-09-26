@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-use enshrined\svgSanitize\Sanitizer;
-
 /**
  * @var object $attributes
  */
@@ -41,13 +39,9 @@ if ( file_exists( $icon_path ) ) {
 			1
 		);
 	}
-
-	// Sanitize the SVG.
-	$sanitizer = new Sanitizer();
-	$svg       = $sanitizer->sanitize( $svg );
 }
 
-if ( $svg !== '' && $svg !== false ) : ?>
+if ( ! empty( $svg ) ) : ?>
 <div class="wp-block-tribe-icon-picker">
 	<div class="icon-wrapper" style="<?php echo esc_attr( $style ); ?>">
 		<?php echo $svg; ?>
