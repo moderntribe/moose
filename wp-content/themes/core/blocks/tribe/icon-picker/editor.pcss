@@ -44,7 +44,9 @@
 		}
 	}
 
-	&.icon-preview {
+	&.icon-preview,
+	&.icon-preview > div {
+		display: flex;
 		flex-direction: column;
 		gap: 10px;
 		justify-content: flex-start;
@@ -71,6 +73,11 @@
 		.icon-name {
 			font-size: 11px;
 		}
+	}
+
+	&.icon-card {
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	.icon-preview.preview-sidebar {

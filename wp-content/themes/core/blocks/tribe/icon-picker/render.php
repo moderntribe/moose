@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * @var object $attributes
+ */
+
 $icon_key   = $attributes['selectedIcon'] ?? '';
 $icon_color = $attributes['selectedIconColor'] ?? 'currentColor';
 $bg_color   = $attributes['selectedBgColor'] ?? 'transparent';
