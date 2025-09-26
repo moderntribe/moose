@@ -18,19 +18,63 @@
 		}
 
 		&:hover,
+		&:active,
 		&:focus {
 			text-decoration-color: currentcolor;
+
+
+			@media (--mq-navigation-max) {
+				text-decoration: none;
+			}
 		}
 	}
 
 	.site-header__navigation > & > a {
 		font-size: var(--font-size-20);
 		display: block;
-		padding-top: var(--spacer-10);
-		padding-bottom: var(--spacer-20);
+		background-color: transparent;
+		border: 0;
+		padding: var(--spacer-10) var(--spacer-10) var(--spacer-20);
+		position: relative;
+		color: var(--color-text);
+		transition: var(--transition);
+		text-decoration: none;
 
 		@media (--mq-navigation-max) {
 			font-size: var(--font-size-40);
+			padding-inline: 0;
+		}
+
+		&::before {
+			content: "";
+			width: 0;
+			height: 4px;
+			background-color: var(--masthead-navigation-accent-color);
+			position: absolute;
+			bottom: -1px;
+			left: var(--spacer-10);
+			transition: width 0.15s ease-in-out;
+			z-index: 11;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+			color: var(--masthead-navigation-accent-color);
+
+			&::before {
+				width: calc(100% - (2 * var(--spacer-10)));
+			}
+
+			@media (--mq-navigation-max) {
+				outline: revert;
+				color: var(--color-text);
+
+				&::before {
+					width: 0;
+				}
+			}
 		}
 	}
 }
