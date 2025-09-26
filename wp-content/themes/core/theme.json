@@ -109,12 +109,6 @@
 					"fontSizes": []
 				}
 			},
-			"core/table": {
-				"typography": {
-					"fontFamilies": [],
-					"fontSizes": []
-				}
-			},
 			"core/query-pagination": {
 				"typography": {
 					"fontFamilies": [],
@@ -134,6 +128,17 @@
 				}
 			},
 			"core/query-pagination-numbers": {
+				"typography": {
+					"fontFamilies": [],
+					"fontSizes": []
+				}
+			},
+			"core/social-links": {
+				"spacing": {
+					"blockGap": true
+				}
+			},
+			"core/table": {
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []

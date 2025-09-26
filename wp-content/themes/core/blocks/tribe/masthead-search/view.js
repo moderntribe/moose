@@ -1,5 +1,4 @@
 import { ready, triggerCustomEvent } from 'utils/events.js';
-import { bodyLock } from 'utils/tools.js';
 import { HEADER_BREAKPOINT } from 'config/options.js';
 
 const el = {
@@ -21,7 +20,6 @@ const toggleOverlayOff = () => {
 	el.header.classList.remove( 'show-overlay' );
 	el.wrapper.classList.remove( 'active' );
 	el.overlay.setAttribute( 'aria-hidden', 'true' );
-	bodyLock( false );
 };
 
 /**
@@ -36,7 +34,6 @@ const toggleOverlayOn = () => {
 	el.wrapper.classList.add( 'active' );
 	el.overlay.setAttribute( 'aria-hidden', 'false' );
 	el.input.focus();
-	bodyLock( true );
 };
 
 /**
