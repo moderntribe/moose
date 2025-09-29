@@ -8,6 +8,8 @@ use Tribe\Plugin\Blocks\Helpers\Icon_Picker;
  */
 
 $animation_attributes  = new Block_Animation_Attributes( $attributes );
+$animation_styles      = $animation_attributes->get_styles();
+$animation_classes     = $animation_attributes->get_classes();
 $icon_picker           = new Icon_Picker( $attributes );
 $icon_wrapper_styles   = $icon_picker->get_icon_wrapper_styles();
 $icon_svg              = $icon_picker->get_svg();
@@ -19,11 +21,11 @@ $link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?: false;
 $link_text             = $attributes['linkText'] ?: '';
 $link_a11y_label       = $attributes['linkA11yLabel'] ?: '';
 
-if ( $animation_attributes->get_classes() !== '' ) {
-	$classes .= ' ' . $animation_attributes->get_classes();
+if ( $animation_classes !== '' ) {
+	$classes .= ' ' . $animation_classes;
 }
 ?>
-<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ), 'style' => $animation_attributes->get_styles() ] ); ?>>
+<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ), 'style' => $animation_styles ] ); ?>>
 	<div class="b-icon-card__inner">
 		<div class="b-icon-card__top">
 			<?php if ( ! empty( $icon_svg ) ) : ?>
