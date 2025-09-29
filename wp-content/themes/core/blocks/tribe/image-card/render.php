@@ -29,7 +29,7 @@ if ( $animation_attributes->get_classes() !== '' ) {
 			</div>
 		<?php elseif ( $media_url ) : ?>
 			<div class="aspect-ratio-cover aspect-ratio-3-2 b-image-card__media">
-				<img src="<?php echo esc_url( $media_url ); ?>" alt="Block placeholder image">
+				<img src="<?php echo esc_url( $media_url ); ?>" alt="<?php echo esc_attr__( 'Block placeholder image', 'tribe' ); ?>">
 			</div>
 		<?php endif; ?>
 		<div class="b-image-card__content">
@@ -51,6 +51,6 @@ if ( $animation_attributes->get_classes() !== '' ) {
 		</div>
 	</div>
 	<?php if ( $link_url ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>" class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
+		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>"<?php echo $link_opens_in_new_tab ? ' rel="noopener noreferrer"' : ''; ?> class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
 </article>
