@@ -50,7 +50,7 @@
 		},
 		"linkUrl": {
 			"type": "string",
-			"default": "https://www.google.com"
+			"default": "https://moderntribeagency.com/"
 		},
 		"linkOpensInNewTab": {
 			"type": "boolean",
