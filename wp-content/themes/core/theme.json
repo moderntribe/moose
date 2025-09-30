@@ -62,6 +62,13 @@
 					"fontSizes": []
 				}
 			},
+			"core/image": {
+				"border": {
+					"color": true,
+					"radius": true,
+					"width": true
+				}
+			},
 			"core/list": {
 				"typography": {
 					"fontFamilies": [],
