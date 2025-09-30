@@ -44,7 +44,8 @@
 					"width": true
 				},
 				"spacing": {
-					"margin": true
+					"margin": true,
+					"padding": false
 				}
 			},
 			"core/group": {
@@ -60,6 +61,13 @@
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
+				}
+			},
+			"core/image": {
+				"border": {
+					"color": true,
+					"radius": true,
+					"width": true
 				}
 			},
 			"core/list": {
@@ -400,8 +408,8 @@
 				},
 				"spacing": {
 					"padding": {
-						"top": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--preset--spacing--40)"
+						"top": "0",
+						"bottom": "0"
 					}
 				},
 				"border": {
