@@ -11,6 +11,10 @@ if ( ! $post_id ) {
 	return;
 }
 
+// get template part args
+$animation_attributes = $args['animation_attributes'];
+
+// get post data
 $post_type        = get_post_type( $post_id );
 $post_type_object = get_post_type_object( $post_type );
 $image_id         = get_post_thumbnail_id( $post_id );
@@ -21,7 +25,7 @@ $date             = get_the_date( 'M j, Y' );
 $excerpt          = get_the_excerpt( $post_id );
 $permalink        = get_the_permalink( $post_id );
 ?>
-<article class="c-search-card">
+<article class="c-search-card <?php echo esc_attr( $animation_attributes->get_classes() ); ?>" style="<?php echo esc_attr( $animation_attributes->get_styles() ); ?>">
 	<div class="c-search-card__inner">
 		<?php if ( $image_id ) : ?>
 			<div class="c-search-card__image aspect-ratio-cover aspect-ratio-4-3">

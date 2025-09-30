@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/vertical-tab",
+	"version": "0.1.0",
+	"title": "Vertical Tab",
+	"category": "theme",
+	"icon": "align-pull-right",
+	"description": "A child block of the Vertical Tabs block",
+	"parent": [ "tribe/vertical-tabs" ],
+	"attributes": {
+		"blockId": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"usesContext": [ "tribe/vertical-tabs/currentActiveTabInstanceId" ],
+	"textdomain": "vertical-tab",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

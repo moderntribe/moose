@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.08]
+
+- Updated: pre-commit hooks now no longer run if the commit does not include files related to the hook. Pre-commit hooks now also include FE linting.
+
 ## [2025.07]
 - Updated: 404 & Search templates have been updated to Moose 2.0 design standards.
 - Fixed: Issue with editor pattern / template previews (still using `iframe` elements) displaying at the wrong width.
@@ -16,6 +20,8 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Removed: Several unnecessary plugins. [#192](https://github.com/moderntribe/moose/issues/192)
 - Fixed: Duplicate `<footer>` tag [#199](https://github.com/moderntribe/moose/pull/199)
 - Chore: WordPress Core & plugin updates.
+- Added: Masthead template parts, patterns, JS functionality, and styles for mega nav, utility nav, and other masthead features. [#194](https://github.com/moderntribe/moose/pull/194)
+- Added: Custom blocks for Mega Men Item, Standard Menu Item, Masthead Search, Mobile Menu Toggle, and Navigation Link. [#194](https://github.com/moderntribe/moose/pull/194)
 
 ## [2025.05]
 - Fixed: Add type hints to post type subscribers [#196](https://github.com/moderntribe/moose/pull/196)
