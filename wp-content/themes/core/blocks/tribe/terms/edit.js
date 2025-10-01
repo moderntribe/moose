@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
@@ -50,6 +50,8 @@ export default function Edit( {
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'tribe' ) }>
 						<SelectControl
+							__nextHasNoMarginBottom
+							__next40pxDefaultSize
 							label={ __( 'Taxonomy', 'tribe' ) }
 							value={ taxonomyToUse ?? '' }
 							help={ __(
@@ -73,6 +75,7 @@ export default function Edit( {
 							}
 						/>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Should only grab the primary term',
 								'tribe'
@@ -89,6 +92,7 @@ export default function Edit( {
 							}
 						/>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Terms should display as links',
 								'tribe'
