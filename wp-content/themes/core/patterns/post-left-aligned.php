@@ -29,9 +29,7 @@
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
-		<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"large"} -->
-			<figure class="wp-block-image size-large"><img src="https://placehold.co/840x630" alt="" style="aspect-ratio:4/3;object-fit:cover"/></figure>
-			<!-- /wp:image --></div>
+		<div class="wp-block-column is-vertically-aligned-center"><!-- wp:post-featured-image {"aspectRatio":"4/3"} /--></div>
 		<!-- /wp:column --></div>
 	<!-- /wp:columns --></div>
 <!-- /wp:group -->
