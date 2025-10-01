@@ -14,7 +14,13 @@ $has_automatic_selection = $attributes['hasAutomaticSelection'] ?? true;
 $chosen_posts            = $attributes['chosenPosts'] ?? [];
 $posts_to_show           = $attributes['postsToShow'] ?? 3;
 $block_layout            = $attributes['layout'] ?? 'grid';
-$query_args              = [
+
+// if the user doesn't want automatic selection and hasn't chosen any posts, bail early
+if ( ! $has_automatic_selection && empty( $chosen_posts ) ) {
+	return;
+}
+
+$query_args = [
 	'post_type'      => Post::NAME,
 	'post_status'    => 'publish',
 	'posts_per_page' => (int) $posts_to_show,
@@ -22,7 +28,8 @@ $query_args              = [
 	'tax_query'      => [],
 ];
 
-if ( $has_automatic_selection && empty( $chosen_posts ) ) {
+if ( $has_automatic_selection ) {
+	// handle the case where the user wants automatic selection of related posts
 	$post_terms = get_the_terms( $post_id, Category::NAME );
 
 	if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ) {
@@ -34,9 +41,8 @@ if ( $has_automatic_selection && empty( $chosen_posts ) ) {
 			'terms'    => $term_ids,
 		];
 	}
-}
-
-if ( ! empty( $chosen_posts ) && is_array( $chosen_posts ) ) {
+} else {
+	// handle the case where the user has selected specific posts to show
 	unset(
 		$query_args['tax_query'],
 		$query_args['post__not_in'],
