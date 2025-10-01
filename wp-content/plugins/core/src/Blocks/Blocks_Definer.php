@@ -41,6 +41,7 @@ class Blocks_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
+				'tribe/announcements',
 				'tribe/carousel',
 				'tribe/carousel-slide',
 				'tribe/copyright',
