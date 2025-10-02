@@ -8,11 +8,11 @@ const state = {
 	isMobile: false,
 };
 const selectors = {
-	block: 'wp-block-tribe-vertical-tabs',
-	tab: 'wp-block-tribe-vertical-tabs__tab',
-	hiddenContent: 'wp-block-tribe-vertical-tabs__tab-hidden',
+	block: 'b-vertical-tabs',
+	tab: 'b-vertical-tabs__tab',
+	hiddenContent: 'b-vertical-tabs__tab-hidden',
 	tabContent: 'wp-block-tribe-vertical-tab',
-	tabContentContainer: 'wp-block-tribe-vertical-tabs__tab-content',
+	tabContentContainer: 'b-vertical-tabs__tab-content',
 };
 const classes = {
 	activeTab: 'active-tab',

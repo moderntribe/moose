@@ -4,7 +4,7 @@
  *
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs {
+.b-vertical-tabs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--grid-gutter);
@@ -18,14 +18,23 @@
  * Vertical Tabs - Tab
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab {
+.b-vertical-tabs__tab {
 	cursor: pointer;
 	padding: var(--spacer-40);
-	border-radius: var(--border-radius-xl);
 	border-left: 3px solid var(--color-neutral-30);
 
-	&[aria-selected="true"]  {
+	&[aria-selected="true"],
+	&.editor-is-selected{
 		border-color: var(--color-blue);
+	}
+
+	.is-style-dark & {
+		border-left-color: var(--color-neutral-70);
+
+		&[aria-selected="true"],
+		&.editor-is-selected {
+			border-color: var(--color-white);
+		}
 	}
 
 	&:focus-visible {
@@ -43,10 +52,10 @@
  * Vertical Tabs - Tab Hidden Content
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-hidden {
+.b-vertical-tabs__tab-hidden {
 	display: none;
 
-	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+	.b-vertical-tabs__tab[aria-selected="true"] & {
 		display: block;
 	}
 }
@@ -55,10 +64,17 @@
  * Vertical Tabs - Tab Content (Description)
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-title {
+.b-vertical-tabs__tab-title {
 
-	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+	.b-vertical-tabs__tab[aria-selected="true"] & {
 		color: var(--color-blue);
+	}
+
+	.is-style-dark & {
+
+		.b-vertical-tabs__tab[aria-selected="true"] & {
+			color: var(--color-white);
+		}
 	}
 }
 
@@ -66,17 +82,9 @@
  * Vertical Tabs - Tab Content (Description)
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-content {
+.b-vertical-tabs__tab-content {
 
 	@media (--mq-wp-small-max) {
 		display: none;
 	}
-}
-
-/* -------------------------------------------------------------------------
- * Vertical Tabs - Tab Buttons
- * ------------------------------------------------------------------------- */
-
-.wp-block-tribe-vertical-tabs__buttons {
-	margin-top: var(--spacer-30);
 }

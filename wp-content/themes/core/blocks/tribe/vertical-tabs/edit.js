@@ -8,12 +8,12 @@ import { Button, Flex, FlexItem, Tooltip } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { Icon, link, trash } from '@wordpress/icons';
+import { Icon, trash } from '@wordpress/icons';
 
 import './editor.pcss';
 
 export default function Edit( { attributes, clientId, setAttributes } ) {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( { className: 'b-vertical-tabs' } );
 	const dispatch = useDispatch( 'core/block-editor' );
 	const { removeBlocks } = useDispatch( 'core/block-editor' );
 	const select = useSelect( 'core/block-editor' );
@@ -122,7 +122,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 	// setup inner block props and add classname to wrapper
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'wp-block-tribe-vertical-tabs__tab-content',
+			className: 'b-vertical-tabs__tab-content',
 		},
 		{
 			allowedBlocks: [ 'tribe/vertical-tab' ],
@@ -140,8 +140,6 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 				buttonId: 'button-' + tab.attributes.blockId,
 				title: tab.attributes.title,
 				content: tab.attributes.content,
-				linkUrl: tab.attributes.linkUrl,
-				linkText: tab.attributes.linkText,
 				isSelected:
 					currentActiveTabInstanceId === tab.attributes.blockId,
 			};
@@ -154,7 +152,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 
 	return (
 		<div { ...blockProps }>
-			<div className="wp-block-tribe-vertical-tabs__tab-container">
+			<div className="b-vertical-tabs__tab-container">
 				{ tabs
 					? tabs.map( ( tab, index ) => {
 							return (
@@ -162,12 +160,12 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 									key={ index }
 									className={
 										tab.isSelected
-											? 'wp-block-tribe-vertical-tabs__tab editor-is-selected'
-											: 'wp-block-tribe-vertical-tabs__tab'
+											? 'b-vertical-tabs__tab editor-is-selected'
+											: 'b-vertical-tabs__tab'
 									}
 								>
 									<Flex
-										className="wp-block-tribe-vertical-tabs__tab-header"
+										className="b-vertical-tabs__tab-header"
 										align="flex-start"
 										justify="space-between"
 									>
@@ -181,7 +179,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 										>
 											<RichText
 												tagName="h3"
-												className="wp-block-tribe-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top"
+												className="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top"
 												value={ tab.title }
 												onChange={ ( value ) =>
 													updateTabAttributes(
@@ -225,10 +223,10 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 										</FlexItem>
 									</Flex>
 									{ tab.isSelected ? (
-										<div className="wp-block-tribe-vertical-tabs__tab-hidden">
+										<div className="b-vertical-tabs__tab-hidden">
 											<RichText
 												tagName="p"
-												className="wp-block-tribe-vertical-tabs__tab-content"
+												className="b-vertical-tabs__tab-content"
 												value={ tab.content }
 												onChange={ ( value ) =>
 													updateTabAttributes(
@@ -236,70 +234,15 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 														tab.clientId
 													)
 												}
-												allowedFormats={ [] }
+												allowedFormats={ [
+													'core/bold',
+													'core/italic',
+												] }
 												placeholder={ __(
 													'Some tab content that describes the tab.',
 													'tribe'
 												) }
 											/>
-											<Flex
-												className="wp-block-tribe-vertical-tabs__buttons"
-												align="center"
-												justify="flex-start"
-											>
-												<FlexItem className="wp-block-button is-style-ghost tribe-button-has-icon">
-													<RichText
-														tagName="span"
-														className="wp-block-button__link wp-element-button"
-														value={ tab.linkText }
-														onChange={ ( value ) =>
-															updateTabAttributes(
-																{
-																	linkText:
-																		value,
-																},
-																tab.clientId
-															)
-														}
-														allowedFormats={ [] }
-														placeholder={ __(
-															'Button Text',
-															'tribe'
-														) }
-													/>
-												</FlexItem>
-												<FlexItem>
-													<Icon
-														icon={ link }
-														style={ {
-															display:
-																'inline-block',
-															verticalAlign:
-																'middle',
-															marginRight: '10px',
-														} }
-													/>
-													<RichText
-														tagName="span"
-														className="wp-block-tribe-vertical-tabs__link-url"
-														value={ tab.linkUrl }
-														onChange={ ( value ) =>
-															updateTabAttributes(
-																{
-																	linkUrl:
-																		value,
-																},
-																tab.clientId
-															)
-														}
-														allowedFormats={ [] }
-														placeholder={ __(
-															'https://www.google.com',
-															'tribe'
-														) }
-													/>
-												</FlexItem>
-											</Flex>
 										</div>
 									) : (
 										''
@@ -309,10 +252,10 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 					  } )
 					: '' }
 				<Button
-					__next40pxDefaultSize={ true }
+					__next40pxDefaultSize
 					variant="primary"
 					onClick={ () => addNewTab() }
-					className="wp-block-tribe-vertical-tabs__editor-add-tab"
+					className="b-vertical-tabs__editor-add-tab"
 				>
 					{ __( 'Add Tab', 'tribe' ) }
 				</Button>
