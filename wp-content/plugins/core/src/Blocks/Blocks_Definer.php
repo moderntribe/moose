@@ -53,6 +53,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/navigation-link',
 				'tribe/post-card',
 				'tribe/rating-stars',
+				'tribe/related-posts',
 				'tribe/search-card',
 				'tribe/standard-menu-item',
 				'tribe/tab',
