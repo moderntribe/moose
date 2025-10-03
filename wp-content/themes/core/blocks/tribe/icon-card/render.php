@@ -14,12 +14,12 @@ $icon_picker           = new Icon_Picker( $attributes );
 $icon_wrapper_styles   = $icon_picker->get_icon_wrapper_styles();
 $icon_svg              = $icon_picker->get_svg();
 $classes               = 'b-icon-card';
-$title                 = $attributes['title'] ?: '';
-$description           = $attributes['description'] ?: '';
-$link_url              = $attributes['linkUrl'] ?: '';
-$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?: false;
-$link_text             = $attributes['linkText'] ?: '';
-$link_a11y_label       = $attributes['linkA11yLabel'] ?: '';
+$title                 = $attributes['title'] ?? '';
+$description           = $attributes['description'] ?? '';
+$link_url              = $attributes['linkUrl'] ?? '';
+$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?? false;
+$link_text             = $attributes['linkText'] ?? '';
+$link_a11y_label       = $attributes['linkA11yLabel'] ?? '';
 
 if ( $animation_classes !== '' ) {
 	$classes .= ' ' . $animation_classes;
