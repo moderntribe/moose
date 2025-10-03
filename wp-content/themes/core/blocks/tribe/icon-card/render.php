@@ -39,7 +39,7 @@ if ( $animation_classes !== '' ) {
 				<h3 class="t-display-x-small b-icon-card__title"><?php echo esc_html( $title ); ?></h3>
 				<?php if ( $description ) : ?>
 					<div class="b-icon-card__description t-body-small">
-						<?php echo wp_kses_post( $description ); ?>
+						<?php echo wp_kses_post( nl2br( $description ) ); ?>
 					</div>
 				<?php endif; ?>
 			</div>
