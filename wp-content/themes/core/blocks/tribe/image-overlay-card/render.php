@@ -8,19 +8,21 @@ use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 $animation_attributes  = new Block_Animation_Attributes();
 $classes               = 'b-image-overlay-card';
-$styles                = $animation_attributes->get_styles();
-$media_id              = $attributes['mediaId'] ?: 0;
-$media_url             = $attributes['mediaUrl'] ?: '';
-$overlay_color         = $attributes['overlayColor'] ?: '#0000001C';
-$overlay_hover_color   = $attributes['overlayHoverColor'] ?: '#00000033';
+$animation_styles      = $animation_attributes->get_styles();
+$animation_classes     = $animation_attributes->get_classes();
+$media_id              = $attributes['mediaId'] ? (int) $attributes['mediaId'] : 0; // this returns a float by default so we need to cast it to int
+$media_url             = $attributes['mediaUrl'] ?? '';
+$overlay_color         = $attributes['overlayColor'] ?? '#0000001C';
+$overlay_hover_color   = $attributes['overlayHoverColor'] ?? '#00000033';
 $card_uses_dark_theme  = $attributes['cardUsesDarkTheme'];
-$title                 = $attributes['title'] ?: '';
-$link_url              = $attributes['linkUrl'] ?: '';
-$link_opens_in_new_tab = $attributes['linkOpensInNewTab'];
-$link_text             = $attributes['linkText'] ?: '';
-$link_a11y_label       = $attributes['linkA11yLabel'] ?: '';
+$title                 = $attributes['title'] ?? '';
+$link_url              = $attributes['linkUrl'] ?? '';
+$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?? false;
+$link_text             = $attributes['linkText'] ?? '';
+$link_a11y_label       = $attributes['linkA11yLabel'] ?? '';
 
 // add overlay color as CSS custom property
+$styles  = $animation_styles;
 $styles .= "--card-image-overlay-color: {$overlay_color};";
 $styles .= "--card-image-overlay-hover-color: {$overlay_hover_color};";
 
@@ -30,8 +32,8 @@ if ( $card_uses_dark_theme ) {
 }
 
 // add animation attribute classes
-if ( $animation_attributes->get_classes() !== '' ) {
-	$classes .= ' ' . $animation_attributes->get_classes();
+if ( $animation_classes !== '' ) {
+	$classes .= ' ' . $animation_classes;
 }
 ?>
 <article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $classes ), 'style' => esc_attr( $styles ) ] ); ?>>
@@ -55,6 +57,6 @@ if ( $animation_attributes->get_classes() !== '' ) {
 		<?php endif; ?>
 	</div>
 	<?php if ( $link_url ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>"<?php echo $link_opens_in_new_tab ? ' rel="noopener noreferrer"' : ''; ?> class="b-image-overlay-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
+		<a href="<?php echo esc_url( $link_url ); ?>"<?php echo $link_opens_in_new_tab ? ' target="_blank" rel="noopener noreferrer"' : ''; ?> class="b-image-overlay-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
 </article>
