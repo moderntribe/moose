@@ -49,6 +49,9 @@
 				}
 			},
 			"core/group": {
+				"color": {
+					"background": true
+				},
 				"background": {
 					"backgroundImage": true,
 					"backgroundSize": true
@@ -765,7 +768,8 @@
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--20)",
 					"fontWeight": "var(--wp--custom--font-weight--bold)",
-					"lineHeight": "1"
+					"lineHeight": "1",
+					"textAlign": "left"
 				},
 				":hover": {
 					"color": {
