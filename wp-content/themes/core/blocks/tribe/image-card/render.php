@@ -8,14 +8,14 @@ use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 $animation_attributes  = new Block_Animation_Attributes();
 $classes               = 'b-image-card';
-$media_id              = $attributes['mediaId'] ?: 0;
-$media_url             = $attributes['mediaUrl'] ?: '';
-$title                 = $attributes['title'] ?: '';
-$description           = $attributes['description'] ?: '';
-$link_url              = $attributes['linkUrl'] ?: '';
-$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?: false;
-$link_text             = $attributes['linkText'] ?: '';
-$link_a11y_label       = $attributes['linkA11yLabel'] ?: '';
+$media_id              = $attributes['mediaId'] ? (int) $attributes['mediaId'] : 0; // this returns a float by default so we need to cast it to int
+$media_url             = $attributes['mediaUrl'] ?? '';
+$title                 = $attributes['title'] ?? '';
+$description           = $attributes['description'] ?? '';
+$link_url              = $attributes['linkUrl'] ?? '';
+$link_opens_in_new_tab = $attributes['linkOpensInNewTab'] ?? false;
+$link_text             = $attributes['linkText'] ?? '';
+$link_a11y_label       = $attributes['linkA11yLabel'] ?? '';
 
 if ( $animation_attributes->get_classes() !== '' ) {
 	$classes .= ' ' . $animation_attributes->get_classes();
@@ -37,7 +37,7 @@ if ( $animation_attributes->get_classes() !== '' ) {
 				<h3 class="t-display-x-small b-image-card__title"><?php echo esc_html( $title ); ?></h3>
 				<?php if ( $description ) : ?>
 					<div class="t-body-small b-image-card__description">
-						<?php echo wp_kses_post( $description ); ?>
+						<?php echo wp_kses_post( nl2br( $description ) ); ?>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -51,6 +51,6 @@ if ( $animation_attributes->get_classes() !== '' ) {
 		</div>
 	</div>
 	<?php if ( $link_url ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo $link_opens_in_new_tab ? '_blank' : ''; ?>"<?php echo $link_opens_in_new_tab ? ' rel="noopener noreferrer"' : ''; ?> class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
+		<a href="<?php echo esc_url( $link_url ); ?>"<?php echo $link_opens_in_new_tab ? ' target="_blank" rel="noopener noreferrer"' : ''; ?> class="b-image-card__link-overlay" aria-label="<?php echo esc_attr( $link_a11y_label ); ?>"></a>
 	<?php endif; ?>
 </article>

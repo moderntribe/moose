@@ -30,7 +30,7 @@
 		},
 		"linkOpensInNewTab": {
 			"type": "boolean",
-			"default": true
+			"default": false
 		},
 		"linkText": {
 			"type": "string",
