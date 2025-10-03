@@ -3,9 +3,9 @@
 	"apiVersion": 3,
 	"name": "tribe/tabs",
 	"version": "0.1.0",
-	"title": "Tabs",
+	"title": "Horizontal Tabs",
 	"category": "theme",
-	"description": "Allows creation of tabbed content",
+	"description": "Tab content displayed horizontally",
 	"icon": "slides",
 	"supports": {
 		"html": false,

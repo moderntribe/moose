@@ -3,9 +3,9 @@
 	"apiVersion": 3,
 	"name": "tribe/tab",
 	"version": "0.1.0",
-	"title": "Tab",
+	"title": "Horizontal Tab",
 	"category": "theme",
-	"description": "Child of Tabs block",
+	"description": "A child block of the Horizontal Tabs block",
 	"icon": "text-page",
 	"parent": [ "tribe/tabs" ],
 	"supports": {
