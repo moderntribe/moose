@@ -5,25 +5,228 @@
  * ------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------
- * Focus Visible
- * Box-shadow is required to display double border in all browsers
+ * Primary Button
  * ------------------------------------------------------------------------- */
 
-@define-mixin focus-visible {
-	box-shadow: 0 0 0 3px var(--color-focus-contrast-dark), 0 0 0 5px var(--color-focus-contrast-light);
-	outline: 0;
+@define-mixin a-btn {
+
+	@mixin a-btn-arrow;
+	display: inline-block;
+	width: auto;
+	height: auto;
+	position: relative;
+	background-color: var(--color-blue);
+	border: 1px solid transparent;
+	border-radius: var(--border-radius-full);
+	color: var(--color-white);
+	font-family: var(--font-family-sans-serif);
+	font-size: var(--font-size-20);
+	font-weight: var(--font-weight-bold);
+	line-height: 1;
+	text-decoration: none;
+	text-align: left;
+	transition: var(--transition);
+
+	/**
+	 * Extra right padding to accommodate the absolutely positioned arrow
+	 * 8px = space between text and arrow
+	 * 14px = width of arrow
+	 * var(--spacer-30) = right padding
+	 */
+	padding: var(--spacer-20) calc(8px + 14px + var(--spacer-30)) var(--spacer-20) var(--spacer-30);
+
+	&:focus:not(:focus-visible) {
+
+		@mixin a-btn-hover-focus;
+	}
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+		@mixin a-btn-hover-focus;
+	}
+
+	@media (--has-hover) {
+
+		&:hover {
+
+			@mixin a-btn-hover-focus;
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------
- * Inline Text - Focus Visible
- * Inline text links that wrap lines look better w/ outline vs box-shadow
+ * Primary Button - Button Arrow
+ *
+ * Uses ::before & ::after to create the chevron to arrow transition
+ * on hover/focus. The chevron is visible by default, and the arrow
+ * fades in on hover/focus while the chevron fades out and shifts right
+ * at the same speed.
  * ------------------------------------------------------------------------- */
 
-@define-mixin focus-visible-inline-text {
-	box-shadow: none;
-	outline: 2px solid currentcolor;
-	outline-offset: 2px;
+@define-mixin a-btn-arrow {
+
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		width: 14px;
+		height: 16px;
+		position: absolute;
+		top: 50%;
+		right: var(--spacer-30);
+		transform: translateY(-50%);
+		mask: var(--icon-button-chevron) left center no-repeat;
+		mask-size: contain;
+		background-color: var(--color-white);
+		transition: var(--transition);
+	}
+
+	&::after {
+		mask-image: var(--icon-button-arrow);
+		transform: translateY(-50%) translateX(-8px);
+		opacity: 0;
+	}
 }
+
+/* -------------------------------------------------------------------------
+ * Primary Button - Hover / Focus States
+ * ------------------------------------------------------------------------- */
+
+@define-mixin a-btn-hover-focus {
+	background-color: var(--color-black);
+
+	&::before {
+		opacity: 0;
+		transform: translateY(-50%) translateX(8px);
+	}
+
+	&::after {
+		opacity: 1;
+		transform: translateY(-50%) translateX(0);
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Outlined Button
+ *
+ * The outlined button is essentially the primary button, so we can just
+ * extend that and override the necessary properties.
+ * ------------------------------------------------------------------------- */
+
+@define-mixin a-btn-outlined {
+
+	@mixin a-btn;
+	background-color: transparent;
+	border-color: var(--color-black);
+	color: var(--color-black);
+
+	&::before,
+	&::after {
+		background-color: var(--color-black);
+	}
+
+	&:focus:not(:focus-visible) {
+
+		@mixin a-btn-outlined-hover-focus;
+	}
+
+	&:focus-visible {
+
+		@mixin a-btn-outlined-hover-focus;
+	}
+
+	@media (--has-hover) {
+
+		&:hover {
+
+			@mixin a-btn-outlined-hover-focus;
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Outlined Button - Hover / Focus States
+ * ------------------------------------------------------------------------- */
+
+@define-mixin a-btn-outlined-hover-focus {
+	background-color: var(--color-black);
+	color: var(--color-white);
+
+	&::before,
+	&::after {
+		background-color: var(--color-white);
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Ghost Button
+ *
+ * Extends the Primary Button, but with a few overrides.
+ * ------------------------------------------------------------------------- */
+
+@define-mixin a-btn-ghost {
+
+	@mixin a-btn;
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	text-decoration-line: underline;
+	text-decoration-thickness: 1px;
+	text-decoration-color: currentcolor;
+	text-underline-offset: var(--spacer-10);
+	line-height: 1.5;
+	color: var(--color-blue);
+
+	/**
+	 * Extra right padding to accommodate the absolutely positioned arrow
+	 * 8px = space between text and arrow
+	 * 14px = width of arrow
+	 */
+	padding: var(--spacer-10) calc(8px + 14px) var(--spacer-10) 0;
+
+	/**
+	 * Override the default arrow position to remove the spacer on the right
+	 * and change the color.
+	 */
+	&::before,
+	&::after {
+		right: 0;
+		background-color: var(--color-blue);
+	}
+
+	&:focus:not(:focus-visible) {
+
+		@mixin a-btn-ghost-hover-focus;
+	}
+
+	&:focus-visible {
+
+		@mixin a-btn-ghost-hover-focus;
+	}
+
+	@media (--has-hover) {
+
+		&:hover {
+
+			@mixin a-btn-ghost-hover-focus;
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Ghost Button - Hover / Focus States
+ * ------------------------------------------------------------------------- */
+
+@define-mixin a-btn-ghost-hover-focus {
+	background-size: 100% 1px;
+	background-color: transparent;
+	color: var(--color-black);
+
+	&::before,
+	&::after {
+		background-color: var(--color-black);
+	}
 
 /* -------------------------------------------------------------------------
  * Inline Text Links
@@ -53,4 +256,26 @@
 
 		@mixin focus-visible-inline-text;
 	}
+}
+
+/* -------------------------------------------------------------------------
+ * Focus Visible
+ * Box-shadow is required to display double border in all browsers
+ * ------------------------------------------------------------------------- */
+
+@define-mixin focus-visible {
+	box-shadow: 0 0 0 3px var(--color-focus-contrast-dark), 0 0 0 5px var(--color-focus-contrast-light);
+	outline: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Inline Text - Focus Visible
+ * Inline text links that wrap lines look better w/ outline vs box-shadow
+ * ------------------------------------------------------------------------- */
+
+@define-mixin focus-visible-inline-text {
+	box-shadow: none;
+	outline: 2px solid currentcolor;
+	outline-offset: 2px;
+}
 }
