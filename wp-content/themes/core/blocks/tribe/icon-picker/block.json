@@ -10,10 +10,6 @@
 		"html": false
 	},
 	"attributes": {
-		"colors": {
-			"type": "array",
-			"default": []
-		},
 		"isRounded": {
 			"type": "boolean",
 			"default": false
