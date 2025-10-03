@@ -9,20 +9,19 @@
 .wp-block-button__link {
 	display: inline-flex;
 	align-items: center;
+	justify-content: flex-start;
 	gap: 8px;
 	transition: var(--transition);
 
 	/* -------------------------------------------------------------------------
 	 * Button: Ghost Button
 	 * ------------------------------------------------------------------------- */
+
 	:is(.is-style-ghost) & {
 		background-color: transparent;
 		border-radius: 0;
-		color: var(--wp--preset--color--blue);
-		padding-top: 0;
-		padding-right: 0;
-		padding-bottom: 0;
-		padding-left: 0;
+		color: var(--color-blue);
+		padding: 0;
 	}
 
 	/* -------------------------------------------------------------------------
@@ -34,6 +33,7 @@
 	:is(.is-style-ghost) & {
 
 		&::after {
+			flex: 0 0 auto;
 			content: "";
 			display: block;
 			width: 10px;
