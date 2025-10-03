@@ -21,11 +21,20 @@
 .wp-block-tribe-vertical-tabs__tab {
 	cursor: pointer;
 	padding: var(--spacer-40);
-	border-radius: var(--border-radius-xl);
 	border-left: 3px solid var(--color-neutral-30);
+
+	/* CASE: Dark Themes */
+	:--dark-themes & {
+		border-color: var(--color-neutral-50);
+	}
 
 	&[aria-selected="true"]  {
 		border-color: var(--color-blue);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			border-color: var(--color-white);
+		}
 	}
 
 	&:focus-visible {
@@ -59,6 +68,11 @@
 
 	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
 		color: var(--color-blue);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			color: var(--color-white);
+		}
 	}
 }
 
