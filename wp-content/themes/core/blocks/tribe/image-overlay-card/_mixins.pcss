@@ -1,0 +1,40 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Image Overlay Card - Mixins
+ *
+ * ------------------------------------------------------------------------- */
+
+@define-mixin image-overlay-card-hover-focus {
+
+	&::before {
+		background-color: var(--card-image-overlay-hover-color);
+	}
+
+	.b-image-overlay-card__title {
+		text-decoration-color: currentcolor;
+	}
+
+	.b-image-overlay-card__buttons {
+
+		.wp-block-button__link {
+
+			.wp-block-button.is-style-ghost & {
+				color: var(--color-dark-blue) !important;
+
+				&::after {
+					transform: translateX(8px);
+				}
+			}
+		}
+
+		.b-image-overlay-card--dark-theme & {
+
+			.wp-block-button__link {
+
+				.wp-block-button.is-style-ghost & {
+					color: var(--color-white) !important;
+				}
+			}
+		}
+	}
+}
