@@ -2,83 +2,20 @@
  * Styles specific to this block
  */
 
-.wp-block-buttons {
-	gap: var(--spacer-30);
-}
-
 .wp-block-button__link {
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	transition: var(--transition);
 
-	/* -------------------------------------------------------------------------
-	 * Button: Ghost Button
-	 * ------------------------------------------------------------------------- */
-	:is(.is-style-ghost) & {
-		background-color: transparent;
-		border-radius: 0;
-		color: var(--wp--preset--color--blue);
-		padding-top: 0;
-		padding-right: 0;
-		padding-bottom: 0;
-		padding-left: 0;
+	.wp-block-button:not(.is-style-outlined, .is-style-ghost) & {
+
+		@mixin a-btn;
 	}
 
-	/* -------------------------------------------------------------------------
-	 * Button: Has Icon
-	 * Note here that the "Ghost" button always contains the icon
-	 * ------------------------------------------------------------------------- */
+	.wp-block-button.is-style-outlined & {
 
-	:is(.tribe-button-has-icon) &,
-	:is(.is-style-ghost) & {
-
-		&::after {
-			content: "";
-			display: block;
-			width: 10px;
-			height: 16px;
-			mask: var(--icon-chevron-right) center no-repeat;
-			mask-size: contain;
-			background-color: currentcolor;
-			transition: var(--transition);
-		}
+		@mixin a-btn-outlined;
 	}
 
-	&:focus-visible {
+	.wp-block-button.is-style-ghost & {
 
-		@mixin focus-visible;
-	}
-}
-
-/* -------------------------------------------------------------------------
- * Group block - Dark Theme
- * Everything here unfortunately needs to have !important rules due to the
- * current nature of the WP block variations.
- * ------------------------------------------------------------------------- */
-
-.is-style-dark .wp-block-button {
-
-	.wp-block-button__link {
-
-		:is(.is-style-outlined) & {
-			border-color: var(--color-white) !important;
-			color: var(--color-white) !important;
-
-			&:hover,
-			&:focus {
-				background-color: var(--color-white) !important;
-				color: var(--color-black) !important;
-			}
-		}
-
-		:is(.is-style-ghost) & {
-			color: var(--color-white) !important;
-
-			&:hover,
-			&:focus {
-				color: var(--color-neutral-20) !important;
-			}
-		}
+		@mixin a-btn-ghost;
 	}
 }
