@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/icon-card",
+	"version": "0.1.0",
+	"title": "Icon Card",
+	"category": "theme",
+	"icon": "media-document",
+	"description": "A card that utilizes the Icon Picker block to include an icon alongside text and a link.",
+	"attributes": {
+		"isRounded": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 64
+		},
+		"iconPadding": {
+			"type": "number",
+			"default": 0
+		},
+		"searchQuery": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedIcon": {
+			"type": "string",
+			"default": "icon-ai-sparkle"
+		},
+		"selectedIconColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"selectedBgColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"title": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet consectetur adipiscing"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "https://moderntribeagency.com/"
+		},
+		"linkOpensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Link Label"
+		},
+		"linkA11yLabel": {
+			"type": "string",
+			"default": "Link to Card Title"
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [ "wide", "grid", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
