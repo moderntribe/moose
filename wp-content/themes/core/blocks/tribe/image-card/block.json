@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/image-card",
+	"version": "0.1.0",
+	"title": "Image Card",
+	"category": "theme",
+	"icon": "format-image",
+	"description": "A card with a prominent image element",
+	"attributes": {
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": "https://placehold.co/600x400"
+		},
+		"title": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet consectetur adipiscing"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "https://moderntribeagency.com/"
+		},
+		"linkOpensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Link Label"
+		},
+		"linkA11yLabel": {
+			"type": "string",
+			"default": "Link to Card Title"
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [
+			"wide",
+			"grid",
+			"full"
+		],
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
