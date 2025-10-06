@@ -14,18 +14,10 @@
 		text-decoration-color: currentcolor;
 	}
 
-	.b-icon-card__buttons {
+	.a-btn-ghost {
 
-		.wp-block-button__link {
-
-			.is-style-ghost & {
-				color: var(--color-dark-blue);
-
-				&::after {
-					transform: translateX(8px);
-				}
-			}
-		}
+		@mixin a-btn-hover-focus;
+		@mixin a-btn-ghost-hover-focus;
 	}
 
 	/* CASE: Dark Mode */
