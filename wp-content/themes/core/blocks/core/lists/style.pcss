@@ -47,4 +47,47 @@
 			padding-inline-start: 10px;
 		}
 	}
+
+	/* ----------------------------------------------------------------------
+	 * CASE: Unordered List - Arrow Style
+	 * ---------------------------------------------------------------------- */
+
+	&.is-style-arrow {
+
+		li::marker {
+			content: var(--icon-list-arrow);
+		}
+	}
+
+	/* ----------------------------------------------------------------------
+	 * CASE: Unordered List - Check Style
+	 * ---------------------------------------------------------------------- */
+
+	&.is-style-check {
+
+		li::marker {
+			content: var(--icon-list-check);
+		}
+	}
+
+	/* ----------------------------------------------------------------------
+	 * CASE: Dark Themes
+	 * ---------------------------------------------------------------------- */
+
+	:--dark-themes & {
+
+		&.is-style-arrow {
+
+			li::marker {
+				content: var(--icon-list-arrow-white);
+			}
+		}
+
+		&.is-style-check {
+
+			li::marker {
+				content: var(--icon-list-check-white);
+			}
+		}
+	}
 }
