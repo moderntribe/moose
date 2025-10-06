@@ -1,0 +1,35 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Icon Card - Mixins
+ *
+ * Because we want to be able to apply the same styles on both hover and
+ * focus-within, we use a mixin to avoid code duplication.
+ *
+ * ------------------------------------------------------------------------- */
+
+@define-mixin icon-card-hover-focus {
+	background-color: var(--color-neutral-10);
+
+	.b-icon-card__title {
+		text-decoration-color: currentcolor;
+	}
+
+	.b-icon-card__buttons {
+
+		.wp-block-button__link {
+
+			.is-style-ghost & {
+				color: var(--color-dark-blue);
+
+				&::after {
+					transform: translateX(8px);
+				}
+			}
+		}
+	}
+
+	/* CASE: Dark Mode */
+	.is-style-dark & {
+		background-color: var(--color-neutral-80);
+	}
+}
