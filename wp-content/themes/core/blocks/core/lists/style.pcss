@@ -49,13 +49,31 @@
 	}
 
 	/* ----------------------------------------------------------------------
-	 * CASE: Unordered List - Arrow Style
+	 * CASE: Unordered List - Block Styles
 	 * ---------------------------------------------------------------------- */
 
-	&.is-style-arrow {
+	&.is-style-arrow,
+	&.is-style-check {
 
-		li::marker {
-			content: var(--icon-list-arrow);
+		ul& {
+			list-style-type: none;
+
+			li {
+				position: relative;
+
+				&::before {
+					content: '';
+					display: block;
+					width: 15px;
+					height: 1.5em; /* this needs to match the line-height of the list item */
+					position: absolute;
+					top: 0;
+					left: -1em;
+					mask: var(--icon-list-arrow) no-repeat center;
+					mask-size: contain;
+					background-color: currentcolor;
+				}
+			}
 		}
 	}
 
@@ -65,28 +83,10 @@
 
 	&.is-style-check {
 
-		li::marker {
-			content: var(--icon-list-check);
-		}
-	}
+		ul& {
 
-	/* ----------------------------------------------------------------------
-	 * CASE: Dark Themes
-	 * ---------------------------------------------------------------------- */
-
-	:--dark-themes & {
-
-		&.is-style-arrow {
-
-			li::marker {
-				content: var(--icon-list-arrow-white);
-			}
-		}
-
-		&.is-style-check {
-
-			li::marker {
-				content: var(--icon-list-check-white);
+			li::before {
+				mask-image: var(--icon-list-check);
 			}
 		}
 	}
