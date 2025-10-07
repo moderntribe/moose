@@ -7,6 +7,13 @@
 	"category": "theme",
 	"icon": "menu-alt3",
 	"description": "A structural block that wraps menu items inside a semantic <nav> tag with no added styles.",
+	"attributes": {
+		"ariaLabel": {
+			"type": "string",
+			"source": "attribute",
+			"attribute": "aria-label"
+		}
+	},
 	"supports": {
 		"spacing": {
 			"margin": false,
@@ -15,7 +22,6 @@
 		"align": true,
 		"innerBlocks": true
 	},
-	"attributes": {},
 	"usesContext": [],
 	"providesContext": {},
 	"textdomain": "tribe",
