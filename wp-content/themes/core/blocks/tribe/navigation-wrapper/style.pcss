@@ -1,0 +1,18 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Tribe Navigation Wrapper - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-navigation-wrapper {
+	align-self: center;
+
+	/* fix Utility Menu position */
+	&:has(.site-header__utility-menu) {
+
+		@media (--mq-navigation) {
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+	}
+}

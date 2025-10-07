@@ -49,6 +49,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/image-card',
 				'tribe/image-overlay-card',
 				'tribe/logo-marquee',
+				'tribe/navigation-wrapper',
 				'tribe/masthead-search',
 				'tribe/mega-menu-item',
 				'tribe/menu-toggle',
