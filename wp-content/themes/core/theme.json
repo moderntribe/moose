@@ -25,6 +25,9 @@
 					"style": false,
 					"width": false
 				},
+				"spacing": {
+					"padding": false
+				},
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": [],
