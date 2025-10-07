@@ -1,0 +1,42 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Related Posts - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.b-related-posts {
+	--related-posts-grid-columns: 1fr;
+	display: grid;
+	gap: var(--spacer-50);
+	grid-template-columns: var(--related-posts-grid-columns);
+}
+
+/* -------------------------------------------------------------------------
+ * Related Posts - Grid Layout
+ * ------------------------------------------------------------------------- */
+
+.b-related-posts--layout-grid {
+
+	@media (--mq-tablet) {
+		--related-posts-grid-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Related Posts - List Layout
+ * List layout removes the image from the card as well as displaying the
+ * card title at a smaller size so that the card can be displayed in
+ * smaller spaces, such as a sidebar.
+ * ------------------------------------------------------------------------- */
+
+.b-related-posts--layout-list .c-post-card {
+
+	.c-post-card__image {
+		display: none;
+	}
+
+	.c-post-card__title {
+
+		@mixin t-display-xx-small;
+	}
+}
