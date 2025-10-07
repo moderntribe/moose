@@ -39,6 +39,7 @@
 		color: var(--color-text);
 		transition: var(--transition);
 		text-decoration: none;
+		outline-offset: 0;
 
 		@media (--mq-navigation-max) {
 			font-size: var(--font-size-40);
@@ -58,8 +59,7 @@
 		}
 
 		&:hover,
-		&:active,
-		&:focus {
+		&:active {
 			outline: none;
 			color: var(--masthead-navigation-accent-color);
 
