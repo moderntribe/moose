@@ -55,10 +55,11 @@
 	&.is-style-arrow,
 	&.is-style-check {
 
-		ul& {
+		ul&,
+		ol& {
 			list-style-type: none;
 
-			li {
+			> li {
 				position: relative;
 
 				&::before {
@@ -83,9 +84,10 @@
 
 	&.is-style-check {
 
-		ul& {
+		ul&,
+		ol& {
 
-			li::before {
+			> li::before {
 				mask-image: var(--icon-list-check);
 			}
 		}
