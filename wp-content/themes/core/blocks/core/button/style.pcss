@@ -9,6 +9,7 @@
 .wp-block-button__link {
 	display: inline-flex;
 	align-items: center;
+	justify-content: flex-start;
 	gap: 8px;
 	transition: var(--transition);
 
@@ -32,6 +33,7 @@
 	:is(.is-style-ghost) & {
 
 		&::after {
+			flex: 0 0 auto;
 			content: "";
 			display: block;
 			width: 10px;

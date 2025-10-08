@@ -1,0 +1,134 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Icon Card - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card {
+	container: iconcard / inline-size;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	border: 1px solid var(--color-neutral-30);
+	transition: var(--transition);
+
+	&:focus-within {
+
+		@mixin icon-card-hover-focus;
+	}
+
+	@media (--has-hover) {
+
+		&:has(.b-icon-card__link-overlay):hover {
+
+			@mixin icon-card-hover-focus;
+		}
+	}
+
+	/* CASE: Dark Mode */
+	.is-style-dark & {
+		border-color: var(--color-neutral-70);
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Inner Wrapper
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__inner {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-50);
+	height: 100%;
+	padding: var(--spacer-50) var(--spacer-40);
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Top
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__top {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-50);
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Icon Wrapper
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__icon-wrapper {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	justify-content: center;
+
+	background-color: var(--icon-picker--background-color);
+	color: var(--icon-picker--icon-color);
+	border-radius: var(--icon-picker--border-radius);
+	width: var(--icon-picker--icon-size);
+	height: var(--icon-picker--icon-size);
+	padding: var(--icon-picker--icon-padding);
+
+	svg, img {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Title
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__title {
+	margin-top: 0;
+	text-decoration-thickness: auto;
+	text-decoration-color: transparent;
+	text-decoration-line: underline;
+	transition: var(--transition);
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Description
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__description {
+	margin-top: var(--spacer-20);
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Buttons
+ * Because we're using .json files for some button styles, they aren't
+ * really available for custom blocks, we have to do some overrides here
+ * to get the ghost button looking as it should.
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__buttons {
+	margin-top: auto;
+}
+
+/* -------------------------------------------------------------------------
+ * Icon Card - Link Overlay
+ * ------------------------------------------------------------------------- */
+
+.b-icon-card__link-overlay {
+	display: block;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	z-index: 2;
+	font-size: 0;
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
+}
