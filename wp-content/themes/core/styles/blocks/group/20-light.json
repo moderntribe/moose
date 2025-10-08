@@ -7,17 +7,17 @@
 	"styles": {
 		"css": "--color-text-secondary: var(--color-neutral-50)",
 		"color": {
-			"background": "var(--wp--preset--color--neutral-10)",
-			"text": "var(--wp--preset--color--black)"
+			"background": "var(--color-neutral-10)",
+			"text": "var(--color-black)"
 		},
 		"blocks": {
 			"core/details": {
 				"border": {
 					"top": {
-						"color": "var(--wp--preset--color--base-black)"
+						"color": "var(--color-black)"
 					},
 					"bottom": {
-						"color": "var(--wp--preset--color--base-black)"
+						"color": "var(--color-black)"
 					}
 				}
 			}
@@ -26,24 +26,24 @@
 			"button": {
 				"color": {
 					"background": "var(--color-blue)",
-					"text": "var(--wp--preset--color--white)"
+					"text": "var(--color-white)"
 				},
 				":hover": {
 					"color": {
 						"background": "var(--color-dark-blue)",
-						"text": "var(--wp--preset--color--base-white)"
+						"text": "var(--color-white)"
 					}
 				},
 				":focus": {
 					"color": {
 						"background": "var(--color-dark-blue)",
-						"text": "var(--wp--preset--color--base-white)"
+						"text": "var(--color-white)"
 					}
 				},
 				":active": {
 					"color": {
 						"background": "var(--color-dark-blue)",
-						"text": "var(--wp--preset--color--base-white)"
+						"text": "var(--color-white)"
 					}
 				}
 			}
