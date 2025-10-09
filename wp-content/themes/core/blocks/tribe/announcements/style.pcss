@@ -9,7 +9,7 @@
 	display: none;
 	justify-content: flex-start;
 	position: relative;
-	padding: var(--vertical-padding) var(--wp--custom--spacing--grid-margin);
+	padding: var(--vertical-padding) var(--grid-margin);
 	background-color: var(--color-blue);
 	color: var(--color-white);
 
@@ -74,35 +74,13 @@
 }
 
 /* -----------------------------------------------------------------------
- * Announcements Block - CTA (Button)
- * ----------------------------------------------------------------------- */
-
-.b-announcement__cta {
-
-	/* CASE: Ghost Style Button */
-	.wp-block-button.is-style-ghost & {
-		padding-top: var(--spacer-20);
-		padding-bottom: var(--spacer-20);
-	}
-
-	/* CASE: Warning Theme + Ghost Button Style */
-	.b-announcement:not(.is-style-dark) .wp-block-button.is-style-ghost & {
-		color: var(--color-black);
-
-		&:hover, &:focus {
-			color: var(--color-neutral-90) !important;
-		}
-	}
-}
-
-/* -----------------------------------------------------------------------
  * Announcements Block - Dismiss Wrapper
  * ----------------------------------------------------------------------- */
 
 .b-announcement__dismiss-wrapper {
 	position: absolute;
 	bottom: calc(var(--vertical-padding) + (var(--spacer-20) / 2));
-	right: var(--wp--custom--spacing--grid-margin);
+	right: var(--grid-margin);
 
 	@media (--mq-large) {
 		top: 50%;
@@ -119,6 +97,11 @@
 	display: flex;
 	align-items: center;
 	gap: var(--spacer-10);
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	color: var(--color-white);
 
 	&::after {
 		content: '';
@@ -131,7 +114,11 @@
 	}
 
 	/* CASE: Warning Theme */
-	.b-announcement:not(.is-style-dark) &::after {
-		background-color: var(--color-black);
+	.b-announcement:not(.is-style-dark) & {
+		color: var(--color-black);
+
+		&::after {
+			background-color: var(--color-black);
+		}
 	}
 }
