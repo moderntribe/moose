@@ -12,8 +12,14 @@ use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
 class Announcement_Controller extends Abstract_Controller {
 
+	/**
+	 * @var \Tribe\Plugin\Components\Announcements\Rules\Rule_Interface[]
+	 */
 	private array $rules = [];
 
+	/**
+	 * @var string[]|int[]|bool[]
+	 */
 	private array $context = [];
 
 	public function __construct() {
