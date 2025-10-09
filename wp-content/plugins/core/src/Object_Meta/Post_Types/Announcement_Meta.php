@@ -146,6 +146,7 @@ class Announcement_Meta extends Meta_Object {
 				->allowNull()
 				->defaultValue([])
 				->returnFormat('value')
+				->allowMultiple()
 				->conditionalLogic([
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				]),
@@ -162,6 +163,7 @@ class Announcement_Meta extends Meta_Object {
 				->allowNull()
 				->defaultValue([])
 				->returnFormat('value')
+				->allowMultiple()
 				->conditionalLogic([
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				]),

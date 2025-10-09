@@ -10,18 +10,18 @@ class Front_Page_Rule implements Rule_Interface {
 		$is_front_page = $context['is_front_page'] ?? is_front_page();
 
 		if ( ! $is_front_page ) {
-			return true; // Not front page, so this rule doesn't apply
+			return true;
 		}
 
-		$display_type = get_field( Announcement_Meta::FIELD_RULES_DISPLAY_TYPE, $announcement->ID );
+		$display_type        = get_field( Announcement_Meta::FIELD_RULES_DISPLAY_TYPE, $announcement->ID );
 		$apply_to_front_page = get_field( Announcement_Meta::FIELD_RULES_APPLY_TO_FRONT_PAGE, $announcement->ID );
 
-		// If not applying rules to front page, always show
+		// If not applying rules to front page, always show.
 		if ( ! $apply_to_front_page ) {
 			return true;
 		}
 
-		// If set to show everywhere, always show
+		// If set to show everywhere, always show.
 		if ( $display_type === Announcement_Meta::OPTION_EVERY_PAGE ) {
 			return true;
 		}

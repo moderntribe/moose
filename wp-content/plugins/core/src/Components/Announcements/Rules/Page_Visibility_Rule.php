@@ -9,31 +9,31 @@ class Page_Visibility_Rule implements Rule_Interface {
 	public function passes( \WP_Post $announcement, array $context ): bool {
 		$display_type = get_field( Announcement_Meta::FIELD_RULES_DISPLAY_TYPE, $announcement->ID );
 
-		// If set to show everywhere, always pass
+		// If set to show everywhere, always pass.
 		if ( $display_type === Announcement_Meta::OPTION_EVERY_PAGE ) {
 			return true;
 		}
 
 		$current_post_id = $context['current_post_id'] ?? get_queried_object_id();
-		$is_front_page = $context['is_front_page'] ?? is_front_page();
+		$is_front_page   = $context['is_front_page'] ?? is_front_page();
 
-		// Handle front page rule
+		// Handle front page rule.
 		$apply_to_front_page = get_field( Announcement_Meta::FIELD_RULES_APPLY_TO_FRONT_PAGE, $announcement->ID );
 		if ( $is_front_page && $apply_to_front_page ) {
 			return $this->check_front_page_rule( $display_type );
 		}
 
-		// Handle taxonomy archives
+		// Handle taxonomy archives.
 		if ( $this->is_taxonomy_archive( $context ) ) {
 			return $this->check_taxonomy_archive_rule( $announcement, $display_type, $context );
 		}
 
-		// Handle post type archives
+		// Handle post type archives.
 		if ( $this->is_post_type_archive( $context ) ) {
 			return $this->check_post_type_archive_rule( $announcement, $display_type, $context );
 		}
 
-		// Handle specific posts/pages
+		// Handle specific posts/pages.
 		return $this->check_specific_page_rule( $announcement, $display_type, $current_post_id );
 	}
 
@@ -65,7 +65,7 @@ class Page_Visibility_Rule implements Rule_Interface {
 
 		if ( empty( $allowed_taxonomies ) ) {
 			// No taxonomy restrictions - follow the main rule
-			return $display_type === Announcement_Meta::OPTION_INCLUDE ? false : true;
+			return ! ( $display_type === Announcement_Meta::OPTION_INCLUDE );
 		}
 
 		$current_taxonomy = '';
@@ -103,7 +103,7 @@ class Page_Visibility_Rule implements Rule_Interface {
 
 		if ( empty( $allowed_post_types ) ) {
 			// No post type restrictions - follow the main rule
-			return $display_type === Announcement_Meta::OPTION_INCLUDE ? false : true;
+			return ! ( $display_type === Announcement_Meta::OPTION_INCLUDE );
 		}
 
 		$current_post_type = get_post_type();
