@@ -9,7 +9,7 @@
 	"description": "A block to display globally configured announcements",
 	"supports": {
 		"html": false,
-		"align": [ "wide", "grid", "full" ],
+		"alignCustom": [ "wide", "grid", "full" ],
 		"spacing": {
 			"margin": true,
 			"padding": false
