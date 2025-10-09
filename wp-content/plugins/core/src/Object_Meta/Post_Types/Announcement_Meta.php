@@ -145,15 +145,15 @@ class Announcement_Meta extends Meta_Object {
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
-			Relationship::make( esc_html__( 'Select pages where the alert will appear', 'tribe' ), self::FIELD_RULES_INCLUDE_PAGES )
+			Relationship::make( esc_html__( 'Select pages where the announcement will appear', 'tribe' ), self::FIELD_RULES_INCLUDE_PAGES )
 				->instructions( sprintf(
 					esc_html__( 'Select up to %d posts', 'tribe' ),
-					(int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS )
+					(int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
 				->filters( [ 'search', 'post_type', 'taxonomy' ] )
 				->min( 0 )
-				->max( (int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS ) )
+				->max( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
 				->returnFormat( 'object' )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_INCLUDE ),
@@ -161,12 +161,12 @@ class Announcement_Meta extends Meta_Object {
 			Relationship::make( esc_html__( 'Will appear on every page but the following selected pages', 'tribe' ), self::FIELD_RULES_EXCLUDE_PAGES )
 				->instructions( sprintf(
 					esc_html__( 'Select up to %d posts', 'tribe' ),
-					(int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS )
+					(int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
 				->filters( [ 'search', 'post_type', 'taxonomy' ] )
 				->min( 0 )
-				->max( (int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS ) )
+				->max( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
 				->returnFormat( 'object' )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_EXCLUDE ),
