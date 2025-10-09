@@ -222,27 +222,21 @@
 							"fontDisplay": "swap",
 							"fontStyle": "normal",
 							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-regular.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-regular.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
 							"fontDisplay": "swap",
 							"fontStyle": "italic",
 							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-italic.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-italic.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
 							"fontDisplay": "swap",
 							"fontStyle": "normal",
 							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/inter-tight-v7-latin-700.woff2"
-							]
+							"src": ["file:./assets/fonts/inter-tight-v7-latin-700.woff2"]
 						},
 						{
 							"fontFamily": "Inter",
@@ -666,7 +660,7 @@
 					"fontWeight": "var(--wp--custom--font-weight--regular)"
 				}
 			},
-			"tribe/tab": {
+			"tribe/horizontal-tab": {
 				"spacing": {
 					"padding": {
 						"top": "var(--wp--preset--spacing--60)",
