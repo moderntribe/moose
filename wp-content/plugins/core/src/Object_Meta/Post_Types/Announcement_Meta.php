@@ -125,29 +125,29 @@ class Announcement_Meta extends Meta_Object {
 				->conditionalLogic([
 					ConditionalLogic::where( self::SCHEDULED, '==', 1 ),
 				]),
-			RadioButton::make( esc_html__( 'Select a rule', 'tribe-alerts' ), self::FIELD_RULES_DISPLAY_TYPE )
+			RadioButton::make( esc_html__( 'Select a rule', 'tribe' ), self::FIELD_RULES_DISPLAY_TYPE )
 				->choices( [
-					self::OPTION_EVERY_PAGE => esc_html__( 'Show everywhere', 'tribe-alerts' ),
-					self::OPTION_INCLUDE    => esc_html__( 'Show only on specified pages', 'tribe-alerts' ),
-					self::OPTION_EXCLUDE    => esc_html__( 'Exclude from specific pages', 'tribe-alerts' ),
+					self::OPTION_EVERY_PAGE => esc_html__( 'Show everywhere', 'tribe' ),
+					self::OPTION_INCLUDE    => esc_html__( 'Show only on specified pages', 'tribe' ),
+					self::OPTION_EXCLUDE    => esc_html__( 'Exclude from specific pages', 'tribe' ),
 				] )
 				->defaultValue( self::OPTION_EVERY_PAGE ),
-			TrueFalse::make( esc_html__( 'Apply the selected rule to the Front Page', 'tribe-alerts' ), self::FIELD_RULES_APPLY_TO_FRONT_PAGE )
+			TrueFalse::make( esc_html__( 'Apply the selected rule to the Front Page', 'tribe' ), self::FIELD_RULES_APPLY_TO_FRONT_PAGE )
 				->instructions( sprintf(
 					'%s<a href="%s">%s</a>%s',
-					esc_html__( 'Regardless of the configuration in ', 'tribe-alerts' ),
+					esc_html__( 'Regardless of the configuration in ', 'tribe' ),
 					esc_url( admin_url( 'options-reading.php' ) ),
-					esc_html__( 'Settings > Reading', 'tribe-alerts' ),
-					esc_html__( ', always apply these rules to the front page', 'tribe-alerts' )
+					esc_html__( 'Settings > Reading', 'tribe' ),
+					esc_html__( ', always apply these rules to the front page', 'tribe' )
 				) )
-				->stylisedUi( esc_html__( 'Yes', 'tribe-alerts' ), esc_html__( 'No', 'tribe-alerts' ) )
+				->stylisedUi( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) )
 				->defaultValue( 0 )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
-			Relationship::make( esc_html__( 'Select pages where the alert will appear', 'tribe-alerts' ), self::FIELD_RULES_INCLUDE_PAGES )
+			Relationship::make( esc_html__( 'Select pages where the alert will appear', 'tribe' ), self::FIELD_RULES_INCLUDE_PAGES )
 				->instructions( sprintf(
-					esc_html__( 'Select up to %d posts', 'tribe-alerts' ),
+					esc_html__( 'Select up to %d posts', 'tribe' ),
 					(int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
@@ -158,9 +158,9 @@ class Announcement_Meta extends Meta_Object {
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_INCLUDE ),
 				] ),
-			Relationship::make( esc_html__( 'Will appear on every page but the following selected pages', 'tribe-alerts' ), self::FIELD_RULES_EXCLUDE_PAGES )
+			Relationship::make( esc_html__( 'Will appear on every page but the following selected pages', 'tribe' ), self::FIELD_RULES_EXCLUDE_PAGES )
 				->instructions( sprintf(
-					esc_html__( 'Select up to %d posts', 'tribe-alerts' ),
+					esc_html__( 'Select up to %d posts', 'tribe' ),
 					(int) apply_filters( 'tribe/alerts/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
@@ -171,7 +171,7 @@ class Announcement_Meta extends Meta_Object {
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_EXCLUDE ),
 				] ),
-			Select::make( esc_html__( 'Apply the selected rule to the following Taxonomy Archives:', 'tribe-alerts' ), self::FIELD_TAXONOMY_ARCHIVES )
+			Select::make( esc_html__( 'Apply the selected rule to the following Taxonomy Archives:', 'tribe' ), self::FIELD_TAXONOMY_ARCHIVES )
 				->choices( array_reduce(
 					get_taxonomies( [ 'public' => true ], 'objects' ),
 					static function ( array $taxonomies, WP_Taxonomy $tax ) {
@@ -189,7 +189,7 @@ class Announcement_Meta extends Meta_Object {
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
-			Select::make( esc_html__( 'Apply the selected rule to the following Post Type Archives:', 'tribe-alerts' ), self::FIELD_POST_TYPE_ARCHIVES )
+			Select::make( esc_html__( 'Apply the selected rule to the following Post Type Archives:', 'tribe' ), self::FIELD_POST_TYPE_ARCHIVES )
 				->choices( array_reduce(
 					get_post_types( [
 						'public'             => true,
