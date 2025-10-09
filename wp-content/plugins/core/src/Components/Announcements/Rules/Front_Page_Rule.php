@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tribe\Plugin\Components\Announcements\Rules;
 
@@ -34,4 +34,5 @@ class Front_Page_Rule implements Rule_Interface {
 	public function get_name(): string {
 		return 'front_page';
 	}
+
 }

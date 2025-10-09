@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tribe\Plugin\Components\Announcements\Rules;
 
@@ -150,7 +150,9 @@ class Page_Visibility_Rule implements Rule_Interface {
 		foreach ( $included_pages as $page ) {
 			if ( is_object( $page ) && isset( $page->ID ) && $page->ID === $current_post_id ) {
 				return true;
-			} elseif ( is_numeric( $page ) && (int) $page === $current_post_id ) {
+			}
+
+			if ( is_numeric( $page ) && (int) $page === $current_post_id ) {
 				return true;
 			}
 		}
@@ -172,11 +174,14 @@ class Page_Visibility_Rule implements Rule_Interface {
 		foreach ( $excluded_pages as $page ) {
 			if ( is_object( $page ) && isset( $page->ID ) && $page->ID === $current_post_id ) {
 				return false; // This page is excluded
-			} elseif ( is_numeric( $page ) && (int) $page === $current_post_id ) {
+			}
+
+			if ( is_numeric( $page ) && (int) $page === $current_post_id ) {
 				return false; // This page is excluded
 			}
 		}
 
 		return true; // Not in excluded list, so show
 	}
+
 }

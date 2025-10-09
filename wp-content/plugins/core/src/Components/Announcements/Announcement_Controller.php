@@ -54,9 +54,7 @@ class Announcement_Controller extends Abstract_Controller {
 	/**
 	 * Add a rule to the processing pipeline
 	 *
-	 * @param Rule_Interface $rule
-	 *
-	 * @return self
+	 * @param \Tribe\Plugin\Components\Announcements\Rules\Rule_Interface $rule
 	 */
 	public function add_rule( Rule_Interface $rule ): self {
 		$this->rules[] = $rule;
@@ -93,10 +91,11 @@ class Announcement_Controller extends Abstract_Controller {
 			'posts_per_page' => -1,
 			'orderby'        => [
 				'menu_order' => 'ASC',
-				'date' => 'DESC'
+				'date'       => 'DESC',
 			],
 		] );
 
 		return $query->posts;
 	}
+
 }

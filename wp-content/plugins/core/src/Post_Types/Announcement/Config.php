@@ -10,15 +10,15 @@ class Config extends Post_Type_Config {
 
 	public function get_args(): array {
 		return [
-			'hierarchical' => false,
-			'has_archive' => false,
-			'public' => false,
-			'show_ui' => true,
+			'hierarchical'     => false,
+			'has_archive'      => false,
+			'public'           => false,
+			'show_ui'          => true,
 			'enter_title_here' => esc_html__( 'Enter Announcement Title', 'tribe' ),
-			'map_meta_cap' => true,
-			'supports' => [ 'title' ],
-			'menu_icon' => 'dashicons-megaphone',
-			'capability_type' => 'post',
+			'map_meta_cap'     => true,
+			'supports'         => [ 'title' ],
+			'menu_icon'        => 'dashicons-megaphone',
+			'capability_type'  => 'post',
 		];
 	}
 

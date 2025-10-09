@@ -29,14 +29,11 @@ class Scheduling_Rule implements Rule_Interface {
 		}
 
 		// Check if current time is before end time (if set).
-		if ( ! empty( $end_time ) && $current_time > (int) $end_time ) {
-			return false;
-		}
-
-		return true;
+		return  empty( $end_time ) || $current_time <= (int) $end_time;
 	}
 
 	public function get_name(): string {
 		return 'scheduling';
 	}
+
 }

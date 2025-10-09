@@ -16,4 +16,5 @@ class Placement_Rule implements Rule_Interface {
 	public function get_name(): string {
 		return 'placement';
 	}
+
 }

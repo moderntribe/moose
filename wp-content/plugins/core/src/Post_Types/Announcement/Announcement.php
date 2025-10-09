@@ -6,6 +6,6 @@ use Tribe\Plugin\Post_Types\Post_Object;
 
 class Announcement extends Post_Object {
 
-    public const NAME = 'announcement';
+	public const NAME = 'announcement';
 
 }

@@ -1,4 +1,4 @@
-<?php declare( strict_types=1 );
+<?php declare(strict_types=1);
 
 namespace Tribe\Plugin\Object_Meta\Post_Types;
 
@@ -116,14 +116,14 @@ class Announcement_Meta extends Meta_Object {
 				->returnFormat( 'U' )
 				->column( 50 )
 				->conditionalLogic([
-					ConditionalLogic::where( self::SCHEDULED, '==', 1 )
+					ConditionalLogic::where( self::SCHEDULED, '==', 1 ),
 				]),
 			DateTimePicker::make( esc_html__( 'End Date', 'tribe' ), self::SCHEDULING_END_TIME )
 				->displayFormat( 'd/m/Y g:i a' )
 				->returnFormat( 'U' )
 				->column( 50 )
 				->conditionalLogic([
-					ConditionalLogic::where( self::SCHEDULED, '==', 1 )
+					ConditionalLogic::where( self::SCHEDULED, '==', 1 ),
 				]),
 			RadioButton::make( esc_html__( 'Select a rule', 'tribe-alerts' ), self::FIELD_RULES_DISPLAY_TYPE )
 				->choices( [
@@ -214,13 +214,14 @@ class Announcement_Meta extends Meta_Object {
 		];
 	}
 
-	private function get_allowed_post_types(): array {
-		return \acf_get_post_types( [ 'exclude' => [ Announcement::NAME, 'attachment' ] ] );
-	}
-
 	public function get_locations(): array {
 		return [
 			Location::where( 'post_type', '=', Announcement::NAME ),
 		];
 	}
+
+	private function get_allowed_post_types(): array {
+		return \acf_get_post_types( [ 'exclude' => [ Announcement::NAME, 'attachment' ] ] );
+	}
+
 }
