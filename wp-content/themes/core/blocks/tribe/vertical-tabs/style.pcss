@@ -23,16 +23,17 @@
 	padding: var(--spacer-40);
 	border-left: 3px solid var(--color-neutral-30);
 
-	&[aria-selected="true"],
-	&.editor-is-selected{
-		border-color: var(--color-blue);
+	/* CASE: Dark Themes */
+	:--dark-themes & {
+		border-color: var(--color-neutral-50);
 	}
 
-	.is-style-dark & {
-		border-left-color: var(--color-neutral-70);
+	&[aria-selected="true"],
+  &.editor-is-selected {
+		border-color: var(--color-blue);
 
-		&[aria-selected="true"],
-		&.editor-is-selected {
+		/* CASE: Dark Themes */
+		:--dark-themes & {
 			border-color: var(--color-white);
 		}
 	}
@@ -68,6 +69,11 @@
 
 	.b-vertical-tabs__tab[aria-selected="true"] & {
 		color: var(--color-blue);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			color: var(--color-white);
+		}
 	}
 
 	.is-style-dark & {
