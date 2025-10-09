@@ -6,6 +6,17 @@
 
 @import '_variables.pcss';
 
+@keyframes tab-content-fade-in {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 /* -------------------------------------------------------------------------
  * Vertical Tabs - Wrapper
  * ------------------------------------------------------------------------- */
@@ -28,9 +39,11 @@
 	cursor: pointer;
 	padding: var(--spacer-40);
 	border-left: 3px solid var(--vertical-tabs-border-color);
+	transition: var(--transition);
 
 	&[aria-selected="true"],
   	&.editor-is-selected {
+		pointer-events: none;
 		border-color: var(--vertical-tabs-border-selected-color);
 	}
 
@@ -54,6 +67,7 @@
 
 	.b-vertical-tabs__tab[aria-selected="true"] & {
 		display: block;
+		animation: tab-content-fade-in 0.15s ease-in-out;
 	}
 }
 
@@ -66,6 +80,15 @@
 	.b-vertical-tabs__tab[aria-selected="true"] & {
 		color: var(--vertical-tabs-title-selected-color);
 	}
+
+	@media (--has-hover) {
+
+		.b-vertical-tabs__tab:not([aria-selected="true"]):hover &,
+		.b-vertical-tabs__tab:not(.editor-is-selected):hover & {
+
+			@mixin t-animated-underline-hover;
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------
@@ -76,5 +99,17 @@
 
 	@media (--mq-wp-small-max) {
 		display: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Inner Blocks
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tab {
+
+	&:focus-visible {
+
+		@mixin focus-visible;
 	}
 }

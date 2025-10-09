@@ -189,7 +189,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 												}
 												allowedFormats={ [] }
 												placeholder={ __(
-													'A tab heading',
+													'Tab Heading',
 													'tribe'
 												) }
 											/>
@@ -239,7 +239,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 													'core/italic',
 												] }
 												placeholder={ __(
-													'Some tab content that describes the tab.',
+													'Tab Description',
 													'tribe'
 												) }
 											/>
@@ -257,7 +257,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 					onClick={ () => addNewTab() }
 					className="b-vertical-tabs__editor-add-tab"
 				>
-					{ __( 'Add Tab', 'tribe' ) }
+					{ __( 'Add New Tab', 'tribe' ) }
 				</Button>
 			</div>
 			<div { ...innerBlocksProps } />
