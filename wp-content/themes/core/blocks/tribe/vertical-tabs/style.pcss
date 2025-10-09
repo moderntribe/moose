@@ -108,6 +108,12 @@
 
 .wp-block-tribe-vertical-tab {
 
+	/* fade in animation when switching tabs */
+	&:not([hidden]) {
+		animation: tab-content-fade-in 0.15s ease-in-out;
+	}
+
+	/* make sure tab gets focus visible state */
 	&:focus-visible {
 
 		@mixin focus-visible;
