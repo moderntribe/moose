@@ -7,6 +7,13 @@ use Tribe\Plugin\Object_Meta\Post_Types\Announcement_Meta;
 class Scheduling_Rule implements Rule_Interface {
 
 	public function passes( \WP_Post $announcement, array $context ): bool {
+		$enabled_raw = get_field( Announcement_Meta::SCHEDULED, $announcement->ID );
+		$enabled     = $enabled_raw === true || $enabled_raw === 1 || $enabled_raw === '1';
+
+		if ( ! $enabled ) {
+			return true;
+		}
+
 		$start_time   = get_field( Announcement_Meta::SCHEDULING_START_TIME, $announcement->ID );
 		$end_time     = get_field( Announcement_Meta::SCHEDULING_END_TIME, $announcement->ID );
 		$current_time = $context['current_time'] ?? current_time( 'U' );
