@@ -8,9 +8,9 @@
 	"icon": "block-default",
 	"description": "A dynamic block to render CPT Announcements",
 	"attributes": {
-		"exampleTextControl": {
+		"placement": {
 			"type": "string",
-			"default": ""
+			"default": "top"
 		}
 	},
 	"supports": {
