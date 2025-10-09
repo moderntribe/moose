@@ -4,6 +4,12 @@
  *
  * ------------------------------------------------------------------------- */
 
+@import '_variables.pcss';
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Wrapper
+ * ------------------------------------------------------------------------- */
+
 .b-vertical-tabs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -21,21 +27,11 @@
 .b-vertical-tabs__tab {
 	cursor: pointer;
 	padding: var(--spacer-40);
-	border-left: 3px solid var(--color-neutral-30);
-
-	/* CASE: Dark Themes */
-	:--dark-themes & {
-		border-color: var(--color-neutral-50);
-	}
+	border-left: 3px solid var(--vertical-tabs-border-color);
 
 	&[aria-selected="true"],
-  &.editor-is-selected {
-		border-color: var(--color-blue);
-
-		/* CASE: Dark Themes */
-		:--dark-themes & {
-			border-color: var(--color-white);
-		}
+  	&.editor-is-selected {
+		border-color: var(--vertical-tabs-border-selected-color);
 	}
 
 	&:focus-visible {
@@ -68,19 +64,7 @@
 .b-vertical-tabs__tab-title {
 
 	.b-vertical-tabs__tab[aria-selected="true"] & {
-		color: var(--color-blue);
-
-		/* CASE: Dark Themes */
-		:--dark-themes & {
-			color: var(--color-white);
-		}
-	}
-
-	.is-style-dark & {
-
-		.b-vertical-tabs__tab[aria-selected="true"] & {
-			color: var(--color-white);
-		}
+		color: var(--vertical-tabs-title-selected-color);
 	}
 }
 
