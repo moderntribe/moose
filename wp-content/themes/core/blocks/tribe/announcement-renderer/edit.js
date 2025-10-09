@@ -3,12 +3,12 @@ import ServerSideRender from '@wordpress/server-side-render';
 
 import './editor.pcss';
 
-export default function Edit() {
+export default function Edit({ attributes }) {
 	const blockProps = useBlockProps();
 
 	return (
 		<div { ...blockProps }>
-			<ServerSideRender block="tribe/announcement-renderer" />
+			<ServerSideRender block="tribe/announcement-renderer" attributes={attributes} />
 		</div>
 	);
 }
