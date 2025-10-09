@@ -140,14 +140,14 @@
 	}
 
 	/* CASE: Dark Theme */
-	.is-style-dark & {
+	:--dark-themes & {
 		color: var(--color-white);
 
 		&:is(a) {
 
 			&:hover,
 			&:focus {
-				color: var(--color-white);
+				color: var(--color-neutral-10);
 			}
 		}
 	}
@@ -194,7 +194,7 @@
 	}
 
 	/* CASE: Dark Theme */
-	.is-style-dark & {
+	:--dark-themes & {
 		background-color: var(--color-white);
 		color: var(--color-black);
 

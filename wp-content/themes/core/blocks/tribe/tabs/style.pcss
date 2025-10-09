@@ -17,7 +17,7 @@
 	padding: 0;
 	margin-top: 0;
 	margin-bottom: 0;
-	border-bottom: 3px solid var(--theme-border-color, var(--color-neutral-20));
+	border-bottom: 3px solid var(--color-neutral-20);
 }
 
 /* keep this for allowing previous versions of the block to still work */
@@ -36,11 +36,7 @@
 	border: 0;
 	cursor: pointer;
 	white-space: nowrap;
-	color: var(--color-text);
-
-	.is-style-dark & {
-		color: var(--color-white);
-	}
+	color: var(--color-black);
 
 	&[aria-selected="true"] {
 		color: var(--color-blue);
@@ -54,6 +50,20 @@
 			top: 100%;
 			left: 0;
 			background-color: var(--color-blue);
+		}
+	}
+
+	/* CASE: Dark and Brand styles */
+	:--dark-themes & {
+		color: var(--color-white);
+
+		&[aria-selected="true"] {
+			color: var(--color-black);
+			background-color: var(--color-white);
+
+			&::after {
+				background-color: var(--color-white);
+			}
 		}
 	}
 }

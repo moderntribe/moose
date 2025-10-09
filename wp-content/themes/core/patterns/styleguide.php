@@ -8,8 +8,8 @@
  * Keywords: styleguide, text, buttons, quote, image, table
  */
 ?>
-<!-- wp:group {"align":"full","className":"is-style-default","layout":{"type":"constrained"}} -->
-<div class="wp-block-group is-style-default"><!-- wp:heading {"level":1} -->
+<!-- wp:group {"metadata":{"name":"Style Guide"},"align":"wide","className":"alignwide","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide"><!-- wp:heading {"level":1} -->
 	<h1 class="wp-block-heading">Building a braver, brighter, better connected world.</h1>
 	<!-- /wp:heading -->
 
