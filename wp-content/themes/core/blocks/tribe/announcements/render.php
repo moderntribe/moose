@@ -42,9 +42,9 @@ if ( in_array( $theme, $dark_themes ) ) {
 
 		<?php // @phpstan-ignore-next-line
 		if ( $cta_label && $cta_url ) : ?>
-			<div class="wp-block-buttons b-announcement__cta-wrapper">
-				<span class="wp-block-button is-style-<?php echo esc_attr( $cta_style ); ?> tribe-button-has-icon">
-					<a href="<?php echo esc_url( $cta_url ); ?>" class="wp-block-button__link wp-element-button b-announcement__cta u-<?php echo esc_attr( $cta_style ); ?>-button-reset"><?php echo esc_html( $cta_label ); ?></a>
+			<div class="b-announcement__cta-wrapper l-flex">
+				<span class="b-announcement__cta">
+					<a href="<?php echo esc_url( $cta_url ); ?>" class="a-btn-<?php echo esc_attr( $cta_style ); ?>"><?php echo esc_html( $cta_label ); ?></a>
 				</span>
 			</div>
 		<?php endif; ?>
