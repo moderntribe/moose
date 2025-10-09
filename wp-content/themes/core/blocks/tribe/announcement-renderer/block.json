@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "tribe/announcement-renderer",
 	"version": "0.1.0",
-	"title": "announcement Renderer",
+	"title": "Announcement Renderer",
 	"category": "theme",
 	"icon": "block-default",
 	"description": "A dynamic block to render CPT Announcements",
