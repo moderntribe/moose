@@ -12,6 +12,7 @@ use Tribe\Theme\blocks\core\columns\Columns;
 use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\gallery\Gallery;
+use Tribe\Theme\blocks\core\group\Group;
 use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
@@ -46,7 +47,10 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/copyright',
 				'tribe/horizontal-tab',
 				'tribe/horizontal-tabs',
+				'tribe/icon-card',
 				'tribe/icon-picker',
+				'tribe/image-card',
+				'tribe/image-overlay-card',
 				'tribe/logo-marquee',
 				'tribe/masthead-search',
 				'tribe/mega-menu-item',
@@ -69,6 +73,7 @@ class Blocks_Definer implements Definer_Interface {
 				DI\get( Details::class ),
 				DI\get( Embed::class ),
 				DI\get( Gallery::class ),
+				DI\get( Group::class ),
 				DI\get( Heading::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),

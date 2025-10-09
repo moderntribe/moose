@@ -1,0 +1,47 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Image Overlay Card - Styles - Editor Only
+ *
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-image-overlay-card,
+.wp-block-tribe-image-overlay-card > div {
+	height: 100%;
+}
+
+/* -------------------------------------------------------------------------
+ * Image Overlay Card - Buttons
+ * ------------------------------------------------------------------------- */
+
+.editor-styles-wrapper .b-image-overlay-card__buttons {
+
+	.wp-block-button__link {
+
+		.wp-block-button.is-style-ghost & {
+			color: var(--color-blue) !important;
+		}
+	}
+
+	/**
+	 * CASE: Card Dark Mode
+	 * Regardless of outer themes, the cards have their own themes and inner elements must respect this.
+	 */
+	.b-image-overlay-card--dark-theme & {
+
+		.wp-block-button__link {
+
+			.wp-block-button.is-style-ghost & {
+				color: var(--color-white) !important;
+			}
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Image Overlay Card - Link Overlay
+ * Don't display the link overlay in the editor
+ * ------------------------------------------------------------------------- */
+
+.b-image-overlay-card__link-overlay {
+	display: none !important;
+}
