@@ -14,4 +14,11 @@ class Lists extends Block_Base {
 		return 'core/lists';
 	}
 
+	public function get_block_styles(): array {
+		return [
+			'arrow' => __( 'Arrow', 'tribe' ),
+			'check' => __( 'Check', 'tribe' ),
+		];
+	}
+
 }

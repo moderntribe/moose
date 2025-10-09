@@ -139,6 +139,9 @@ module.exports = {
 			common: resolve( './wp-content/themes/core/assets/js/common' ),
 			config: resolve( './wp-content/themes/core/assets/js/config' ),
 			blocks: resolve( './wp-content/themes/core/blocks' ),
+			components: resolve(
+				'./wp-content/themes/core/assets/js/components'
+			),
 		},
 	},
 	entry: {

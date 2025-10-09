@@ -22,4 +22,22 @@
 		}
 	}
 
+	/* -----------------------------------------------------------------------
+	* Sticky
+	* Uses sticky positioning to keep elements in view while scrolling
+	* ----------------------------------------------------------------------- */
+
+	.wp-block-column.tribe-is-sticky {
+
+		@media (--mq-wp-adminbar) {
+			align-self: flex-start;
+			position: sticky;
+			top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--spacer-50)); /* stylelint-disable-line */
+
+			.editor-styles-wrapper & {
+				top: 0;
+			}
+		}
+	}
+
 }

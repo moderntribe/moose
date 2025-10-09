@@ -7,7 +7,9 @@
 		cursor: pointer;
 		list-style: none;
 		position: relative;
-		padding-right: 20px;
+		padding-right: var(--spacer-60);
+		padding-top: var(--spacer-40);
+		padding-bottom: var(--spacer-40);
 
 		/**
 		* Arrow
@@ -26,6 +28,20 @@
 			background-color: currentcolor;
 			transition: var(--transition);
 		}
+
+		&:hover,
+		&:focus:not(:focus-visible),
+		&:active {
+			text-decoration: underline;
+		}
+	}
+
+	summary + * {
+		margin-top: 0;
+	}
+
+	& > :last-child {
+		padding-bottom: var(--spacer-40);
 	}
 
 	/**
