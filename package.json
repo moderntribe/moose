@@ -16,8 +16,8 @@
 		"not op_mini all"
 	],
 	"engines": {
-		"node": ">=22.14.0",
-		"npm": ">=10.2.3"
+		"node": ">=22.14",
+		"npm": ">=11.6"
 	},
 	"config": {
 		"coreThemeDir": "./wp-content/themes/core",
@@ -44,7 +44,7 @@
 		"browser-sync-v3-webpack-plugin": "^0.1.0",
 		"cssnano": "^7.0.6",
 		"fast-glob": "^3.3.3",
-		"lefthook": "^1.11.8",
+		"lefthook": "^1.13.6",
 		"postcss-import": "^16.1.0",
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-mixins": "^12.1",
