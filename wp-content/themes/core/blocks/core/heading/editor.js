@@ -9,6 +9,9 @@ const settings = {
 		useHangingPunctuation: {
 			type: 'boolean',
 		},
+		useSpanTag: {
+			type: 'boolean',
+		},
 	},
 	blocks: [ 'core/heading' ],
 	controls: [
@@ -32,6 +35,17 @@ const settings = {
 				'tribe'
 			),
 			label: __( 'Use Hanging Punctuation', 'tribe' ),
+			type: 'toggle',
+		},
+		{
+			applyClass: 'is-decorative-heading',
+			attribute: 'useSpanTag',
+			defaultValue: false,
+			label: __( 'Decorative Heading', 'tribe' ),
+			helpText: __(
+				'Uses <span> instead of heading tags for accessibility.',
+				'tribe'
+			),
 			type: 'toggle',
 		},
 	],
