@@ -45,9 +45,9 @@ if ( $animation_classes !== '' ) {
 			</div>
 		</div>
 		<?php if ( $link_url ) : ?>
-			<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex b-icon-card__buttons" aria-hidden="true">
-				<div class="wp-block-button is-style-ghost">
-					<span class="wp-block-button__link"><?php echo esc_html( $link_text ); ?></span>
+			<div class="b-icon-card__buttons l-flex" aria-hidden="true">
+				<div class="b-icon-card__button">
+					<span class="a-btn-ghost"><?php echo esc_html( $link_text ); ?></span>
 				</div>
 			</div>
 		<?php endif; ?>
