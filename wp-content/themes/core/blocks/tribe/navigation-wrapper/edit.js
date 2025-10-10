@@ -1,3 +1,4 @@
+import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	InnerBlocks,
@@ -14,12 +15,15 @@ export default function Edit( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<PanelBody title="Accessibility" initialOpen={ true }>
 					<TextControl
-						label="ARIA label"
+						label={ __( 'ARIA label', 'tribe' ) }
 						value={ ariaLabel }
 						onChange={ ( value ) =>
 							setAttributes( { ariaLabel: value } )
 						}
-						help="Describes the purpose of this navigation for screen readers."
+						help={ __(
+							'Describes the purpose of this navigation for screen readers.',
+							'tribe'
+						) }
 					/>
 				</PanelBody>
 			</InspectorControls>
