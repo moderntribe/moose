@@ -9,6 +9,7 @@ class Theme_Support {
 	 */
 	public function add_theme_supports(): void {
 		$this->remove_support_block_widgets();
+		$this->support_wistia();
 	}
 
 	/**
@@ -43,6 +44,10 @@ class Theme_Support {
 	 */
 	private function remove_support_block_widgets(): void {
 		remove_theme_support( 'widgets-block-editor' );
+	}
+
+	private function support_wistia(): void {
+		wp_oembed_add_provider( 'https://*.wistia.com/*', 'https://fast.wistia.com/oembed', false );
 	}
 
 }
