@@ -16,7 +16,6 @@
 }
 
 .site-header {
-	background: var(--masthead-navigation-background-color);
 	z-index: 10;
 
 	@media (--mq-navigation-max) {
@@ -53,6 +52,11 @@
 			display: none;
 		}
 	}
+}
+
+/* Container element for all content inside the site header */
+.site-header__container {
+	background: var(--masthead-navigation-background-color);
 }
 
 /* Utility Navigation Styles */
