@@ -1,13 +1,17 @@
 <!-- wp:group {"align":"full","className":"alignfull","style":{"spacing":{"blockGap":"var:preset|spacing|10","padding":{"right":"0","left":"0"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch","verticalAlignment":"center"}} -->
 <div class="wp-block-group alignfull" style="padding-right:0;padding-left:0"><!-- wp:group {"align":"full","className":"alignfull","layout":{"type":"constrained","justifyContent":"right"}} -->
-<div class="wp-block-group alignfull"><!-- wp:template-part {"slug":"utility-menu","theme":"core","tagName":"ul","area":"uncategorized","className":"site-header__utility-menu aligngrid"} /--></div>
+<div class="wp-block-group alignfull"><!-- wp:tribe/navigation-wrapper -->
+<nav aria-label="Site utility navigation" class="wp-block-tribe-navigation-wrapper"><!-- wp:template-part {"slug":"utility-menu","theme":"core","tagName":"ul","area":"uncategorized","className":"site-header__utility-menu aligngrid"} /--></nav>
+<!-- /wp:tribe/navigation-wrapper --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","className":"site-header__primary-menu alignfull","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group site-header__primary-menu alignfull" style="margin-top:0;margin-bottom:0"><!-- wp:group {"className":"site-header__navigation-wrapper aligngrid","style":{"spacing":{"padding":{"bottom":"0"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"top"}} -->
 <div class="wp-block-group site-header__navigation-wrapper aligngrid" style="padding-bottom:0"><!-- wp:site-title {"level":0,"fontSize":"60"} /-->
 
-<!-- wp:template-part {"slug":"primary-menu","theme":"core","tagName":"ul","area":"uncategorized","className":"site-header__navigation"} /-->
+<!-- wp:tribe/navigation-wrapper -->
+<nav aria-label="Main site navigation" class="wp-block-tribe-navigation-wrapper"><!-- wp:template-part {"slug":"primary-menu","theme":"core","tagName":"ul","area":"uncategorized","className":"site-header__navigation"} /--></nav>
+<!-- /wp:tribe/navigation-wrapper -->
 
 <!-- wp:group {"metadata":{"name":"Masthead Features"},"className":"site-header__features","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group site-header__features"><!-- wp:tribe/masthead-search /-->
