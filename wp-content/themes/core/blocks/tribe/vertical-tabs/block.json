@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "tribe/vertical-tabs",
-	"version": "0.1.2",
+	"version": "1.0.0",
 	"title": "Vertical Tabs",
 	"category": "theme",
 	"icon": "align-pull-right",
@@ -18,42 +18,7 @@
 		},
 		"tabs": {
 			"type": "array",
-			"default": [],
-			"source": "query",
-			"selector": ".wp-block-tribe-vertical-tabs__tab",
-			"query": {
-				"id": {
-					"type": "string",
-					"source": "attribute",
-					"attribute": "aria-controls"
-				},
-				"buttonId": {
-					"type": "string",
-					"source": "attribute",
-					"attribute": "id"
-				},
-				"title": {
-					"type": "string",
-					"source": "text",
-					"selector": ".wp-block-tribe-vertical-tabs__tab-title"
-				},
-				"content": {
-					"type": "string",
-					"source": "text",
-					"selector": ".wp-block-tribe-vertical-tabs__tab-description"
-				},
-				"linkUrl": {
-					"type": "string",
-					"source": "attribute",
-					"attribute": "href",
-					"selector": ".wp-block-button__link"
-				},
-				"linkText": {
-					"type": "string",
-					"source": "text",
-					"selector": ".wp-block-button__link"
-				}
-			}
+			"default": []
 		}
 	},
 	"supports": {
@@ -71,5 +36,6 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
 }
