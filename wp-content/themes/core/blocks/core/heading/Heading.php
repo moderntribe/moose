@@ -9,7 +9,6 @@ class Heading extends Block_Base {
 	public function __construct( string $assets_folder = 'dist/assets/' ) {
 		parent::__construct( $assets_folder );
 
-		// Register the render_block filter to transform heading tags to span when needed
 		add_filter( 'render_block', [ $this, 'render_heading_as_span' ], 10, 2 );
 	}
 
