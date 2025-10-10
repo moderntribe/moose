@@ -3,7 +3,7 @@ recipe: wordpress
 
 config:
   php: '8.3'
-  database: mariadb:11.5
+  database: mariadb:11.4
   composer_version: 2-latest
   via: nginx
   xdebug: false
