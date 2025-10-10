@@ -13,7 +13,10 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Accessibility" initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Accessibility', 'tribe' ) }
+					initialOpen={ true }
+				>
 					<TextControl
 						label={ __( 'ARIA label', 'tribe' ) }
 						value={ ariaLabel }
