@@ -1,0 +1,428 @@
+# Site Navigation Block System
+
+## Overview
+
+The site navigation system is built using a collection of custom WordPress blocks that provide flexible, accessible, and maintainable navigation structures. This system replaces traditional WordPress menu systems with a more modern block-based approach.
+
+## Block Architecture
+
+### Block Hierarchy
+
+The navigation system consists of four main blocks that work together:
+
+1. **Navigation Wrapper** (`tribe/navigation-wrapper`) - Structural container
+2. **Mega Menu Item** (`tribe/mega-menu-item`) - Complex dropdown menus
+3. **Standard Menu Item** (`tribe/standard-menu-item`) - Simple menu items with optional dropdowns
+4. **Navigation Link** (`tribe/navigation-link`) - Individual link items
+
+## Block Details
+
+### 1. Navigation Wrapper (`tribe/navigation-wrapper`)
+
+**Purpose**: A structural block that wraps menu items in a semantic `<nav>` tag with no added styles.
+
+**Location**: `wp-content/themes/core/blocks/tribe/navigation-wrapper/`
+
+**Features**:
+- Provides semantic HTML structure with `<nav>` element
+- Supports `aria-label` attribute for accessibility
+- No visual styling (purely structural)
+- Supports inner blocks and alignment
+- Acts as a container for menu items
+
+**Attributes**:
+- `ariaLabel` (string) - Accessible label for the navigation
+
+**Usage**:
+```html
+<nav aria-label="Main Navigation">
+  <!-- Menu items go here -->
+</nav>
+```
+
+### 2. Mega Menu Item (`tribe/mega-menu-item`)
+
+**Purpose**: Enhanced dropdown menus with rich content capabilities for complex navigation structures.
+
+**Location**: `wp-content/themes/core/blocks/tribe/mega-menu-item/`
+
+**Features**:
+- Configurable menu toggle label
+- Uses pattern template (`patterns/mega-dropdown`) for consistent content structure
+- Supports complex layouts and rich content within dropdowns
+- JavaScript interactions for opening/closing mega menus
+- Event-driven architecture with custom events
+- Full width layouts and grid alignment support
+
+**Attributes**:
+- `menuToggleLabel` (string) - Text label for the top-level navigation button
+
+**Template Structure**:
+- Uses `patterns/mega-dropdown` pattern for inner content
+- Allows for complex layouts with multiple columns, images, and rich content
+
+**JavaScript Interactions**:
+- Toggle mega menu visibility on click
+- Close on outside click or Escape key
+- Mutual exclusivity with other open menus
+- Custom event triggers for integration with other components
+
+### 3. Standard Menu Item (`tribe/standard-menu-item`)
+
+**Purpose**: Simple menu items with optional dropdown functionality for basic navigation needs.
+
+**Location**: `wp-content/themes/core/blocks/tribe/standard-menu-item/`
+
+**Features**:
+- Toggle for enabling simple dropdown submenus
+- Only allows `tribe/navigation-link` as child blocks
+- Configurable menu toggle label when used as dropdown
+- Lightweight alternative to mega menu items
+- Perfect for simple link lists
+
+**Attributes**:
+- `hasSubMenu` (boolean) - Enables dropdown functionality
+- `menuToggleLabel` (string) - Text label when used as dropdown toggle
+
+**Allowed Child Blocks**:
+- `tribe/navigation-link` only
+
+**Editor Controls**:
+- Toggle control for "Simple Dropdown" functionality
+- Text control for menu toggle label (when dropdown is enabled)
+
+### 4. Navigation Link (`tribe/navigation-link`)
+
+**Purpose**: Individual link items within menu structures.
+
+**Location**: `wp-content/themes/core/blocks/tribe/navigation-link/`
+
+**Features**:
+- Rich text editing for link text
+- URL configuration with WordPress LinkControl component
+- Target/new window option
+- Can only be used as child of `tribe/standard-menu-item`
+- Proper link management with unlink functionality
+
+**Attributes**:
+- `text` (string) - Link text content
+- `url` (string) - Link destination URL
+- `target` (boolean) - Open in new window/tab
+
+**Parent Restrictions**:
+- Can only be used within `tribe/standard-menu-item` blocks
+
+**Editor Features**:
+- Inline text editing
+- Link control popover for URL management
+- Toolbar controls for link/unlink actions
+
+## JavaScript Architecture
+
+### Event System
+
+The navigation blocks use a custom event-driven architecture for coordination:
+
+**Custom Events**:
+- `modern_tribe/mega_menu_open` - Triggered when mega menu opens
+- `modern_tribe/standard_menu_open` - Triggered when standard menu opens
+- `modern_tribe/close_on_escape` - Triggered on Escape key press
+- `modern_tribe/search_open` - Integration with search overlay
+- `modern_tribe/off_nav_click` - Click outside navigation area
+
+### State Management
+
+Each menu type maintains its own state:
+
+```javascript
+const state = {
+  menuActive: false,    // Is any menu currently open
+  activeItem: '',       // Reference to currently active menu item
+};
+```
+
+### Key Functions
+
+**Mega Menu Item** (`mega-menu-item/view.js`):
+- `cacheElements()` - Cache DOM references
+- `maybeResetMenuItems()` - Close all active menus
+- `openMenuItem(wrapper)` - Open specific mega menu
+- `closeMenuItem(wrapper)` - Close specific mega menu
+- `handleItemToggle(event)` - Handle click events
+- `handleClickOutside(event)` - Close on outside clicks
+
+**Standard Menu Item** (`standard-menu-item/view.js`):
+- Similar structure to mega menu with lightweight implementation
+- Handles simple dropdown functionality
+- Integrates with the same event system
+
+### Integration Points
+
+The navigation system integrates with:
+- **Masthead Search**: Closes menus when search is opened
+- **Mobile Menu**: Coordination with mobile navigation states
+- **Keyboard Navigation**: Escape key closes all menus
+- **Resize Events**: Responsive behavior handling
+
+## Styling Architecture
+
+### CSS Structure
+
+Each block has its own stylesheet:
+- `style.pcss` - Frontend styles
+- `editor.pcss` - Editor-specific styles
+- Compiled to `style-index.css` and `index.css`
+
+### BEM Methodology
+
+The blocks follow BEM (Block Element Modifier) naming:
+
+```css
+.wp-block-tribe-mega-menu-item { }
+.wp-block-tribe-mega-menu-item__toggle { }
+.wp-block-tribe-mega-menu-item--active { }
+```
+
+### Responsive Design
+
+- Mobile-first approach
+- Integration with existing `HEADER_BREAKPOINT` configuration
+- Conditional behavior based on screen size
+
+## HTML Structure & Implementation
+
+### Utility Menu Structure
+
+```html
+<!-- Navigation Wrapper (outer container) -->
+<nav class="wp-block-tribe-navigation-wrapper">
+  <!-- Template part with enforced ul tag -->
+  <ul class="site-header__utility-menu">
+    
+    <!-- Standard menu item with submenu -->
+    <li class="wp-block-tribe-standard-menu-item">
+      <button class="tribe-standard-menu-item__toggle">
+        <span class="tribe-standard-menu-item__toggle-label">Menu Label</span>
+      </button>
+      <div class="site-header__standard-menu-item-wrapper">
+        <a href="/link1" class="wp-block-tribe-navigation-link">Link 1</a>
+        <a href="/link2" class="wp-block-tribe-navigation-link">Link 2</a>
+      </div>
+    </li>
+    
+    <!-- Simple menu item (no submenu) -->
+    <li class="wp-block-tribe-standard-menu-item">
+      <a href="/simple-link" class="wp-block-tribe-navigation-link">Simple Link</a>
+    </li>
+    
+  </ul>
+</nav>
+```
+
+### Primary Menu Structure
+
+```html
+<!-- Navigation Wrapper (outer container) -->
+<nav class="wp-block-tribe-navigation-wrapper">
+  <!-- Template part with enforced ul tag -->
+  <ul class="site-header__navigation">
+    
+    <!-- Mega menu item (complex dropdown) -->
+    <li class="wp-block-tribe-mega-menu-item">
+      <button class="tribe-mega-menu-item__toggle">Mega Menu Label</button>
+      <div class="site-header__mega-menu-item-wrapper">
+        <div class="wp-block-group mega-menu-item__dropdown">
+          <!-- Complex layout content via patterns/mega-dropdown -->
+        </div>
+      </div>
+    </li>
+    
+    <!-- Simple menu item (no submenu) -->
+    <li class="wp-block-tribe-standard-menu-item">
+      <a href="/simple-link" class="wp-block-tribe-navigation-link">Simple Link</a>
+    </li>
+    
+  </ul>
+</nav>
+```
+
+## Template Implementation Notes
+
+### Important Template Configuration
+
+1. **Template Part Requirements**: 
+   - The `<ul>` tag must be manually enforced in `header.html` template part
+   - Use `"tagName":"ul"` attribute in template part configuration
+   - Classes `site-header__utility-menu` and `site-header__navigation` are applied to these `<ul>` elements
+
+2. **Block Structure Hierarchy**:
+   - Navigation Wrapper provides the `<nav>` container
+   - Template part provides the `<ul>` list container
+   - Menu item blocks provide `<li>` list items
+   - Navigation link blocks provide `<a>` anchor elements
+
+3. **CSS Class Patterns**:
+   - Block classes: `wp-block-tribe-{block-name}`
+   - Component classes: `tribe-{component}__element`
+   - Layout classes: `site-header__{section}`
+
+## Usage Examples
+
+### Basic Navigation Setup
+
+```html
+<!-- Navigation Wrapper -->
+<nav aria-label="Main Navigation" class="wp-block-tribe-navigation-wrapper">
+  
+  <!-- Simple Link -->
+  <div class="wp-block-tribe-standard-menu-item">
+    <a href="/about" class="wp-block-tribe-navigation-link">About</a>
+  </div>
+  
+  <!-- Standard Dropdown -->
+  <div class="wp-block-tribe-standard-menu-item">
+    <button class="tribe-standard-menu-item__toggle">Services</button>
+    <div class="site-header__standard-menu-item-wrapper">
+      <a href="/web-design" class="wp-block-tribe-navigation-link">Web Design</a>
+      <a href="/development" class="wp-block-tribe-navigation-link">Development</a>
+    </div>
+  </div>
+  
+  <!-- Mega Menu -->
+  <div class="wp-block-tribe-mega-menu-item">
+    <button class="tribe-mega-menu-item__toggle">Products</button>
+    <div class="site-header__mega-menu-item-wrapper">
+      <!-- Complex layout with patterns/mega-dropdown -->
+    </div>
+  </div>
+  
+</nav>
+```
+
+### Editor Experience
+
+1. **Add Navigation Wrapper** - Start with the structural container
+2. **Choose Menu Type** - Add either Standard Menu Items or Mega Menu Items
+3. **Configure Settings** - Use Inspector Controls for labels and behavior
+4. **Add Links** - Use Navigation Link blocks within Standard Menu Items
+5. **Design Mega Menus** - Use patterns and inner blocks for complex layouts
+
+## Accessibility Features
+
+### Semantic HTML
+- Proper `<nav>` elements with `aria-label`
+- Button elements for interactive toggles
+- Proper link elements for navigation
+
+### Keyboard Navigation
+- Escape key closes all open menus
+- Focus management for dropdown interactions
+- Screen reader friendly markup
+
+### ARIA Attributes
+- `aria-label` on navigation containers
+- `aria-expanded` states on toggle buttons
+- `aria-hidden` for collapsed content
+
+## Performance Considerations
+
+### JavaScript
+- Event delegation for efficient event handling
+- Minimal DOM queries with element caching
+- Lightweight state management
+- No external dependencies
+
+### CSS
+- Component-scoped styles prevent conflicts
+- Minimal CSS footprint per block
+- Efficient selector patterns
+
+### Loading
+- Separate view scripts only load when blocks are present
+- Editor scripts only load in admin context
+- Styles are compiled and minified
+
+## Development Guidelines
+
+### Adding New Navigation Features
+
+1. **Follow Block Pattern** - Use existing blocks as templates
+2. **Maintain Event System** - Use custom events for coordination
+3. **Cache Elements** - Always cache DOM references in `cacheElements()`
+4. **Test Integration** - Ensure compatibility with existing navigation
+5. **Update Documentation** - Keep this file current with changes
+
+### Customization Points
+
+- **Patterns**: Modify `patterns/mega-dropdown` for mega menu layouts
+- **Styles**: Extend block stylesheets for visual customization
+- **Events**: Add custom event listeners for additional functionality
+- **Templates**: Modify block templates for different default structures
+
+## File Structure
+
+```
+wp-content/themes/core/blocks/tribe/
+├── navigation-wrapper/
+│   ├── block.json
+│   ├── edit.js
+│   ├── index.js
+│   ├── save.js
+│   └── style.pcss
+├── mega-menu-item/
+│   ├── block.json
+│   ├── edit.js
+│   ├── editor.pcss
+│   ├── index.js
+│   ├── save.js
+│   ├── style.pcss
+│   └── view.js
+├── standard-menu-item/
+│   ├── block.json
+│   ├── edit.js
+│   ├── editor.pcss
+│   ├── index.js
+│   ├── save.js
+│   ├── style.pcss
+│   └── view.js
+└── navigation-link/
+    ├── block.json
+    ├── edit.js
+    ├── editor.pcss
+    ├── index.js
+    ├── save.js
+    └── style.pcss
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Menus Not Opening**:
+- Check if JavaScript is loaded properly
+- Verify element caching in browser console
+- Ensure click events are bound correctly
+
+**Styling Issues**:
+- Check CSS compilation and loading
+- Verify BEM class naming consistency
+- Ensure no CSS conflicts with theme styles
+
+**Integration Problems**:
+- Check custom event firing and listening
+- Verify state management across components
+- Test with other masthead components (search, mobile menu)
+
+### Debugging
+
+Enable debug mode to see event firing:
+```javascript
+// Add to view.js files for debugging
+console.log('Menu event:', eventType, element);
+```
+
+Check element caching:
+```javascript
+// Verify elements are found
+console.log('Cached elements:', el);
+```
