@@ -7,6 +7,42 @@
 	"category": "theme",
 	"icon": "megaphone",
 	"description": "A block to display globally configured announcements",
+	"attributes": {
+		"announcement_id": {
+			"type": "number",
+			"default": 0
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"body": {
+			"type": "string",
+			"default": ""
+		},
+		"cta_label": {
+			"type": "string",
+			"default": ""
+		},
+		"cta_link": {
+			"type": "string",
+			"default": ""
+		},
+		"cta_style": {
+			"type": "string",
+			"default": "primary",
+			"enum": ["primary", "secondary", "tertiary"]
+		},
+		"theme": {
+			"type": "string",
+			"default": "light",
+			"enum": ["light", "brand", "black", "error"]
+		},
+		"dismissible": {
+			"type": "boolean",
+			"default": false
+		}
+	},
 	"supports": {
 		"html": false,
 		"alignCustom": [ "wide", "grid", "full" ],

@@ -4,13 +4,13 @@
  * @var array $attributes The block attributes.
  */
 
-$post_id     = $attributes['announcement_id'] ?? 0;
+$post_id     = $attributes['announcement_id'] ?? get_the_ID();
 $heading     = $attributes['heading'];
 $body        = $attributes['body'];
 $cta_label   = $attributes['cta_label'];
 $cta_url     = $attributes['cta_link'];
 $cta_style   = $attributes['cta_style'];
-$align       = $attributes['align'];
+$align       = $attributes['align'] ?? 'center';
 $theme       = $attributes['theme'];
 $dismissible = $attributes['dismissible'];
 $dark_themes = [ 'brand', 'black', 'error' ];
