@@ -4,7 +4,7 @@
  * @var array $attributes The block attributes.
  */
 
-$post_id     = $attributes['announcement_id'] ?? get_the_ID();
+$post_id     = $attributes['announcement_id'] ?: get_the_ID();
 $heading     = $attributes['heading'];
 $body        = $attributes['body'];
 $cta_label   = $attributes['cta_label'];

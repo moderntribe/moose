@@ -16,15 +16,8 @@ import './editor.pcss';
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
 
-	const {
-		heading,
-		body,
-		ctaLabel,
-		ctaLink,
-		ctaStyle,
-		theme,
-		dismissible,
-	} = attributes;
+	const { heading, body, ctaLabel, ctaLink, ctaStyle, theme, dismissible } =
+		attributes;
 
 	const darkThemes = [ 'brand', 'black', 'error' ];
 	const isDark = darkThemes.includes( theme );
@@ -53,7 +46,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<TextControl
 						label={ __( 'CTA URL', 'tribe' ) }
-						value={ ctaLabel }
+						value={ ctaLink }
 						onChange={ ( value ) =>
 							setAttributes( { ctaLink: value } )
 						}
