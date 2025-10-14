@@ -4,6 +4,11 @@
  *
  * ------------------------------------------------------------------------- */
 
+/* always allow tab to be interacted with in editor */
+.b-vertical-tabs__tab {
+	pointer-events: auto !important;
+}
+
 /* always show hidden content in editor (visibility controlled by block) */
 .b-vertical-tabs__tab-hidden {
 	display: block !important;
