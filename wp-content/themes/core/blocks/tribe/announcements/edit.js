@@ -135,7 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<span className="b-announcement__cta">
 								<a
 									href={ ctaLink }
-									className={ `a-btn-${ ctaLink }` }
+									className={ `a-btn-${ ctaStyle }` }
 								>
 									{ ctaLabel }
 								</a>
