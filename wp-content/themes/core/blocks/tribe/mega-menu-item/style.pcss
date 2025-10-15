@@ -5,7 +5,6 @@
  * ------------------------------------------------------------------------- */
 
 .wp-block-tribe-mega-menu-item {
-	background-color: var(--color-white);
 	color: var(--color-text);
 
 	.mega-menu-item__dropdown {
@@ -44,6 +43,7 @@
 
 	@media (--mq-navigation-max) {
 		width: 100%;
+		font-size: var(--font-size-40);
 		text-align: left;
 		padding-left: 0;
 	}
@@ -54,14 +54,13 @@
 		height: 4px;
 		background-color: var(--masthead-navigation-accent-color);
 		position: absolute;
-		bottom: -1px;
+		bottom: -4px;
 		left: var(--spacer-10);
 		transition: width 0.15s ease-in-out;
 		z-index: 11;
 
 		@media (--mq-navigation-max) {
-			left: 0;
-			transition-duration: 0.25s;
+			display: none;
 		}
 	}
 
@@ -81,7 +80,7 @@
 	}
 
 	&:hover,
-	&:focus-visible,
+	&:active,
 	.menu-item-active & {
 		outline: none;
 		color: var(--masthead-navigation-accent-color);
@@ -91,9 +90,22 @@
 		}
 
 		@media (--mq-navigation-max) {
+			outline: revert;
+			color: var(--color-text);
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--masthead-navigation-accent-color);
+	}
+
+	/*  Hide border on closed menu items, even when hovered or active */
+	:not(.menu-item-active) & {
+
+		@media (--mq-navigation-max) {
 
 			&::before {
-				width: 100%;
+				width: 0;
 			}
 		}
 	}
@@ -109,10 +121,9 @@
 /* enhanced menu pattern wrapper */
 .site-header__mega-menu-item-wrapper {
 	width: 100%;
-	padding: var(--spacer-20) 0;
+	padding: var(--spacer-10) 0 var(--spacer-20);
 	background-color: var(--masthead-navigation-background-color);
 	color: var(--masthead-navigation-text-color);
-	border-top: 1px solid var(--masthead-navigation-border-color);
 	container-type: inline-size;
 	container-name: megamenu;
 	display: none;
@@ -128,6 +139,7 @@
 		z-index: 10;
 		padding: var(--spacer-50) var(--wp--style--root--padding-right);
 		box-shadow: var(--masthead-navigation-shadow);
+		border-top: 1px solid var(--masthead-navigation-border-color);
 
 		> * {
 			margin: 0 auto;
