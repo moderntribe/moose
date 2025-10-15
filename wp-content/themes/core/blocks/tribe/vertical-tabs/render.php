@@ -28,7 +28,7 @@ if ( $animation_classes !== '' ) {
 			$tab_id          = $tab['id'];
 			$tab_button_id   = $tab['buttonId'];
 			$tab_title       = $tab['title'];
-			$tab_description = $tab['content'];
+			$tab_description = $tab['content'] ?? '';
 			?>
 			<div
 				id="<?php echo esc_attr( $tab_button_id ); ?>"
@@ -40,7 +40,9 @@ if ( $animation_classes !== '' ) {
 			>
 				<span class="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top t-animated-underline"><?php echo esc_html( $tab_title ); ?></span>
 				<div class="b-vertical-tabs__tab-hidden">
-					<span class="b-vertical-tabs__tab-description t-body"><?php echo wp_kses_post( $tab_description ); ?></span>
+					<?php if ( $tab_description ) : ?>
+						<span class="b-vertical-tabs__tab-description t-body"><?php echo wp_kses_post( $tab_description ); ?></span>
+					<?php endif; ?>
 				</div>
 			</div>
 		<?php endforeach; ?>
