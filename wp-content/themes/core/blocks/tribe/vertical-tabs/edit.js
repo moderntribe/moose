@@ -178,7 +178,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 											} }
 										>
 											<RichText
-												tagName="h3"
+												tagName="span"
 												className="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top"
 												value={ tab.title }
 												onChange={ ( value ) =>
@@ -225,7 +225,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 									{ tab.isSelected ? (
 										<div className="b-vertical-tabs__tab-hidden">
 											<RichText
-												tagName="p"
+												tagName="span"
 												className="b-vertical-tabs__tab-content"
 												value={ tab.content }
 												onChange={ ( value ) =>

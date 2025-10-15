@@ -38,9 +38,9 @@ if ( $animation_classes !== '' ) {
 				aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
 				tabindex="<?php echo $index === 0 ? '0' : '-1'; ?>"
 			>
-				<h3 class="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top t-animated-underline"><?php echo esc_html( $tab_title ); ?></h3>
+				<span class="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top t-animated-underline"><?php echo esc_html( $tab_title ); ?></span>
 				<div class="b-vertical-tabs__tab-hidden">
-					<p class="b-vertical-tabs__tab-description"><?php echo wp_kses_post( $tab_description ); ?></p>
+					<span class="b-vertical-tabs__tab-description"><?php echo wp_kses_post( $tab_description ); ?></span>
 				</div>
 			</div>
 		<?php endforeach; ?>
