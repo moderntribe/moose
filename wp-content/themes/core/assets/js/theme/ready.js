@@ -12,7 +12,6 @@ import resize from 'common/resize.js';
 import viewportDims from 'common/viewport-dims.js';
 
 import animateOnScroll from './animate-on-scroll.js';
-import postCards from './post-cards.js';
 
 /**
  * @function bindEvents
@@ -44,10 +43,6 @@ const init = () => {
 	// initialize animation on scroll
 
 	animateOnScroll();
-
-	// initialize post cards dynamic styles
-
-	postCards();
 
 	// conditionally load core/details animation fix
 	const coreDetailsEls = document.querySelectorAll( '.wp-block-details' );
