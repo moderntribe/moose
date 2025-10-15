@@ -17,7 +17,7 @@ if ( $animation_classes !== '' ) {
 	$classes .= ' ' . $animation_classes;
 }
 ?>
-<div <?php echo get_block_wrapper_attributes( [ 'class' => $classes, 'style' => $animation_styles ] ); ?>>
+<div <?php echo get_block_wrapper_attributes( [ 'class' => $classes, 'style' => $animation_styles ] ); ?> data-js="tabs-block">
 	<div class="b-vertical-tabs__tab-container" role="tablist">
 		<?php foreach ( $tabs as $index => $tab ) : ?>
 			<?php
@@ -36,7 +36,7 @@ if ( $animation_classes !== '' ) {
 				aria-controls="<?php echo esc_attr( $tab_id ); ?>"
 				role="tab"
 				aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
-				tabindex="<?php echo $index === 0 ? '-1' : '0'; ?>"
+				tabindex="<?php echo $index === 0 ? '0' : '-1'; ?>"
 			>
 				<h3 class="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top t-animated-underline"><?php echo esc_html( $tab_title ); ?></h3>
 				<div class="b-vertical-tabs__tab-hidden">

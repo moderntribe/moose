@@ -137,7 +137,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 			return {
 				clientId: tab.clientId,
 				id: tab.attributes.blockId,
-				buttonId: 'button-' + tab.attributes.blockId,
+				buttonId: 'vt-button-' + tab.attributes.blockId,
 				title: tab.attributes.title,
 				content: tab.attributes.content,
 				isSelected:
