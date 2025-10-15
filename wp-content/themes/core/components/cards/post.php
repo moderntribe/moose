@@ -28,8 +28,7 @@ $author           = get_the_author_meta( 'display_name', $author_id );
 $date             = get_the_date( 'M j, Y' );
 $permalink        = get_the_permalink( $post_id );
 
-$classes = 'c-post-card';
-$classes .= 'c-post-card__layout-' . $layout;
+$classes = 'c-post-card c-post-card__layout-' . $layout;
 $styles  = '';
 if ( $animation_attributes ) {
 	$classes .= ' ';
