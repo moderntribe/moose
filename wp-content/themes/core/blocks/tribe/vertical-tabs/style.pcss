@@ -72,10 +72,11 @@
 }
 
 /* -------------------------------------------------------------------------
- * Vertical Tabs - Tab Content (Description)
+ * Vertical Tabs - Tab Title
  * ------------------------------------------------------------------------- */
 
 .b-vertical-tabs__tab-title {
+	display: block;
 
 	.b-vertical-tabs__tab[aria-selected="true"] & {
 		color: var(--vertical-tabs-title-selected-color);
@@ -93,6 +94,15 @@
 
 /* -------------------------------------------------------------------------
  * Vertical Tabs - Tab Content (Description)
+ * ------------------------------------------------------------------------- */
+
+.b-vertical-tabs__tab-description {
+	display: block;
+	margin-top: var(--spacer-30);
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Content
  * ------------------------------------------------------------------------- */
 
 .b-vertical-tabs__tab-content {

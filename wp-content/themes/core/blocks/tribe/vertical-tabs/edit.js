@@ -226,7 +226,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 										<div className="b-vertical-tabs__tab-hidden">
 											<RichText
 												tagName="span"
-												className="b-vertical-tabs__tab-content"
+												className="b-vertical-tabs__tab-description t-body"
 												value={ tab.content }
 												onChange={ ( value ) =>
 													updateTabAttributes(

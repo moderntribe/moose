@@ -40,7 +40,7 @@ if ( $animation_classes !== '' ) {
 			>
 				<span class="b-vertical-tabs__tab-title t-display-xx-small s-remove-margin--top t-animated-underline"><?php echo esc_html( $tab_title ); ?></span>
 				<div class="b-vertical-tabs__tab-hidden">
-					<span class="b-vertical-tabs__tab-description"><?php echo wp_kses_post( $tab_description ); ?></span>
+					<span class="b-vertical-tabs__tab-description t-body"><?php echo wp_kses_post( $tab_description ); ?></span>
 				</div>
 			</div>
 		<?php endforeach; ?>
