@@ -16,58 +16,30 @@
 	/* Column-end borders for horizontal layout cards */
 	/* Default: single column (mobile) - all cards get bottom border */
 	&.c-post-card__layout-horizontal {
-		border-bottom: 1px solid var(--border-primary, #000);
-		padding-bottom: var(--cards-query-interior-padding, 40px);
-	}
-
-	/* 2 columns (tablet+) - reset bottom border, then apply to even-numbered items */
-	.wp-block-post-template.columns-2 &.c-post-card__layout-horizontal {
-
-		@media (--mq-tablet) {
-			border-bottom: none;
-			padding-bottom: 0;
-
-			&:nth-child(2n) {
-				border-bottom: 1px solid var(--border-primary, #000);
-				padding-bottom: var(--cards-query-interior-padding, 40px);
-			}
-		}
-	}
-
-	.wp-block-post-template.columns-4 &.c-post-card__layout-horizontal {
-
-		@media (--mq-tablet) {
-			border-bottom: none;
-			padding-bottom: 0;
-
-			&:nth-child(2n) {
-				border-bottom: 1px solid var(--border-primary, #000);
-				padding-bottom: var(--cards-query-interior-padding, 40px);
-			}
+		/* Bottom row styling based on grandparent column classes */
+		.columns-2 li:nth-last-child(-n+2) & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
 		}
 
-		@media (--mq-desktop) {
-			border-bottom: none;
-			padding-bottom: 0;
-
-			&:nth-child(4n) {
-				border-bottom: 1px solid var(--border-primary, #000);
-				padding-bottom: var(--cards-query-interior-padding, 40px);
-			}
+		.columns-3 li:nth-last-child(-n+3) & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
 		}
-	}
 
-	/* 3 columns (desktop) - reset bottom border, then apply to every 3rd item */
-	.wp-block-post-template.columns-3 &.c-post-card__layout-horizontal {
+		.columns-4 li:nth-last-child(-n+4) & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
+		}
 
-		@media (--mq-desktop) {
-			border-bottom: none;
-			padding-bottom: 0;
+		.columns-5 li:nth-last-child(-n+5) & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
+		}
 
-			&:nth-child(3n) {
-				border-bottom: 1px solid var(--border-primary, #000);
-				padding-bottom: var(--cards-query-interior-padding, 40px);
-			}
+		.columns-6 li:nth-last-child(-n+6) & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
 		}
 	}
 }
