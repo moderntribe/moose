@@ -49,9 +49,9 @@ if ( $animation_classes !== '' ) {
 	<div class="b-image-overlay-card__content">
 		<h3 class="b-image-overlay-card__title t-display-x-small"><?php echo esc_html( $title ); ?></h3>
 		<?php if ( $link_url ) : ?>
-			<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex b-image-overlay-card__buttons" aria-hidden="true">
-				<div class="wp-block-button is-style-ghost">
-					<span class="wp-block-button__link"><?php echo esc_html( $link_text ); ?></span>
+			<div class="b-image-overlay-card__buttons l-flex" aria-hidden="true">
+				<div class="b-image-overlay-card__button">
+					<span class="a-btn-ghost"><?php echo esc_html( $link_text ); ?></span>
 				</div>
 			</div>
 		<?php endif; ?>
