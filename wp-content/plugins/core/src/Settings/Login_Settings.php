@@ -17,8 +17,8 @@ class Login_Settings extends Settings_Sub_Page {
 	public function get_fields(): array {
 		return [
 			Image::make( esc_html__( 'Login Logo', 'tribe' ), self::LOGIN_LOGO )
-				->instructions( esc_html__( 'An SVG image file is the recommended file type for this image. If a PNG or JPG image is used the recommended dimensions are 900px by 200px.', 'tribe' ) )
-				->returnFormat( 'id' )
+				->helperText( esc_html__( 'An SVG image file is the recommended file type for this image. If a PNG or JPG image is used the recommended dimensions are 900px by 200px.', 'tribe' ) )
+				->format( 'id' )
 				->previewSize( 'thumbnail' ),
 		];
 	}
