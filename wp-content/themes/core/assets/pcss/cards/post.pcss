@@ -7,6 +7,45 @@
 .c-post-card {
 	position: relative;
 	container: postcard / inline-size;
+
+	&.c-post-card__layout-horizontal {
+		border-top: 1px solid var(--border-primary, #000);
+		padding-top: var(--cards-query-interior-padding, 40px);
+
+		/* Column-end borders for horizontal layout cards. Default: single column (mobile) - all cards get bottom border */
+		li:last-child & {
+			border-bottom: 1px solid var(--border-primary, #000);
+			padding-bottom: var(--cards-query-interior-padding, 40px);
+		}
+
+		/* Tablet: columns-2 and columns-4 both display as 2 columns */
+		.columns-2 li:nth-last-child(-n+2) &,
+		.columns-4 li:nth-last-child(-n+2) & {
+
+			@media (--mq-tablet) {
+				border-bottom: 1px solid var(--border-primary, #000);
+				padding-bottom: var(--cards-query-interior-padding, 40px);
+			}
+		}
+
+		/* Desktop: columns-3 displays as 3 columns */
+		.columns-3 li:nth-last-child(-n+3) & {
+
+			@media (--mq-desktop) {
+				border-bottom: 1px solid var(--border-primary, #000);
+				padding-bottom: var(--cards-query-interior-padding, 40px);
+			}
+		}
+
+		/* Desktop: columns-4 displays as 4 columns */
+		.columns-4 li:nth-last-child(-n+4) & {
+
+			@media (--mq-desktop) {
+				border-bottom: 1px solid var(--border-primary, #000);
+				padding-bottom: var(--cards-query-interior-padding, 40px);
+			}
+		}
+	}
 }
 
 /* -----------------------------------------------------------------------
@@ -17,6 +56,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacer-20);
+
+	.c-post-card__layout-horizontal & {
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: flex-end;
+		gap: var(--spacer-30);
+	}
 }
 
 /* -----------------------------------------------------------------------

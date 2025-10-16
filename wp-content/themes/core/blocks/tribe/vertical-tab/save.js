@@ -7,7 +7,7 @@ export default function save( { attributes } ) {
 		role: 'tabpanel',
 		tabindex: '0',
 		hidden: true,
-		'aria-labelledby': 'button-' + blockId,
+		'aria-labelledby': 'vt-button-' + blockId,
 	} );
 
 	return (

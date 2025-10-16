@@ -29,7 +29,7 @@ export default function save( props ) {
 								aria-controls={ tab.id }
 								role="tab"
 								aria-selected={ index === 0 ? 'true' : 'false' }
-								tabIndex={ index === 0 ? '-1' : false }
+								tabIndex={ index === 0 ? '0' : '-1' }
 							>
 								{ tab.label !== ''
 									? tab.label
