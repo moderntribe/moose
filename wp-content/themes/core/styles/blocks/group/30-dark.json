@@ -47,6 +47,9 @@
 					}
 				}
 			}
+		},
+		"spacing": {
+			"padding": "var(--spacer-30)"
 		}
 	}
 }
