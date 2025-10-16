@@ -1,0 +1,96 @@
+/* -------------------------------------------------------------------------
+ *
+ * Block - Vertical Tabs - Styles - FE / Editor
+ *
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--grid-gutter);
+
+	@media (--mq-wp-small-max) {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__tab {
+	cursor: pointer;
+	padding: var(--spacer-40);
+	border-left: 3px solid var(--color-neutral-30);
+
+	/* CASE: Dark Themes */
+	:--dark-themes & {
+		border-color: var(--color-neutral-50);
+	}
+
+	&[aria-selected="true"]  {
+		border-color: var(--color-blue);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			border-color: var(--color-white);
+		}
+	}
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
+
+	/* give tab content some space on mobile */
+	.wp-block-tribe-vertical-tab {
+		margin-top: var(--spacer-30);
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Hidden Content
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__tab-hidden {
+	display: none;
+
+	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+		display: block;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Content (Description)
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__tab-title {
+
+	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+		color: var(--color-blue);
+
+		/* CASE: Dark Themes */
+		:--dark-themes & {
+			color: var(--color-white);
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Content (Description)
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__tab-content {
+
+	@media (--mq-wp-small-max) {
+		display: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Buttons
+ * ------------------------------------------------------------------------- */
+
+.wp-block-tribe-vertical-tabs__buttons {
+	margin-top: var(--spacer-30);
+}

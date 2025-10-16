@@ -10,52 +10,74 @@
  * Post Types: post, wp_template
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Post Header"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"className":"alignwide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--50)"><!-- wp:tribe/terms {"onlyPrimaryTerm":true,"align":"center","className":"aligncenter"} /-->
+<!-- wp:group {"metadata":{"name":"Post Header"},"align":"wide","className":"alignwide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--50)"><!-- wp:tribe/terms {"onlyPrimaryTerm":true,"hasLinks":true,"align":"center","className":"aligncenter"} /-->
 
-<!-- wp:post-title {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|30"}}}} /-->
+	<!-- wp:post-title {"textAlign":"center","level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|30"}}}} /-->
 
-<!-- wp:post-author-name {"textAlign":"center","isLink":true,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} /-->
+	<!-- wp:paragraph {"align":"center","className":"is-style-large"} -->
+	<p class="has-text-align-center is-style-large">Post excerpt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+	<!-- /wp:paragraph -->
 
-<!-- wp:post-date {"textAlign":"center","fontSize":"10"} /--></div>
+	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10","padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
+	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-bottom:0"><!-- wp:post-author-name {"textAlign":"center","isLink":true,"style":{"spacing":{"margin":{"bottom":"0","top":"0","left":"0","right":"0"}}}} /-->
+
+		<!-- wp:paragraph -->
+		<p>•</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:post-date {"textAlign":"center","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"10"} /--></div>
+	<!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:post-featured-image {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40","right":"0","left":"0"}}},"className":"alignwide"} /-->
+<!-- wp:post-featured-image {"align":"wide","className":"alignwide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|60","right":"0","left":"0"}}}} /-->
 
 <!-- wp:paragraph -->
-<p>Aenean ut aliquet quam, sit amet ullamcorper dolor. Aliquam nec ultricies sem. Nunc malesuada elementum libero non accumsan. Nam at venenatis odio. Aenean euismod rhoncus nulla id varius. Ut ultrices velit vel dui gravida ullamcorper. Proin lobortis leo et venenatis consectetur. Aliquam iaculis ipsum id tristique euismod. Donec tempor a purus ut tempus.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
-<p>Integer quis lorem pulvinar nulla eleifend pretium sed quis elit. Nullam vehicula id eros vitae blandit. Fusce eu vestibulum erat. Pellentesque molestie in arcu a fermentum. Maecenas tempus vestibulum enim at fermentum. Mauris eget eleifend neque, ac varius lacus. Aliquam quis urna aliquam orci iaculis faucibus. Curabitur at justo vehicula, cursus justo quis, iaculis nisl. Sed facilisis aliquam velit vel tempus. Duis varius nibh sed quam pulvinar imperdiet. Cras turpis nulla, fermentum eget aliquet ac, rutrum id libero.</p>
-<!-- /wp:paragraph -->
+<!-- wp:group {"metadata":{"name":"Post Footer"},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}}} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40)"/>
+	<!-- /wp:separator -->
 
-<!-- wp:paragraph -->
-<p>Vestibulum posuere, ipsum vel ullamcorper consectetur, ipsum sem commodo enim, ut condimentum velit neque in ipsum. Nam pulvinar tristique justo nec tempus. In metus ipsum, porta in posuere id, congue eu felis. Fusce eu mi tristique, sagittis purus et, dictum nibh. Nulla sit amet sapien et tortor sollicitudin iaculis quis eget mauris. Ut at risus felis. Morbi ac massa quis tellus iaculis interdum et vitae nisi. Integer scelerisque condimentum imperdiet. Mauris faucibus venenatis condimentum. In eleifend hendrerit rhoncus. Quisque varius hendrerit eros sed rhoncus.</p>
-<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"className":"is-style-small"} -->
+	<p class="is-style-small">Filed under</p>
+	<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
-<p>Phasellus fermentum non nunc fringilla mollis. Quisque tincidunt, mauris in eleifend euismod, turpis augue sodales felis, quis lacinia ex leo non nisi. Proin luctus mauris rhoncus libero suscipit ornare. Nullam turpis magna, aliquam ut dictum at, commodo eu nulla. Cras aliquet volutpat tincidunt. Sed pharetra iaculis quam, id vestibulum nisi efficitur id. Maecenas ut risus a arcu volutpat placerat sed at ante. Nulla sed ultrices odio. Ut cursus imperdiet tortor, vitae sodales turpis placerat at. Proin fringilla ligula eget leo dignissim finibus. Vestibulum id quam varius, suscipit est sit amet, maximus erat.</p>
-<!-- /wp:paragraph -->
+	<!-- wp:tribe/terms {"taxonomyToUse":"post_tag","hasLinks":true,"className":"is-style-pills","style":{"spacing":{"margin":{"top":"var:preset|spacing|20"},"padding":{"top":"0"}}}} /-->
 
-<!-- wp:tribe/terms {"taxonomyToUse":"post_tag","hasLinks":true,"className":"is-style-pills","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+	<!-- wp:group {"metadata":{"name":"Post Author (Footer)","categories":["post-parts"],"patternName":"patterns/post-footer-author"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"},"padding":{"right":"0","top":"var:preset|spacing|50","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40);padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:paragraph {"className":"is-style-small"} -->
+		<p class="is-style-small">About the author</p>
+		<!-- /wp:paragraph -->
 
-<!-- wp:group {"metadata":{"name":"Related Posts"},"align":"grid","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"className":"aligngrid","layout":{"type":"default"}} -->
-<div class="wp-block-group aligngrid" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"className":"is-style-small"} -->
-<h2 class="wp-block-heading is-style-small" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40)">Related Posts</h2>
-<!-- /wp:heading -->
+		<!-- wp:post-author {"avatarSize":96,"showBio":true,"isLink":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|20"}}}} /--></div>
+	<!-- /wp:group -->
 
-<!-- wp:query {"queryId":0,"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
-<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-<!-- wp:group {"tagName":"article","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"className":"p-card-post l-clearfix","layout":{"type":"default"}} -->
-<article class="wp-block-group p-card-post l-clearfix" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:post-featured-image {"width":"100%","className":"p-card-post__image s-aspect-ratio-cover s-aspect-ratio-4-3"} /-->
+	<!-- wp:group {"metadata":{"name":"Share Post"},"style":{"spacing":{"blockGap":"var:preset|spacing|15"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-small"} -->
+		<p class="is-style-small">Share this page</p>
+		<!-- /wp:paragraph -->
 
-<!-- wp:post-terms {"term":"category","separator":"","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"className":"p-card-post__categories"} /-->
+		<!-- wp:outermost/social-sharing {"iconColor":"base-black","iconColorValue":"#000000","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"},"blockGap":{"left":"var:preset|spacing|20"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+		<ul class="wp-block-outermost-social-sharing has-normal-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--10)"><!-- wp:outermost/social-sharing-link {"service":"linkedin","label":"Share on LinkedIn"} /-->
 
-<!-- wp:post-title {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}}},"className":"p-card-post__title","fontSize":"40"} /-->
+			<!-- wp:outermost/social-sharing-link {"service":"x","label":"Share on X"} /-->
 
-<!-- wp:read-more {"className":"p-card-post__link a-link-cover"} /--></article>
+			<!-- wp:outermost/social-sharing-link {"service":"facebook"} /-->
+
+			<!-- wp:outermost/social-sharing-link {"service":"telegram"} /-->
+
+			<!-- wp:outermost/social-sharing-link {"service":"whatsapp"} /--></ul>
+		<!-- /wp:outermost/social-sharing --></div>
+	<!-- /wp:group --></div>
 <!-- /wp:group -->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
+
+<!-- wp:group {"metadata":{"name":"Related Posts"},"className":"aligngrid","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group aligngrid" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"className":"is-style-small","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}}} -->
+	<h2 class="wp-block-heading is-style-small" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40)">Related Posts</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:tribe/related-posts /--></div>
 <!-- /wp:group -->

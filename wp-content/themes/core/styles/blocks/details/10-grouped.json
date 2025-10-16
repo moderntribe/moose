@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "grouped",
+	"title": "Grouped",
+	"blockTypes": [ "core/details" ],
+	"styles": {
+		"border": {
+			"top": {
+				"width": "0"
+			}
+		},
+		"spacing": {
+			"margin": {
+				"top": "0"
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "rounded",
+	"title": "Rounded",
+	"blockTypes": [ "core/image" ],
+	"styles": {
+		"border": {
+			"radius": "var(--border-radius-l)"
+		}
+	}
+}

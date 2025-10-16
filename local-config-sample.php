@@ -10,9 +10,9 @@
 
 /**
  * Lando local development
- * uncomment below to use the lando settings for local development.
+ *
+ * If you're not using Lando, you'll need to set these values manually.
  */
-/** This will ensure these are only loaded on Lando */
 if ( getenv( 'LANDO_INFO' ) ) {
 	$lando_info      = json_decode( getenv( 'LANDO_INFO' ) );
 	$database_config = $lando_info->database;
@@ -21,6 +21,17 @@ if ( getenv( 'LANDO_INFO' ) ) {
 	define( 'DB_PASSWORD', $database_config->creds->password );
 	define( 'DB_HOST', $database_config->internal_connection->host );
 }
+
+/**
+ * Multisite Config
+ *
+ * Note that there are already multisite config values defined in wp-config-environment.php.
+ * These are the only values that need to be overridden to fully enable multisite.
+ */
+// define( 'WP_ALLOW_MULTISITE', true );
+// define( 'MULTISITE', true );
+// define( 'SUBDOMAIN_INSTALL', false );
+// define( 'DOMAIN_CURRENT_SITE', 'moose.lndo.site' );
 
 /**
  * Set the current environment type. Accepted values:
@@ -36,6 +47,16 @@ if ( getenv( 'LANDO_INFO' ) ) {
 if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
 	define( 'WP_ENVIRONMENT_TYPE', 'local' );
 }
+
+/**
+ * Set the development mode for WordPress.
+ * Options are 'all', 'core', 'plugin', 'theme', or ''.
+ * 'all' allows us to bypass pattern caching for local development.
+ *
+ * @link https://make.wordpress.org/core/2023/10/17/improvements-to-template-loading-in-wordpress-6-4/
+ * @link https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/
+ */
+define( 'WP_DEVELOPMENT_MODE', 'all' );
 
 /*
  * Glomar

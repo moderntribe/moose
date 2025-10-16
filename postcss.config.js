@@ -55,13 +55,19 @@ const plugins = [
 	[
 		'postcss-mixins',
 		{
-			mixinsFiles: `${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+			mixinsFiles: [
+				`${ pkg.config.coreThemeDir }/assets/pcss/**/_mixins.pcss`,
+				`${ pkg.config.coreThemeDir }/blocks/**/_mixins.pcss`,
+			],
 		},
 	],
 	[
 		'postcss-inline-svg',
 		{
-			paths: [ `${ pkg.config.coreThemeDir }/assets/media/icons` ],
+			paths: [
+				`${ pkg.config.coreThemeDir }/assets/media/icons`,
+				`${ pkg.config.coreThemeDir }/blocks/tribe/rating-stars/icons`,
+			],
 		},
 	],
 	[

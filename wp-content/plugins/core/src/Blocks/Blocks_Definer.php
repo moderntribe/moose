@@ -5,15 +5,19 @@ namespace Tribe\Plugin\Blocks;
 use DI;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Core\Interfaces\Definer_Interface;
-use Tribe\Theme\bindings\Post_Permalink;
-use Tribe\Theme\bindings\Post_Type_Name;
 use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
+use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
+use Tribe\Theme\blocks\core\gallery\Gallery;
+use Tribe\Theme\blocks\core\group\Group;
+use Tribe\Theme\blocks\core\heading\Heading;
 use Tribe\Theme\blocks\core\image\Image;
 use Tribe\Theme\blocks\core\lists\Lists;
+use Tribe\Theme\blocks\core\paragraph\Paragraph;
+use Tribe\Theme\blocks\core\postauthor\Post_Author;
 use Tribe\Theme\blocks\core\postauthorname\Post_Author_Name;
 use Tribe\Theme\blocks\core\posttemplate\Post_Template;
 use Tribe\Theme\blocks\core\postterms\Post_Terms;
@@ -29,27 +33,53 @@ use Tribe\Theme\blocks\outermost\socialsharing\Social_Sharing;
 
 class Blocks_Definer implements Definer_Interface {
 
-	public const TYPES    = 'blocks.types';
-	public const EXTENDED = 'blocks.extended';
-	public const CORE     = 'blocks.core';
-	public const PATTERNS = 'blocks.patterns';
-	public const FILTERS  = 'blocks.filters';
-	public const BINDINGS = 'blocks.bindings';
+	public const string TYPES    = 'blocks.types';
+	public const string EXTENDED = 'blocks.extended';
+	public const string PATTERNS = 'blocks.patterns';
+	public const string FILTERS  = 'blocks.filters';
+	public const string BINDINGS = 'blocks.bindings';
 
 	public function define(): array {
 		return [
 			self::TYPES           => DI\add( [
-				'tribe/terms',
+				'tribe/carousel',
+				'tribe/carousel-slide',
 				'tribe/copyright',
+				'tribe/horizontal-tab',
+				'tribe/horizontal-tabs',
+				'tribe/icon-card',
+				'tribe/icon-picker',
+				'tribe/image-card',
+				'tribe/image-overlay-card',
+				'tribe/logo-marquee',
+				'tribe/navigation-wrapper',
+				'tribe/masthead-search',
+				'tribe/mega-menu-item',
+				'tribe/menu-toggle',
+				'tribe/navigation-link',
+				'tribe/post-card',
+				'tribe/rating-stars',
+				'tribe/related-posts',
+				'tribe/search-card',
+				'tribe/standard-menu-item',
+				'tribe/terms',
+				'tribe/vertical-tab',
+				'tribe/vertical-tabs',
 			] ),
 
 			self::EXTENDED        => DI\add( [
 				DI\get( Button::class ),
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
+				DI\get( Details::class ),
 				DI\get( Embed::class ),
+				DI\get( Gallery::class ),
+				DI\get( Group::class ),
+				DI\get( Heading::class ),
 				DI\get( Image::class ),
 				DI\get( Lists::class ),
+				DI\get( Paragraph::class ),
+				DI\get( Post_Author::class ),
 				DI\get( Post_Author_Name::class ),
 				DI\get( Post_Template::class ),
 				DI\get( Post_Terms::class ),
@@ -71,8 +101,6 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::BINDINGS        => DI\add( [
-				DI\get( Post_Permalink::class ),
-				DI\get( Post_Type_Name::class ),
 				DI\get( Query_Results_Count::class ),
 			] ),
 
