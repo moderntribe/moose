@@ -4,7 +4,24 @@
  *
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs {
+@import '_variables.pcss';
+
+@keyframes tab-content-fade-in {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Wrapper
+ * ------------------------------------------------------------------------- */
+
+.b-vertical-tabs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--grid-gutter);
@@ -18,23 +35,16 @@
  * Vertical Tabs - Tab
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab {
+.b-vertical-tabs__tab {
 	cursor: pointer;
 	padding: var(--spacer-40);
-	border-left: 3px solid var(--color-neutral-30);
+	border-left: 3px solid var(--vertical-tabs-border-color);
+	transition: var(--transition);
 
-	/* CASE: Dark Themes */
-	:--dark-themes & {
-		border-color: var(--color-neutral-50);
-	}
-
-	&[aria-selected="true"]  {
-		border-color: var(--color-blue);
-
-		/* CASE: Dark Themes */
-		:--dark-themes & {
-			border-color: var(--color-white);
-		}
+	&[aria-selected="true"],
+  	&.editor-is-selected {
+		pointer-events: none;
+		border-color: var(--vertical-tabs-border-selected-color);
 	}
 
 	&:focus-visible {
@@ -52,26 +62,32 @@
  * Vertical Tabs - Tab Hidden Content
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-hidden {
+.b-vertical-tabs__tab-hidden {
 	display: none;
 
-	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
+	.b-vertical-tabs__tab[aria-selected="true"] & {
 		display: block;
+		animation: tab-content-fade-in 0.15s ease-in-out;
 	}
 }
 
 /* -------------------------------------------------------------------------
- * Vertical Tabs - Tab Content (Description)
+ * Vertical Tabs - Tab Title
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-title {
+.b-vertical-tabs__tab-title {
+	display: block;
 
-	.wp-block-tribe-vertical-tabs__tab[aria-selected="true"] & {
-		color: var(--color-blue);
+	.b-vertical-tabs__tab[aria-selected="true"] & {
+		color: var(--vertical-tabs-title-selected-color);
+	}
 
-		/* CASE: Dark Themes */
-		:--dark-themes & {
-			color: var(--color-white);
+	@media (--has-hover) {
+
+		.b-vertical-tabs__tab:not([aria-selected="true"]):hover &,
+		.b-vertical-tabs__tab:not(.editor-is-selected):hover & {
+
+			@mixin t-animated-underline-hover;
 		}
 	}
 }
@@ -80,7 +96,16 @@
  * Vertical Tabs - Tab Content (Description)
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__tab-content {
+.b-vertical-tabs__tab-description {
+	display: block;
+	margin-top: var(--spacer-30);
+}
+
+/* -------------------------------------------------------------------------
+ * Vertical Tabs - Tab Content
+ * ------------------------------------------------------------------------- */
+
+.b-vertical-tabs__tab-content {
 
 	@media (--mq-wp-small-max) {
 		display: none;
@@ -88,9 +113,19 @@
 }
 
 /* -------------------------------------------------------------------------
- * Vertical Tabs - Tab Buttons
+ * Vertical Tabs - Tab Inner Blocks
  * ------------------------------------------------------------------------- */
 
-.wp-block-tribe-vertical-tabs__buttons {
-	margin-top: var(--spacer-30);
+.wp-block-tribe-vertical-tab {
+
+	/* fade in animation when switching tabs */
+	&:not([hidden]) {
+		animation: tab-content-fade-in 0.15s ease-in-out;
+	}
+
+	/* make sure tab gets focus visible state */
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
 }

@@ -8,7 +8,7 @@ export default function Edit( { context, setAttributes } ) {
 	const TAB_TEMPLATE = [ [ 'core/paragraph' ] ];
 	const activeTab =
 		context[ 'tribe/vertical-tabs/currentActiveTabInstanceId' ];
-	const instanceId = useInstanceId( Edit, 'tab-content' );
+	const instanceId = useInstanceId( Edit, 'vt-tab-content' );
 	const blockProps = useBlockProps( {
 		className: activeTab === instanceId ? 'active-tab' : '',
 	} );
