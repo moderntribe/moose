@@ -11,6 +11,10 @@
 		"headingLevel": {
 			"type": "string",
 			"default": "h3"
+		},
+		"layout": {
+			"type": "string",
+			"default": "vertical"
 		}
 	},
 	"supports": {

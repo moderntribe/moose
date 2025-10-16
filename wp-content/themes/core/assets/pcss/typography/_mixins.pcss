@@ -140,14 +140,14 @@
 	}
 
 	/* CASE: Dark Theme */
-	.is-style-dark & {
+	:--dark-themes & {
 		color: var(--color-white);
 
 		&:is(a) {
 
 			&:hover,
 			&:focus {
-				color: var(--color-white);
+				color: var(--color-neutral-10);
 			}
 		}
 	}
@@ -194,7 +194,7 @@
 	}
 
 	/* CASE: Dark Theme */
-	.is-style-dark & {
+	:--dark-themes & {
 		background-color: var(--color-white);
 		color: var(--color-black);
 
@@ -223,4 +223,22 @@
 
 @define-mixin t-transparent-underline-hover {
 	text-decoration-color: currentcolor;
+}
+
+/* -------------------------------------------------------------------------
+ * Animated Underline
+ * ------------------------------------------------------------------------- */
+
+@define-mixin t-animated-underline {
+	display: inline;
+	background-image: linear-gradient(currentcolor, currentcolor);
+	background-size: 0 0.05em;
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	transition: background-size 0.3s;
+	text-decoration: none !important; /* override block editor default */
+}
+
+@define-mixin t-animated-underline-hover {
+	background-size: 100% 0.05em;
 }

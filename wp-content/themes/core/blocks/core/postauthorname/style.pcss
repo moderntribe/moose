@@ -12,6 +12,14 @@
 		content: "By ";
 		color: var(--color-black) !important;
 	}
+
+	/* CASE: Dark / Brand themes */
+	:--dark-themes & {
+
+		&::before {
+			color: var(--color-white) !important;
+		}
+	}
 }
 
 /**
@@ -24,5 +32,15 @@
 	&:hover,
 	&:focus {
 		color: var(--color-neutral-80);
+	}
+
+	/* CASE: Dark / Brand themes */
+	:--dark-themes & {
+		color: var(--color-white);
+
+		&:hover,
+		&:focus {
+			color: var(--color-neutral-10);
+		}
 	}
 }

@@ -52,32 +52,70 @@
 }
 
 /* -------------------------------------------------------------------------
- * Group block - Dark Theme
+ * Group block - White / Light Theme
  * Everything here unfortunately needs to have !important rules due to the
  * current nature of the WP block variations.
  * ------------------------------------------------------------------------- */
 
-.is-style-dark .wp-block-button {
+:--light-themes {
 
-	.wp-block-button__link {
+	.wp-block-button {
 
-		:is(.is-style-outlined) & {
-			border-color: var(--color-white) !important;
-			color: var(--color-white) !important;
+		.wp-block-button__link {
 
-			&:hover,
-			&:focus {
-				background-color: var(--color-white) !important;
+			:is(.is-style-outlined) & {
+				border-color: var(--color-black) !important;
 				color: var(--color-black) !important;
+
+				&:hover,
+				&:focus {
+					background-color: var(--color-black) !important;
+					color: var(--color-white) !important;
+				}
+			}
+
+			:is(.is-style-ghost) & {
+				color: var(--color-blue) !important;
+
+				&:hover,
+				&:focus {
+					color: var(--color-dark-blue) !important;
+				}
 			}
 		}
+	}
+}
 
-		:is(.is-style-ghost) & {
-			color: var(--color-white) !important;
+/* -------------------------------------------------------------------------
+ * Group block - Dark / Brand Themes
+ * Everything here unfortunately needs to have !important rules due to the
+ * current nature of the WP block variations.
+ * ------------------------------------------------------------------------- */
 
-			&:hover,
-			&:focus {
-				color: var(--color-neutral-20) !important;
+:--dark-themes {
+
+	.wp-block-button {
+
+		.wp-block-button__link {
+
+			:is(.is-style-outlined) & {
+				border-color: var(--color-white) !important;
+				color: var(--color-white) !important;
+
+				&:hover,
+				&:focus {
+					background-color: var(--color-white) !important;
+					color: var(--color-black) !important;
+				}
+			}
+
+			:is(.is-style-ghost) & {
+				color: var(--color-white) !important;
+
+				&:hover,
+				&:focus {
+					color: var(--color-neutral-20) !important;
+				}
 			}
 		}
 	}

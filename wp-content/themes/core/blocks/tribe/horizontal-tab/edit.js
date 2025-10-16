@@ -5,7 +5,8 @@ import { useEffect } from '@wordpress/element';
 import './editor.pcss';
 
 export default function Edit( { context, setAttributes } ) {
-	const activeTab = context[ 'tribe/tabs/currentActiveTabInstanceId' ];
+	const activeTab =
+		context[ 'tribe/horizontal-tabs/currentActiveTabInstanceId' ];
 	const instanceId = useInstanceId( Edit, 'tab-content' );
 	const blockProps = useBlockProps( {
 		className: activeTab === instanceId ? 'active-tab' : '',
