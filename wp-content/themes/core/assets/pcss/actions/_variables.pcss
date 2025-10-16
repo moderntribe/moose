@@ -14,6 +14,31 @@
 
 	--themed-link-text-color: var(--color-black);
 	--themed-link-hover-text-color: var(--color-blue);
+	--border-primary: var(--color-black);
+
+	/* -----------------------------------------------------------------------
+	 * Focus
+	 * ----------------------------------------------------------------------- */
+
+	--color-focus-contrast-light: var(--color-black); /* outer border */
+	--color-focus-contrast-dark: var(--color-white); /* inner border */
+}
+
+/* -------------------------------------------------------------------------
+ *
+ * Color Theme: White / Light
+ *
+ * ------------------------------------------------------------------------- */
+
+:--light-themes {
+
+	/* -----------------------------------------------------------------------
+	 * Themed Color Properties
+	 * ----------------------------------------------------------------------- */
+
+	--themed-link-text-color: var(--color-black);
+	--themed-link-hover-text-color: var(--color-blue);
+	--border-primary: var(--color-black);
 
 	/* -----------------------------------------------------------------------
 	 * Focus
@@ -29,14 +54,15 @@
  *
  * ------------------------------------------------------------------------- */
 
-.wp-block-group.is-style-dark {
+:--dark-theme {
 
 	/* -----------------------------------------------------------------------
 	 * Themed Color Properties
 	 * ----------------------------------------------------------------------- */
 
 	--themed-link-text-color: var(--color-white);
-	--themed-link-hover-text-color: var(--color-blue);
+	--themed-link-hover-text-color: var(--color-neutral-10);
+	--border-primary: var(--color-white);
 
 	/* -----------------------------------------------------------------------
 	 * Focus
@@ -44,4 +70,28 @@
 
 	--color-focus-contrast-light: var(--color-white); /* outer border */
 	--color-focus-contrast-dark: var(--color-black); /* inner border */
+}
+
+/* -------------------------------------------------------------------------
+ *
+ * Color Theme: Brand
+ *
+ * ------------------------------------------------------------------------- */
+
+:--brand-theme {
+
+	/* -----------------------------------------------------------------------
+	 * Themed Color Properties
+	 * ----------------------------------------------------------------------- */
+
+	--themed-link-text-color: var(--color-white);
+	--themed-link-hover-text-color: var(--color-neutral-10);
+	--border-primary: var(--color-white);
+
+	/* -----------------------------------------------------------------------
+	 * Focus
+	 * ----------------------------------------------------------------------- */
+
+	--color-focus-contrast-light: var(--color-white); /* outer border */
+	--color-focus-contrast-dark: var(--color-blue); /* inner border */
 }

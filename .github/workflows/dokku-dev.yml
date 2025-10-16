@@ -1,5 +1,5 @@
 
-name: Dokku Deploy Dev
+name: 'Dokku Deploy Main'
 
 on:
   workflow_dispatch:

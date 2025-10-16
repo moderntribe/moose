@@ -1,4 +1,4 @@
-name: Lighthouse CI
+name: 'Lighthouse CI'
 on:
   workflow_dispatch:
 jobs:

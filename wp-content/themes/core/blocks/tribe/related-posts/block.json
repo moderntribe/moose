@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/related-posts",
+	"version": "0.1.0",
+	"title": "Related Posts",
+	"category": "theme",
+	"icon": "media-document",
+	"description": "A block to display related posts with optional manual selection",
+	"attributes": {
+		"hasAutomaticSelection": {
+			"type": "boolean",
+			"default": true
+		},
+		"chosenPosts": {
+			"type": "array",
+			"default": []
+		},
+		"postsToShow": {
+			"type": "number",
+			"default": 3
+		},
+		"layout": {
+			"type": "string",
+			"enum": [ "grid", "list" ],
+			"default": "grid"
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [ "wide", "grid", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

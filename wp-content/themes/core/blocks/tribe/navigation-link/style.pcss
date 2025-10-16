@@ -8,10 +8,15 @@
 	text-decoration-color: transparent;
 	transition: var(--transition);
 	color: var(--color-text);
+	display: block;
 
 	&:hover,
 	&:focus {
 		text-decoration-color: currentcolor;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--masthead-navigation-accent-color);
 	}
 
 	.site-header__utility-menu & {

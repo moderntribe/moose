@@ -33,7 +33,6 @@ class Core {
 
 		// Post Types
 		Post_Types\Page\Page_Subscriber::class,
-		Post_Types\Post\Post_Subscriber::class,
 		Post_Types\Training\Training_Subscriber::class,
 	];
 
@@ -79,7 +78,6 @@ class Core {
 
 		$builder = new ContainerBuilder();
 		$builder->useAutowiring( true );
-		$builder->useAnnotations( false );
 		$builder->addDefinitions( [ self::PLUGIN_FILE => $plugin_path ] );
 		$builder->addDefinitions( ...array_map( static fn ( $classname ) => ( new $classname() )->define(), $definers ) );
 
