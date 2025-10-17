@@ -1,4 +1,4 @@
-name: 'Linting'
+name: 'Code Quality Checks: Linting (JS, JSON, PCSS)'
 
 on:
   workflow_call:
