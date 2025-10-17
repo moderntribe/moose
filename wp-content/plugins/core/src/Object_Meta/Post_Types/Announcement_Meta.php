@@ -82,10 +82,10 @@ class Announcement_Meta extends Meta_Object {
 					self::CTA_STYLE_OUTLINED => esc_html__( 'Outlined', 'tribe' ),
 					self::CTA_STYLE_GHOST    => esc_html__( 'Ghost', 'tribe' ),
 				] )
-				->defaultValue( self::CTA_STYLE_OUTLINED ),
+				->default( self::CTA_STYLE_OUTLINED ),
 			TrueFalse::make( esc_html__( 'Dismissible', 'tribe' ), self::DISMISSIBLE )
-				->defaultValue( 0 )
-				->stylisedUi( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) ),
+				->default( 0 )
+				->stylized( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) ),
 			Select::make( esc_html__( 'Color Theme', 'tribe' ), self::COLOR_THEME )
 				->choices( [
 					self::COLOR_THEME_BRAND   => esc_html__( 'Brand', 'tribe' ),
@@ -93,13 +93,13 @@ class Announcement_Meta extends Meta_Object {
 					self::COLOR_THEME_ERROR   => esc_html__( 'Error', 'tribe' ),
 					self::COLOR_THEME_WARNING => esc_html__( 'Warning', 'tribe' ),
 				] )
-				->defaultValue( self::COLOR_THEME_BRAND ),
+				->default( self::COLOR_THEME_BRAND ),
 			RadioButton::make( esc_html__( 'Alignment', 'tribe' ), self::ALIGNMENT )
 				->choices( [
 					self::ALIGNMENT_LEFT   => esc_html__( 'Left', 'tribe' ),
 					self::ALIGNMENT_CENTER => esc_html__( 'Center', 'tribe' ),
 				] )
-				->defaultValue( self::ALIGNMENT_CENTER ),
+				->default( self::ALIGNMENT_CENTER ),
 
 			Tab::make( esc_html__( 'Display', 'tribe' ), self::DISPLAY_TAB )
 				->placement( 'left' ),
@@ -109,18 +109,18 @@ class Announcement_Meta extends Meta_Object {
 					self::PLACEMENT_BELOW => esc_html__( 'Below Header', 'tribe' ),
 				] ),
 			TrueFalse::make( esc_html__( 'Enable Scheduled', 'tribe' ), self::SCHEDULED )
-				->defaultValue( false )
-				->stylisedUi(),
+				->default( false )
+				->stylized( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) ),
 			DateTimePicker::make( esc_html__( 'Start Date', 'tribe' ), self::SCHEDULING_START_TIME )
 				->displayFormat( 'd/m/Y g:i a' )
-				->returnFormat( 'U' )
+				->format( 'U' )
 				->column( 50 )
 				->conditionalLogic([
 					ConditionalLogic::where( self::SCHEDULED, '==', 1 ),
 				]),
 			DateTimePicker::make( esc_html__( 'End Date', 'tribe' ), self::SCHEDULING_END_TIME )
 				->displayFormat( 'd/m/Y g:i a' )
-				->returnFormat( 'U' )
+				->format( 'U' )
 				->column( 50 )
 				->conditionalLogic([
 					ConditionalLogic::where( self::SCHEDULED, '==', 1 ),
@@ -131,43 +131,43 @@ class Announcement_Meta extends Meta_Object {
 					self::OPTION_INCLUDE    => esc_html__( 'Show only on specified pages', 'tribe' ),
 					self::OPTION_EXCLUDE    => esc_html__( 'Exclude from specific pages', 'tribe' ),
 				] )
-				->defaultValue( self::OPTION_EVERY_PAGE ),
+				->default( self::OPTION_EVERY_PAGE ),
 			TrueFalse::make( esc_html__( 'Apply the selected rule to the Front Page', 'tribe' ), self::FIELD_RULES_APPLY_TO_FRONT_PAGE )
-				->instructions( sprintf(
+				->helperText( sprintf(
 					'%s<a href="%s">%s</a>%s',
 					esc_html__( 'Regardless of the configuration in ', 'tribe' ),
 					esc_url( admin_url( 'options-reading.php' ) ),
 					esc_html__( 'Settings > Reading', 'tribe' ),
 					esc_html__( ', always apply these rules to the front page', 'tribe' )
 				) )
-				->stylisedUi( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) )
-				->defaultValue( 0 )
+				->stylized( esc_html__( 'Yes', 'tribe' ), esc_html__( 'No', 'tribe' ) )
+				->default( 0 )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
 			Relationship::make( esc_html__( 'Select pages where the announcement will appear', 'tribe' ), self::FIELD_RULES_INCLUDE_PAGES )
-				->instructions( sprintf(
+				->helperText( sprintf(
 					esc_html__( 'Select up to %d posts', 'tribe' ),
 					(int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
 				->filters( [ 'search', 'post_type', 'taxonomy' ] )
-				->min( 0 )
-				->max( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
-				->returnFormat( 'object' )
+				->minPosts( 0 )
+				->maxPosts( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
+				->format( 'object' )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_INCLUDE ),
 				] ),
 			Relationship::make( esc_html__( 'Will appear on every page but the following selected pages', 'tribe' ), self::FIELD_RULES_EXCLUDE_PAGES )
-				->instructions( sprintf(
+				->helperText( sprintf(
 					esc_html__( 'Select up to %d posts', 'tribe' ),
 					(int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS )
 				) )
 				->postTypes( $this->get_allowed_post_types() )
 				->filters( [ 'search', 'post_type', 'taxonomy' ] )
-				->min( 0 )
-				->max( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
-				->returnFormat( 'object' )
+				->minPosts( 0 )
+				->maxPosts( (int) apply_filters( 'tribe/announcement/meta/max_posts', self::MAX_POSTS ) )
+				->format( 'object' )
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '==', self::OPTION_EXCLUDE ),
 				] ),
@@ -181,11 +181,11 @@ class Announcement_Meta extends Meta_Object {
 					},
 					[]
 				) )
-				->stylisedUi()
-				->allowNull()
-				->defaultValue( [] )
-				->returnFormat( 'value' )
-				->allowMultiple()
+				->stylized()
+				->nullable()
+				->default( [] )
+				->format( 'value' )
+				->multiple()
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
@@ -203,11 +203,11 @@ class Announcement_Meta extends Meta_Object {
 					},
 					[]
 				) )
-				->stylisedUi()
-				->allowNull()
-				->defaultValue( [] )
-				->returnFormat( 'value' )
-				->allowMultiple()
+				->stylized()
+				->nullable()
+				->default( [] )
+				->format( 'value' )
+				->multiple()
 				->conditionalLogic( [
 					ConditionalLogic::where( self::FIELD_RULES_DISPLAY_TYPE, '!=', self::OPTION_EVERY_PAGE ),
 				] ),
