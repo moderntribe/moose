@@ -81,15 +81,15 @@ class Announcement_Renderer {
 		$link = get_field( Announcement_Meta::CTA_LINK, $announcement->ID ) ?? [];
 
 		return [
-			'announcement_id' => $announcement->ID,
-			'heading'         => get_field( Announcement_Meta::HEADING, $announcement->ID ) ?? '',
-			'body'            => get_field( Announcement_Meta::BODY, $announcement->ID ) ?? '',
-			'cta_label'       => $link['title'] ?? null,
-			'cta_link'        => $link['url'] ?? null,
-			'cta_style'       => get_field( Announcement_Meta::CTA_STYLE, $announcement->ID ) ?? 'outlined',
-			'align'           => get_field( Announcement_Meta::ALIGNMENT, $announcement->ID ) ?? 'center',
-			'theme'           => get_field( Announcement_Meta::COLOR_THEME, $announcement->ID ) ?? 'brand',
-			'dismissible'     => (bool) get_field( Announcement_Meta::DISMISSIBLE, $announcement->ID ),
+			'announcementId' => $announcement->ID,
+			'heading'        => get_field( Announcement_Meta::HEADING, $announcement->ID ) ?? '',
+			'body'           => get_field( Announcement_Meta::BODY, $announcement->ID ) ?? '',
+			'ctaLabel'       => $link['title'] ?? null,
+			'ctaLink'        => $link['url'] ?? null,
+			'ctaStyle'       => get_field( Announcement_Meta::CTA_STYLE, $announcement->ID ) ?? 'outlined',
+			'align'          => get_field( Announcement_Meta::ALIGNMENT, $announcement->ID ) ?? 'center',
+			'theme'          => get_field( Announcement_Meta::COLOR_THEME, $announcement->ID ) ?? 'brand',
+			'dismissible'    => (bool) get_field( Announcement_Meta::DISMISSIBLE, $announcement->ID ),
 		];
 	}
 

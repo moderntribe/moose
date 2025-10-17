@@ -8,7 +8,7 @@
 	"icon": "megaphone",
 	"description": "A block to display globally configured announcements",
 	"attributes": {
-		"announcement_id": {
+		"announcementId": {
 			"type": "number",
 			"default": 0
 		},
@@ -20,23 +20,23 @@
 			"type": "string",
 			"default": ""
 		},
-		"cta_label": {
+		"ctaLabel": {
 			"type": "string",
 			"default": ""
 		},
-		"cta_link": {
+		"ctaLink": {
 			"type": "string",
 			"default": ""
 		},
-		"cta_style": {
+		"ctaStyle": {
 			"type": "string",
 			"default": "primary",
-			"enum": ["primary", "secondary", "tertiary"]
+			"enum": ["primary", "ghost"]
 		},
 		"theme": {
 			"type": "string",
 			"default": "light",
-			"enum": ["light", "brand", "black", "error"]
+			"enum": ["brand", "black", "warning", "error"]
 		},
 		"dismissible": {
 			"type": "boolean",

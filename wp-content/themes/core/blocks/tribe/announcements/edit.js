@@ -1,12 +1,12 @@
 import {
-	useBlockProps,
 	InspectorControls,
 	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	TextControl,
 	SelectControl,
+	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
@@ -31,21 +31,33 @@ export default function Edit( { attributes, setAttributes } ) {
 		.join( ' ' );
 
 	return (
-		<>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Call to Action', 'tribe' ) }
 					initialOpen={ true }
 				>
 					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
 						label={ __( 'CTA Label', 'tribe' ) }
+						help={ __(
+							'The text that will be displayed on the call to action button.',
+							'tribe'
+						) }
 						value={ ctaLabel }
 						onChange={ ( value ) =>
 							setAttributes( { ctaLabel: value } )
 						}
 					/>
 					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
 						label={ __( 'CTA URL', 'tribe' ) }
+						help={ __(
+							'The URL that the call to action button will link to.',
+							'tribe'
+						) }
 						value={ ctaLink }
 						onChange={ ( value ) =>
 							setAttributes( { ctaLink: value } )
@@ -53,7 +65,13 @@ export default function Edit( { attributes, setAttributes } ) {
 						type="url"
 					/>
 					<SelectControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
 						label={ __( 'CTA Style', 'tribe' ) }
+						help={ __(
+							'Choose between a primary button or a ghost button style for the call to action.',
+							'tribe'
+						) }
 						value={ ctaStyle }
 						options={ [
 							{
@@ -61,12 +79,8 @@ export default function Edit( { attributes, setAttributes } ) {
 								value: 'primary',
 							},
 							{
-								label: __( 'Secondary', 'tribe' ),
-								value: 'secondary',
-							},
-							{
-								label: __( 'Tertiary', 'tribe' ),
-								value: 'tertiary',
+								label: __( 'Ghost', 'tribe' ),
+								value: 'ghost',
 							},
 						] }
 						onChange={ ( value ) =>
@@ -80,12 +94,21 @@ export default function Edit( { attributes, setAttributes } ) {
 					initialOpen={ false }
 				>
 					<SelectControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
 						label={ __( 'Theme', 'tribe' ) }
+						help={ __(
+							'The color theme of the announcement block.',
+							'tribe'
+						) }
 						value={ theme }
 						options={ [
-							{ label: __( 'Light', 'tribe' ), value: 'light' },
 							{ label: __( 'Brand', 'tribe' ), value: 'brand' },
 							{ label: __( 'Black', 'tribe' ), value: 'black' },
+							{
+								label: __( 'Warning', 'tribe' ),
+								value: 'warning',
+							},
 							{ label: __( 'Error', 'tribe' ), value: 'error' },
 						] }
 						onChange={ ( value ) =>
@@ -93,7 +116,12 @@ export default function Edit( { attributes, setAttributes } ) {
 						}
 					/>
 					<ToggleControl
+						__nextHasNoMarginBottom
 						label={ __( 'Dismissible', 'tribe' ) }
+						help={ __(
+							'If enabled, allow users to dismiss the announcement.',
+							'tribe'
+						) }
 						checked={ dismissible }
 						onChange={ ( value ) =>
 							setAttributes( { dismissible: value } )
@@ -102,7 +130,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<aside { ...blockProps } className={ classes }>
+			<aside className={ classes }>
 				<div className="b-announcement__inner">
 					<RichText
 						tagName="h2"
@@ -135,7 +163,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							<span className="b-announcement__cta">
 								<a
 									href={ ctaLink }
-									className={ `a-btn-${ ctaStyle }` }
+									className={
+										ctaStyle === 'primary'
+											? 'a-btn'
+											: `a-btn-${ ctaStyle }`
+									}
 								>
 									{ ctaLabel }
 								</a>
@@ -148,7 +180,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					<div className="b-announcement__dismiss-wrapper">
 						<button
 							type="button"
-							className="b-announcement__dismiss u-button-reset"
+							className="b-announcement__dismiss"
 							aria-label="Dismiss announcement"
 						>
 							<span className="b-announcement__dismiss-text">
@@ -158,6 +190,6 @@ export default function Edit( { attributes, setAttributes } ) {
 					</div>
 				) }
 			</aside>
-		</>
+		</div>
 	);
 }
