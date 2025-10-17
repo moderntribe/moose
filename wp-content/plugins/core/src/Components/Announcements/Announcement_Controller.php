@@ -12,6 +12,8 @@ use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
 class Announcement_Controller extends Abstract_Controller {
 
+	private const int QUERY_LIMIT = 50;
+
 	/**
 	 * @var \Tribe\Plugin\Components\Announcements\Rules\Rule_Interface[]
 	 */
@@ -94,7 +96,7 @@ class Announcement_Controller extends Abstract_Controller {
 		$query = new \WP_Query( [
 			'post_type'      => Announcement::NAME,
 			'post_status'    => 'publish',
-			'posts_per_page' => -1,
+			'posts_per_page' => self::QUERY_LIMIT,
 			'orderby'        => [
 				'menu_order' => 'ASC',
 				'date'       => 'DESC',
