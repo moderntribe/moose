@@ -1,4 +1,4 @@
-name: 'Code Quality Checks: Static Analysis (PHPStan)'
+name: 'CQC: Static Analysis (PHPStan)'
 
 on:
   workflow_call:
