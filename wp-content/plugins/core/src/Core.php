@@ -79,7 +79,6 @@ class Core {
 
 		$builder = new ContainerBuilder();
 		$builder->useAutowiring( true );
-		$builder->useAnnotations( false );
 		$builder->addDefinitions( [ self::PLUGIN_FILE => $plugin_path ] );
 		$builder->addDefinitions( ...array_map( static fn ( $classname ) => ( new $classname() )->define(), $definers ) );
 

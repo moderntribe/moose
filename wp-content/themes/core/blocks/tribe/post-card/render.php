@@ -8,6 +8,7 @@ use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 $animation_attributes = new Block_Animation_Attributes( $attributes );
 $heading_level        = $attributes['headingLevel'];
+$layout               = $attributes['layout'];
 
 /**
  * $_GET['editorPostId'] is set when the block is used in the editor via context
@@ -26,4 +27,5 @@ get_template_part( 'components/cards/post', null, [
 	'post_id'              => $post_id,
 	'animation_attributes' => $animation_attributes,
 	'heading_level'        => $heading_level,
+	'layout'               => $layout,
 ] );

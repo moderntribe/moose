@@ -1,4 +1,4 @@
-.wp-block-tribe-tabs__tab-nav {
+.wp-block-tribe-horizontal-tabs__tab-nav {
 	overflow-x: auto;
 	padding-bottom: var(--spacer-20);
 
@@ -7,7 +7,7 @@
 	}
 }
 
-.wp-block-tribe-tabs__tab-list {
+.wp-block-tribe-horizontal-tabs__tab-list {
 	display: inline-flex;
 	align-items: stretch;
 	justify-content: center;
@@ -21,12 +21,12 @@
 }
 
 /* keep this for allowing previous versions of the block to still work */
-.wp-block-tribe-tabs__tab-item {
+.wp-block-tribe-horizontal-tabs__tab-item {
 	display: flex;
 	justify-content: center;
 }
 
-.wp-block-tribe-tabs__tab-item-button {
+.wp-block-tribe-horizontal-tabs__tab-item-button {
 	display: flex;
 	justify-content: center;
 	position: relative;
@@ -38,6 +38,8 @@
 	white-space: nowrap;
 	color: var(--color-black);
 
+	&:hover,
+	&:focus-visible,
 	&[aria-selected="true"] {
 		color: var(--color-blue);
 

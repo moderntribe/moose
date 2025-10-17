@@ -15,7 +15,5 @@ parameters:
 	ignoreErrors:
 		- '#^Function yoast_get_primary_term_id not found.$#'
 
-	checkAlwaysTrueStrictComparison: true
-
 	# Unfortunately, DocBlocks can't be relied upon in WordPress.
 	treatPhpDocTypesAsCertain: false
