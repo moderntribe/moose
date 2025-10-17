@@ -1,4 +1,4 @@
-name: 'Code Quality Checks: PHP CodeSniffer (PHPCS)'
+name: 'CQC: PHP CodeSniffer (PHPCS)'
 
 on:
   workflow_call:
