@@ -46,6 +46,10 @@ class Theme_Config_Subscriber extends Abstract_Subscriber {
 			$this->container->get( Comment_Support::class )->remove_admin_bar_comments();
 		});
 
+		add_filter( 'body_class', function ( array $classes ): array {
+			return $this->container->get( Theme_Customize::class )->add_header_color_body_class( $classes );
+		}, 10, 1 );
+
 		/**
 		 * Disable XML-RPC authentication support.
 		 *

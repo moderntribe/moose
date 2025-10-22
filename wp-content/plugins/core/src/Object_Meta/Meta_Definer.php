@@ -12,6 +12,7 @@ class Meta_Definer implements Definer_Interface {
 	public function define(): array {
 		return [
 			self::OBJECT_META => DI\add( [
+				DI\get( Page_Header_Settings::class ),
 			] ),
 		];
 	}
