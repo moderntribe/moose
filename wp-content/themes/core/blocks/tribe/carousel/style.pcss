@@ -23,7 +23,8 @@
 		/* add navigation styling */
 		.swiper-button-next,
 		.swiper-button-prev {
-			--swiper-navigation-size: 16px;
+			--swiper-navigation-icon-width: 11px;
+			--swiper-navigation-icon-height: 20px;
 			--swiper-navigation-color: var(--color-black);
 			width: var(--swiper-controls-size);
 			height: var(--swiper-controls-size);
@@ -33,6 +34,13 @@
 			transition: var(--transition);
 			position: static;
 			margin: 0;
+			color: var(--swiper-navigation-color);
+
+			/* Swiper switched to an inline SVG icon, so we need to size it */
+			.swiper-navigation-icon {
+				width: var(--swiper-navigation-icon-width);
+				height: var(--swiper-navigation-icon-height);
+			}
 
 			&:hover,
 			&:focus {
