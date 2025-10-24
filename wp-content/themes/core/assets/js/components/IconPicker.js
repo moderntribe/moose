@@ -6,9 +6,9 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import DynamicColorPicker from 'components/DynamicColorPicker.js';
-import { formatIconName } from 'blocks/tribe/icon-picker/utils.js';
-import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list.js';
+import DynamicColorPicker from 'components/DynamicColorPicker';
+import { formatIconName } from 'blocks/tribe/icon-picker/utils';
+import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list';
 
 export default function IconPicker( {
 	selectedIcon,
