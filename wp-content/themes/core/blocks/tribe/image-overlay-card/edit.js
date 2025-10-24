@@ -26,6 +26,7 @@ import {
 import ServerSideRender from '@wordpress/server-side-render';
 import { withSelect } from '@wordpress/data';
 import { useMemo, useState } from '@wordpress/element';
+import blockSettings from './block.json';
 
 import './editor.pcss';
 
@@ -113,7 +114,7 @@ const Edit = ( { attributes, setAttributes, isSelected, media } ) => {
 	const removeMedia = () => {
 		setAttributes( {
 			mediaId: 0,
-			mediaUrl: '',
+			mediaUrl: blockSettings?.attributes?.mediaUrl?.default || '',
 		} );
 	};
 
