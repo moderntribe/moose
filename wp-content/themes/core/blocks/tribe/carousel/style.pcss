@@ -130,5 +130,13 @@
 				--swiper-pagination-bullet-inactive-color: var(--color-white);
 			}
 		}
+
+		.swiper-pagination-bullet[role="button"] {
+
+			&:focus-visible {
+
+				@mixin focus-visible;
+			}
+		}
 	}
 }
