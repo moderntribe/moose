@@ -1,5 +1,4 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-import { DESKTOP_BREAKPOINT } from 'config/options';
 
 export default function save( props ) {
 	const blockProps = useBlockProps.save();
@@ -37,16 +36,6 @@ export default function save( props ) {
 
 	if ( loop ) {
 		settings.loop = true;
-
-		/**
-		 * These params together are recommended to prevent issues with
-		 * keyboard accessibility and slide visibility when using loop mode.
-		 *
-		 * @see https://swiperjs.com/swiper-api#param-watchSlidesProgress
-		 * @see https://swiperjs.com/swiper-api#param-loopAdditionalSlides
-		 */
-		settings.watchSlidesProgress = true;
-		settings.loopAdditionalSlides = 0;
 	}
 
 	if ( slidesPerGroup > 1 ) {
@@ -55,20 +44,6 @@ export default function save( props ) {
 
 	if ( slidesPerView > 1 ) {
 		settings.slidesPerView = parseInt( slidesPerView );
-	}
-
-	// If we're using multiple slides per view or group, set breakpoints
-	if ( settings?.slidesPerView || settings?.slidesPerGroup ) {
-		settings.breakpoints = {
-			[ DESKTOP_BREAKPOINT ]: {
-				slidesPerView: settings.slidesPerView || 1,
-				slidesPerGroup: settings.slidesPerGroup || 1,
-			},
-		};
-
-		// Since breakpoints are "min-width", we need to set the mobile defaults here
-		settings.slidesPerView = 1;
-		settings.slidesPerGroup = 1;
 	}
 
 	if ( slidesPerViewAuto ) {
@@ -92,27 +67,25 @@ export default function save( props ) {
 				<div className="swiper-wrapper">
 					<InnerBlocks.Content />
 				</div>
-				{ navigation || pagination ? (
+				{ navigation ? (
 					<div className="swiper-navigation">
-						{ navigation && (
-							<div className="swiper-navigation__buttons">
-								<button
-									type="button"
-									className="swiper-button-prev"
-								></button>
-								<button
-									type="button"
-									className="swiper-button-next"
-								></button>
-							</div>
-						) }
-						{ pagination && (
-							<div
-								className="swiper-pagination"
-								data-clickable={ paginationClickable }
-							></div>
-						) }
+						<button
+							type="button"
+							className="swiper-button-prev"
+						></button>
+						<button
+							type="button"
+							className="swiper-button-next"
+						></button>
 					</div>
+				) : (
+					''
+				) }
+				{ pagination ? (
+					<div
+						className="swiper-pagination"
+						data-clickable={ paginationClickable }
+					></div>
 				) : (
 					''
 				) }

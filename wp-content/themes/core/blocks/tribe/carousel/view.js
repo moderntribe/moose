@@ -37,6 +37,8 @@ const bindEvents = () => {
 			modules.push( Autoplay );
 		}
 
+		console.log( 'Initializing Swiper with args:', args );
+
 		new Swiper( swiper, {
 			...args,
 			modules,
