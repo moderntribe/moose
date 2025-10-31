@@ -6,9 +6,9 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { useSettings } from '@wordpress/block-editor';
-import { formatIconName } from './utils';
-import { ICONS_LIST } from './icons/icons-list';
+import DynamicColorPicker from 'components/DynamicColorPicker';
+import { formatIconName } from 'blocks/tribe/icon-picker/utils';
+import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list';
 
 export default function IconPicker( {
 	selectedIcon,
@@ -29,43 +29,21 @@ export default function IconPicker( {
 	const [ filteredIcons, setFilteredIcons ] = useState( sortedIcons );
 
 	/**
-	 * Option 1: Use theme.json color palette
-	 * useSettings('color.palette') returns an array of arrays but should only return one array of objects, so we can just use the first one.
+	 * By default, the Icon Picker will use the color palette defined in
+	 * theme.json. By defining a custom array of colors and passing it to the
+	 * DynamicColorPicker components, we can give a custom set of
+	 * colors to the editor.
 	 */
-	const themeColors = useSettings( 'color.palette' );
-	const COLORS =
-		themeColors && Array.isArray( themeColors[ 0 ] )
-			? [
-					...themeColors[ 0 ].map( ( { name, color } ) => ( {
-						name,
-						value: color,
-					} ) ),
-					{
-						name: __( 'Transparent', 'tribe' ),
-						value: 'transparent',
-					},
-			  ]
-			: [];
-
-	// Option 2: Use custom colors
 	// const COLORS = [
-	// 	{ name: __( 'Blue', 'tribe' ), value: '#0078d4' },
-	// 	{ name: __( 'Purple', 'tribe' ), value: '#8661c5' },
-	// 	{ name: __( 'Gray', 'tribe' ), value: '#737373' },
-	// 	{ name: __( 'Light Gray', 'tribe' ), value: '#d2d2d2' },
-	// 	{ name: __( 'Dark Gray', 'tribe' ), value: '#505050' },
-	// 	{ name: __( 'Teal', 'tribe' ), value: '#008575' },
-	// 	{ name: __( 'White', 'tribe' ), value: '#ffffff' },
-	// 	{ name: __( 'Transparent', 'tribe' ), value: 'transparent' },
+	// 	{ name: __( 'Blue', 'tribe' ), color: '#0078d4' },
+	// 	{ name: __( 'Purple', 'tribe' ), color: '#8661c5' },
+	// 	{ name: __( 'Gray', 'tribe' ), color: '#737373' },
+	// 	{ name: __( 'Light Gray', 'tribe' ), color: '#d2d2d2' },
+	// 	{ name: __( 'Dark Gray', 'tribe' ), color: '#505050' },
+	// 	{ name: __( 'Teal', 'tribe' ), color: '#008575' },
+	// 	{ name: __( 'White', 'tribe' ), color: '#ffffff' },
+	// 	{ name: __( 'Transparent', 'tribe' ), color: 'transparent' },
 	// ];
-
-	// Warn developer if themeColors is not properly set
-	if ( COLORS.length === 0 ) {
-		console.error(
-			'[tribe/icon-picker] No colors found. ' +
-				'Ensure your theme defines `settings.color.palette` in theme.json, or switch to a custom color list.'
-		);
-	}
 
 	useEffect( () => {
 		setFilteredIcons(
@@ -161,96 +139,26 @@ export default function IconPicker( {
 				if ( tab.name === 'colors' ) {
 					return (
 						<>
-							<h4 style={ { margin: '0 0 6px' } }>
-								{ __( 'Icon color', 'tribe' ) }
-							</h4>
-							<div className="color-picker">
-								<div className="color-grid">
-									{ COLORS.filter(
-										( c ) => c.value !== 'transparent'
-									).map( ( colorObj ) => (
-										<div
-											key={ colorObj.value }
-											role="button"
-											title={ colorObj.name }
-											tabIndex={ 0 }
-											className={ `color-item ${
-												selectedIconColor ===
-												colorObj.value
-													? 'selected'
-													: ''
-											}` }
-											style={ {
-												backgroundColor: colorObj.value,
-											} }
-											onClick={ () =>
-												onChange( {
-													selectedIconColor:
-														colorObj.value,
-												} )
-											}
-											onKeyDown={ ( e ) => {
-												if (
-													e.key === 'Enter' ||
-													e.key === ' '
-												) {
-													onChange( {
-														selectedIconColor:
-															colorObj.value,
-													} );
-												}
-											} }
-											data-color={ colorObj.name
-												.toLowerCase()
-												.replace( / /g, '-' ) }
-										></div>
-									) ) }
-								</div>
-							</div>
-							<h4 style={ { margin: '20px 0 6px' } }>
-								{ __( 'Background Color', 'tribe' ) }
-							</h4>
-							<div className="color-picker">
-								<div className="color-grid">
-									{ COLORS.map( ( colorObj ) => (
-										<div
-											key={ colorObj.value }
-											role="button"
-											title={ colorObj.name }
-											tabIndex={ 0 }
-											className={ `color-item ${
-												selectedBgColor ===
-												colorObj.value
-													? 'selected'
-													: ''
-											}` }
-											style={ {
-												backgroundColor: colorObj.value,
-											} }
-											onClick={ () =>
-												onChange( {
-													selectedBgColor:
-														colorObj.value,
-												} )
-											}
-											onKeyDown={ ( e ) => {
-												if (
-													e.key === 'Enter' ||
-													e.key === ' '
-												) {
-													onChange( {
-														selectedBgColor:
-															colorObj.value,
-													} );
-												}
-											} }
-											data-color={ colorObj.name
-												.toLowerCase()
-												.replace( / /g, '-' ) }
-										></div>
-									) ) }
-								</div>
-							</div>
+							<DynamicColorPicker
+								controlLabel={ __( 'Icon Color', 'tribe' ) }
+								colorAttribute={ 'selectedIconColor' }
+								colorValue={ selectedIconColor }
+								showTransparentOption={ false }
+								onChange={ ( changed ) =>
+									onChange( { ...changed } )
+								}
+							/>
+							<DynamicColorPicker
+								controlLabel={ __(
+									'Background Color',
+									'tribe'
+								) }
+								colorAttribute={ 'selectedBgColor' }
+								colorValue={ selectedBgColor }
+								onChange={ ( changed ) =>
+									onChange( { ...changed } )
+								}
+							/>
 						</>
 					);
 				}
