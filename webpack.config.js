@@ -7,7 +7,8 @@
  * https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#default-webpack-config
  */
 
-const { resolve, extname } = require( 'path' );
+const { resolve, extname, join, dirname } = require( 'path' );
+const { readFileSync } = require( 'fs' );
 const { sync: glob } = require( 'fast-glob' );
 const pkg = require( './package.json' );
 const BrowserSyncPlugin = require( 'browser-sync-v3-webpack-plugin' );
@@ -117,6 +118,59 @@ const blockEntryPoints = () => {
 	return entryPoints;
 };
 
+const moduleEntryPoints = () => {
+	const entryPoints = {};
+
+	// Find all block.json files within the blocks directory
+	const files = glob( `${ pkg.config.coreThemeBlocksDir }/**/block.json`, {
+		absolute: true,
+	} );
+
+	for ( const file of files ) {
+		const fileContents = readFileSync( file );
+		let parsedBlockJson;
+
+		try {
+			parsedBlockJson = JSON.parse( fileContents );
+		} catch ( error ) {
+			console.warn( `Malformed JSON` );
+			continue;
+		}
+
+		const fields = [];
+
+		for ( const field of [ 'viewScriptModule', 'viewModule' ] ) {
+			if ( Object.hasOwn( parsedBlockJson, field ) ) {
+				fields[ field ] = parsedBlockJson[ field ];
+			}
+		}
+
+		if ( ! fields ) {
+			continue;
+		}
+
+		for ( const value of Object.values( fields ).flat() ) {
+			if ( ! value.startsWith( 'file:' ) ) {
+				continue;
+			}
+
+			const filepath = join(
+				dirname( file ),
+				value.replace( 'file:', '' )
+			);
+
+			const entryName = filepath
+				.replace( extname( filepath ), '' )
+				.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' )
+				.replace( /\\/g, '/' );
+
+			entryPoints[ entryName ] = filepath;
+		}
+	}
+
+	return entryPoints;
+};
+
 baseConfig = {
 	...baseConfig,
 	resolve: {
@@ -209,6 +263,9 @@ if ( defaultConfigIsArray ) {
 				...defaultConfig[ 1 ].resolve.alias,
 				...themeAliases,
 			},
+		},
+		entry: {
+			...moduleEntryPoints(),
 		},
 		output: {
 			...defaultConfig[ 1 ].output,

@@ -1,4 +1,4 @@
-import { store } from '@wordpress/interactivity';
+import { getContext, store } from '@wordpress/interactivity';
 import { triggerCustomEvent } from 'utils/events.js';
 import globalState from 'config/state.js';
 import { HEADER_BREAKPOINT } from 'config/options.js';
@@ -111,15 +111,14 @@ const init = () => {
 // ready( init );
 
 const { state } = store( 'menuToggle', {
-	state: {
-		open: false,
-	},
 	actions: {
 		toggleMenu() {
+			const context = getContext();
+			console.log( 'toggleMenu', context );
 			if ( state.open ) {
-				closeMobileMenu();
+				console.log( 'close menu' );
 			} else {
-				openMobileMenu();
+				console.log( 'open menu' );
 			}
 		},
 	},
