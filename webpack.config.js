@@ -210,6 +210,10 @@ if ( defaultConfigIsArray ) {
 				...themeAliases,
 			},
 		},
+		output: {
+			...defaultConfig[ 1 ].output,
+			path: resolve( pkg.config.coreThemeDir, 'dist' ), // Change the output path to `dist` instead of `build`
+		},
 	};
 
 	module.exports = [ baseConfig, moduleConfig ];
