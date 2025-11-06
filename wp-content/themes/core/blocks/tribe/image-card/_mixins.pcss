@@ -5,7 +5,7 @@
  * ------------------------------------------------------------------------- */
 
 @define-mixin image-card-hover-focus {
-	background-color: var(--color-neutral-10);
+	background-color: var(--image-card-hover-background-color);
 
 	.b-image-card__media img {
 		transform: scale(1.05);
@@ -13,29 +13,5 @@
 
 	.b-image-card__title {
 		text-decoration-color: currentcolor;
-	}
-
-	.b-image-card__buttons {
-
-		.wp-block-button__link {
-
-			.is-style-ghost & {
-				color: var(--color-dark-blue);
-
-				&::after {
-					transform: translateX(8px);
-				}
-			}
-		}
-	}
-
-	/* CASE: Dark Mode */
-	:--dark-themes & {
-		background-color: var(--color-neutral-80);
-	}
-
-	/* CASE: Brand Theme */
-	:--brand-theme & {
-		background-color: var(--color-dark-blue);
 	}
 }
