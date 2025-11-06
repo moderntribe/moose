@@ -29,7 +29,12 @@
 	}
 
 	/* CASE: Dark Mode */
-	.is-style-dark & {
+	:--dark-themes & {
 		background-color: var(--color-neutral-80);
+	}
+
+	/* CASE: Brand Theme */
+	:--brand-theme & {
+		background-color: var(--color-dark-blue);
 	}
 }
