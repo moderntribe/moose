@@ -9,12 +9,12 @@
 	container: postcard / inline-size;
 
 	&.c-post-card__layout-horizontal {
-		border-top: 1px solid var(--border-primary, #000);
+		border-top: 1px solid var(--color-border, #000);
 		padding-top: var(--cards-query-interior-padding, 40px);
 
 		/* Column-end borders for horizontal layout cards. Default: single column (mobile) - all cards get bottom border */
 		li:last-child & {
-			border-bottom: 1px solid var(--border-primary, #000);
+			border-bottom: 1px solid var(--color-border, #000);
 			padding-bottom: var(--cards-query-interior-padding, 40px);
 		}
 
@@ -23,7 +23,7 @@
 		.columns-4 li:nth-last-child(-n+2) & {
 
 			@media (--mq-tablet) {
-				border-bottom: 1px solid var(--border-primary, #000);
+				border-bottom: 1px solid var(--color-border, #000);
 				padding-bottom: var(--cards-query-interior-padding, 40px);
 			}
 		}
@@ -32,7 +32,7 @@
 		.columns-3 li:nth-last-child(-n+3) & {
 
 			@media (--mq-desktop) {
-				border-bottom: 1px solid var(--border-primary, #000);
+				border-bottom: 1px solid var(--color-border, #000);
 				padding-bottom: var(--cards-query-interior-padding, 40px);
 			}
 		}
@@ -41,7 +41,7 @@
 		.columns-4 li:nth-last-child(-n+4) & {
 
 			@media (--mq-desktop) {
-				border-bottom: 1px solid var(--border-primary, #000);
+				border-bottom: 1px solid var(--color-border, #000);
 				padding-bottom: var(--cards-query-interior-padding, 40px);
 			}
 		}
