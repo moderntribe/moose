@@ -28,11 +28,11 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	 */
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'wp-block-tribe-tabs__tab-content',
+			className: 'wp-block-tribe-horizontal-tabs__tab-content',
 		},
 		{
-			allowedBlocks: [ 'tribe/tab' ],
-			template: [ [ 'tribe/tab' ] ],
+			allowedBlocks: [ 'tribe/horizontal-tab' ],
+			template: [ [ 'tribe/horizontal-tab' ] ],
 			renderAppender: false,
 		}
 	);
@@ -91,7 +91,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	 */
 	const addNewTab = ( positionToAdd = innerBlocks.length ) => {
 		// create block
-		const newTab = createBlock( 'tribe/tab' );
+		const newTab = createBlock( 'tribe/horizontal-tab' );
 
 		// add new tab
 		dispatch
@@ -151,14 +151,14 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	return (
 		<div { ...blockProps }>
 			<Flex
-				className="wp-block-tribe-tabs__tabs"
+				className="wp-block-tribe-horizontal-tabs__tabs"
 				align="center"
 				justify="flex-start"
 			>
 				{ tabs.map( ( tab, index ) => (
 					<FlexItem
 						className={
-							'wp-block-tribe-tabs__tab' +
+							'wp-block-tribe-horizontal-tabs__tab' +
 							( currentActiveTabInstanceId === tab.id
 								? ' active-tab'
 								: '' )
@@ -178,7 +178,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					>
 						<RichText
 							tagName="span"
-							className="wp-block-tribe-tabs__tab-label"
+							className="wp-block-tribe-horizontal-tabs__tab-label"
 							value={ tab.label }
 							onChange={ ( value ) =>
 								updateTabLabel( value, tab.clientId )
@@ -187,7 +187,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 							placeholder={ __( 'Tab Label', 'tribe' ) }
 						/>
 						<Button
-							className="wp-block-tribe-tabs__tab-delete"
+							className="wp-block-tribe-horizontal-tabs__tab-delete"
 							variant="link"
 							onClick={ ( e ) => {
 								e.stopPropagation();
@@ -212,7 +212,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					</FlexItem>
 				) ) }
 				<FlexItem
-					className="wp-block-tribe-tabs__add"
+					className="wp-block-tribe-horizontal-tabs__add"
 					justify="flex-start"
 				>
 					<Button variant="primary" onClick={ () => addNewTab() }>

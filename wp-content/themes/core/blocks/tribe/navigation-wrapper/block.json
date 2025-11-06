@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/navigation-wrapper",
+	"version": "0.1.0",
+	"title": "Navigation Wrapper",
+	"category": "theme",
+	"icon": "menu-alt3",
+	"description": "A structural block that wraps menu items inside a semantic <nav> tag with no added styles.",
+	"attributes": {
+		"ariaLabel": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"spacing": {
+			"margin": false,
+			"padding": false
+		},
+		"align": true,
+		"innerBlocks": true
+	},
+	"usesContext": [],
+	"providesContext": {},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

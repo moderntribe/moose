@@ -1,9 +1,9 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { InnerBlocks } from '@wordpress/block-editor';
 
 import './style.pcss';
 
 import Edit from './edit';
+import save from './save';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
@@ -12,7 +12,8 @@ registerBlockType( metadata.name, {
 	 */
 	edit: Edit,
 
-	save: ( props ) => {
-		return <InnerBlocks.Content { ...props } />;
-	},
+	/**
+	 * @see ./save.js
+	 */
+	save,
 } );

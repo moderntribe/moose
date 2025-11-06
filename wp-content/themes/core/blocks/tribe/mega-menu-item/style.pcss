@@ -5,7 +5,6 @@
  * ------------------------------------------------------------------------- */
 
 .wp-block-tribe-mega-menu-item {
-	background-color: var(--color-white);
 	color: var(--color-text);
 
 	.mega-menu-item__dropdown {
@@ -55,7 +54,7 @@
 		height: 4px;
 		background-color: var(--masthead-navigation-accent-color);
 		position: absolute;
-		bottom: -1px;
+		bottom: -4px;
 		left: var(--spacer-10);
 		transition: width 0.15s ease-in-out;
 		z-index: 11;
@@ -81,7 +80,7 @@
 	}
 
 	&:hover,
-	&:focus-visible,
+	&:active,
 	.menu-item-active & {
 		outline: none;
 		color: var(--masthead-navigation-accent-color);
@@ -94,6 +93,10 @@
 			outline: revert;
 			color: var(--color-text);
 		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--masthead-navigation-accent-color);
 	}
 
 	/*  Hide border on closed menu items, even when hovered or active */

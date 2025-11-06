@@ -14,19 +14,22 @@ export default function save( props ) {
 
 	return (
 		<section { ...blockProps }>
-			<div className="wp-block-tribe-tabs__tab-nav">
-				<div className="wp-block-tribe-tabs__tab-list" role="tablist">
+			<div className="wp-block-tribe-horizontal-tabs__tab-nav">
+				<div
+					className="wp-block-tribe-horizontal-tabs__tab-list"
+					role="tablist"
+				>
 					{ tabs.map( ( tab, index ) => {
 						return (
 							<button
 								key={ tab.id }
 								id={ tab.buttonId }
 								type="button"
-								className="wp-block-tribe-tabs__tab-item-button"
+								className="wp-block-tribe-horizontal-tabs__tab-item-button"
 								aria-controls={ tab.id }
 								role="tab"
 								aria-selected={ index === 0 ? 'true' : 'false' }
-								tabIndex={ index === 0 ? '-1' : false }
+								tabIndex={ index === 0 ? '0' : '-1' }
 							>
 								{ tab.label !== ''
 									? tab.label

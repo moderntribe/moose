@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "tribe/tabs",
+	"name": "tribe/horizontal-tabs",
 	"version": "0.1.0",
-	"title": "Tabs",
+	"title": "Horizontal Tabs",
 	"category": "theme",
-	"description": "Allows creation of tabbed content",
+	"description": "Tab content displayed horizontally",
 	"icon": "slides",
 	"supports": {
 		"html": false,
@@ -39,7 +39,7 @@
 		}
 	},
 	"providesContext": {
-		"tribe/tabs/currentActiveTabInstanceId": "currentActiveTabInstanceId"
+		"tribe/horizontal-tabs/currentActiveTabInstanceId": "currentActiveTabInstanceId"
 	},
 	"textdomain": "tribe",
 	"editorScript": "file:./index.js",
