@@ -21,7 +21,7 @@ class Page_Header_Settings extends Meta_Object {
 
 	#[\Override] public function get_fields(): array {
 		return [
-			Color_Picker::make( esc_html__( 'Header Background Color', 'tribe' ), self::HEADER_COLOR )->helperText( esc_html__( 'Some lable', 'tribe' ) ),
+			Color_Picker::make( esc_html__( 'Header Background Color', 'tribe' ), self::HEADER_COLOR ),
 		];
 	}
 

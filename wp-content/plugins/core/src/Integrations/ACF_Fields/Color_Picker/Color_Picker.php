@@ -68,8 +68,13 @@ class Color_Picker extends Field {
 			if ( $key === 'default' ) {
 				continue;
 			}
-			$slug            = $item['slug'];
-			$result[ $slug ] = $item['color'];
+
+			$slug     = $item['slug'];
+			$result[] = [
+				'name'  => $item['name'],
+				'slug'  => $slug,
+				'color' => $item['color'],
+			];
 		}
 
 		$this->settings['colors'] = $result;
