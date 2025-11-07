@@ -15,7 +15,7 @@ class Color_Picker extends Field {
 	use Required;
 	use Wrapper;
 
-	protected ?string $type = 'color_picker_moose';
+	protected ?string $type = 'color_picker_tribe';
 
 	/**
 	 * @var array{
@@ -45,9 +45,7 @@ class Color_Picker extends Field {
 			return $this;
 		}
 
-		$theme_json = \WP_Theme_JSON_Resolver::get_merged_data();
-		$settings   = $theme_json->get_settings();
-
+		$settings = wp_get_global_settings();
 		if ( empty( $settings ) || empty( $settings['color'] ) ) {
 			$this->settings['color'] = $colors;
 

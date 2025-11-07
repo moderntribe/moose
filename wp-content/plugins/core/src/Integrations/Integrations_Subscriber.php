@@ -29,7 +29,7 @@ class Integrations_Subscriber extends Abstract_Subscriber {
 			return $this->container->get( RankMath::class )->exclude_post_types( $post_types );
 		}, 100 );
 
-		add_action('acf/render_field/type=color_picker_moose', function ($field): void {
+		add_action('acf/render_field/type=color_picker_tribe', function ($field): void {
 			$this->container->get( Color_Picker_Render::class )->render_color_picker( $field );
 		}, 10, 1 );
 	}

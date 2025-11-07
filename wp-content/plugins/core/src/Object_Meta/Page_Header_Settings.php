@@ -30,4 +30,5 @@ class Page_Header_Settings extends Meta_Object {
 			Location::where( 'post_type', Page::NAME ),
 		];
 	}
+
 }
