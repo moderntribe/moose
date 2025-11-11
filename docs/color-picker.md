@@ -33,7 +33,7 @@ echo '<div class="page-header color--' . esc_attr($color_slug) . '"></div>';
 
 Notes
 
-Field type key: `color_picker_moose`.
+Field type key: `color_picker_tribe`.
 
 Stores slug in DB; front end receives the same slug via get_field().
 
