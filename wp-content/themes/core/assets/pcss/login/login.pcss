@@ -9,10 +9,11 @@
  * ----------------------------------------------------------------------- */
 
 .login {
+	display: flex;
+	align-items: center;
+	width: 100%;
 	height: 100%;
 	position: relative;
-	width: 100%;
-	display: table;
 	background: var(--login-background-color);
 }
 
@@ -51,13 +52,14 @@
  * ----------------------------------------------------------------------- */
 
 .login #login {
-	overflow: hidden;
+	width: 100%;
 	position: relative;
 	z-index: 1;
+	margin-right: auto;
+	margin-left: 0;
 	padding: 80px 25px 100px;
-	display: table-cell;
-	width: 100%;
-	vertical-align: middle;
+	overflow: hidden;
+	box-sizing: border-box;
 
 	& > * {
 		max-width: 425px;
