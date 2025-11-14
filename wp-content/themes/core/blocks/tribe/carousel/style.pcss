@@ -2,28 +2,51 @@
 
 	.swiper {
 		--swiper-controls-size: 48px;
-		--swiper-navigation-width: calc(
-			(var(--swiper-controls-size) * 2) + var(--spacer-10)
-		);
 
 		.swiper-navigation {
+			position: relative;
+			padding: var(--spacer-30) 0;
+
+			@media (--mq-desktop) {
+				padding: var(--spacer-50) 0;
+			}
+
+			/* CASE: when only navigation buttons are present, align it to the right on desktop (hide on mobile) */
+			&:has(.swiper-navigation__buttons):not(:has(.swiper-pagination)) {
+				display: none;
+
+				@media (--mq-desktop) {
+					display: flex;
+					justify-content: flex-end;
+				}
+			}
+		}
+
+		.swiper-navigation__buttons {
 			display: none;
 
 			@media (--mq-desktop) {
 				display: flex;
+				align-items: center;
 				gap: var(--spacer-10);
-				position: absolute;
-				bottom: var(--spacer-50);
-				right: 0;
-				z-index: 3;
-				width: var(--swiper-navigation-width);
+			}
+
+			/* CASE: when pagination is also present, position buttons to the right */
+			.swiper-navigation:has(.swiper-pagination) & {
+
+				@media (--mq-desktop) {
+					position: absolute;
+					top: var(--spacer-50);
+					right: 0;
+				}
 			}
 		}
 
 		/* add navigation styling */
 		.swiper-button-next,
 		.swiper-button-prev {
-			--swiper-navigation-size: 16px;
+			--swiper-navigation-icon-width: 11px;
+			--swiper-navigation-icon-height: 20px;
 			--swiper-navigation-color: var(--color-black);
 			width: var(--swiper-controls-size);
 			height: var(--swiper-controls-size);
@@ -33,6 +56,13 @@
 			transition: var(--transition);
 			position: static;
 			margin: 0;
+			color: var(--swiper-navigation-color);
+
+			/* Swiper switched to an inline SVG icon, so we need to size it */
+			.swiper-navigation-icon {
+				width: var(--swiper-navigation-icon-width);
+				height: var(--swiper-navigation-icon-height);
+			}
 
 			&:hover,
 			&:focus {
@@ -83,26 +113,29 @@
 			--swiper-pagination-bullet-inactive-color: var(--color-black);
 			--swiper-pagination-bullet-inactive-opacity: 0.3;
 			--swiper-pagination-bullet-horizontal-gap: 6px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: content-box;
 			position: relative;
 			top: auto;
 			bottom: auto;
 			z-index: 2;
 			height: var(--swiper-controls-size);
 			width: 100%;
-			padding: var(--spacer-30) 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			box-sizing: content-box;
-
-			@media (--mq-desktop) {
-				padding: var(--spacer-50) 0;
-			}
 
 			/* Style Dark */
 			:--dark-themes & {
 				--swiper-theme-color: var(--color-white);
 				--swiper-pagination-bullet-inactive-color: var(--color-white);
+			}
+		}
+
+		.swiper-pagination-bullet[role="button"] {
+
+			&:focus-visible {
+
+				@mixin focus-visible;
 			}
 		}
 	}
