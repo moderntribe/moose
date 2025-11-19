@@ -6,8 +6,9 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.11]
 
-- Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings.
-- Added: Custom media query `--mq-allow-animations` checks for `no-preference` value for better a11y on animations. 
+- Updated: Masthead is now always sticky across all breakpoints.
+- Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings. This is contextualized to the main content area.
+- Added: Custom media query `--mq-allow-animations` checks for `no-preference` value for better a11y on animations.
 
 ## [2025.08]
 
