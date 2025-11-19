@@ -16,10 +16,13 @@
 }
 
 .site-header {
-	position: sticky;
-	top: var(--spacer-wpadmin);
 	z-index: 10;
 	border-bottom: 1px solid var(--masthead-navigation-border-color);
+
+	@media (--mq-wp-small) {
+		position: sticky;
+		top: var(--spacer-wpadmin);
+	}
 
 	.mobile-menu-shown & {
 		height: 100dvh;
