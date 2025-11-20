@@ -90,6 +90,18 @@ jobs:
           OP_ITEM: ${{ secrets.OP_ITEM }}
         run: op inject -i auth.template.json -o auth.json
 
+      - name: Create app.json
+        run: |
+          cat << EOF > app.json
+          {
+            "scripts": {
+              "dokku": {
+                "predeploy": "rm /app/auth.json"
+              }
+            }
+          }
+          EOF
+
       - name: Commit Files
         uses: moderntribe/actions/utils/commit-files@v1
 
@@ -103,7 +115,7 @@ jobs:
           fi
 
       - name: Deploy to ${{ steps.define_app.outputs.deploy_app }}
-        uses: moderntribe/actions/deploy/gitdeploy@v1
+        uses: moderntribe/actions/deploy/gitdeploy@app-json
         with:
           git_url: "dokku@${{ inputs.server }}:${{ steps.define_app.outputs.deploy_app }}"
           branch: ${{ env.BRANCH }}
