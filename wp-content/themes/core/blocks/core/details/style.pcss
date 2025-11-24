@@ -55,7 +55,10 @@
 	* Add animation to the content
 	*/
 	&[open] summary ~ * {
-		animation: sweep 0.3s ease-in-out;
+
+		@media (--mq-allow-animations) {
+			animation: sweep 0.3s ease-in-out;
+		}
 	}
 }
 
