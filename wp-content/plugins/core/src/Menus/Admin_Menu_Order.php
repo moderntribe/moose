@@ -63,7 +63,15 @@ class Admin_Menu_Order {
 			$config_class = implode( '\\', $parts ) . '\\Config';
 			$post_type    = tribe_project()->container()->get( $config_class )->post_type();
 
-			$post_object                               = get_post_type_object( $post_type );
+			/**
+			 * @var \WP_Post_Type $post_object
+			 */
+			$post_object = get_post_type_object( $post_type );
+
+			if ( ! $post_type->show_ui || ! $post_type->public ) {
+				continue;
+			}
+
 			$post_types[ $post_object->menu_position ] = $post_type;
 		}
 
