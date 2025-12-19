@@ -6,7 +6,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2025.12]
 
-- Fixed: Image Card block now properly passes animation attributes to the animation helper class.
+- Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
 
 ## [2025.11]
 

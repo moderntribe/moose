@@ -3,7 +3,7 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
 $animation_attributes  = new Block_Animation_Attributes( $attributes );
