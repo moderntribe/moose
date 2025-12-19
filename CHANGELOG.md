@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.12]
+
+- Fixed: Image Card block now properly passes animation attributes to the animation helper class.
+
 ## [2025.11]
 
 - Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings.
