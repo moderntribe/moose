@@ -3,10 +3,10 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$animation_attributes  = new Block_Animation_Attributes();
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-image-card';
 $media_id              = $attributes['mediaId'] ? (int) $attributes['mediaId'] : 0; // this returns a float by default so we need to cast it to int
 $media_url             = $attributes['mediaUrl'] ?? '';
@@ -42,9 +42,9 @@ if ( $animation_attributes->get_classes() !== '' ) {
 				<?php endif; ?>
 			</div>
 			<?php if ( $link_url ) : ?>
-				<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex b-image-card__buttons" aria-hidden="true">
-					<div class="wp-block-button is-style-ghost">
-						<span class="wp-block-button__link"><?php echo esc_html( $link_text ); ?></span>
+				<div class="b-image-card__buttons l-flex" aria-hidden="true">
+					<div class="b-image-card__button">
+						<span class="a-btn-ghost"><?php echo esc_html( $link_text ); ?></span>
 					</div>
 				</div>
 			<?php endif; ?>
