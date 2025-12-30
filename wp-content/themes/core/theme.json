@@ -39,6 +39,11 @@
 					"blockGap": true
 				}
 			},
+			"core/cover": {
+				"border": {
+					"radius": true
+				}
+			},
 			"core/details": {
 				"border": {
 					"color": true,
