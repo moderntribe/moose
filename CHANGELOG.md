@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Updated: Cleaned up core Details block with comments, consistent underline styling, and reordered `theme.json` styles for clarity.
 
 ## [2025.11]
 
