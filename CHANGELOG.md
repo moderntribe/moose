@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Updated: Decorative Heading block now uses `<div>` instead of `<span>` so Headings remain block-level elements without needing extra styling.
 
 ## [2025.11]
 
