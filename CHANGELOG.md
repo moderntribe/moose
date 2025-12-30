@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Added: Cover block & Featured Image block now support the border radius setting.
 
 ## [2025.11]
 
