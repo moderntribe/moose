@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Added: Paragraph block now properly gets it's `wp-block-paragraph` class name. At some point this was removed from core but we rely on it to target some styling for balanced text.
 
 ## [2025.11]
 
