@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Updated: Logo Marquee block now has updated padding between images & contains a range selector to adjust the marquee speed as needed.
 
 ## [2025.11]
 
