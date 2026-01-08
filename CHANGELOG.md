@@ -12,6 +12,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 - Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings.
 - Added: Custom media query `--mq-allow-animations` checks for `no-preference` value for better a11y on animations. 
+- Removed: The Page post type no longer has default content loaded into it when creating a new page. Pages should start blank.
 
 ## [2025.08]
 
