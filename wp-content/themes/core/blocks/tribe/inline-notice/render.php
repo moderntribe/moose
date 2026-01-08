@@ -8,21 +8,23 @@ use Tribe\Plugin\Blocks\Helpers\Icon_Picker;
  * @var string $content
  */
 
-$animation_attributes = new Block_Animation_Attributes( $attributes );
-$animation_styles     = $animation_attributes->get_styles();
-$animation_classes    = $animation_attributes->get_classes();
-$icon_picker          = new Icon_Picker( $attributes );
-$icon_wrapper_styles  = $icon_picker->get_icon_wrapper_styles();
-$icon_svg             = $icon_picker->get_svg();
-$classes              = 'b-inline-notice';
-$styles               = $icon_wrapper_styles;
-$heading              = $attributes['heading']; // @phpstan-ignore-line
-$theme                = $attributes['theme']; // @phpstan-ignore-line
+$animation_attributes    = new Block_Animation_Attributes( $attributes );
+$animation_styles        = $animation_attributes->get_styles();
+$animation_classes       = $animation_attributes->get_classes();
+$icon_picker             = new Icon_Picker( $attributes );
+$icon_wrapper_styles     = $icon_picker->get_icon_wrapper_styles();
+$icon_svg                = $icon_picker->get_svg();
+$classes                 = 'b-inline-notice';
+$styles                  = $icon_wrapper_styles;
+$heading                 = $attributes['heading']; // @phpstan-ignore-line
+$header_text_color_theme = $attributes['headerTextColorTheme']; // @phpstan-ignore-line
+$theme                   = $attributes['themeColor']; // @phpstan-ignore-line
 
 // add theme class
-if ( $theme !== 'brand' ) {
-	$classes .= ' b-inline-notice--theme-' . esc_attr( $theme );
-}
+$classes .= ' b-inline-notice--theme-' . esc_attr( $header_text_color_theme );
+
+// add color style
+$styles .= sprintf( ' --theme-color: %s;', esc_attr( $theme ) );
 
 // add animation attribute classes
 if ( $animation_classes !== '' ) {

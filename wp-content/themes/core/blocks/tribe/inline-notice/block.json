@@ -44,10 +44,14 @@
 			"type": "string",
 			"default": ""
 		},
-		"theme": {
+		"headerTextColorTheme": {
 			"type": "string",
-			"default": "brand",
-			"enum": [ "brand", "black", "warning", "error" ]
+			"default": "light",
+			"enum": [ "light", "dark" ]
+		},
+		"themeColor": {
+			"type": "string",
+			"default": "#3050E5"
 		}
 	},
 	"supports": {

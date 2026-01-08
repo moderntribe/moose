@@ -14,6 +14,7 @@ import {
 } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import IconPicker from 'components/IconPicker';
+import DynamicColorPicker from 'components/DynamicColorPicker';
 import { formatIconName } from 'blocks/tribe/icon-picker/utils';
 import { ICONS_LIST } from 'blocks/tribe/icon-picker/icons/icons-list';
 
@@ -32,7 +33,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		selectedIconColor,
 		selectedBgColor,
 		heading,
-		theme,
+		headerTextColorTheme,
+		themeColor,
 	} = attributes;
 
 	const [ isModalOpen, setIsModalOpen ] = useState( false );
@@ -50,7 +52,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const validIcon =
 		ICONS_LIST.find( ( { key } ) => key === selectedIcon ) || null;
 
-	const classes = [ 'b-inline-notice', `b-inline-notice--theme-${ theme }` ]
+	const classes = [
+		'b-inline-notice',
+		`b-inline-notice--theme-${ headerTextColorTheme }`,
+	]
 		.filter( Boolean )
 		.join( ' ' );
 
@@ -141,41 +146,47 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								{ __( 'Open Icon Picker', 'tribe' ) }
 							</Button>
 						</BaseControl>
+						<DynamicColorPicker
+							colorAttribute="themeColor"
+							colorValue={ themeColor }
+							controlLabel={ __( 'Select Theme Color', 'tribe' ) }
+							showTransparentOption={ false }
+							onChange={ ( changed ) =>
+								setAttributes( { ...changed } )
+							}
+						/>
 						<SelectControl
 							__nextHasNoMarginBottom
 							__next40pxDefaultSize
-							label={ __( 'Theme', 'tribe' ) }
+							label={ __( 'Header Text Color Theme', 'tribe' ) }
 							help={ __(
-								'The color theme of the announcement block.',
+								'The color theme for the header text.',
 								'tribe'
 							) }
-							value={ theme }
+							value={ headerTextColorTheme }
 							options={ [
 								{
-									label: __( 'Brand', 'tribe' ),
-									value: 'brand',
+									label: __( 'Light', 'tribe' ),
+									value: 'light',
 								},
 								{
-									label: __( 'Black', 'tribe' ),
-									value: 'black',
-								},
-								{
-									label: __( 'Warning', 'tribe' ),
-									value: 'warning',
-								},
-								{
-									label: __( 'Error', 'tribe' ),
-									value: 'error',
+									label: __( 'Dark', 'tribe' ),
+									value: 'dark',
 								},
 							] }
 							onChange={ ( value ) =>
-								setAttributes( { theme: value } )
+								setAttributes( { headerTextColorTheme: value } )
 							}
 						/>
 					</PanelBody>
 				</InspectorControls>
 			) }
-			<aside className={ classes }>
+			<aside
+				className={ classes }
+				style={ {
+					'--theme-color': themeColor,
+				} }
+			>
 				<div className="b-inline-notice__header">
 					{ validIcon ? (
 						<>
