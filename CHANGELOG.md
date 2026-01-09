@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Updated: Cleaned up core Details block with comments, consistent underline styling, and reordered `theme.json` styles for clarity.
 - Updated: Decorative Heading block now uses `<div>` instead of `<span>` so Headings remain block-level elements without needing extra styling.
 - Added: Cover block & Featured Image block now support the border radius setting.
 - Added: Paragraph block now properly gets it's `wp-block-paragraph` class name. At some point this was removed from core but we rely on it to target some styling for balanced text.
