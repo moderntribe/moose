@@ -8,11 +8,15 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
 - Updated: Decorative Heading block now uses `<div>` instead of `<span>` so Headings remain block-level elements without needing extra styling.
+- Added: Cover block & Featured Image block now support the border radius setting.
+- Added: Paragraph block now properly gets it's `wp-block-paragraph` class name. At some point this was removed from core but we rely on it to target some styling for balanced text.
+- Fixed: Masthead Search icon now properly loads across environments.
 
 ## [2025.11]
 
 - Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings.
 - Added: Custom media query `--mq-allow-animations` checks for `no-preference` value for better a11y on animations. 
+- Removed: The Page post type no longer has default content loaded into it when creating a new page. Pages should start blank.
 
 ## [2025.08]
 

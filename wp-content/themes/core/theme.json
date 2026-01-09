@@ -39,6 +39,11 @@
 					"blockGap": true
 				}
 			},
+			"core/cover": {
+				"border": {
+					"radius": true
+				}
+			},
 			"core/details": {
 				"border": {
 					"color": true,
@@ -97,6 +102,11 @@
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
+				}
+			},
+			"core/post-featured-image": {
+				"border": {
+					"radius": true
 				}
 			},
 			"core/post-template": {
