@@ -1,7 +1,23 @@
 <?php declare(strict_types=1);
 
-$search_icon = file_get_contents( get_stylesheet_directory_uri() . '/assets/media/icons/search.svg' );
+$search_icon_uri  = trailingslashit( get_stylesheet_directory_uri() ) . '/assets/media/icons/search.svg';
+$search_icon_path = trailingslashit( get_stylesheet_directory() ) . '/assets/media/icons/search.svg';
+$search_icon      = '';
 
+// Attempt to get the file contents from the file system
+if ( file_exists( $search_icon_path ) ) {
+	$search_icon = file_get_contents( $search_icon_path );
+
+	// Fallback to wp_remote_get if file_get_contents fails
+	if ( $search_icon === false ) {
+		$response = wp_remote_get( $search_icon_uri );
+
+		if ( ! is_wp_error( $response ) ) {
+			// wp_remote_retrieve_body returns an empty string on failure, so it's fine to end here
+			$search_icon = wp_remote_retrieve_body( $response );
+		}
+	}
+}
 ?>
 <div class="masthead-search" data-js="masthead-search-wrapper">
 	<button type="button" class="masthead-search__icon" data-js="toggle-search-overlay" title="<?php echo esc_attr__( 'Toggle Search Overlay', 'tribe' ); ?>">
