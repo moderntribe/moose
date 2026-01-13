@@ -50,6 +50,24 @@ class Core {
 	 * @throws \Exception
 	 */
 	public function init( string $plugin_path ): void {
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$acf = 'advanced-custom-fields-pro/acf.php';
+
+		if ( ! is_plugin_active( $acf ) ) {
+			wp_admin_notice(
+				'<strong>' . esc_html__( 'Caution:', 'tribe' ) . '</strong> ' . esc_html__( 'ACF Pro should be active in order to use plugin functionality', 'tribe' ),
+				[
+					'type' => 'warning',
+					'id'   => 'message',
+				]
+			);
+
+			return;
+		}
+
 		$this->init_container( $plugin_path );
 	}
 
@@ -61,7 +79,6 @@ class Core {
 	 * @throws \Exception
 	 */
 	private function init_container( string $plugin_path ): void {
-
 		/**
 		 * Filter the list of definers that power the plugin.
 		 *
