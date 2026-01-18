@@ -1,0 +1,151 @@
+{
+  "$schema": "./figma-baseline.schema.json",
+  "_meta": {
+    "figmaFileKey": "zbjC33tZJz5A901jeXM7zv",
+    "figmaFileName": "Moose-Website-Design-System",
+    "extractedFrom": [
+      "804:5786 (Color)",
+      "636:4683 (Box Shadows)",
+      "1808:18529 (Spacing Scale)",
+      "654:3505 (Layout)"
+    ],
+    "lastUpdated": "2026-01-17",
+    "description": "Baseline Figma design tokens for the Moose WordPress theme. Compare new project variables against this to identify changes."
+  },
+  "colors": {
+    "brand": {
+      "brand/primary": "#3050e5",
+      "brand/blue-dark": "#2238a0"
+    },
+    "foreground": {
+      "foreground/foreground-primary": "#000000",
+      "foreground/foreground-secondary": "#767676",
+      "foreground/foreground-primary-inverse": "#ffffff"
+    },
+    "background": {
+      "background/background-primary": "#ffffff",
+      "background/background-primary-inverse": "#000000",
+      "background/background-secondary": "#e8e8e8",
+      "background/background-brand-accent": "#3050e533"
+    },
+    "border": {
+      "border/border-primary": "#000000"
+    },
+    "ui": {
+      "ui/white": "#ffffff",
+      "ui/black": "#000000",
+      "ui/yellow": "#f1c400",
+      "ui/red": "#df3a3a",
+      "ui/green": "#84bd00",
+      "ui/neutral-10": "#f5f5f5",
+      "ui/neutral-20": "#e8e8e8",
+      "ui/neutral-30": "#d1d1d1",
+      "ui/neutral-40": "#a3a3a3",
+      "ui/neutral-50": "#767676",
+      "ui/neutral-60": "#5d5d5d",
+      "ui/neutral-70": "#464646",
+      "ui/neutral-80": "#2f2f2f",
+      "ui/neutral-90": "#1f1f1f"
+    }
+  },
+  "shadows": {
+    "shadow/default": {
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "color": "#3031331A",
+          "offsetX": 0,
+          "offsetY": 8,
+          "radius": 16,
+          "spread": 0
+        },
+        {
+          "type": "DROP_SHADOW",
+          "color": "#3031330D",
+          "offsetX": 0,
+          "offsetY": 0,
+          "radius": 1,
+          "spread": 0
+        }
+      ]
+    },
+    "shadow/hover": {
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "color": "#3031331A",
+          "offsetX": 0,
+          "offsetY": 8,
+          "radius": 50,
+          "spread": 0
+        },
+        {
+          "type": "DROP_SHADOW",
+          "color": "#3031330D",
+          "offsetX": 0,
+          "offsetY": 0,
+          "radius": 1,
+          "spread": 0
+        }
+      ]
+    }
+  },
+  "typography": {
+    "max/heading large": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Bold",
+      "fontSize": 64,
+      "fontWeight": 700,
+      "lineHeight": 1.12,
+      "letterSpacing": 0
+    },
+    "max/heading small": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Bold",
+      "fontSize": 40,
+      "fontWeight": 700,
+      "lineHeight": 1.2,
+      "letterSpacing": 0
+    },
+    "max/paragraph large/bold": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Bold",
+      "fontSize": 24,
+      "fontWeight": 700,
+      "lineHeight": 1.4,
+      "letterSpacing": 0
+    },
+    "max/paragraph default/regular": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Regular",
+      "fontSize": 20,
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": 0
+    },
+    "max/paragraph default/bold": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Bold",
+      "fontSize": 20,
+      "fontWeight": 700,
+      "lineHeight": 1.5,
+      "letterSpacing": 0
+    },
+    "max/paragraph small/regular": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Regular",
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": 1.6,
+      "letterSpacing": 0
+    },
+    "max/paragraph small/bold": {
+      "fontFamily": "Roboto",
+      "fontStyle": "Bold",
+      "fontSize": 16,
+      "fontWeight": 700,
+      "lineHeight": 1.6,
+      "letterSpacing": 0
+    }
+  }
+}

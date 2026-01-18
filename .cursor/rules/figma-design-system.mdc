@@ -1,0 +1,274 @@
+---
+description: Figma Design System to Code Mapping
+globs:
+  - wp-content/themes/core/theme.json
+  - wp-content/themes/core/assets/pcss/**/_variables.pcss
+alwaysApply: false
+---
+
+# Figma Design System → Code Mapping
+
+When updating design tokens from Figma to this codebase, follow these rules.
+
+## Figma MCP Access
+
+- **Read-only**: Only use read operations from the Figma MCP server
+- **Never** create, modify, or delete anything in Figma
+
+## Baseline Reference
+
+- **Moose Starter Design System**: https://www.figma.com/design/zbjC33tZJz5A901jeXM7zv/Moose-Website-Design-System
+- **Baseline snapshot**: `wp-content/themes/core/figma-baseline.json`
+
+## Critical: Node ID Discovery
+
+**Node IDs are file-specific.** Each Figma file has unique internal IDs. You cannot reuse node IDs from one file in another.
+
+### Extraction Workflow for New Projects
+
+1. **Start with the URL provided** by the user - extract fileKey and nodeId from it
+2. **Get metadata first** using `get_metadata` on the provided nodeId to discover the structure
+3. **Find frames by NAME**, not ID. Look for frames named:
+   - "Color" or similar → Brand colors, neutrals, semantic colors
+   - "Effects" or "Box Shadows" → Shadow presets, border radius
+   - "Typography" or "Typefaces" or "Type Scale" → Font families and sizes
+   - "Spacing" or "Spacing Scale" → Spacing values
+   - "Layout" → Grid system, widths
+   - "Buttons" or "Buttons and Links" → Button/link states
+4. **Extract variables** using `get_variable_defs` on each discovered frame
+5. **Compare** against baseline JSON to identify additions, removals, and changes
+6. **Present a change report** before making any code changes
+7. **Update code** after user approval
+
+### Variable Naming Variations
+
+Figma variable naming may vary between projects. Common patterns:
+- `brand/primary` or `brand/color-name`
+- `ui/neutral-10` or `neutral/neutral-10`
+- `foreground/foreground-primary` or `text/primary`
+- `font family/heading` or `typography/heading`
+
+Map by **semantic meaning**, not exact name matching.
+
+## Baseline Snapshot
+
+The baseline JSON tracks expected Figma variable structure. When syncing:
+1. **Additions**: New variables in Figma not in baseline → add to codebase
+2. **Removals**: Variables in baseline missing from Figma → remove from codebase (confirm first)
+3. **Changes**: Same variable, different value → update in codebase
+
+## Design Decisions Requiring Human Input
+
+Some changes require judgment calls:
+
+| Situation | Ask User |
+|-----------|----------|
+| **Fluid vs Fixed** | Figma shows fixed values (e.g., 48px). Should we keep responsive `clamp()` or use fixed? |
+| **New font families** | Requires downloading font files. Which weights/styles are needed? |
+| **Removed variables** | A variable exists in code but not Figma. Is it intentionally removed or just not applied to any element? |
+| **Naming conflicts** | Figma uses different naming. Should we rename code variables or keep existing names? |
+
+## Post-Sync Checklist
+
+After updating code:
+- [ ] Font files added to `assets/fonts/` if new families introduced
+- [ ] Build runs without errors
+- [ ] Variables reference `theme.json` values where applicable via `var(--wp--preset--*)`
+- [ ] Button/link colors updated to use new brand colors
+- [ ] Selection highlight color updated to match brand
+
+## File Locations
+
+| Category | Primary File | Secondary File |
+|----------|--------------|----------------|
+| Colors (WP palette) | `theme.json` → `settings.color.palette` | `pcss/color/_variables.pcss` |
+| Colors (CSS-only) | N/A | `pcss/color/_variables.pcss` |
+| Typography (fonts) | `theme.json` → `settings.typography.fontFamilies` | `pcss/typography/_variables.pcss` |
+| Typography (sizes) | `theme.json` → `settings.typography.fontSizes` | `pcss/typography/_variables.pcss` |
+| Typography (weights) | `theme.json` → `settings.custom.fontWeight` | `pcss/typography/_variables.pcss` |
+| Spacing | `theme.json` → `settings.spacing.spacingSizes` | `pcss/spacing/_variables.pcss` |
+| Shadows | `theme.json` → `settings.shadow.presets` | `pcss/color/_variables.pcss` (aliases) |
+| Layout | `theme.json` → `settings.layout` + `settings.custom.spacing` | `pcss/layout/_variables.pcss` |
+| Border radius | N/A | `pcss/global/_variables.pcss` |
+| Transitions | N/A | `pcss/transitions/_variables.pcss` |
+| Button/Link theming | N/A | `pcss/actions/_variables.pcss` |
+| Icons | N/A | `pcss/icons/_variables.pcss` |
+
+## Figma Variable → Code Mapping
+
+Map Figma variables to code by **semantic meaning**. Variable names may differ between projects.
+
+### Brand Colors
+
+| Figma Pattern | theme.json | CSS Custom Property | Notes |
+|---------------|------------|---------------------|-------|
+| `brand/primary` | `settings.color.palette[0]` | `--color-{name}` | Use color name (e.g., chartreuse, blue) |
+| `brand/secondary` | `settings.color.palette[1]` | `--color-{name}` | Optional second brand color |
+| `brand/*-dark` or `brand/*-light` | — | `--color-{name}-dark` | Tints/shades of brand |
+
+### Neutrals
+
+| Figma Pattern | theme.json | CSS Custom Property |
+|---------------|------------|---------------------|
+| `ui/white` or `neutral/white` | `settings.color.palette[slug="base-white"]` | `--color-white` |
+| `ui/black` or `neutral/black` | `settings.color.palette[slug="base-black"]` | `--color-black` |
+| `ui/neutral-{10-90}` or `neutral/neutral-{10-90}` | Only 10, 50 in theme.json | `--color-neutral-{10-90}` |
+
+### Semantic Colors
+
+| Figma Pattern | CSS Custom Property |
+|---------------|---------------------|
+| `ui/green` or `semantic/success` | `--color-alert-success` |
+| `ui/red` or `semantic/error` | `--color-alert-error` |
+| `ui/yellow` or `semantic/warning` | `--color-alert-warning` |
+
+### Foreground/Background
+
+| Figma Pattern | CSS Custom Property |
+|---------------|---------------------|
+| `foreground/foreground-primary` or `text/primary` | `--color-text` |
+| `foreground/foreground-secondary` or `text/secondary` | `--color-text-secondary` |
+| `background/background-primary` | `--color-background-primary` |
+| `background/background-secondary` | `--color-background-secondary` |
+| `border/border-primary` | `--color-border` |
+| `border/border-secondary` | `--color-border-secondary` |
+
+### Typography - Font Families
+
+| Figma Pattern | theme.json | CSS Custom Property |
+|---------------|------------|---------------------|
+| `font family/heading` | `settings.typography.fontFamilies[0]` | `--font-family-heading` |
+| `font family/body` | `settings.typography.fontFamilies[1]` | `--font-family-body` |
+
+### Typography - Font Sizes
+
+Theme.json uses slugs `10` through `90`. Map Figma's max pixel values to appropriate fluid `clamp()` ranges.
+
+| Scale | CSS Custom Property | Typical Range |
+|-------|---------------------|---------------|
+| 90 | `--font-size-90` | 48px → 96px |
+| 80 | `--font-size-80` | 40px → 76px |
+| 70 | `--font-size-70` | 32px → 64px |
+| 60 | `--font-size-60` | 24px → 48px |
+| 50 | `--font-size-50` | 22px → 40px |
+| 40 | `--font-size-40` | 20px → 32px |
+| 30 | `--font-size-30` | 18px → 24px |
+| 20 | `--font-size-20` | 16px → 20px |
+| 10 | `--font-size-10` | 14px → 16px |
+
+### Typography - Font Weights
+
+| Figma Value | theme.json | CSS Custom Property |
+|-------------|------------|---------------------|
+| Regular (400) | `settings.custom.fontWeight.regular` | `--font-weight-regular` |
+| Semibold (600) | `settings.custom.fontWeight.semibold` | `--font-weight-semibold` |
+| Bold (700) | `settings.custom.fontWeight.bold` | `--font-weight-bold` |
+
+### Spacing Scale
+
+| Figma Variable | theme.json slug | CSS Custom Property |
+|----------------|-----------------|---------------------|
+| XX Small | `10` | `--spacer-10` |
+| X Small | `20` | `--spacer-20` |
+| Small | `30` | `--spacer-30` |
+| Medium | `40` | `--spacer-40` |
+| Large | `50` | `--spacer-50` |
+| X Large | `60` | `--spacer-60` |
+| XX Large | `70` | `--spacer-70` |
+
+### Shadows
+
+| Figma Variable | theme.json slug | CSS Custom Property |
+|----------------|-----------------|---------------------|
+| Shadow 10 | `10` | `--box-shadow-10` |
+| Shadow 20 | `20` | `--box-shadow-20` |
+| Shadow 30 | `30` | `--box-shadow-30` |
+| Shadow 40 | `40` | `--box-shadow-40` |
+| Shadow 50 | `50` | `--box-shadow-50` |
+| Shadow 60 | `60` | `--box-shadow-60` |
+
+### Layout
+
+| Figma Concept | theme.json | CSS Custom Property |
+|---------------|------------|---------------------|
+| Content width | `settings.layout.contentSize` | `--grid-content-width` |
+| Wide width | `settings.layout.wideSize` | `--grid-wide-width` |
+| Grid max width | `settings._experimentalLayout[0].width` | `--grid-max-width` |
+| Grid gutter | `settings.custom.spacing.grid-gutter` | `--grid-gutter` |
+| Grid margin | `settings.custom.spacing.grid-margin` | `--grid-margin` |
+
+## Update Workflow
+
+When updating from a new Figma design system:
+
+### Step 1: Discovery
+1. Extract `fileKey` and `nodeId` from the provided Figma URL
+2. Run `get_metadata` on the nodeId to see the file structure
+3. Identify frames by name (Color, Typography, Spacing, etc.)
+
+### Step 2: Extraction
+4. Run `get_variable_defs` on each relevant frame (call in parallel for efficiency)
+5. Collect all variables into a structured format
+
+### Step 3: Comparison
+6. Read `figma-baseline.json` to get the baseline values
+7. Generate a **change report** showing:
+   - 🟢 **NEW**: Variables in Figma not in baseline
+   - 🔴 **CHANGED**: Same variable, different value
+   - ⚪ **REMOVED**: Variables in baseline not in Figma
+   - ✅ **UNCHANGED**: Same variable, same value
+8. Present the report and wait for user approval
+
+### Step 4: Code Updates
+9. **Update theme.json first** for any values that belong there
+10. **Update PCSS variables** for CSS-only values or aliases
+11. **Verify** CSS custom properties reference theme.json values where applicable using `var(--wp--preset--*)`
+
+### Step 5: Verification
+12. Note any font files that need to be added
+13. Summarize all changes made
+
+## Naming Conventions
+
+### theme.json Color Slugs
+- Use lowercase with hyphens: `blue`, `base-white`, `neutral-50`
+- Prefix base colors: `base-white`, `base-black`
+
+### CSS Custom Properties
+- Colors: `--color-{name}` (e.g., `--color-blue`, `--color-neutral-50`)
+- Typography: `--font-{property}-{value}` (e.g., `--font-size-20`, `--font-weight-bold`)
+- Spacing: `--spacer-{scale}` (e.g., `--spacer-40`)
+- Shadows: `--box-shadow-{scale}` (e.g., `--box-shadow-20`)
+
+### Fluid Values (clamp)
+All font sizes and spacing use CSS `clamp()` for fluid scaling:
+```
+clamp(min, preferred, max)
+```
+Preferred value typically uses viewport units (vw) for responsive scaling.
+
+## Button/Link Theming
+
+Button and link colors are defined in `pcss/actions/_variables.pcss` with theme variants:
+- `:root, :--light-themes` — default/light backgrounds
+- `:--dark-themes` — dark backgrounds
+- `:--brand-theme` — brand color backgrounds
+
+These reference base color variables, not hardcoded values.
+
+## What Goes Where?
+
+### Must be in theme.json
+- Colors used in WordPress block editor color picker
+- Font families with `@font-face` definitions
+- Font sizes available in block editor
+- Spacing presets available in block editor
+- Shadow presets
+
+### CSS-only (PCSS variables)
+- Colors NOT in block editor picker (neutrals 20-40, 60-90, semantic colors)
+- Border radius values
+- Transition/animation values
+- Button/link state colors
+- Focus ring colors
+- Icon SVG references
