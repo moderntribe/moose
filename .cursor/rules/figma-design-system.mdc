@@ -77,6 +77,30 @@ After updating code:
 - [ ] Button/link colors updated to use new brand colors
 - [ ] Selection highlight color updated to match brand
 
+## Codebase-Wide Variable Search (Critical Step)
+
+After updating core variable files, **search the entire theme** for references to old variable names. Variables are used in more places than just `_variables.pcss` files:
+
+### Files That Reference CSS Variables
+
+| Location | File Types | Example |
+|----------|------------|---------|
+| Block styles | `blocks/**/style.pcss`, `blocks/**/_variables.pcss` | `--color-blue` in tabs, carousels |
+| Block editor styles | `blocks/**/editor.pcss` | Editor-specific overrides |
+| JSON style variations | `styles/blocks/**/*.json` | Group block variations |
+| PHP files | `*.php` with inline styles | Query results, bindings |
+| Part styles | `assets/pcss/parts/*.pcss` | Header, footer styles |
+| Card styles | `assets/pcss/cards/*.pcss` | Post cards, search results |
+| Mixin files | `assets/pcss/**/_mixins.pcss` | Typography, action mixins |
+
+### Search Pattern
+
+After renaming a variable (e.g., `--color-blue` → `--color-green`), search for all occurrences:
+- CSS variable references: `--color-{old-name}`
+- theme.json references: `font-weight--{old-name}`
+
+Update all matches before completing the sync.
+
 ## File Locations
 
 | Category | Primary File | Secondary File |
@@ -227,6 +251,11 @@ When updating from a new Figma design system:
 ### Step 5: Verification
 12. Note any font files that need to be added
 13. Summarize all changes made
+
+### Step 6: Continuous Improvement
+16. **Review lessons learned** — Did anything unexpected come up during this sync?
+17. **Update these rules** if new patterns, edge cases, or file locations were discovered
+18. This ensures future syncs benefit from accumulated knowledge
 
 ## Naming Conventions
 
