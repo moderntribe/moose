@@ -3,10 +3,10 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$animation_attributes  = new Block_Animation_Attributes();
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-image-overlay-card';
 $animation_styles      = $animation_attributes->get_styles();
 $animation_classes     = $animation_attributes->get_classes();
