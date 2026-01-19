@@ -194,6 +194,14 @@ const switchTabs = ( targetTabButton ) => {
 			tabButton
 		);
 	} );
+
+	// On mobile, scroll the selected tab into view so the user doesn't have to scroll back up
+	if ( config.isMobile && config.contentMergesOnMobile ) {
+		targetTabButton.scrollIntoView( {
+			behavior: 'smooth',
+			block: 'start',
+		} );
+	}
 };
 
 /**
