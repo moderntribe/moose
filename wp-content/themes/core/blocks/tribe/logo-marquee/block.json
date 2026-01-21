@@ -10,10 +10,7 @@
 	"attributes": {
 		"marqueeSpeed": {
 			"type": "number",
-			"default": 150,
-			"source": "attribute",
-			"selector": ".logo-list",
-			"attribute": "data-marquee-speed"
+			"default": 150
 		},
 		"images": {
 			"type": "array",
