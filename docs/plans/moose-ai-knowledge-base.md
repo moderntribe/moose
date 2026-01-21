@@ -20,7 +20,7 @@ This document outlines the plan for creating a shared AI knowledge repository fo
 
 ## Phase 1: Repository Structure
 
-Create a new private repository: `your-org/moose-knowledge`
+Create a new private repository: `modern-tribe/moose-knowledge`
 
 ### Proposed Directory Structure
 
