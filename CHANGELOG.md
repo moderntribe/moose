@@ -17,6 +17,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Added: Cover block & Featured Image block now support the border radius setting.
 - Added: Paragraph block now properly gets it's `wp-block-paragraph` class name. At some point this was removed from core but we rely on it to target some styling for balanced text.
 - Fixed: Masthead Search icon now properly loads across environments.
+- Updated: Terms block shouldn't error when used on a CPT that doesn't contain the `category` taxonomy.
 
 ## [2025.11]
 
