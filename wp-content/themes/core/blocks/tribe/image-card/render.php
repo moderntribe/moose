@@ -3,10 +3,10 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$animation_attributes  = new Block_Animation_Attributes();
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-image-card';
 $media_id              = $attributes['mediaId'] ? (int) $attributes['mediaId'] : 0; // this returns a float by default so we need to cast it to int
 $media_url             = $attributes['mediaUrl'] ?? '';

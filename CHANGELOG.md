@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2025.12]
+
+- Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Added: Caption elements in media blocks (Image, Video, Embed) are now contained to the content width.
+- Updated: Cleaned up core Details block with comments, consistent underline styling, and reordered `theme.json` styles for clarity.
+- Updated: Decorative Heading block now uses `<div>` instead of `<span>` so Headings remain block-level elements without needing extra styling.
+- Added: Cover block & Featured Image block now support the border radius setting.
+- Added: Paragraph block now properly gets it's `wp-block-paragraph` class name. At some point this was removed from core but we rely on it to target some styling for balanced text.
+- Fixed: Masthead Search icon now properly loads across environments.
+
+## [2025.11]
+
+- Updated: Masthead is now only sticky on tablet/desktop viewports (> 600px).
+- Updated: Color themes now include a padding spacer `--group-themed-default-padding` to ensure content has default inner spacing. This can be overwritten with the block gap settings. This is contextualized to the main content area.
+- Added: Custom media query `--mq-allow-animations` checks for `no-preference` value for better a11y on animations.
+- Removed: The Page post type no longer has default content loaded into it when creating a new page. Pages should start blank.
+
 ## [2025.08]
 
 - Updated: pre-commit hooks now no longer run if the commit does not include files related to the hook. Pre-commit hooks now also include FE linting.

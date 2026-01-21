@@ -4,6 +4,8 @@
 .wp-block-details {
 
 	summary {
+
+		@mixin t-transparent-underline;
 		cursor: pointer;
 		list-style: none;
 		position: relative;
@@ -32,30 +34,40 @@
 		&:hover,
 		&:focus:not(:focus-visible),
 		&:active {
-			text-decoration: underline;
+
+			@mixin t-transparent-underline-hover;
 		}
 	}
 
+	/**
+	 * Remove top margin from first element inside details content
+	 */
 	summary + * {
 		margin-top: 0;
 	}
 
+	/**
+	 * Add bottom padding to last element inside details content
+	 */
 	& > :last-child {
 		padding-bottom: var(--spacer-40);
 	}
 
 	/**
-	* Opened
-	*/
+	 * Opened
+	 */
 	&[open] > summary::after {
 		transform: translateY(-50%) rotate(-90deg);
 	}
 
 	/**
-	* Add animation to the content
-	*/
+	 * Add animation to the content
+	 */
 	&[open] summary ~ * {
-		animation: sweep 0.3s ease-in-out;
+
+		@media (--mq-allow-animations) {
+			animation: sweep 0.3s ease-in-out;
+		}
 	}
 }
 
