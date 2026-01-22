@@ -224,6 +224,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							'Enter Inline Notice Heading',
 							'tribe'
 						) }
+						allowedFormats={ [
+							'core/bold',
+							'core/italic',
+							'core/link',
+						] }
 					/>
 				</div>
 				<div { ...innerBlocksProps } />

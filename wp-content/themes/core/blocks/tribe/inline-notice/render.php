@@ -42,7 +42,7 @@ if ( $animation_styles !== '' ) {
 				<?php echo $icon_svg; ?>
 			</div>
 		<?php endif; ?>
-		<h2 class="b-inline-notice__heading t-body s-remove-margin--top"><?php echo esc_html( $heading ); ?></h2>
+		<h2 class="b-inline-notice__heading t-body s-remove-margin--top"><?php echo wp_kses_post( $heading ); ?></h2>
 	</div>
 	<div class="b-inline-notice__content">
 		<?php echo wp_kses_post( $content ); ?>
