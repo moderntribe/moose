@@ -629,6 +629,14 @@
 					}
 				}
 			},
+			"core/spacer": {
+				"spacing": {
+					"margin": {
+						"top": "0",
+						"bottom": "0"
+					}
+				}
+			},
 			"core/table": {
 				"spacing": {
 					"margin": {
