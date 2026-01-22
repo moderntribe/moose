@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2026.01]
+
+- Fixed: Vertical Tabs block now scrolls the selected tab into view on mobile, respecting reduced motion preferences. [MOOSE-333](https://moderntribe.atlassian.net/browse/MOOSE-333)
+
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
