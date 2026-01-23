@@ -103,7 +103,7 @@ jobs:
           fi
 
       - name: Deploy to ${{ steps.define_app.outputs.deploy_app }}
-        uses: moderntribe/actions/deploy/gitdeploy@v1
+        uses: moderntribe/actions/deploy/gitdeploy@app-json
         with:
           git_url: "dokku@${{ inputs.server }}:${{ steps.define_app.outputs.deploy_app }}"
           branch: ${{ env.BRANCH }}
