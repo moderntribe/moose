@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2026.01]
+
+- Updated: Interactive card blocks now use the animated underline on the title element on hover. 
+
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
