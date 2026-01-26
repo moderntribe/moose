@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tribe/announcements",
+	"version": "0.1.0",
+	"title": "Announcements",
+	"category": "theme",
+	"icon": "megaphone",
+	"description": "A block to display globally configured announcements",
+	"attributes": {
+		"announcementId": {
+			"type": "number",
+			"default": 0
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"body": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaLink": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaStyle": {
+			"type": "string",
+			"default": "primary",
+			"enum": ["primary", "ghost"]
+		},
+		"theme": {
+			"type": "string",
+			"default": "light",
+			"enum": ["brand", "black", "warning", "error"]
+		},
+		"dismissible": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"alignCustom": [ "wide", "grid", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"textdomain": "tribe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
