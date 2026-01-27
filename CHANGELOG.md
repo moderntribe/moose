@@ -7,6 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2026.01]
 
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
+- Updated: Dynamic blocks now pass data to PHP controller classes for processing, moving toward a more OOP/MVC approach.
 
 ## [2025.12]
 
