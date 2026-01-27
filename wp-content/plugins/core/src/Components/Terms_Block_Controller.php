@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Blocks\Helpers;
+namespace Tribe\Plugin\Components;
 
 use Tribe\Plugin\Templates\Traits\Primary_Term;
 
-class Terms_Block {
+class Terms_Block_Controller extends Abstract_Controller {
 
 	use Primary_Term;
 
-	private string $taxonomy        = 'category';
-	private bool $only_primary_term = false;
-	private bool $has_links         = false;
+	private string $taxonomy;
+	private bool $only_primary_term;
+	private bool $has_links;
 
 	/**
 	 * @var \WP_Term[]

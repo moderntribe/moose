@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
-use Tribe\Plugin\Blocks\Helpers\Terms_Block;
+use Tribe\Plugin\Components\Terms_Block_Controller;
 
 /**
  * All of the parameters passed to the function where this file is being required are accessible in this scope:
@@ -12,7 +12,7 @@ use Tribe\Plugin\Blocks\Helpers\Terms_Block;
  */
 
 $animation_attributes = new Block_Animation_Attributes( $attributes );
-$terms_block          = new Terms_Block( $attributes );
+$terms_block          = new Terms_Block_Controller( $attributes );
 $terms_block_terms    = $terms_block->get_the_terms();
 $wrapper_attributes   = get_block_wrapper_attributes([
 	'class' => $animation_attributes->get_classes(),
