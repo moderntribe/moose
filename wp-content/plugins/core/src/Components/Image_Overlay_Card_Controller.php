@@ -4,7 +4,7 @@ namespace Tribe\Plugin\Components;
 
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
-class Image_Card_Controller extends Abstract_Controller {
+class Image_Overlay_Card_Controller extends Abstract_Controller {
 
 	/**
 	 * @var array <mixed>
@@ -16,8 +16,10 @@ class Image_Card_Controller extends Abstract_Controller {
 	private string $classes;
 	private int $media_id;
 	private string $media_url;
+	private string $overlay_color;
+	private string $overlay_hover_color;
+	private bool $card_uses_dark_theme;
 	private string $title;
-	private string $description;
 	private string $link_url;
 	private bool $link_opens_in_new_tab;
 	private string $link_text;
@@ -28,18 +30,24 @@ class Image_Card_Controller extends Abstract_Controller {
 		$this->block_animation_attributes = new Block_Animation_Attributes( $this->attributes );
 		$this->animation_classes          = $this->block_animation_attributes->get_classes();
 		$this->animation_styles           = $this->block_animation_attributes->get_styles();
-		$this->classes                    = 'b-image-card';
+		$this->classes                    = 'b-image-overlay-card';
 		$this->media_id                   = $this->attributes['mediaId'] ? (int) $this->attributes['mediaId'] : 0;
 		$this->media_url                  = $this->attributes['mediaUrl'] ?? '';
+		$this->overlay_color              = $this->attributes['overlayColor'] ?? '#0000001C';
+		$this->overlay_hover_color        = $this->attributes['overlayHoverColor'] ?? '#00000033';
+		$this->card_uses_dark_theme       = $this->attributes['cardUsesDarkTheme'] ?? false;
 		$this->title                      = $this->attributes['title'] ?? '';
-		$this->description                = $this->attributes['description'] ?? '';
 		$this->link_url                   = $this->attributes['linkUrl'] ?? '';
 		$this->link_opens_in_new_tab      = $this->attributes['linkOpensInNewTab'] ?? false;
-		$this->link_text                  = $this->attributes['linkText'] ?? '';
+		$this->link_text				  = $this->attributes['linkText'] ?? '';
 		$this->link_a11y_label            = $this->attributes['linkA11yLabel'] ?? '';
 	}
 
 	public function get_classes(): string {
+		if ( $this->card_uses_dark_theme ) {
+			$this->classes .= ' b-image-overlay-card--dark-theme';
+		}
+
 		if ( '' !== $this->animation_classes ) {
 			$this->classes .= ' ' . $this->animation_classes;
 		}
@@ -48,7 +56,11 @@ class Image_Card_Controller extends Abstract_Controller {
 	}
 
 	public function get_styles(): string {
-		return $this->animation_styles;
+		$styles  = $this->animation_styles;
+		$styles .= "--card-image-overlay-color: {$this->overlay_color};";
+		$styles .= "--card-image-overlay-hover-color: {$this->overlay_hover_color};";
+
+		return $styles;
 	}
 
 	public function has_media(): bool {
@@ -69,14 +81,6 @@ class Image_Card_Controller extends Abstract_Controller {
 
 	public function get_title(): string {
 		return $this->title;
-	}
-
-	public function has_description(): bool {
-		return '' !== $this->description;
-	}
-
-	public function get_description(): string {
-		return $this->description;
 	}
 
 	public function has_link_url(): bool {

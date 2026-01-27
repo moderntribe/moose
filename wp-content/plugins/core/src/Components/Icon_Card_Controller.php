@@ -43,7 +43,7 @@ class Icon_Card_Controller extends Abstract_Controller {
 	}
 
 	public function get_classes(): string {
-		if ( '' === $this->animation_classes ) {
+		if ( '' !== $this->animation_classes ) {
 			$this->classes .= ' ' . $this->animation_classes;
 		}
 
@@ -97,5 +97,5 @@ class Icon_Card_Controller extends Abstract_Controller {
 	public function get_link_a11y_label(): string {
 		return $this->link_a11y_label;
 	}
-	
+
 }
