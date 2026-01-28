@@ -6,7 +6,7 @@ use Tribe\Plugin\Components\Related_Posts_Controller;
  * @var array $attributes
  */
 
-$c = new Related_Posts_Controller( [
+$c = Related_Posts_Controller::factory( [
 	'attributes' => $attributes,
 ] );
 

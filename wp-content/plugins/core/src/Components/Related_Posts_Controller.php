@@ -4,6 +4,7 @@ namespace Tribe\Plugin\Components;
 
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 use Tribe\Plugin\Post_Types\Post\Post;
+use Tribe\Plugin\Taxonomies\Category\Category;
 
 class Related_Posts_Controller extends Abstract_Controller {
 
@@ -42,8 +43,6 @@ class Related_Posts_Controller extends Abstract_Controller {
 		$this->chosen_posts            = $this->attributes['chosenPosts'] ?? [];
 		$this->posts_to_show           = $this->attributes['postsToShow'] ? intval( $this->attributes['postsToShow'] ) : 3;
 		$this->block_layout            = $this->attributes['layout'] ?? 'grid';
-		$this->query_args              = [];
-		$this->query                   = new \WP_Query();
 
 		$this->set_query_args();
 		$this->set_query();
@@ -73,27 +72,25 @@ class Related_Posts_Controller extends Abstract_Controller {
 
 	private function set_query_args(): void {
 		$this->query_args = [
-			'post_type'      => Post::NAME,
-			'post_status'    => 'publish',
-			'posts_per_page' => (int) $this->posts_to_show,
-			'post__not_in'   => [ $this->post_id ],
-			'tax_query'      => [],
+			'post_type'   => Post::NAME,
+			'post_status' => 'publish',
 		];
 
 		if ( ! $this->has_automatic_selection ) {
-			unset(
-				$this->query_args['tax_query'],
-				$this->query_args['post__not_in'],
-				$this->query_args['posts_per_page']
-			);
-
-			$this->query_args['post__in'] = array_map( static fn( $post ): int => intval( $post['id'] ), $this->chosen_posts );
-			$this->query_args['orderby']  = 'post__in';
+			$this->query_args = array_merge( $this->query_args, [
+				'post__in' => array_map( static fn( $post ): int => intval( $post['id'] ), $this->chosen_posts ),
+				'orderby'  => 'post__in',
+			] );
 
 			return;
 		}
 
-		$post_terms = get_the_terms( $this->post_id, 'category' );
+		$this->query_args = array_merge( $this->query_args, [
+			'posts_per_page' => $this->posts_to_show,
+			'post__not_in'   => [ $this->post_id ],
+		] );
+
+		$post_terms = get_the_terms( $this->post_id, Category::NAME );
 
 		if ( empty( $post_terms ) || is_wp_error( $post_terms ) ) {
 			return;
@@ -102,7 +99,7 @@ class Related_Posts_Controller extends Abstract_Controller {
 		$term_ids = wp_list_pluck( $post_terms, 'term_id' );
 
 		$this->query_args['tax_query'][] = [
-			'taxonomy' => 'category',
+			'taxonomy' => Category::NAME,
 			'field'    => 'term_id',
 			'terms'    => $term_ids,
 		];

@@ -18,7 +18,7 @@ $animation_attributes = $args['animation_attributes'] ?? false;
 $heading_level        = $args['heading_level'] ?? 'h3';
 $layout               = $args['layout'] ?? 'vertical';
 
-$c = new Post_Card_Controller( [
+$c = Post_Card_Controller::factory( [
 	'post_id'              => $post_id,
 	'animation_attributes' => $animation_attributes,
 	'layout'               => $layout,

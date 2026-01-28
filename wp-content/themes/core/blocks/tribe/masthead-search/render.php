@@ -2,7 +2,7 @@
 
 use Tribe\Plugin\Components\Masthead_Search_Controller;
 
-$c = new Masthead_Search_Controller();
+$c = Masthead_Search_Controller::factory();
 ?>
 <div class="masthead-search" data-js="masthead-search-wrapper">
 	<button type="button" class="masthead-search__icon" data-js="toggle-search-overlay" title="<?php echo esc_attr( $c->get_toggle_button_a11y_label() ); ?>">

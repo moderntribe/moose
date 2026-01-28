@@ -16,7 +16,7 @@ if ( ! $post_id ) {
 // get template part args
 $animation_attributes = $args['animation_attributes'] ?? false;
 
-$c = new Search_Card_Controller( [
+$c = Search_Card_Controller::factory( [
 	'post_id'              => $post_id,
 	'animation_attributes' => $animation_attributes,
 ] );

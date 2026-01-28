@@ -12,7 +12,7 @@ use Tribe\Plugin\Components\Terms_Block_Controller;
  */
 
 $animation_attributes = new Block_Animation_Attributes( $attributes );
-$terms_block          = new Terms_Block_Controller( $attributes );
+$terms_block          = Terms_Block_Controller::factory( $attributes );
 $terms_block_terms    = $terms_block->get_the_terms();
 $wrapper_attributes   = get_block_wrapper_attributes([
 	'class' => $animation_attributes->get_classes(),

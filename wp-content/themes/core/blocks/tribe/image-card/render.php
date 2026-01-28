@@ -6,7 +6,7 @@ use Tribe\Plugin\Components\Image_Card_Controller;
  * @var array $attributes
  */
 
-$c = new Image_Card_Controller( [
+$c = Image_Card_Controller::factory( [
 	'attributes' => $attributes,
 ] );
 ?>

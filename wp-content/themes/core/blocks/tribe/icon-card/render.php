@@ -6,7 +6,7 @@ use Tribe\Plugin\Components\Icon_Card_Controller;
  * @var array $attributes
  */
 
-$c = new Icon_Card_Controller( [
+$c = Icon_Card_Controller::factory( [
 	'attributes' => $attributes,
 ] );
 ?>
