@@ -2,6 +2,7 @@
 
 namespace Tribe\Plugin\Components;
 
+use Tribe\Plugin\Taxonomies\Category\Category;
 use Tribe\Plugin\Templates\Traits\Primary_Term;
 
 class Terms_Block_Controller extends Abstract_Controller {
@@ -18,7 +19,7 @@ class Terms_Block_Controller extends Abstract_Controller {
 	private array $terms = [];
 
 	public function __construct( array $args = [] ) {
-		$this->taxonomy          = $args['taxonomyToUse'] ?? 'category';
+		$this->taxonomy          = $args['taxonomyToUse'] ?? Category::NAME;
 		$this->only_primary_term = $args['onlyPrimaryTerm'] ?? false;
 		$this->has_links         = $args['hasLinks'] ?? false;
 	}
