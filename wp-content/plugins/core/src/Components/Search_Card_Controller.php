@@ -15,7 +15,7 @@ class Search_Card_Controller extends Abstract_Controller {
 	private \WP_Post_Type|null $post_type_object;
 	private int|false $image_id;
 	private string $title;
-	private int $author_id;
+	private string $author_id;
 	private string $author;
 	private string $date;
 	private string $excerpt;
@@ -31,11 +31,12 @@ class Search_Card_Controller extends Abstract_Controller {
 		$this->post_type_object     = get_post_type_object( $this->post_type );
 		$this->image_id             = get_post_thumbnail_id( $this->post_id );
 		$this->title                = get_the_title( $this->post_id );
-		$this->author_id            = (int) get_post_field( 'post_author', $this->post_id );
-		$this->author               = get_the_author_meta( 'display_name', $this->author_id );
+		$this->author_id            = get_post_field( 'post_author', $this->post_id );
 		$this->date                 = get_the_date( 'M j, Y', $this->post_id );
 		$this->excerpt              = get_the_excerpt( $this->post_id );
 		$this->permalink            = get_the_permalink( $this->post_id );
+
+		$this->set_post_author();
 	}
 
 	public function get_classes(): string {
@@ -96,6 +97,16 @@ class Search_Card_Controller extends Abstract_Controller {
 
 	public function get_permalink(): string {
 		return $this->permalink;
+	}
+
+	private function set_post_author(): void {
+		if ( '' === $this->author_id ) {
+			$this->author = '';
+
+			return;
+		}
+
+		$this->author = get_the_author_meta( 'display_name', (int) $this->author_id );
 	}
 
 }
