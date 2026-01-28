@@ -17,10 +17,10 @@ class Terms_Block_Controller extends Abstract_Controller {
 	 */
 	private array $terms = [];
 
-	public function __construct( array $block_attributes ) {
-		$this->taxonomy          = $block_attributes['taxonomyToUse'] ?? 'category';
-		$this->only_primary_term = $block_attributes['onlyPrimaryTerm'] ?? false;
-		$this->has_links         = $block_attributes['hasLinks'] ?? false;
+	public function __construct( array $args = [] ) {
+		$this->taxonomy          = $args['taxonomyToUse'] ?? 'category';
+		$this->only_primary_term = $args['onlyPrimaryTerm'] ?? false;
+		$this->has_links         = $args['hasLinks'] ?? false;
 	}
 
 	/**
