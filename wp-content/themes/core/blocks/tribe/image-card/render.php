@@ -19,7 +19,9 @@ $c = Image_Card_Controller::factory( [
 		<?php endif; ?>
 		<div class="b-image-card__content">
 			<div class="b-image-card__content-top">
-				<h3 class="t-display-x-small b-image-card__title"><?php echo esc_html( $c->get_title() ); ?></h3>
+				<div class="b-image-card__title-wrap">
+					<h3 class="b-image-card__title t-display-x-small t-animated-underline"><?php echo esc_html( $c->get_title() ); ?></h3>
+				</div>
 				<?php if ( $c->has_description() ) : ?>
 					<div class="t-body-small b-image-card__description">
 						<?php echo wp_kses_post( nl2br( $c->get_description() ) ); ?>

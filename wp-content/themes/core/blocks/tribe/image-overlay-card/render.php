@@ -17,7 +17,9 @@ $c = Image_Overlay_Card_Controller::factory( [
 		</div>
 	<?php endif; ?>
 	<div class="b-image-overlay-card__content">
-		<h3 class="b-image-overlay-card__title t-display-x-small"><?php echo esc_html( $c->get_title() ); ?></h3>
+		<div class="b-image-overlay-card__title-wrap">
+			<h3 class="b-image-overlay-card__title t-display-x-small t-animated-underline"><?php echo esc_html( $c->get_title() ); ?></h3>
+		</div>
 		<?php if ( $c->has_link_url() ) : ?>
 			<div class="b-image-overlay-card__buttons l-flex" aria-hidden="true">
 				<div class="b-image-overlay-card__button">

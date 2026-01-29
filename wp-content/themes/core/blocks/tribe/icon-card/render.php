@@ -21,7 +21,9 @@ $c = Icon_Card_Controller::factory( [
 				</div>
 			<?php endif; ?>
 			<div class="b-icon-card__content">
-				<h3 class="t-display-x-small b-icon-card__title"><?php echo esc_html( $c->get_title() ); ?></h3>
+				<div class="b-icon-card__title-wrap">
+					<h3 class="b-icon-card__title t-display-x-small t-animated-underline"><?php echo esc_html( $c->get_title() ); ?></h3>
+				</div>
 				<?php if ( $c->has_description() ) : ?>
 					<div class="b-icon-card__description t-body-small">
 						<?php echo wp_kses_post( nl2br( $c->get_description() ) ); ?>
