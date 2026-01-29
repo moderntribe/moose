@@ -6,6 +6,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2026.01]
 
+- Updated: Interactive card blocks now use the animated underline on the title element on hover. 
 - Fixed: Vertical Tabs block now scrolls the selected tab into view on mobile, respecting reduced motion preferences. [MOOSE-333](https://moderntribe.atlassian.net/browse/MOOSE-333)
 - Fixed: Removed top margin from spacer block
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
