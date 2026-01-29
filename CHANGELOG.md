@@ -12,6 +12,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Added: Inline Notice Block
 - Updated: Logo Marquee block now has updated padding between images & contains a range selector to adjust the marquee speed as needed.
 - Added: Caption elements in media blocks (Image, Video, Embed) are now contained to the content width.
 - Updated: Cleaned up core Details block with comments, consistent underline styling, and reordered `theme.json` styles for clarity.
