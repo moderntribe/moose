@@ -7,13 +7,35 @@
  * https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#default-webpack-config
  */
 
-const { resolve, extname } = require( 'path' );
+const { resolve, extname, join, dirname } = require( 'path' );
+const { readFileSync } = require( 'fs' );
 const { sync: glob } = require( 'fast-glob' );
 const pkg = require( './package.json' );
 const BrowserSyncPlugin = require( 'browser-sync-v3-webpack-plugin' );
 const browserSyncOpts = require( './browsersync.config' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
+
+/**
+ * Determine if we should support WP Scripts multi-config setup (modules)
+ */
+let baseConfig = defaultConfig;
+const defaultConfigIsArray = Array.isArray( defaultConfig );
+
+if ( defaultConfigIsArray ) {
+	baseConfig = { ...defaultConfig[ 0 ] };
+}
+
+/**
+ * Create alias config for easier imports within the theme
+ */
+const themeAliases = {
+	utils: resolve( './wp-content/themes/core/assets/js/utils' ),
+	common: resolve( './wp-content/themes/core/assets/js/common' ),
+	config: resolve( './wp-content/themes/core/assets/js/config' ),
+	blocks: resolve( './wp-content/themes/core/blocks' ),
+	components: resolve( './wp-content/themes/core/assets/js/components' ),
+};
 
 /**
  * General theme scripts & styles entry points
@@ -96,52 +118,66 @@ const blockEntryPoints = () => {
 	return entryPoints;
 };
 
-/**
- * The configuration for copying block.json files from the src to dist folder
- * doesn't work with our namespaced nested blocks structure. Thus, we have to
- * find the plugin's config in the greater config object and explicitly set
- * the destination location (`to:`) for the coped file(s).
- */
-const copyPluginIndex = defaultConfig.plugins.findIndex(
-	( plugin ) => plugin.patterns
-);
+const moduleEntryPoints = () => {
+	const entryPoints = {};
 
-if ( copyPluginIndex > -1 ) {
-	defaultConfig.plugins[ copyPluginIndex ].patterns.forEach(
-		( pattern, index ) => {
-			if ( pattern.from === '**/block.json' ) {
-				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
-					...defaultConfig.plugins[ copyPluginIndex ].patterns[
-						index
-					],
-					context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
-					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
-				};
-			} else if ( pattern.from === '**/*.php' ) {
-				defaultConfig.plugins[ copyPluginIndex ].patterns[ index ] = {
-					from: '**/*.php',
-					noErrorOnMissing: true,
-					context: resolve( pkg.config.coreThemeDir, 'blocks/tribe' ),
-					to: resolve( pkg.config.coreThemeDir, 'dist/blocks/tribe' ),
-				};
+	// Find all block.json files within the blocks directory
+	const files = glob( `${ pkg.config.coreThemeBlocksDir }/**/block.json`, {
+		absolute: true,
+	} );
+
+	for ( const file of files ) {
+		const fileContents = readFileSync( file );
+		let parsedBlockJson;
+
+		try {
+			parsedBlockJson = JSON.parse( fileContents );
+		} catch ( error ) {
+			console.warn( `Malformed JSON` );
+			continue;
+		}
+
+		const fields = [];
+
+		for ( const field of [ 'viewScriptModule', 'viewModule' ] ) {
+			if ( Object.hasOwn( parsedBlockJson, field ) ) {
+				fields[ field ] = parsedBlockJson[ field ];
 			}
 		}
-	);
-}
 
-module.exports = {
-	...defaultConfig,
+		if ( ! fields ) {
+			continue;
+		}
+
+		for ( const value of Object.values( fields ).flat() ) {
+			if ( ! value.startsWith( 'file:' ) ) {
+				continue;
+			}
+
+			const filepath = join(
+				dirname( file ),
+				value.replace( 'file:', '' )
+			);
+
+			const entryName = filepath
+				.replace( extname( filepath ), '' )
+				.replace( `${ resolve( pkg.config.coreThemeDir ) }/`, '' )
+				.replace( /\\/g, '/' );
+
+			entryPoints[ entryName ] = filepath;
+		}
+	}
+
+	return entryPoints;
+};
+
+baseConfig = {
+	...baseConfig,
 	resolve: {
-		...defaultConfig.resolve,
+		...baseConfig.resolve,
 		alias: {
-			...defaultConfig.resolve.alias,
-			utils: resolve( './wp-content/themes/core/assets/js/utils' ),
-			common: resolve( './wp-content/themes/core/assets/js/common' ),
-			config: resolve( './wp-content/themes/core/assets/js/config' ),
-			blocks: resolve( './wp-content/themes/core/blocks' ),
-			components: resolve(
-				'./wp-content/themes/core/assets/js/components'
-			),
+			...baseConfig.resolve.alias,
+			...themeAliases,
 		},
 	},
 	entry: {
@@ -149,11 +185,11 @@ module.exports = {
 		...blockEntryPoints(),
 	},
 	output: {
-		...defaultConfig.output,
+		...baseConfig.output,
 		path: resolve( pkg.config.coreThemeDir, 'dist' ), // Change the output path to `dist` instead of `build`
 	},
 	plugins: [
-		...defaultConfig.plugins,
+		...baseConfig.plugins,
 
 		/**
 		 * Remove empty auto-generated index.js files
@@ -176,3 +212,68 @@ module.exports = {
 		new BrowserSyncPlugin( browserSyncOpts, { reload: false } ), // Add browser-sync for dev reloads
 	],
 };
+
+/**
+ * The configuration for copying block.json files from the src to dist folder
+ * doesn't work with our namespaced nested blocks structure. Thus, we have to
+ * find the plugin's config in the greater config object and explicitly set
+ * the destination location (`to:`) for the copied file(s).
+ */
+const copyPluginIndex = baseConfig.plugins.findIndex(
+	( plugin ) => plugin.patterns
+);
+
+if ( copyPluginIndex > -1 ) {
+	baseConfig.plugins[ copyPluginIndex ].patterns.forEach(
+		( pattern, patternIndex ) => {
+			if ( pattern.from === '**/block.json' ) {
+				baseConfig.plugins[ copyPluginIndex ].patterns[ patternIndex ] =
+					{
+						...baseConfig.plugins[ copyPluginIndex ].patterns[
+							patternIndex
+						],
+						context: resolve( pkg.config.coreThemeDir, 'blocks/' ),
+						to: resolve( pkg.config.coreThemeDir, 'dist/blocks/' ),
+					};
+			} else if ( pattern.from === '**/*.php' ) {
+				baseConfig.plugins[ copyPluginIndex ].patterns[ patternIndex ] =
+					{
+						from: '**/*.php',
+						noErrorOnMissing: true,
+						context: resolve(
+							pkg.config.coreThemeDir,
+							'blocks/tribe'
+						),
+						to: resolve(
+							pkg.config.coreThemeDir,
+							'dist/blocks/tribe'
+						),
+					};
+			}
+		}
+	);
+}
+
+if ( defaultConfigIsArray ) {
+	const moduleConfig = {
+		...defaultConfig[ 1 ],
+		resolve: {
+			...defaultConfig[ 1 ].resolve,
+			alias: {
+				...defaultConfig[ 1 ].resolve.alias,
+				...themeAliases,
+			},
+		},
+		entry: {
+			...moduleEntryPoints(),
+		},
+		output: {
+			...defaultConfig[ 1 ].output,
+			path: resolve( pkg.config.coreThemeDir, 'dist' ), // Change the output path to `dist` instead of `build`
+		},
+	};
+
+	module.exports = [ baseConfig, moduleConfig ];
+} else {
+	module.exports = baseConfig;
+}
