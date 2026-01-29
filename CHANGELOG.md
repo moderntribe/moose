@@ -6,6 +6,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2026.01]
 
+- Fixed: Removed top margin from spacer block
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
 - Updated: Login logo styling
 
