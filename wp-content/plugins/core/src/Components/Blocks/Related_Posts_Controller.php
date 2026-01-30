@@ -1,17 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components;
+namespace Tribe\Plugin\Components\Blocks;
 
-use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
+use Tribe\Plugin\Components\Abstracts\Abstract_Block_Controller;
 use Tribe\Plugin\Post_Types\Post\Post;
 use Tribe\Plugin\Taxonomies\Category\Category;
 
-class Related_Posts_Controller extends Abstract_Controller {
-
-	/**
-	 * @var array <mixed>
-	 */
-	private array $attributes;
+class Related_Posts_Controller extends Abstract_Block_Controller {
 
 	/**
 	 * @var array <mixed>
@@ -22,10 +17,6 @@ class Related_Posts_Controller extends Abstract_Controller {
 	 * @var array <mixed>
 	 */
 	private array $chosen_posts;
-	private string $classes;
-	private Block_Animation_Attributes $animation_attributes;
-	private string $animation_classes;
-	private string $animation_styles;
 	private int|false $post_id;
 	private bool $has_automatic_selection;
 	private int $posts_to_show;
@@ -33,16 +24,16 @@ class Related_Posts_Controller extends Abstract_Controller {
 	private \WP_Query $query;
 
 	public function __construct( array $args = [] ) {
+		parent::__construct( $args );
+
 		$this->attributes              = $args['attributes'] ?? [];
 		$this->post_id                 = get_the_ID();
-		$this->classes                 = 'b-related-posts';
-		$this->animation_attributes    = new Block_Animation_Attributes( $this->attributes );
-		$this->animation_classes       = $this->animation_attributes->get_classes();
-		$this->animation_styles        = $this->animation_attributes->get_styles();
 		$this->has_automatic_selection = $this->attributes['hasAutomaticSelection'] ?? true;
 		$this->chosen_posts            = $this->attributes['chosenPosts'] ?? [];
 		$this->posts_to_show           = $this->attributes['postsToShow'] ? intval( $this->attributes['postsToShow'] ) : 3;
 		$this->block_layout            = $this->attributes['layout'] ?? 'grid';
+
+		$this->block_classes .= " b-related-posts--layout-{$this->block_layout}";
 
 		$this->set_query_args();
 		$this->set_query();
@@ -54,20 +45,6 @@ class Related_Posts_Controller extends Abstract_Controller {
 
 	public function get_query(): \WP_Query {
 		return $this->query;
-	}
-
-	public function get_classes(): string {
-		$this->classes .= " b-related-posts--layout-$this->block_layout";
-
-		if ( '' !== $this->animation_classes ) {
-			$this->classes .= " $this->animation_classes";
-		}
-
-		return $this->classes;
-	}
-
-	public function get_styles(): string {
-		return $this->animation_styles;
 	}
 
 	private function set_query_args(): void {

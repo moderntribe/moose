@@ -1,14 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components;
+namespace Tribe\Plugin\Components\Blocks;
 
-class Masthead_Search_Controller extends Abstract_Controller {
+use Tribe\Plugin\Components\Abstracts\Abstract_Block_Controller;
+
+class Masthead_Search_Controller extends Abstract_Block_Controller {
 
 	private string|false $search_icon;
 	private string $search_icon_uri;
 	private string $search_icon_path;
 
-	public function __construct() {
+	public function __construct( array $args = [] ) {
+		parent::__construct( $args );
+
 		$this->search_icon      = '';
 		$this->search_icon_uri  = trailingslashit( get_stylesheet_directory_uri() ) . '/assets/media/icons/search.svg';
 		$this->search_icon_path = trailingslashit( get_stylesheet_directory() ) . '/assets/media/icons/search.svg';

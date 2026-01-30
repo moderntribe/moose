@@ -1,16 +1,17 @@
 <?php declare(strict_types=1);
 
-use Tribe\Plugin\Components\Icon_Card_Controller;
+use Tribe\Plugin\Components\Blocks\Icon_Card_Controller;
 
 /**
  * @var array $attributes
  */
 
 $c = Icon_Card_Controller::factory( [
-	'attributes' => $attributes,
+	'attributes'    => $attributes,
+	'block_classes' => 'b-icon-card',
 ] );
 ?>
-<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $c->get_classes() ), 'style' => $c->get_styles() ] ); ?>>
+<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $c->get_block_classes() ), 'style' => $c->get_block_styles() ] ); ?>>
 	<div class="b-icon-card__inner">
 		<div class="b-icon-card__top">
 			<?php if ( $c->has_icon() ) : ?>

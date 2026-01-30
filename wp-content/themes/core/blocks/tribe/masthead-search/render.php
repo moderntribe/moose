@@ -1,10 +1,17 @@
 <?php declare(strict_types=1);
 
-use Tribe\Plugin\Components\Masthead_Search_Controller;
+use Tribe\Plugin\Components\Blocks\Masthead_Search_Controller;
 
-$c = Masthead_Search_Controller::factory();
+/**
+ * @var array $attributes
+ */
+
+$c = Masthead_Search_Controller::factory( [
+	'attributes'    => $attributes,
+	'block_classes' => 'masthead-search',
+] );
 ?>
-<div class="masthead-search" data-js="masthead-search-wrapper">
+<div <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $c->get_block_classes() ), 'style' => $c->get_block_styles(), 'data-js' => 'masthead-search-wrapper' ] ); ?>>
 	<button type="button" class="masthead-search__icon" data-js="toggle-search-overlay" title="<?php echo esc_attr( $c->get_toggle_button_a11y_label() ); ?>">
 		<?php echo $c->get_search_icon(); ?>
 	</button>

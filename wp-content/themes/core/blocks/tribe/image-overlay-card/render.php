@@ -1,16 +1,17 @@
 <?php declare(strict_types=1);
 
-use Tribe\Plugin\Components\Image_Overlay_Card_Controller;
+use Tribe\Plugin\Components\Blocks\Image_Overlay_Card_Controller;
 
 /**
  * @var array $attributes
  */
 
 $c = Image_Overlay_Card_Controller::factory( [
-	'attributes' => $attributes,
+	'attributes'    => $attributes,
+	'block_classes' => 'b-image-overlay-card',
 ] );
 ?>
-<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $c->get_classes() ), 'style' => esc_attr( $c->get_styles() ) ] ); ?>>
+<article <?php echo get_block_wrapper_attributes( [ 'class' => esc_attr( $c->get_block_classes() ), 'style' => esc_attr( $c->get_block_styles() ) ] ); ?>>
 	<?php if ( $c->has_media() ) : ?>
 		<div class="b-image-overlay-card__media">
 			<?php echo wp_kses_post( $c->get_media() ); ?>

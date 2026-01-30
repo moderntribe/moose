@@ -1,11 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components;
+namespace Tribe\Plugin\Components\Blocks;
 
+use Tribe\Plugin\Components\Abstracts\Abstract_Block_Controller;
+use Tribe\Plugin\Components\Traits\Primary_Term;
 use Tribe\Plugin\Taxonomies\Category\Category;
-use Tribe\Plugin\Templates\Traits\Primary_Term;
 
-class Terms_Block_Controller extends Abstract_Controller {
+class Terms_Block_Controller extends Abstract_Block_Controller {
 
 	use Primary_Term;
 
@@ -19,9 +20,11 @@ class Terms_Block_Controller extends Abstract_Controller {
 	private array $terms = [];
 
 	public function __construct( array $args = [] ) {
-		$this->taxonomy          = $args['taxonomyToUse'] ?? Category::NAME;
-		$this->only_primary_term = $args['onlyPrimaryTerm'] ?? false;
-		$this->has_links         = $args['hasLinks'] ?? false;
+		parent::__construct( $args );
+
+		$this->taxonomy          = $this->attributes['taxonomyToUse'] ?? Category::NAME;
+		$this->only_primary_term = $this->attributes['onlyPrimaryTerm'] ?? false;
+		$this->has_links         = $this->attributes['hasLinks'] ?? false;
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use Tribe\Plugin\Components\Post_Card_Controller;
+use Tribe\Plugin\Components\Blocks\Post_Card_Controller;
 
 /**
  * @var object $args
@@ -14,17 +14,15 @@ if ( ! $post_id ) {
 }
 
 // get template part args
-$animation_attributes = $args['animation_attributes'] ?? false;
-$heading_level        = $args['heading_level'] ?? 'h3';
-$layout               = $args['layout'] ?? 'vertical';
+$attributes = $args['attributes'] ?? [];
 
 $c = Post_Card_Controller::factory( [
-	'post_id'              => $post_id,
-	'animation_attributes' => $animation_attributes,
-	'layout'               => $layout,
+	'post_id'       => $post_id,
+	'attributes'    => $attributes,
+	'block_classes' => 'c-post-card',
 ] );
 ?>
-<article class="<?php echo esc_attr( $c->get_classes() ); ?>"<?php echo ( '' !== $c->get_styles() ) ? sprintf( 'style="%s"', $c->get_styles() ) : ''; ?>>
+<article class="<?php echo esc_attr( $c->get_block_classes() ); ?>"<?php echo ( '' !== $c->get_block_styles() ) ? sprintf( 'style="%s"', $c->get_block_styles() ) : ''; ?>>
 	<div class="c-post-card__inner">
 		<?php if ( $c->has_media() ) : ?>
 			<div class="c-post-card__image aspect-ratio-cover aspect-ratio-3-2">
@@ -38,27 +36,27 @@ $c = Post_Card_Controller::factory( [
 			<div class="c-post-card__title-wrap">
 				<?php echo sprintf(
 					'<%1$s class="c-post-card__title t-display-x-small t-animated-underline">%2$s</%1$s>',
-					esc_html( $heading_level ),
-					esc_html( $c->get_title() )
+					esc_html( $c->get_heading_level() ),
+					esc_html( $c->get_post_title() )
 				); ?>
 			</div>
-			<?php if ( $c->has_author() || $c->has_date() ) : ?>
+			<?php if ( $c->has_post_author() || $c->has_post_date() ) : ?>
 				<p class="c-post-card__metadata is-color-text-secondary">
-					<?php if ( $c->has_author() ) : ?>
-						<span class="c-post-card__metadata-author t-body-small"><?php esc_html_e( 'by', 'tribe' ); ?> <?php echo esc_html( $c->get_author_name() ); ?></span>
+					<?php if ( $c->has_post_author() ) : ?>
+						<span class="c-post-card__metadata-author t-body-small"><?php esc_html_e( 'by', 'tribe' ); ?> <?php echo esc_html( $c->get_post_author() ); ?></span>
 					<?php endif; ?>
-					<?php if ( $c->has_author() && $c->has_date() ) : ?>
+					<?php if ( $c->has_post_author() && $c->has_post_date() ) : ?>
 						<span class="c-post-card__metadata-separator t-body-small">•</span>
 					<?php endif; ?>
-					<?php if ( $c->has_date() ) : ?>
-						<span class="c-post-card__metadata-date t-body-small"><?php echo esc_html( $c->get_date() ); ?></span>
+					<?php if ( $c->has_post_date() ) : ?>
+						<span class="c-post-card__metadata-date t-body-small"><?php echo esc_html( $c->get_post_date() ); ?></span>
 					<?php endif; ?>
 				</p>
 			<?php endif; ?>
-			<?php if ( $c->has_excerpt() ) : ?>
-				<p class="c-post-card__excerpt t-body-small"><?php echo esc_html( $c->get_excerpt() ); ?></p>
+			<?php if ( $c->has_post_excerpt() ) : ?>
+				<p class="c-post-card__excerpt t-body-small"><?php echo esc_html( $c->get_post_excerpt() ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>
-	<a href="<?php echo esc_url( $c->get_permalink() ); ?>" class="c-post-card__link-overlay" aria-label="<?php echo sprintf( '%s %s', esc_html__( 'Read more about', 'tribe' ), $c->get_title() ); ?>"></a>
+	<a href="<?php echo esc_url( $c->get_post_permalink() ); ?>" class="c-post-card__link-overlay" aria-label="<?php echo sprintf( '%s %s', esc_html__( 'Read more about', 'tribe' ), $c->get_post_title() ); ?>"></a>
 </article>
