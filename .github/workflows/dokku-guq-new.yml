@@ -7,7 +7,7 @@ jobs:
   deploy_app:
     uses: ./.github/workflows/pipeline-dokku.yml
     with:
-      app_name: guq-old
+      app_name: guq-new
       branch: ${{ github.ref }}
       server: d1.moderntribe.qa
       is_review_app: false
