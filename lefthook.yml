@@ -20,7 +20,9 @@ pre-push:
         - "wp-config.php"
         - "wp-config-environment.php"
         - "wp-content/themes/core/*.php"
+        - "wp-content/themes/core/**/*.php"
         - "wp-content/plugins/core/*.php"
+        - "wp-content/plugins/core/**/*.php"
     - name: phpstan
       run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
@@ -29,7 +31,9 @@ pre-push:
         - "wp-config.php"
         - "wp-config-environment.php"
         - "wp-content/themes/core/*.php"
+        - "wp-content/themes/core/**/*.php"
         - "wp-content/plugins/core/*.php"
+        - "wp-content/plugins/core/**/*.php"
     - name: lintcss
       run: ./node_modules/.bin/wp-scripts lint-style {staged_files}
       glob:
