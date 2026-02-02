@@ -6,9 +6,9 @@ use Tribe\Plugin\Components\Abstracts\Abstract_Card_Controller;
 
 class Image_Overlay_Card_Controller extends Abstract_Card_Controller {
 
-	private string $overlay_color;
-	private string $overlay_hover_color;
-	private bool $card_uses_dark_theme;
+	protected string $overlay_color;
+	protected string $overlay_hover_color;
+	protected bool $card_uses_dark_theme;
 
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );

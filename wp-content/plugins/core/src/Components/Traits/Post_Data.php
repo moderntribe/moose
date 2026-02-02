@@ -8,18 +8,27 @@ trait Post_Data {
 
 	use Primary_Term;
 
-	protected int|null $post_id             = null;
-	private int|false $image_id             = false;
-	private \WP_Term|null $primary_category = null;
-	private string $post_title              = '';
-	private string $author_id               = '0';
-	private string $author                  = '';
-	private string $date                    = '';
-	private string $excerpt                 = '';
-	private string $permalink               = '';
+	protected int|null $post_id                    = null;
+	protected string $post_type                    = '';
+	protected \WP_Post_Type|null $post_type_object = null;
+	protected int|false $image_id                    = false;
+	protected \WP_Term|null $primary_category        = null;
+	protected string $post_title                     = '';
+	protected string $author_id                      = '0';
+	protected string $author                         = '';
+	protected string $date                           = '';
+	protected string $excerpt                        = '';
+	protected string $permalink                      = '';
 
-	public function set_post( int $post_id ): void {
-		$this->post_id          = $post_id;
+	public function set_post( mixed $post_id ): void {
+		$this->post_id = absint( $post_id );
+
+		if ( 0 === $this->post_id ) {
+			return;
+		}
+
+		$this->post_type        = get_post_type( $this->post_id );
+		$this->post_type_object = get_post_type_object( $this->post_type );
 		$this->image_id         = get_post_thumbnail_id( $this->post_id );
 		$this->primary_category = $this->get_primary_term( $this->post_id, Category::NAME );
 		$this->post_title       = get_the_title( $this->post_id );
@@ -29,6 +38,14 @@ trait Post_Data {
 		$this->permalink        = get_the_permalink( $this->post_id );
 
 		$this->set_post_author();
+	}
+
+	public function has_post_type(): bool {
+		return null !== $this->post_type_object;
+	}
+
+	public function get_post_type_name(): string {
+		return $this->post_type_object->labels->singular_name;
 	}
 
 	public function has_media(): bool {

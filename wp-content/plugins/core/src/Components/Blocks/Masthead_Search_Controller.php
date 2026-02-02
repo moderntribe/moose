@@ -20,7 +20,7 @@ class Masthead_Search_Controller extends Abstract_Block_Controller {
 
 	public function get_search_icon(): string {
 		// If the file doesn't exist or we have already loaded it, return early
-		if ( ! file_exists( $this->search_icon_path ) || $this->search_icon !== '' ) {
+		if ( '' !== $this->search_icon || ! file_exists( $this->search_icon_path ) ) {
 			return $this->search_icon;
 		}
 

@@ -16,7 +16,7 @@ abstract class Abstract_Card_Controller extends Abstract_Block_Controller {
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );
 
-		$this->media_id              = isset( $this->attributes['mediaId'] ) ? (int) $this->attributes['mediaId'] : 0;
+		$this->media_id              = absint( $this->attributes['mediaId'] ?? 0 );
 		$this->media_url             = $this->attributes['mediaUrl'] ?? '';
 		$this->title                 = $this->attributes['title'] ?? '';
 		$this->description           = $this->attributes['description'] ?? '';

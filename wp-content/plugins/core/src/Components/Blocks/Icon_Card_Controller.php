@@ -7,9 +7,9 @@ use Tribe\Plugin\Components\Abstracts\Abstract_Card_Controller;
 
 class Icon_Card_Controller extends Abstract_Card_Controller {
 
-	private Icon_Picker $icon_picker;
-	private string $icon_wrapper_styles;
-	private string $icon_svg;
+	protected Icon_Picker $icon_picker;
+	protected string $icon_wrapper_styles;
+	protected string $icon_svg;
 
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );

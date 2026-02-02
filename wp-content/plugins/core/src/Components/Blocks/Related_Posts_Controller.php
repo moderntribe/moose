@@ -11,17 +11,17 @@ class Related_Posts_Controller extends Abstract_Block_Controller {
 	/**
 	 * @var array <mixed>
 	 */
-	private array $query_args;
+	protected array $query_args;
 
 	/**
 	 * @var array <mixed>
 	 */
-	private array $chosen_posts;
-	private int|false $post_id;
-	private bool $has_automatic_selection;
-	private int $posts_to_show;
-	private string $block_layout;
-	private \WP_Query $query;
+	protected array $chosen_posts;
+	protected int|false $post_id;
+	protected bool $has_automatic_selection;
+	protected int $posts_to_show;
+	protected string $block_layout;
+	protected \WP_Query $query;
 
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );
@@ -30,7 +30,7 @@ class Related_Posts_Controller extends Abstract_Block_Controller {
 		$this->post_id                 = get_the_ID();
 		$this->has_automatic_selection = $this->attributes['hasAutomaticSelection'] ?? true;
 		$this->chosen_posts            = $this->attributes['chosenPosts'] ?? [];
-		$this->posts_to_show           = $this->attributes['postsToShow'] ? intval( $this->attributes['postsToShow'] ) : 3;
+		$this->posts_to_show           = absint( $this->attributes['postsToShow'] ?? 3 );
 		$this->block_layout            = $this->attributes['layout'] ?? 'grid';
 
 		$this->block_classes .= " b-related-posts--layout-{$this->block_layout}";
@@ -55,7 +55,7 @@ class Related_Posts_Controller extends Abstract_Block_Controller {
 
 		if ( ! $this->has_automatic_selection ) {
 			$this->query_args = array_merge( $this->query_args, [
-				'post__in' => array_map( static fn( $post ): int => intval( $post['id'] ), $this->chosen_posts ),
+				'post__in' => array_map( 'absint', wp_list_pluck( $this->chosen_posts, 'id' ) ),
 				'orderby'  => 'post__in',
 			] );
 

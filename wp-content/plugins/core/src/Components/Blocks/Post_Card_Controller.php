@@ -9,8 +9,8 @@ class Post_Card_Controller extends Abstract_Block_Controller {
 
 	use Post_Data;
 
-	private string $layout;
-	private string $heading_level;
+	protected string $layout;
+	protected string $heading_level;
 
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );

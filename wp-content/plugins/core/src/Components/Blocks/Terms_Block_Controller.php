@@ -10,14 +10,14 @@ class Terms_Block_Controller extends Abstract_Block_Controller {
 
 	use Primary_Term;
 
-	private string $taxonomy;
-	private bool $only_primary_term;
-	private bool $has_links;
+	protected string $taxonomy;
+	protected bool $only_primary_term;
+	protected bool $has_links;
 
 	/**
 	 * @var \WP_Term[]
 	 */
-	private array $terms = [];
+	protected array $terms = [];
 
 	public function __construct( array $args = [] ) {
 		parent::__construct( $args );
