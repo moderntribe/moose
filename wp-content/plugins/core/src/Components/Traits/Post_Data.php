@@ -11,14 +11,14 @@ trait Post_Data {
 	protected int|null $post_id                    = null;
 	protected string $post_type                    = '';
 	protected \WP_Post_Type|null $post_type_object = null;
-	protected int|false $image_id                    = false;
-	protected \WP_Term|null $primary_category        = null;
-	protected string $post_title                     = '';
-	protected string $author_id                      = '0';
-	protected string $author                         = '';
-	protected string $date                           = '';
-	protected string $excerpt                        = '';
-	protected string $permalink                      = '';
+	protected int|false $image_id                  = false;
+	protected \WP_Term|null $primary_category      = null;
+	protected string $post_title                   = '';
+	protected string $author_id                    = '0';
+	protected string $author                       = '';
+	protected string $date                         = '';
+	protected string $excerpt                      = '';
+	protected string $permalink                    = '';
 
 	public function set_post( mixed $post_id ): void {
 		$this->post_id = absint( $post_id );
