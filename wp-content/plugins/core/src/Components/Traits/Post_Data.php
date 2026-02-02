@@ -18,7 +18,7 @@ trait Post_Data {
 	protected string $author                       = '';
 	protected string $date                         = '';
 	protected string $excerpt                      = '';
-	protected string $permalink                     = '';
+	protected string $permalink                    = '';
 
 	public function set_post( mixed $post_id ): void {
 		$this->post_id = absint( $post_id );
