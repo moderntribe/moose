@@ -1,4 +1,5 @@
-import { ready, triggerCustomEvent } from 'utils/events.js';
+import { getContext, store } from '@wordpress/interactivity';
+import { triggerCustomEvent } from 'utils/events.js';
 import globalState from 'config/state.js';
 import { HEADER_BREAKPOINT } from 'config/options.js';
 import { bodyLock } from 'utils/tools.js';
@@ -107,4 +108,18 @@ const init = () => {
 	bindEvents();
 };
 
-ready( init );
+// ready( init );
+
+const { state } = store( 'menuToggle', {
+	actions: {
+		toggleMenu() {
+			const context = getContext();
+			console.log( 'toggleMenu', context );
+			if ( state.open ) {
+				console.log( 'close menu' );
+			} else {
+				console.log( 'open menu' );
+			}
+		},
+	},
+} );
