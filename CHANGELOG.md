@@ -7,7 +7,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 ## [2026.02]
 - Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1
-- Update: All plugins, composer dependencies, and npm packages to latest versions.
+- Updated: All plugins, composer dependencies, and npm packages to latest versions.
 
 ## [2026.01]
 
