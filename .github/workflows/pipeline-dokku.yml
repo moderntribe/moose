@@ -63,9 +63,15 @@ jobs:
           ssh_private_key: ${{ secrets.ssh_private_key }}
           server: ${{ inputs.server }}
 
-      - name: Create local config
+      - name: Create local config GUQ NEW
+        if: ${{ inputs.app_name == 'guq-new' }}
         run: |
           mv .deploy/config/local-config-dokku.php local-config.php
+
+      - name: Create local config GUQ Old
+        if: ${{ inputs.app_name == 'guq-old' }}
+        run: |
+          mv .deploy/config/local-config-dokku-old.php local-config.php
 
       - name: Setup node version
         uses: actions/setup-node@v4
