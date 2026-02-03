@@ -84,7 +84,7 @@
 		"codeception/module-filesystem": "^3.0",
 		"codeception/module-phpbrowser": "^3.0",
 		"codeception/module-webdriver": "^4.0",
-		"codeception/util-universalframework": "^1.0",
+		"codeception/util-universalframework": "^2.0",
 		"lucatume/wp-browser": "^4.5",
 		"moderntribe/coding-standards": "^3.2",
 		"php-stubs/acf-pro-stubs": "^6.0",
@@ -107,7 +107,7 @@
 		"php-di/php-di": "^7.1",
 		"vinkla/extended-acf": "^14.6",
 		"vlucas/phpdotenv": "^5.5",
-		"wp-cli/wp-cli-bundle": "^2.8",
+		"wp-cli/wp-cli-bundle": "^2.12",
 		"wpackagist-plugin/disable-emojis": "^1.7",
 		"wpackagist-plugin/duplicate-post": "^4.5",
 		"wpackagist-plugin/limit-login-attempts-reloaded": "^2.26",
@@ -117,7 +117,7 @@
 		"wpengine/advanced-custom-fields-pro": "^6.4"
 	},
 	"extra": {
-		"wordpress-version": "6.8.3",
+		"wordpress-version": "6.9.1",
 		"installer-paths": {
 			"wp-content/plugins/{$name}": [
 				"type:wordpress-plugin"
