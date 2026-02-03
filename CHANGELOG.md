@@ -5,7 +5,7 @@ on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entr
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
 ## [2026.02]
-- Updated: Expectd PHP version to v8.4, Node version to v24 LTS
+- Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1 all plugins, composer dependencies, and npm packages to latest versions.
 
 ## [2026.01]
