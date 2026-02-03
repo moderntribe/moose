@@ -45,7 +45,7 @@ final class ForcePluginActivation {
 	private array $plugins = [
 		'core/core.php'                                                   => [ 'all' ],
 		'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' => [ 'development', 'staging', 'production' ],
-		'tribe-glomar/tribe-glomar.php'                                   => [ 'development', 'staging' ],
+//		'tribe-glomar/tribe-glomar.php'                                   => [ 'development', 'staging' ],
 	];
 
 	/**
@@ -79,7 +79,9 @@ final class ForcePluginActivation {
 	 *
 	 * @var array<string, string[]> 'directory/file.php' => (WP_ENVIRONMENT_TYPE|'all')[]
 	 */
-	private array $pluginsToDeactivate = [];
+	private array $pluginsToDeactivate = [
+        'tribe-glomar/tribe-glomar.php'                                   => [ 'all' ],
+    ];
 
 	/**
 	 * Main plugin instance.
