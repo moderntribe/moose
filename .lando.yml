@@ -2,7 +2,7 @@ name: moose
 recipe: wordpress
 
 config:
-  php: '8.3'
+  php: '8.4'
   database: mariadb:11.4
   composer_version: 2-latest
   via: nginx
