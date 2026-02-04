@@ -4,6 +4,7 @@ namespace Tribe\Plugin\Blocks;
 
 use DI;
 use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
+use Tribe\Plugin\Blocks\Filters\Paragraph_Filter;
 use Tribe\Plugin\Core\Interfaces\Definer_Interface;
 use Tribe\Theme\bindings\Query_Results_Count;
 use Tribe\Theme\blocks\core\button\Button;
@@ -53,6 +54,7 @@ class Blocks_Definer implements Definer_Interface {
 				'tribe/icon-picker',
 				'tribe/image-card',
 				'tribe/image-overlay-card',
+				'tribe/inline-notice',
 				'tribe/logo-marquee',
 				'tribe/navigation-wrapper',
 				'tribe/masthead-search',
@@ -100,6 +102,7 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::FILTERS         => DI\add( [
+				DI\get( Paragraph_Filter::class ),
 			] ),
 
 			self::BINDINGS        => DI\add( [
