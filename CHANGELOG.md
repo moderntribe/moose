@@ -4,13 +4,24 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2026.02]
+- Updated: Expected PHP version to v8.4, Node version to v24 LTS
+- Updated: WordPress to v6.9.1
+- Updated: All plugins, composer dependencies, and npm packages to latest versions.
+
 ## [2026.01]
 
+- Updated: Interactive card blocks now use the animated underline on the title element on hover. 
+- Fixed: Vertical Tabs block now scrolls the selected tab into view on mobile, respecting reduced motion preferences. [MOOSE-333](https://moderntribe.atlassian.net/browse/MOOSE-333)
+- Fixed: Removed top margin from spacer block
+- Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
+- Updated: Login logo styling
 - Updated: Typography utility class selectors are now more specific in order to override WP core default paragraphy / heading selectors.
 
 ## [2025.12]
 
 - Fixed: Image Card & Image Overlay Card blocks now properly pass animation attributes to the animation helper class.
+- Added: Inline Notice Block
 - Updated: Logo Marquee block now has updated padding between images & contains a range selector to adjust the marquee speed as needed.
 - Added: Caption elements in media blocks (Image, Video, Embed) are now contained to the content width.
 - Updated: Cleaned up core Details block with comments, consistent underline styling, and reordered `theme.json` styles for clarity.
