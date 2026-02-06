@@ -13,7 +13,7 @@ pre-push:
   parallel: true
   jobs:
     - name: phpcs
-      run: ./vendor/bin/phpcs -- {staged_files}
+      run: ./vendor/bin/phpcs
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
@@ -31,21 +31,21 @@ pre-push:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: lintcss
-      run: ./node_modules/.bin/wp-scripts lint-style {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-style
       glob:
         - "wp-content/themes/core/*.pcss"
     - name: lintjs
-      run: ./node_modules/.bin/wp-scripts lint-js {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-js
       glob:
         - "wp-content/themes/core/*.js"
     - name: lintconfigs
-      run: ./node_modules/.bin/wp-scripts lint-js {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-js
       glob:
         - "browsersync.config.js"
         - "postcss.config.js"
         - "webpack.config.js"
     - name: lintpkgjson
-      run: ./node_modules/.bin/wp-scripts lint-pkg-json {staged_files}
+      run: ./node_modules/.bin/wp-scripts lint-pkg-json
       glob:
         - "package.json"
 
