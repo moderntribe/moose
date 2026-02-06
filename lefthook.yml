@@ -13,7 +13,8 @@ pre-push:
   parallel: true
   jobs:
     - name: phpcs
-      run: ./vendor/bin/phpcs
+      files: git diff --name-only HEAD @{push}
+      run: ./vendor/bin/phpcs'
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
@@ -22,7 +23,6 @@ pre-push:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: phpstan
-      run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
@@ -31,20 +31,24 @@ pre-push:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: lintcss
+      files: git diff --name-only HEAD @{push}
       run: ./node_modules/.bin/wp-scripts lint-style
       glob:
         - "wp-content/themes/core/*.pcss"
     - name: lintjs
+      files: git diff --name-only HEAD @{push}
       run: ./node_modules/.bin/wp-scripts lint-js
       glob:
         - "wp-content/themes/core/*.js"
     - name: lintconfigs
+      files: git diff --name-only HEAD @{push}
       run: ./node_modules/.bin/wp-scripts lint-js
       glob:
         - "browsersync.config.js"
         - "postcss.config.js"
         - "webpack.config.js"
     - name: lintpkgjson
+      files: git diff --name-only HEAD @{push}
       run: ./node_modules/.bin/wp-scripts lint-pkg-json
       glob:
         - "package.json"
