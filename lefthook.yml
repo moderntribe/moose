@@ -14,7 +14,7 @@ pre-push:
   jobs:
     - name: phpcs
       files: git diff --name-only HEAD @{push}
-      run: ./vendor/bin/phpcs'
+      run: ./vendor/bin/phpcs
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
@@ -23,6 +23,7 @@ pre-push:
         - "wp-content/themes/core/*.php"
         - "wp-content/plugins/core/*.php"
     - name: phpstan
+      run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
