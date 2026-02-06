@@ -121,12 +121,6 @@
  * Categories normally link, so also remove text decoration
  * ------------------------------------------------------------------------- */
 
-@define-mixin t-category-hover-focus {
-
-	@mixin t-transparent-underline-hover;
-	color: var(--t-category-hover-color);
-}
-
 @define-mixin t-category {
 
 	@mixin t-transparent-underline;
@@ -159,6 +153,12 @@
 	}
 }
 
+@define-mixin t-category-hover-focus {
+
+	@mixin t-transparent-underline-hover;
+	color: var(--t-category-hover-color);
+}
+
 /* -------------------------------------------------------------------------
  * Caption
  * Defined in theme.json but used in other places (post permalink block)
@@ -174,12 +174,6 @@
 /* -------------------------------------------------------------------------
  * Tag
  * ------------------------------------------------------------------------- */
-
-@define-mixin t-tag-hover-focus {
-	background-color: var(--t-tag-hover-background-color);
-	color: var(--t-tag-hover-color);
-	text-decoration: none !important; /* override original state */
-}
 
 @define-mixin t-tag {
 	display: inline-flex;
@@ -215,6 +209,12 @@
 			@mixin focus-visible;
 		}
 	}
+}
+
+@define-mixin t-tag-hover-focus {
+	background-color: var(--t-tag-hover-background-color);
+	color: var(--t-tag-hover-color);
+	text-decoration: none !important; /* override original state */
 }
 
 /* -------------------------------------------------------------------------
