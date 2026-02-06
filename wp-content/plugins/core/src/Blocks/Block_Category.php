@@ -4,16 +4,12 @@ namespace Tribe\Plugin\Blocks;
 
 class Block_Category {
 
-	public const CUSTOM_BLOCK_CATEGORY_SLUG = 'tribe-custom';
-
 	/**
 	 * Adds the Custom Category to the front of the block list categories.
 	 *
 	 * @filter block_categories_all
-	 *
-	 * @param array $categories
 	 */
-	public function custom_block_category( array $categories ): array {
+	public function custom_block_category( $categories ) {
 		return array_merge( [
 			[
 				'slug'  => self::CUSTOM_BLOCK_CATEGORY_SLUG,
