@@ -8,6 +8,8 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1
 - Updated: All plugins, composer dependencies, and npm packages to latest versions.
+- Added: New Accordion block styling
+- Removed: Details block styling
 
 ## [2026.01]
 
