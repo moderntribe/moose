@@ -7,10 +7,10 @@ use Tribe\Plugin\Blocks\Filters\Contracts\Filter_Factory;
 use Tribe\Plugin\Blocks\Filters\Paragraph_Filter;
 use Tribe\Plugin\Core\Interfaces\Definer_Interface;
 use Tribe\Theme\bindings\Query_Results_Count;
+use Tribe\Theme\blocks\core\accordion\Accordion;
 use Tribe\Theme\blocks\core\button\Button;
 use Tribe\Theme\blocks\core\column\Column;
 use Tribe\Theme\blocks\core\columns\Columns;
-use Tribe\Theme\blocks\core\details\Details;
 use Tribe\Theme\blocks\core\embed\Embed;
 use Tribe\Theme\blocks\core\gallery\Gallery;
 use Tribe\Theme\blocks\core\group\Group;
@@ -70,10 +70,10 @@ class Blocks_Definer implements Definer_Interface {
 			] ),
 
 			self::EXTENDED        => DI\add( [
+				DI\get( Accordion::class ),
 				DI\get( Button::class ),
 				DI\get( Column::class ),
 				DI\get( Columns::class ),
-				DI\get( Details::class ),
 				DI\get( Embed::class ),
 				DI\get( Gallery::class ),
 				DI\get( Group::class ),
