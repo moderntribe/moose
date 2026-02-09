@@ -18,6 +18,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Fixed: Removed top margin from spacer block
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
 - Updated: Login logo styling
+- Updated: Typography utility class selectors are now more specific in order to override WP core default paragraphy / heading selectors.
 
 ## [2025.12]
 
