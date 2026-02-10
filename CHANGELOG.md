@@ -10,6 +10,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Updated: All plugins, composer dependencies, and npm packages to latest versions.
 - Added: New Accordion block styling
 - Removed: Details block styling
+- Fixed: pre-push git hooks running properly again.
 
 ## [2026.01]
 
