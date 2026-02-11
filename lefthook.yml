@@ -13,15 +13,14 @@ pre-push:
   parallel: true
   jobs:
     - name: phpcs
-      files: git diff --name-only HEAD @{push}
-      run: ./vendor/bin/phpcs
+      run: ./vendor/bin/phpcs {push_files}
       glob:
         - ".phpstorm.meta.php"
         - "local-config-sample.php"
         - "wp-config.php"
         - "wp-config-environment.php"
-        - "wp-content/themes/core/*.php"
-        - "wp-content/plugins/core/*.php"
+        - "wp-content/themes/core/**/*.php"
+        - "wp-content/plugins/core/**/*.php"
     - name: phpstan
       run: ./vendor/bin/phpstan analyse --memory-limit=-1
       glob:
@@ -29,27 +28,23 @@ pre-push:
         - "local-config-sample.php"
         - "wp-config.php"
         - "wp-config-environment.php"
-        - "wp-content/themes/core/*.php"
-        - "wp-content/plugins/core/*.php"
+        - "wp-content/themes/core/**/*.php"
+        - "wp-content/plugins/core/**/*.php"
     - name: lintcss
-      files: git diff --name-only HEAD @{push}
-      run: ./node_modules/.bin/wp-scripts lint-style
+      run: ./node_modules/.bin/wp-scripts lint-style {push_files}
       glob:
-        - "wp-content/themes/core/*.pcss"
+        - "wp-content/themes/core/**/*.pcss"
     - name: lintjs
-      files: git diff --name-only HEAD @{push}
-      run: ./node_modules/.bin/wp-scripts lint-js
+      run: ./node_modules/.bin/wp-scripts lint-js {push_files}
       glob:
-        - "wp-content/themes/core/*.js"
+        - "wp-content/themes/core/**/*.js"
     - name: lintconfigs
-      files: git diff --name-only HEAD @{push}
-      run: ./node_modules/.bin/wp-scripts lint-js
+      run: ./node_modules/.bin/wp-scripts lint-js {push_files}
       glob:
         - "browsersync.config.js"
         - "postcss.config.js"
         - "webpack.config.js"
     - name: lintpkgjson
-      files: git diff --name-only HEAD @{push}
       run: ./node_modules/.bin/wp-scripts lint-pkg-json
       glob:
         - "package.json"
