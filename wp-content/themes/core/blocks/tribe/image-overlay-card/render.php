@@ -3,10 +3,10 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$animation_attributes  = new Block_Animation_Attributes();
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-image-overlay-card';
 $animation_styles      = $animation_attributes->get_styles();
 $animation_classes     = $animation_attributes->get_classes();
@@ -47,7 +47,9 @@ if ( $animation_classes !== '' ) {
 		</div>
 	<?php endif; ?>
 	<div class="b-image-overlay-card__content">
-		<h3 class="b-image-overlay-card__title t-display-x-small"><?php echo esc_html( $title ); ?></h3>
+		<div class="b-image-overlay-card__title-wrap">
+			<h3 class="b-image-overlay-card__title t-display-x-small t-animated-underline"><?php echo esc_html( $title ); ?></h3>
+		</div>
 		<?php if ( $link_url ) : ?>
 			<div class="b-image-overlay-card__buttons l-flex" aria-hidden="true">
 				<div class="b-image-overlay-card__button">

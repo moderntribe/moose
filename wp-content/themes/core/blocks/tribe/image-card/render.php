@@ -3,10 +3,10 @@
 use Tribe\Plugin\Blocks\Helpers\Block_Animation_Attributes;
 
 /**
- * @var object $attributes
+ * @var array $attributes
  */
 
-$animation_attributes  = new Block_Animation_Attributes();
+$animation_attributes  = new Block_Animation_Attributes( $attributes );
 $classes               = 'b-image-card';
 $media_id              = $attributes['mediaId'] ? (int) $attributes['mediaId'] : 0; // this returns a float by default so we need to cast it to int
 $media_url             = $attributes['mediaUrl'] ?? '';
@@ -34,7 +34,9 @@ if ( $animation_attributes->get_classes() !== '' ) {
 		<?php endif; ?>
 		<div class="b-image-card__content">
 			<div class="b-image-card__content-top">
-				<h3 class="t-display-x-small b-image-card__title"><?php echo esc_html( $title ); ?></h3>
+				<div class="b-image-card__title-wrap">
+					<h3 class="b-image-card__title t-display-x-small t-animated-underline"><?php echo esc_html( $title ); ?></h3>
+				</div>
 				<?php if ( $description ) : ?>
 					<div class="t-body-small b-image-card__description">
 						<?php echo wp_kses_post( nl2br( $description ) ); ?>

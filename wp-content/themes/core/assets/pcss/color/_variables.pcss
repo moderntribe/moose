@@ -55,7 +55,8 @@
 	 * Borders
 	 * ----------------------------------------------------------------------- */
 
-	--color-border: var(--color-neutral-40);
+	--color-border: var(--color-black);
+	--color-border-secondary: var(--color-neutral-30);
 
 	/* -----------------------------------------------------------------------
 	 * Selection Highlight Color
@@ -71,6 +72,7 @@
 
 	--color-alert-success: #84bd00;
 	--color-alert-error: #df3a3a;
+	--color-alert-error-dark: #d51c1c;
 	--color-alert-warning: #f1c400;
 
 	/* -----------------------------------------------------------------------
@@ -83,4 +85,27 @@
 	--box-shadow-40: var(--wp--preset--shadow--40);
 	--box-shadow-50: var(--wp--preset--shadow--50);
 	--box-shadow-60: var(--wp--preset--shadow--60);
+}
+
+/* -----------------------------------------------------------------------
+ *
+ * Dark Themes
+ *
+ * ----------------------------------------------------------------------- */
+
+:--dark-themes {
+
+	/* -----------------------------------------------------------------------
+	 * Text
+	 * ----------------------------------------------------------------------- */
+
+	--color-text: var(--color-white);
+	--color-text-secondary: var(--color-neutral-20);
+
+	/* -----------------------------------------------------------------------
+	 * Borders
+	 * ----------------------------------------------------------------------- */
+
+	--color-border: var(--color-white);
+	--color-border-secondary: var(--color-neutral-20);
 }
