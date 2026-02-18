@@ -22,6 +22,12 @@
 	:--dark-themes & {
 		border-top-color: var(--color-white);
 	}
+
+	&:hover,
+	&:focus-within {
+
+		@mixin search-card-hover-focus;
+	}
 }
 
 /* -----------------------------------------------------------------------
@@ -36,11 +42,6 @@
 
 	& img {
 		transition: var(--transition);
-
-		.c-search-card:hover &,
-		.c-search-card:focus-within & {
-			transform: scale(1.05);
-		}
 	}
 
 	/* add some space below the image when the text could wrap */
@@ -64,18 +65,19 @@
 }
 
 /* -----------------------------------------------------------------------
+ * Search Result Post Card - Title Wrap
+ * ----------------------------------------------------------------------- */
+
+.c-search-card__title-wrap {
+	margin-bottom: var(--spacer-10);
+}
+
+/* -----------------------------------------------------------------------
  * Search Result Post Card - Title
  * ----------------------------------------------------------------------- */
 
 .c-search-card__title {
 	margin-top: 0 !important;
-	margin-bottom: var(--spacer-10) !important;
-
-	.c-search-card:hover &,
-	.c-search-card:focus-within & {
-
-		@mixin t-transparent-underline-hover;
-	}
 }
 
 /* -----------------------------------------------------------------------

@@ -21,6 +21,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Fixed: Vertical Tabs block now scrolls the selected tab into view on mobile, respecting reduced motion preferences. [MOOSE-333](https://moderntribe.atlassian.net/browse/MOOSE-333)
 - Fixed: Removed top margin from spacer block
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
+- Updated: Dynamic blocks now pass data to PHP controller classes for processing, moving toward a more OOP/MVC approach.
 - Updated: Login logo styling
 - Updated: Typography utility class selectors are now more specific in order to override WP core default paragraphy / heading selectors.
 
