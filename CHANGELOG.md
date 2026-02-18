@@ -11,6 +11,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1
 - Updated: All plugins, composer dependencies, and npm packages to latest versions.
+- Updated: `npm run create-block` script template files updated.
 - Added: New Accordion block styling
 - Removed: Details block styling
 - Fixed: pre-push git hooks running properly again.
