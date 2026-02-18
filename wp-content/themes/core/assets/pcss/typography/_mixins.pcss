@@ -223,7 +223,7 @@
 
 @define-mixin t-transparent-underline {
 	text-decoration-line: underline;
-	text-decoration-thickness: from-font;
+	text-decoration-thickness: var(--text-decoration-thickness);
 	text-decoration-color: transparent;
 	text-underline-offset: 0.15em;
 	transition: var(--transition);
@@ -240,7 +240,7 @@
 @define-mixin t-animated-underline {
 	display: inline;
 	background-image: linear-gradient(currentcolor, currentcolor);
-	background-size: 0 0.05em;
+	background-size: 0 var(--text-decoration-thickness);
 	background-repeat: no-repeat;
 	background-position: 0 100%;
 	transition: background-size 0.3s;
@@ -248,5 +248,5 @@
 }
 
 @define-mixin t-animated-underline-hover {
-	background-size: 100% 0.05em;
+	background-size: 100% var(--text-decoration-thickness);
 }

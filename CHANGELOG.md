@@ -4,11 +4,18 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
+## [2026.02.16]
+- Add support for ACF color picker field. Field integration [details](https://github.com/moderntribe/moose/blob/main/docs/color-picker.md)
+
 ## [2026.02]
 - Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1
 - Updated: All plugins, composer dependencies, and npm packages to latest versions.
 - Updated: Consistent theming across all usages.
+- Updated: `npm run create-block` script template files updated.
+- Added: New Accordion block styling
+- Removed: Details block styling
+- Fixed: pre-push git hooks running properly again.
 
 ## [2026.01]
 
@@ -16,7 +23,9 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Fixed: Vertical Tabs block now scrolls the selected tab into view on mobile, respecting reduced motion preferences. [MOOSE-333](https://moderntribe.atlassian.net/browse/MOOSE-333)
 - Fixed: Removed top margin from spacer block
 - Added: Yoast Duplicate Post plugin v4.5 for easier content duplication in the editor.
+- Updated: Dynamic blocks now pass data to PHP controller classes for processing, moving toward a more OOP/MVC approach.
 - Updated: Login logo styling
+- Updated: Typography utility class selectors are now more specific in order to override WP core default paragraphy / heading selectors.
 
 ## [2025.12]
 
