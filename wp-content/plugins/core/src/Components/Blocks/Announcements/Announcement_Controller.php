@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components\Announcements;
+namespace Tribe\Plugin\Components\Blocks\Announcements;
 
-use Tribe\Plugin\Components\Abstract_Controller;
-use Tribe\Plugin\Components\Announcements\Rules\Front_Page_Rule;
-use Tribe\Plugin\Components\Announcements\Rules\Page_Visibility_Rule;
-use Tribe\Plugin\Components\Announcements\Rules\Placement_Rule;
-use Tribe\Plugin\Components\Announcements\Rules\Rule_Interface;
-use Tribe\Plugin\Components\Announcements\Rules\Scheduling_Rule;
+use Tribe\Plugin\Components\Abstracts\Abstract_Controller;
+use Tribe\Plugin\Components\Blocks\Announcements\Rules\Front_Page_Rule;
+use Tribe\Plugin\Components\Blocks\Announcements\Rules\Page_Visibility_Rule;
+use Tribe\Plugin\Components\Blocks\Announcements\Rules\Placement_Rule;
+use Tribe\Plugin\Components\Blocks\Announcements\Rules\Rule_Interface;
+use Tribe\Plugin\Components\Blocks\Announcements\Rules\Scheduling_Rule;
 use Tribe\Plugin\Post_Types\Announcement\Announcement;
 
 class Announcement_Controller extends Abstract_Controller {
@@ -15,7 +15,7 @@ class Announcement_Controller extends Abstract_Controller {
 	private const int QUERY_LIMIT = 50;
 
 	/**
-	 * @var \Tribe\Plugin\Components\Announcements\Rules\Rule_Interface[]
+	 * @var \Tribe\Plugin\Components\Blocks\Announcements\Rules\Rule_Interface[]
 	 */
 	private array $rules = [];
 
@@ -62,7 +62,9 @@ class Announcement_Controller extends Abstract_Controller {
 	/**
 	 * Add a rule to the processing pipeline
 	 *
-	 * @param \Tribe\Plugin\Components\Announcements\Rules\Rule_Interface $rule
+	 * @param \Tribe\Plugin\Components\Blocks\Announcements\Rules\Rule_Interface $rule
+	 *
+	 * @return \Tribe\Plugin\Components\Blocks\Announcements\Announcement_Controller
 	 */
 	public function add_rule( Rule_Interface $rule ): self {
 		$this->rules[] = $rule;

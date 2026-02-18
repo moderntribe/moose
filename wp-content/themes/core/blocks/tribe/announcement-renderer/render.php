@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-use Tribe\Plugin\Components\Announcements\Announcement_Controller;
-use Tribe\Plugin\Components\Announcements\Announcement_Renderer;
+use Tribe\Plugin\Components\Blocks\Announcements\Announcement_Controller;
+use Tribe\Plugin\Components\Blocks\Announcements\Announcement_Renderer;
 
 $placement = $attributes['placement'] ?? null;
 

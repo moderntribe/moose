@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components\Announcements;
+namespace Tribe\Plugin\Components\Blocks\Announcements;
 
 use Tribe\Plugin\Object_Meta\Post_Types\Announcement_Meta;
 

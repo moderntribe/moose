@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tribe\Plugin\Components\Announcements\Rules;
+namespace Tribe\Plugin\Components\Blocks\Announcements\Rules;
 
 interface Rule_Interface {
 
