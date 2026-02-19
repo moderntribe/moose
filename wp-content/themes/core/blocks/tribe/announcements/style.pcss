@@ -49,7 +49,11 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: var(--spacer-20);
-	padding-right: calc(var(--announcement-dismiss-width, 0px) + var(--spacer-30)); /* stylelint-disable-line */
+
+	/* only add padding if the dismiss button is present */
+	.b-announcement:has(.b-announcement__dismiss-wrapper) & {
+		padding-right: calc(var(--announcement-dismiss-width, 0px) + var(--spacer-30)); /* stylelint-disable-line */
+	}
 
 	@media (--mq-navigation) {
 		flex-direction: row;
