@@ -34,7 +34,7 @@
 		color: var(--color-black);
 	}
 
-	@media (--mq-large) {
+	@media (--mq-navigation) {
 		justify-content: center;
 	}
 }
@@ -49,8 +49,9 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: var(--spacer-20);
+	padding-right: calc(var(--announcement-dismiss-width, 0px) + var(--spacer-30)); /* stylelint-disable-line */
 
-	@media (--mq-large) {
+	@media (--mq-navigation) {
 		flex-direction: row;
 		align-items: center;
 	}
@@ -61,6 +62,7 @@
  * ----------------------------------------------------------------------- */
 
 .b-announcement__heading {
+	flex: 0 0 auto;
 	margin-top: 0;
 	font-weight: var(--font-weight-bold) !important;
 }
@@ -70,7 +72,16 @@
  * ----------------------------------------------------------------------- */
 
 .b-announcement__body {
+	flex: 1;
 	margin-top: 0 !important;
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - CTA Wrapper
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__cta-wrapper {
+	flex: 0 0 auto;
 }
 
 /* -----------------------------------------------------------------------
@@ -79,12 +90,11 @@
 
 .b-announcement__dismiss-wrapper {
 	position: absolute;
-	bottom: calc(var(--vertical-padding) + (var(--spacer-20) / 2));
+	top: var(--vertical-padding);
 	right: var(--grid-margin);
 
-	@media (--mq-large) {
+	@media (--mq-navigation) {
 		top: 50%;
-		bottom: auto;
 		transform: translateY(-50%);
 	}
 }
@@ -121,5 +131,40 @@
 		&::after {
 			background-color: var(--color-black);
 		}
+	}
+
+	@media (--mq-navigation) and (--has-hover) {
+
+		&:hover {
+
+			@mixin announcement-dismiss-hover-focus;
+		}
+	}
+
+	@media (--mq-navigation) {
+
+		&:focus:not(:focus-visible) {
+
+			@mixin announcement-dismiss-hover-focus;
+		}
+	}
+
+	&:focus-visible {
+
+		@mixin focus-visible;
+	}
+}
+
+/* -----------------------------------------------------------------------
+ * Announcements Block - Dismiss Text
+ * ----------------------------------------------------------------------- */
+
+.b-announcement__dismiss-text {
+	display: none;
+
+	/* only show dismiss text on desktop */
+	@media (--mq-navigation) {
+
+		@mixin t-animated-underline;
 	}
 }

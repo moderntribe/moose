@@ -47,6 +47,44 @@ const handleDismissClick = ( event ) => {
 };
 
 /**
+ * @function updateDismissWidthOffsets
+ *
+ * @description Updates the CSS variable for the dismiss button width offset on all announcement blocks, called on window resize
+ */
+const updateDismissWidthOffsets = () => {
+	el.blocks.forEach( ( block ) => {
+		const dismissButton = block.querySelector( `.${ classes.DISMISS }` );
+
+		if ( dismissButton ) {
+			setupDismissWidthOffset( block, dismissButton );
+		}
+	} );
+};
+
+/**
+ * @function setupDismissWidthOffset
+ *
+ * @description Sets up a CSS variable on the announcement block to offset the content based on the width of the dismiss button
+ *
+ * @param {HTMLElement} block
+ * @param {HTMLElement} dismissButton
+ */
+const setupDismissWidthOffset = ( block, dismissButton ) => {
+	if ( ! block || ! dismissButton ) {
+		return;
+	}
+
+	// get width of dismiss button to use as CSS offset for the announcement block
+	const dimensions = dismissButton.getBoundingClientRect();
+
+	// set CSS variable on block to be used as offset for the announcement block
+	block.style.setProperty(
+		'--announcement-dismiss-width',
+		`${ dimensions.width }px`
+	);
+};
+
+/**
  * @function bindEvents
  *
  * @description Binds event listeners to the dismiss buttons of each announcement block
@@ -57,12 +95,21 @@ const bindEvents = () => {
 	}
 
 	el.blocks.forEach( ( block ) => {
-		const dismiss = block.querySelector( `.${ classes.DISMISS }` );
+		const dismissButton = block.querySelector( `.${ classes.DISMISS }` );
 
-		if ( dismiss ) {
-			dismiss.addEventListener( 'click', handleDismissClick );
+		if ( dismissButton ) {
+			// Find width of dismiss button so we can set CSS offset
+			setupDismissWidthOffset( block, dismissButton );
+
+			// Bind click event to dismiss button
+			dismissButton.addEventListener( 'click', handleDismissClick );
 		}
 	} );
+
+	document.addEventListener(
+		'modern_tribe/resize_executed',
+		updateDismissWidthOffsets
+	);
 };
 
 /**

@@ -16,8 +16,16 @@ import './editor.pcss';
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
 
-	const { heading, body, ctaLabel, ctaLink, ctaStyle, theme, dismissible } =
-		attributes;
+	const {
+		heading,
+		body,
+		ctaLabel,
+		ctaLink,
+		ctaStyle,
+		theme,
+		textAlignment,
+		dismissible,
+	} = attributes;
 
 	const darkThemes = [ 'brand', 'black', 'error' ];
 	const isDark = darkThemes.includes( theme );
@@ -25,6 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const classes = [
 		'b-announcement',
 		`b-announcement--theme-${ theme }`,
+		`b-announcement--align-${ textAlignment }`,
 		isDark ? 'is-style-dark' : '',
 	]
 		.filter( Boolean )
@@ -75,8 +84,8 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ ctaStyle }
 						options={ [
 							{
-								label: __( 'Primary', 'tribe' ),
-								value: 'primary',
+								label: __( 'Outlined', 'tribe' ),
+								value: 'outlined',
 							},
 							{
 								label: __( 'Ghost', 'tribe' ),
@@ -113,6 +122,23 @@ export default function Edit( { attributes, setAttributes } ) {
 						] }
 						onChange={ ( value ) =>
 							setAttributes( { theme: value } )
+						}
+					/>
+					<SelectControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label={ __( 'Text Alignment', 'tribe' ) }
+						help={ __(
+							'The alignnent of the text within the announcement block.',
+							'tribe'
+						) }
+						value={ textAlignment }
+						options={ [
+							{ label: __( 'Left', 'tribe' ), value: 'left' },
+							{ label: __( 'Center', 'tribe' ), value: 'center' },
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { textAlignment: value } )
 						}
 					/>
 					<ToggleControl
@@ -163,11 +189,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<span className="b-announcement__cta">
 								<a
 									href={ ctaLink }
-									className={
-										ctaStyle === 'primary'
-											? 'a-btn'
-											: `a-btn-${ ctaStyle }`
-									}
+									className={ `a-btn-${ ctaStyle }` }
 								>
 									{ ctaLabel }
 								</a>

@@ -38,7 +38,7 @@ class Announcement_Meta extends Meta_Object {
 	public const string COLOR_THEME_WARNING             = 'warning';
 	public const string ALIGNMENT_CENTER                = 'center';
 	public const string ALIGNMENT                       = 'alignment';
-	public const string ALIGNMENT_LEFT                  = 'align_left';
+	public const string ALIGNMENT_LEFT                  = 'left';
 	public const string DISPLAY_TAB                     = 'display_tab';
 	public const string PLACEMENT                       = 'placement';
 	public const string PLACEMENT_ABOVE                 = 'placement_above';

@@ -30,13 +30,18 @@
 		},
 		"ctaStyle": {
 			"type": "string",
-			"default": "primary",
-			"enum": ["primary", "ghost"]
+			"default": "outlined",
+			"enum": [ "outlined", "ghost" ]
 		},
 		"theme": {
 			"type": "string",
-			"default": "light",
-			"enum": ["brand", "black", "warning", "error"]
+			"default": "brand",
+			"enum": [ "brand", "black", "warning", "error" ]
+		},
+		"textAlignment": {
+			"type": "string",
+			"default": "center",
+			"enum": [ "left", "center" ]
 		},
 		"dismissible": {
 			"type": "boolean",
