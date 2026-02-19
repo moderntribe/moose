@@ -57,6 +57,10 @@ class Core {
 		return $this->container;
 	}
 
+	public function get_subscribers(): array {
+		return $this->subscribers;
+	}
+
 	/**
 	 * @throws \Exception
 	 */
