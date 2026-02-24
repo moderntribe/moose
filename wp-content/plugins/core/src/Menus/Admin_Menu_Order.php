@@ -43,41 +43,45 @@ class Admin_Menu_Order {
 	 * @throws \Psr\Container\NotFoundExceptionInterface
 	 */
 	protected function get_post_types(): array {
-		$subscribers = tribe_project()->get_subscribers();
+		try {
+			$subscribers = tribe_project()->get_subscribers();
 
-		$post_types = [];
-		foreach ( $subscribers as $subscriber ) {
-			// skip non-post types subscribers
-			if ( ! str_contains( $subscriber, 'Post_Types\\' ) ) {
-				continue;
+			$post_types = [];
+			foreach ( $subscribers as $subscriber ) {
+				// skip non-post types subscribers
+				if ( ! str_contains( $subscriber, 'Post_Types\\' ) ) {
+					continue;
+				}
+
+				// skip std post types
+				if ( str_contains( $subscriber, 'Post_Types\\Page' ) || str_contains( $subscriber, 'Post_Types\\Post' ) || str_contains( $subscriber, 'Post_Types\\Event' ) ) {
+					continue;
+				}
+
+				$parts = explode( '\\', $subscriber );
+				array_pop( $parts );
+
+				$config_class = implode( '\\', $parts ) . '\\Config';
+				$post_type    = tribe_project()->container()->get( $config_class )->post_type();
+
+				/**
+				 * @var \WP_Post_Type $post_object
+				 */
+				$post_object = get_post_type_object( $post_type );
+
+				if ( ! $post_object->show_ui || ! $post_object->public ) {
+					continue;
+				}
+
+				$post_types[ $post_object->menu_position ] = $post_type;
 			}
 
-			// skip std post types
-			if ( str_contains( $subscriber, 'Post_Types\\Page' ) || str_contains( $subscriber, 'Post_Types\\Post' ) ) {
-				continue;
-			}
+			ksort( $post_types );
 
-			$parts = explode( '\\', $subscriber );
-			array_pop( $parts );
-
-			$config_class = implode( '\\', $parts ) . '\\Config';
-			$post_type    = tribe_project()->container()->get( $config_class )->post_type();
-
-			/**
-			 * @var \WP_Post_Type $post_object
-			 */
-			$post_object = get_post_type_object( $post_type );
-
-			if ( ! $post_type->show_ui || ! $post_type->public ) {
-				continue;
-			}
-
-			$post_types[ $post_object->menu_position ] = $post_type;
+			return $post_types;
+		} catch ( \Throwable $exception ) {
+			return [];
 		}
-
-		ksort( $post_types );
-
-		return $post_types;
 	}
 
 }
