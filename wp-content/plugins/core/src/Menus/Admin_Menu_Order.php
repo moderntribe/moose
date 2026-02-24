@@ -8,15 +8,21 @@ use Tribe\Plugin\Post_Types\Page\Page;
 class Admin_Menu_Order {
 
 	public function custom_menu_order(): array {
-		return [
+		$cpts   = $this->get_post_types();
+		$before = [
 			'index.php',
 			'separator1',
-			'edit.php?post_type=' . Page::NAME,
-			// place CPTs here
+			'edit.php?post_type=page',
+		];
+
+		foreach ( $cpts as $post_type ) {
+			$before[] = 'edit.php?post_type=' . $post_type;
+		}
+
+		$after = [
 			'edit.php',
 			'upload.php',
 			'gf_edit_forms',
-			'edit.php?post_type=' . Announcement::NAME,
 			'separator2',
 			'themes.php',
 			'plugins.php',
@@ -29,6 +35,56 @@ class Admin_Menu_Order {
 			'wpseo_dashboard',
 			'rank-math',
 		];
+
+		return array_merge( $before, $after );
+	}
+
+	/**
+	 * @throws \DI\DependencyException
+	 * @throws \DI\NotFoundException
+	 * @throws \Psr\Container\ContainerExceptionInterface
+	 * @throws \Psr\Container\NotFoundExceptionInterface
+	 */
+	protected function get_post_types(): array {
+		try {
+			$subscribers = tribe_project()->get_subscribers();
+
+			$post_types = [];
+			foreach ( $subscribers as $subscriber ) {
+				// skip non-post types subscribers
+				if ( ! str_contains( $subscriber, 'Post_Types\\' ) ) {
+					continue;
+				}
+
+				// skip std post types
+				if ( str_contains( $subscriber, 'Post_Types\\Page' ) || str_contains( $subscriber, 'Post_Types\\Post' ) || str_contains( $subscriber, 'Post_Types\\Event' ) ) {
+					continue;
+				}
+
+				$parts = explode( '\\', $subscriber );
+				array_pop( $parts );
+
+				$config_class = implode( '\\', $parts ) . '\\Config';
+				$post_type    = tribe_project()->container()->get( $config_class )->post_type();
+
+				/**
+				 * @var \WP_Post_Type $post_object
+				 */
+				$post_object = get_post_type_object( $post_type );
+
+				if ( ! $post_object->show_ui || ! $post_object->public ) {
+					continue;
+				}
+
+				$post_types[ $post_object->menu_position ] = $post_type;
+			}
+
+			ksort( $post_types );
+
+			return $post_types;
+		} catch ( \Throwable $exception ) {
+			return [];
+		}
 	}
 
 }
