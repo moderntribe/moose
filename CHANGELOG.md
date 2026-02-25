@@ -4,16 +4,15 @@ All notable changes to this project will be documented in this file. The format 
 on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Each changelog entry gets prefixed with the category of the
 item (Added, Changed, Depreciated, Removed, Fixed, Security).
 
-## [2026.02.16]
-- Add support for ACF color picker field. Field integration [details](https://github.com/moderntribe/moose/blob/main/docs/color-picker.md)
-
 ## [2026.02]
+- Updated: Renamed "Moose" to "ModernPress" across the project (excluding Lando configs and deployment pipelines).
 - Updated: Expected PHP version to v8.4, Node version to v24 LTS
 - Updated: WordPress to v6.9.1
 - Updated: All plugins, composer dependencies, and npm packages to latest versions.
 - Updated: Consistent theming across all usages.
 - Updated: `npm run create-block` script template files updated.
 - Added: New Accordion block styling
+- Added: support for ACF color picker field. Field integration.
 - Removed: Details block styling
 - Fixed: pre-push git hooks running properly again.
 

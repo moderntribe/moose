@@ -99,6 +99,7 @@ Specific features and functionality may have additional documentation in the [./
 * [GitHub Actions](./docs/actions.md)
 * [PHP Tests](./docs/php-tests.md)
 * [WordPress Multisite](./docs/multisite.md)
+* [Color Picker ACF Field](./docs/color-picker.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/create-wp-controls-script.md)
 * [Supported Block Features](./docs/supported-block-features.md)
