@@ -10,6 +10,11 @@
 	"bugs": {
 		"email": "admin@tri.be"
 	},
+	"overrides": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"minimatch": "5.1.8"
+	},
 	"browserslist": [
 		"defaults",
 		"not ios < 17.5",
