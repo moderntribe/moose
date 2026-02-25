@@ -12,7 +12,7 @@ item (Added, Changed, Depreciated, Removed, Fixed, Security).
 - Updated: Consistent theming across all usages.
 - Updated: `npm run create-block` script template files updated.
 - Added: New Accordion block styling
-- Added: support for ACF color picker field. Field integration.
+- Added: support for custom ACF Color Picker field integration.
 - Removed: Details block styling
 - Fixed: pre-push git hooks running properly again.
 
