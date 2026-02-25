@@ -1,10 +1,10 @@
-# Moose
+# ModernPress
 
-Moose is a WordPress project starter framework. It is a collection of modular tools, configurations, and best practices
+ModernPress (formerly codenamed Moose) is a WordPress project starter framework. It is a collection of modular tools, configurations, and best practices
 for enterprise WordPress design and development. It is designed to be a modern, flexible, and developer-friendly
 starting point for WordPress projects. Features include a core plugin, core theme, technical framework, and the
-requisite developer tooling to maintain a secure, consistent codebase across teams and projects. Moose is lovingly
-maintained by the folks at [Modern Tribe](https://tri.be).
+requisite developer tooling to maintain a secure, consistent codebase across teams and projects. ModernPress is lovingly
+maintained by the folks at [Modern Tribe](https://moderntribeagency.com).
 
 ## Requirements
 
@@ -99,6 +99,7 @@ Specific features and functionality may have additional documentation in the [./
 * [GitHub Actions](./docs/actions.md)
 * [PHP Tests](./docs/php-tests.md)
 * [WordPress Multisite](./docs/multisite.md)
+* [Color Picker ACF Field](./docs/color-picker.md)
 * [Create Block Script Templates](./docs/block-templates.md)
 * [Create WP Controls Script](./docs/create-wp-controls-script.md)
 * [Supported Block Features](./docs/supported-block-features.md)
