@@ -31,7 +31,6 @@ gulp_tasks
 lefthook.yml
 local-config-sample.*
 local-config.*
-node_modules
 /package-lock.json
 /package.json
 phpcs.xml*
